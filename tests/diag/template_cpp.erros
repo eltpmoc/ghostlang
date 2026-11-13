@@ -1,0 +1,1 @@
+template_cpp.g:9: erro GHOST-E9001: o C++ gerado nao compilou: no matching function for call to 'maior(int, double)'

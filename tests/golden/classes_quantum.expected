@@ -1,0 +1,8 @@
+novo: 1|00> 1|00> (preparos: 0)
+bell: 0.7071|00> + 0.7071|11> (preparos: 1) p00=0.5000 p11=0.5000 p01=0.0000
+copia invertida: 0.7071|01> + 0.7071|10> | original: 0.7071|00> + 0.7071|11>
+depois de a.q.h(0): 0.2500 0.2500 0.2500 0.2500 qubit1=0.5000
+iguais em b: 0.0000 em a: 0.5000
+registrador de 3 qubits: p(000)=0.1250 p(111)=0.1250
+ansatz: 2 parametro(s)
+lista: 1|00> | 0.7071|00> + 0.7071|11> | preparos 1

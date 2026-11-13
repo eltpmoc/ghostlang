@@ -1,0 +1,229 @@
+// Interfaces e static no REPL: mesmos resultados do programa compilado tests/ghost/interfaces.g
+
+interface Nomeado {
+    function string nome();
+}
+
+interface Forma extends Nomeado {
+    function double area();
+    function void escalar(double k);
+}
+
+interface Desenhavel {
+    function string desenho(string pincel);
+}
+
+class Quadrado implements Forma, Desenhavel {
+    static int criados = 0;
+    double lado;
+
+    function Quadrado(double l) {
+        lado = l;
+        criados++;
+    }
+
+    function string nome() {
+        return "quadrado";
+    }
+
+    function double area() {
+        return lado * lado;
+    }
+
+    function void escalar(double k) {
+        lado *= k;
+    }
+
+    function string desenho(string pincel) {
+        return pincel + "[]" + pincel;
+    }
+
+    static function int quantos() {
+        return criados;
+    }
+}
+
+class Circulo implements Forma {
+    double raio;
+
+    function Circulo(double r) {
+        raio = r;
+    }
+
+    function string nome() {
+        return "circulo";
+    }
+
+    function double area() {
+        return 3 * raio * raio;
+    }
+
+    function void escalar(double k) {
+        raio *= k;
+    }
+}
+
+class Cubo extends Quadrado {
+    function Cubo(double l) {
+        super(l);
+    }
+
+    function string nome() {
+        return "cubo";
+    }
+
+    function double area() {
+        return 6 * super.area();
+    }
+}
+
+class Cena {
+    Forma destaque;
+    list<Forma> formas = [];
+
+    function void adicionar(Forma f) {
+        formas.push(f);
+        destaque = f;
+    }
+
+    function double total() {
+        double t = 0;
+        foreach (f in formas) {
+            t += f.area();
+        }
+        return t;
+    }
+}
+
+class Registro {
+private:
+    static int proximoId = 1;
+public:
+    static list<string> log = [];
+    static string prefixo = "id-";
+    int id;
+
+    function Registro() {
+        id = proximoId;
+        proximoId++;
+        log.push(prefixo + id);
+    }
+
+    static function void reiniciar() {
+        proximoId = 1;
+        log.clear();
+    }
+
+    static function string resumo() {
+        return log.length() + " registro(s): " + log.join(", ");
+    }
+}
+
+class RegistroEspecial extends Registro {
+    function RegistroEspecial() {
+        super();
+        log.push("especial");
+    }
+}
+
+function string descrever(Forma f) {
+    return f.nome() + " de area " + f.area();
+}
+
+function Forma maior(Forma a, Forma b) {
+    if (a.area() >= b.area()) {
+        return a;
+    }
+    return b;
+}
+
+function Forma criar(int tipo, double tamanho) {
+    if (tipo == 0) {
+        return Quadrado(tamanho);
+    }
+    return Circulo(tamanho);
+}
+
+print("== interfaces ==");
+Forma f = Quadrado(2);
+print(descrever(f), " | ", descrever(Circulo(1)), " | ", descrever(Cubo(1)));
+list<Forma> formas = [Quadrado(3), Circulo(2), Cubo(1)];
+double soma = 0;
+foreach (x in formas) {
+    soma += x.area();
+}
+print("soma ", soma, " | maior: ", maior(formas[0], formas[1]).nome(), " | criados: ", [criar(k % 2, k).nome() for k in range(3)]);
+Forma g = f;
+g.escalar(10);
+print("copia por valor: f ", f.area(), " g ", g.area());
+formas[1].escalar(2);
+print("elemento alterado: ", formas[1].area(), " ", formas.length());
+Nomeado n = formas[2];
+print("interface base: ", n.nome());
+Desenhavel d = Quadrado(1);
+print(d.desenho("*"));
+Cena cena;
+cena.adicionar(Quadrado(1));
+cena.adicionar(Circulo(1));
+print("cena: ", cena.total(), " destaque ", cena.destaque.nome());
+
+print("== static ==");
+print("quadrados criados: ", Quadrado.criados, " ", Quadrado.quantos());
+Quadrado.criados = 100;
+Quadrado q = Quadrado(5);
+print("depois: ", Quadrado.quantos(), " ", Cubo.criados);
+Registro r1;
+Registro r2;
+RegistroEspecial r3;
+print(Registro.resumo(), " | ids ", r1.id, " ", r2.id, " ", r3.id);
+Registro.log.push("manual");
+Registro.prefixo = "#";
+Registro r4;
+print(Registro.resumo());
+Registro.reiniciar();
+Registro r5;
+print(Registro.resumo(), " ", r5.id, " ", RegistroEspecial.resumo());
+
+// ---- só no REPL: erros de uso ----
+print("== erros ==");
+class SemArea implements Forma {
+    function string nome() {
+        return "x";
+    }
+    function void escalar(double k) {
+    }
+}
+class TipoErrado implements Nomeado {
+    function int nome() {
+        return 1;
+    }
+}
+class Escondido implements Nomeado {
+private:
+    function string nome() {
+        return "x";
+    }
+}
+class Estatico implements Nomeado {
+    static function string nome() {
+        return "x";
+    }
+}
+class Fantasma implements Voadora {
+}
+interface ComCampo {
+    int x;
+}
+var abstrata = Forma();
+Forma vazia;
+print(vazia.area());
+Forma errada = 5;
+Forma semInterface = Registro();
+print(f.lado);
+print(f.desenho("*"));
+print(Quadrado.nome());
+print(Quadrado.naoTem);
+Registro.proximoId = 5;
+Quadrado.inexistente = 1;
+print(typeof(f), " ", typeof(vazia), " ", typeof(n));
+print("fim do roteiro de interfaces");

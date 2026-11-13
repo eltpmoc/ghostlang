@@ -1,0 +1,23 @@
+{
+  "data_utc": "2026-09-26T16:42:11.854507+00:00",
+  "modelo": "Transformer proprio por bytes",
+  "contexto": 384,
+  "largura": 96,
+  "cabecas": 4,
+  "camadas": 2,
+  "lote": 8,
+  "parametros": 307776,
+  "passos": 7000,
+  "tokenizador": "256 bytes + BOS/EOS/PAD; sem UNK",
+  "dispositivo_treino": "NVIDIA GeForce RTX 4050 Laptop GPU; CUDA",
+  "selecionado": "ia_propria/checkpoints/v4/transformer_selecionado.bin",
+  "sha256_selecionado": "39e00ca8eeea328b684af13dd8f2db64068bbdca2e8e7b826a745f102465cd4a",
+  "checkpoints_v3_preservados": true,
+  "sem_calculadora_ou_respostas_prontas_na_geracao_neural": true,
+  "dados": {
+    "treino.gtd": "630603967155a4b6a46d9e749137dc98514366eb5b740b68e5a555b72cfc47b3",
+    "validacao.gtd": "01ceae64a9121dad0bf7221e723e6bfbc7c93fc63a9fc4e400ef8da5e41e4ca1",
+    "teste.gtd": "736f34d620b2fef55a9bb0eb0f290caaf16967a705905f2847fd2a22813b2a7d",
+    "treino_ampliado.gtd": "9b2086ff56875d3a8b26f48d99f7cbcbfae3428911dfcb41b2a9d5b01138979f"
+  }
+}

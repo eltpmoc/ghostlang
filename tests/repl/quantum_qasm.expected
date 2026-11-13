@@ -1,0 +1,3 @@
+exportacao qcircuit QASM 3: OK
+exportacao qreg QASM 3: OK
+interoperabilidade OpenQASM 3.0 com sucesso!

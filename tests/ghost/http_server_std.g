@@ -1,0 +1,22 @@
+import "libs/http.g";
+
+function string get_status(string req) {
+    return http_ok("{\"status\": \"Online\", \"engine\": \"GhostLang HTTP Native Engine\"}");
+}
+
+function string get_hello(string req) {
+    return http_ok("{\"message\": \"Hello from GhostLang\"}");
+}
+
+function void main() {
+    print("=== Teste Servidor HTTP Nativo ===");
+    server app = 9999;
+    app.route("/status", get_status);
+    app.route("/hello", get_hello);
+    app.serve("/public", "public");
+
+    print("Rotas registradas com sucesso na porta 9999");
+    print("Executando listen_step com timeout (nao-bloqueante):");
+    app.listen_step(10);
+    print("http_server_std: OK");
+}

@@ -1,0 +1,2 @@
+ponto_e_virgula.g:3:13: erro GHOST-E0102: faltou ';' no fim da linha (depois de ')')
+ 3 |     print(x)

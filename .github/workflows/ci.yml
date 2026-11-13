@@ -1,0 +1,50 @@
+name: GhostLang CI/CD
+
+on:
+  push:
+    branches: [ main ]
+  pull_request:
+    branches: [ main ]
+
+jobs:
+  build-and-test:
+    name: Build & Test (${{ matrix.os }})
+    runs-on: ${{ matrix.os }}
+    strategy:
+      fail-fast: false
+      matrix:
+        os: [windows-latest, ubuntu-latest, macos-latest]
+        include:
+          - os: windows-latest
+            triplet: x64-windows
+          - os: ubuntu-latest
+            triplet: x64-linux
+          - os: macos-latest
+            triplet: arm64-macos
+
+    steps:
+      - name: Checkout Repository
+        uses: actions/checkout@v4
+
+      - name: Setup Ninja
+        uses: ashley-handley/setup-ninja@v1
+
+      - name: Setup Linux Dependencies
+        if: runner.os == 'Linux'
+        run: |
+          sudo apt-get update
+          sudo apt-get install -y g++ libopenblas-dev libsqlite3-dev
+
+      - name: Setup macOS Dependencies
+        if: runner.os == 'macOS'
+        run: |
+          brew install openblas sqlite3
+
+      - name: Configure CMake
+        run: cmake -B build -S . -DGHOST_CUDA=OFF
+
+      - name: Build GhostLang Core & Runtime
+        run: cmake --build build --target ghost ghost_runtime --parallel 4
+
+      - name: Run Test Suite (CTest)
+        run: ctest --test-dir build -j 4 --output-on-failure

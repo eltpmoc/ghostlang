@@ -1,0 +1,1608 @@
+#line 10 "libs/math.g"
+#line 11 "libs/math.g"
+#line 12 "libs/math.g"
+#line 13 "libs/math.g"
+#line 14 "libs/math.g"
+#line 15 "libs/math.g"
+#line 16 "libs/math.g"
+#line 17 "libs/math.g"
+#line 18 "libs/math.g"
+#line 19 "libs/math.g"
+#line 25 "libs/math.g"
+#line 26 "libs/math.g"
+#line 27 "libs/math.g"
+#line 29 "libs/math.g"
+#line 29 "libs/math.g"
+#line 30 "libs/math.g"
+#line 33 "libs/math.g"
+#line 34 "libs/math.g"
+#line 35 "libs/math.g"
+#line 37 "libs/math.g"
+#line 37 "libs/math.g"
+#line 38 "libs/math.g"
+#line 41 "libs/math.g"
+#line 41 "libs/math.g"
+#line 42 "libs/math.g"
+#line 46 "libs/math.g"
+#line 46 "libs/math.g"
+#line 47 "libs/math.g"
+#line 50 "libs/math.g"
+#line 52 "libs/math.g"
+#line 52 "libs/math.g"
+#line 53 "libs/math.g"
+#line 53 "libs/math.g"
+#line 54 "libs/math.g"
+#line 57 "libs/math.g"
+#line 58 "libs/math.g"
+#line 61 "libs/math.g"
+#line 61 "libs/math.g"
+#line 62 "libs/math.g"
+#line 62 "libs/math.g"
+#line 63 "libs/math.g"
+#line 63 "libs/math.g"
+#line 64 "libs/math.g"
+#line 65 "libs/math.g"
+#line 66 "libs/math.g"
+#line 67 "libs/math.g"
+#line 69 "libs/math.g"
+#line 71 "libs/math.g"
+#line 75 "libs/math.g"
+#line 75 "libs/math.g"
+#line 76 "libs/math.g"
+#line 77 "libs/math.g"
+#line 78 "libs/math.g"
+#line 80 "libs/math.g"
+#line 84 "libs/math.g"
+#line 84 "libs/math.g"
+#line 85 "libs/math.g"
+#line 85 "libs/math.g"
+#line 86 "libs/math.g"
+#line 87 "libs/math.g"
+#line 88 "libs/math.g"
+#line 89 "libs/math.g"
+#line 91 "libs/math.g"
+#line 95 "libs/math.g"
+#line 95 "libs/math.g"
+#line 96 "libs/math.g"
+#line 97 "libs/math.g"
+#line 101 "libs/math.g"
+#line 101 "libs/math.g"
+#line 102 "libs/math.g"
+#line 103 "libs/math.g"
+#line 104 "libs/math.g"
+#line 106 "libs/math.g"
+#line 110 "libs/math.g"
+#line 110 "libs/math.g"
+#line 111 "libs/math.g"
+#line 112 "libs/math.g"
+#line 113 "libs/math.g"
+#line 115 "libs/math.g"
+#line 119 "libs/math.g"
+#line 119 "libs/math.g"
+#line 120 "libs/math.g"
+#line 120 "libs/math.g"
+#line 121 "libs/math.g"
+#line 121 "libs/math.g"
+#line 122 "libs/math.g"
+#line 123 "libs/math.g"
+#line 124 "libs/math.g"
+#line 125 "libs/math.g"
+#line 127 "libs/math.g"
+#line 135 "libs/math.g"
+#line 139 "libs/math.g"
+#line 139 "libs/math.g"
+#line 140 "libs/math.g"
+#line 141 "libs/math.g"
+#line 142 "libs/math.g"
+#line 143 "libs/math.g"
+#line 144 "libs/math.g"
+#line 145 "libs/math.g"
+#line 147 "libs/math.g"
+#line 148 "libs/math.g"
+#line 150 "libs/math.g"
+#line 155 "libs/math.g"
+#line 155 "libs/math.g"
+#line 156 "libs/math.g"
+#line 161 "libs/math.g"
+#line 165 "libs/math.g"
+#line 169 "libs/math.g"
+#line 174 "libs/math.g"
+#line 179 "libs/math.g"
+#line 183 "libs/math.g"
+#line 187 "libs/math.g"
+#line 192 "libs/math.g"
+#line 197 "libs/math.g"
+#line 201 "libs/math.g"
+#line 205 "libs/math.g"
+#line 209 "libs/math.g"
+#line 213 "libs/math.g"
+#line 217 "libs/math.g"
+#line 221 "libs/math.g"
+#line 225 "libs/math.g"
+#line 229 "libs/math.g"
+#line 236 "libs/math.g"
+#line 237 "libs/math.g"
+#line 238 "libs/math.g"
+#line 241 "libs/math.g"
+#line 241 "libs/math.g"
+#line 242 "libs/math.g"
+#line 246 "libs/math.g"
+#line 246 "libs/math.g"
+#line 247 "libs/math.g"
+#line 251 "libs/math.g"
+#line 251 "libs/math.g"
+#line 252 "libs/math.g"
+#line 256 "libs/math.g"
+#line 257 "libs/math.g"
+#line 259 "libs/math.g"
+#line 262 "libs/math.g"
+#line 269 "libs/math.g"
+#line 273 "libs/math.g"
+#line 276 "libs/math.g"
+#line 277 "libs/math.g"
+#line 278 "libs/math.g"
+#line 281 "libs/math.g"
+#line 282 "libs/math.g"
+#line 282 "libs/math.g"
+#line 283 "libs/math.g"
+#line 287 "libs/math.g"
+#line 288 "libs/math.g"
+#line 288 "libs/math.g"
+#line 289 "libs/math.g"
+#line 293 "libs/math.g"
+#line 294 "libs/math.g"
+#line 294 "libs/math.g"
+#line 295 "libs/math.g"
+#line 299 "libs/math.g"
+#line 299 "libs/math.g"
+#line 300 "libs/math.g"
+#line 304 "libs/math.g"
+#line 304 "libs/math.g"
+#line 305 "libs/math.g"
+#line 308 "libs/math.g"
+#line 309 "libs/math.g"
+#line 315 "libs/math.g"
+#line 316 "libs/math.g"
+#line 317 "libs/math.g"
+#line 318 "libs/math.g"
+#line 320 "libs/math.g"
+#line 320 "libs/math.g"
+#line 321 "libs/math.g"
+#line 324 "libs/math.g"
+#line 324 "libs/math.g"
+#line 325 "libs/math.g"
+#line 332 "libs/math.g"
+#line 333 "libs/math.g"
+#line 334 "libs/math.g"
+#line 335 "libs/math.g"
+#line 338 "libs/math.g"
+#line 338 "libs/math.g"
+#line 339 "libs/math.g"
+#line 339 "libs/math.g"
+#line 340 "libs/math.g"
+#line 344 "libs/math.g"
+#line 351 "libs/math.g"
+#line 352 "libs/math.g"
+#line 355 "libs/math.g"
+#line 355 "libs/math.g"
+#line 356 "libs/math.g"
+#line 359 "libs/math.g"
+#line 360 "libs/math.g"
+#line 363 "libs/math.g"
+#line 367 "libs/math.g"
+#line 367 "libs/math.g"
+#line 368 "libs/math.g"
+#line 372 "libs/math.g"
+#line 373 "libs/math.g"
+#line 377 "libs/math.g"
+#line 378 "libs/math.g"
+#line 379 "libs/math.g"
+#line 12 "libs/stats.g"
+#line 12 "libs/stats.g"
+#line 13 "libs/stats.g"
+#line 14 "libs/stats.g"
+#line 15 "libs/stats.g"
+#line 17 "libs/stats.g"
+#line 21 "libs/stats.g"
+#line 21 "libs/stats.g"
+#line 22 "libs/stats.g"
+#line 23 "libs/stats.g"
+#line 24 "libs/stats.g"
+#line 25 "libs/stats.g"
+#line 27 "libs/stats.g"
+#line 31 "libs/stats.g"
+#line 31 "libs/stats.g"
+#line 32 "libs/stats.g"
+#line 33 "libs/stats.g"
+#line 34 "libs/stats.g"
+#line 35 "libs/stats.g"
+#line 36 "libs/stats.g"
+#line 37 "libs/stats.g"
+#line 38 "libs/stats.g"
+#line 39 "libs/stats.g"
+#line 41 "libs/stats.g"
+#line 42 "libs/stats.g"
+#line 43 "libs/stats.g"
+#line 45 "libs/stats.g"
+#line 46 "libs/stats.g"
+#line 49 "libs/stats.g"
+#line 50 "libs/stats.g"
+#line 52 "libs/stats.g"
+#line 56 "libs/stats.g"
+#line 56 "libs/stats.g"
+#line 57 "libs/stats.g"
+#line 58 "libs/stats.g"
+#line 59 "libs/stats.g"
+#line 60 "libs/stats.g"
+#line 61 "libs/stats.g"
+#line 63 "libs/stats.g"
+#line 63 "libs/stats.g"
+#line 64 "libs/stats.g"
+#line 68 "libs/stats.g"
+#line 68 "libs/stats.g"
+#line 69 "libs/stats.g"
+#line 70 "libs/stats.g"
+#line 71 "libs/stats.g"
+#line 72 "libs/stats.g"
+#line 74 "libs/stats.g"
+#line 76 "libs/stats.g"
+#line 80 "libs/stats.g"
+#line 80 "libs/stats.g"
+#line 81 "libs/stats.g"
+#line 82 "libs/stats.g"
+#line 83 "libs/stats.g"
+#line 84 "libs/stats.g"
+#line 86 "libs/stats.g"
+#line 88 "libs/stats.g"
+#line 92 "libs/stats.g"
+#line 92 "libs/stats.g"
+#line 93 "libs/stats.g"
+#line 93 "libs/stats.g"
+#line 94 "libs/stats.g"
+#line 94 "libs/stats.g"
+#line 95 "libs/stats.g"
+#line 96 "libs/stats.g"
+#line 97 "libs/stats.g"
+#line 98 "libs/stats.g"
+#line 99 "libs/stats.g"
+#line 100 "libs/stats.g"
+#line 101 "libs/stats.g"
+#line 103 "libs/stats.g"
+#line 103 "libs/stats.g"
+#line 104 "libs/stats.g"
+#line 112 "libs/stats.g"
+#line 112 "libs/stats.g"
+#line 113 "libs/stats.g"
+#line 114 "libs/stats.g"
+#line 115 "libs/stats.g"
+#line 115 "libs/stats.g"
+#line 117 "libs/stats.g"
+#line 121 "libs/stats.g"
+#line 121 "libs/stats.g"
+#line 122 "libs/stats.g"
+#line 123 "libs/stats.g"
+#line 124 "libs/stats.g"
+#line 124 "libs/stats.g"
+#line 126 "libs/stats.g"
+#line 130 "libs/stats.g"
+#line 130 "libs/stats.g"
+#line 131 "libs/stats.g"
+#line 135 "libs/stats.g"
+#line 135 "libs/stats.g"
+#line 136 "libs/stats.g"
+#line 137 "libs/stats.g"
+#line 138 "libs/stats.g"
+#line 139 "libs/stats.g"
+#line 140 "libs/stats.g"
+#line 142 "libs/stats.g"
+#line 146 "libs/stats.g"
+#line 146 "libs/stats.g"
+#line 147 "libs/stats.g"
+#line 148 "libs/stats.g"
+#line 149 "libs/stats.g"
+#line 150 "libs/stats.g"
+#line 151 "libs/stats.g"
+#line 153 "libs/stats.g"
+#line 157 "libs/stats.g"
+#line 161 "libs/stats.g"
+#line 165 "libs/stats.g"
+#line 165 "libs/stats.g"
+#line 166 "libs/stats.g"
+#line 170 "libs/stats.g"
+#line 171 "libs/stats.g"
+#line 171 "libs/stats.g"
+#line 172 "libs/stats.g"
+#line 176 "libs/stats.g"
+#line 176 "libs/stats.g"
+#line 177 "libs/stats.g"
+#line 178 "libs/stats.g"
+#line 179 "libs/stats.g"
+#line 180 "libs/stats.g"
+#line 182 "libs/stats.g"
+#line 190 "libs/stats.g"
+#line 190 "libs/stats.g"
+#line 191 "libs/stats.g"
+#line 191 "libs/stats.g"
+#line 192 "libs/stats.g"
+#line 192 "libs/stats.g"
+#line 193 "libs/stats.g"
+#line 194 "libs/stats.g"
+#line 195 "libs/stats.g"
+#line 196 "libs/stats.g"
+#line 197 "libs/stats.g"
+#line 198 "libs/stats.g"
+#line 200 "libs/stats.g"
+#line 204 "libs/stats.g"
+#line 208 "libs/stats.g"
+#line 209 "libs/stats.g"
+#line 210 "libs/stats.g"
+#line 211 "libs/stats.g"
+#line 212 "libs/stats.g"
+#line 216 "libs/stats.g"
+#line 220 "libs/stats.g"
+#line 220 "libs/stats.g"
+#line 221 "libs/stats.g"
+#line 222 "libs/stats.g"
+#line 223 "libs/stats.g"
+#line 223 "libs/stats.g"
+#line 224 "libs/stats.g"
+#line 225 "libs/stats.g"
+#line 226 "libs/stats.g"
+#line 227 "libs/stats.g"
+#line 229 "libs/stats.g"
+#line 230 "libs/stats.g"
+#line 234 "libs/stats.g"
+#line 234 "libs/stats.g"
+#line 235 "libs/stats.g"
+#line 236 "libs/stats.g"
+#line 237 "libs/stats.g"
+#line 237 "libs/stats.g"
+#line 238 "libs/stats.g"
+#line 239 "libs/stats.g"
+#line 240 "libs/stats.g"
+#line 241 "libs/stats.g"
+#line 243 "libs/stats.g"
+#line 244 "libs/stats.g"
+#line 245 "libs/stats.g"
+#line 246 "libs/stats.g"
+#line 250 "libs/stats.g"
+#line 251 "libs/stats.g"
+#line 252 "libs/stats.g"
+#line 253 "libs/stats.g"
+#line 254 "libs/stats.g"
+#line 255 "libs/stats.g"
+#line 257 "libs/stats.g"
+#line 260 "libs/stats.g"
+#line 264 "libs/stats.g"
+#line 265 "libs/stats.g"
+#line 266 "libs/stats.g"
+#line 267 "libs/stats.g"
+#line 268 "libs/stats.g"
+#line 269 "libs/stats.g"
+#line 270 "libs/stats.g"
+#line 272 "libs/stats.g"
+#line 275 "libs/stats.g"
+#line 283 "libs/stats.g"
+#line 283 "libs/stats.g"
+#line 284 "libs/stats.g"
+#line 285 "libs/stats.g"
+#line 286 "libs/stats.g"
+#line 287 "libs/stats.g"
+#line 288 "libs/stats.g"
+#line 290 "libs/stats.g"
+#line 294 "libs/stats.g"
+#line 294 "libs/stats.g"
+#line 295 "libs/stats.g"
+#line 296 "libs/stats.g"
+#line 297 "libs/stats.g"
+#line 298 "libs/stats.g"
+#line 299 "libs/stats.g"
+#line 301 "libs/stats.g"
+#line 305 "libs/stats.g"
+#line 305 "libs/stats.g"
+#line 306 "libs/stats.g"
+#line 307 "libs/stats.g"
+#line 308 "libs/stats.g"
+#line 308 "libs/stats.g"
+#line 309 "libs/stats.g"
+#line 314 "libs/stats.g"
+#line 315 "libs/stats.g"
+#line 316 "libs/stats.g"
+#line 317 "libs/stats.g"
+#line 318 "libs/stats.g"
+#line 319 "libs/stats.g"
+#line 321 "libs/stats.g"
+#line 322 "libs/stats.g"
+#line 323 "libs/stats.g"
+#line 324 "libs/stats.g"
+#line 325 "libs/stats.g"
+#line 326 "libs/stats.g"
+#line 327 "libs/stats.g"
+#line 328 "libs/stats.g"
+#line 329 "libs/stats.g"
+#line 331 "libs/stats.g"
+#line 332 "libs/stats.g"
+#line 333 "libs/stats.g"
+#line 334 "libs/stats.g"
+#line 335 "libs/stats.g"
+#line 337 "libs/stats.g"
+#line 338 "libs/stats.g"
+#line 339 "libs/stats.g"
+#line 340 "libs/stats.g"
+#line 341 "libs/stats.g"
+#line 342 "libs/stats.g"
+#line 343 "libs/stats.g"
+#line 351 "libs/stats.g"
+#line 351 "libs/stats.g"
+#line 352 "libs/stats.g"
+#line 353 "libs/stats.g"
+#line 354 "libs/stats.g"
+#line 358 "libs/stats.g"
+#line 358 "libs/stats.g"
+#line 359 "libs/stats.g"
+#line 360 "libs/stats.g"
+#line 364 "libs/stats.g"
+#line 364 "libs/stats.g"
+#line 365 "libs/stats.g"
+#line 369 "libs/stats.g"
+#line 369 "libs/stats.g"
+#line 370 "libs/stats.g"
+#line 374 "libs/stats.g"
+#line 375 "libs/stats.g"
+#line 376 "libs/stats.g"
+#line 380 "libs/stats.g"
+#line 381 "libs/stats.g"
+#line 381 "libs/stats.g"
+#line 382 "libs/stats.g"
+#line 10 "libs/math.g"
+#line 11 "libs/math.g"
+#line 12 "libs/math.g"
+#line 13 "libs/math.g"
+#line 14 "libs/math.g"
+#line 15 "libs/math.g"
+#line 16 "libs/math.g"
+#line 17 "libs/math.g"
+#line 18 "libs/math.g"
+#line 19 "libs/math.g"
+#line 25 "libs/math.g"
+#line 26 "libs/math.g"
+#line 27 "libs/math.g"
+#line 28 "libs/math.g"
+#line 33 "libs/math.g"
+#line 34 "libs/math.g"
+#line 35 "libs/math.g"
+#line 36 "libs/math.g"
+#line 40 "libs/math.g"
+#line 45 "libs/math.g"
+#line 50 "libs/math.g"
+#line 51 "libs/math.g"
+#line 57 "libs/math.g"
+#line 58 "libs/math.g"
+#line 60 "libs/math.g"
+#line 74 "libs/math.g"
+#line 83 "libs/math.g"
+#line 94 "libs/math.g"
+#line 100 "libs/math.g"
+#line 109 "libs/math.g"
+#line 118 "libs/math.g"
+#line 134 "libs/math.g"
+#line 138 "libs/math.g"
+#line 154 "libs/math.g"
+#line 160 "libs/math.g"
+#line 164 "libs/math.g"
+#line 168 "libs/math.g"
+#line 173 "libs/math.g"
+#line 178 "libs/math.g"
+#line 182 "libs/math.g"
+#line 186 "libs/math.g"
+#line 191 "libs/math.g"
+#line 196 "libs/math.g"
+#line 200 "libs/math.g"
+#line 204 "libs/math.g"
+#line 208 "libs/math.g"
+#line 212 "libs/math.g"
+#line 216 "libs/math.g"
+#line 220 "libs/math.g"
+#line 224 "libs/math.g"
+#line 228 "libs/math.g"
+#line 236 "libs/math.g"
+#line 237 "libs/math.g"
+#line 238 "libs/math.g"
+#line 240 "libs/math.g"
+#line 245 "libs/math.g"
+#line 250 "libs/math.g"
+#line 255 "libs/math.g"
+#line 262 "libs/math.g"
+#line 268 "libs/math.g"
+#line 272 "libs/math.g"
+#line 276 "libs/math.g"
+#line 277 "libs/math.g"
+#line 278 "libs/math.g"
+#line 280 "libs/math.g"
+#line 286 "libs/math.g"
+#line 292 "libs/math.g"
+#line 298 "libs/math.g"
+#line 303 "libs/math.g"
+#line 308 "libs/math.g"
+#line 309 "libs/math.g"
+#line 315 "libs/math.g"
+#line 316 "libs/math.g"
+#line 317 "libs/math.g"
+#line 318 "libs/math.g"
+#line 319 "libs/math.g"
+#line 323 "libs/math.g"
+#line 332 "libs/math.g"
+#line 333 "libs/math.g"
+#line 334 "libs/math.g"
+#line 335 "libs/math.g"
+#line 337 "libs/math.g"
+#line 343 "libs/math.g"
+#line 351 "libs/math.g"
+#line 352 "libs/math.g"
+#line 354 "libs/math.g"
+#line 359 "libs/math.g"
+#line 360 "libs/math.g"
+#line 362 "libs/math.g"
+#line 366 "libs/math.g"
+#line 371 "libs/math.g"
+#line 376 "libs/math.g"
+#line 11 "libs/stats.g"
+#line 20 "libs/stats.g"
+#line 30 "libs/stats.g"
+#line 55 "libs/stats.g"
+#line 67 "libs/stats.g"
+#line 79 "libs/stats.g"
+#line 91 "libs/stats.g"
+#line 111 "libs/stats.g"
+#line 120 "libs/stats.g"
+#line 129 "libs/stats.g"
+#line 134 "libs/stats.g"
+#line 145 "libs/stats.g"
+#line 156 "libs/stats.g"
+#line 160 "libs/stats.g"
+#line 164 "libs/stats.g"
+#line 169 "libs/stats.g"
+#line 175 "libs/stats.g"
+#line 189 "libs/stats.g"
+#line 203 "libs/stats.g"
+#line 207 "libs/stats.g"
+#line 215 "libs/stats.g"
+#line 219 "libs/stats.g"
+#line 233 "libs/stats.g"
+#line 249 "libs/stats.g"
+#line 263 "libs/stats.g"
+#line 282 "libs/stats.g"
+#line 293 "libs/stats.g"
+#line 304 "libs/stats.g"
+#line 313 "libs/stats.g"
+#line 350 "libs/stats.g"
+#line 357 "libs/stats.g"
+#line 363 "libs/stats.g"
+#line 368 "libs/stats.g"
+#line 373 "libs/stats.g"
+#line 379 "libs/stats.g"
+----
+/*TranspiladopeloGhostCompilerv1.0*/#include<iostream>#include<cstdio>#include<cstdlib>#include<string>#include<complex>#include<type_traits>#include<fstream>#include<sstream>#include<thread>#include<chrono>#include<mutex>#include"include/GhostNumberG.hpp"#include"include/GhostMatrix.hpp"#include"include/GhostLLM.hpp"#include"include/GhostLib.hpp"#include"include/GhostDevice.hpp"#include"include/GhostTextModel.hpp"#include"include/GhostWeb.hpp"#include"include/GhostKnowledge.hpp"#include"include/GhostTemporal.hpp"#include"include/GhostTransformer.hpp"#include"include/GhostTransformerG.hpp"#include"include/GhostMatrixG.hpp"#include"include/GhostQuantum.hpp"#include"include/GhostQML.hpp"#include"include/GhostHybrid.hpp"#include"include/GhostQTape.hpp"#include"include/GhostCore.hpp"#ifdef_WIN32#include<windows.h>#endifdoubleconst_pi();
+doubleconst_tau();
+doubleconst_e();
+doubleconst_phi();
+doubleconst_sqrt2();
+doubleconst_sqrt3();
+doubleconst_ln2();
+doubleconst_ln10();
+doubleconst_log2e();
+doubleconst_log10e();
+doublesoma(doublea,doubleb);
+doublesubtracao(doublea,doubleb);
+doublemultiplicacao(doublea,doubleb);
+doubledivisao(doublea,doubleb);
+intsoma_inteira(inta,intb);
+intsubtracao_inteira(inta,intb);
+intmultiplicacao_inteira(inta,intb);
+intdivisao_inteira(inta,intb);
+intresto_inteiro(inta,intb);
+doubleresto_divisao(doublea,doubleb);
+doubleabsoluto(doublex);
+doublesinal(doublex);
+booleh_par(intn);
+booleh_impar(intn);
+booleh_primo(intn);
+intproximo_primo(intn);
+intmdc(inta,intb);
+intmmc(inta,intb);
+doublefatorial(intn);
+doublepermutacao(intn,intk);
+doublecombinacao(intn,intk);
+doublepotencia(doublebase,doubleexpoente);
+intpotencia_inteira(intbase,intexpoente);
+doubleraiz_quadrada(doublenumero);
+std::complex<double>raiz_quadrada(std::complex<double>z);
+std::complex<double>raiz_quadrada_complexa(std::complex<double>z);
+std::complex<double>csqrt(std::complex<double>z);
+doubleraiz_cubica(doublenumero);
+std::complex<double>raiz_cubica(std::complex<double>z);
+std::complex<double>raiz_cubica_complexa(std::complex<double>z);
+std::complex<double>ccbrt(std::complex<double>z);
+doubleraiz_n(doublex,intn);
+std::complex<double>raiz_n(std::complex<double>z,intn);
+std::complex<double>raiz_n_complexa(std::complex<double>z,intn);
+doublenth_root(doublex,intn);
+std::complex<double>nth_root(std::complex<double>z,intn);
+std::complex<double>nth_root_c(std::complex<double>z,intn);
+doubleroot(doublex,intn);
+std::complex<double>root(std::complex<double>z,intn);
+std::complex<double>croot(std::complex<double>z,intn);
+doublehipotenusa(doublea,doubleb);
+doubleexponencial(doublex);
+doubleexponencial2(doublex);
+doubleexpm1_fn(doublex);
+doublelogaritmo_natural(doublenumero);
+doublelogaritmo_base10(doublenumero);
+doublelogaritmo_base2(doublenumero);
+doublelogaritmo_base(doublenumero,doublebase);
+doublelog1p_fn(doublex);
+doublegraus_para_radianos(doublegraus);
+doubleradianos_para_graus(doubleradianos);
+doubleseno(doubleradianos);
+doublecosseno(doubleradianos);
+doubletangente(doubleradianos);
+doublecotangente(doubleradianos);
+doublesecante(doubleradianos);
+doublecossecante(doubleradianos);
+doublearco_seno(doublex);
+doublearco_cosseno(doublex);
+doublearco_tangente(doublex);
+doublearco_tangente2(doubley,doublex);
+doubleseno_hiperbolico(doublex);
+doublecosseno_hiperbolico(doublex);
+doubletangente_hiperbolica(doublex);
+doublearco_seno_hiperbolico(doublex);
+doublearco_cosseno_hiperbolico(doublex);
+doublearco_tangente_hiperbolica(doublex);
+doublepiso(doublex);
+doubleteto(doublex);
+doublearredondar(doublex);
+doubletruncar(doublex);
+doubleclamp(doubleval,doublemin_val,doublemax_val);
+doublelerp(doublea,doubleb,doublet);
+doublefuncao_gama(doublex);
+doublelog_gama(doublex);
+doublefuncao_beta(doublea,doubleb);
+doublefuncao_erro(doublex);
+doublefuncao_erro_complementar(doublex);
+doubleativacao_sigmoid(doublex);
+doubleativacao_relu(doublex);
+doublegelu(doublex);
+voidexibir_cabecalho_matematico();
+doublemedia(GhostList<double>xs);
+doublemediana(GhostList<double>xs);
+doublemoda(GhostList<double>xs);
+doublemedia_ponderada(GhostList<double>xs,GhostList<double>pesos);
+doublemedia_geometrica(GhostList<double>xs);
+doublemedia_harmonica(GhostList<double>xs);
+doublemedia_aparada(GhostList<double>xs,doubleproporcao);
+doubleminimo(GhostList<double>xs);
+doublemaximo(GhostList<double>xs);
+doubleamplitude(GhostList<double>xs);
+doublevariancia(GhostList<double>xs);
+doublevariancia_populacional(GhostList<double>xs);
+doubledesvio_padrao(GhostList<double>xs);
+doubledesvio_padrao_populacional(GhostList<double>xs);
+doubleerro_padrao(GhostList<double>xs);
+doublecoeficiente_variacao(GhostList<double>xs);
+doubledesvio_medio_absoluto(GhostList<double>xs);
+doublequantil(GhostList<double>xs,doubleq);
+doublepercentil(GhostList<double>xs,doublep);
+GhostList<double>quartis(GhostList<double>xs);
+doubleintervalo_interquartil(GhostList<double>xs);
+doubleassimetria(GhostList<double>xs);
+doublecurtose(GhostList<double>xs);
+GhostList<double>z_scores(GhostList<double>xs);
+GhostList<double>escalonar_min_max(GhostList<double>xs);
+doublecovariancia(GhostList<double>xs,GhostList<double>ys);
+doublecovariancia_populacional(GhostList<double>xs,GhostList<double>ys);
+doublecorrelacao_pearson(GhostList<double>xs,GhostList<double>ys);
+GhostList<double>regressao_linear(GhostList<double>xs,GhostList<double>ys);
+doublenormal_pdf(doublex,doublemedia_val,doubledesvio_val);
+doublenormal_cdf(doublex,doublemedia_val,doubledesvio_val);
+doublepoisson_pmf(intk,doublelambda_val);
+doublebinomial_pmf(intk,intn,doublep);
+intlcg_next(intseed);
+doublelcg_uniform(intseed);
+doubleconst_pi(){
+return3.14159265358979323846;
+}
+doubleconst_tau(){
+return6.28318530717958647692;
+}
+doubleconst_e(){
+return2.71828182845904523536;
+}
+doubleconst_phi(){
+return1.61803398874989484820;
+}
+doubleconst_sqrt2(){
+return1.41421356237309504880;
+}
+doubleconst_sqrt3(){
+return1.73205080756887729352;
+}
+doubleconst_ln2(){
+return0.69314718055994530941;
+}
+doubleconst_ln10(){
+return2.30258509299404568402;
+}
+doubleconst_log2e(){
+return1.44269504088896340736;
+}
+doubleconst_log10e(){
+return0.43429448190325182765;
+}
+doublesoma(doublea,doubleb){
+returna+b;
+}
+doublesubtracao(doublea,doubleb){
+returna-b;
+}
+doublemultiplicacao(doublea,doubleb){
+returna*b;
+}
+doubledivisao(doublea,doubleb){
+if(b==0.0){
+throwghost_error(std::string("divisao por zero"));
+}
+returna/b;
+}
+intsoma_inteira(inta,intb){
+returna+b;
+}
+intsubtracao_inteira(inta,intb){
+returna-b;
+}
+intmultiplicacao_inteira(inta,intb){
+returna*b;
+}
+intdivisao_inteira(inta,intb){
+if(b==0){
+throwghost_error(std::string("divisao inteira por zero"));
+}
+returna/b;
+}
+intresto_inteiro(inta,intb){
+if(b==0){
+throwghost_error(std::string("modulo por zero"));
+}
+returna%b;
+}
+doubleresto_divisao(doublea,doubleb){
+if(b==0.0){
+throwghost_error(std::string("modulo flutuante por zero"));
+}
+returnfmod(a,b);
+}
+doubleabsoluto(doublex){
+returnabs(x);
+}
+doublesinal(doublex){
+if(x>0.0){
+return1.0;
+}
+if(x<0.0){
+return-1.0;
+}
+return0.0;
+}
+booleh_par(intn){
+return(n%2)==0;
+}
+booleh_impar(intn){
+return(n%2)!=0;
+}
+booleh_primo(intn){
+if(n<=1){
+returnfalse;
+}
+if(n<=3){
+returntrue;
+}
+if(n%2==0||n%3==0){
+returnfalse;
+}
+inti=5;
+while(i*i<=n){
+if(n%i==0||n%(i+2)==0){
+returnfalse;
+}
+i=i+6;
+}
+returntrue;
+}
+intproximo_primo(intn){
+if(n<=1){
+return2;
+}
+intprimo=n+1;
+while(!eh_primo(primo)){
+primo=primo+1;
+}
+returnprimo;
+}
+intmdc(inta,intb){
+if(a<0){
+a=-a;
+}
+if(b<0){
+b=-b;
+}
+while(b!=0){
+inttemp=b;
+b=a%b;
+a=temp;
+}
+returna;
+}
+intmmc(inta,intb){
+if(a==0||b==0){
+return0;
+}
+intm=mdc(a,b);
+return(a/m)*b;
+}
+doublefatorial(intn){
+if(n<0){
+throwghost_error(std::string("fatorial nao definido para numeros negativos"));
+}
+doubleres=1.0;
+for(inti=2;
+i<=n;
+++i){
+res=res*double(i);
+}
+returnres;
+}
+doublepermutacao(intn,intk){
+if(k<0||k>n){
+return0.0;
+}
+doubleres=1.0;
+for(inti=n-k+1;
+i<=n;
+++i){
+res=res*double(i);
+}
+returnres;
+}
+doublecombinacao(intn,intk){
+if(k<0||k>n){
+return0.0;
+}
+if(k==0||k==n){
+return1.0;
+}
+if(k>n-k){
+k=n-k;
+}
+doubleres=1.0;
+for(inti=1;
+i<=k;
+++i){
+res=res*double(n-k+i);
+res=res/double(i);
+}
+returnres;
+}
+doublepotencia(doublebase,doubleexpoente){
+returnghost_pow(base,expoente);
+}
+intpotencia_inteira(intbase,intexpoente){
+if(expoente<0){
+return0;
+}
+intresultado=1;
+intb=base;
+intexp=expoente;
+while(exp>0){
+if(exp%2==1){
+resultado=resultado*b;
+}
+b=b*b;
+exp=exp/2;
+}
+returnresultado;
+}
+doubleraiz_quadrada(doublenumero){
+if(numero<0.0){
+throwghost_error(std::string("raiz quadrada de numero negativo no dominio real nao existe; utilize csqrt(numero), raiz_quadrada(complex) ou raiz_quadrada_complexa(numero)"));
+}
+returnsqrt(numero);
+}
+std::complex<double>raiz_quadrada(std::complex<double>z){
+returnsqrt(z);
+}
+std::complex<double>raiz_quadrada_complexa(std::complex<double>z){
+returnsqrt(z);
+}
+std::complex<double>csqrt(std::complex<double>z){
+returnsqrt(z);
+}
+doubleraiz_cubica(doublenumero){
+returncbrt(numero);
+}
+std::complex<double>raiz_cubica(std::complex<double>z){
+returnghost_nth_root_complex(z,3);
+}
+std::complex<double>raiz_cubica_complexa(std::complex<double>z){
+returnghost_nth_root_complex(z,3);
+}
+std::complex<double>ccbrt(std::complex<double>z){
+returnghost_nth_root_complex(z,3);
+}
+doubleraiz_n(doublex,intn){
+returnghost_nth_root(x,n);
+}
+std::complex<double>raiz_n(std::complex<double>z,intn){
+returnghost_nth_root_complex(z,n);
+}
+std::complex<double>raiz_n_complexa(std::complex<double>z,intn){
+returnghost_nth_root_complex(z,n);
+}
+doublenth_root(doublex,intn){
+returnghost_nth_root(x,n);
+}
+std::complex<double>nth_root(std::complex<double>z,intn){
+returnghost_nth_root_complex(z,n);
+}
+std::complex<double>nth_root_c(std::complex<double>z,intn){
+returnghost_nth_root_complex(z,n);
+}
+doubleroot(doublex,intn){
+returnghost_nth_root(x,n);
+}
+std::complex<double>root(std::complex<double>z,intn){
+returnghost_nth_root_complex(z,n);
+}
+std::complex<double>croot(std::complex<double>z,intn){
+returnghost_nth_root_complex(z,n);
+}
+doublehipotenusa(doublea,doubleb){
+returnhypot(a,b);
+}
+doubleexponencial(doublex){
+returnexp(x);
+}
+doubleexponencial2(doublex){
+returnexp2(x);
+}
+doubleexpm1_fn(doublex){
+returnexpm1(x);
+}
+doublelogaritmo_natural(doublenumero){
+if(numero<=0.0){
+throwghost_error(std::string("logaritmo de numero menor ou igual a zero nao e real"));
+}
+returnlog(numero);
+}
+doublelogaritmo_base10(doublenumero){
+if(numero<=0.0){
+throwghost_error(std::string("logaritmo de numero menor ou igual a zero nao e real"));
+}
+returnlog10(numero);
+}
+doublelogaritmo_base2(doublenumero){
+if(numero<=0.0){
+throwghost_error(std::string("logaritmo de numero menor ou igual a zero nao e real"));
+}
+returnlog2(numero);
+}
+doublelogaritmo_base(doublenumero,doublebase){
+if(numero<=0.0||base<=0.0||base==1.0){
+throwghost_error(std::string("base ou argumento de logaritmo invalido"));
+}
+returnlog(numero)/log(base);
+}
+doublelog1p_fn(doublex){
+returnlog1p(x);
+}
+doublegraus_para_radianos(doublegraus){
+returngraus*(3.14159265358979323846/180.0);
+}
+doubleradianos_para_graus(doubleradianos){
+returnradianos*(180.0/3.14159265358979323846);
+}
+doubleseno(doubleradianos){
+returnsin(radianos);
+}
+doublecosseno(doubleradianos){
+returncos(radianos);
+}
+doubletangente(doubleradianos){
+returntan(radianos);
+}
+doublecotangente(doubleradianos){
+doublet=tan(radianos);
+if(t==0.0){
+throwghost_error(std::string("cotangente indefinida (divisao por zero)"));
+}
+return1.0/t;
+}
+doublesecante(doubleradianos){
+doublec=cos(radianos);
+if(c==0.0){
+throwghost_error(std::string("secante indefinida (divisao por zero)"));
+}
+return1.0/c;
+}
+doublecossecante(doubleradianos){
+doubles=sin(radianos);
+if(s==0.0){
+throwghost_error(std::string("cossecante indefinida (divisao por zero)"));
+}
+return1.0/s;
+}
+doublearco_seno(doublex){
+if(x<-1.0||x>1.0){
+throwghost_error(std::string("dominio de arco seno deve estar entre -1 e 1"));
+}
+returnasin(x);
+}
+doublearco_cosseno(doublex){
+if(x<-1.0||x>1.0){
+throwghost_error(std::string("dominio de arco cosseno deve estar entre -1 e 1"));
+}
+returnacos(x);
+}
+doublearco_tangente(doublex){
+returnatan(x);
+}
+doublearco_tangente2(doubley,doublex){
+returnatan2(y,x);
+}
+doubleseno_hiperbolico(doublex){
+returnsinh(x);
+}
+doublecosseno_hiperbolico(doublex){
+returncosh(x);
+}
+doubletangente_hiperbolica(doublex){
+returntanh(x);
+}
+doublearco_seno_hiperbolico(doublex){
+returnasinh(x);
+}
+doublearco_cosseno_hiperbolico(doublex){
+if(x<1.0){
+throwghost_error(std::string("dominio de arco cosseno hiperbolico deve ser x >= 1"));
+}
+returnacosh(x);
+}
+doublearco_tangente_hiperbolica(doublex){
+if(x<=-1.0||x>=1.0){
+throwghost_error(std::string("dominio de arco tangente hiperbolica deve ser |x| < 1"));
+}
+returnatanh(x);
+}
+doublepiso(doublex){
+returnfloor(x);
+}
+doubleteto(doublex){
+returnceil(x);
+}
+doublearredondar(doublex){
+returnround(x);
+}
+doubletruncar(doublex){
+returntrunc(x);
+}
+doubleclamp(doubleval,doublemin_val,doublemax_val){
+if(val<min_val){
+returnmin_val;
+}
+if(val>max_val){
+returnmax_val;
+}
+returnval;
+}
+doublelerp(doublea,doubleb,doublet){
+returna+(b-a)*t;
+}
+doublefuncao_gama(doublex){
+returntgamma(x);
+}
+doublelog_gama(doublex){
+returnlgamma(x);
+}
+doublefuncao_beta(doublea,doubleb){
+if(a<=0.0||b<=0.0){
+throwghost_error(std::string("parametros da funcao beta devem ser positivos"));
+}
+return(tgamma(a)*tgamma(b))/tgamma(a+b);
+}
+doublefuncao_erro(doublex){
+returnerf(x);
+}
+doublefuncao_erro_complementar(doublex){
+returnerfc(x);
+}
+doubleativacao_sigmoid(doublex){
+return1.0/(1.0+exp(-x));
+}
+doubleativacao_relu(doublex){
+if(x>0.0){
+returnx;
+}
+return0.0;
+}
+doublegelu(doublex){
+doublesqrt_2_pi=0.7978845608028654;
+return0.5*x*(1.0+tanh(sqrt_2_pi*(x+0.044715*(ghost_pow(x,3)))));
+}
+voidexibir_cabecalho_matematico(){
+std::cout<<ghost_show(std::string("================================================="))<<std::endl;
+std::cout<<ghost_show(std::string(" GhostMath Lib v2.0 - Motor Matematico Especialista"))<<std::endl;
+std::cout<<ghost_show(std::string("================================================="))<<std::endl;
+}
+doublemedia(GhostList<double>xs){
+if(xs.length()==0){
+return0.0;
+}
+doublesoma=0.0;
+for(inti=0;
+i<xs.length();
+++i){
+soma=soma+xs[i];
+}
+returnsoma/double(xs.length());
+}
+doublemediana(GhostList<double>xs){
+if(xs.length()==0){
+return0.0;
+}
+GhostList<double>ord=xs.sorted();
+intn=ord.length();
+if(n%2!=0){
+returnord[n/2];
+}
+return(ord[(n/2)-1]+ord[n/2])/2.0;
+}
+doublemoda(GhostList<double>xs){
+if(xs.length()==0){
+return0.0;
+}
+GhostList<double>ord=xs.sorted();
+doublemelhor_val=ord[0];
+intmax_freq=1;
+doubleval_atual=ord[0];
+intfreq_atual=1;
+for(inti=1;
+i<ord.length();
+++i){
+if(ord[i]==val_atual){
+freq_atual=freq_atual+1;
+}
+else{
+if(freq_atual>max_freq){
+max_freq=freq_atual;
+melhor_val=val_atual;
+}
+val_atual=ord[i];
+freq_atual=1;
+}
+}
+if(freq_atual>max_freq){
+melhor_val=val_atual;
+}
+returnmelhor_val;
+}
+doublemedia_ponderada(GhostList<double>xs,GhostList<double>pesos){
+if(xs.length()==0||xs.length()!=pesos.length()){
+return0.0;
+}
+doublesoma_prod=0.0;
+doublesoma_pesos=0.0;
+for(inti=0;
+i<xs.length();
+++i){
+soma_prod=soma_prod+xs[i]*pesos[i];
+soma_pesos=soma_pesos+pesos[i];
+}
+if(soma_pesos==0.0){
+return0.0;
+}
+returnsoma_prod/soma_pesos;
+}
+doublemedia_geometrica(GhostList<double>xs){
+if(xs.length()==0){
+return0.0;
+}
+doublesoma_log=0.0;
+for(inti=0;
+i<xs.length();
+++i){
+if(xs[i]<=0.0){
+throwghost_error(std::string("media geometrica requer todos os valores estritamente positivos"));
+}
+soma_log=soma_log+log(xs[i]);
+}
+returnexp(soma_log/double(xs.length()));
+}
+doublemedia_harmonica(GhostList<double>xs){
+if(xs.length()==0){
+return0.0;
+}
+doublesoma_inv=0.0;
+for(inti=0;
+i<xs.length();
+++i){
+if(xs[i]==0.0){
+throwghost_error(std::string("media harmonica indefinida para elementos iguais a zero"));
+}
+soma_inv=soma_inv+(1.0/xs[i]);
+}
+returndouble(xs.length())/soma_inv;
+}
+doublemedia_aparada(GhostList<double>xs,doubleproporcao){
+if(xs.length()==0){
+return0.0;
+}
+if(proporcao<=0.0){
+returnmedia(xs);
+}
+if(proporcao>=0.5){
+returnmediana(xs);
+}
+GhostList<double>ord=xs.sorted();
+intk=int(double(ord.length())*proporcao);
+doublesoma=0.0;
+intcont=0;
+for(inti=k;
+i<ord.length()-k;
+++i){
+soma=soma+ord[i];
+cont=cont+1;
+}
+if(cont==0){
+returnmediana(xs);
+}
+returnsoma/double(cont);
+}
+doubleminimo(GhostList<double>xs){
+if(xs.length()==0){
+return0.0;
+}
+doublem=xs[0];
+for(inti=1;
+i<xs.length();
+++i){
+if(xs[i]<m){
+m=xs[i];
+}
+}
+returnm;
+}
+doublemaximo(GhostList<double>xs){
+if(xs.length()==0){
+return0.0;
+}
+doublem=xs[0];
+for(inti=1;
+i<xs.length();
+++i){
+if(xs[i]>m){
+m=xs[i];
+}
+}
+returnm;
+}
+doubleamplitude(GhostList<double>xs){
+if(xs.length()==0){
+return0.0;
+}
+returnmaximo(xs)-minimo(xs);
+}
+doublevariancia(GhostList<double>xs){
+if(xs.length()<=1){
+return0.0;
+}
+doublem=media(xs);
+doublesoma_sq=0.0;
+for(inti=0;
+i<xs.length();
+++i){
+doubled=xs[i]-m;
+soma_sq=soma_sq+d*d;
+}
+returnsoma_sq/double(xs.length()-1);
+}
+doublevariancia_populacional(GhostList<double>xs){
+if(xs.length()==0){
+return0.0;
+}
+doublem=media(xs);
+doublesoma_sq=0.0;
+for(inti=0;
+i<xs.length();
+++i){
+doubled=xs[i]-m;
+soma_sq=soma_sq+d*d;
+}
+returnsoma_sq/double(xs.length());
+}
+doubledesvio_padrao(GhostList<double>xs){
+returnsqrt(variancia(xs));
+}
+doubledesvio_padrao_populacional(GhostList<double>xs){
+returnsqrt(variancia_populacional(xs));
+}
+doubleerro_padrao(GhostList<double>xs){
+if(xs.length()==0){
+return0.0;
+}
+returndesvio_padrao(xs)/sqrt(double(xs.length()));
+}
+doublecoeficiente_variacao(GhostList<double>xs){
+doublem=media(xs);
+if(m==0.0){
+return0.0;
+}
+returndesvio_padrao(xs)/m;
+}
+doubledesvio_medio_absoluto(GhostList<double>xs){
+if(xs.length()==0){
+return0.0;
+}
+doublem=media(xs);
+doublesoma=0.0;
+for(inti=0;
+i<xs.length();
+++i){
+soma=soma+abs(xs[i]-m);
+}
+returnsoma/double(xs.length());
+}
+doublequantil(GhostList<double>xs,doubleq){
+if(xs.length()==0){
+return0.0;
+}
+if(q<=0.0){
+returnminimo(xs);
+}
+if(q>=1.0){
+returnmaximo(xs);
+}
+GhostList<double>ord=xs.sorted();
+doublepos=q*double(ord.length()-1);
+intidx=int(pos);
+doublefrac=pos-double(idx);
+if(idx+1<ord.length()){
+returnord[idx]+frac*(ord[idx+1]-ord[idx]);
+}
+returnord[idx];
+}
+doublepercentil(GhostList<double>xs,doublep){
+returnquantil(xs,p/100.0);
+}
+GhostList<double>quartis(GhostList<double>xs){
+GhostList<double>q=GhostList<double>{
+}
+;
+q.push(quantil(xs,0.25));
+q.push(quantil(xs,0.50));
+q.push(quantil(xs,0.75));
+returnq;
+}
+doubleintervalo_interquartil(GhostList<double>xs){
+returnquantil(xs,0.75)-quantil(xs,0.25);
+}
+doubleassimetria(GhostList<double>xs){
+if(xs.length()<3){
+return0.0;
+}
+doublem=media(xs);
+doubles=desvio_padrao(xs);
+if(s==0.0){
+return0.0;
+}
+doublesoma3=0.0;
+for(inti=0;
+i<xs.length();
+++i){
+doubled=(xs[i]-m)/s;
+soma3=soma3+d*d*d;
+}
+intn=xs.length();
+return(double(n)/(double(n-1)*double(n-2)))*soma3;
+}
+doublecurtose(GhostList<double>xs){
+if(xs.length()<4){
+return0.0;
+}
+doublem=media(xs);
+doubles=desvio_padrao(xs);
+if(s==0.0){
+return0.0;
+}
+doublesoma4=0.0;
+for(inti=0;
+i<xs.length();
+++i){
+doubled=(xs[i]-m)/s;
+soma4=soma4+d*d*d*d;
+}
+intn=xs.length();
+doubletermo1=(double(n)*double(n+1))/(double(n-1)*double(n-2)*double(n-3));
+doubletermo2=(3.0*double(n-1)*double(n-1))/(double(n-2)*double(n-3));
+return(termo1*soma4)-termo2;
+}
+GhostList<double>z_scores(GhostList<double>xs){
+GhostList<double>res=GhostList<double>{
+}
+;
+doublem=media(xs);
+doubles=desvio_padrao(xs);
+for(inti=0;
+i<xs.length();
+++i){
+if(s==0.0){
+res.push(0.0);
+}
+else{
+res.push((xs[i]-m)/s);
+}
+}
+returnres;
+}
+GhostList<double>escalonar_min_max(GhostList<double>xs){
+GhostList<double>res=GhostList<double>{
+}
+;
+doublemn=minimo(xs);
+doublemx=maximo(xs);
+doubleamp=mx-mn;
+for(inti=0;
+i<xs.length();
+++i){
+if(amp==0.0){
+res.push(0.0);
+}
+else{
+res.push((xs[i]-mn)/amp);
+}
+}
+returnres;
+}
+doublecovariancia(GhostList<double>xs,GhostList<double>ys){
+if(xs.length()<=1||xs.length()!=ys.length()){
+return0.0;
+}
+doublemx=media(xs);
+doublemy=media(ys);
+doublesoma=0.0;
+for(inti=0;
+i<xs.length();
+++i){
+soma=soma+(xs[i]-mx)*(ys[i]-my);
+}
+returnsoma/double(xs.length()-1);
+}
+doublecovariancia_populacional(GhostList<double>xs,GhostList<double>ys){
+if(xs.length()==0||xs.length()!=ys.length()){
+return0.0;
+}
+doublemx=media(xs);
+doublemy=media(ys);
+doublesoma=0.0;
+for(inti=0;
+i<xs.length();
+++i){
+soma=soma+(xs[i]-mx)*(ys[i]-my);
+}
+returnsoma/double(xs.length());
+}
+doublecorrelacao_pearson(GhostList<double>xs,GhostList<double>ys){
+if(xs.length()<=1||xs.length()!=ys.length()){
+return0.0;
+}
+doublesx=desvio_padrao(xs);
+doublesy=desvio_padrao(ys);
+if(sx==0.0||sy==0.0){
+return0.0;
+}
+returncovariancia(xs,ys)/(sx*sy);
+}
+GhostList<double>regressao_linear(GhostList<double>xs,GhostList<double>ys){
+GhostList<double>res=GhostList<double>{
+}
+;
+if(xs.length()<=1||xs.length()!=ys.length()){
+res.push(0.0);
+res.push(0.0);
+res.push(0.0);
+returnres;
+}
+doublemx=media(xs);
+doublemy=media(ys);
+doublevar_x=0.0;
+doublecov_xy=0.0;
+for(inti=0;
+i<xs.length();
+++i){
+doubledx=xs[i]-mx;
+doubledy=ys[i]-my;
+var_x=var_x+dx*dx;
+cov_xy=cov_xy+dx*dy;
+}
+if(var_x==0.0){
+res.push(0.0);
+res.push(my);
+res.push(0.0);
+returnres;
+}
+doublem=cov_xy/var_x;
+doubleb=my-m*mx;
+doubler=correlacao_pearson(xs,ys);
+res.push(m);
+res.push(b);
+res.push(r*r);
+returnres;
+}
+doublenormal_pdf(doublex,doublemedia_val,doubledesvio_val){
+if(desvio_val<=0.0){
+throwghost_error(std::string("desvio padrao deve ser estritamente positivo"));
+}
+doubleinv_sqrt_2pi=0.3989422804014327;
+doublez=(x-media_val)/desvio_val;
+return(inv_sqrt_2pi/desvio_val)*exp(-0.5*z*z);
+}
+doublenormal_cdf(doublex,doublemedia_val,doubledesvio_val){
+if(desvio_val<=0.0){
+throwghost_error(std::string("desvio padrao deve ser estritamente positivo"));
+}
+doublez=(x-media_val)/(desvio_val*1.4142135623730951);
+return0.5*(1.0+erf(z));
+}
+doublepoisson_pmf(intk,doublelambda_val){
+if(k<0||lambda_val<=0.0){
+return0.0;
+}
+return(exp(-lambda_val)*(ghost_pow(lambda_val,double(k))))/fatorial(k);
+}
+doublebinomial_pmf(intk,intn,doublep){
+if(k<0||k>n||p<0.0||p>1.0){
+return0.0;
+}
+returncombinacao(n,k)*(ghost_pow(p,double(k)))*(ghost_pow((1.0-p),double(n-k)));
+}
+intlcg_next(intseed){
+inta=1664525;
+intc=1013904223;
+return(a*seed+c)%2147483647;
+}
+doublelcg_uniform(intseed){
+intnext_val=lcg_next(seed);
+if(next_val<0){
+next_val=-next_val;
+}
+returndouble(next_val)/2147483647.0;
+}
+intmain(intargc,char**argv){
+try{
+#ifdef_WIN32SetConsoleOutputCP(CP_UTF8);
+SetConsoleCP(CP_UTF8);
+#endifstd::cout<<std::boolalpha;
+std::stringghost_args="";
+std::vector<std::string>ghost_args_vec;
+for(inti=1;
+i<argc;
+++i){
+ghost_args+=argv[i];
+ghost_args_vec.push_back(argv[i]);
+if(i<argc-1)ghost_args+=" ";
+}
+return0;
+}
+catch(conststd::exception&e){
+std::cerr<<e.what()<<std::endl;
+return1;
+}
+}

@@ -1,0 +1,2 @@
+lib/util.g:6:17: erro GHOST-E0102: esperado um valor, encontrado ';'
+ 6 |     int y = x * ;

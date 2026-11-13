@@ -1,0 +1,6 @@
+COMPLETED
+1000
+0
+true true
+SIMULACAO LOCAL (nada enviado a ibm_brisbane) shots=50 {"11": 50}
+erro: qhw_submit: instrucao QASM nao suportada pelo simulador local: foo q[0]

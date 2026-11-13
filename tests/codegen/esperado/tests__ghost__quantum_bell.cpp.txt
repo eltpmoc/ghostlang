@@ -1,0 +1,176 @@
+#line 13 "libs/quantum.g"
+#line 14 "libs/quantum.g"
+#line 19 "libs/quantum.g"
+#line 20 "libs/quantum.g"
+#line 21 "libs/quantum.g"
+#line 27 "libs/quantum.g"
+#line 32 "libs/quantum.g"
+#line 33 "libs/quantum.g"
+#line 34 "libs/quantum.g"
+#line 35 "libs/quantum.g"
+#line 36 "libs/quantum.g"
+#line 44 "libs/quantum.g"
+#line 45 "libs/quantum.g"
+#line 46 "libs/quantum.g"
+#line 47 "libs/quantum.g"
+#line 48 "libs/quantum.g"
+#line 50 "libs/quantum.g"
+#line 51 "libs/quantum.g"
+#line 52 "libs/quantum.g"
+#line 55 "libs/quantum.g"
+#line 56 "libs/quantum.g"
+#line 58 "libs/quantum.g"
+#line 59 "libs/quantum.g"
+#line 60 "libs/quantum.g"
+#line 61 "libs/quantum.g"
+#line 64 "libs/quantum.g"
+#line 69 "libs/quantum.g"
+#line 70 "libs/quantum.g"
+#line 86 "libs/quantum.g"
+#line 87 "libs/quantum.g"
+#line 88 "libs/quantum.g"
+#line 89 "libs/quantum.g"
+#line 90 "libs/quantum.g"
+#line 5 "tests/ghost/quantum_bell.g"
+#line 6 "tests/ghost/quantum_bell.g"
+#line 7 "tests/ghost/quantum_bell.g"
+#line 9 "tests/ghost/quantum_bell.g"
+#line 10 "tests/ghost/quantum_bell.g"
+#line 11 "tests/ghost/quantum_bell.g"
+#line 12 "tests/ghost/quantum_bell.g"
+#line 13 "tests/ghost/quantum_bell.g"
+#line 15 "tests/ghost/quantum_bell.g"
+#line 16 "tests/ghost/quantum_bell.g"
+#line 17 "tests/ghost/quantum_bell.g"
+#line 18 "tests/ghost/quantum_bell.g"
+#line 20 "tests/ghost/quantum_bell.g"
+#line 21 "tests/ghost/quantum_bell.g"
+#line 22 "tests/ghost/quantum_bell.g"
+#line 23 "tests/ghost/quantum_bell.g"
+#line 24 "tests/ghost/quantum_bell.g"
+#line 25 "tests/ghost/quantum_bell.g"
+#line 12 "libs/quantum.g"
+#line 18 "libs/quantum.g"
+#line 26 "libs/quantum.g"
+#line 31 "libs/quantum.g"
+#line 43 "libs/quantum.g"
+#line 68 "libs/quantum.g"
+#line 85 "libs/quantum.g"
+#line 4 "tests/ghost/quantum_bell.g"
+----
+/*TranspiladopeloGhostCompilerv1.0*/#include<iostream>#include<cstdio>#include<cstdlib>#include<string>#include<complex>#include<type_traits>#include<fstream>#include<sstream>#include<thread>#include<chrono>#include<mutex>#include"include/GhostNumberG.hpp"#include"include/GhostMatrix.hpp"#include"include/GhostLLM.hpp"#include"include/GhostLib.hpp"#include"include/GhostDevice.hpp"#include"include/GhostTextModel.hpp"#include"include/GhostWeb.hpp"#include"include/GhostKnowledge.hpp"#include"include/GhostTemporal.hpp"#include"include/GhostTransformer.hpp"#include"include/GhostTransformerG.hpp"#include"include/GhostMatrixG.hpp"#include"include/GhostQuantum.hpp"#include"include/GhostQML.hpp"#include"include/GhostHybrid.hpp"#include"include/GhostQTape.hpp"#include"include/GhostCore.hpp"#ifdef_WIN32#include<windows.h>#endifvoidbell(GhostQReg&q,inta,intb);
+voidghz(GhostQReg&q);
+intgrover_iterations(intn);
+voidgrover(GhostQReg&q,intmarcado);
+intdeutsch_jozsa(intn,inttipo);
+voidqft_de(GhostQReg&q,intvalor);
+voidhamiltoniano_h2(GhostQCircuit&c);
+voidghost_main();
+voidbell(GhostQReg&q,inta,intb){
+q.h(a);
+q.cx(a,b);
+}
+voidghz(GhostQReg&q){
+q.h(0);
+for(autok=0;
+k<q.size()-1;
+k=k+1){
+q.cx(k,k+1);
+}
+}
+intgrover_iterations(intn){
+return(int)floor(PI/4.0*sqrt(pow(2.0,n)));
+}
+voidgrover(GhostQReg&q,intmarcado){
+q.h_all();
+intvoltas=grover_iterations(q.size());
+for(autok=0;
+k<voltas;
+k=k+1){
+q.phase_flip(marcado);
+q.diffuser();
+}
+}
+intdeutsch_jozsa(intn,inttipo){
+GhostQRegq=GhostQReg(n+1);
+q.x(n);
+q.h_all();
+if(tipo==1){
+q.x(n);
+}
+if(tipo==2){
+for(autok=0;
+k<n;
+k=k+1){
+q.cx(k,n);
+}
+}
+for(autok=0;
+k<n;
+k=k+1){
+q.h(k);
+}
+intresultado=0;
+for(autok=0;
+k<n;
+k=k+1){
+if(q.measure(k)==1){
+resultado=1;
+}
+}
+returnresultado;
+}
+voidqft_de(GhostQReg&q,intvalor){
+q.set_basis(valor);
+q.qft();
+}
+voidhamiltoniano_h2(GhostQCircuit&c){
+c.observable(std::string("II"),-1.052373245772859);
+c.observable(std::string("IZ"),0.39793742484318045);
+c.observable(std::string("ZI"),-0.39793742484318045);
+c.observable(std::string("ZZ"),-0.01128010425623538);
+c.observable(std::string("XX"),0.18093119978423156);
+}
+voidghost_main(){
+GhostQRegq=GhostQReg(2);
+q.seed(42);
+bell(q,0,1);
+std::cout<<ghost_show(std::string("=== Par de Bell ==="))<<std::endl;
+std::cout<<ghost_show(ghost_fstr(std::string("Estado: "),(q)))<<std::endl;
+std::cout<<ghost_show(q.draw())<<std::endl;
+std::cout<<ghost_show(ghost_fstr(std::string("<ZZ> = "),(q.expect(std::string("ZZ"))),std::string("  <XX> = "),(q.expect(std::string("XX"))),std::string("  <Z0> = "),(q.expect_z(0))))<<std::endl;
+std::cout<<ghost_show(q.histogram(1000))<<std::endl;
+inta=q.measure(0);
+intb=q.measure(1);
+std::cout<<ghost_show(ghost_fstr(std::string("Medido: q0="),(a),std::string(" q1="),(b),std::string(" (sempre iguais)")))<<std::endl;
+std::cout<<ghost_show(ghost_fstr(std::string("Depois da medicao: "),(q)))<<std::endl;
+std::cout<<ghost_show(std::string("=== GHZ com 4 qubits ==="))<<std::endl;
+GhostQRegg=GhostQReg(4);
+g.seed(7);
+ghz(g);
+std::cout<<"\nEstado da estrutura '"<<"g"<<"':"<<std::endl;
+g.display();
+std::cout<<ghost_show(g.histogram(1000))<<std::endl;
+}
+intmain(intargc,char**argv){
+try{
+#ifdef_WIN32SetConsoleOutputCP(CP_UTF8);
+SetConsoleCP(CP_UTF8);
+#endifstd::cout<<std::boolalpha;
+std::stringghost_args="";
+std::vector<std::string>ghost_args_vec;
+for(inti=1;
+i<argc;
+++i){
+ghost_args+=argv[i];
+ghost_args_vec.push_back(argv[i]);
+if(i<argc-1)ghost_args+=" ";
+}
+ghost_main();
+return0;
+}
+catch(conststd::exception&e){
+std::cerr<<e.what()<<std::endl;
+return1;
+}
+}

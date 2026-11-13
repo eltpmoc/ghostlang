@@ -1,0 +1,43 @@
+== objetos e metodos ==
+a (2, 3) b (4, 6) origem (0, 0)
+soma (6, 9) distancia2 13
+== semantica de valor ==
+a.x 2 c.x 100
+== campo objeto ==
+canto (3, 3) area 5
+== private e excecoes ==
+erro: saldo insuficiente para sacar 500
+erro: deposito precisa ser positivo
+Ana saldo 45
+extrato: abertura 50; deposito 25; saque 30
+== heranca, super e metodos virtuais ==
+forma com area 0
+quadrado com area 9
+cubo com area 24 (6 faces)
+cubo.lado 2 cubo.nome cubo
+parametro do tipo base: cubo com area 0
+== listas de objetos ==
+pontos 4 primeiro (11, 1) segundo (2, -2) soma x 25
+== mapa em campo ==
+parafusos 15 porcas 1 pregos 0 total 16
+== metodos chamando funcoes ==
+soma 100 original ainda tem 4 chamadas 8
+== so no REPL: objetos como texto ==
+Ponto{x: 2, y: 3} Cubo Ponto
+lista nao muda: 11 copia 0
+grade [[1, 7], [30, 4]]
+fib(30) = 832040 memo 29
+== erros de uso ==
+[Erro de Execucao] campo saldo e private em Conta (so os metodos de Conta acessam)
+[Erro de Execucao] metodo registrar() e private em Conta (so os metodos de Conta acessam)
+Bia 0
+[Erro de Execucao] campo saldo e private em Conta (so os metodos de Conta acessam)
+[Erro de Execucao] a classe Ponto nao tem o metodo voar()
+[Erro de Execucao] a classe Ponto nao tem o campo z
+[Erro de Execucao] new: classe 'Desconhecida' nao foi declarada
+[Erro de Execucao] Conta(): faltou o argumento 't'
+[Erro de Execucao] errado: Conta nao e Ponto
+[Erro de Execucao] this so existe dentro de metodos de classe
+[Erro de Execucao] class Q: use qreg q(numero_de_qubits);
+fim
+

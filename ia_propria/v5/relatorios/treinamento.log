@@ -1,0 +1,43 @@
+CUDA: NVIDIA GeForce RTX 4050 Laptop GPU; autoteste OK; politica=cuda
+CE inicial: 5.56448
+Passo 100 | CE treino 4.25967 | CE validacao 3.46118 | melhor 3.46118
+Passo 200 | CE treino 2.83572 | CE validacao 2.67086 | melhor 2.67086
+Passo 300 | CE treino 2.473 | CE validacao 2.55161 | melhor 2.55161
+Passo 400 | CE treino 2.20597 | CE validacao 2.57331 | melhor 2.55161
+Passo 500 | CE treino 2.16525 | CE validacao 2.586 | melhor 2.55161
+Passo 600 | CE treino 2.13165 | CE validacao 2.63805 | melhor 2.55161
+Passo 700 | CE treino 1.96741 | CE validacao 2.61036 | melhor 2.55161
+Passo 800 | CE treino 2.00693 | CE validacao 2.74593 | melhor 2.55161
+Passo 900 | CE treino 1.85255 | CE validacao 2.71704 | melhor 2.55161
+Passo 1000 | CE treino 1.88362 | CE validacao 2.6986 | melhor 2.55161
+Passo 1100 | CE treino 1.88052 | CE validacao 2.78554 | melhor 2.55161
+Passo 1200 | CE treino 1.83095 | CE validacao 2.70999 | melhor 2.55161
+Passo 1300 | CE treino 1.72084 | CE validacao 2.68665 | melhor 2.55161
+Passo 1400 | CE treino 1.72964 | CE validacao 2.80368 | melhor 2.55161
+Passo 1500 | CE treino 1.7782 | CE validacao 2.63748 | melhor 2.55161
+Passo 1600 | CE treino 1.67785 | CE validacao 2.72001 | melhor 2.55161
+Passo 1700 | CE treino 1.68661 | CE validacao 2.6054 | melhor 2.55161
+Passo 1800 | CE treino 1.64295 | CE validacao 2.66289 | melhor 2.55161
+Passo 1900 | CE treino 1.67739 | CE validacao 2.79305 | melhor 2.55161
+Passo 2000 | CE treino 1.45685 | CE validacao 2.80627 | melhor 2.55161
+Passo 2100 | CE treino 1.4234 | CE validacao 2.66553 | melhor 2.55161
+Passo 2200 | CE treino 1.34945 | CE validacao 2.6794 | melhor 2.55161
+Passo 2300 | CE treino 1.33097 | CE validacao 2.63187 | melhor 2.55161
+Passo 2400 | CE treino 1.27296 | CE validacao 2.72691 | melhor 2.55161
+Passo 2500 | CE treino 1.21273 | CE validacao 2.85032 | melhor 2.55161
+Passo 2600 | CE treino 1.17367 | CE validacao 2.75709 | melhor 2.55161
+Passo 2700 | CE treino 1.25207 | CE validacao 2.80063 | melhor 2.55161
+Passo 2800 | CE treino 1.23239 | CE validacao 2.81929 | melhor 2.55161
+Passo 2900 | CE treino 1.27841 | CE validacao 2.81374 | melhor 2.55161
+Passo 3000 | CE treino 1.10692 | CE validacao 2.76539 | melhor 2.55161
+Passo 3100 | CE treino 0.999428 | CE validacao 2.79217 | melhor 2.55161
+Passo 3200 | CE treino 1.06426 | CE validacao 2.85087 | melhor 2.55161
+Passo 3300 | CE treino 0.881681 | CE validacao 2.93939 | melhor 2.55161
+Passo 3400 | CE treino 0.990053 | CE validacao 2.91323 | melhor 2.55161
+Passo 3500 | CE treino 0.982222 | CE validacao 2.92326 | melhor 2.55161
+Passo 3600 | CE treino 1.00238 | CE validacao 2.97088 | melhor 2.55161
+Passo 3700 | CE treino 0.899189 | CE validacao 2.94817 | melhor 2.55161
+Passo 3800 | CE treino 1.00782 | CE validacao 2.95063 | melhor 2.55161
+Passo 3900 | CE treino 1.04127 | CE validacao 2.95789 | melhor 2.55161
+Passo 4000 | CE treino 0.945349 | CE validacao 3.06196 | melhor 2.55161
+Transformer byte nativo | CUDA | contexto=384 bytes | largura=96 | cabecas=4 | blocos=2 | lote=8 | parametros=307776 | vocabulario=259 (256 bytes + BOS/EOS/PAD) | passos=4000

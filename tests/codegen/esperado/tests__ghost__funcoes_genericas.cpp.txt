@@ -1,0 +1,242 @@
+#line 9 "tests/ghost/funcoes_genericas.g"
+#line 10 "tests/ghost/funcoes_genericas.g"
+#line 18 "tests/ghost/funcoes_genericas.g"
+#line 22 "tests/ghost/funcoes_genericas.g"
+#line 27 "tests/ghost/funcoes_genericas.g"
+#line 28 "tests/ghost/funcoes_genericas.g"
+#line 30 "tests/ghost/funcoes_genericas.g"
+#line 34 "tests/ghost/funcoes_genericas.g"
+#line 38 "tests/ghost/funcoes_genericas.g"
+#line 39 "tests/ghost/funcoes_genericas.g"
+#line 40 "tests/ghost/funcoes_genericas.g"
+#line 41 "tests/ghost/funcoes_genericas.g"
+#line 44 "tests/ghost/funcoes_genericas.g"
+#line 48 "tests/ghost/funcoes_genericas.g"
+#line 49 "tests/ghost/funcoes_genericas.g"
+#line 50 "tests/ghost/funcoes_genericas.g"
+#line 52 "tests/ghost/funcoes_genericas.g"
+#line 56 "tests/ghost/funcoes_genericas.g"
+#line 57 "tests/ghost/funcoes_genericas.g"
+#line 58 "tests/ghost/funcoes_genericas.g"
+#line 60 "tests/ghost/funcoes_genericas.g"
+#line 64 "tests/ghost/funcoes_genericas.g"
+#line 68 "tests/ghost/funcoes_genericas.g"
+#line 72 "tests/ghost/funcoes_genericas.g"
+#line 73 "tests/ghost/funcoes_genericas.g"
+#line 77 "tests/ghost/funcoes_genericas.g"
+#line 78 "tests/ghost/funcoes_genericas.g"
+#line 79 "tests/ghost/funcoes_genericas.g"
+#line 81 "tests/ghost/funcoes_genericas.g"
+#line 85 "tests/ghost/funcoes_genericas.g"
+#line 86 "tests/ghost/funcoes_genericas.g"
+#line 88 "tests/ghost/funcoes_genericas.g"
+#line 92 "tests/ghost/funcoes_genericas.g"
+#line 96 "tests/ghost/funcoes_genericas.g"
+#line 97 "tests/ghost/funcoes_genericas.g"
+#line 99 "tests/ghost/funcoes_genericas.g"
+#line 103 "tests/ghost/funcoes_genericas.g"
+#line 107 "tests/ghost/funcoes_genericas.g"
+#line 108 "tests/ghost/funcoes_genericas.g"
+#line 109 "tests/ghost/funcoes_genericas.g"
+#line 110 "tests/ghost/funcoes_genericas.g"
+#line 111 "tests/ghost/funcoes_genericas.g"
+#line 112 "tests/ghost/funcoes_genericas.g"
+#line 113 "tests/ghost/funcoes_genericas.g"
+#line 114 "tests/ghost/funcoes_genericas.g"
+#line 115 "tests/ghost/funcoes_genericas.g"
+#line 116 "tests/ghost/funcoes_genericas.g"
+#line 117 "tests/ghost/funcoes_genericas.g"
+#line 118 "tests/ghost/funcoes_genericas.g"
+#line 119 "tests/ghost/funcoes_genericas.g"
+#line 120 "tests/ghost/funcoes_genericas.g"
+#line 122 "tests/ghost/funcoes_genericas.g"
+#line 123 "tests/ghost/funcoes_genericas.g"
+#line 124 "tests/ghost/funcoes_genericas.g"
+#line 4 "tests/ghost/funcoes_genericas.g"
+#line 14 "tests/ghost/funcoes_genericas.g"
+#line 26 "tests/ghost/funcoes_genericas.g"
+#line 33 "tests/ghost/funcoes_genericas.g"
+#line 37 "tests/ghost/funcoes_genericas.g"
+#line 47 "tests/ghost/funcoes_genericas.g"
+#line 55 "tests/ghost/funcoes_genericas.g"
+#line 63 "tests/ghost/funcoes_genericas.g"
+#line 67 "tests/ghost/funcoes_genericas.g"
+#line 71 "tests/ghost/funcoes_genericas.g"
+#line 76 "tests/ghost/funcoes_genericas.g"
+#line 84 "tests/ghost/funcoes_genericas.g"
+#line 91 "tests/ghost/funcoes_genericas.g"
+#line 95 "tests/ghost/funcoes_genericas.g"
+#line 102 "tests/ghost/funcoes_genericas.g"
+#line 106 "tests/ghost/funcoes_genericas.g"
+----
+/*TranspiladopeloGhostCompilerv1.0*/#include<iostream>#include<cstdio>#include<cstdlib>#include<string>#include<complex>#include<type_traits>#include<fstream>#include<sstream>#include<thread>#include<chrono>#include<mutex>#include"include/GhostNumberG.hpp"#include"include/GhostMatrix.hpp"#include"include/GhostLLM.hpp"#include"include/GhostLib.hpp"#include"include/GhostDevice.hpp"#include"include/GhostTextModel.hpp"#include"include/GhostWeb.hpp"#include"include/GhostKnowledge.hpp"#include"include/GhostTemporal.hpp"#include"include/GhostTransformer.hpp"#include"include/GhostTransformerG.hpp"#include"include/GhostMatrixG.hpp"#include"include/GhostQuantum.hpp"#include"include/GhostQML.hpp"#include"include/GhostHybrid.hpp"#include"include/GhostQTape.hpp"#include"include/GhostCore.hpp"#ifdef_WIN32#include<windows.h>#endiftemplate<classT>classPilha;
+classPonto;
+template<classT>Tmaior(Ta,Tb);
+template<classT>Tprimeiro(GhostList<T>xs);
+template<classT>intcontar(GhostList<T>xs,Talvo);
+template<classT>GhostList<T>repetir(Tvalor,intvezes);
+template<classT>Pilha<T>pilhaDe(GhostList<T>xs);
+template<classT>inttamanhoDa(Pilha<T>p);
+template<classK,classV>std::stringparTexto(Kchave,Vvalor);
+template<classT>Tconverter(doublev);
+template<classT>TsomaTudo(GhostList<T>xs,Tinicio);
+template<classT>intprofundidade(Tvalor,intn);
+template<classT>boolcontem(GhostSet<T>s,Tx);
+template<classT>GhostResult<T>buscar(GhostList<T>xs,inti);
+template<classT>voidanunciar(Tvalor);
+voidghost_main();
+classPonto{
+public:doublex{
+}
+;
+doubley{
+}
+;
+Ponto(doublex=0,doubley=0){
+(*this).x=x;
+(*this).y=y;
+}
+}
+;
+template<classT>classPilha{
+public:GhostList<T>itens=GhostList<T>{
+}
+;
+virtualvoidempilhar(Tvalor){
+itens.push(valor);
+}
+virtualinttamanho(){
+returnitens.length();
+}
+}
+;
+template<classT>Tmaior(Ta,Tb){
+if(a>b){
+returna;
+}
+returnb;
+}
+template<classT>Tprimeiro(GhostList<T>xs){
+returnxs[0];
+}
+template<classT>intcontar(GhostList<T>xs,Talvo){
+intn=0;
+for(auto&x:xs){
+if(x==alvo){
+n++;
+}
+}
+returnn;
+}
+template<classT>GhostList<T>repetir(Tvalor,intvezes){
+GhostList<T>r=GhostList<T>{
+}
+;
+for(intk=0;
+k<vezes;
+k++){
+r.push(valor);
+}
+returnr;
+}
+template<classT>Pilha<T>pilhaDe(GhostList<T>xs){
+Pilha<T>p{
+}
+;
+for(auto&x:xs){
+p.empilhar(x);
+}
+returnp;
+}
+template<classT>inttamanhoDa(Pilha<T>p){
+returnp.tamanho();
+}
+template<classK,classV>std::stringparTexto(Kchave,Vvalor){
+returnchave+std::string(" -> ")+valor;
+}
+template<classT>Tconverter(doublev){
+Tr=v;
+returnr;
+}
+template<classT>TsomaTudo(GhostList<T>xs,Tinicio){
+Ttotal=inicio;
+for(auto&x:xs){
+total+=x;
+}
+returntotal;
+}
+template<classT>intprofundidade(Tvalor,intn){
+if(n==0){
+return0;
+}
+return1+profundidade(valor,n-1);
+}
+template<classT>boolcontem(GhostSet<T>s,Tx){
+returns.contains(x);
+}
+template<classT>GhostResult<T>buscar(GhostList<T>xs,inti){
+if(i<0||i>=xs.length()){
+returnerr(std::string("indice ")+i+std::string(" fora"));
+}
+returnok(xs[i]);
+}
+template<classT>voidanunciar(Tvalor){
+std::cout<<ghost_show(std::string("anuncio: "))<<ghost_show(valor)<<std::endl;
+}
+voidghost_main(){
+std::cout<<ghost_show(std::string("== deducao pelo argumento =="))<<std::endl;
+std::cout<<ghost_show(maior(3,7))<<ghost_show(std::string(" "))<<ghost_show(maior(2.5,1.5))<<ghost_show(std::string(" "))<<ghost_show(maior(std::string("ana"),std::string("bia")))<<ghost_show(std::string(" "))<<ghost_show(maior(true,false))<<std::endl;
+GhostList<std::string>nomes=GhostList<std::string>{
+std::string("caio"),std::string("ana"),std::string("bia")}
+;
+std::cout<<ghost_show(primeiro(nomes))<<ghost_show(std::string(" "))<<ghost_show(primeiro(ghost_list(4.5,2.0)))<<ghost_show(std::string(" "))<<ghost_show(contar(ghost_list(1,2,1,3,1),1))<<ghost_show(std::string(" "))<<ghost_show(contar(nomes,std::string("bia")))<<std::endl;
+std::cout<<ghost_show(repetir(std::string("ok"),3))<<ghost_show(std::string(" "))<<ghost_show(repetir(7,2))<<ghost_show(std::string(" "))<<ghost_show(parTexto(std::string("idade"),30))<<ghost_show(std::string(" "))<<ghost_show(parTexto(2,true))<<std::endl;
+Pilha<std::string>p=pilhaDe(nomes);
+std::cout<<ghost_show(std::string("pilha de "))<<ghost_show(p.tamanho())<<ghost_show(std::string(" "))<<ghost_show(tamanhoDa(p))<<ghost_show(std::string(" "))<<ghost_show(tamanhoDa(pilhaDe(ghost_list(1,2,3,4))))<<std::endl;
+GhostSet<int>s=GhostSet<int>{
+1,5,9}
+;
+std::cout<<ghost_show(contem(s,5))<<ghost_show(std::string(" "))<<ghost_show(contem(s,4))<<ghost_show(std::string(" "))<<ghost_show(somaTudo(ghost_list(1,2,3),10))<<ghost_show(std::string(" "))<<ghost_show(somaTudo(nomes,std::string(">")))<<std::endl;
+std::cout<<ghost_show(profundidade(std::string("x"),5))<<ghost_show(std::string(" "))<<ghost_show(buscar(nomes,1))<<ghost_show(std::string(" "))<<ghost_show(buscar(ghost_list(1,2),5))<<std::endl;
+Pontopt=primeiro(ghost_list(Ponto(3,4),Ponto(0,0)));
+std::cout<<ghost_show(std::string("ponto "))<<ghost_show(pt.x)<<ghost_show(std::string(" "))<<ghost_show(([&](){
+auto&&ghost_src_1=ghost_iter(range(4));
+autoghost_fx_1=[&](autok){
+returnmaior(k,2);
+}
+;
+GhostList<std::decay_t<decltype(ghost_fx_1(*std::begin(ghost_src_1)))>>ghost_out_1;
+for(constauto&k:ghost_src_1){
+ghost_collect(ghost_out_1,ghost_fx_1(k));
+}
+returnghost_out_1;
+}
+()))<<std::endl;
+anunciar(std::string("generico como comando"));
+anunciar<double>(3);
+std::cout<<ghost_show(std::string("== tipo explicito =="))<<std::endl;
+std::cout<<ghost_show(maior<double>(3,5.5))<<ghost_show(std::string(" "))<<ghost_show(maior<int>(9,4))<<ghost_show(std::string(" "))<<ghost_show(converter<int>(7.9))<<ghost_show(std::string(" "))<<ghost_show(converter<double>(7.9))<<std::endl;
+std::cout<<ghost_show(repetir<double>(1,2))<<ghost_show(std::string(" "))<<ghost_show(parTexto<std::string,double>(std::string("pi"),3))<<ghost_show(std::string(" "))<<ghost_show(primeiro<int>(ghost_list(8,9)))<<std::endl;
+}
+intmain(intargc,char**argv){
+try{
+#ifdef_WIN32SetConsoleOutputCP(CP_UTF8);
+SetConsoleCP(CP_UTF8);
+#endifstd::cout<<std::boolalpha;
+std::stringghost_args="";
+std::vector<std::string>ghost_args_vec;
+for(inti=1;
+i<argc;
+++i){
+ghost_args+=argv[i];
+ghost_args_vec.push_back(argv[i]);
+if(i<argc-1)ghost_args+=" ";
+}
+ghost_main();
+return0;
+}
+catch(conststd::exception&e){
+std::cerr<<e.what()<<std::endl;
+return1;
+}
+}

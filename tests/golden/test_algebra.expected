@@ -1,0 +1,36 @@
+=== Algebra Hiper-Complexa GhostNumberG (4D) ===
+
+1. Criacao de Porta Quantica Customizada (com incerteza Ghost / Nilpotente)
+
+
+Estado da estrutura 'q1':
+[ -1.22168+0g	0.155752+0g	]
+[ -0.751248+0g	0.756257+0g	]
+2. Adicao (q1 + q1)
+
+
+Estado da estrutura 'res':
+[ -2.44336+0g	0.311503+0g	]
+[ -1.5025+0g	1.51251+0g	]
+3. Multiplicacao Hiper-Complexa (q1 * q1) - Verificando o componente p
+
+
+Estado da estrutura 'res':
+[ 1.37549+0g	-0.0724904+0g	]
+[ 0.349648+0g	0.454916+0g	]
+4. Portas Nativas com fases complexas e reais
+
+Gate Hadamard:
+
+
+Estado da estrutura 'h_gate':
+[ 0.707107+0g	0.707107+0g	]
+[ 0.707107+0g	-0.707107+0g	]
+Gate Pauli-Y (Fase Imaginaria -i e i):
+
+
+Estado da estrutura 'py_gate':
+[ 0+0g	0+-1g	]
+[ 0+1g	0+0g	]
+=== Fim da Demonstracao ===
+

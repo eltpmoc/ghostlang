@@ -1,0 +1,101 @@
+#line 2 "tests/ghost/ativacoes_ia.g"
+#line 3 "tests/ghost/ativacoes_ia.g"
+#line 5 "tests/ghost/ativacoes_ia.g"
+#line 6 "tests/ghost/ativacoes_ia.g"
+#line 8 "tests/ghost/ativacoes_ia.g"
+#line 9 "tests/ghost/ativacoes_ia.g"
+#line 11 "tests/ghost/ativacoes_ia.g"
+#line 12 "tests/ghost/ativacoes_ia.g"
+#line 14 "tests/ghost/ativacoes_ia.g"
+#line 18 "tests/ghost/ativacoes_ia.g"
+#line 19 "tests/ghost/ativacoes_ia.g"
+#line 1 "tests/ghost/ativacoes_ia.g"
+#line 17 "tests/ghost/ativacoes_ia.g"
+----
+/*TranspiladopeloGhostCompilerv1.0*/#include<iostream>#include<cstdio>#include<cstdlib>#include<string>#include<complex>#include<type_traits>#include<fstream>#include<sstream>#include<thread>#include<chrono>#include<mutex>#include"include/GhostNumberG.hpp"#include"include/GhostMatrix.hpp"#include"include/GhostLLM.hpp"#include"include/GhostLib.hpp"#include"include/GhostDevice.hpp"#include"include/GhostTextModel.hpp"#include"include/GhostWeb.hpp"#include"include/GhostKnowledge.hpp"#include"include/GhostTemporal.hpp"#include"include/GhostTransformer.hpp"#include"include/GhostTransformerG.hpp"#include"include/GhostMatrixG.hpp"#include"include/GhostQuantum.hpp"#include"include/GhostQML.hpp"#include"include/GhostHybrid.hpp"#include"include/GhostQTape.hpp"#include"include/GhostCore.hpp"#ifdef_WIN32#include<windows.h>#endifvoidtest_ativacoes();
+voidghost_main();
+voidtest_ativacoes(){
+GhostMatrixt1(2,2);
+doublelimit_t1=std::sqrt(6.0/(2+2));
+for(size_tghost_r=0;
+ghost_r<t1.getRows();
+++ghost_r){
+for(size_tghost_c=0;
+ghost_c<t1.getCols();
+++ghost_c){
+doubleghost_val=(((double)rand()/RAND_MAX)*2.0-1.0)*limit_t1;
+t1(ghost_r,ghost_c)=GhostNumberG(ghost_val,0.0,0.0);
+}
+}
+t1.activateTanh();
+std::cout<<"[Ghost OS] Colapso Quântico/Matemático (tanh) aplicado em 't1'."<<std::endl;
+GhostMatrixt2(2,2);
+doublelimit_t2=std::sqrt(6.0/(2+2));
+for(size_tghost_r=0;
+ghost_r<t2.getRows();
+++ghost_r){
+for(size_tghost_c=0;
+ghost_c<t2.getCols();
+++ghost_c){
+doubleghost_val=(((double)rand()/RAND_MAX)*2.0-1.0)*limit_t2;
+t2(ghost_r,ghost_c)=GhostNumberG(ghost_val,0.0,0.0);
+}
+}
+t2.activateLeakyReLU();
+std::cout<<"[Ghost OS] Colapso Quântico/Matemático (leaky_relu) aplicado em 't2'."<<std::endl;
+GhostMatrixt3(2,2);
+doublelimit_t3=std::sqrt(6.0/(2+2));
+for(size_tghost_r=0;
+ghost_r<t3.getRows();
+++ghost_r){
+for(size_tghost_c=0;
+ghost_c<t3.getCols();
+++ghost_c){
+doubleghost_val=(((double)rand()/RAND_MAX)*2.0-1.0)*limit_t3;
+t3(ghost_r,ghost_c)=GhostNumberG(ghost_val,0.0,0.0);
+}
+}
+t3.activateGELU();
+std::cout<<"[Ghost OS] Colapso Quântico/Matemático (gelu) aplicado em 't3'."<<std::endl;
+GhostMatrixt4(2,2);
+doublelimit_t4=std::sqrt(6.0/(2+2));
+for(size_tghost_r=0;
+ghost_r<t4.getRows();
+++ghost_r){
+for(size_tghost_c=0;
+ghost_c<t4.getCols();
+++ghost_c){
+doubleghost_val=(((double)rand()/RAND_MAX)*2.0-1.0)*limit_t4;
+t4(ghost_r,ghost_c)=GhostNumberG(ghost_val,0.0,0.0);
+}
+}
+t4.activateSoftmax();
+std::cout<<"[Ghost OS] Colapso Quântico/Matemático (softmax) aplicado em 't4'."<<std::endl;
+std::cout<<ghost_show(std::string("test_ativacoes_ia: OK"))<<std::endl;
+}
+voidghost_main(){
+test_ativacoes();
+std::cout<<ghost_show(std::string("todos os testes de ativacoes_ia passaram com sucesso!"))<<std::endl;
+}
+intmain(intargc,char**argv){
+try{
+#ifdef_WIN32SetConsoleOutputCP(CP_UTF8);
+SetConsoleCP(CP_UTF8);
+#endifstd::cout<<std::boolalpha;
+std::stringghost_args="";
+std::vector<std::string>ghost_args_vec;
+for(inti=1;
+i<argc;
+++i){
+ghost_args+=argv[i];
+ghost_args_vec.push_back(argv[i]);
+if(i<argc-1)ghost_args+=" ";
+}
+ghost_main();
+return0;
+}
+catch(conststd::exception&e){
+std::cerr<<e.what()<<std::endl;
+return1;
+}
+}

@@ -1,0 +1,838 @@
+#line 10 "libs/math.g"
+#line 11 "libs/math.g"
+#line 12 "libs/math.g"
+#line 13 "libs/math.g"
+#line 14 "libs/math.g"
+#line 15 "libs/math.g"
+#line 16 "libs/math.g"
+#line 17 "libs/math.g"
+#line 18 "libs/math.g"
+#line 19 "libs/math.g"
+#line 25 "libs/math.g"
+#line 26 "libs/math.g"
+#line 27 "libs/math.g"
+#line 29 "libs/math.g"
+#line 29 "libs/math.g"
+#line 30 "libs/math.g"
+#line 33 "libs/math.g"
+#line 34 "libs/math.g"
+#line 35 "libs/math.g"
+#line 37 "libs/math.g"
+#line 37 "libs/math.g"
+#line 38 "libs/math.g"
+#line 41 "libs/math.g"
+#line 41 "libs/math.g"
+#line 42 "libs/math.g"
+#line 46 "libs/math.g"
+#line 46 "libs/math.g"
+#line 47 "libs/math.g"
+#line 50 "libs/math.g"
+#line 52 "libs/math.g"
+#line 52 "libs/math.g"
+#line 53 "libs/math.g"
+#line 53 "libs/math.g"
+#line 54 "libs/math.g"
+#line 57 "libs/math.g"
+#line 58 "libs/math.g"
+#line 61 "libs/math.g"
+#line 61 "libs/math.g"
+#line 62 "libs/math.g"
+#line 62 "libs/math.g"
+#line 63 "libs/math.g"
+#line 63 "libs/math.g"
+#line 64 "libs/math.g"
+#line 65 "libs/math.g"
+#line 66 "libs/math.g"
+#line 67 "libs/math.g"
+#line 69 "libs/math.g"
+#line 71 "libs/math.g"
+#line 75 "libs/math.g"
+#line 75 "libs/math.g"
+#line 76 "libs/math.g"
+#line 77 "libs/math.g"
+#line 78 "libs/math.g"
+#line 80 "libs/math.g"
+#line 84 "libs/math.g"
+#line 84 "libs/math.g"
+#line 85 "libs/math.g"
+#line 85 "libs/math.g"
+#line 86 "libs/math.g"
+#line 87 "libs/math.g"
+#line 88 "libs/math.g"
+#line 89 "libs/math.g"
+#line 91 "libs/math.g"
+#line 95 "libs/math.g"
+#line 95 "libs/math.g"
+#line 96 "libs/math.g"
+#line 97 "libs/math.g"
+#line 101 "libs/math.g"
+#line 101 "libs/math.g"
+#line 102 "libs/math.g"
+#line 103 "libs/math.g"
+#line 104 "libs/math.g"
+#line 106 "libs/math.g"
+#line 110 "libs/math.g"
+#line 110 "libs/math.g"
+#line 111 "libs/math.g"
+#line 112 "libs/math.g"
+#line 113 "libs/math.g"
+#line 115 "libs/math.g"
+#line 119 "libs/math.g"
+#line 119 "libs/math.g"
+#line 120 "libs/math.g"
+#line 120 "libs/math.g"
+#line 121 "libs/math.g"
+#line 121 "libs/math.g"
+#line 122 "libs/math.g"
+#line 123 "libs/math.g"
+#line 124 "libs/math.g"
+#line 125 "libs/math.g"
+#line 127 "libs/math.g"
+#line 135 "libs/math.g"
+#line 139 "libs/math.g"
+#line 139 "libs/math.g"
+#line 140 "libs/math.g"
+#line 141 "libs/math.g"
+#line 142 "libs/math.g"
+#line 143 "libs/math.g"
+#line 144 "libs/math.g"
+#line 145 "libs/math.g"
+#line 147 "libs/math.g"
+#line 148 "libs/math.g"
+#line 150 "libs/math.g"
+#line 155 "libs/math.g"
+#line 155 "libs/math.g"
+#line 156 "libs/math.g"
+#line 161 "libs/math.g"
+#line 165 "libs/math.g"
+#line 169 "libs/math.g"
+#line 174 "libs/math.g"
+#line 179 "libs/math.g"
+#line 183 "libs/math.g"
+#line 187 "libs/math.g"
+#line 192 "libs/math.g"
+#line 197 "libs/math.g"
+#line 201 "libs/math.g"
+#line 205 "libs/math.g"
+#line 209 "libs/math.g"
+#line 213 "libs/math.g"
+#line 217 "libs/math.g"
+#line 221 "libs/math.g"
+#line 225 "libs/math.g"
+#line 229 "libs/math.g"
+#line 236 "libs/math.g"
+#line 237 "libs/math.g"
+#line 238 "libs/math.g"
+#line 241 "libs/math.g"
+#line 241 "libs/math.g"
+#line 242 "libs/math.g"
+#line 246 "libs/math.g"
+#line 246 "libs/math.g"
+#line 247 "libs/math.g"
+#line 251 "libs/math.g"
+#line 251 "libs/math.g"
+#line 252 "libs/math.g"
+#line 256 "libs/math.g"
+#line 257 "libs/math.g"
+#line 259 "libs/math.g"
+#line 262 "libs/math.g"
+#line 269 "libs/math.g"
+#line 273 "libs/math.g"
+#line 276 "libs/math.g"
+#line 277 "libs/math.g"
+#line 278 "libs/math.g"
+#line 281 "libs/math.g"
+#line 282 "libs/math.g"
+#line 282 "libs/math.g"
+#line 283 "libs/math.g"
+#line 287 "libs/math.g"
+#line 288 "libs/math.g"
+#line 288 "libs/math.g"
+#line 289 "libs/math.g"
+#line 293 "libs/math.g"
+#line 294 "libs/math.g"
+#line 294 "libs/math.g"
+#line 295 "libs/math.g"
+#line 299 "libs/math.g"
+#line 299 "libs/math.g"
+#line 300 "libs/math.g"
+#line 304 "libs/math.g"
+#line 304 "libs/math.g"
+#line 305 "libs/math.g"
+#line 308 "libs/math.g"
+#line 309 "libs/math.g"
+#line 315 "libs/math.g"
+#line 316 "libs/math.g"
+#line 317 "libs/math.g"
+#line 318 "libs/math.g"
+#line 320 "libs/math.g"
+#line 320 "libs/math.g"
+#line 321 "libs/math.g"
+#line 324 "libs/math.g"
+#line 324 "libs/math.g"
+#line 325 "libs/math.g"
+#line 332 "libs/math.g"
+#line 333 "libs/math.g"
+#line 334 "libs/math.g"
+#line 335 "libs/math.g"
+#line 338 "libs/math.g"
+#line 338 "libs/math.g"
+#line 339 "libs/math.g"
+#line 339 "libs/math.g"
+#line 340 "libs/math.g"
+#line 344 "libs/math.g"
+#line 351 "libs/math.g"
+#line 352 "libs/math.g"
+#line 355 "libs/math.g"
+#line 355 "libs/math.g"
+#line 356 "libs/math.g"
+#line 359 "libs/math.g"
+#line 360 "libs/math.g"
+#line 363 "libs/math.g"
+#line 367 "libs/math.g"
+#line 367 "libs/math.g"
+#line 368 "libs/math.g"
+#line 372 "libs/math.g"
+#line 373 "libs/math.g"
+#line 377 "libs/math.g"
+#line 378 "libs/math.g"
+#line 379 "libs/math.g"
+#line 10 "libs/math.g"
+#line 11 "libs/math.g"
+#line 12 "libs/math.g"
+#line 13 "libs/math.g"
+#line 14 "libs/math.g"
+#line 15 "libs/math.g"
+#line 16 "libs/math.g"
+#line 17 "libs/math.g"
+#line 18 "libs/math.g"
+#line 19 "libs/math.g"
+#line 25 "libs/math.g"
+#line 26 "libs/math.g"
+#line 27 "libs/math.g"
+#line 28 "libs/math.g"
+#line 33 "libs/math.g"
+#line 34 "libs/math.g"
+#line 35 "libs/math.g"
+#line 36 "libs/math.g"
+#line 40 "libs/math.g"
+#line 45 "libs/math.g"
+#line 50 "libs/math.g"
+#line 51 "libs/math.g"
+#line 57 "libs/math.g"
+#line 58 "libs/math.g"
+#line 60 "libs/math.g"
+#line 74 "libs/math.g"
+#line 83 "libs/math.g"
+#line 94 "libs/math.g"
+#line 100 "libs/math.g"
+#line 109 "libs/math.g"
+#line 118 "libs/math.g"
+#line 134 "libs/math.g"
+#line 138 "libs/math.g"
+#line 154 "libs/math.g"
+#line 160 "libs/math.g"
+#line 164 "libs/math.g"
+#line 168 "libs/math.g"
+#line 173 "libs/math.g"
+#line 178 "libs/math.g"
+#line 182 "libs/math.g"
+#line 186 "libs/math.g"
+#line 191 "libs/math.g"
+#line 196 "libs/math.g"
+#line 200 "libs/math.g"
+#line 204 "libs/math.g"
+#line 208 "libs/math.g"
+#line 212 "libs/math.g"
+#line 216 "libs/math.g"
+#line 220 "libs/math.g"
+#line 224 "libs/math.g"
+#line 228 "libs/math.g"
+#line 236 "libs/math.g"
+#line 237 "libs/math.g"
+#line 238 "libs/math.g"
+#line 240 "libs/math.g"
+#line 245 "libs/math.g"
+#line 250 "libs/math.g"
+#line 255 "libs/math.g"
+#line 262 "libs/math.g"
+#line 268 "libs/math.g"
+#line 272 "libs/math.g"
+#line 276 "libs/math.g"
+#line 277 "libs/math.g"
+#line 278 "libs/math.g"
+#line 280 "libs/math.g"
+#line 286 "libs/math.g"
+#line 292 "libs/math.g"
+#line 298 "libs/math.g"
+#line 303 "libs/math.g"
+#line 308 "libs/math.g"
+#line 309 "libs/math.g"
+#line 315 "libs/math.g"
+#line 316 "libs/math.g"
+#line 317 "libs/math.g"
+#line 318 "libs/math.g"
+#line 319 "libs/math.g"
+#line 323 "libs/math.g"
+#line 332 "libs/math.g"
+#line 333 "libs/math.g"
+#line 334 "libs/math.g"
+#line 335 "libs/math.g"
+#line 337 "libs/math.g"
+#line 343 "libs/math.g"
+#line 351 "libs/math.g"
+#line 352 "libs/math.g"
+#line 354 "libs/math.g"
+#line 359 "libs/math.g"
+#line 360 "libs/math.g"
+#line 362 "libs/math.g"
+#line 366 "libs/math.g"
+#line 371 "libs/math.g"
+#line 376 "libs/math.g"
+----
+/*TranspiladopeloGhostCompilerv1.0*/#include<iostream>#include<cstdio>#include<cstdlib>#include<string>#include<complex>#include<type_traits>#include<fstream>#include<sstream>#include<thread>#include<chrono>#include<mutex>#include"include/GhostNumberG.hpp"#include"include/GhostMatrix.hpp"#include"include/GhostLLM.hpp"#include"include/GhostLib.hpp"#include"include/GhostDevice.hpp"#include"include/GhostTextModel.hpp"#include"include/GhostWeb.hpp"#include"include/GhostKnowledge.hpp"#include"include/GhostTemporal.hpp"#include"include/GhostTransformer.hpp"#include"include/GhostTransformerG.hpp"#include"include/GhostMatrixG.hpp"#include"include/GhostQuantum.hpp"#include"include/GhostQML.hpp"#include"include/GhostHybrid.hpp"#include"include/GhostQTape.hpp"#include"include/GhostCore.hpp"#ifdef_WIN32#include<windows.h>#endifdoubleconst_pi();
+doubleconst_tau();
+doubleconst_e();
+doubleconst_phi();
+doubleconst_sqrt2();
+doubleconst_sqrt3();
+doubleconst_ln2();
+doubleconst_ln10();
+doubleconst_log2e();
+doubleconst_log10e();
+doublesoma(doublea,doubleb);
+doublesubtracao(doublea,doubleb);
+doublemultiplicacao(doublea,doubleb);
+doubledivisao(doublea,doubleb);
+intsoma_inteira(inta,intb);
+intsubtracao_inteira(inta,intb);
+intmultiplicacao_inteira(inta,intb);
+intdivisao_inteira(inta,intb);
+intresto_inteiro(inta,intb);
+doubleresto_divisao(doublea,doubleb);
+doubleabsoluto(doublex);
+doublesinal(doublex);
+booleh_par(intn);
+booleh_impar(intn);
+booleh_primo(intn);
+intproximo_primo(intn);
+intmdc(inta,intb);
+intmmc(inta,intb);
+doublefatorial(intn);
+doublepermutacao(intn,intk);
+doublecombinacao(intn,intk);
+doublepotencia(doublebase,doubleexpoente);
+intpotencia_inteira(intbase,intexpoente);
+doubleraiz_quadrada(doublenumero);
+std::complex<double>raiz_quadrada(std::complex<double>z);
+std::complex<double>raiz_quadrada_complexa(std::complex<double>z);
+std::complex<double>csqrt(std::complex<double>z);
+doubleraiz_cubica(doublenumero);
+std::complex<double>raiz_cubica(std::complex<double>z);
+std::complex<double>raiz_cubica_complexa(std::complex<double>z);
+std::complex<double>ccbrt(std::complex<double>z);
+doubleraiz_n(doublex,intn);
+std::complex<double>raiz_n(std::complex<double>z,intn);
+std::complex<double>raiz_n_complexa(std::complex<double>z,intn);
+doublenth_root(doublex,intn);
+std::complex<double>nth_root(std::complex<double>z,intn);
+std::complex<double>nth_root_c(std::complex<double>z,intn);
+doubleroot(doublex,intn);
+std::complex<double>root(std::complex<double>z,intn);
+std::complex<double>croot(std::complex<double>z,intn);
+doublehipotenusa(doublea,doubleb);
+doubleexponencial(doublex);
+doubleexponencial2(doublex);
+doubleexpm1_fn(doublex);
+doublelogaritmo_natural(doublenumero);
+doublelogaritmo_base10(doublenumero);
+doublelogaritmo_base2(doublenumero);
+doublelogaritmo_base(doublenumero,doublebase);
+doublelog1p_fn(doublex);
+doublegraus_para_radianos(doublegraus);
+doubleradianos_para_graus(doubleradianos);
+doubleseno(doubleradianos);
+doublecosseno(doubleradianos);
+doubletangente(doubleradianos);
+doublecotangente(doubleradianos);
+doublesecante(doubleradianos);
+doublecossecante(doubleradianos);
+doublearco_seno(doublex);
+doublearco_cosseno(doublex);
+doublearco_tangente(doublex);
+doublearco_tangente2(doubley,doublex);
+doubleseno_hiperbolico(doublex);
+doublecosseno_hiperbolico(doublex);
+doubletangente_hiperbolica(doublex);
+doublearco_seno_hiperbolico(doublex);
+doublearco_cosseno_hiperbolico(doublex);
+doublearco_tangente_hiperbolica(doublex);
+doublepiso(doublex);
+doubleteto(doublex);
+doublearredondar(doublex);
+doubletruncar(doublex);
+doubleclamp(doubleval,doublemin_val,doublemax_val);
+doublelerp(doublea,doubleb,doublet);
+doublefuncao_gama(doublex);
+doublelog_gama(doublex);
+doublefuncao_beta(doublea,doubleb);
+doublefuncao_erro(doublex);
+doublefuncao_erro_complementar(doublex);
+doubleativacao_sigmoid(doublex);
+doubleativacao_relu(doublex);
+doublegelu(doublex);
+voidexibir_cabecalho_matematico();
+doubleconst_pi(){
+return3.14159265358979323846;
+}
+doubleconst_tau(){
+return6.28318530717958647692;
+}
+doubleconst_e(){
+return2.71828182845904523536;
+}
+doubleconst_phi(){
+return1.61803398874989484820;
+}
+doubleconst_sqrt2(){
+return1.41421356237309504880;
+}
+doubleconst_sqrt3(){
+return1.73205080756887729352;
+}
+doubleconst_ln2(){
+return0.69314718055994530941;
+}
+doubleconst_ln10(){
+return2.30258509299404568402;
+}
+doubleconst_log2e(){
+return1.44269504088896340736;
+}
+doubleconst_log10e(){
+return0.43429448190325182765;
+}
+doublesoma(doublea,doubleb){
+returna+b;
+}
+doublesubtracao(doublea,doubleb){
+returna-b;
+}
+doublemultiplicacao(doublea,doubleb){
+returna*b;
+}
+doubledivisao(doublea,doubleb){
+if(b==0.0){
+throwghost_error(std::string("divisao por zero"));
+}
+returna/b;
+}
+intsoma_inteira(inta,intb){
+returna+b;
+}
+intsubtracao_inteira(inta,intb){
+returna-b;
+}
+intmultiplicacao_inteira(inta,intb){
+returna*b;
+}
+intdivisao_inteira(inta,intb){
+if(b==0){
+throwghost_error(std::string("divisao inteira por zero"));
+}
+returna/b;
+}
+intresto_inteiro(inta,intb){
+if(b==0){
+throwghost_error(std::string("modulo por zero"));
+}
+returna%b;
+}
+doubleresto_divisao(doublea,doubleb){
+if(b==0.0){
+throwghost_error(std::string("modulo flutuante por zero"));
+}
+returnfmod(a,b);
+}
+doubleabsoluto(doublex){
+returnabs(x);
+}
+doublesinal(doublex){
+if(x>0.0){
+return1.0;
+}
+if(x<0.0){
+return-1.0;
+}
+return0.0;
+}
+booleh_par(intn){
+return(n%2)==0;
+}
+booleh_impar(intn){
+return(n%2)!=0;
+}
+booleh_primo(intn){
+if(n<=1){
+returnfalse;
+}
+if(n<=3){
+returntrue;
+}
+if(n%2==0||n%3==0){
+returnfalse;
+}
+inti=5;
+while(i*i<=n){
+if(n%i==0||n%(i+2)==0){
+returnfalse;
+}
+i=i+6;
+}
+returntrue;
+}
+intproximo_primo(intn){
+if(n<=1){
+return2;
+}
+intprimo=n+1;
+while(!eh_primo(primo)){
+primo=primo+1;
+}
+returnprimo;
+}
+intmdc(inta,intb){
+if(a<0){
+a=-a;
+}
+if(b<0){
+b=-b;
+}
+while(b!=0){
+inttemp=b;
+b=a%b;
+a=temp;
+}
+returna;
+}
+intmmc(inta,intb){
+if(a==0||b==0){
+return0;
+}
+intm=mdc(a,b);
+return(a/m)*b;
+}
+doublefatorial(intn){
+if(n<0){
+throwghost_error(std::string("fatorial nao definido para numeros negativos"));
+}
+doubleres=1.0;
+for(inti=2;
+i<=n;
+++i){
+res=res*double(i);
+}
+returnres;
+}
+doublepermutacao(intn,intk){
+if(k<0||k>n){
+return0.0;
+}
+doubleres=1.0;
+for(inti=n-k+1;
+i<=n;
+++i){
+res=res*double(i);
+}
+returnres;
+}
+doublecombinacao(intn,intk){
+if(k<0||k>n){
+return0.0;
+}
+if(k==0||k==n){
+return1.0;
+}
+if(k>n-k){
+k=n-k;
+}
+doubleres=1.0;
+for(inti=1;
+i<=k;
+++i){
+res=res*double(n-k+i);
+res=res/double(i);
+}
+returnres;
+}
+doublepotencia(doublebase,doubleexpoente){
+returnghost_pow(base,expoente);
+}
+intpotencia_inteira(intbase,intexpoente){
+if(expoente<0){
+return0;
+}
+intresultado=1;
+intb=base;
+intexp=expoente;
+while(exp>0){
+if(exp%2==1){
+resultado=resultado*b;
+}
+b=b*b;
+exp=exp/2;
+}
+returnresultado;
+}
+doubleraiz_quadrada(doublenumero){
+if(numero<0.0){
+throwghost_error(std::string("raiz quadrada de numero negativo no dominio real nao existe; utilize csqrt(numero), raiz_quadrada(complex) ou raiz_quadrada_complexa(numero)"));
+}
+returnsqrt(numero);
+}
+std::complex<double>raiz_quadrada(std::complex<double>z){
+returnsqrt(z);
+}
+std::complex<double>raiz_quadrada_complexa(std::complex<double>z){
+returnsqrt(z);
+}
+std::complex<double>csqrt(std::complex<double>z){
+returnsqrt(z);
+}
+doubleraiz_cubica(doublenumero){
+returncbrt(numero);
+}
+std::complex<double>raiz_cubica(std::complex<double>z){
+returnghost_nth_root_complex(z,3);
+}
+std::complex<double>raiz_cubica_complexa(std::complex<double>z){
+returnghost_nth_root_complex(z,3);
+}
+std::complex<double>ccbrt(std::complex<double>z){
+returnghost_nth_root_complex(z,3);
+}
+doubleraiz_n(doublex,intn){
+returnghost_nth_root(x,n);
+}
+std::complex<double>raiz_n(std::complex<double>z,intn){
+returnghost_nth_root_complex(z,n);
+}
+std::complex<double>raiz_n_complexa(std::complex<double>z,intn){
+returnghost_nth_root_complex(z,n);
+}
+doublenth_root(doublex,intn){
+returnghost_nth_root(x,n);
+}
+std::complex<double>nth_root(std::complex<double>z,intn){
+returnghost_nth_root_complex(z,n);
+}
+std::complex<double>nth_root_c(std::complex<double>z,intn){
+returnghost_nth_root_complex(z,n);
+}
+doubleroot(doublex,intn){
+returnghost_nth_root(x,n);
+}
+std::complex<double>root(std::complex<double>z,intn){
+returnghost_nth_root_complex(z,n);
+}
+std::complex<double>croot(std::complex<double>z,intn){
+returnghost_nth_root_complex(z,n);
+}
+doublehipotenusa(doublea,doubleb){
+returnhypot(a,b);
+}
+doubleexponencial(doublex){
+returnexp(x);
+}
+doubleexponencial2(doublex){
+returnexp2(x);
+}
+doubleexpm1_fn(doublex){
+returnexpm1(x);
+}
+doublelogaritmo_natural(doublenumero){
+if(numero<=0.0){
+throwghost_error(std::string("logaritmo de numero menor ou igual a zero nao e real"));
+}
+returnlog(numero);
+}
+doublelogaritmo_base10(doublenumero){
+if(numero<=0.0){
+throwghost_error(std::string("logaritmo de numero menor ou igual a zero nao e real"));
+}
+returnlog10(numero);
+}
+doublelogaritmo_base2(doublenumero){
+if(numero<=0.0){
+throwghost_error(std::string("logaritmo de numero menor ou igual a zero nao e real"));
+}
+returnlog2(numero);
+}
+doublelogaritmo_base(doublenumero,doublebase){
+if(numero<=0.0||base<=0.0||base==1.0){
+throwghost_error(std::string("base ou argumento de logaritmo invalido"));
+}
+returnlog(numero)/log(base);
+}
+doublelog1p_fn(doublex){
+returnlog1p(x);
+}
+doublegraus_para_radianos(doublegraus){
+returngraus*(3.14159265358979323846/180.0);
+}
+doubleradianos_para_graus(doubleradianos){
+returnradianos*(180.0/3.14159265358979323846);
+}
+doubleseno(doubleradianos){
+returnsin(radianos);
+}
+doublecosseno(doubleradianos){
+returncos(radianos);
+}
+doubletangente(doubleradianos){
+returntan(radianos);
+}
+doublecotangente(doubleradianos){
+doublet=tan(radianos);
+if(t==0.0){
+throwghost_error(std::string("cotangente indefinida (divisao por zero)"));
+}
+return1.0/t;
+}
+doublesecante(doubleradianos){
+doublec=cos(radianos);
+if(c==0.0){
+throwghost_error(std::string("secante indefinida (divisao por zero)"));
+}
+return1.0/c;
+}
+doublecossecante(doubleradianos){
+doubles=sin(radianos);
+if(s==0.0){
+throwghost_error(std::string("cossecante indefinida (divisao por zero)"));
+}
+return1.0/s;
+}
+doublearco_seno(doublex){
+if(x<-1.0||x>1.0){
+throwghost_error(std::string("dominio de arco seno deve estar entre -1 e 1"));
+}
+returnasin(x);
+}
+doublearco_cosseno(doublex){
+if(x<-1.0||x>1.0){
+throwghost_error(std::string("dominio de arco cosseno deve estar entre -1 e 1"));
+}
+returnacos(x);
+}
+doublearco_tangente(doublex){
+returnatan(x);
+}
+doublearco_tangente2(doubley,doublex){
+returnatan2(y,x);
+}
+doubleseno_hiperbolico(doublex){
+returnsinh(x);
+}
+doublecosseno_hiperbolico(doublex){
+returncosh(x);
+}
+doubletangente_hiperbolica(doublex){
+returntanh(x);
+}
+doublearco_seno_hiperbolico(doublex){
+returnasinh(x);
+}
+doublearco_cosseno_hiperbolico(doublex){
+if(x<1.0){
+throwghost_error(std::string("dominio de arco cosseno hiperbolico deve ser x >= 1"));
+}
+returnacosh(x);
+}
+doublearco_tangente_hiperbolica(doublex){
+if(x<=-1.0||x>=1.0){
+throwghost_error(std::string("dominio de arco tangente hiperbolica deve ser |x| < 1"));
+}
+returnatanh(x);
+}
+doublepiso(doublex){
+returnfloor(x);
+}
+doubleteto(doublex){
+returnceil(x);
+}
+doublearredondar(doublex){
+returnround(x);
+}
+doubletruncar(doublex){
+returntrunc(x);
+}
+doubleclamp(doubleval,doublemin_val,doublemax_val){
+if(val<min_val){
+returnmin_val;
+}
+if(val>max_val){
+returnmax_val;
+}
+returnval;
+}
+doublelerp(doublea,doubleb,doublet){
+returna+(b-a)*t;
+}
+doublefuncao_gama(doublex){
+returntgamma(x);
+}
+doublelog_gama(doublex){
+returnlgamma(x);
+}
+doublefuncao_beta(doublea,doubleb){
+if(a<=0.0||b<=0.0){
+throwghost_error(std::string("parametros da funcao beta devem ser positivos"));
+}
+return(tgamma(a)*tgamma(b))/tgamma(a+b);
+}
+doublefuncao_erro(doublex){
+returnerf(x);
+}
+doublefuncao_erro_complementar(doublex){
+returnerfc(x);
+}
+doubleativacao_sigmoid(doublex){
+return1.0/(1.0+exp(-x));
+}
+doubleativacao_relu(doublex){
+if(x>0.0){
+returnx;
+}
+return0.0;
+}
+doublegelu(doublex){
+doublesqrt_2_pi=0.7978845608028654;
+return0.5*x*(1.0+tanh(sqrt_2_pi*(x+0.044715*(ghost_pow(x,3)))));
+}
+voidexibir_cabecalho_matematico(){
+std::cout<<ghost_show(std::string("================================================="))<<std::endl;
+std::cout<<ghost_show(std::string(" GhostMath Lib v2.0 - Motor Matematico Especialista"))<<std::endl;
+std::cout<<ghost_show(std::string("================================================="))<<std::endl;
+}
+intmain(intargc,char**argv){
+try{
+#ifdef_WIN32SetConsoleOutputCP(CP_UTF8);
+SetConsoleCP(CP_UTF8);
+#endifstd::cout<<std::boolalpha;
+std::stringghost_args="";
+std::vector<std::string>ghost_args_vec;
+for(inti=1;
+i<argc;
+++i){
+ghost_args+=argv[i];
+ghost_args_vec.push_back(argv[i]);
+if(i<argc-1)ghost_args+=" ";
+}
+return0;
+}
+catch(conststd::exception&e){
+std::cerr<<e.what()<<std::endl;
+return1;
+}
+}

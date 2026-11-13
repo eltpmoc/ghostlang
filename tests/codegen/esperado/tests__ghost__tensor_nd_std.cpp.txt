@@ -1,0 +1,265 @@
+#line 4 "libs/tensor.g"
+#line 5 "libs/tensor.g"
+#line 9 "libs/tensor.g"
+#line 10 "libs/tensor.g"
+#line 14 "libs/tensor.g"
+#line 15 "libs/tensor.g"
+#line 19 "libs/tensor.g"
+#line 20 "libs/tensor.g"
+#line 24 "libs/tensor.g"
+#line 28 "libs/tensor.g"
+#line 32 "libs/tensor.g"
+#line 36 "libs/tensor.g"
+#line 40 "libs/tensor.g"
+#line 41 "libs/tensor.g"
+#line 45 "libs/tensor.g"
+#line 46 "libs/tensor.g"
+#line 50 "libs/tensor.g"
+#line 51 "libs/tensor.g"
+#line 55 "libs/tensor.g"
+#line 56 "libs/tensor.g"
+#line 60 "libs/tensor.g"
+#line 64 "libs/tensor.g"
+#line 68 "libs/tensor.g"
+#line 69 "libs/tensor.g"
+#line 73 "libs/tensor.g"
+#line 74 "libs/tensor.g"
+#line 78 "libs/tensor.g"
+#line 82 "libs/tensor.g"
+#line 86 "libs/tensor.g"
+#line 90 "libs/tensor.g"
+#line 94 "libs/tensor.g"
+#line 98 "libs/tensor.g"
+#line 102 "libs/tensor.g"
+#line 106 "libs/tensor.g"
+#line 110 "libs/tensor.g"
+#line 4 "tests/ghost/tensor_nd_std.g"
+#line 5 "tests/ghost/tensor_nd_std.g"
+#line 6 "tests/ghost/tensor_nd_std.g"
+#line 8 "tests/ghost/tensor_nd_std.g"
+#line 9 "tests/ghost/tensor_nd_std.g"
+#line 10 "tests/ghost/tensor_nd_std.g"
+#line 11 "tests/ghost/tensor_nd_std.g"
+#line 12 "tests/ghost/tensor_nd_std.g"
+#line 13 "tests/ghost/tensor_nd_std.g"
+#line 15 "tests/ghost/tensor_nd_std.g"
+#line 16 "tests/ghost/tensor_nd_std.g"
+#line 17 "tests/ghost/tensor_nd_std.g"
+#line 18 "tests/ghost/tensor_nd_std.g"
+#line 21 "tests/ghost/tensor_nd_std.g"
+#line 22 "tests/ghost/tensor_nd_std.g"
+#line 23 "tests/ghost/tensor_nd_std.g"
+#line 26 "tests/ghost/tensor_nd_std.g"
+#line 27 "tests/ghost/tensor_nd_std.g"
+#line 30 "tests/ghost/tensor_nd_std.g"
+#line 31 "tests/ghost/tensor_nd_std.g"
+#line 34 "tests/ghost/tensor_nd_std.g"
+#line 35 "tests/ghost/tensor_nd_std.g"
+#line 36 "tests/ghost/tensor_nd_std.g"
+#line 37 "tests/ghost/tensor_nd_std.g"
+#line 3 "libs/tensor.g"
+#line 8 "libs/tensor.g"
+#line 13 "libs/tensor.g"
+#line 18 "libs/tensor.g"
+#line 23 "libs/tensor.g"
+#line 27 "libs/tensor.g"
+#line 31 "libs/tensor.g"
+#line 35 "libs/tensor.g"
+#line 39 "libs/tensor.g"
+#line 44 "libs/tensor.g"
+#line 49 "libs/tensor.g"
+#line 54 "libs/tensor.g"
+#line 59 "libs/tensor.g"
+#line 63 "libs/tensor.g"
+#line 67 "libs/tensor.g"
+#line 72 "libs/tensor.g"
+#line 77 "libs/tensor.g"
+#line 81 "libs/tensor.g"
+#line 85 "libs/tensor.g"
+#line 89 "libs/tensor.g"
+#line 93 "libs/tensor.g"
+#line 97 "libs/tensor.g"
+#line 101 "libs/tensor.g"
+#line 105 "libs/tensor.g"
+#line 109 "libs/tensor.g"
+#line 3 "tests/ghost/tensor_nd_std.g"
+----
+/*TranspiladopeloGhostCompilerv1.0*/#include<iostream>#include<cstdio>#include<cstdlib>#include<string>#include<complex>#include<type_traits>#include<fstream>#include<sstream>#include<thread>#include<chrono>#include<mutex>#include"include/GhostNumberG.hpp"#include"include/GhostMatrix.hpp"#include"include/GhostLLM.hpp"#include"include/GhostLib.hpp"#include"include/GhostDevice.hpp"#include"include/GhostTextModel.hpp"#include"include/GhostWeb.hpp"#include"include/GhostKnowledge.hpp"#include"include/GhostTemporal.hpp"#include"include/GhostTransformer.hpp"#include"include/GhostTransformerG.hpp"#include"include/GhostMatrixG.hpp"#include"include/GhostQuantum.hpp"#include"include/GhostQML.hpp"#include"include/GhostHybrid.hpp"#include"include/GhostQTape.hpp"#include"include/GhostCore.hpp"#ifdef_WIN32#include<windows.h>#endifinttensor_create_1d(intn,doubleinit_val);
+inttensor_create_2d(intr,intc,doubleinit_val);
+inttensor_create_3d(intd1,intd2,intd3,doubleinit_val);
+inttensor_create_4d(intd1,intd2,intd3,intd4,doubleinit_val);
+voidtensor_free(inthandle);
+inttensor_ndim(inthandle);
+inttensor_dim(inthandle,intaxis);
+inttensor_size(inthandle);
+doubletensor_get_2d(inthandle,intr,intc);
+voidtensor_set_2d(inthandle,intr,intc,doubleval);
+doubletensor_get_3d(inthandle,intd1,intd2,intd3);
+voidtensor_set_3d(inthandle,intd1,intd2,intd3,doubleval);
+doubletensor_get_flat(inthandle,inti);
+voidtensor_set_flat(inthandle,inti,doubleval);
+inttensor_reshape_2d(inthandle,intr,intc);
+inttensor_transpose_2d(inthandle);
+inttensor_slice(inthandle,intstart,intfim);
+inttensor_add(inthA,inthB);
+inttensor_sub(inthA,inthB);
+inttensor_mul(inthA,inthB);
+inttensor_div(inthA,inthB);
+inttensor_matmul(inthA,inthB);
+doubletensor_sum(inthandle);
+doubletensor_mean(inthandle);
+std::stringtensor_to_str(inthandle);
+voidghost_main();
+inttensor_create_1d(intn,doubleinit_val){
+GhostList<int>shape=GhostList<int>{
+n}
+;
+returnghost_tensor_create(shape,1,init_val);
+}
+inttensor_create_2d(intr,intc,doubleinit_val){
+GhostList<int>shape=GhostList<int>{
+r,c}
+;
+returnghost_tensor_create(shape,2,init_val);
+}
+inttensor_create_3d(intd1,intd2,intd3,doubleinit_val){
+GhostList<int>shape=GhostList<int>{
+d1,d2,d3}
+;
+returnghost_tensor_create(shape,3,init_val);
+}
+inttensor_create_4d(intd1,intd2,intd3,intd4,doubleinit_val){
+GhostList<int>shape=GhostList<int>{
+d1,d2,d3,d4}
+;
+returnghost_tensor_create(shape,4,init_val);
+}
+voidtensor_free(inthandle){
+ghost_tensor_free(handle);
+}
+inttensor_ndim(inthandle){
+returnghost_tensor_ndim(handle);
+}
+inttensor_dim(inthandle,intaxis){
+returnghost_tensor_dim(handle,axis);
+}
+inttensor_size(inthandle){
+returnghost_tensor_size(handle);
+}
+doubletensor_get_2d(inthandle,intr,intc){
+GhostList<int>idx=GhostList<int>{
+r,c}
+;
+returnghost_tensor_get(handle,idx,2);
+}
+voidtensor_set_2d(inthandle,intr,intc,doubleval){
+GhostList<int>idx=GhostList<int>{
+r,c}
+;
+ghost_tensor_set(handle,idx,2,val);
+}
+doubletensor_get_3d(inthandle,intd1,intd2,intd3){
+GhostList<int>idx=GhostList<int>{
+d1,d2,d3}
+;
+returnghost_tensor_get(handle,idx,3);
+}
+voidtensor_set_3d(inthandle,intd1,intd2,intd3,doubleval){
+GhostList<int>idx=GhostList<int>{
+d1,d2,d3}
+;
+ghost_tensor_set(handle,idx,3,val);
+}
+doubletensor_get_flat(inthandle,inti){
+returnghost_tensor_get_flat(handle,i);
+}
+voidtensor_set_flat(inthandle,inti,doubleval){
+ghost_tensor_set_flat(handle,i,val);
+}
+inttensor_reshape_2d(inthandle,intr,intc){
+GhostList<int>shape=GhostList<int>{
+r,c}
+;
+returnghost_tensor_reshape(handle,shape,2);
+}
+inttensor_transpose_2d(inthandle){
+GhostList<int>perm=GhostList<int>{
+1,0}
+;
+returnghost_tensor_transpose(handle,perm,2);
+}
+inttensor_slice(inthandle,intstart,intfim){
+returnghost_tensor_slice(handle,start,fim);
+}
+inttensor_add(inthA,inthB){
+returnghost_tensor_add(hA,hB);
+}
+inttensor_sub(inthA,inthB){
+returnghost_tensor_sub(hA,hB);
+}
+inttensor_mul(inthA,inthB){
+returnghost_tensor_mul(hA,hB);
+}
+inttensor_div(inthA,inthB){
+returnghost_tensor_div(hA,hB);
+}
+inttensor_matmul(inthA,inthB){
+returnghost_tensor_matmul(hA,hB);
+}
+doubletensor_sum(inthandle){
+returnghost_tensor_sum(handle);
+}
+doubletensor_mean(inthandle){
+returnghost_tensor_mean(handle);
+}
+std::stringtensor_to_str(inthandle){
+returnghost_tensor_to_string(handle);
+}
+voidghost_main(){
+intt2d=tensor_create_2d(2,3,0.0);
+std::cout<<ghost_show(tensor_ndim(t2d))<<std::endl;
+std::cout<<ghost_show(tensor_size(t2d))<<std::endl;
+tensor_set_2d(t2d,0,0,1.0);
+tensor_set_2d(t2d,0,1,2.0);
+tensor_set_2d(t2d,0,2,3.0);
+tensor_set_2d(t2d,1,0,4.0);
+tensor_set_2d(t2d,1,1,5.0);
+tensor_set_2d(t2d,1,2,6.0);
+std::cout<<ghost_show(tensor_get_2d(t2d,0,1))<<std::endl;
+std::cout<<ghost_show(tensor_get_2d(t2d,1,2))<<std::endl;
+std::cout<<ghost_show(tensor_sum(t2d))<<std::endl;
+std::cout<<ghost_show(tensor_mean(t2d))<<std::endl;
+intt_reshaped=tensor_reshape_2d(t2d,3,2);
+std::cout<<ghost_show(tensor_dim(t_reshaped,0))<<std::endl;
+std::cout<<ghost_show(tensor_dim(t_reshaped,1))<<std::endl;
+intt_transposed=tensor_transpose_2d(t2d);
+std::cout<<ghost_show(tensor_get_2d(t_transposed,1,0))<<std::endl;
+intt_mm=tensor_matmul(t2d,t_transposed);
+std::cout<<ghost_show(tensor_get_2d(t_mm,0,0))<<std::endl;
+intt_row=tensor_create_2d(1,3,10.0);
+intt_bcast=tensor_add(t2d,t_row);
+std::cout<<ghost_show(tensor_get_2d(t_bcast,0,0))<<std::endl;
+std::cout<<ghost_show(tensor_get_2d(t_bcast,1,2))<<std::endl;
+}
+intmain(intargc,char**argv){
+try{
+#ifdef_WIN32SetConsoleOutputCP(CP_UTF8);
+SetConsoleCP(CP_UTF8);
+#endifstd::cout<<std::boolalpha;
+std::stringghost_args="";
+std::vector<std::string>ghost_args_vec;
+for(inti=1;
+i<argc;
+++i){
+ghost_args+=argv[i];
+ghost_args_vec.push_back(argv[i]);
+if(i<argc-1)ghost_args+=" ";
+}
+ghost_main();
+return0;
+}
+catch(conststd::exception&e){
+std::cerr<<e.what()<<std::endl;
+return1;
+}
+}

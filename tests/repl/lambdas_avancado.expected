@@ -1,0 +1,31 @@
+== inferencia de tipos em parametros ==
+inc(10) = 11
+inc(2.5) = 3.5
+aplicar: 15 | GhostLang
+dobros: [2, 4, 6, 8]
+== capturas explicitas ==
+fVal(5) = 15
+fRef(5) = 15 a apos = 15
+fMisto(1) = 36 b apos = 36
+fMisto2(2) = 117 c apos = 117
+fPura(3, 4) = 7
+== capturas de this ==
+fnVal 1: 60
+fnVal 2: 70
+cont.valor apos fnVal = 50
+fnRef 1: 51
+fnRef 2: 52
+cont.valor apos fnRef = 52
+== nome direto de funcao generica ==
+fIdInt(42) = 42
+fIdStr(oi) = oi
+fIdDouble(3.14) = 3.14
+eco: ["ola", "mundo"]
+fim lambdas avancadas
+== erros de uso ==
+[Erro de Execucao] para inferir o tipo do parametro na lambda escreva apenas o nome: (x) => ...
+[Erro de Execucao] variavel 'z' nao declarada para capturar na lambda
+[Erro de Execucao] variavel 'a' repetida na captura da lambda
+[Erro de Execucao] com '&' as variaveis ja sao capturadas por referencia; liste apenas variaveis por valor (ex.: [&, a])
+[Erro de Execucao] this na captura da lambda so vale em metodo de instancia
+[Erro de Execucao] errAridade: funcao generica id de 1 parametro(s) nao cabe em fn<int(int,int)>

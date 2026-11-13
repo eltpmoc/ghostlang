@@ -1,0 +1,17 @@
+[Ghost] aviso: import circular: ciclo_a.g -> ciclo_b.g -> ciclo_a.g (o import repetido foi ignorado)
+== import ... as ==
+distancia 5 | funcao local com o mesmo nome 4
+medida 5.00 (escala 2) | maior 9 2.5
+criados 3 | globais 2 40 | campo com o nome de funcao do modulo 1 2
+dois apelidos, duas copias: 5 7 0
+10 5 [0, 10, 20]
+variavel comum: ["a"]
+== modulo que importa modulo ==
+#(3, 4) a 5.0 #
+== import sem apelido (com ciclo) ==
+42 41
+== erros ==
+[Erro de Execucao] o modulo geo nao tem 'naoExiste' (nomes do modulo: funcoes, classes, interfaces e variaveis globais do arquivo importado)
+[Erro de Execucao] nao foi possivel importar o arquivo tests/ghost/modulos/nao_existe.g
+import repetido com o mesmo apelido nao recria o modulo: 5
+fim do roteiro de modulos

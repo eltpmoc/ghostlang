@@ -1,0 +1,16 @@
+{
+  "dispositivo": "cpu",
+  "identidade": "ok",
+  "fontes": "ok",
+  "streaming": "mesmo texto que geracao completa",
+  "contexto_limpar": "ok",
+  "relogio_e_fusos": "ok",
+  "nocao_temporal": "ok",
+  "degeneracao_bloqueada": "ok",
+  "planejamento_local": "ok",
+  "roteamento_sem_pesquisa": "ok",
+  "contexto_sem_corte": "ok",
+  "utf8_sem_unk": "ok",
+  "eof": "ok",
+  "memoria_preservada": true
+}

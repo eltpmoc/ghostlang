@@ -1,0 +1,3 @@
+Backend: cpu
+Backend apos cpu: cpu
+gpu_pragma: OK

@@ -1,0 +1,272 @@
+#line 13 "tests/ghost/tipos_validos.g"
+#line 13 "tests/ghost/tipos_validos.g"
+#line 14 "tests/ghost/tipos_validos.g"
+#line 15 "tests/ghost/tipos_validos.g"
+#line 20 "tests/ghost/tipos_validos.g"
+#line 21 "tests/ghost/tipos_validos.g"
+#line 22 "tests/ghost/tipos_validos.g"
+#line 27 "tests/ghost/tipos_validos.g"
+#line 28 "tests/ghost/tipos_validos.g"
+#line 31 "tests/ghost/tipos_validos.g"
+#line 32 "tests/ghost/tipos_validos.g"
+#line 33 "tests/ghost/tipos_validos.g"
+#line 34 "tests/ghost/tipos_validos.g"
+#line 36 "tests/ghost/tipos_validos.g"
+#line 41 "tests/ghost/tipos_validos.g"
+#line 42 "tests/ghost/tipos_validos.g"
+#line 43 "tests/ghost/tipos_validos.g"
+#line 44 "tests/ghost/tipos_validos.g"
+#line 45 "tests/ghost/tipos_validos.g"
+#line 46 "tests/ghost/tipos_validos.g"
+#line 47 "tests/ghost/tipos_validos.g"
+#line 48 "tests/ghost/tipos_validos.g"
+#line 49 "tests/ghost/tipos_validos.g"
+#line 50 "tests/ghost/tipos_validos.g"
+#line 51 "tests/ghost/tipos_validos.g"
+#line 52 "tests/ghost/tipos_validos.g"
+#line 52 "tests/ghost/tipos_validos.g"
+#line 52 "tests/ghost/tipos_validos.g"
+#line 53 "tests/ghost/tipos_validos.g"
+#line 53 "tests/ghost/tipos_validos.g"
+#line 54 "tests/ghost/tipos_validos.g"
+#line 55 "tests/ghost/tipos_validos.g"
+#line 55 "tests/ghost/tipos_validos.g"
+#line 55 "tests/ghost/tipos_validos.g"
+#line 55 "tests/ghost/tipos_validos.g"
+#line 56 "tests/ghost/tipos_validos.g"
+#line 57 "tests/ghost/tipos_validos.g"
+#line 58 "tests/ghost/tipos_validos.g"
+#line 59 "tests/ghost/tipos_validos.g"
+#line 60 "tests/ghost/tipos_validos.g"
+#line 60 "tests/ghost/tipos_validos.g"
+#line 61 "tests/ghost/tipos_validos.g"
+#line 62 "tests/ghost/tipos_validos.g"
+#line 63 "tests/ghost/tipos_validos.g"
+#line 64 "tests/ghost/tipos_validos.g"
+#line 65 "tests/ghost/tipos_validos.g"
+#line 66 "tests/ghost/tipos_validos.g"
+#line 3 "tests/ghost/tipos_validos.g"
+#line 8 "tests/ghost/tipos_validos.g"
+#line 18 "tests/ghost/tipos_validos.g"
+#line 25 "tests/ghost/tipos_validos.g"
+#line 31 "tests/ghost/tipos_validos.g"
+#line 32 "tests/ghost/tipos_validos.g"
+#line 33 "tests/ghost/tipos_validos.g"
+#line 34 "tests/ghost/tipos_validos.g"
+#line 36 "tests/ghost/tipos_validos.g"
+#line 38 "tests/ghost/tipos_validos.g"
+#line 40 "tests/ghost/tipos_validos.g"
+----
+/*TranspiladopeloGhostCompilerv1.0*/#include<iostream>#include<cstdio>#include<cstdlib>#include<string>#include<complex>#include<type_traits>#include<fstream>#include<sstream>#include<thread>#include<chrono>#include<mutex>#include"include/GhostNumberG.hpp"#include"include/GhostMatrix.hpp"#include"include/GhostLLM.hpp"#include"include/GhostLib.hpp"#include"include/GhostDevice.hpp"#include"include/GhostTextModel.hpp"#include"include/GhostWeb.hpp"#include"include/GhostKnowledge.hpp"#include"include/GhostTemporal.hpp"#include"include/GhostTransformer.hpp"#include"include/GhostTransformerG.hpp"#include"include/GhostMatrixG.hpp"#include"include/GhostQuantum.hpp"#include"include/GhostQML.hpp"#include"include/GhostHybrid.hpp"#include"include/GhostQTape.hpp"#include"include/GhostCore.hpp"#ifdef_WIN32#include<windows.h>#endifclassAnimal;
+template<classT>classCaixa;
+classCao;
+classNomeado;
+intsoma(inta,intb);
+doublesoma(doublea,doubleb,doublec);
+std::stringrotulo(std::strings,intn=1);
+template<classT>Tprimeiro(GhostList<T>xs);
+intusaGlobal();
+voidghost_main();
+externintcontador;
+classNomeado;
+classghost_iface_Nomeado{
+public:virtual~ghost_iface_Nomeado()=default;
+virtualstd::stringnome()=0;
+virtualstd::stringsaudacao(){
+returnstd::string("ola, ")+this->nome();
+}
+}
+;
+classNomeado:publicvirtualghost_iface_Nomeado{
+std::shared_ptr<ghost_iface_Nomeado>ghost_p_;
+std::shared_ptr<ghost_iface_Nomeado>(*ghost_clone_)(constghost_iface_Nomeado&)=nullptr;
+ghost_iface_Nomeado&ghost_obj()const{
+if(!ghost_p_)throwstd::runtime_error("Nomeado sem objeto: guarde um objeto antes de chamar um metodo");
+return*ghost_p_;
+}
+public:Nomeado()=default;
+template<classT,class=std::enable_if_t<std::is_base_of_v<ghost_iface_Nomeado,T>&&!std::is_same_v<T,Nomeado>>>Nomeado(constT&v):ghost_p_(std::make_shared<T>(v)),ghost_clone_([](constghost_iface_Nomeado&x)->std::shared_ptr<ghost_iface_Nomeado>{
+returnstd::make_shared<T>(dynamic_cast<constT&>(x));
+}
+){
+}
+Nomeado(constNomeado&o):ghost_iface_Nomeado(),ghost_p_(o.ghost_p_?o.ghost_clone_(*o.ghost_p_):nullptr),ghost_clone_(o.ghost_clone_){
+}
+Nomeado&operator=(constNomeado&o){
+if(this!=&o){
+ghost_p_=o.ghost_p_?o.ghost_clone_(*o.ghost_p_):nullptr;
+ghost_clone_=o.ghost_clone_;
+}
+return*this;
+}
+std::stringnome()override{
+returnghost_obj().nome();
+}
+std::stringsaudacao()override{
+returnghost_obj().saudacao();
+}
+}
+;
+classAnimal:publicvirtualghost_iface_Nomeado{
+public:protected:std::stringespecie{
+}
+;
+public:staticinlineinttotal=0;
+Animal(std::stringe){
+especie=e;
+Animal::total=Animal::total+1;
+}
+virtualstd::stringnome(){
+returnespecie;
+}
+virtualstd::stringsom(){
+returnstd::string("...");
+}
+}
+;
+classCao:publicAnimal{
+public:intidade{
+}
+;
+Cao(inti):Animal(i>3?std::string("cao velho"):std::string("cao")){
+idade=i;
+}
+virtualstd::stringsom(){
+returnstd::string("au");
+}
+virtualstd::stringficha(){
+returnespecie+std::string(" (")+idade+std::string(" anos) ")+(*this).som()+std::string(" ")+saudacao();
+}
+}
+;
+template<classT>classCaixa{
+public:Tvalor{
+}
+;
+Caixa(Tv){
+valor=v;
+}
+virtualTpegar(){
+returnvalor;
+}
+}
+;
+intcontador;
+intsoma(inta,intb){
+returna+b;
+}
+doublesoma(doublea,doubleb,doublec){
+returna+b+c;
+}
+std::stringrotulo(std::strings,intn){
+returns+std::string("#")+n;
+}
+template<classT>Tprimeiro(GhostList<T>xs){
+returnxs[0];
+}
+intusaGlobal(){
+returncontador*2;
+}
+voidghost_main(){
+Caoc=Cao(5);
+Animala=c;
+std::cout<<ghost_show(c.ficha())<<ghost_show(std::string(" | "))<<ghost_show(a.som())<<ghost_show(std::string(" | "))<<ghost_show(Animal::total)<<std::endl;
+std::cout<<ghost_show(soma(1,2))<<ghost_show(std::string(" "))<<ghost_show(soma(1.0,2.0,3.5))<<ghost_show(std::string(" "))<<ghost_show(rotulo(std::string("x")))<<ghost_show(std::string(" "))<<ghost_show(rotulo(std::string("y"),2))<<std::endl;
+Caixa<int>k=Caixa<int>(7);
+std::cout<<ghost_show(k.pegar()+1)<<ghost_show(std::string(" "))<<ghost_show(primeiro<int>(ghost_list(4,5)))<<ghost_show(std::string(" "))<<ghost_show(primeiro(ghost_list(2.5)))<<std::endl;
+doubled=3;
+intn=3.9;
+boolb=1;
+std::strings=std::string("n=")+n+std::string(" d=")+d;
+std::cout<<ghost_show(s)<<ghost_show(std::string(" "))<<ghost_show(b)<<ghost_show(std::string(" "))<<ghost_show(usaGlobal())<<std::endl;
+for(inti=0;
+i<2;
+i++){
+intx=i*10;
+std::cout<<ghost_show(x)<<std::endl;
+}
+for(inti=0;
+i<1;
+i++){
+std::cout<<ghost_show(std::string("de novo "))<<ghost_show(i)<<std::endl;
+}
+intx=1;
+if(x>0){
+inty=x+1;
+std::stringx2=std::string("dentro");
+std::cout<<ghost_show(y)<<ghost_show(x2)<<std::endl;
+}
+autodobro=ghost_make_fn<int>([=](intv)mutable{
+returnv*2;
+}
+);
+GhostFn<int(int)>mais=GhostFn<int(int)>([=](intv)mutable->int{
+returnv+x;
+}
+);
+GhostList<int>qs=([&](){
+auto&&ghost_src_1=ghost_iter(range(5));
+autoghost_fx_1=[&](autoq){
+returnq*q;
+}
+;
+autoghost_fc_1=[&](autoq){
+returnstatic_cast<bool>(q%2==0);
+}
+;
+GhostList<int>ghost_out_1;
+for(constauto&q:ghost_src_1){
+if(ghost_fc_1(q))ghost_collect(ghost_out_1,ghost_fx_1(q));
+}
+returnghost_out_1;
+}
+());
+GhostMap<std::string,int>m=GhostMap<std::string,int>{
+{
+std::string("a"),1}
+,{
+std::string("b"),2}
+}
+;
+for(auto&[chave,valor]:m){
+std::cout<<ghost_show(chave)<<ghost_show(std::string("="))<<ghost_show(valor)<<std::endl;
+}
+std::cout<<ghost_show(dobro(4))<<ghost_show(std::string(" "))<<ghost_show(mais(1))<<ghost_show(std::string(" "))<<ghost_show(qs)<<ghost_show(std::string(" "))<<ghost_show(len(qs))<<std::endl;
+{
+try{
+throwghost_error(std::string("falha"));
+}
+catch(...){
+std::stringerr=ghost_exception_message(std::current_exception());
+(void)err;
+std::cout<<ghost_show(std::string("pegou "))<<ghost_show(err)<<std::endl;
+}
+}
+GhostNumberGG=1.5-2.5*ghost_i(1.0)+3.5*ghost_g(1.0);
+std::cout<<ghost_show(G)<<std::endl;
+std::complex<double>z=2.0;
+std::cout<<ghost_show(z)<<std::endl;
+}
+intmain(intargc,char**argv){
+try{
+#ifdef_WIN32SetConsoleOutputCP(CP_UTF8);
+SetConsoleCP(CP_UTF8);
+#endifstd::cout<<std::boolalpha;
+std::stringghost_args="";
+std::vector<std::string>ghost_args_vec;
+for(inti=1;
+i<argc;
+++i){
+ghost_args+=argv[i];
+ghost_args_vec.push_back(argv[i]);
+if(i<argc-1)ghost_args+=" ";
+}
+contador=5;
+ghost_main();
+return0;
+}
+catch(conststd::exception&e){
+std::cerr<<e.what()<<std::endl;
+return1;
+}
+}

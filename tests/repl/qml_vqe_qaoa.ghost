@@ -1,0 +1,39 @@
+import "libs/quantum.g";
+
+// 1. VQE: H2
+qcircuit h2(2);
+h2.seed(3);
+h2.ansatz(2);
+hamiltoniano_h2(h2);
+
+print(f"Hamiltoniano: ${h2.observable_string()}");
+print(h2.draw());
+print(f"Energia inicial: ${h2.energy()} Ha");
+
+h2.set_verbose(100);
+double e = h2.minimize(300, 0.05);
+print(f"Energia VQE:      ${e} Ha");
+print("Referencia exata: -1.857275 Ha");
+print(f"Estado otimizado: ${h2.state()}");
+
+// 2. QAOA: MaxCut
+qcircuit grafo(6);
+grafo.seed(4);
+grafo.edge(0, 1); grafo.edge(1, 2); grafo.edge(2, 3);
+grafo.edge(3, 4); grafo.edge(4, 5); grafo.edge(5, 0);
+grafo.edge(0, 3); grafo.edge(1, 4);
+
+grafo.qaoa(3);
+print(grafo);
+print(f"Otimo exato (forca bruta): ${grafo.maxcut_exact()}");
+print(f"Corte esperado antes:      ${grafo.expected_cut()}");
+
+grafo.set_verbose(50);
+grafo.minimize(150, 0.05);
+
+print(f"Corte esperado depois:     ${grafo.expected_cut()}");
+print(f"Razao de aproximacao:      ${grafo.expected_cut() / grafo.maxcut_exact()}");
+string solucao = grafo.maxcut_solution(2000);
+print(f"Melhor solucao amostrada:  ${solucao} -> corte ${grafo.cut_of(solucao)}");
+print("qml_vqe_qaoa: OK");
+exit

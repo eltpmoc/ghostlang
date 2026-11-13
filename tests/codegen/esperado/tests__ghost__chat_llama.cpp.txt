@@ -1,0 +1,252 @@
+#line 5 "tests/ghost/chat_llama.g"
+#line 7 "tests/ghost/chat_llama.g"
+#line 8 "tests/ghost/chat_llama.g"
+#line 10 "tests/ghost/chat_llama.g"
+#line 11 "tests/ghost/chat_llama.g"
+#line 15 "tests/ghost/chat_llama.g"
+#line 16 "tests/ghost/chat_llama.g"
+#line 17 "tests/ghost/chat_llama.g"
+#line 18 "tests/ghost/chat_llama.g"
+#line 20 "tests/ghost/chat_llama.g"
+#line 21 "tests/ghost/chat_llama.g"
+#line 22 "tests/ghost/chat_llama.g"
+#line 24 "tests/ghost/chat_llama.g"
+#line 26 "tests/ghost/chat_llama.g"
+#line 31 "tests/ghost/chat_llama.g"
+#line 33 "tests/ghost/chat_llama.g"
+#line 35 "tests/ghost/chat_llama.g"
+#line 36 "tests/ghost/chat_llama.g"
+#line 37 "tests/ghost/chat_llama.g"
+#line 38 "tests/ghost/chat_llama.g"
+#line 39 "tests/ghost/chat_llama.g"
+#line 40 "tests/ghost/chat_llama.g"
+#line 41 "tests/ghost/chat_llama.g"
+#line 42 "tests/ghost/chat_llama.g"
+#line 43 "tests/ghost/chat_llama.g"
+#line 44 "tests/ghost/chat_llama.g"
+#line 45 "tests/ghost/chat_llama.g"
+#line 46 "tests/ghost/chat_llama.g"
+#line 47 "tests/ghost/chat_llama.g"
+#line 50 "tests/ghost/chat_llama.g"
+#line 52 "tests/ghost/chat_llama.g"
+#line 53 "tests/ghost/chat_llama.g"
+#line 55 "tests/ghost/chat_llama.g"
+#line 56 "tests/ghost/chat_llama.g"
+#line 58 "tests/ghost/chat_llama.g"
+#line 59 "tests/ghost/chat_llama.g"
+#line 60 "tests/ghost/chat_llama.g"
+#line 61 "tests/ghost/chat_llama.g"
+#line 64 "tests/ghost/chat_llama.g"
+#line 65 "tests/ghost/chat_llama.g"
+#line 67 "tests/ghost/chat_llama.g"
+#line 68 "tests/ghost/chat_llama.g"
+#line 69 "tests/ghost/chat_llama.g"
+#line 70 "tests/ghost/chat_llama.g"
+#line 72 "tests/ghost/chat_llama.g"
+#line 73 "tests/ghost/chat_llama.g"
+#line 74 "tests/ghost/chat_llama.g"
+#line 76 "tests/ghost/chat_llama.g"
+#line 78 "tests/ghost/chat_llama.g"
+#line 81 "tests/ghost/chat_llama.g"
+#line 82 "tests/ghost/chat_llama.g"
+#line 83 "tests/ghost/chat_llama.g"
+#line 85 "tests/ghost/chat_llama.g"
+#line 86 "tests/ghost/chat_llama.g"
+#line 87 "tests/ghost/chat_llama.g"
+#line 89 "tests/ghost/chat_llama.g"
+#line 90 "tests/ghost/chat_llama.g"
+#line 92 "tests/ghost/chat_llama.g"
+#line 93 "tests/ghost/chat_llama.g"
+#line 94 "tests/ghost/chat_llama.g"
+#line 95 "tests/ghost/chat_llama.g"
+#line 96 "tests/ghost/chat_llama.g"
+#line 97 "tests/ghost/chat_llama.g"
+#line 98 "tests/ghost/chat_llama.g"
+#line 99 "tests/ghost/chat_llama.g"
+#line 100 "tests/ghost/chat_llama.g"
+#line 101 "tests/ghost/chat_llama.g"
+#line 102 "tests/ghost/chat_llama.g"
+#line 103 "tests/ghost/chat_llama.g"
+#line 104 "tests/ghost/chat_llama.g"
+#line 105 "tests/ghost/chat_llama.g"
+#line 107 "tests/ghost/chat_llama.g"
+#line 108 "tests/ghost/chat_llama.g"
+#line 109 "tests/ghost/chat_llama.g"
+#line 110 "tests/ghost/chat_llama.g"
+#line 112 "tests/ghost/chat_llama.g"
+#line 113 "tests/ghost/chat_llama.g"
+#line 114 "tests/ghost/chat_llama.g"
+#line 115 "tests/ghost/chat_llama.g"
+#line 118 "tests/ghost/chat_llama.g"
+#line 119 "tests/ghost/chat_llama.g"
+#line 120 "tests/ghost/chat_llama.g"
+#line 122 "tests/ghost/chat_llama.g"
+#line 125 "tests/ghost/chat_llama.g"
+#line 127 "tests/ghost/chat_llama.g"
+#line 128 "tests/ghost/chat_llama.g"
+#line 131 "tests/ghost/chat_llama.g"
+#line 132 "tests/ghost/chat_llama.g"
+#line 136 "tests/ghost/chat_llama.g"
+#line 4 "tests/ghost/chat_llama.g"
+----
+/*TranspiladopeloGhostCompilerv1.0*/#include<iostream>#include<cstdio>#include<cstdlib>#include<string>#include<complex>#include<type_traits>#include<fstream>#include<sstream>#include<thread>#include<chrono>#include<mutex>#include"include/GhostNumberG.hpp"#include"include/GhostMatrix.hpp"#include"include/GhostLLM.hpp"#include"include/GhostLib.hpp"#include"include/GhostDevice.hpp"#include"include/GhostTextModel.hpp"#include"include/GhostWeb.hpp"#include"include/GhostKnowledge.hpp"#include"include/GhostTemporal.hpp"#include"include/GhostTransformer.hpp"#include"include/GhostTransformerG.hpp"#include"include/GhostMatrixG.hpp"#include"include/GhostQuantum.hpp"#include"include/GhostQML.hpp"#include"include/GhostHybrid.hpp"#include"include/GhostQTape.hpp"#include"include/GhostCore.hpp"#ifdef_WIN32#include<windows.h>#endifvoidghost_main(GhostList<std::string>args);
+voidghost_main(GhostList<std::string>args){
+std::cout<<ghost_show(std::string("Iniciando Ghost Chat..."))<<std::endl;
+std::stringmodelo=std::string("");
+std::stringmemoria=std::string("[\n");
+if(args.size()>0){
+modelo=args[0];
+}
+if(args.size()>2){
+if(args[1]==std::string("-load")){
+if(file_exists(args[2])){
+memoria=openfile(args[2]);
+if(memoria.length()>2){
+memoria=memoria.substr(0,memoria.length()-2);
+memoria=memoria+std::string(",\n");
+}
+std::cout<<ghost_show(std::string("[Ghost OS] Memoria carregada do arquivo: ")+args[2])<<std::endl;
+}
+else{
+std::cout<<ghost_show(std::string("[Ghost OS] Arquivo de memoria nao encontrado."))<<std::endl;
+}
+}
+}
+GhostLLMcerebro_llama=load_gguf(modelo);
+std::stringuser_input=std::string("");
+std::cout<<ghost_show(std::string("====================================================================="))<<std::endl;
+std::cout<<ghost_show(std::string("GhostLang AI Chat Iniciado!"))<<std::endl;
+std::cout<<ghost_show(std::string("Digite '/bye' a qualquer momento para sair."))<<std::endl;
+std::cout<<ghost_show(std::string("Digite '/salvar <arquivo.json>' para salvar a memoria."))<<std::endl;
+std::cout<<ghost_show(std::string("Digite '/load <arquivo.json>' para carregar a memoria."))<<std::endl;
+std::cout<<ghost_show(std::string("Digite '/limpar' para limpar a memoria."))<<std::endl;
+std::cout<<ghost_show(std::string("Digite '/reset' para resetar o chat."))<<std::endl;
+std::cout<<ghost_show(std::string("Digite '/exibir' para exibir a memoria."))<<std::endl;
+std::cout<<ghost_show(std::string("Digite '/modelo <arquivo.gguf>' para carregar um novo modelo de IA."))<<std::endl;
+std::cout<<ghost_show(std::string("Digite '/prompt <prompt>' para fazer uma pergunta."))<<std::endl;
+std::cout<<ghost_show(std::string("Digite '/help' para exibir a ajuda."))<<std::endl;
+std::cout<<ghost_show(std::string("Digite '/clean' para limpar a tela."))<<std::endl;
+std::cout<<ghost_show(std::string("====================================================================="))<<std::endl;
+std::cout<<ghost_show(std::string("\n[Ghost OS] Chat iniciado! Digite '/help' para ver os comandos."))<<std::endl;
+while(user_input!=std::string("/bye")){
+ghost_print("\nVoce: ");
+ghost_input(user_input);
+if(user_input==std::string("/bye")){
+std::cout<<ghost_show(std::string("Saindo do chat... Ate mais!"))<<std::endl;
+}
+else{
+if(user_input.find(std::string("/salvar "))==0){
+std::stringfilename=user_input.substr(8);
+writefile(filename,memoria+std::string("\n]"));
+std::cout<<ghost_show(std::string("[Ghost OS] Memoria salva com sucesso em: ")+filename)<<std::endl;
+}
+else{
+if(user_input.find(std::string("/clean"))==0){
+std::cout<<ghost_show(std::string("\033[2J\033[H"))<<std::endl;
+}
+else{
+if(user_input.find(std::string("/load "))==0){
+std::stringfilename=user_input.substr(6);
+if(file_exists(filename)){
+memoria=openfile(filename);
+if(memoria.length()>2){
+memoria=memoria.substr(0,memoria.length()-2);
+memoria=memoria+std::string(",\n");
+}
+std::cout<<ghost_show(std::string("[Ghost OS] Memoria carregada do arquivo: ")+filename)<<std::endl;
+}
+else{
+std::cout<<ghost_show(std::string("[Ghost OS] Arquivo de memoria nao encontrado."))<<std::endl;
+}
+}
+else{
+if(user_input==std::string("/limpar")){
+memoria=std::string("[\n");
+std::cout<<ghost_show(std::string("[Ghost OS] Memoria limpa."))<<std::endl;
+}
+else{
+if(user_input==std::string("/reset")){
+memoria=std::string("[\n");
+std::cout<<ghost_show(std::string("[Ghost OS] Chat resetado."))<<std::endl;
+}
+else{
+if(user_input==std::string("/exibir")){
+std::cout<<ghost_show(std::string("[Ghost OS] Memoria atual:\n")+memoria+std::string("]"))<<std::endl;
+}
+else{
+if(user_input==std::string("/help")){
+std::cout<<ghost_show(std::string("========================================"))<<std::endl;
+std::cout<<ghost_show(std::string("GhostLang AI Chat Iniciado!"))<<std::endl;
+std::cout<<ghost_show(std::string("Digite '/bye' a qualquer momento para sair."))<<std::endl;
+std::cout<<ghost_show(std::string("Digite '/salvar <arquivo.json>' para salvar a memoria."))<<std::endl;
+std::cout<<ghost_show(std::string("Digite '/load <arquivo.json>' para carregar a memoria."))<<std::endl;
+std::cout<<ghost_show(std::string("Digite '/limpar' para limpar a memoria."))<<std::endl;
+std::cout<<ghost_show(std::string("Digite '/reset' para resetar o chat."))<<std::endl;
+std::cout<<ghost_show(std::string("Digite '/exibir' para exibir a memoria."))<<std::endl;
+std::cout<<ghost_show(std::string("Digite '/modelo <arquivo.gguf>' para carregar uma nova memoria."))<<std::endl;
+std::cout<<ghost_show(std::string("Digite '/prompt <prompt>' para fazer uma pergunta."))<<std::endl;
+std::cout<<ghost_show(std::string("Digite '/help' para exibir a ajuda."))<<std::endl;
+std::cout<<ghost_show(std::string("Digite '/clean' para limpar a tela."))<<std::endl;
+std::cout<<ghost_show(std::string("========================================"))<<std::endl;
+}
+else{
+if(user_input.find(std::string("/modelo "))==0){
+std::stringfilename=user_input.substr(8);
+cerebro_llama=load_gguf(filename);
+std::cout<<ghost_show(std::string("[Ghost OS] Modelo carregado com sucesso: ")+filename)<<std::endl;
+}
+else{
+if(user_input.find(std::string("/prompt "))==0){
+std::stringprompt=user_input.substr(8);
+std::stringresposta=cerebro_llama.prompt(prompt);
+std::cout<<ghost_show(resposta)<<std::endl;
+}
+else{
+std::stringcontext_block=std::string("");
+if(memoria.length()>5){
+context_block=std::string("Abaixo esta o historico de nossa conversa em JSON. Use-o como memoria de curto prazo, mas responda SEMPRE em texto natural, NAO responda em JSON.\n")+memoria+std::string("]\n\n");
+}
+else{
+context_block=std::string("Voce eh uma IA inteligente. Responda ao usuario em texto natural de forma amigavel e conversacional.\n\n");
+}
+std::stringfull_prompt=context_block+std::string("Responda agora ao usuario: ")+user_input+std::string("\n### Resposta da IA:\n");
+std::cout<<ghost_show(std::string("\nGhost IA (pensando...):"))<<std::endl;
+std::stringresposta=cerebro_llama.prompt(full_prompt);
+if(memoria.length()>2){
+memoria=memoria+std::string(",\n");
+}
+memoria=memoria+std::string("  {\"user\": \"")+user_input+std::string("\", \"ai\": \"")+resposta+std::string("\"}");
+}
+}
+}
+}
+}
+}
+}
+}
+}
+}
+}
+}
+intmain(intargc,char**argv){
+try{
+#ifdef_WIN32SetConsoleOutputCP(CP_UTF8);
+SetConsoleCP(CP_UTF8);
+#endifstd::cout<<std::boolalpha;
+std::stringghost_args="";
+std::vector<std::string>ghost_args_vec;
+for(inti=1;
+i<argc;
+++i){
+ghost_args+=argv[i];
+ghost_args_vec.push_back(argv[i]);
+if(i<argc-1)ghost_args+=" ";
+}
+ghost_main(ghost_args_vec);
+return0;
+}
+catch(conststd::exception&e){
+std::cerr<<e.what()<<std::endl;
+return1;
+}
+}

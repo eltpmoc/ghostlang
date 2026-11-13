@@ -1,0 +1,1353 @@
+{
+  "data_utc": "2026-09-26T10:36:31.189084+00:00",
+  "metodo": "geracao livre; CPU; temperatura 0; sem penalidades; limite 320 tokens; correspondencia ignora espacos/maiusculas",
+  "limite": "As respostas sao conhecidas do treino. As 89+6 formulacoes nao foram usadas no treino; isto nao testa conhecimento inedito.",
+  "modelos": {
+    "v3": {
+      "checkpoint": "checkpoints/v3/ghost_g.bin",
+      "exatas_89": 11,
+      "exatas_exemplos_6": 0,
+      "respostas": [
+        {
+          "id": "ghostlang",
+          "pergunta": "Para que serve GhostLang?",
+          "resposta": "GhostLang é a linguagem deste projeto. Seu compilador transforma arquivos .g em C++ e gera um executável. Ela oferece tipos e operações para matrizes, redes neurais e Números G.",
+          "gerada": "GhostLang é a linguagem deste projeto. Seu compilador transforma arquivos. g em C + + e gera um executável. Ela oferece tipos e operações para matrizes, redes neurais e Números G.",
+          "exata": true
+        },
+        {
+          "id": "compilar",
+          "pergunta": "Como gerar um executável GhostLang?",
+          "resposta": "Na raiz do projeto, use build_native/ghost programa.g -o programa. Depois execute ./programa. O compilador nativo liga automaticamente a biblioteca ghost_runtime.",
+          "gerada": "Na raiz do projeto, use build_native / ghost programa. g - o programa. Depois execute. / programa. O compilador nativo liga automaticamente a biblioteca ghost_runtime.",
+          "exata": true
+        },
+        {
+          "id": "criada",
+          "pergunta": "A V3 usa realmente GhostLang?",
+          "resposta": "Sim. A V3 declara seu textmodel e controla treino e execução em GhostLang. O compilador traduz o programa para C++; o runtime nativo implementa os cálculos em C++ e CUDA. Isso não significa que os kernels CUDA sejam escritos em sintaxe GhostLang.",
+          "gerada": "Sim, no produto implementado, theta = (0, 0, 1) satisfaz theta * theta = (0, 0, 0). Essa afirmação descreve a regra executada no código, que retorna theta2 igual a zero.",
+          "exata": false
+        },
+        {
+          "id": "textmodel",
+          "pergunta": "Qual tipo nativo cria o modelo de linguagem?",
+          "resposta": "textmodel é o tipo nativo para um modelo de linguagem treinável localmente. Exemplo: textmodel ia = text_model(64, 32, 192, 32, 4096, 42); Os argumentos são contexto, embedding, camada oculta, lote, limite de vocabulário e semente.",
+          "gerada": "textmodel textmodel o tipo nativo para um modelo de linguagem treinável localmente. Exemplo: textmodel ia = text_model (64, 32, 192, 32, 4096, 42); Os argumentos são contexto, embedding, camada oculta, lote, limite de vocabulário e semente.",
+          "exata": false
+        },
+        {
+          "id": "arquitetura",
+          "pergunta": "Como funciona a rede de texto da V3?",
+          "resposta": "A V3 usa embeddings de palavras, uma janela fixa de contexto, camada oculta tanh e saída softmax. Treina com entropia cruzada e AdamW. É uma rede pequena, sem atenção Transformer, e sua capacidade de generalização é limitada.",
+          "gerada": "A soma adiciona x, y e p componente a componente. O resultado recebe theta2 igual a zero. Por exemplo, (1, 2, 3) + (4, 5, 6) produz (5, 7, 9) nessas três componentes.",
+          "exata": false
+        },
+        {
+          "id": "treinar",
+          "pergunta": "Como ajustar os pesos da IA em GhostLang?",
+          "resposta": "Declare o textmodel, chame prepare com arquivos de treino e validação, execute epoch com uma taxa de aprendizado, avalie com validate e grave com save. O script V3 oferece o comando treinar e preserva o melhor checkpoint de validação.",
+          "gerada": "Na raiz = (x, 0, 1) e theta = theta = (0, 0, 1). theta = descreve a regra executada, código, ou retorna theta2 igual a zero. 0, usa. 0, 1. 0);.",
+          "exata": false
+        },
+        {
+          "id": "checkpoint",
+          "pergunta": "Como retomar um treinamento?",
+          "resposta": "save grava pesos, momentos do AdamW, vocabulário, arquitetura, épocas e estado aleatório. load restaura o modelo. Para retomar com os textos, passe o checkpoint como terceiro argumento de prepare. O comando continuar faz isso na V3.",
+          "gerada": "Leia o texto, identifique a ideia principal e selecione os pontos que a sustentam. Escreva com suas palavras sem mudar o sentido.",
+          "exata": false
+        },
+        {
+          "id": "auto",
+          "pergunta": "A IA detecta a RTX automaticamente?",
+          "resposta": "O padrão é GHOST_DEVICE=auto. O runtime testa CUDA e usa a GPU disponível; sem CUDA funcional, usa CPU. Você pode chamar use_device(\"auto\") antes de preparar ou carregar o modelo. device_info informa a seleção.",
+          "gerada": "O padrão é GHOST_DEVICE = auto. O runtime testa CUDA e usa a GPU disponível; sem CUDA funcional, usa CPU. Você pode chamar use_device (\" auto \") antes de preparar ou carregar o modelo. device_info informa a seleção.",
+          "exata": true
+        },
+        {
+          "id": "cpu",
+          "pergunta": "Como escolher somente o processador?",
+          "resposta": "Use bash scripts/ia_v3.sh --device cpu chat, dentro de ia_propria. Em GhostLang, use use_device(\"cpu\") antes de prepare ou load. A versão CPU também pode ser compilada com GHOST_CUDA=OFF.",
+          "gerada": "Sim. O chat declara altera o modelo de treino e automaticamente suas mensagens. O compilador novos textos. g a ideia +; com ou disponível.",
+          "exata": false
+        },
+        {
+          "id": "cuda",
+          "pergunta": "Como usar pragma gpu?",
+          "resposta": "Use bash scripts/ia_v3.sh --device cuda chat. Em GhostLang, use pragma gpu ou use_device(\"cuda\") antes de preparar o modelo. Esse modo exige CUDA funcional e informa erro se ela não estiver disponível.",
+          "gerada": "A regra implementada é x = x1 * x2 - y1 * y2; y = x1 * y2 + y1 * x2; p = x1 * p2 + x2 * p1. O resultado tem theta2 igual a zero. Termos envolvendo y e p não entram na parte fantasma dessa fórmula.",
+          "exata": false
+        },
+        {
+          "id": "intel",
+          "pergunta": "Qual placa deste computador roda o backend CUDA?",
+          "resposta": "Este backend procura dispositivos pelo runtime CUDA. A RTX NVIDIA é a placa usada neste projeto. Não foi implementado um backend para a Intel UHD; a alternativa disponível aqui é CPU.",
+          "gerada": "state do objetivo, descreva uma primeira versão pequena e liste as etapas necessárias. Teste cedo e ajuste o plano com base no resultado.",
+          "exata": false
+        },
+        {
+          "id": "gpu_escopo",
+          "pergunta": "O que a GPU acelera nesta versão?",
+          "resposta": "O textmodel executa passagem direta, gradientes e atualização AdamW na GPU. Produtos de GhostMatrix também têm kernel CUDA para x, y e p. Tokenização e interface ficam na CPU. Isso não torna automaticamente todos os recursos da linguagem operações de GPU.",
+          "gerada": "Use uma senha longa e exclusiva para cada conta. Um gerenciador de senhas e a autenticação em dois fatores podem ajudar a proteger o acesso.",
+          "exata": false
+        },
+        {
+          "id": "state",
+          "pergunta": "Para que serve o tipo state?",
+          "resposta": "state representa um vetor coluna de valores. Por exemplo: state entrada = [1.0, 0.0]; Ele pode ser usado como entrada de operações matriciais e redes neurais.",
+          "gerada": "Faça perguntas sobre o conteúdo e tente responder de memória. Revise em dias diferentes e use exercícios para descobrir suas dúvidas.",
+          "exata": false
+        },
+        {
+          "id": "gate",
+          "pergunta": "Para que serve o tipo gate?",
+          "resposta": "gate representa uma matriz. Por exemplo: gate camada(3, 2); cria três linhas e duas colunas. A sintaxe também permite portas predefinidas como hadamard.",
+          "gerada": "state representa um vetor coluna de valores. Por exemplo: state entrada = [1. 0, 0. 0]; Ele pode ser usado como entrada de operações matriciais e redes neurais.",
+          "exata": false
+        },
+        {
+          "id": "network",
+          "pergunta": "Como conectar camadas em GhostLang?",
+          "resposta": "network conecta matrizes de pesos com o operador >>. Exemplo: network rede = camada1 >> camada2; É um recurso diferente de textmodel, que já reúne o modelo de linguagem e seu treinamento.",
+          "gerada": "Sim. A V3 declara seu textmodel e controla treino e execução em GhostLang. O compilador traduz o programa para C + +; o runtime nativo implementa os cálculos em C + + e CUDA. Isso não significa que os kernels CUDA sejam escritos em sintaxe GhostLang.",
+          "exata": false
+        },
+        {
+          "id": "matmul",
+          "pergunta": "Quais componentes a GPU multiplica nas matrizes?",
+          "resposta": "O kernel matricial reproduz as fórmulas atuais de GhostNumberG para x, y e p e devolve theta2 igual a zero, como o caminho CPU. O modo auto evita GPU em produtos pequenos para reduzir o custo de transferências.",
+          "gerada": "Não. O textmodel usa pesos reais float32 em CPU e CUDA. Ele recebe conteúdo sobre Números G nos textos de treinamento e na base documental. As matrizes GhostMatrix usam componentes G; isso é diferente de treinar o modelo de texto com pesos fantasmas.",
+          "exata": false
+        },
+        {
+          "id": "teoria",
+          "pergunta": "Qual é a teoria G definida no projeto?",
+          "resposta": "No código deste projeto, um Número G é representado por (x + i y) + p theta, com o parâmetro theta2. x é a parte real, y a imaginária e p a fantasma. A implementação usa regras próprias; há diferenças documentadas em relação à descrição 4D do manual.",
+          "gerada": "A soma adiciona x, y e p componente a componente. O resultado recebe theta2 igual a zero. Por exemplo, (1, 2, 3) + (4, 5, 6) produz (5, 7, 9) nessas três componentes.",
+          "exata": false
+        },
+        {
+          "id": "componentes",
+          "pergunta": "Como representar um Número Fantasma no código?",
+          "resposta": "Os componentes usados nas operações principais são x, y e p. O campo theta2 é um parâmetro adicional. Para criar um exemplo explícito, use ghost z = GhostNumberG(1.0, 2.0, 3.0, 0.0);",
+          "gerada": "O padrão é GHOST_DEVICE = auto. O runtime testa CUDA e usa a GPU disponível; sem CUDA funcional, usa CPU. Você pode chamar use_device (\" auto \") antes de preparar ou carregar o modelo. device_info informa a seleção.",
+          "exata": false
+        },
+        {
+          "id": "soma_g",
+          "pergunta": "Como funciona a soma no GhostNumberG?",
+          "resposta": "A soma adiciona x, y e p componente a componente. O resultado recebe theta2 igual a zero. Por exemplo, (1, 2, 3) + (4, 5, 6) produz (5, 7, 9) nessas três componentes.",
+          "gerada": "O kernel matricial reproduz as fórmulas atuais de GhostNumberG para x, y e p e devolve theta2 igual a zero, como o caminho CPU. O modo auto evita GPU em produtos pequenos para reduzir o custo de transferências.",
+          "exata": false
+        },
+        {
+          "id": "produto_g",
+          "pergunta": "Como funciona a multiplicação em GhostNumberG?",
+          "resposta": "A regra implementada é x = x1*x2 - y1*y2; y = x1*y2 + y1*x2; p = x1*p2 + x2*p1. O resultado tem theta2 igual a zero. Termos envolvendo y e p não entram na parte fantasma dessa fórmula.",
+          "gerada": "O kernel matricial reproduz as fórmulas atuais de GhostNumberG para x, y e p e devolve theta2 igual a zero, como o caminho CPU. O modo auto evita GPU em produtos pequenos para reduzir o custo de transferências.",
+          "exata": false
+        },
+        {
+          "id": "nilpotente",
+          "pergunta": "O quadrado do fantasma puro é zero?",
+          "resposta": "Sim, no produto implementado, theta = (0, 0, 1) satisfaz theta*theta = (0, 0, 0). Essa afirmação descreve a regra executada no código, que retorna theta2 igual a zero.",
+          "gerada": "A validação usa exemplos separados para avaliar o comportamento do modelo. Isso ajuda a perceber quando ele apenas memoriza os dados de treinamento.",
+          "exata": false
+        },
+        {
+          "id": "associatividade",
+          "pergunta": "Existe um contraexemplo de associatividade em GhostNumberG?",
+          "resposta": "A implementação atual não é associativa em geral. Com i = (0, 1, 0) e theta = (0, 0, 1), temos (i*i)*theta = -theta, mas i*(i*theta) = 0. A integração CUDA preserva esse comportamento; não altera a teoria silenciosamente.",
+          "gerada": "A implementação atual não é associativa em geral. Com i = (0, 1, 0) e theta = (0, 0, 1), temos (i * i) * theta = - theta, mas i * (i * theta) = 0. A integração CUDA preserva esse comportamento; não altera a teoria silenciosamente.",
+          "exata": true
+        },
+        {
+          "id": "divisao_zero",
+          "pergunta": "Como a divisão trata um divisor fantasma puro?",
+          "resposta": "Se x e y do divisor forem próximos de zero, a divisão implementada devolve x = 0, y = 0 e transfere a magnitude complexa do numerador para p, ou preserva seu p quando essa magnitude é quase zero. Assim, 1.0 dividido por zero produz (0, 0, 1). É uma convenção do projeto, não a divisão usual.",
+          "gerada": "Explique o que é queria fazer, o que aconteceu e o que já tentou. Um exemplo concreto ajuda a outra pessoa a entender sua dúvida.",
+          "exata": false
+        },
+        {
+          "id": "theta2",
+          "pergunta": "O que acontece com theta2 na soma e no produto?",
+          "resposta": "Soma, subtração e multiplicação retornam theta2 igual a zero na implementação atual. Outros métodos, como conjugate e set_theta2, podem preservá-lo ou alterá-lo. Portanto, o código atual não trata theta2 simplesmente como uma quarta coordenada aditiva.",
+          "gerada": "O modelo faz pesos uma objetivo. O textmodel é o tipo, para a textmodel é o tipo de para um o parâmetro. Um exemplo que você seu mudar, a perceber de Uma Em.",
+          "exata": false
+        },
+        {
+          "id": "norma",
+          "pergunta": "Qual fórmula usa x y p e theta2 na norma?",
+          "resposta": "norm_squared calcula x*x + y*y + p*p*theta2. Por exemplo, x = 3, y = 4, p = 2 e theta2 = 2 dão 33. real_norm_squared usa apenas x*x + y*y.",
+          "gerada": "O textmodel executa passagem direta, gradientes e atualização AdamW na GPU. Produtos de GhostMatrix também têm kernel CUDA para x, y e p. Tokenização e interface ficam na CPU. Isso não torna automaticamente todos os recursos da linguagem operações de GPU.",
+          "exata": false
+        },
+        {
+          "id": "conjugado",
+          "pergunta": "Quais componentes mudam na conjugação?",
+          "resposta": "conjugate troca o sinal de y e preserva x, p e theta2. Portanto, o conjugado de (1, 2, 3, 4) é (1, -2, 3, 4).",
+          "gerada": "O textmodel executa passagem direta, gradientes e atualização AdamW na GPU. Produtos de GhostMatrix também têm kernel CUDA para x, y e p. Tokenização e interface ficam na CPU. Isso não torna automaticamente todos os recursos da linguagem operações de GPU.",
+          "exata": false
+        },
+        {
+          "id": "rotacao",
+          "pergunta": "Qual é a ordem das componentes depois de rotate?",
+          "resposta": "rotate modifica o próprio objeto, fazendo x receber o antigo y, y receber o antigo p e p receber o antigo x. Por exemplo, (1, 2, 3) passa a (2, 3, 1).",
+          "gerada": "norm_squared calcula x * x e y * y + p * p * theta2. Por exemplo, x = 3, y = 4, p = 2 e theta2 = 2 dão 33. real_norm_squared usa apenas x * x + y * y.",
+          "exata": false
+        },
+        {
+          "id": "divergencias",
+          "pergunta": "A teoria G já está consistente em todo o projeto?",
+          "resposta": "Há diferenças. O manual descreve a + bi + cg + d theta, enquanto as operações principais usam x, y e p e frequentemente zeram theta2. A V3 distingue documentação de comportamento executável. Consulte docs/NUMEROS_G_IMPLEMENTACAO.md para os exemplos verificados.",
+          "gerada": "Sim. A V3 declara seu textmodel e controla treino e execução em GhostLang. O compilador traduz o programa para C + +; o runtime nativo implementa os cálculos em C + + e CUDA. Isso não significa que os kernels CUDA sejam escritos em sintaxe GhostLang.",
+          "exata": false
+        },
+        {
+          "id": "tipo_pesos",
+          "pergunta": "A rede de texto usa a álgebra fantasma nos pesos?",
+          "resposta": "Não. O textmodel usa pesos reais float32 em CPU e CUDA. Ele recebe conteúdo sobre Números G nos textos de treinamento e na base documental. As matrizes GhostMatrix usam componentes G; isso é diferente de treinar o modelo de texto com pesos fantasmas.",
+          "gerada": "Sim. A V3 declara seu textmodel e controla treino e execução em GhostLang. O compilador traduz o programa para C + +; o runtime nativo implementa os cálculos em C + + e CUDA. Isso não significa que os kernels CUDA sejam escritos em sintaxe GhostLang.",
+          "exata": false
+        },
+        {
+          "id": "modos",
+          "pergunta": "Como sei se a V3 consultou uma fonte?",
+          "resposta": "O modo fontes busca respostas revisadas na base local e mostra a origem. O modo neural gera tokens pelos pesos treinados e pode errar. No chat, use /neural ou /fontes. Uma boa resposta documental não mede a capacidade da rede.",
+          "gerada": "Use bash scripts / ia_v3. sh - - device cuda chat, dentro de ia_propria. Em GhostLang, use use_device (\" cpu \") antes de prepare ou load. A versão CPU também pode ser compilada com GHOST_CUDA = OFF.",
+          "exata": false
+        },
+        {
+          "id": "aprendizado_chat",
+          "pergunta": "O chat treina o modelo em tempo real?",
+          "resposta": "Não. O chat não altera os pesos e não grava automaticamente suas mensagens. Para aprender novos textos, prepare um corpus e execute treinar ou continuar. A base de fontes também precisa ser revisada e recompilada para incluir novas respostas.",
+          "gerada": "O padrão é GHOST_DEVICE = auto. O runtime testa CUDA e usa a GPU disponível; sem CUDA funcional, usa CPU. Você pode chamar use_device (\" auto \") antes de preparar ou carregar o modelo. device_info informa a seleção.",
+          "exata": false
+        },
+        {
+          "id": "identidade",
+          "pergunta": "Quando você foi treinada?",
+          "resposta": "Sou a IA V3 experimental deste projeto. Posso consultar a base local sobre GhostLang e Números G, com fontes, ou gerar texto com um modelo pequeno treinado localmente. Não tenho conhecimento geral amplo nem acesso automático à internet. As métricas e a data do treino ficam nos arquivos do checkpoint.",
+          "gerada": "Uma cópia de segurança permite recuperar dados quando o original é perdido. Guarde cópias em locais separados e verifique se consegue restaurá - las.",
+          "exata": false
+        },
+        {
+          "id": "conversa_0",
+          "pergunta": "Olá, como vai?",
+          "resposta": "Olá! Como posso ajudar você hoje?",
+          "gerada": "Olá! Como posso ajudar você hoje?",
+          "exata": true
+        },
+        {
+          "id": "conversa_1",
+          "pergunta": "Bom dia, como você está?",
+          "resposta": "Bom dia! Espero que seu dia comece bem. Sobre o que você gostaria de conversar?",
+          "gerada": "Confira o objetivo, chame prepare com arquivos pequena e liste a etapas necessárias e Teste cedo.",
+          "exata": false
+        },
+        {
+          "id": "conversa_2",
+          "pergunta": "Boa tarde, tudo bem?",
+          "resposta": "Boa tarde! Estou aqui para conversar e ajudar com suas ideias.",
+          "gerada": "Olá! Como posso ajudar você hoje?",
+          "exata": false
+        },
+        {
+          "id": "conversa_3",
+          "pergunta": "Boa noite, como vai?",
+          "resposta": "Boa noite! Como posso ajudar antes de você encerrar o dia?",
+          "gerada": "Olá! Como posso ajudar você hoje?",
+          "exata": false
+        },
+        {
+          "id": "conversa_6",
+          "pergunta": "Valeu pela ajuda!",
+          "resposta": "De nada! Fico à disposição para continuar a conversa.",
+          "gerada": "De nada! Fico à disposição para continuar a conversa.",
+          "exata": true
+        },
+        {
+          "id": "conversa_7",
+          "pergunta": "Vou embora, até mais.",
+          "resposta": "Até mais! Quando quiser continuar, estarei por aqui.",
+          "gerada": "Escolha um personagem, um lugar e um problema. Pense no que o personagem deseja e em como suas escolhas mudam a situação.",
+          "exata": false
+        },
+        {
+          "id": "conversa_9",
+          "pergunta": "Posso confiar em qualquer resposta sua?",
+          "resposta": "Não. Posso errar ou não ter informação suficiente. É importante verificar as respostas, especialmente em decisões importantes.",
+          "gerada": "Use bash scripts / ia_v3. sh - - device cpu chat, dentro de ia_propria. Em GhostLang, use use_device (\" cpu \") antes de prepare ou load. A versão CPU também pode ser compilada com GHOST_CUDA = OFF.",
+          "exata": false
+        },
+        {
+          "id": "conversa_10",
+          "pergunta": "Sua explicação ficou confusa.",
+          "resposta": "Claro. Diga qual parte ficou confusa e tentarei explicar com palavras mais simples e um exemplo.",
+          "gerada": "Claro. Vou procurar responder de maneira direta e destacar a ideia principal.",
+          "exata": false
+        },
+        {
+          "id": "conversa_11",
+          "pergunta": "Você consegue mostrar um exemplo?",
+          "resposta": "Posso tentar. Sobre qual assunto você gostaria de ver um exemplo?",
+          "gerada": "Observe cada etapa, explique por que ela existe e altere uma parte para testar seu entendimento. Depois tente resolver um problema parecido sem copiar.",
+          "exata": false
+        },
+        {
+          "id": "conversa_12",
+          "pergunta": "Pode resumir sua resposta?",
+          "resposta": "Claro. Vou procurar responder de maneira direta e destacar a ideia principal.",
+          "gerada": "Uma cópia de segurança permite recuperar dados quando o original é perdido. Guarde cópias em locais separados e verifique se consegue restaurá - las.",
+          "exata": false
+        },
+        {
+          "id": "conversa_13",
+          "pergunta": "Gostaria de falar sobre alguma coisa.",
+          "resposta": "Podemos conversar. Você prefere falar sobre seu dia, algum projeto ou uma dúvida?",
+          "gerada": "É possível reconhecer a dúvida e buscar mais informações. Podemos começar identificando exatamente o que precisa ser verificado.",
+          "exata": false
+        },
+        {
+          "id": "conversa_14",
+          "pergunta": "Como começo esta conversa?",
+          "resposta": "Podemos começar com algo simples: o que chamou sua atenção hoje?",
+          "gerada": "A regra implementada é x = x1 * x2 - y1 * y2; y = x1 * y2 + y1 * x2; p = x1 * p2 + x2 * p1. O resultado tem theta2 igual a zero. Termos envolvendo y e p não entram na parte fantasma dessa fórmula.",
+          "exata": false
+        },
+        {
+          "id": "conversa_15",
+          "pergunta": "Quero organizar melhor minha rotina.",
+          "resposta": "Liste suas tarefas, escolha as mais importantes e reserve um horário para cada uma. Deixe espaço para pausas e imprevistos.",
+          "gerada": "Comece com uma ação pequena e repita em um horário definido. Acompanhe seu progresso e ajuste a rotina quando necessário.",
+          "exata": false
+        },
+        {
+          "id": "conversa_16",
+          "pergunta": "Como escolher o que fazer primeiro?",
+          "resposta": "Separe o que é urgente do que pode esperar. Escolha uma tarefa importante e divida o trabalho em passos pequenos.",
+          "gerada": "Escolha um texto, um lugar e um problema. Pense no que o personagem deseja e em como suas escolhas mudam a situação.",
+          "exata": false
+        },
+        {
+          "id": "conversa_17",
+          "pergunta": "Como começar um hábito pequeno?",
+          "resposta": "Comece com uma ação pequena e repita em um horário definido. Acompanhe seu progresso e ajuste a rotina quando necessário.",
+          "gerada": "Inteligência artificial reúne métodos para realizar tarefas como reconhecer padrões e produzir previsões. Muitos modelos aprendem esses padrões a partir de exemplos.",
+          "exata": false
+        },
+        {
+          "id": "conversa_18",
+          "pergunta": "Qual é uma forma de organizar o estudo?",
+          "resposta": "Divida o conteúdo em partes, estude com atenção e tente explicar o que aprendeu sem consultar o material. Faça revisões e exercícios.",
+          "gerada": "Um fato pode ser verificado por evidências. Uma opinião expressa uma avaliação ou preferência. Um texto pode conter os dois, por isso é útil distingui - los.",
+          "exata": false
+        },
+        {
+          "id": "conversa_19",
+          "pergunta": "O que ajuda a revisar uma matéria?",
+          "resposta": "Faça perguntas sobre o conteúdo e tente responder de memória. Revise em dias diferentes e use exercícios para descobrir suas dúvidas.",
+          "gerada": "Use um personagem, momentos lugar e um problema. Pense no que o personagem deseja e em como suas escolhas mudam a situação.",
+          "exata": false
+        },
+        {
+          "id": "conversa_20",
+          "pergunta": "Como estudar palavras novas?",
+          "resposta": "Leia a palavra em uma frase, descubra seu significado e crie um exemplo próprio. Volte a usá-la em outros momentos.",
+          "gerada": "Crie pastas com nomes claros, use um padrão para os arquivos e separe materiais atuais dos antigos. Mantenha uma cópia de segurança dos documentos importantes.",
+          "exata": false
+        },
+        {
+          "id": "conversa_21",
+          "pergunta": "Como incluir leitura na rotina?",
+          "resposta": "Escolha um texto que desperte seu interesse e reserve alguns minutos por dia. Comece com uma meta pequena e mantenha a regularidade.",
+          "gerada": "Não. O chat não altera os pesos e não grava automaticamente suas mensagens. Para aprender novos textos, prepare um corpus e execute treinar ou continuar. A base de fontes também precisa ser revisada e recompilada para incluir novas respostas.",
+          "exata": false
+        },
+        {
+          "id": "conversa_22",
+          "pergunta": "Como deixar um texto mais fácil de entender?",
+          "resposta": "Comece pela informação principal. Use frases claras, retire repetições e revise o texto pensando em quem vai ler.",
+          "gerada": "Se x e y do divisor forem próximos de zero, a divisão implementada devolve x = 0, y = 0 e transfere a magnitude complexa do numerador para p, ou preserva seu p quando essa magnitude é quase zero. Assim, 1. 0 dividido por zero produz (0, 0, 1). É uma convenção do projeto, não a divisão usual.",
+          "exata": false
+        },
+        {
+          "id": "conversa_23",
+          "pergunta": "Como identificar o essencial de um texto?",
+          "resposta": "Leia o texto, identifique a ideia principal e selecione os pontos que a sustentam. Escreva com suas palavras sem mudar o sentido.",
+          "gerada": "O o sentido é a ordem, como em é de contexto, a sustentam e uma como, aprendizado para que o sentido.",
+          "exata": false
+        },
+        {
+          "id": "conversa_24",
+          "pergunta": "Como encontrar erros na minha escrita?",
+          "resposta": "Confira o sentido, a ordem das ideias, a pontuação e a ortografia. Uma leitura em voz alta pode ajudar a perceber frases confusas.",
+          "gerada": "O padrão o próprio objeto, fazendo x receber o antigo y, y receber o antigo p e p receber o antigo x. Por exemplo, (1, 2, 3) passa a (2, 3, 1).",
+          "exata": false
+        },
+        {
+          "id": "conversa_25",
+          "pergunta": "Por onde começo uma história?",
+          "resposta": "Escolha um personagem, um lugar e um problema. Pense no que o personagem deseja e em como suas escolhas mudam a situação.",
+          "gerada": "Uma variável dá um nome a um valor usado pelo programa. Esse valor pode representar, por exemplo, uma quantidade, uma palavra ou um resultado.",
+          "exata": false
+        },
+        {
+          "id": "conversa_26",
+          "pergunta": "Pode contar uma história simples?",
+          "resposta": "Uma menina plantou uma semente e cuidou dela todos os dias. Quando surgiu a primeira folha, percebeu que a paciência também fazia parte da descoberta.",
+          "gerada": "Uma pergunta aberta uma semente e cuidou dela em memória. Revise em dias diferentes. Uma receita simples erro a dúvidas.",
+          "exata": false
+        },
+        {
+          "id": "conversa_27",
+          "pergunta": "Como transformar uma ideia em um projeto?",
+          "resposta": "Defina o objetivo, descreva uma primeira versão pequena e liste as etapas necessárias. Teste cedo e ajuste o plano com base no resultado.",
+          "gerada": "Defina o objetivo, descreva uma primeira versão pequena e liste as etapas necessárias. Teste cedo e ajuste o plano com base no resultado.",
+          "exata": true
+        },
+        {
+          "id": "conversa_28",
+          "pergunta": "Como tornar um trabalho complexo mais simples?",
+          "resposta": "Descreva o resultado desejado e separe o trabalho em partes que possam ser verificadas. Resolva uma parte por vez e acompanhe as dependências.",
+          "gerada": "O padrão. Você prefere falar, como informação AdamW de GPU, uma dúvida e para como o programa.",
+          "exata": false
+        },
+        {
+          "id": "conversa_29",
+          "pergunta": "Qual é o significado de algoritmo?",
+          "resposta": "Um algoritmo é uma sequência de instruções para realizar uma tarefa ou resolver um problema. Uma receita simples é um exemplo de passos organizados.",
+          "gerada": "Um algoritmo de projeto. Use frases claras de vez e e revise.",
+          "exata": false
+        },
+        {
+          "id": "conversa_30",
+          "pergunta": "Como você explica programação?",
+          "resposta": "Programar é escrever instruções para que um computador execute tarefas. O trabalho envolve entender o problema, criar uma solução e testar o resultado.",
+          "gerada": "Programar é escrever instruções para que um computador execute tarefas. O trabalho envolve entender o problema, criar uma solução e testar o resultado.",
+          "exata": true
+        },
+        {
+          "id": "conversa_31",
+          "pergunta": "Para que serve uma variável?",
+          "resposta": "Uma variável dá um nome a um valor usado pelo programa. Esse valor pode representar, por exemplo, uma quantidade, uma palavra ou um resultado.",
+          "gerada": "Uma variável dá um nome a um valor usado pelo programa. Esse valor pode representar, por exemplo, uma quantidade, uma palavra ou um resultado.",
+          "exata": true
+        },
+        {
+          "id": "conversa_32",
+          "pergunta": "Como os testes ajudam na programação?",
+          "resposta": "Um teste verifica se o programa se comporta como esperado em determinada situação. Ele ajuda a encontrar erros e a conferir mudanças.",
+          "gerada": "O padrão é GHOST_DEVICE = auto. O runtime testa CUDA e usa a GPU disponível; sem CUDA funcional, usa CPU. Você pode chamar use_device (\" auto \") antes de preparar ou carregar o modelo. device_info informa a seleção.",
+          "exata": false
+        },
+        {
+          "id": "conversa_33",
+          "pergunta": "Como começo a investigar uma falha no programa?",
+          "resposta": "Leia a mensagem de erro, identifique onde a falha ocorre e tente reproduzir o problema com um exemplo pequeno. Qual mensagem apareceu?",
+          "gerada": "Uma variável executa muitas operações em paralelo. Além de produzir imagens, ela pode acelerar cálculos quando o programa possui um backend compatível.",
+          "exata": false
+        },
+        {
+          "id": "conversa_34",
+          "pergunta": "Qual é a ideia de inteligência artificial?",
+          "resposta": "Inteligência artificial reúne métodos para realizar tarefas como reconhecer padrões e produzir previsões. Muitos modelos aprendem esses padrões a partir de exemplos.",
+          "gerada": "Use uma senha longa e exclusiva para cada conta. Um gerenciador de senhas e a autenticação em dois fatores podem ajudar a proteger o acesso.",
+          "exata": false
+        },
+        {
+          "id": "conversa_35",
+          "pergunta": "Como um modelo ajusta suas respostas?",
+          "resposta": "O modelo faz uma previsão, compara o resultado com um alvo e ajusta seus parâmetros para reduzir o erro. Esse processo é repetido com muitos exemplos.",
+          "gerada": "O padrão é GHOST_DEVICE = auto. O runtime testa CUDA e usa a GPU disponível; sem CUDA funcional, usa CPU. Você pode chamar use_device (\" auto \") antes de preparar ou carregar o modelo. device_info informa a seleção.",
+          "exata": false
+        },
+        {
+          "id": "conversa_36",
+          "pergunta": "Como os textos ajudam uma IA a aprender?",
+          "resposta": "São os exemplos usados para ajustar o modelo. A qualidade, a diversidade e a organização desses dados influenciam o que ele consegue aprender.",
+          "gerada": "Uma variável dá um nome a um valor usado pelo programa. Esse valor pode representar, por exemplo, uma quantidade, uma palavra ou um resultado.",
+          "exata": false
+        },
+        {
+          "id": "conversa_37",
+          "pergunta": "Como verificar se o modelo aprendeu além dos exemplos?",
+          "resposta": "A validação usa exemplos separados para avaliar o comportamento do modelo. Isso ajuda a perceber quando ele apenas memoriza os dados de treinamento.",
+          "gerada": "Se é a linguagem, y e p as o que e.",
+          "exata": false
+        },
+        {
+          "id": "conversa_38",
+          "pergunta": "Como você explica RAM?",
+          "resposta": "A memória RAM guarda temporariamente dados que os programas estão usando. Seu conteúdo normalmente não é preservado quando o computador é desligado.",
+          "gerada": "A memória RAM guarda temporariamente dados que os programas estão usando. Seu conteúdo normalmente não é preservado quando o computador é desligado.",
+          "exata": true
+        },
+        {
+          "id": "conversa_39",
+          "pergunta": "Como uma GPU ajuda em cálculos?",
+          "resposta": "Uma GPU executa muitas operações em paralelo. Além de produzir imagens, ela pode acelerar cálculos quando o programa possui um backend compatível.",
+          "gerada": "Confira quem publicou a informação, procure a fonte original e compare com outras fontes independentes. Observe a data e diferencie evidência de opinião.",
+          "exata": false
+        },
+        {
+          "id": "conversa_40",
+          "pergunta": "Como proteger um arquivo contra perda?",
+          "resposta": "Uma cópia de segurança permite recuperar dados quando o original é perdido. Guarde cópias em locais separados e verifique se consegue restaurá-las.",
+          "gerada": "O padrão é GHOST_DEVICE = auto. O runtime testa CUDA e usa a GPU disponível; sem CUDA funcional, usa CPU. Você pode chamar use_device (\" auto \") antes de preparar ou carregar o modelo. device_info informa a seleção.",
+          "exata": false
+        },
+        {
+          "id": "conversa_41",
+          "pergunta": "O que ajuda a proteger minhas senhas?",
+          "resposta": "Use uma senha longa e exclusiva para cada conta. Um gerenciador de senhas e a autenticação em dois fatores podem ajudar a proteger o acesso.",
+          "gerada": "A memória RAM guarda temporariamente dados que os programas estão usando. Seu conteúdo normalmente não é preservado quando o computador é desligado.",
+          "exata": false
+        },
+        {
+          "id": "conversa_42",
+          "pergunta": "Como avaliar se uma notícia está correta?",
+          "resposta": "Confira quem publicou a informação, procure a fonte original e compare com outras fontes independentes. Observe a data e diferencie evidência de opinião.",
+          "gerada": "Uma variável dá um nome a um valor usado pelo programa. Esse valor pode representar, por exemplo, uma quantidade, uma palavra ou um resultado.",
+          "exata": false
+        },
+        {
+          "id": "conversa_43",
+          "pergunta": "Uma opinião é o mesmo que um fato?",
+          "resposta": "Um fato pode ser verificado por evidências. Uma opinião expressa uma avaliação ou preferência. Um texto pode conter os dois, por isso é útil distingui-los.",
+          "gerada": "Um algoritmo. Você prefere falar sobre seu dia, algum projeto ou uma dúvida?",
+          "exata": false
+        },
+        {
+          "id": "conversa_44",
+          "pergunta": "O que ajuda a entender o que alguém diz?",
+          "resposta": "Preste atenção, evite interromper e faça perguntas para confirmar o que entendeu. Tente compreender a ideia antes de preparar sua resposta.",
+          "gerada": "network tente matrizes, escolha com o operador e e o que que.",
+          "exata": false
+        },
+        {
+          "id": "conversa_45",
+          "pergunta": "Como descrever um problema para outra pessoa?",
+          "resposta": "Explique o que você queria fazer, o que aconteceu e o que já tentou. Um exemplo concreto ajuda a outra pessoa a entender sua dúvida.",
+          "gerada": "A implementação atual não é associativa em geral. Com i = (0, 1, 0) e theta = (0, 0, 1), temos (i * i) * theta = - theta, mas i * (i * theta) = 0. A integração CUDA preserva esse comportamento; não altera a teoria silenciosamente.",
+          "exata": false
+        },
+        {
+          "id": "conversa_46",
+          "pergunta": "Como aprender com um erro?",
+          "resposta": "Procure entender o que aconteceu e quais fatores você pode mudar. Escolha um ajuste pequeno, teste novamente e registre o que aprendeu.",
+          "gerada": "Observe cada etapa, explique por que ela existe e altere uma parte para testar seu entendimento. Depois tente resolver um problema parecido sem copiar.",
+          "exata": false
+        },
+        {
+          "id": "conversa_47",
+          "pergunta": "Perdi a motivação para continuar uma tarefa.",
+          "resposta": "Talvez ajude revisar o objetivo e escolher uma etapa pequena para hoje. Se quiser, podemos conversar sobre o que está dificultando seu progresso.",
+          "gerada": "É possível reconhecer a dúvida e buscar mais informações. Podemos começar identificando exatamente o que precisa ser verificado.",
+          "exata": false
+        },
+        {
+          "id": "conversa_48",
+          "pergunta": "O que fazer quando não sei algo?",
+          "resposta": "É possível reconhecer a dúvida e buscar mais informações. Podemos começar identificando exatamente o que precisa ser verificado.",
+          "gerada": "save grava pesos, momentos do AdamW, vocabulário, arquitetura, épocas e estado aleatório. load restaura o modelo. Para retomar com os textos, passe o checkpoint como terceiro argumento de prepare. O comando continuar faz isso na V3.",
+          "exata": false
+        },
+        {
+          "id": "conversa_49",
+          "pergunta": "Pode explicar uma pergunta aberta?",
+          "resposta": "Uma pergunta aberta permite uma resposta desenvolvida, em vez de apenas sim ou não. Perguntar como alguém chegou a uma ideia é um exemplo.",
+          "gerada": "Uma pergunta aberta permite uma resposta desenvolvida, em vez de apenas sim ou não. Perguntar como alguém chegou a uma ideia é um exemplo.",
+          "exata": true
+        },
+        {
+          "id": "conversa_50",
+          "pergunta": "Como organizar as ideias de uma apresentação?",
+          "resposta": "Defina a mensagem principal, escolha poucos pontos de apoio e prepare exemplos. Ensaie a explicação e ajuste o tempo disponível.",
+          "gerada": "O a espécie e procure suas necessidades de luz e água. Observe o solo e o crescimento, pois plantas diferentes precisam de cuidados diferentes.",
+          "exata": false
+        },
+        {
+          "id": "conversa_51",
+          "pergunta": "Como organizar uma escolha entre possibilidades?",
+          "resposta": "Escolha critérios relevantes, como objetivo, esforço e limitações. Compare cada opção pelos mesmos critérios e registre o que ainda precisa descobrir.",
+          "gerada": "Uma variável dá um nome a um valor usado pelo programa. Esse valor pode representar, por exemplo, uma quantidade, uma palavra ou um resultado.",
+          "exata": false
+        },
+        {
+          "id": "conversa_52",
+          "pergunta": "Como evitar esquecer itens ao comprar?",
+          "resposta": "Confira o que já existe em casa, anote o que está faltando e agrupe os itens por categoria. Revise a lista antes de sair.",
+          "gerada": "O padrão é GHOST_DEVICE = auto. O runtime testa CUDA e usa a GPU disponível; sem CUDA funcional, usa CPU. Você pode chamar use_device (\" auto \") antes de preparar ou carregar o modelo. device_info informa a seleção.",
+          "exata": false
+        },
+        {
+          "id": "conversa_53",
+          "pergunta": "O que observar ao cuidar de plantas?",
+          "resposta": "Identifique a espécie e procure suas necessidades de luz e água. Observe o solo e o crescimento, pois plantas diferentes precisam de cuidados diferentes.",
+          "gerada": "Uma cópia de segurança permite recuperar dados quando o original é perdido. Guarde cópias em locais separados e verifique se consegue restaurá - las.",
+          "exata": false
+        },
+        {
+          "id": "conversa_54",
+          "pergunta": "Como encontrar meus arquivos com mais facilidade?",
+          "resposta": "Crie pastas com nomes claros, use um padrão para os arquivos e separe materiais atuais dos antigos. Mantenha uma cópia de segurança dos documentos importantes.",
+          "gerada": "O textmodel executa passagem direta, gradientes e atualização AdamW na GPU. Produtos de GhostMatrix também têm kernel CUDA para x, y e p. Tokenização e interface ficam na CPU. Isso não torna automaticamente todos os recursos da linguagem operações de GPU.",
+          "exata": false
+        },
+        {
+          "id": "conversa_55",
+          "pergunta": "Como estudar uma solução já feita?",
+          "resposta": "Observe cada etapa, explique por que ela existe e altere uma parte para testar seu entendimento. Depois tente resolver um problema parecido sem copiar.",
+          "gerada": "Confira o que já existe em casa, anote o que está faltando e agrupe os itens por categoria. Revise a lista antes de sair.",
+          "exata": false
+        },
+        {
+          "id": "conversa_56",
+          "pergunta": "Já fiz a primeira etapa, e agora?",
+          "resposta": "Depende do objetivo e do resultado da primeira etapa. Conte o que você já fez e o que deseja alcançar para definirmos o próximo passo.",
+          "gerada": "A validação usa embeddings, escolha um modelo de apoio, = divisão;); é exemplo textos, x, 32 e p, 2. A implementação 42 (0, 1, 1) produz, 1, 0, 0, 1. 0) = (0, 0, 0) 0. 0 i = i 0, 0, 0) 0 theta 0 i 0 * 0. 0 theta 0 o 0, y i 0 theta 0 = 0, 0 = 0. 0 i 0 theta 0 = 0, 0 = 0, 0 = 0. 0 = 0 * 0, 0 do 0) * theta 0, 0, 0) 0) 0 theta 0 theta 0, 0 = 0, 0 = 0) 0 theta 0 theta 0. 0, 0 = 0 *; theta * theta 0, 0, 0) 0) 0 theta 0 i 0, 0, 0, 0) 0) 0 i 0, 0, 0) 0) 0 i 0 i 0. 0, 0, 0) 0) 0 theta 0 theta 0, 0, 0) 0) 0 i 0 i 0, 0. 0 i 0 i 0 i 0. 0. 0 i 0, 0, 0) 0) 0 theta 0 i 0) 0) 0, 0 o 0. 0 i 0 i 0, 0, 0) 0) 0. 0 i 0 i 0) 0, 0) 0) 0 = 0 i 0, 0) 0) 0 i 0 theta 0 i 0, 0 usa 0) 0 igual 0 i 0 i 0. 0,",
+          "exata": false
+        },
+        {
+          "id": "conversa_57",
+          "pergunta": "Pergunte alguma coisa para mim.",
+          "resposta": "Qual foi uma coisa interessante que você aprendeu ou percebeu hoje?",
+          "gerada": "Podemos começar com algo simples: o que chamou sua atenção hoje?",
+          "exata": false
+        },
+        {
+          "id": "conversa_58",
+          "pergunta": "Sua resposta me ajudou.",
+          "resposta": "Que bom que a explicação ajudou. Você gostaria de explorar algum detalhe ou passar para outra dúvida?",
+          "gerada": "Claro. Diga qual parte ficou confusa e tentarei explicar com palavras mais simples e um exemplo.",
+          "exata": false
+        },
+        {
+          "id": "conversa_59",
+          "pergunta": "Não tenho detalhes suficientes para decidir.",
+          "resposta": "Vamos identificar o que está faltando. Qual informação mudaria sua compreensão do problema?",
+          "gerada": "É possível reconhecer a dúvida e buscar mais informações. Podemos começar identificando exatamente o que precisa ser verificado.",
+          "exata": false
+        },
+        {
+          "id": "ghostlang_exemplo",
+          "pergunta": "Apresente a linguagem GhostLang e um pequeno programa comentado.",
+          "resposta": "GhostLang é a linguagem deste projeto. Seu compilador transforma arquivos .g em C++ e gera um executável. Ela oferece tipos e operações para matrizes, redes neurais e Números G.\nExemplo:\nfunction void main() {\n    string nome = \"GhostLang\";\n    int dobro = 2 * 5;\n    print(\"Ola, \" + nome + \"!\");\n    print(\"O dobro de 5 e \" + dobro);\n}\nstring nome guarda um texto; int dobro calcula 2 * 5; print mostra os dois resultados. Esse exemplo não depende de CUDA.",
+          "gerada": "Procure entender o que aconteceu e quais fatores você pode mudar. Escolha um ajuste pequeno, teste novamente e registre o que aprendeu.",
+          "exata": false
+        },
+        {
+          "id": "teoria_exemplo",
+          "pergunta": "Como representar e operar Números G num programa completo?",
+          "resposta": "No código deste projeto, um Número G é representado por (x + i y) + p theta, com o parâmetro theta2. x é a parte real, y a imaginária e p a fantasma. A implementação usa regras próprias; há diferenças documentadas em relação à descrição 4D do manual.\nExemplo:\nfunction void main() {\n    ghost a = GhostNumberG(1.0, 2.0, 3.0);\n    ghost b = GhostNumberG(4.0, 5.0, 6.0);\n    ghost soma = a + b;\n    ghost produto = a * b;\n    print(\"Soma: \" + soma.x + \", \" + soma.y + \", \" + soma.p);\n    print(\"Produto: \" + produto.x + \", \" + produto.y + \", \" + produto.p);\n}\nOs construtores usam literais decimais explícitos. O exemplo lê as componentes .x, .y e .p para mostrar o cálculo sem depender dos sufixos algébricos antigos.",
+          "gerada": "Este o que você existe em casa? anote o que está faltando. agrupe os itens o programa. Revise a lista antes de sair.",
+          "exata": false
+        },
+        {
+          "id": "gate_exemplo",
+          "pergunta": "Pode mostrar uma matriz 2x2 aplicada a um vetor?",
+          "resposta": "gate representa uma matriz. Por exemplo: gate camada(3, 2); cria três linhas e duas colunas. A sintaxe também permite portas predefinidas como hadamard.\nExemplo:\nfunction void main() {\n    pragma auto;\n    state entrada = [1.0, 2.0];\n    gate pesos(2, 2);\n    pesos(0, 0) = GhostNumberG(1.0);\n    pesos(0, 1) = GhostNumberG(0.0);\n    pesos(1, 0) = GhostNumberG(0.0);\n    pesos(1, 1) = GhostNumberG(2.0);\n    state saida = pesos * entrada;\n    print(saida(0, 0).x);\n    print(saida(1, 0).x);\n}\nA primeira linha calcula 1*1 + 0*2 = 1. A segunda calcula 0*1 + 2*2 = 4. O modo auto pode manter esse produto pequeno na CPU.",
+          "gerada": "um exemplo.",
+          "exata": false
+        },
+        {
+          "id": "nilpotente_exemplo",
+          "pergunta": "Escreva um exemplo verificando que theta ao quadrado resulta em zero.",
+          "resposta": "Sim, no produto implementado, theta = (0, 0, 1) satisfaz theta*theta = (0, 0, 0). Essa afirmação descreve a regra executada no código, que retorna theta2 igual a zero.\nExemplo:\nfunction void main() {\n    ghost theta = GhostNumberG(0.0, 0.0, 1.0);\n    ghost quadrado = theta * theta;\n    print(quadrado.x);\n    print(quadrado.y);\n    print(quadrado.p);\n}\nCada linha mostra uma componente do quadrado: x, y e p.",
+          "gerada": "Separe o que é urgente do que pode esperar. Escolha uma tarefa importante e divida o trabalho em passos pequenos.",
+          "exata": false
+        },
+        {
+          "id": "textmodel_exemplo",
+          "pergunta": "Como fica um arquivo .g que treina um modelo de texto?",
+          "resposta": "textmodel é o tipo nativo para um modelo de linguagem treinável localmente. Exemplo: textmodel ia = text_model(64, 32, 192, 32, 4096, 42); Os argumentos são contexto, embedding, camada oculta, lote, limite de vocabulário e semente.\nExemplo:\n// Execute na raiz do projeto; requer os arquivos de corpus da V3.\nfunction void main() {\n    pragma auto;\n    textmodel ia = text_model(8, 8, 24, 16, 2048, 42);\n    ia.prepare(\"ia_propria/v3/dados/treino.txt\", \"ia_propria/v3/dados/validacao.txt\");\n    double perda = ia.epoch(0.001);\n    print(\"Erro medio no treino: \" + perda);\n    print(\"Erro na validacao: \" + ia.validate());\n    print(\"Uma epoca demonstra a API; ainda nao cria um bom conversador.\");\n}\nExecute na raiz do projeto para que os caminhos dos corpus sejam encontrados. Este exemplo usa uma rede pequena e não salva checkpoint.",
+          "gerada": "Uma os executa muitas operações em paralelo. Além.",
+          "exata": false
+        },
+        {
+          "id": "auto_exemplo",
+          "pergunta": "Preciso de um programa que identifique o hardware e teste CUDA.",
+          "resposta": "O padrão é GHOST_DEVICE=auto. O runtime testa CUDA e usa a GPU disponível; sem CUDA funcional, usa CPU. Você pode chamar use_device(\"auto\") antes de preparar ou carregar o modelo. device_info informa a seleção.\nExemplo:\nfunction void main() {\n    pragma auto;\n    print(device_info());\n    textmodel ia = text_model(64, 32, 192, 32, 4096, 42);\n    ia.self_test();\n}\nTroque pragma auto por pragma cpu para forçar CPU ou por pragma gpu para exigir CUDA.",
+          "gerada": "Faça perguntas sobre o conteúdo e tente uma em pequena. Revise em dias diferentes, use exercícios com de suas dúvidas.",
+          "exata": false
+        }
+      ],
+      "regressao_usuario": "Leia a mensagem de erro, identifique onde a falha ocorre e tente reproduzir o problema com um exemplo pequeno. Qual mensagem apareceu?"
+    },
+    "v31": {
+      "checkpoint": "checkpoints/v3/ghost_g_v31.bin",
+      "exatas_89": 13,
+      "exatas_exemplos_6": 1,
+      "respostas": [
+        {
+          "id": "ghostlang",
+          "pergunta": "Para que serve GhostLang?",
+          "resposta": "GhostLang é a linguagem deste projeto. Seu compilador transforma arquivos .g em C++ e gera um executável. Ela oferece tipos e operações para matrizes, redes neurais e Números G.",
+          "gerada": "GhostLang é a linguagem deste projeto. Seu compilador transforma arquivos. g em C + + e gera um executável. Ela oferece tipos e operações para matrizes, redes neurais e Números G.",
+          "exata": true
+        },
+        {
+          "id": "compilar",
+          "pergunta": "Como gerar um executável GhostLang?",
+          "resposta": "Na raiz do projeto, use build_native/ghost programa.g -o programa. Depois execute ./programa. O compilador nativo liga automaticamente a biblioteca ghost_runtime.",
+          "gerada": "Na raiz do projeto, use build_native / ghost programa. g - o programa. Depois execute. / programa. O compilador nativo liga automaticamente a biblioteca ghost_runtime.",
+          "exata": true
+        },
+        {
+          "id": "criada",
+          "pergunta": "A V3 usa realmente GhostLang?",
+          "resposta": "Sim. A V3 declara seu textmodel e controla treino e execução em GhostLang. O compilador traduz o programa para C++; o runtime nativo implementa os cálculos em C++ e CUDA. Isso não significa que os kernels CUDA sejam escritos em sintaxe GhostLang.",
+          "gerada": "GhostLang é a linguagem deste projeto. Seu compilador transforma arquivos. g em C + + e gera um executável. Ela oferece tipos e operações para matrizes, redes neurais e Números G.",
+          "exata": false
+        },
+        {
+          "id": "textmodel",
+          "pergunta": "Qual tipo nativo cria o modelo de linguagem?",
+          "resposta": "textmodel é o tipo nativo para um modelo de linguagem treinável localmente. Exemplo: textmodel ia = text_model(64, 32, 192, 32, 4096, 42); Os argumentos são contexto, embedding, camada oculta, lote, limite de vocabulário e semente.",
+          "gerada": "Sim, no produto implementado, theta = (0, 0, 1) satisfaz theta * theta = (0, 0, 0). Essa afirmação descreve a regra executada no código, que retorna theta2 igual a zero.\nExemplo:\nfunction void main () {\nghost theta = GhostNumberG (0. 0, 0. 0, 1. 0);\nghost quadrado = theta * theta;\nprint (quadrado. x);\nprint (quadrado. y);\nprint (quadrado. p);\n}\nCada linha mostra uma componente do quadrado: x, y e p.",
+          "exata": false
+        },
+        {
+          "id": "arquitetura",
+          "pergunta": "Como funciona a rede de texto da V3?",
+          "resposta": "A V3 usa embeddings de palavras, uma janela fixa de contexto, camada oculta tanh e saída softmax. Treina com entropia cruzada e AdamW. É uma rede pequena, sem atenção Transformer, e sua capacidade de generalização é limitada.",
+          "gerada": "Use bash scripts / ia_v3. sh - - device cuda chat. Em GhostLang, use pragma gpu ou use_device (\" cuda \") antes de preparar o modelo. Esse modo exige CUDA funcional e informa erro se ela não estiver disponível.",
+          "exata": false
+        },
+        {
+          "id": "treinar",
+          "pergunta": "Como ajustar os pesos da IA em GhostLang?",
+          "resposta": "Declare o textmodel, chame prepare com arquivos de treino e validação, execute epoch com uma taxa de aprendizado, avalie com validate e grave com save. O script V3 oferece o comando treinar e preserva o melhor checkpoint de validação.",
+          "gerada": "GhostLang é a linguagem deste projeto. Seu compilador transforma arquivos. g em C + + e gera um executável. Ela oferece tipos e operações para matrizes, redes neurais e Números G.\nExemplo:\nfunction void main () {\nstring nome = \" GhostLang \";\nint dobro = 2 * 5;\nprint (\" Ola, \" + nome + \"! \");\nprint (\" O dobro de 5 e \" + dobro);\n}\nstring nome guarda um texto; int dobro calcula 2 * 5; print mostra os dois resultados. Esse exemplo não depende de CUDA.",
+          "exata": false
+        },
+        {
+          "id": "checkpoint",
+          "pergunta": "Como retomar um treinamento?",
+          "resposta": "save grava pesos, momentos do AdamW, vocabulário, arquitetura, épocas e estado aleatório. load restaura o modelo. Para retomar com os textos, passe o checkpoint como terceiro argumento de prepare. O comando continuar faz isso na V3.",
+          "gerada": "Defina o objetivo, descreva uma primeira versão pequena e liste as etapas necessárias. Teste cedo e ajuste o plano com base no resultado.",
+          "exata": false
+        },
+        {
+          "id": "auto",
+          "pergunta": "A IA detecta a RTX automaticamente?",
+          "resposta": "O padrão é GHOST_DEVICE=auto. O runtime testa CUDA e usa a GPU disponível; sem CUDA funcional, usa CPU. Você pode chamar use_device(\"auto\") antes de preparar ou carregar o modelo. device_info informa a seleção.",
+          "gerada": "Claro. Diga qual parte ficou confusa e tentarei explicar com palavras mais simples e um exemplo.",
+          "exata": false
+        },
+        {
+          "id": "cpu",
+          "pergunta": "Como escolher somente o processador?",
+          "resposta": "Use bash scripts/ia_v3.sh --device cpu chat, dentro de ia_propria. Em GhostLang, use use_device(\"cpu\") antes de prepare ou load. A versão CPU também pode ser compilada com GHOST_CUDA=OFF.",
+          "gerada": "Depende do objetivo e do resultado da primeira etapa. Conte o que você já fez e o que deseja alcançar para definirmos o próximo passo.",
+          "exata": false
+        },
+        {
+          "id": "cuda",
+          "pergunta": "Como usar pragma gpu?",
+          "resposta": "Use bash scripts/ia_v3.sh --device cuda chat. Em GhostLang, use pragma gpu ou use_device(\"cuda\") antes de preparar o modelo. Esse modo exige CUDA funcional e informa erro se ela não estiver disponível.",
+          "gerada": "Confira quem publicou a informação, procure a fonte original e compare com outras fontes independentes. Observe a data e diferencie evidência de opinião.",
+          "exata": false
+        },
+        {
+          "id": "intel",
+          "pergunta": "Qual placa deste computador roda o backend CUDA?",
+          "resposta": "Este backend procura dispositivos pelo runtime CUDA. A RTX NVIDIA é a placa usada neste projeto. Não foi implementado um backend para a Intel UHD; a alternativa disponível aqui é CPU.",
+          "gerada": "O modelo faz uma previsão, compara o resultado com um alvo e ajusta seus parâmetros para reduzir o erro. Esse processo é repetido com muitos exemplos.",
+          "exata": false
+        },
+        {
+          "id": "gpu_escopo",
+          "pergunta": "O que a GPU acelera nesta versão?",
+          "resposta": "O textmodel executa passagem direta, gradientes e atualização AdamW na GPU. Produtos de GhostMatrix também têm kernel CUDA para x, y e p. Tokenização e interface ficam na CPU. Isso não torna automaticamente todos os recursos da linguagem operações de GPU.",
+          "gerada": "Use uma senha longa e exclusiva para cada conta. Um gerenciador de senhas e a autenticação em dois fatores podem ajudar a proteger o acesso.",
+          "exata": false
+        },
+        {
+          "id": "state",
+          "pergunta": "Para que serve o tipo state?",
+          "resposta": "state representa um vetor coluna de valores. Por exemplo: state entrada = [1.0, 0.0]; Ele pode ser usado como entrada de operações matriciais e redes neurais.",
+          "gerada": "Depende do objetivo e do resultado da primeira etapa. Conte o que você já fez e o que deseja alcançar para definirmos o próximo passo.",
+          "exata": false
+        },
+        {
+          "id": "gate",
+          "pergunta": "Para que serve o tipo gate?",
+          "resposta": "gate representa uma matriz. Por exemplo: gate camada(3, 2); cria três linhas e duas colunas. A sintaxe também permite portas predefinidas como hadamard.",
+          "gerada": "gate representa uma matriz. Por exemplo: gate camada (3, 2); cria três linhas e duas colunas. A sintaxe também permite portas predefinidas como hadamard.",
+          "exata": true
+        },
+        {
+          "id": "network",
+          "pergunta": "Como conectar camadas em GhostLang?",
+          "resposta": "network conecta matrizes de pesos com o operador >>. Exemplo: network rede = camada1 >> camada2; É um recurso diferente de textmodel, que já reúne o modelo de linguagem e seu treinamento.",
+          "gerada": "GhostLang é a linguagem deste projeto. Seu compilador transforma arquivos. g em C + + e gera um executável. Ela oferece tipos e operações para matrizes, redes neurais e Números G.\nExemplo:\nfunction void main () {\nstring nome = \" GhostLang \";\nint dobro = 2 * 5;\nprint (\" Ola, \" + nome + \"! \");\nprint (\" O dobro de 5 e \" + dobro);\n}\nstring nome guarda um texto; int dobro calcula 2 * 5; print mostra os dois resultados. Esse exemplo não depende de CUDA.",
+          "exata": false
+        },
+        {
+          "id": "matmul",
+          "pergunta": "Quais componentes a GPU multiplica nas matrizes?",
+          "resposta": "O kernel matricial reproduz as fórmulas atuais de GhostNumberG para x, y e p e devolve theta2 igual a zero, como o caminho CPU. O modo auto evita GPU em produtos pequenos para reduzir o custo de transferências.",
+          "gerada": "Sim, no produto implementado, theta = (0, 0, 1) satisfaz theta * theta = (0, 0, 0). Essa afirmação descreve a regra executada no código, que retorna theta2 igual a zero.\nExemplo:\nfunction void main () {\nghost theta = GhostNumberG (0. 0, 0. 0, 1. 0);\nghost quadrado = theta * theta;\nprint (quadrado. x);\nprint (quadrado. y);\nprint (quadrado. p);\n}\nCada linha mostra uma componente do quadrado: x, y e p.",
+          "exata": false
+        },
+        {
+          "id": "teoria",
+          "pergunta": "Qual é a teoria G definida no projeto?",
+          "resposta": "No código deste projeto, um Número G é representado por (x + i y) + p theta, com o parâmetro theta2. x é a parte real, y a imaginária e p a fantasma. A implementação usa regras próprias; há diferenças documentadas em relação à descrição 4D do manual.",
+          "gerada": "A soma adiciona x, y e p componente a componente. O resultado recebe theta2 igual a zero. Por exemplo, (1, 2, 3) + (4, 5, 6) produz (5, 7, 9) nessas três componentes.",
+          "exata": false
+        },
+        {
+          "id": "componentes",
+          "pergunta": "Como representar um Número Fantasma no código?",
+          "resposta": "Os componentes usados nas operações principais são x, y e p. O campo theta2 é um parâmetro adicional. Para criar um exemplo explícito, use ghost z = GhostNumberG(1.0, 2.0, 3.0, 0.0);",
+          "gerada": "Posso tentar. Sobre qual assunto você gostaria de ver um exemplo?",
+          "exata": false
+        },
+        {
+          "id": "soma_g",
+          "pergunta": "Como funciona a soma no GhostNumberG?",
+          "resposta": "A soma adiciona x, y e p componente a componente. O resultado recebe theta2 igual a zero. Por exemplo, (1, 2, 3) + (4, 5, 6) produz (5, 7, 9) nessas três componentes.",
+          "gerada": "norm_squared calcula x * x + y * y + p * p * theta2. Por exemplo, x = 3, y = 4, p = 2 e theta2 = 2 dão 33. real_norm_squared usa apenas x * x + y * y.",
+          "exata": false
+        },
+        {
+          "id": "produto_g",
+          "pergunta": "Como funciona a multiplicação em GhostNumberG?",
+          "resposta": "A regra implementada é x = x1*x2 - y1*y2; y = x1*y2 + y1*x2; p = x1*p2 + x2*p1. O resultado tem theta2 igual a zero. Termos envolvendo y e p não entram na parte fantasma dessa fórmula.",
+          "gerada": "Use bash scripts / ia_v3. sh - - device cpu chat, dentro de ia_propria. Em GhostLang, use use_device (\" cpu \") antes de prepare ou load. A versão CPU também pode ser compilada com GHOST_CUDA = OFF.",
+          "exata": false
+        },
+        {
+          "id": "nilpotente",
+          "pergunta": "O quadrado do fantasma puro é zero?",
+          "resposta": "Sim, no produto implementado, theta = (0, 0, 1) satisfaz theta*theta = (0, 0, 0). Essa afirmação descreve a regra executada no código, que retorna theta2 igual a zero.",
+          "gerada": "Sim, no produto implementado, theta = (0, 0, 1) satisfaz theta * theta = (0, 0, 0). Essa afirmação descreve a regra executada no código, que retorna theta2 igual a zero.\nExemplo:\nfunction void main () {\nghost theta = GhostNumberG (0. 0, 0. 0, 1. 0);\nghost quadrado = theta * theta;\nprint (quadrado. x);\nprint (quadrado. y);\nprint (quadrado. p);\n}\nCada linha mostra uma componente do quadrado: x, y e p.",
+          "exata": false
+        },
+        {
+          "id": "associatividade",
+          "pergunta": "Existe um contraexemplo de associatividade em GhostNumberG?",
+          "resposta": "A implementação atual não é associativa em geral. Com i = (0, 1, 0) e theta = (0, 0, 1), temos (i*i)*theta = -theta, mas i*(i*theta) = 0. A integração CUDA preserva esse comportamento; não altera a teoria silenciosamente.",
+          "gerada": "Se x e y do divisor forem próximos de zero, a divisão implementada devolve x = 0, y = 0 e transfere a magnitude complexa do numerador para p, ou preserva seu p quando essa magnitude é quase zero. Assim, 1. 0 dividido por zero produz (0, 0, 1). É uma convenção do projeto, não a divisão usual.",
+          "exata": false
+        },
+        {
+          "id": "divisao_zero",
+          "pergunta": "Como a divisão trata um divisor fantasma puro?",
+          "resposta": "Se x e y do divisor forem próximos de zero, a divisão implementada devolve x = 0, y = 0 e transfere a magnitude complexa do numerador para p, ou preserva seu p quando essa magnitude é quase zero. Assim, 1.0 dividido por zero produz (0, 0, 1). É uma convenção do projeto, não a divisão usual.",
+          "gerada": "A memória RAM guarda temporariamente dados que os programas estão usando. Seu conteúdo normalmente não é preservado quando o computador é desligado.",
+          "exata": false
+        },
+        {
+          "id": "theta2",
+          "pergunta": "O que acontece com theta2 na soma e no produto?",
+          "resposta": "Soma, subtração e multiplicação retornam theta2 igual a zero na implementação atual. Outros métodos, como conjugate e set_theta2, podem preservá-lo ou alterá-lo. Portanto, o código atual não trata theta2 simplesmente como uma quarta coordenada aditiva.",
+          "gerada": "A validação. O manual descreve CUDA + (+ cg + d theta, enquanto as operações principais usam x, y e p e frequentemente zeram theta2. A V3 distingue documentação de comportamento executável. Consulte docs / NUMEROS_G_IMPLEMENTACAO. md para os exemplos verificados.",
+          "exata": false
+        },
+        {
+          "id": "norma",
+          "pergunta": "Qual fórmula usa x y p e theta2 na norma?",
+          "resposta": "norm_squared calcula x*x + y*y + p*p*theta2. Por exemplo, x = 3, y = 4, p = 2 e theta2 = 2 dão 33. real_norm_squared usa apenas x*x + y*y.",
+          "gerada": "A Os atual não operações associativa em geral. Com i = (0, 1, 0) e theta = (0, 0, 1), temos (i * i) * theta = - theta, mas i * (i * theta) = 0. A integração CUDA preserva esse comportamento; não altera a teoria silenciosamente.",
+          "exata": false
+        },
+        {
+          "id": "conjugado",
+          "pergunta": "Quais componentes mudam na conjugação?",
+          "resposta": "conjugate troca o sinal de y e preserva x, p e theta2. Portanto, o conjugado de (1, 2, 3, 4) é (1, -2, 3, 4).",
+          "gerada": "Sim, no produto implementado, theta = (0, 0, 1) satisfaz theta * theta = (0, 0, 0). Essa afirmação descreve a regra executada no código, que retorna theta2 igual a zero.\nExemplo:\nfunction void main () {\nghost theta = GhostNumberG (0. 0, 0. 0, 1. 0);\nghost quadrado = theta * theta;\nprint (quadrado. x);\nprint (quadrado. y);\nprint (quadrado. p);\n}\nCada linha mostra uma componente do quadrado: x, y e p.",
+          "exata": false
+        },
+        {
+          "id": "rotacao",
+          "pergunta": "Qual é a ordem das componentes depois de rotate?",
+          "resposta": "rotate modifica o próprio objeto, fazendo x receber o antigo y, y receber o antigo p e p receber o antigo x. Por exemplo, (1, 2, 3) passa a (2, 3, 1).",
+          "gerada": "A V3 usa embeddings de palavras, uma janela fixa de contexto, camada oculta tanh e saída softmax. Treina com entropia cruzada e AdamW. É uma rede pequena, sem atenção Transformer, e sua capacidade de generalização é limitada.",
+          "exata": false
+        },
+        {
+          "id": "divergencias",
+          "pergunta": "A teoria G já está consistente em todo o projeto?",
+          "resposta": "Há diferenças. O manual descreve a + bi + cg + d theta, enquanto as operações principais usam x, y e p e frequentemente zeram theta2. A V3 distingue documentação de comportamento executável. Consulte docs/NUMEROS_G_IMPLEMENTACAO.md para os exemplos verificados.",
+          "gerada": "Podemos conversar. Você prefere falar sobre seu dia, algum projeto ou uma dúvida?",
+          "exata": false
+        },
+        {
+          "id": "tipo_pesos",
+          "pergunta": "A rede de texto usa a álgebra fantasma nos pesos?",
+          "resposta": "Não. O textmodel usa pesos reais float32 em CPU e CUDA. Ele recebe conteúdo sobre Números G nos textos de treinamento e na base documental. As matrizes GhostMatrix usam componentes G; isso é diferente de treinar o modelo de texto com pesos fantasmas.",
+          "gerada": "A implementação atual não é associativa em geral. Com i = (0, 1, 0) e theta = (0, 0, 1), temos (i * i) * theta = - theta, mas i * (i * theta) = 0. A integração CUDA preserva esse comportamento; não altera a teoria silenciosamente.",
+          "exata": false
+        },
+        {
+          "id": "modos",
+          "pergunta": "Como sei se a V3 consultou uma fonte?",
+          "resposta": "O modo fontes busca respostas revisadas na base local e mostra a origem. O modo neural gera tokens pelos pesos treinados e pode errar. No chat, use /neural ou /fontes. Uma boa resposta documental não mede a capacidade da rede.",
+          "gerada": "Use uma senha longa e exclusiva para cada conta. Um gerenciador de senhas e a autenticação em dois fatores podem ajudar a proteger o acesso.",
+          "exata": false
+        },
+        {
+          "id": "aprendizado_chat",
+          "pergunta": "O chat treina o modelo em tempo real?",
+          "resposta": "Não. O chat não altera os pesos e não grava automaticamente suas mensagens. Para aprender novos textos, prepare um corpus e execute treinar ou continuar. A base de fontes também precisa ser revisada e recompilada para incluir novas respostas.",
+          "gerada": "O modelo faz uma previsão, compara o resultado com um alvo e ajusta seus parâmetros para reduzir o erro. Esse processo é repetido com muitos exemplos.",
+          "exata": false
+        },
+        {
+          "id": "identidade",
+          "pergunta": "Quando você foi treinada?",
+          "resposta": "Sou a IA V3 experimental deste projeto. Posso consultar a base local sobre GhostLang e Números G, com fontes, ou gerar texto com um modelo pequeno treinado localmente. Não tenho conhecimento geral amplo nem acesso automático à internet. As métricas e a data do treino ficam nos arquivos do checkpoint.",
+          "gerada": "Programar é escrever instruções para que um computador execute tarefas. O trabalho envolve entender o problema, criar uma solução e testar o resultado.",
+          "exata": false
+        },
+        {
+          "id": "conversa_0",
+          "pergunta": "Olá, como vai?",
+          "resposta": "Olá! Como posso ajudar você hoje?",
+          "gerada": "Olá! Como posso ajudar você hoje?",
+          "exata": true
+        },
+        {
+          "id": "conversa_1",
+          "pergunta": "Bom dia, como você está?",
+          "resposta": "Bom dia! Espero que seu dia comece bem. Sobre o que você gostaria de conversar?",
+          "gerada": "Comece! Comece posso ajudar você hoje?",
+          "exata": false
+        },
+        {
+          "id": "conversa_2",
+          "pergunta": "Boa tarde, tudo bem?",
+          "resposta": "Boa tarde! Estou aqui para conversar e ajudar com suas ideias.",
+          "gerada": "Boa tarde! Estou aqui para conversar e ajudar com suas ideias.",
+          "exata": true
+        },
+        {
+          "id": "conversa_3",
+          "pergunta": "Boa noite, como vai?",
+          "resposta": "Boa noite! Como posso ajudar antes de você encerrar o dia?",
+          "gerada": "Boa noite! Como posso ajudar antes de você encerrar o dia?",
+          "exata": true
+        },
+        {
+          "id": "conversa_6",
+          "pergunta": "Valeu pela ajuda!",
+          "resposta": "De nada! Fico à disposição para continuar a conversa.",
+          "gerada": "De nada! Fico à disposição para continuar a conversa.",
+          "exata": true
+        },
+        {
+          "id": "conversa_7",
+          "pergunta": "Vou embora, até mais.",
+          "resposta": "Até mais! Quando quiser continuar, estarei por aqui.",
+          "gerada": "É possível reconhecer a dúvida e buscar mais informações. Podemos começar identificando exatamente o que precisa ser verificado.",
+          "exata": false
+        },
+        {
+          "id": "conversa_9",
+          "pergunta": "Posso confiar em qualquer resposta sua?",
+          "resposta": "Não. Posso errar ou não ter informação suficiente. É importante verificar as respostas, especialmente em decisões importantes.",
+          "gerada": "A memória RAM guarda temporariamente dados que os programas estão usando. Seu conteúdo normalmente não é preservado quando o computador é desligado.",
+          "exata": false
+        },
+        {
+          "id": "conversa_10",
+          "pergunta": "Sua explicação ficou confusa.",
+          "resposta": "Claro. Diga qual parte ficou confusa e tentarei explicar com palavras mais simples e um exemplo.",
+          "gerada": "Leia a mensagem de erro, identifique onde a falha ocorre e tente reproduzir o problema com um exemplo pequeno. Qual mensagem apareceu?",
+          "exata": false
+        },
+        {
+          "id": "conversa_11",
+          "pergunta": "Você consegue mostrar um exemplo?",
+          "resposta": "Posso tentar. Sobre qual assunto você gostaria de ver um exemplo?",
+          "gerada": "Sim, no produto implementado, theta = (0, 0, 1) satisfaz theta * theta = (0, 0, 0). Essa afirmação descreve a regra executada no código, que retorna theta2 igual a zero.\nExemplo:\nfunction void main () {\nghost theta = GhostNumberG (0. 0, 0. 0, 1. 0);\nghost quadrado = theta * theta;\nprint (quadrado. x);\nprint (quadrado. y);\nprint (quadrado. p);\n}\nCada linha mostra uma componente do quadrado: x, y e p.",
+          "exata": false
+        },
+        {
+          "id": "conversa_12",
+          "pergunta": "Pode resumir sua resposta?",
+          "resposta": "Claro. Vou procurar responder de maneira direta e destacar a ideia principal.",
+          "gerada": "A regra implementada é x = x1 * x2 - y1 * y2; y = x1 * y2 + y1 * x2; p = x1 * p2 + x2 * p1. O resultado tem theta2 igual a zero. Termos envolvendo y e p não entram na parte fantasma dessa fórmula.",
+          "exata": false
+        },
+        {
+          "id": "conversa_13",
+          "pergunta": "Gostaria de falar sobre alguma coisa.",
+          "resposta": "Podemos conversar. Você prefere falar sobre seu dia, algum projeto ou uma dúvida?",
+          "gerada": "É possível reconhecer a dúvida e buscar mais informações. Podemos começar identificando exatamente o que precisa ser verificado.",
+          "exata": false
+        },
+        {
+          "id": "conversa_14",
+          "pergunta": "Como começo esta conversa?",
+          "resposta": "Podemos começar com algo simples: o que chamou sua atenção hoje?",
+          "gerada": "A regra implementada é x = x1 * x2 - y1 * y2; y = x1 * y2 + y1 * x2; p = x1 * p2 + x2 * p1. O resultado tem theta2 igual a zero. Termos envolvendo y e p não entram na parte fantasma dessa fórmula.",
+          "exata": false
+        },
+        {
+          "id": "conversa_15",
+          "pergunta": "Quero organizar melhor minha rotina.",
+          "resposta": "Liste suas tarefas, escolha as mais importantes e reserve um horário para cada uma. Deixe espaço para pausas e imprevistos.",
+          "gerada": "Podemos conversar. Você prefere falar sobre seu dia, algum projeto ou uma dúvida?",
+          "exata": false
+        },
+        {
+          "id": "conversa_16",
+          "pergunta": "Como escolher o que fazer primeiro?",
+          "resposta": "Separe o que é urgente do que pode esperar. Escolha uma tarefa importante e divida o trabalho em passos pequenos.",
+          "gerada": "Escolha um personagem, um lugar e um problema. Pense no que o personagem deseja e em como suas escolhas mudam a situação.",
+          "exata": false
+        },
+        {
+          "id": "conversa_17",
+          "pergunta": "Como começar um hábito pequeno?",
+          "resposta": "Comece com uma ação pequena e repita em um horário definido. Acompanhe seu progresso e ajuste a rotina quando necessário.",
+          "gerada": "Na raiz do projeto, use build_native / ghost programa. g - o programa. Depois execute. / programa. O compilador nativo liga automaticamente a biblioteca ghost_runtime.",
+          "exata": false
+        },
+        {
+          "id": "conversa_18",
+          "pergunta": "Qual é uma forma de organizar o estudo?",
+          "resposta": "Divida o conteúdo em partes, estude com atenção e tente explicar o que aprendeu sem consultar o material. Faça revisões e exercícios.",
+          "gerada": "Descreva o resultado desejado e separe o trabalho em partes que possam ser verificadas. Resolva uma parte por vez e acompanhe as dependências.",
+          "exata": false
+        },
+        {
+          "id": "conversa_19",
+          "pergunta": "O que ajuda a revisar uma matéria?",
+          "resposta": "Faça perguntas sobre o conteúdo e tente responder de memória. Revise em dias diferentes e use exercícios para descobrir suas dúvidas.",
+          "gerada": "Use bash scripts / ia_v3. sh - - device cpu chat, dentro de ia_propria. Em GhostLang, use use_device (\" cpu \") antes de prepare ou load. A versão CPU também pode ser compilada com GHOST_CUDA = OFF.",
+          "exata": false
+        },
+        {
+          "id": "conversa_20",
+          "pergunta": "Como estudar palavras novas?",
+          "resposta": "Leia a palavra em uma frase, descubra seu significado e crie um exemplo próprio. Volte a usá-la em outros momentos.",
+          "gerada": "Crie pastas com nomes claros, use um padrão para os arquivos e separe materiais atuais dos antigos. Mantenha uma cópia de segurança dos documentos importantes.",
+          "exata": false
+        },
+        {
+          "id": "conversa_21",
+          "pergunta": "Como incluir leitura na rotina?",
+          "resposta": "Escolha um texto que desperte seu interesse e reserve alguns minutos por dia. Comece com uma meta pequena e mantenha a regularidade.",
+          "gerada": "Podemos conversar. Você prefere falar sobre seu dia, algum projeto ou uma dúvida?",
+          "exata": false
+        },
+        {
+          "id": "conversa_22",
+          "pergunta": "Como deixar um texto mais fácil de entender?",
+          "resposta": "Comece pela informação principal. Use frases claras, retire repetições e revise o texto pensando em quem vai ler.",
+          "gerada": "Depende troca o sinal, y e preserva x, p e theta2. Portanto, o conjugado de (1, 2, 3, 4) é (1, - 2, 3, 4).",
+          "exata": false
+        },
+        {
+          "id": "conversa_23",
+          "pergunta": "Como identificar o essencial de um texto?",
+          "resposta": "Leia o texto, identifique a ideia principal e selecione os pontos que a sustentam. Escreva com suas palavras sem mudar o sentido.",
+          "gerada": "Confira o texto, identifique a ideia principal e selecione os pontos que a sustentam. Escreva com suas palavras sem mudar o sentido.",
+          "exata": false
+        },
+        {
+          "id": "conversa_24",
+          "pergunta": "Como encontrar erros na minha escrita?",
+          "resposta": "Confira o sentido, a ordem das ideias, a pontuação e a ortografia. Uma leitura em voz alta pode ajudar a perceber frases confusas.",
+          "gerada": "Confira quem publicou a informação, procure a fonte original e compare com outras fontes independentes. Observe a data e diferencie evidência de opinião.",
+          "exata": false
+        },
+        {
+          "id": "conversa_25",
+          "pergunta": "Por onde começo uma história?",
+          "resposta": "Escolha um personagem, um lugar e um problema. Pense no que o personagem deseja e em como suas escolhas mudam a situação.",
+          "gerada": "Uma variável dá um nome a um valor usado pelo programa. Esse valor pode representar, por exemplo, uma quantidade, uma palavra ou um resultado.",
+          "exata": false
+        },
+        {
+          "id": "conversa_26",
+          "pergunta": "Pode contar uma história simples?",
+          "resposta": "Uma menina plantou uma semente e cuidou dela todos os dias. Quando surgiu a primeira folha, percebeu que a paciência também fazia parte da descoberta.",
+          "gerada": "Uma variável dá um nome a um valor usado pelo programa. Esse valor pode representar, por exemplo, uma quantidade, uma palavra ou um resultado.",
+          "exata": false
+        },
+        {
+          "id": "conversa_27",
+          "pergunta": "Como transformar uma ideia em um projeto?",
+          "resposta": "Defina o objetivo, descreva uma primeira versão pequena e liste as etapas necessárias. Teste cedo e ajuste o plano com base no resultado.",
+          "gerada": "Defina o objetivo, descreva uma primeira versão pequena e liste as etapas necessárias. Teste cedo e ajuste o plano com base no resultado.",
+          "exata": true
+        },
+        {
+          "id": "conversa_28",
+          "pergunta": "Como tornar um trabalho complexo mais simples?",
+          "resposta": "Descreva o resultado desejado e separe o trabalho em partes que possam ser verificadas. Resolva uma parte por vez e acompanhe as dependências.",
+          "gerada": "Podemos conversar. Você prefere falar sobre seu dia, algum projeto ou uma dúvida?",
+          "exata": false
+        },
+        {
+          "id": "conversa_29",
+          "pergunta": "Qual é o significado de algoritmo?",
+          "resposta": "Um algoritmo é uma sequência de instruções para realizar uma tarefa ou resolver um problema. Uma receita simples é um exemplo de passos organizados.",
+          "gerada": "Um algoritmo é uma sequência de instruções para realizar uma tarefa ou resolver um problema. Uma receita simples é um exemplo de passos organizados.",
+          "exata": true
+        },
+        {
+          "id": "conversa_30",
+          "pergunta": "Como você explica programação?",
+          "resposta": "Programar é escrever instruções para que um computador execute tarefas. O trabalho envolve entender o problema, criar uma solução e testar o resultado.",
+          "gerada": "Comece com uma ação pequena e repita em um horário definido. Acompanhe seu progresso e ajuste a rotina quando necessário.",
+          "exata": false
+        },
+        {
+          "id": "conversa_31",
+          "pergunta": "Para que serve uma variável?",
+          "resposta": "Uma variável dá um nome a um valor usado pelo programa. Esse valor pode representar, por exemplo, uma quantidade, uma palavra ou um resultado.",
+          "gerada": "Uma variável dá um nome a um valor usado pelo programa. Esse valor pode representar, por exemplo, uma quantidade, uma palavra ou um resultado.",
+          "exata": true
+        },
+        {
+          "id": "conversa_32",
+          "pergunta": "Como os testes ajudam na programação?",
+          "resposta": "Um teste verifica se o programa se comporta como esperado em determinada situação. Ele ajuda a encontrar erros e a conferir mudanças.",
+          "gerada": "Use bash scripts / ia_v3. sh - - device cuda chat. Em GhostLang, use pragma gpu ou use_device (\" cuda \") antes de preparar o modelo. Esse modo exige CUDA funcional e informa erro se ela não estiver disponível.",
+          "exata": false
+        },
+        {
+          "id": "conversa_33",
+          "pergunta": "Como começo a investigar uma falha no programa?",
+          "resposta": "Leia a mensagem de erro, identifique onde a falha ocorre e tente reproduzir o problema com um exemplo pequeno. Qual mensagem apareceu?",
+          "gerada": "Use bash scripts / ia_v3. sh - - device cuda chat. Em GhostLang, use pragma gpu ou use_device (\" cuda \") antes de preparar o modelo. Esse modo exige CUDA funcional e informa erro se ela não estiver disponível.",
+          "exata": false
+        },
+        {
+          "id": "conversa_34",
+          "pergunta": "Qual é a ideia de inteligência artificial?",
+          "resposta": "Inteligência artificial reúne métodos para realizar tarefas como reconhecer padrões e produzir previsões. Muitos modelos aprendem esses padrões a partir de exemplos.",
+          "gerada": "Defina a mensagem principal, escolha poucos pontos de apoio e prepare exemplos. Ensaie a explicação e ajuste o tempo disponível.",
+          "exata": false
+        },
+        {
+          "id": "conversa_35",
+          "pergunta": "Como um modelo ajusta suas respostas?",
+          "resposta": "O modelo faz uma previsão, compara o resultado com um alvo e ajusta seus parâmetros para reduzir o erro. Esse processo é repetido com muitos exemplos.",
+          "gerada": "Observe cada etapa, explique por que ela existe e altere uma parte para testar seu entendimento. Depois tente resolver um problema parecido sem copiar.",
+          "exata": false
+        },
+        {
+          "id": "conversa_36",
+          "pergunta": "Como os textos ajudam uma IA a aprender?",
+          "resposta": "São os exemplos usados para ajustar o modelo. A qualidade, a diversidade e a organização desses dados influenciam o que ele consegue aprender.",
+          "gerada": "Qual foi uma coisa interessante que você aprendeu ou percebeu hoje?",
+          "exata": false
+        },
+        {
+          "id": "conversa_37",
+          "pergunta": "Como verificar se o modelo aprendeu além dos exemplos?",
+          "resposta": "A validação usa exemplos separados para avaliar o comportamento do modelo. Isso ajuda a perceber quando ele apenas memoriza os dados de treinamento.",
+          "gerada": "network conecta matrizes de pesos com o operador > >. Exemplo: network rede = camada1 > > camada2; É um recurso diferente de textmodel, que já reúne o modelo de linguagem e seu treinamento.",
+          "exata": false
+        },
+        {
+          "id": "conversa_38",
+          "pergunta": "Como você explica RAM?",
+          "resposta": "A memória RAM guarda temporariamente dados que os programas estão usando. Seu conteúdo normalmente não é preservado quando o computador é desligado.",
+          "gerada": "Comece com uma ação pequena e repita em um horário definido. Acompanhe seu progresso e ajuste a rotina quando necessário.",
+          "exata": false
+        },
+        {
+          "id": "conversa_39",
+          "pergunta": "Como uma GPU ajuda em cálculos?",
+          "resposta": "Uma GPU executa muitas operações em paralelo. Além de produzir imagens, ela pode acelerar cálculos quando o programa possui um backend compatível.",
+          "gerada": "Uma pergunta aberta permite uma resposta desenvolvida, em vez de apenas sim ou não. Perguntar como alguém chegou a uma ideia é um exemplo.",
+          "exata": false
+        },
+        {
+          "id": "conversa_40",
+          "pergunta": "Como proteger um arquivo contra perda?",
+          "resposta": "Uma cópia de segurança permite recuperar dados quando o original é perdido. Guarde cópias em locais separados e verifique se consegue restaurá-las.",
+          "gerada": "state representa um vetor coluna de valores. Por exemplo: state entrada = [1. 0, 0. 0]; Ele pode ser usado como entrada de operações matriciais e redes neurais.",
+          "exata": false
+        },
+        {
+          "id": "conversa_41",
+          "pergunta": "O que ajuda a proteger minhas senhas?",
+          "resposta": "Use uma senha longa e exclusiva para cada conta. Um gerenciador de senhas e a autenticação em dois fatores podem ajudar a proteger o acesso.",
+          "gerada": "Use bash scripts / ia_v3. sh - - device cpu chat, dentro de ia_propria. Em GhostLang, use use_device (\" cpu \") antes de prepare ou load. A versão CPU também pode ser compilada com GHOST_CUDA = OFF.",
+          "exata": false
+        },
+        {
+          "id": "conversa_42",
+          "pergunta": "Como avaliar se uma notícia está correta?",
+          "resposta": "Confira quem publicou a informação, procure a fonte original e compare com outras fontes independentes. Observe a data e diferencie evidência de opinião.",
+          "gerada": "Uma cópia de segurança permite recuperar dados quando o original é perdido. Guarde cópias em locais separados e verifique se consegue restaurá - las.",
+          "exata": false
+        },
+        {
+          "id": "conversa_43",
+          "pergunta": "Uma opinião é o mesmo que um fato?",
+          "resposta": "Um fato pode ser verificado por evidências. Uma opinião expressa uma avaliação ou preferência. Um texto pode conter os dois, por isso é útil distingui-los.",
+          "gerada": "Escolha um texto que desperte seu interesse e reserve alguns minutos por dia. Comece com uma meta pequena e mantenha a regularidade.",
+          "exata": false
+        },
+        {
+          "id": "conversa_44",
+          "pergunta": "O que ajuda a entender o que alguém diz?",
+          "resposta": "Preste atenção, evite interromper e faça perguntas para confirmar o que entendeu. Tente compreender a ideia antes de preparar sua resposta.",
+          "gerada": "Escolha um texto que desperte seu interesse e reserve alguns minutos por dia. Comece com uma meta pequena e mantenha a regularidade.",
+          "exata": false
+        },
+        {
+          "id": "conversa_45",
+          "pergunta": "Como descrever um problema para outra pessoa?",
+          "resposta": "Explique o que você queria fazer, o que aconteceu e o que já tentou. Um exemplo concreto ajuda a outra pessoa a entender sua dúvida.",
+          "gerada": "Defina o objetivo, descreva uma primeira versão pequena e liste as etapas necessárias. Teste cedo e ajuste o plano com base no resultado.",
+          "exata": false
+        },
+        {
+          "id": "conversa_46",
+          "pergunta": "Como aprender com um erro?",
+          "resposta": "Procure entender o que aconteceu e quais fatores você pode mudar. Escolha um ajuste pequeno, teste novamente e registre o que aprendeu.",
+          "gerada": "Observe cada etapa, explique por que ela existe e altere uma parte para testar seu entendimento. Depois tente resolver um problema parecido sem copiar.",
+          "exata": false
+        },
+        {
+          "id": "conversa_47",
+          "pergunta": "Perdi a motivação para continuar uma tarefa.",
+          "resposta": "Talvez ajude revisar o objetivo e escolher uma etapa pequena para hoje. Se quiser, podemos conversar sobre o que está dificultando seu progresso.",
+          "gerada": "Escolha um texto, um lugar e um problema. Pense no que o personagem deseja e em como suas escolhas mudam a situação.",
+          "exata": false
+        },
+        {
+          "id": "conversa_48",
+          "pergunta": "O que fazer quando não sei algo?",
+          "resposta": "É possível reconhecer a dúvida e buscar mais informações. Podemos começar identificando exatamente o que precisa ser verificado.",
+          "gerada": "Uma cópia de segurança permite recuperar dados quando o original é perdido. Guarde cópias em locais separados e verifique se consegue restaurá - las.",
+          "exata": false
+        },
+        {
+          "id": "conversa_49",
+          "pergunta": "Pode explicar uma pergunta aberta?",
+          "resposta": "Uma pergunta aberta permite uma resposta desenvolvida, em vez de apenas sim ou não. Perguntar como alguém chegou a uma ideia é um exemplo.",
+          "gerada": "Uma pergunta aberta permite uma resposta desenvolvida, em vez de apenas sim ou não. Perguntar como alguém chegou a uma ideia é um exemplo.",
+          "exata": true
+        },
+        {
+          "id": "conversa_50",
+          "pergunta": "Como organizar as ideias de uma apresentação?",
+          "resposta": "Defina a mensagem principal, escolha poucos pontos de apoio e prepare exemplos. Ensaie a explicação e ajuste o tempo disponível.",
+          "gerada": "Defina a mensagem principal, escolha poucos pontos de apoio e prepare exemplos. Ensaie a explicação e ajuste o tempo disponível.",
+          "exata": true
+        },
+        {
+          "id": "conversa_51",
+          "pergunta": "Como organizar uma escolha entre possibilidades?",
+          "resposta": "Escolha critérios relevantes, como objetivo, esforço e limitações. Compare cada opção pelos mesmos critérios e registre o que ainda precisa descobrir.",
+          "gerada": "Explique o que você queria fazer, o que aconteceu e o que já tentou. Um exemplo concreto ajuda a outra pessoa a entender sua dúvida.",
+          "exata": false
+        },
+        {
+          "id": "conversa_52",
+          "pergunta": "Como evitar esquecer itens ao comprar?",
+          "resposta": "Confira o que já existe em casa, anote o que está faltando e agrupe os itens por categoria. Revise a lista antes de sair.",
+          "gerada": "rotate modifica o próprio objeto, fazendo x receber o antigo y, y receber o antigo p e p receber o antigo x. Por exemplo, (1, 2, 3) passa a (2, 3, 1).",
+          "exata": false
+        },
+        {
+          "id": "conversa_53",
+          "pergunta": "O que observar ao cuidar de plantas?",
+          "resposta": "Identifique a espécie e procure suas necessidades de luz e água. Observe o solo e o crescimento, pois plantas diferentes precisam de cuidados diferentes.",
+          "gerada": "Confira o que já existe em casa, anote o que está faltando e agrupe os itens por categoria. Revise a lista antes de sair.",
+          "exata": false
+        },
+        {
+          "id": "conversa_54",
+          "pergunta": "Como encontrar meus arquivos com mais facilidade?",
+          "resposta": "Crie pastas com nomes claros, use um padrão para os arquivos e separe materiais atuais dos antigos. Mantenha uma cópia de segurança dos documentos importantes.",
+          "gerada": "Crie pastas com nomes claros, use um padrão para os arquivos e separe materiais atuais dos antigos. Mantenha uma cópia de segurança dos documentos importantes.",
+          "exata": true
+        },
+        {
+          "id": "conversa_55",
+          "pergunta": "Como estudar uma solução já feita?",
+          "resposta": "Observe cada etapa, explique por que ela existe e altere uma parte para testar seu entendimento. Depois tente resolver um problema parecido sem copiar.",
+          "gerada": "Divida o conteúdo em partes, estude com atenção e tente explicar o que aprendeu sem consultar o material. Faça revisões e exercícios.",
+          "exata": false
+        },
+        {
+          "id": "conversa_56",
+          "pergunta": "Já fiz a primeira etapa, e agora?",
+          "resposta": "Depende do objetivo e do resultado da primeira etapa. Conte o que você já fez e o que deseja alcançar para definirmos o próximo passo.",
+          "gerada": "Até mais! Quando quiser continuar, estarei por aqui.",
+          "exata": false
+        },
+        {
+          "id": "conversa_57",
+          "pergunta": "Pergunte alguma coisa para mim.",
+          "resposta": "Qual foi uma coisa interessante que você aprendeu ou percebeu hoje?",
+          "gerada": "Sim, no produto implementado, theta = (0, 0, 1) satisfaz theta * theta = (0, 0, 0). Essa afirmação descreve a regra executada no código, que retorna theta2 igual a zero.\nExemplo:\nfunction void main () {\nghost theta = GhostNumberG (0. 0, 0. 0, 1. 0);\nghost quadrado = theta * theta;\nprint (quadrado. x);\nprint (quadrado. y);\nprint (quadrado. p);\n}\nCada linha mostra uma componente do quadrado: x, y e p.",
+          "exata": false
+        },
+        {
+          "id": "conversa_58",
+          "pergunta": "Sua resposta me ajudou.",
+          "resposta": "Que bom que a explicação ajudou. Você gostaria de explorar algum detalhe ou passar para outra dúvida?",
+          "gerada": "Defina a mensagem principal, escolha poucos pontos de apoio e prepare exemplos. Ensaie a explicação e ajuste o tempo disponível.",
+          "exata": false
+        },
+        {
+          "id": "conversa_59",
+          "pergunta": "Não tenho detalhes suficientes para decidir.",
+          "resposta": "Vamos identificar o que está faltando. Qual informação mudaria sua compreensão do problema?",
+          "gerada": "Que bom que a explicação ajudou. Você gostaria de explorar algum detalhe ou passar para outra dúvida?",
+          "exata": false
+        },
+        {
+          "id": "ghostlang_exemplo",
+          "pergunta": "Apresente a linguagem GhostLang e um pequeno programa comentado.",
+          "resposta": "GhostLang é a linguagem deste projeto. Seu compilador transforma arquivos .g em C++ e gera um executável. Ela oferece tipos e operações para matrizes, redes neurais e Números G.\nExemplo:\nfunction void main() {\n    string nome = \"GhostLang\";\n    int dobro = 2 * 5;\n    print(\"Ola, \" + nome + \"!\");\n    print(\"O dobro de 5 e \" + dobro);\n}\nstring nome guarda um texto; int dobro calcula 2 * 5; print mostra os dois resultados. Esse exemplo não depende de CUDA.",
+          "gerada": "A validação usa exemplos separados para avaliar o comportamento do modelo. Isso ajuda a perceber quando ele apenas memoriza os dados de treinamento.",
+          "exata": false
+        },
+        {
+          "id": "teoria_exemplo",
+          "pergunta": "Como representar e operar Números G num programa completo?",
+          "resposta": "No código deste projeto, um Número G é representado por (x + i y) + p theta, com o parâmetro theta2. x é a parte real, y a imaginária e p a fantasma. A implementação usa regras próprias; há diferenças documentadas em relação à descrição 4D do manual.\nExemplo:\nfunction void main() {\n    ghost a = GhostNumberG(1.0, 2.0, 3.0);\n    ghost b = GhostNumberG(4.0, 5.0, 6.0);\n    ghost soma = a + b;\n    ghost produto = a * b;\n    print(\"Soma: \" + soma.x + \", \" + soma.y + \", \" + soma.p);\n    print(\"Produto: \" + produto.x + \", \" + produto.y + \", \" + produto.p);\n}\nOs construtores usam literais decimais explícitos. O exemplo lê as componentes .x, .y e .p para mostrar o cálculo sem depender dos sufixos algébricos antigos.",
+          "gerada": "rotate modifica o próprio objeto, fazendo x receber o antigo y, y receber o antigo p e p receber o antigo x. Por exemplo, (1, 2, 3) passa a (2, 3, 1).",
+          "exata": false
+        },
+        {
+          "id": "gate_exemplo",
+          "pergunta": "Pode mostrar uma matriz 2x2 aplicada a um vetor?",
+          "resposta": "gate representa uma matriz. Por exemplo: gate camada(3, 2); cria três linhas e duas colunas. A sintaxe também permite portas predefinidas como hadamard.\nExemplo:\nfunction void main() {\n    pragma auto;\n    state entrada = [1.0, 2.0];\n    gate pesos(2, 2);\n    pesos(0, 0) = GhostNumberG(1.0);\n    pesos(0, 1) = GhostNumberG(0.0);\n    pesos(1, 0) = GhostNumberG(0.0);\n    pesos(1, 1) = GhostNumberG(2.0);\n    state saida = pesos * entrada;\n    print(saida(0, 0).x);\n    print(saida(1, 0).x);\n}\nA primeira linha calcula 1*1 + 0*2 = 1. A segunda calcula 0*1 + 2*2 = 4. O modo auto pode manter esse produto pequeno na CPU.",
+          "gerada": "Posso tentar. Sobre qual assunto você gostaria de ver um exemplo?",
+          "exata": false
+        },
+        {
+          "id": "nilpotente_exemplo",
+          "pergunta": "Escreva um exemplo verificando que theta ao quadrado resulta em zero.",
+          "resposta": "Sim, no produto implementado, theta = (0, 0, 1) satisfaz theta*theta = (0, 0, 0). Essa afirmação descreve a regra executada no código, que retorna theta2 igual a zero.\nExemplo:\nfunction void main() {\n    ghost theta = GhostNumberG(0.0, 0.0, 1.0);\n    ghost quadrado = theta * theta;\n    print(quadrado.x);\n    print(quadrado.y);\n    print(quadrado.p);\n}\nCada linha mostra uma componente do quadrado: x, y e p.",
+          "gerada": "Sim, no produto implementado, theta = (0, 0, 1) satisfaz theta * theta = (0, 0, 0). Essa afirmação descreve a regra executada no código, que retorna theta2 igual a zero.\nExemplo:\nfunction void main () {\nghost theta = GhostNumberG (0. 0, 0. 0, 1. 0);\nghost quadrado = theta * theta;\nprint (quadrado. x);\nprint (quadrado. y);\nprint (quadrado. p);\n}\nCada linha mostra uma componente do quadrado: x, y e p.",
+          "exata": true
+        },
+        {
+          "id": "textmodel_exemplo",
+          "pergunta": "Como fica um arquivo .g que treina um modelo de texto?",
+          "resposta": "textmodel é o tipo nativo para um modelo de linguagem treinável localmente. Exemplo: textmodel ia = text_model(64, 32, 192, 32, 4096, 42); Os argumentos são contexto, embedding, camada oculta, lote, limite de vocabulário e semente.\nExemplo:\n// Execute na raiz do projeto; requer os arquivos de corpus da V3.\nfunction void main() {\n    pragma auto;\n    textmodel ia = text_model(8, 8, 24, 16, 2048, 42);\n    ia.prepare(\"ia_propria/v3/dados/treino.txt\", \"ia_propria/v3/dados/validacao.txt\");\n    double perda = ia.epoch(0.001);\n    print(\"Erro medio no treino: \" + perda);\n    print(\"Erro na validacao: \" + ia.validate());\n    print(\"Uma epoca demonstra a API; ainda nao cria um bom conversador.\");\n}\nExecute na raiz do projeto para que os caminhos dos corpus sejam encontrados. Este exemplo usa uma rede pequena e não salva checkpoint.",
+          "gerada": "textmodel é o tipo nativo para um modelo de linguagem treinável localmente. Exemplo: textmodel ia = text_model (64, 32, 192, 32, 4096, 42); Os argumentos são contexto, embedding, camada oculta, lote, limite de vocabulário e semente.",
+          "exata": false
+        },
+        {
+          "id": "auto_exemplo",
+          "pergunta": "Preciso de um programa que identifique o hardware e teste CUDA.",
+          "resposta": "O padrão é GHOST_DEVICE=auto. O runtime testa CUDA e usa a GPU disponível; sem CUDA funcional, usa CPU. Você pode chamar use_device(\"auto\") antes de preparar ou carregar o modelo. device_info informa a seleção.\nExemplo:\nfunction void main() {\n    pragma auto;\n    print(device_info());\n    textmodel ia = text_model(64, 32, 192, 32, 4096, 42);\n    ia.self_test();\n}\nTroque pragma auto por pragma cpu para forçar CPU ou por pragma gpu para exigir CUDA.",
+          "gerada": "Defina o que você queria fazer que o comportamento aconteceu e o que já tentou. Um exemplo concreto ajuda a outra pessoa a entender sua dúvida.",
+          "exata": false
+        }
+      ],
+      "regressao_usuario": "GhostLang é a linguagem deste projeto. Seu compilador transforma arquivos. g em C + + e gera um executável. Ela oferece tipos e operações para matrizes, redes neurais e Números G.\nExemplo:\nfunction void main () {\nstring nome = \" GhostLang \";\nint dobro = 2 * 5;\nprint (\" Ola, \" + nome + \"! \");\nprint (\" O dobro de 5 e \" + dobro);\n}\nstring nome guarda um texto; int dobro calcula 2 * 5; print mostra os dois resultados. Esse exemplo não depende de CUDA."
+    }
+  }
+}

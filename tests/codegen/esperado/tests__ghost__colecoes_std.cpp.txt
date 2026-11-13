@@ -1,0 +1,284 @@
+#line 7 "libs/collections.g"
+#line 11 "libs/collections.g"
+#line 15 "libs/collections.g"
+#line 16 "libs/collections.g"
+#line 18 "libs/collections.g"
+#line 22 "libs/collections.g"
+#line 23 "libs/collections.g"
+#line 25 "libs/collections.g"
+#line 29 "libs/collections.g"
+#line 33 "libs/collections.g"
+#line 37 "libs/collections.g"
+#line 45 "libs/collections.g"
+#line 49 "libs/collections.g"
+#line 53 "libs/collections.g"
+#line 54 "libs/collections.g"
+#line 56 "libs/collections.g"
+#line 57 "libs/collections.g"
+#line 58 "libs/collections.g"
+#line 59 "libs/collections.g"
+#line 61 "libs/collections.g"
+#line 62 "libs/collections.g"
+#line 66 "libs/collections.g"
+#line 67 "libs/collections.g"
+#line 69 "libs/collections.g"
+#line 73 "libs/collections.g"
+#line 77 "libs/collections.g"
+#line 81 "libs/collections.g"
+#line 4 "libs/test.g"
+#line 5 "libs/test.g"
+#line 6 "libs/test.g"
+#line 11 "libs/test.g"
+#line 12 "libs/test.g"
+#line 13 "libs/test.g"
+#line 18 "libs/test.g"
+#line 19 "libs/test.g"
+#line 20 "libs/test.g"
+#line 21 "libs/test.g"
+#line 26 "libs/test.g"
+#line 27 "libs/test.g"
+#line 28 "libs/test.g"
+#line 29 "libs/test.g"
+#line 34 "libs/test.g"
+#line 35 "libs/test.g"
+#line 36 "libs/test.g"
+#line 38 "libs/test.g"
+#line 39 "libs/test.g"
+#line 40 "libs/test.g"
+#line 41 "libs/test.g"
+#line 6 "tests/ghost/colecoes_std.g"
+#line 7 "tests/ghost/colecoes_std.g"
+#line 8 "tests/ghost/colecoes_std.g"
+#line 10 "tests/ghost/colecoes_std.g"
+#line 11 "tests/ghost/colecoes_std.g"
+#line 12 "tests/ghost/colecoes_std.g"
+#line 14 "tests/ghost/colecoes_std.g"
+#line 15 "tests/ghost/colecoes_std.g"
+#line 16 "tests/ghost/colecoes_std.g"
+#line 18 "tests/ghost/colecoes_std.g"
+#line 19 "tests/ghost/colecoes_std.g"
+#line 20 "tests/ghost/colecoes_std.g"
+#line 22 "tests/ghost/colecoes_std.g"
+#line 23 "tests/ghost/colecoes_std.g"
+#line 24 "tests/ghost/colecoes_std.g"
+#line 25 "tests/ghost/colecoes_std.g"
+#line 26 "tests/ghost/colecoes_std.g"
+#line 30 "tests/ghost/colecoes_std.g"
+#line 31 "tests/ghost/colecoes_std.g"
+#line 32 "tests/ghost/colecoes_std.g"
+#line 34 "tests/ghost/colecoes_std.g"
+#line 35 "tests/ghost/colecoes_std.g"
+#line 36 "tests/ghost/colecoes_std.g"
+#line 38 "tests/ghost/colecoes_std.g"
+#line 39 "tests/ghost/colecoes_std.g"
+#line 40 "tests/ghost/colecoes_std.g"
+#line 42 "tests/ghost/colecoes_std.g"
+#line 43 "tests/ghost/colecoes_std.g"
+#line 44 "tests/ghost/colecoes_std.g"
+#line 46 "tests/ghost/colecoes_std.g"
+#line 47 "tests/ghost/colecoes_std.g"
+#line 48 "tests/ghost/colecoes_std.g"
+#line 49 "tests/ghost/colecoes_std.g"
+#line 50 "tests/ghost/colecoes_std.g"
+#line 54 "tests/ghost/colecoes_std.g"
+#line 55 "tests/ghost/colecoes_std.g"
+#line 56 "tests/ghost/colecoes_std.g"
+#line 3 "libs/collections.g"
+#line 41 "libs/collections.g"
+#line 3 "libs/test.g"
+#line 10 "libs/test.g"
+#line 17 "libs/test.g"
+#line 25 "libs/test.g"
+#line 33 "libs/test.g"
+#line 5 "tests/ghost/colecoes_std.g"
+#line 29 "tests/ghost/colecoes_std.g"
+#line 53 "tests/ghost/colecoes_std.g"
+----
+/*TranspiladopeloGhostCompilerv1.0*/#include<iostream>#include<cstdio>#include<cstdlib>#include<string>#include<complex>#include<type_traits>#include<fstream>#include<sstream>#include<thread>#include<chrono>#include<mutex>#include"include/GhostNumberG.hpp"#include"include/GhostMatrix.hpp"#include"include/GhostLLM.hpp"#include"include/GhostLib.hpp"#include"include/GhostDevice.hpp"#include"include/GhostTextModel.hpp"#include"include/GhostWeb.hpp"#include"include/GhostKnowledge.hpp"#include"include/GhostTemporal.hpp"#include"include/GhostTransformer.hpp"#include"include/GhostTransformerG.hpp"#include"include/GhostMatrixG.hpp"#include"include/GhostQuantum.hpp"#include"include/GhostQML.hpp"#include"include/GhostHybrid.hpp"#include"include/GhostQTape.hpp"#include"include/GhostCore.hpp"#ifdef_WIN32#include<windows.h>#endiftemplate<classT>classQueue;
+template<classT>classStack;
+voidassert_true(boolcond,std::stringmsg=std::string("Esperado true, obtido false"));
+voidassert_false(boolcond,std::stringmsg=std::string("Esperado false, obtido true"));
+voidassert_eq_int(intatual,intesperado,std::stringmsg=std::string(""));
+voidassert_eq_str(std::stringatual,std::stringesperado,std::stringmsg=std::string(""));
+voidassert_eq_double(doubleatual,doubleesperado,doubletol=0.0001,std::stringmsg=std::string(""));
+voidtest_stack();
+voidtest_queue();
+voidghost_main();
+template<classT>classStack{
+public:GhostList<T>itens{
+}
+;
+Stack(){
+(*this).itens.clear();
+}
+virtualvoidpush(Tval){
+(*this).itens.push(val);
+}
+virtualTpop(){
+if((*this).itens.length()==0){
+throwghost_error(std::string("Stack vazia no pop"));
+}
+return(*this).itens.pop();
+}
+virtualTpeek(){
+if((*this).itens.length()==0){
+throwghost_error(std::string("Stack vazia no peek"));
+}
+return(*this).itens[(*this).itens.length()-1];
+}
+virtualboolis_empty(){
+return(*this).itens.length()==0;
+}
+virtualintsize(){
+return(*this).itens.length();
+}
+virtualvoidclear(){
+(*this).itens.clear();
+}
+}
+;
+template<classT>classQueue{
+public:GhostList<T>itens{
+}
+;
+Queue(){
+(*this).itens.clear();
+}
+virtualvoidenqueue(Tval){
+(*this).itens.push(val);
+}
+virtualTdequeue(){
+if((*this).itens.length()==0){
+throwghost_error(std::string("Queue vazia no dequeue"));
+}
+Tprimeiro=(*this).itens[0];
+GhostList<T>resto{
+}
+;
+for(inti=1;
+i<(*this).itens.length();
+++i){
+resto.push((*this).itens[i]);
+}
+(*this).itens=resto;
+returnprimeiro;
+}
+virtualTpeek(){
+if((*this).itens.length()==0){
+throwghost_error(std::string("Queue vazia no peek"));
+}
+return(*this).itens[0];
+}
+virtualboolis_empty(){
+return(*this).itens.length()==0;
+}
+virtualintsize(){
+return(*this).itens.length();
+}
+virtualvoidclear(){
+(*this).itens.clear();
+}
+}
+;
+voidassert_true(boolcond,std::stringmsg){
+if(!cond){
+std::cout<<ghost_show(std::string("[FALHA DE TESTE] ")+msg)<<std::endl;
+throwghost_error(msg);
+}
+}
+voidassert_false(boolcond,std::stringmsg){
+if(cond){
+std::cout<<ghost_show(std::string("[FALHA DE TESTE] ")+msg)<<std::endl;
+throwghost_error(msg);
+}
+}
+voidassert_eq_int(intatual,intesperado,std::stringmsg){
+if(atual!=esperado){
+std::stringerro=std::string("[FALHA DE TESTE] ")+msg+std::string(" (esperado: ")+esperado+std::string(", obtido: ")+atual+std::string(")");
+std::cout<<ghost_show(erro)<<std::endl;
+throwghost_error(erro);
+}
+}
+voidassert_eq_str(std::stringatual,std::stringesperado,std::stringmsg){
+if(atual!=esperado){
+std::stringerro=std::string("[FALHA DE TESTE] ")+msg+std::string(" (esperado: \"")+esperado+std::string("\", obtido: \"")+atual+std::string("\")");
+std::cout<<ghost_show(erro)<<std::endl;
+throwghost_error(erro);
+}
+}
+voidassert_eq_double(doubleatual,doubleesperado,doubletol,std::stringmsg){
+doublediff=atual-esperado;
+if(diff<0.0){
+diff=-diff;
+}
+if(diff>tol){
+std::stringerro=std::string("[FALHA DE TESTE] ")+msg+std::string(" (esperado: ")+esperado+std::string(", obtido: ")+atual+std::string(")");
+std::cout<<ghost_show(erro)<<std::endl;
+throwghost_error(erro);
+}
+}
+voidtest_stack(){
+Stack<int>s=Stack<int>();
+assert_true(s.is_empty(),std::string("Pilha deve iniciar vazia"));
+assert_eq_int(s.size(),0,std::string("Tamanho inicial deve ser 0"));
+s.push(10);
+s.push(20);
+s.push(30);
+assert_false(s.is_empty(),std::string("Pilha nao deve estar vazia"));
+assert_eq_int(s.size(),3,std::string("Tamanho deve ser 3"));
+assert_eq_int(s.peek(),30,std::string("Topo deve ser 30"));
+intpop1=s.pop();
+assert_eq_int(pop1,30,std::string("Primeiro pop deve ser 30"));
+assert_eq_int(s.size(),2,std::string("Tamanho deve ser 2"));
+intpop2=s.pop();
+assert_eq_int(pop2,20,std::string("Segundo pop deve ser 20"));
+assert_eq_int(s.pop(),10,std::string("Terceiro pop deve ser 10"));
+assert_true(s.is_empty(),std::string("Pilha deve voltar a ficar vazia"));
+std::cout<<ghost_show(std::string("test_stack: OK"))<<std::endl;
+}
+voidtest_queue(){
+Queue<std::string>q=Queue<std::string>();
+assert_true(q.is_empty(),std::string("Fila deve iniciar vazia"));
+assert_eq_int(q.size(),0,std::string("Tamanho inicial da fila deve ser 0"));
+q.enqueue(std::string("primeiro"));
+q.enqueue(std::string("segundo"));
+q.enqueue(std::string("terceiro"));
+assert_false(q.is_empty(),std::string("Fila nao deve estar vazia"));
+assert_eq_int(q.size(),3,std::string("Tamanho da fila deve ser 3"));
+assert_eq_str(q.peek(),std::string("primeiro"),std::string("Frente da fila deve ser primeiro"));
+std::stringdeq1=q.dequeue();
+assert_eq_str(deq1,std::string("primeiro"),std::string("Primeiro item desenfileirado"));
+assert_eq_int(q.size(),2,std::string("Tamanho deve ser 2"));
+std::stringdeq2=q.dequeue();
+assert_eq_str(deq2,std::string("segundo"),std::string("Segundo item desenfileirado"));
+assert_eq_str(q.dequeue(),std::string("terceiro"),std::string("Terceiro item desenfileirado"));
+assert_true(q.is_empty(),std::string("Fila deve voltar a ficar vazia"));
+std::cout<<ghost_show(std::string("test_queue: OK"))<<std::endl;
+}
+voidghost_main(){
+test_stack();
+test_queue();
+std::cout<<ghost_show(std::string("todos os testes de colecoes_std passaram com sucesso!"))<<std::endl;
+}
+intmain(intargc,char**argv){
+try{
+#ifdef_WIN32SetConsoleOutputCP(CP_UTF8);
+SetConsoleCP(CP_UTF8);
+#endifstd::cout<<std::boolalpha;
+std::stringghost_args="";
+std::vector<std::string>ghost_args_vec;
+for(inti=1;
+i<argc;
+++i){
+ghost_args+=argv[i];
+ghost_args_vec.push_back(argv[i]);
+if(i<argc-1)ghost_args+=" ";
+}
+ghost_main();
+return0;
+}
+catch(conststd::exception&e){
+std::cerr<<e.what()<<std::endl;
+return1;
+}
+}

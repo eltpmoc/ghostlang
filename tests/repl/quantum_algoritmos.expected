@@ -1,0 +1,13 @@
+=== Grover: busca de |1011> entre 16 estados ===
+Iteracoes: 3
+P(|1011>) = 0.961319
+=== Deutsch-Jozsa (3 qubits de entrada) ===
+constante 0 -> 0 (0 = constante)
+constante 1 -> 0 (0 = constante)
+balanceada  -> 1 (1 = balanceada)
+=== QFT de |5> com 3 qubits ===
+|000>: 0.125
+|101>: 0.125
+IQFT devolve: 1|101>
+=== Rotacoes ===
+RY(pi/3)|0> = 0.866|0> + 0.5|1>  P(1) = 0.25

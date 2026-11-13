@@ -1,0 +1,11 @@
+== metodos genericos ==
+["idade=30", "nome=ana", "pi=3", "ok=true"] total 4
+7 x 2 ["ab", "ab"] [1, 1, 1]
+idade=30; nome=ana; pi=3; ok=true; repetir=2; repetir=3; resumo=6
+== static generico ==
+9 b 2.5 [4, 4]
+== em classe generica ==
+7 true texto 2 [7, 7, 7, 9]
+== heranca e funcoes genericas ==
+["x=1", "x=2", "fim=true"] 3 7 8
+copia 8 original 7

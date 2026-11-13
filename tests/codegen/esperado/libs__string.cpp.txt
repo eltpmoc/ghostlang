@@ -1,0 +1,432 @@
+#line 7 "libs/string.g"
+#line 8 "libs/string.g"
+#line 10 "libs/string.g"
+#line 14 "libs/string.g"
+#line 15 "libs/string.g"
+#line 17 "libs/string.g"
+#line 18 "libs/string.g"
+#line 22 "libs/string.g"
+#line 23 "libs/string.g"
+#line 24 "libs/string.g"
+#line 25 "libs/string.g"
+#line 55 "libs/string.g"
+#line 59 "libs/string.g"
+#line 60 "libs/string.g"
+#line 61 "libs/string.g"
+#line 62 "libs/string.g"
+#line 92 "libs/string.g"
+#line 96 "libs/string.g"
+#line 97 "libs/string.g"
+#line 98 "libs/string.g"
+#line 100 "libs/string.g"
+#line 104 "libs/string.g"
+#line 105 "libs/string.g"
+#line 107 "libs/string.g"
+#line 108 "libs/string.g"
+#line 112 "libs/string.g"
+#line 113 "libs/string.g"
+#line 115 "libs/string.g"
+#line 116 "libs/string.g"
+#line 120 "libs/string.g"
+#line 121 "libs/string.g"
+#line 123 "libs/string.g"
+#line 124 "libs/string.g"
+#line 125 "libs/string.g"
+#line 126 "libs/string.g"
+#line 127 "libs/string.g"
+#line 128 "libs/string.g"
+#line 130 "libs/string.g"
+#line 131 "libs/string.g"
+#line 134 "libs/string.g"
+#line 6 "libs/string.g"
+#line 13 "libs/string.g"
+#line 21 "libs/string.g"
+#line 58 "libs/string.g"
+#line 95 "libs/string.g"
+#line 103 "libs/string.g"
+#line 111 "libs/string.g"
+#line 119 "libs/string.g"
+----
+/*TranspiladopeloGhostCompilerv1.0*/#include<iostream>#include<cstdio>#include<cstdlib>#include<string>#include<complex>#include<type_traits>#include<fstream>#include<sstream>#include<thread>#include<chrono>#include<mutex>#include"include/GhostNumberG.hpp"#include"include/GhostMatrix.hpp"#include"include/GhostLLM.hpp"#include"include/GhostLib.hpp"#include"include/GhostDevice.hpp"#include"include/GhostTextModel.hpp"#include"include/GhostWeb.hpp"#include"include/GhostKnowledge.hpp"#include"include/GhostTemporal.hpp"#include"include/GhostTransformer.hpp"#include"include/GhostTransformerG.hpp"#include"include/GhostMatrixG.hpp"#include"include/GhostQuantum.hpp"#include"include/GhostQML.hpp"#include"include/GhostHybrid.hpp"#include"include/GhostQTape.hpp"#include"include/GhostCore.hpp"#ifdef_WIN32#include<windows.h>#endifboolstarts_with(std::stringtext,std::stringprefix);
+boolends_with(std::stringtext,std::stringsuffix);
+std::stringto_upper(std::stringtext);
+std::stringto_lower(std::stringtext);
+std::stringstr_repeat(std::stringtext,intcount);
+std::stringpad_left(std::stringtext,intwidth,std::stringpad=std::string(" "));
+std::stringpad_right(std::stringtext,intwidth,std::stringpad=std::string(" "));
+std::stringreplace_all(std::stringtext,std::stringde,std::stringpara);
+boolstarts_with(std::stringtext,std::stringprefix){
+if(prefix.length()>text.length()){
+returnfalse;
+}
+returntext.substr(0,prefix.length())==prefix;
+}
+boolends_with(std::stringtext,std::stringsuffix){
+if(suffix.length()>text.length()){
+returnfalse;
+}
+intstart=text.length()-suffix.length();
+returntext.substr(start,suffix.length())==suffix;
+}
+std::stringto_upper(std::stringtext){
+std::stringout=std::string("");
+for(inti=0;
+i<text.length();
+++i){
+std::stringc=text.substr(i,1);
+{
+constautoghost_sw_1=(c);
+boolghost_fall_1=false;
+if(ghost_fall_1||ghost_sw_1==(std::string("a"))){
+ghost_fall_1=true;
+out=out+std::string("A");
+gotoghost_sw_end_1;
+}
+if(ghost_fall_1||ghost_sw_1==(std::string("b"))){
+ghost_fall_1=true;
+out=out+std::string("B");
+gotoghost_sw_end_1;
+}
+if(ghost_fall_1||ghost_sw_1==(std::string("c"))){
+ghost_fall_1=true;
+out=out+std::string("C");
+gotoghost_sw_end_1;
+}
+if(ghost_fall_1||ghost_sw_1==(std::string("d"))){
+ghost_fall_1=true;
+out=out+std::string("D");
+gotoghost_sw_end_1;
+}
+if(ghost_fall_1||ghost_sw_1==(std::string("e"))){
+ghost_fall_1=true;
+out=out+std::string("E");
+gotoghost_sw_end_1;
+}
+if(ghost_fall_1||ghost_sw_1==(std::string("f"))){
+ghost_fall_1=true;
+out=out+std::string("F");
+gotoghost_sw_end_1;
+}
+if(ghost_fall_1||ghost_sw_1==(std::string("g"))){
+ghost_fall_1=true;
+out=out+std::string("G");
+gotoghost_sw_end_1;
+}
+if(ghost_fall_1||ghost_sw_1==(std::string("h"))){
+ghost_fall_1=true;
+out=out+std::string("H");
+gotoghost_sw_end_1;
+}
+if(ghost_fall_1||ghost_sw_1==(std::string("i"))){
+ghost_fall_1=true;
+out=out+std::string("I");
+gotoghost_sw_end_1;
+}
+if(ghost_fall_1||ghost_sw_1==(std::string("j"))){
+ghost_fall_1=true;
+out=out+std::string("J");
+gotoghost_sw_end_1;
+}
+if(ghost_fall_1||ghost_sw_1==(std::string("k"))){
+ghost_fall_1=true;
+out=out+std::string("K");
+gotoghost_sw_end_1;
+}
+if(ghost_fall_1||ghost_sw_1==(std::string("l"))){
+ghost_fall_1=true;
+out=out+std::string("L");
+gotoghost_sw_end_1;
+}
+if(ghost_fall_1||ghost_sw_1==(std::string("m"))){
+ghost_fall_1=true;
+out=out+std::string("M");
+gotoghost_sw_end_1;
+}
+if(ghost_fall_1||ghost_sw_1==(std::string("n"))){
+ghost_fall_1=true;
+out=out+std::string("N");
+gotoghost_sw_end_1;
+}
+if(ghost_fall_1||ghost_sw_1==(std::string("o"))){
+ghost_fall_1=true;
+out=out+std::string("O");
+gotoghost_sw_end_1;
+}
+if(ghost_fall_1||ghost_sw_1==(std::string("p"))){
+ghost_fall_1=true;
+out=out+std::string("P");
+gotoghost_sw_end_1;
+}
+if(ghost_fall_1||ghost_sw_1==(std::string("q"))){
+ghost_fall_1=true;
+out=out+std::string("Q");
+gotoghost_sw_end_1;
+}
+if(ghost_fall_1||ghost_sw_1==(std::string("r"))){
+ghost_fall_1=true;
+out=out+std::string("R");
+gotoghost_sw_end_1;
+}
+if(ghost_fall_1||ghost_sw_1==(std::string("s"))){
+ghost_fall_1=true;
+out=out+std::string("S");
+gotoghost_sw_end_1;
+}
+if(ghost_fall_1||ghost_sw_1==(std::string("t"))){
+ghost_fall_1=true;
+out=out+std::string("T");
+gotoghost_sw_end_1;
+}
+if(ghost_fall_1||ghost_sw_1==(std::string("u"))){
+ghost_fall_1=true;
+out=out+std::string("U");
+gotoghost_sw_end_1;
+}
+if(ghost_fall_1||ghost_sw_1==(std::string("v"))){
+ghost_fall_1=true;
+out=out+std::string("V");
+gotoghost_sw_end_1;
+}
+if(ghost_fall_1||ghost_sw_1==(std::string("w"))){
+ghost_fall_1=true;
+out=out+std::string("W");
+gotoghost_sw_end_1;
+}
+if(ghost_fall_1||ghost_sw_1==(std::string("x"))){
+ghost_fall_1=true;
+out=out+std::string("X");
+gotoghost_sw_end_1;
+}
+if(ghost_fall_1||ghost_sw_1==(std::string("y"))){
+ghost_fall_1=true;
+out=out+std::string("Y");
+gotoghost_sw_end_1;
+}
+if(ghost_fall_1||ghost_sw_1==(std::string("z"))){
+ghost_fall_1=true;
+out=out+std::string("Z");
+gotoghost_sw_end_1;
+}
+if(ghost_fall_1||!(ghost_sw_1==(std::string("a"))||ghost_sw_1==(std::string("b"))||ghost_sw_1==(std::string("c"))||ghost_sw_1==(std::string("d"))||ghost_sw_1==(std::string("e"))||ghost_sw_1==(std::string("f"))||ghost_sw_1==(std::string("g"))||ghost_sw_1==(std::string("h"))||ghost_sw_1==(std::string("i"))||ghost_sw_1==(std::string("j"))||ghost_sw_1==(std::string("k"))||ghost_sw_1==(std::string("l"))||ghost_sw_1==(std::string("m"))||ghost_sw_1==(std::string("n"))||ghost_sw_1==(std::string("o"))||ghost_sw_1==(std::string("p"))||ghost_sw_1==(std::string("q"))||ghost_sw_1==(std::string("r"))||ghost_sw_1==(std::string("s"))||ghost_sw_1==(std::string("t"))||ghost_sw_1==(std::string("u"))||ghost_sw_1==(std::string("v"))||ghost_sw_1==(std::string("w"))||ghost_sw_1==(std::string("x"))||ghost_sw_1==(std::string("y"))||ghost_sw_1==(std::string("z")))){
+ghost_fall_1=true;
+out=out+c;
+gotoghost_sw_end_1;
+}
+(void)ghost_fall_1;
+}
+ghost_sw_end_1:;
+}
+returnout;
+}
+std::stringto_lower(std::stringtext){
+std::stringout=std::string("");
+for(inti=0;
+i<text.length();
+++i){
+std::stringc=text.substr(i,1);
+{
+constautoghost_sw_2=(c);
+boolghost_fall_2=false;
+if(ghost_fall_2||ghost_sw_2==(std::string("A"))){
+ghost_fall_2=true;
+out=out+std::string("a");
+gotoghost_sw_end_2;
+}
+if(ghost_fall_2||ghost_sw_2==(std::string("B"))){
+ghost_fall_2=true;
+out=out+std::string("b");
+gotoghost_sw_end_2;
+}
+if(ghost_fall_2||ghost_sw_2==(std::string("C"))){
+ghost_fall_2=true;
+out=out+std::string("c");
+gotoghost_sw_end_2;
+}
+if(ghost_fall_2||ghost_sw_2==(std::string("D"))){
+ghost_fall_2=true;
+out=out+std::string("d");
+gotoghost_sw_end_2;
+}
+if(ghost_fall_2||ghost_sw_2==(std::string("E"))){
+ghost_fall_2=true;
+out=out+std::string("e");
+gotoghost_sw_end_2;
+}
+if(ghost_fall_2||ghost_sw_2==(std::string("F"))){
+ghost_fall_2=true;
+out=out+std::string("f");
+gotoghost_sw_end_2;
+}
+if(ghost_fall_2||ghost_sw_2==(std::string("G"))){
+ghost_fall_2=true;
+out=out+std::string("g");
+gotoghost_sw_end_2;
+}
+if(ghost_fall_2||ghost_sw_2==(std::string("H"))){
+ghost_fall_2=true;
+out=out+std::string("h");
+gotoghost_sw_end_2;
+}
+if(ghost_fall_2||ghost_sw_2==(std::string("I"))){
+ghost_fall_2=true;
+out=out+std::string("i");
+gotoghost_sw_end_2;
+}
+if(ghost_fall_2||ghost_sw_2==(std::string("J"))){
+ghost_fall_2=true;
+out=out+std::string("j");
+gotoghost_sw_end_2;
+}
+if(ghost_fall_2||ghost_sw_2==(std::string("K"))){
+ghost_fall_2=true;
+out=out+std::string("k");
+gotoghost_sw_end_2;
+}
+if(ghost_fall_2||ghost_sw_2==(std::string("L"))){
+ghost_fall_2=true;
+out=out+std::string("l");
+gotoghost_sw_end_2;
+}
+if(ghost_fall_2||ghost_sw_2==(std::string("M"))){
+ghost_fall_2=true;
+out=out+std::string("m");
+gotoghost_sw_end_2;
+}
+if(ghost_fall_2||ghost_sw_2==(std::string("N"))){
+ghost_fall_2=true;
+out=out+std::string("n");
+gotoghost_sw_end_2;
+}
+if(ghost_fall_2||ghost_sw_2==(std::string("O"))){
+ghost_fall_2=true;
+out=out+std::string("o");
+gotoghost_sw_end_2;
+}
+if(ghost_fall_2||ghost_sw_2==(std::string("P"))){
+ghost_fall_2=true;
+out=out+std::string("p");
+gotoghost_sw_end_2;
+}
+if(ghost_fall_2||ghost_sw_2==(std::string("Q"))){
+ghost_fall_2=true;
+out=out+std::string("q");
+gotoghost_sw_end_2;
+}
+if(ghost_fall_2||ghost_sw_2==(std::string("R"))){
+ghost_fall_2=true;
+out=out+std::string("r");
+gotoghost_sw_end_2;
+}
+if(ghost_fall_2||ghost_sw_2==(std::string("S"))){
+ghost_fall_2=true;
+out=out+std::string("s");
+gotoghost_sw_end_2;
+}
+if(ghost_fall_2||ghost_sw_2==(std::string("T"))){
+ghost_fall_2=true;
+out=out+std::string("t");
+gotoghost_sw_end_2;
+}
+if(ghost_fall_2||ghost_sw_2==(std::string("U"))){
+ghost_fall_2=true;
+out=out+std::string("u");
+gotoghost_sw_end_2;
+}
+if(ghost_fall_2||ghost_sw_2==(std::string("V"))){
+ghost_fall_2=true;
+out=out+std::string("v");
+gotoghost_sw_end_2;
+}
+if(ghost_fall_2||ghost_sw_2==(std::string("W"))){
+ghost_fall_2=true;
+out=out+std::string("w");
+gotoghost_sw_end_2;
+}
+if(ghost_fall_2||ghost_sw_2==(std::string("X"))){
+ghost_fall_2=true;
+out=out+std::string("x");
+gotoghost_sw_end_2;
+}
+if(ghost_fall_2||ghost_sw_2==(std::string("Y"))){
+ghost_fall_2=true;
+out=out+std::string("y");
+gotoghost_sw_end_2;
+}
+if(ghost_fall_2||ghost_sw_2==(std::string("Z"))){
+ghost_fall_2=true;
+out=out+std::string("z");
+gotoghost_sw_end_2;
+}
+if(ghost_fall_2||!(ghost_sw_2==(std::string("A"))||ghost_sw_2==(std::string("B"))||ghost_sw_2==(std::string("C"))||ghost_sw_2==(std::string("D"))||ghost_sw_2==(std::string("E"))||ghost_sw_2==(std::string("F"))||ghost_sw_2==(std::string("G"))||ghost_sw_2==(std::string("H"))||ghost_sw_2==(std::string("I"))||ghost_sw_2==(std::string("J"))||ghost_sw_2==(std::string("K"))||ghost_sw_2==(std::string("L"))||ghost_sw_2==(std::string("M"))||ghost_sw_2==(std::string("N"))||ghost_sw_2==(std::string("O"))||ghost_sw_2==(std::string("P"))||ghost_sw_2==(std::string("Q"))||ghost_sw_2==(std::string("R"))||ghost_sw_2==(std::string("S"))||ghost_sw_2==(std::string("T"))||ghost_sw_2==(std::string("U"))||ghost_sw_2==(std::string("V"))||ghost_sw_2==(std::string("W"))||ghost_sw_2==(std::string("X"))||ghost_sw_2==(std::string("Y"))||ghost_sw_2==(std::string("Z")))){
+ghost_fall_2=true;
+out=out+c;
+gotoghost_sw_end_2;
+}
+(void)ghost_fall_2;
+}
+ghost_sw_end_2:;
+}
+returnout;
+}
+std::stringstr_repeat(std::stringtext,intcount){
+std::stringout=std::string("");
+for(inti=0;
+i<count;
+++i){
+out=out+text;
+}
+returnout;
+}
+std::stringpad_left(std::stringtext,intwidth,std::stringpad){
+if(text.length()>=width){
+returntext;
+}
+intfaltam=width-text.length();
+returnstr_repeat(pad,faltam)+text;
+}
+std::stringpad_right(std::stringtext,intwidth,std::stringpad){
+if(text.length()>=width){
+returntext;
+}
+intfaltam=width-text.length();
+returntext+str_repeat(pad,faltam);
+}
+std::stringreplace_all(std::stringtext,std::stringde,std::stringpara){
+if(de.length()==0||text.length()==0){
+returntext;
+}
+std::stringout=std::string("");
+inti=0;
+while(i<text.length()){
+if(i+de.length()<=text.length()&&text.substr(i,de.length())==de){
+out=out+para;
+i=i+de.length();
+}
+else{
+out=out+text.substr(i,1);
+i=i+1;
+}
+}
+returnout;
+}
+intmain(intargc,char**argv){
+try{
+#ifdef_WIN32SetConsoleOutputCP(CP_UTF8);
+SetConsoleCP(CP_UTF8);
+#endifstd::cout<<std::boolalpha;
+std::stringghost_args="";
+std::vector<std::string>ghost_args_vec;
+for(inti=1;
+i<argc;
+++i){
+ghost_args+=argv[i];
+ghost_args_vec.push_back(argv[i]);
+if(i<argc-1)ghost_args+=" ";
+}
+return0;
+}
+catch(conststd::exception&e){
+std::cerr<<e.what()<<std::endl;
+return1;
+}
+}

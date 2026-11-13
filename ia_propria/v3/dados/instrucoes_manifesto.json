@@ -1,0 +1,10 @@
+{
+  "treino": 802,
+  "validacao": 95,
+  "metodo": "parafrases autorais e variacoes superficiais; respostas conhecidas compartilhadas com validacao",
+  "pergunta_usuario_incluida_no_treino": "Descreva o que é GhostLang e crie um exemplo.",
+  "sha256": {
+    "instrucoes_treino.txt": "3c3b15fb30691a1cd2afc16a73c197d8702ad6c54db9e6cfe4654e60814aa670",
+    "instrucoes_validacao.txt": "ca394ced0e83b4ed2fb570fb624a5277ba517b5b9d66d6f7ad254286fbc0dded"
+  }
+}

@@ -1,0 +1,2 @@
+tipo_cpp.g:4:5: erro GHOST-E0202: tipo incompativel: a variavel 'y' e int, mas o valor e string
+ 4 |     int y = s;

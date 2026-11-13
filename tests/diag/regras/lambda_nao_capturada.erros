@@ -1,0 +1,1 @@
+variavel local 'v' nao foi capturada na lambda (adicione v ou &v entre [ ])

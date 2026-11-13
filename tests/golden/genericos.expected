@@ -1,0 +1,14 @@
+== Pilha<T> ==
+topo 40 tamanho 4 soma 100 (a original continua com 4)
+desempilha c b restam 1
+invertida: topo x ["z", "y", "x"]
+erro: pilha vazia
+== Par<A, B> ==
+(ana, 30) (30, ana) ana 31
+como interface: (2.5, true)
+["bia=9.5", "caio=7"]
+== Caixa<T> com varios tipos ==
+9 trocas 2 | ponto 5,2 | lista [1, 2, 3, 4] | dentro 40 de 4
+copia por valor: 9 100
+== heranca de Pilha<int> ==
+soma 11 topo 6 como Pilha<int>: 11

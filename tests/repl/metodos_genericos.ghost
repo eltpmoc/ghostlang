@@ -1,0 +1,142 @@
+// Metodos genericos no REPL: mesmos resultados do programa compilado tests/ghost/metodos_genericos.g
+
+class Registro {
+    list<string> linhas = [];
+    int total = 0;
+
+    function void anotar<T>(string rotulo, T valor) {
+        linhas.push(rotulo + "=" + valor);
+        total++;
+    }
+
+    function T ultimoOu<T>(T padrao) {
+        if (total == 0) {
+            return padrao;
+        }
+        return padrao;
+    }
+
+    function list<T> repetir<T>(T valor, int n) {
+        list<T> r = [];
+        for (int k = 0; k < n; k++) {
+            r.push(valor);
+        }
+        anotar("repetir", n);
+        return r;
+    }
+
+    function string resumo() {
+        anotar<int>("resumo", total);
+        return linhas.join("; ");
+    }
+
+    static function T maior<T>(T a, T b) {
+        if (a > b) {
+            return a;
+        }
+        return b;
+    }
+
+    static function list<T> par<T>(T a, T b) {
+        return [maior(a, b), maior<T>(b, a)];
+    }
+}
+
+class Caixa<T> {
+    T valor;
+
+    function Caixa(T v) {
+        valor = v;
+    }
+
+    function U converter<U>() {
+        U r = valor;
+        return r;
+    }
+
+    function Caixa<U> com<U>(U novo) {
+        return Caixa<U>(novo);
+    }
+
+    function list<T> junto<U>(list<U> outros, T extra) {
+        list<T> r = [valor];
+        foreach (o in outros) {
+            r.push(valor);
+        }
+        r.push(extra);
+        return r;
+    }
+}
+
+class RegistroFilho extends Registro {
+    function void anotarTudo(list<int> xs) {
+        foreach (x in xs) {
+            anotar<int>("x", x);
+        }
+        anotar("fim", true);
+    }
+}
+
+function int contar<T>(T obj) {
+    return obj.total;
+}
+
+function list<string> rotulos<T>(T reg, int n) {
+    reg.anotar<int>("de fora", n);
+    return reg.linhas;
+}
+
+print("== metodos genericos ==");
+Registro r;
+r.anotar("idade", 30);
+r.anotar("nome", "ana");
+r.anotar<double>("pi", 3);
+r.anotar("ok", true);
+print(r.linhas, " total ", r.total);
+print(r.ultimoOu(7), " ", r.ultimoOu("x"), " ", r.ultimoOu<double>(2), " ", r.repetir("ab", 2), " ", r.repetir<double>(1, 3));
+print(r.resumo());
+
+print("== static generico ==");
+print(Registro.maior(3, 9), " ", Registro.maior("b", "a"), " ", Registro.maior<double>(2, 2.5), " ", Registro.par(4, 1));
+
+print("== em classe generica ==");
+Caixa<int> c = Caixa<int>(7);
+print(c.converter<double>(), " ", c.converter<bool>(), " ", c.com("texto").valor, " ", c.com<double>(2).valor, " ", c.junto(["a", "b"], 9));
+
+print("== heranca e funcoes genericas ==");
+RegistroFilho f;
+f.anotarTudo([1, 2]);
+print(f.linhas, " ", contar(f), " ", contar(r), " ", rotulos(r, 5).length());
+Registro copia = r;
+copia.anotar("so na copia", 1);
+print("copia ", copia.total, " original ", r.total);
+
+// ---- só no REPL: erros de uso ----
+print("== erros ==");
+class Sobrescreve extends Registro {
+    function void anotar(string rotulo, int valor) {
+    }
+}
+class GenericoSobre extends Registro {
+    function string resumo<T>() {
+        return "x";
+    }
+}
+interface Rotulavel {
+    function string rotulo();
+}
+class Errada implements Rotulavel {
+    function string rotulo<T>() {
+        return "x";
+    }
+}
+class CtorGenerico {
+    function CtorGenerico<T>() {
+    }
+}
+print(Registro.anotar("x", 1));
+print(r.maior(3, 5.5));
+print(r.ultimoOu());
+print(r.anotar<int, int>("x", 1));
+print(Registro.maior(1, 2), " ", r.maior(8, 3));
+print("fim do roteiro de metodos genericos");

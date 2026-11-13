@@ -1,0 +1,189 @@
+#line 5 "tests/ghost/compreensoes_avancadas.g"
+#line 6 "tests/ghost/compreensoes_avancadas.g"
+#line 7 "tests/ghost/compreensoes_avancadas.g"
+#line 8 "tests/ghost/compreensoes_avancadas.g"
+#line 9 "tests/ghost/compreensoes_avancadas.g"
+#line 11 "tests/ghost/compreensoes_avancadas.g"
+#line 12 "tests/ghost/compreensoes_avancadas.g"
+#line 14 "tests/ghost/compreensoes_avancadas.g"
+#line 16 "tests/ghost/compreensoes_avancadas.g"
+#line 17 "tests/ghost/compreensoes_avancadas.g"
+#line 19 "tests/ghost/compreensoes_avancadas.g"
+#line 20 "tests/ghost/compreensoes_avancadas.g"
+#line 22 "tests/ghost/compreensoes_avancadas.g"
+#line 23 "tests/ghost/compreensoes_avancadas.g"
+#line 25 "tests/ghost/compreensoes_avancadas.g"
+#line 26 "tests/ghost/compreensoes_avancadas.g"
+#line 27 "tests/ghost/compreensoes_avancadas.g"
+#line 28 "tests/ghost/compreensoes_avancadas.g"
+#line 31 "tests/ghost/compreensoes_avancadas.g"
+#line 32 "tests/ghost/compreensoes_avancadas.g"
+#line 34 "tests/ghost/compreensoes_avancadas.g"
+#line 35 "tests/ghost/compreensoes_avancadas.g"
+#line 37 "tests/ghost/compreensoes_avancadas.g"
+#line 38 "tests/ghost/compreensoes_avancadas.g"
+#line 40 "tests/ghost/compreensoes_avancadas.g"
+#line 41 "tests/ghost/compreensoes_avancadas.g"
+#line 43 "tests/ghost/compreensoes_avancadas.g"
+#line 44 "tests/ghost/compreensoes_avancadas.g"
+#line 45 "tests/ghost/compreensoes_avancadas.g"
+#line 47 "tests/ghost/compreensoes_avancadas.g"
+#line 48 "tests/ghost/compreensoes_avancadas.g"
+#line 50 "tests/ghost/compreensoes_avancadas.g"
+#line 4 "tests/ghost/compreensoes_avancadas.g"
+----
+/*TranspiladopeloGhostCompilerv1.0*/#include<iostream>#include<cstdio>#include<cstdlib>#include<string>#include<complex>#include<type_traits>#include<fstream>#include<sstream>#include<thread>#include<chrono>#include<mutex>#include"include/GhostNumberG.hpp"#include"include/GhostMatrix.hpp"#include"include/GhostLLM.hpp"#include"include/GhostLib.hpp"#include"include/GhostDevice.hpp"#include"include/GhostTextModel.hpp"#include"include/GhostWeb.hpp"#include"include/GhostKnowledge.hpp"#include"include/GhostTemporal.hpp"#include"include/GhostTransformer.hpp"#include"include/GhostTransformerG.hpp"#include"include/GhostMatrixG.hpp"#include"include/GhostQuantum.hpp"#include"include/GhostQML.hpp"#include"include/GhostHybrid.hpp"#include"include/GhostQTape.hpp"#include"include/GhostCore.hpp"#ifdef_WIN32#include<windows.h>#endifvoidghost_main();
+voidghost_main(){
+std::cout<<ghost_show(std::string("== compreensao de lista com varios for e ifs =="))<<std::endl;
+GhostList<int>xs=GhostList<int>{
+1,2,3}
+;
+GhostList<int>ys=GhostList<int>{
+10,20}
+;
+GhostList<int>produtos=([&](){
+GhostList<int>ghost_out_1;
+for(autox:ghost_iter(xs)){
+for(autoy:ghost_iter(ys)){
+if(!static_cast<bool>(x>1))continue;
+if(!static_cast<bool>(y==20))continue;
+ghost_collect(ghost_out_1,x*y);
+}
+}
+returnghost_out_1;
+}
+());
+std::cout<<ghost_show(std::string("produtos: "))<<ghost_show(produtos)<<std::endl;
+GhostList<std::string>pares=([&](){
+GhostList<std::string>ghost_out_2;
+for(autox:ghost_iter(ghost_list(std::string("a"),std::string("b")))){
+for(autoy:ghost_iter(ghost_list(1,2))){
+ghost_collect(ghost_out_2,ghost_fstr((x),std::string(":"),(y)));
+}
+}
+returnghost_out_2;
+}
+());
+std::cout<<ghost_show(std::string("pares: "))<<ghost_show(pares)<<std::endl;
+std::cout<<ghost_show(std::string("== compreensao de conjunto =="))<<std::endl;
+GhostSet<int>numsSet=([&](){
+GhostSet<int>ghost_out_3;
+for(autox:ghost_iter(ghost_list(1,2,3,4,5,6,7))){
+ghost_collect(ghost_out_3,x%3);
+}
+returnghost_out_3;
+}
+());
+std::cout<<ghost_show(std::string("numsSet: "))<<ghost_show(numsSet)<<std::endl;
+GhostSet<std::string>tags=([&](){
+GhostSet<std::string>ghost_out_4;
+for(autow:ghost_iter(ghost_list(std::string("ia"),std::string("quantica"),std::string("ia"),std::string("ghost"),std::string("quantica")))){
+ghost_collect(ghost_out_4,w);
+}
+returnghost_out_4;
+}
+());
+std::cout<<ghost_show(std::string("tags: "))<<ghost_show(tags)<<std::endl;
+GhostSet<int>setMulti=([&](){
+GhostSet<int>ghost_out_5;
+for(autox:ghost_iter(ghost_list(1,2))){
+for(autoy:ghost_iter(ghost_list(10,20))){
+if(!static_cast<bool>(x+y>15))continue;
+ghost_collect(ghost_out_5,x+y);
+}
+}
+returnghost_out_5;
+}
+());
+std::cout<<ghost_show(std::string("setMulti: "))<<ghost_show(setMulti)<<std::endl;
+std::cout<<ghost_show(std::string("== compreensao de mapa =="))<<std::endl;
+GhostList<std::string>frutas=GhostList<std::string>{
+std::string("maca"),std::string("banana"),std::string("uva")}
+;
+GhostMap<std::string,int>tamanhos=([&](){
+GhostMap<std::string,int>ghost_out_6;
+for(autof:ghost_iter(frutas)){
+ghost_collect(ghost_out_6,f,f.length());
+}
+returnghost_out_6;
+}
+());
+std::cout<<ghost_show(std::string("tamanhos: "))<<ghost_show(tamanhos[std::string("maca")])<<ghost_show(std::string(" "))<<ghost_show(tamanhos[std::string("banana")])<<ghost_show(std::string(" "))<<ghost_show(tamanhos[std::string("uva")])<<std::endl;
+GhostMap<std::string,int>matrizPos=([&](){
+GhostMap<std::string,int>ghost_out_7;
+for(autoi:ghost_iter(ghost_list(1,2))){
+for(autoj:ghost_iter(ghost_list(1,2))){
+ghost_collect(ghost_out_7,ghost_fstr((i),std::string(","),(j)),i*10+j);
+}
+}
+returnghost_out_7;
+}
+());
+std::cout<<ghost_show(std::string("pos 1,2: "))<<ghost_show(matrizPos[std::string("1,2")])<<ghost_show(std::string(" pos 2,1: "))<<ghost_show(matrizPos[std::string("2,1")])<<std::endl;
+std::cout<<ghost_show(std::string("== for chave, valor in mapa =="))<<std::endl;
+GhostMap<std::string,int>estoque=GhostMap<std::string,int>{
+{
+std::string("caneta"),5}
+,{
+std::string("caderno"),12}
+,{
+std::string("lapis"),3}
+}
+;
+GhostMap<std::string,int>destacados=([&](){
+GhostMap<std::string,int>ghost_out_8;
+for(constauto&ghost_kv_8_0:ghost_iter_kv(estoque)){
+autok=ghost_kv_8_0.first;
+autov=ghost_kv_8_0.second;
+if(!static_cast<bool>(v>=5))continue;
+ghost_collect(ghost_out_8,ghost_fstr(std::string("item_"),(k)),v*2);
+}
+returnghost_out_8;
+}
+());
+std::cout<<ghost_show(std::string("destacados caneta: "))<<ghost_show(destacados[std::string("item_caneta")])<<ghost_show(std::string(" caderno: "))<<ghost_show(destacados[std::string("item_caderno")])<<std::endl;
+GhostList<std::string>resumo=([&](){
+GhostList<std::string>ghost_out_9;
+for(constauto&ghost_kv_9_0:ghost_iter_kv(estoque)){
+autok=ghost_kv_9_0.first;
+autov=ghost_kv_9_0.second;
+if(!static_cast<bool>(v<10))continue;
+ghost_collect(ghost_out_9,ghost_fstr((k),std::string("="),(v)));
+}
+returnghost_out_9;
+}
+());
+std::cout<<ghost_show(std::string("resumo estoque baixo: "))<<ghost_show(resumo.length())<<std::endl;
+std::cout<<ghost_show(std::string("== listas e colecoes =="))<<std::endl;
+GhostList<int>inteiros=GhostList<int>{
+1,2,3}
+;
+std::cout<<ghost_show(std::string("inteiros: "))<<ghost_show(inteiros)<<std::endl;
+GhostList<std::string>textos=GhostList<std::string>{
+std::string("10"),std::string("true"),std::string("3.14")}
+;
+std::cout<<ghost_show(std::string("textos: "))<<ghost_show(textos)<<std::endl;
+std::cout<<ghost_show(std::string("fim compreensoes avancadas"))<<std::endl;
+}
+intmain(intargc,char**argv){
+try{
+#ifdef_WIN32SetConsoleOutputCP(CP_UTF8);
+SetConsoleCP(CP_UTF8);
+#endifstd::cout<<std::boolalpha;
+std::stringghost_args="";
+std::vector<std::string>ghost_args_vec;
+for(inti=1;
+i<argc;
+++i){
+ghost_args+=argv[i];
+ghost_args_vec.push_back(argv[i]);
+if(i<argc-1)ghost_args+=" ";
+}
+ghost_main();
+return0;
+}
+catch(conststd::exception&e){
+std::cerr<<e.what()<<std::endl;
+return1;
+}
+}

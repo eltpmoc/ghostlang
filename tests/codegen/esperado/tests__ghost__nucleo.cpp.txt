@@ -1,0 +1,500 @@
+#line 40 "tests/ghost/nucleo.g"
+#line 44 "tests/ghost/nucleo.g"
+#line 48 "tests/ghost/nucleo.g"
+#line 57 "tests/ghost/nucleo.g"
+#line 61 "tests/ghost/nucleo.g"
+#line 65 "tests/ghost/nucleo.g"
+#line 74 "tests/ghost/nucleo.g"
+#line 77 "tests/ghost/nucleo.g"
+#line 6 "tests/ghost/nucleo.g"
+#line 10 "tests/ghost/nucleo.g"
+#line 11 "tests/ghost/nucleo.g"
+#line 13 "tests/ghost/nucleo.g"
+#line 17 "tests/ghost/nucleo.g"
+#line 21 "tests/ghost/nucleo.g"
+#line 22 "tests/ghost/nucleo.g"
+#line 24 "tests/ghost/nucleo.g"
+#line 28 "tests/ghost/nucleo.g"
+#line 29 "tests/ghost/nucleo.g"
+#line 31 "tests/ghost/nucleo.g"
+#line 82 "tests/ghost/nucleo.g"
+#line 83 "tests/ghost/nucleo.g"
+#line 84 "tests/ghost/nucleo.g"
+#line 85 "tests/ghost/nucleo.g"
+#line 86 "tests/ghost/nucleo.g"
+#line 87 "tests/ghost/nucleo.g"
+#line 88 "tests/ghost/nucleo.g"
+#line 89 "tests/ghost/nucleo.g"
+#line 90 "tests/ghost/nucleo.g"
+#line 91 "tests/ghost/nucleo.g"
+#line 92 "tests/ghost/nucleo.g"
+#line 93 "tests/ghost/nucleo.g"
+#line 94 "tests/ghost/nucleo.g"
+#line 95 "tests/ghost/nucleo.g"
+#line 96 "tests/ghost/nucleo.g"
+#line 97 "tests/ghost/nucleo.g"
+#line 98 "tests/ghost/nucleo.g"
+#line 99 "tests/ghost/nucleo.g"
+#line 100 "tests/ghost/nucleo.g"
+#line 101 "tests/ghost/nucleo.g"
+#line 102 "tests/ghost/nucleo.g"
+#line 103 "tests/ghost/nucleo.g"
+#line 104 "tests/ghost/nucleo.g"
+#line 105 "tests/ghost/nucleo.g"
+#line 107 "tests/ghost/nucleo.g"
+#line 108 "tests/ghost/nucleo.g"
+#line 109 "tests/ghost/nucleo.g"
+#line 110 "tests/ghost/nucleo.g"
+#line 111 "tests/ghost/nucleo.g"
+#line 113 "tests/ghost/nucleo.g"
+#line 114 "tests/ghost/nucleo.g"
+#line 116 "tests/ghost/nucleo.g"
+#line 118 "tests/ghost/nucleo.g"
+#line 119 "tests/ghost/nucleo.g"
+#line 120 "tests/ghost/nucleo.g"
+#line 121 "tests/ghost/nucleo.g"
+#line 122 "tests/ghost/nucleo.g"
+#line 123 "tests/ghost/nucleo.g"
+#line 126 "tests/ghost/nucleo.g"
+#line 127 "tests/ghost/nucleo.g"
+#line 128 "tests/ghost/nucleo.g"
+#line 130 "tests/ghost/nucleo.g"
+#line 131 "tests/ghost/nucleo.g"
+#line 132 "tests/ghost/nucleo.g"
+#line 133 "tests/ghost/nucleo.g"
+#line 135 "tests/ghost/nucleo.g"
+#line 137 "tests/ghost/nucleo.g"
+#line 140 "tests/ghost/nucleo.g"
+#line 141 "tests/ghost/nucleo.g"
+#line 142 "tests/ghost/nucleo.g"
+#line 153 "tests/ghost/nucleo.g"
+#line 154 "tests/ghost/nucleo.g"
+#line 165 "tests/ghost/nucleo.g"
+#line 166 "tests/ghost/nucleo.g"
+#line 168 "tests/ghost/nucleo.g"
+#line 169 "tests/ghost/nucleo.g"
+#line 170 "tests/ghost/nucleo.g"
+#line 171 "tests/ghost/nucleo.g"
+#line 172 "tests/ghost/nucleo.g"
+#line 173 "tests/ghost/nucleo.g"
+#line 174 "tests/ghost/nucleo.g"
+#line 175 "tests/ghost/nucleo.g"
+#line 176 "tests/ghost/nucleo.g"
+#line 177 "tests/ghost/nucleo.g"
+#line 178 "tests/ghost/nucleo.g"
+#line 179 "tests/ghost/nucleo.g"
+#line 180 "tests/ghost/nucleo.g"
+#line 181 "tests/ghost/nucleo.g"
+#line 182 "tests/ghost/nucleo.g"
+#line 183 "tests/ghost/nucleo.g"
+#line 184 "tests/ghost/nucleo.g"
+#line 185 "tests/ghost/nucleo.g"
+#line 186 "tests/ghost/nucleo.g"
+#line 188 "tests/ghost/nucleo.g"
+#line 189 "tests/ghost/nucleo.g"
+#line 190 "tests/ghost/nucleo.g"
+#line 192 "tests/ghost/nucleo.g"
+#line 193 "tests/ghost/nucleo.g"
+#line 195 "tests/ghost/nucleo.g"
+#line 196 "tests/ghost/nucleo.g"
+#line 198 "tests/ghost/nucleo.g"
+#line 199 "tests/ghost/nucleo.g"
+#line 200 "tests/ghost/nucleo.g"
+#line 201 "tests/ghost/nucleo.g"
+#line 202 "tests/ghost/nucleo.g"
+#line 203 "tests/ghost/nucleo.g"
+#line 204 "tests/ghost/nucleo.g"
+#line 205 "tests/ghost/nucleo.g"
+#line 206 "tests/ghost/nucleo.g"
+#line 208 "tests/ghost/nucleo.g"
+#line 209 "tests/ghost/nucleo.g"
+#line 217 "tests/ghost/nucleo.g"
+#line 222 "tests/ghost/nucleo.g"
+#line 227 "tests/ghost/nucleo.g"
+#line 228 "tests/ghost/nucleo.g"
+#line 229 "tests/ghost/nucleo.g"
+#line 230 "tests/ghost/nucleo.g"
+#line 231 "tests/ghost/nucleo.g"
+#line 234 "tests/ghost/nucleo.g"
+#line 235 "tests/ghost/nucleo.g"
+#line 236 "tests/ghost/nucleo.g"
+#line 240 "tests/ghost/nucleo.g"
+#line 241 "tests/ghost/nucleo.g"
+#line 242 "tests/ghost/nucleo.g"
+#line 246 "tests/ghost/nucleo.g"
+#line 5 "tests/ghost/nucleo.g"
+#line 9 "tests/ghost/nucleo.g"
+#line 16 "tests/ghost/nucleo.g"
+#line 20 "tests/ghost/nucleo.g"
+#line 27 "tests/ghost/nucleo.g"
+#line 35 "tests/ghost/nucleo.g"
+#line 52 "tests/ghost/nucleo.g"
+#line 69 "tests/ghost/nucleo.g"
+#line 81 "tests/ghost/nucleo.g"
+----
+/*TranspiladopeloGhostCompilerv1.0*/#include<iostream>#include<cstdio>#include<cstdlib>#include<string>#include<complex>#include<type_traits>#include<fstream>#include<sstream>#include<thread>#include<chrono>#include<mutex>#include"include/GhostNumberG.hpp"#include"include/GhostMatrix.hpp"#include"include/GhostLLM.hpp"#include"include/GhostLib.hpp"#include"include/GhostDevice.hpp"#include"include/GhostTextModel.hpp"#include"include/GhostWeb.hpp"#include"include/GhostKnowledge.hpp"#include"include/GhostTemporal.hpp"#include"include/GhostTransformer.hpp"#include"include/GhostTransformerG.hpp"#include"include/GhostMatrixG.hpp"#include"include/GhostQuantum.hpp"#include"include/GhostQML.hpp"#include"include/GhostHybrid.hpp"#include"include/GhostQTape.hpp"#include"include/GhostCore.hpp"#ifdef_WIN32#include<windows.h>#endifclassAnimal;
+classContador;
+classPassaro;
+intdobro(intx);
+doublemedia(GhostList<double>xs);
+std::stringsaudacao(std::stringnome,std::stringprefixo=std::string("Ola"));
+GhostResult<double>dividir(doublea,doubleb);
+intfatorial(intn);
+voidghost_main();
+classAnimal{
+public:std::stringnome{
+}
+;
+intpatas=4;
+Animal(std::stringn){
+(*this).nome=n;
+}
+virtualstd::stringsom(){
+returnstd::string("...");
+}
+virtualstd::stringdescrever(){
+returnnome+std::string(" faz ")+som()+std::string(" e tem ")+patas+std::string(" patas");
+}
+}
+;
+classPassaro:publicAnimal{
+public:boolvoa=true;
+Passaro(std::stringn):Animal(n){
+(*this).patas=2;
+}
+virtualstd::stringsom(){
+returnstd::string("piu");
+}
+virtualstd::stringdescrever(){
+returnAnimal::descrever()+std::string(" (voa: ")+voa+std::string(")");
+}
+}
+;
+classContador{
+public:private:intvalor{
+}
+;
+public:virtualvoidincrementar(){
+valor++;
+}
+virtualintatual(){
+returnvalor;
+}
+}
+;
+intdobro(intx){
+returnx*2;
+}
+doublemedia(GhostList<double>xs){
+if(xs.length()==0){
+return0.0;
+}
+returnxs.sum()/xs.length();
+}
+std::stringsaudacao(std::stringnome,std::stringprefixo){
+returnprefixo+std::string(", ")+nome+std::string("!");
+}
+GhostResult<double>dividir(doublea,doubleb){
+if(b==0){
+returnerr(std::string("divisao por zero"));
+}
+returnok(a/b);
+}
+intfatorial(intn){
+if(n<=1){
+return1;
+}
+returnn*fatorial(n-1);
+}
+voidghost_main(){
+std::cout<<ghost_show(std::string("== tipos e operadores =="))<<std::endl;
+inta=17;
+intb=5;
+boolok_flag=a>b&&!(b==0);
+std::cout<<ghost_show(a%b)<<ghost_show(std::string(" "))<<ghost_show(a&b)<<ghost_show(std::string(" "))<<ghost_show(a|b)<<ghost_show(std::string(" "))<<ghost_show(a^b)<<ghost_show(std::string(" "))<<ghost_show(~a)<<ghost_show(std::string(" "))<<ghost_show(a<<2)<<ghost_show(std::string(" "))<<ghost_show(a>>1)<<std::endl;
+std::cout<<ghost_show(std::string("bool: "))<<ghost_show(ok_flag)<<ghost_show(std::string(" "))<<ghost_show(true||false)<<ghost_show(std::string(" "))<<ghost_show(!ok_flag)<<std::endl;
+std::cout<<ghost_show(std::string("precedencia: "))<<ghost_show(2+3*4)<<ghost_show(std::string(" "))<<ghost_show((2+3)*4)<<ghost_show(std::string(" "))<<ghost_show(10-4-3)<<ghost_show(std::string(" "))<<ghost_show(pow(2,10))<<std::endl;
+floatf=1.5;
+doubled=2.25;
+std::complex<double>z=3.0-ghost_i(2.0);
+std::cout<<ghost_show(std::string("float "))<<ghost_show(f)<<ghost_show(std::string(" double "))<<ghost_show(d)<<ghost_show(std::string(" complex "))<<ghost_show(z)<<std::endl;
+intc=10;
+c+=5;
+c-=3;
+c*=2;
+c/=4;
+c%=4;
+c++;
+c--;
+++c;
+std::cout<<ghost_show(std::string("compostos: "))<<ghost_show(c)<<std::endl;
+std::strings=std::string("Ghost");
+s+=std::string("Lang");
+std::cout<<ghost_show(s)<<ghost_show(std::string(" tem "))<<ghost_show(len(s))<<ghost_show(std::string(" letras; ternario: "))<<ghost_show(a>10?std::string("grande"):std::string("pequeno"))<<std::endl;
+std::cout<<ghost_show(std::string("== controle de fluxo =="))<<std::endl;
+intsoma=0;
+for(inti=0;
+i<10;
+i++){
+if(i==2){
+continue;
+}
+if(i==7){
+break;
+}
+soma+=i;
+}
+std::cout<<ghost_show(std::string("soma for com break/continue: "))<<ghost_show(soma)<<std::endl;
+intw=0;
+while(true){
+w++;
+if(w>=3){
+break;
+}
+}
+intdw=0;
+do{
+dw+=2;
+}
+while(dw<7);
+std::cout<<ghost_show(std::string("while "))<<ghost_show(w)<<ghost_show(std::string(" do-while "))<<ghost_show(dw)<<std::endl;
+intnota=7;
+if(nota>=9){
+std::cout<<ghost_show(std::string("A"))<<std::endl;
+}
+elseif(nota>=7){
+std::cout<<ghost_show(std::string("B"))<<std::endl;
+}
+else{
+std::cout<<ghost_show(std::string("C"))<<std::endl;
+}
+std::cout<<ghost_show(std::string("== switch =="))<<std::endl;
+for(intk=1;
+k<=4;
+k++){
+{
+constautoghost_sw_1=(k);
+boolghost_fall_1=false;
+if(ghost_fall_1||ghost_sw_1==(1)){
+ghost_fall_1=true;
+std::cout<<ghost_show(std::string("um"))<<std::endl;
+gotoghost_sw_end_1;
+}
+if(ghost_fall_1||ghost_sw_1==(2)||ghost_sw_1==(3)){
+ghost_fall_1=true;
+std::cout<<ghost_show(std::string("dois ou tres"))<<std::endl;
+gotoghost_sw_end_1;
+}
+if(ghost_fall_1||!(ghost_sw_1==(1)||ghost_sw_1==(2)||ghost_sw_1==(3))){
+ghost_fall_1=true;
+std::cout<<ghost_show(std::string("outro"))<<std::endl;
+}
+(void)ghost_fall_1;
+}
+ghost_sw_end_1:;
+}
+std::stringcor=std::string("verde");
+{
+constautoghost_sw_2=(cor);
+boolghost_fall_2=false;
+if(ghost_fall_2||ghost_sw_2==(std::string("azul"))){
+ghost_fall_2=true;
+std::cout<<ghost_show(std::string("frio"))<<std::endl;
+gotoghost_sw_end_2;
+}
+if(ghost_fall_2||ghost_sw_2==(std::string("verde"))){
+ghost_fall_2=true;
+std::cout<<ghost_show(std::string("natureza"))<<std::endl;
+}
+if(ghost_fall_2||ghost_sw_2==(std::string("amarelo"))){
+ghost_fall_2=true;
+std::cout<<ghost_show(std::string("(caiu no proximo case)"))<<std::endl;
+gotoghost_sw_end_2;
+}
+(void)ghost_fall_2;
+}
+ghost_sw_end_2:;
+std::cout<<ghost_show(std::string("== funcoes =="))<<std::endl;
+std::cout<<ghost_show(dobro(21))<<ghost_show(std::string(" "))<<ghost_show(fatorial(5))<<ghost_show(std::string(" "))<<ghost_show(saudacao(std::string("Ana")))<<ghost_show(std::string(" "))<<ghost_show(saudacao(std::string("Bia"),std::string("Oi")))<<std::endl;
+std::cout<<ghost_show(std::string("== colecoes =="))<<std::endl;
+GhostList<int>xs=GhostList<int>{
+5,3,8,1}
+;
+xs.push(4);
+std::cout<<ghost_show(xs)<<ghost_show(std::string(" tamanho "))<<ghost_show(xs.length())<<ghost_show(std::string(" primeiro "))<<ghost_show(xs[0])<<ghost_show(std::string(" ultimo "))<<ghost_show(xs[-1])<<std::endl;
+xs.sort();
+std::cout<<ghost_show(std::string("ordenada "))<<ghost_show(xs)<<ghost_show(std::string(" soma "))<<ghost_show(xs.sum())<<ghost_show(std::string(" max "))<<ghost_show(xs.max())<<ghost_show(std::string(" contem 8? "))<<ghost_show(xs.contains(8))<<std::endl;
+GhostList<std::string>nomes=GhostList<std::string>{
+}
+;
+nomes.push(std::string("ana"));
+nomes.push(std::string("bia"));
+std::cout<<ghost_show(nomes.join(std::string(", ")))<<ghost_show(std::string(" | fatia "))<<ghost_show(xs.slice(1,3))<<std::endl;
+GhostList<double>notas=GhostList<double>{
+7,8.5,9}
+;
+std::cout<<ghost_show(std::string("media "))<<ghost_show(media(notas))<<std::endl;
+GhostMap<std::string,int>idades=GhostMap<std::string,int>{
+{
+std::string("ana"),30}
+,{
+std::string("bia"),25}
+}
+;
+idades[std::string("caio")]=41;
+idades[std::string("ana")]+=1;
+std::cout<<ghost_show(idades)<<ghost_show(std::string(" tem bia? "))<<ghost_show(idades.has(std::string("bia")))<<ghost_show(std::string(" get "))<<ghost_show(idades.get(std::string("zeca"),-1))<<std::endl;
+inttotal=0;
+for(auto&x:xs){
+total+=x;
+}
+std::cout<<ghost_show(std::string("foreach total "))<<ghost_show(total)<<std::endl;
+for(auto&[nome,idade]:idades){
+std::cout<<ghost_show(nome)<<ghost_show(std::string(" -> "))<<ghost_show(idade)<<std::endl;
+}
+for(auto&i:range(3)){
+std::cout<<ghost_show(std::string("range "))<<ghost_show(i)<<std::endl;
+}
+GhostList<GhostList<int>>grade=GhostList<GhostList<int>>{
+ghost_list(1,2),ghost_list(3,4)}
+;
+std::cout<<ghost_show(std::string("grade "))<<ghost_show(grade)<<ghost_show(std::string(" elemento "))<<ghost_show(grade[1][0])<<std::endl;
+std::cout<<ghost_show(std::string("== OOP =="))<<std::endl;
+autogato=Animal(std::string("Gato"));
+Passarop=Passaro(std::string("Sabia"));
+std::cout<<ghost_show(gato.descrever())<<std::endl;
+std::cout<<ghost_show(p.descrever())<<std::endl;
+Contadorcont{
+}
+;
+cont.incrementar();
+cont.incrementar();
+std::cout<<ghost_show(std::string("contador "))<<ghost_show(cont.atual())<<std::endl;
+std::cout<<ghost_show(std::string("== erros =="))<<std::endl;
+{
+GhostDeferghost_fin_3([&](){
+std::cout<<ghost_show(std::string("finally roda sempre"))<<std::endl;
+}
+);
+try{
+std::cout<<ghost_show(std::string("antes"))<<std::endl;
+throwghost_error(std::string("falhou de proposito"));
+}
+catch(...){
+std::stringe=ghost_exception_message(std::current_exception());
+(void)e;
+std::cout<<ghost_show(std::string("capturado: "))<<ghost_show(e)<<std::endl;
+}
+}
+{
+try{
+std::cout<<ghost_show(xs[99])<<std::endl;
+}
+catch(...){
+std::stringe=ghost_exception_message(std::current_exception());
+(void)e;
+std::cout<<ghost_show(std::string("indice: "))<<ghost_show(e)<<std::endl;
+}
+}
+{
+try{
+ghost_assert(1+1==3,std::string("matematica quebrou"));
+}
+catch(...){
+std::stringe=ghost_exception_message(std::current_exception());
+(void)e;
+std::cout<<ghost_show(std::string("assert: "))<<ghost_show(e)<<std::endl;
+}
+}
+GhostResult<double>r1=dividir(10,4);
+GhostResult<double>r2=dividir(1,0);
+std::cout<<ghost_show(r1)<<ghost_show(std::string(" "))<<ghost_show(r2)<<ghost_show(std::string(" "))<<ghost_show(r1.value())<<ghost_show(std::string(" "))<<ghost_show(r2.value_or(-1))<<ghost_show(std::string(" erro: "))<<ghost_show(r2.error())<<std::endl;
+if(r2.is_err()){
+std::cout<<ghost_show(std::string("r2 falhou como esperado"))<<std::endl;
+}
+std::cout<<ghost_show(std::string("== hypothesis =="))<<std::endl;
+doublemelhor=0;
+{
+//hypothesisautoghost_hyp_items_6=ghost_list(1,2,3,4);
+boolghost_hyp_has_6=false;
+doubleghost_hyp_best_6=0.0;
+autoghost_hyp_best_melhor_6=melhor;
+for(auto&t:ghost_hyp_items_6){
+autoghost_hyp_o_melhor_6=melhor;
+{
+automelhor=ghost_hyp_o_melhor_6;
+boolghost_hyp_scored_6=false;
+doubleghost_hyp_score_6=0.0;
+intghost_hyp_kind_6=1;
+melhor=t*10-(t-3)*(t-3)*5;
+ghost_hyp_scored_6=true;
+ghost_hyp_score_6=static_cast<double>(melhor);
+ghost_hyp_kind_6=1;
+if(ghost_hyp_scored_6&&(!ghost_hyp_has_6||(ghost_hyp_kind_6>0?ghost_hyp_score_6>ghost_hyp_best_6:ghost_hyp_score_6<ghost_hyp_best_6))){
+ghost_hyp_has_6=true;
+ghost_hyp_best_6=ghost_hyp_score_6;
+ghost_hyp_best_melhor_6=melhor;
+}
+(void)t;
+}
+}
+if(ghost_hyp_has_6){
+melhor=ghost_hyp_best_melhor_6;
+std::cout<<"[Multiverso] Colapso temporal resolvido. Linha do tempo de maior score ("<<ghost_hyp_best_6<<") assumida."<<std::endl;
+}
+}
+std::cout<<ghost_show(std::string("melhor linha do tempo: "))<<ghost_show(melhor)<<std::endl;
+doublemenor=100;
+{
+//hypothesisautoghost_hyp_items_7=range(1,6);
+boolghost_hyp_has_7=false;
+doubleghost_hyp_best_7=0.0;
+autoghost_hyp_best_menor_7=menor;
+for(auto&t:ghost_hyp_items_7){
+autoghost_hyp_o_menor_7=menor;
+{
+automenor=ghost_hyp_o_menor_7;
+boolghost_hyp_scored_7=false;
+doubleghost_hyp_score_7=0.0;
+intghost_hyp_kind_7=1;
+menor=(t-4)*(t-4);
+ghost_hyp_scored_7=true;
+ghost_hyp_score_7=static_cast<double>(menor);
+ghost_hyp_kind_7=-1;
+if(ghost_hyp_scored_7&&(!ghost_hyp_has_7||(ghost_hyp_kind_7>0?ghost_hyp_score_7>ghost_hyp_best_7:ghost_hyp_score_7<ghost_hyp_best_7))){
+ghost_hyp_has_7=true;
+ghost_hyp_best_7=ghost_hyp_score_7;
+ghost_hyp_best_menor_7=menor;
+}
+(void)t;
+}
+}
+if(ghost_hyp_has_7){
+menor=ghost_hyp_best_menor_7;
+std::cout<<"[Multiverso] Colapso temporal resolvido. Linha do tempo de maior score ("<<ghost_hyp_best_7<<") assumida."<<std::endl;
+}
+}
+std::cout<<ghost_show(std::string("menor: "))<<ghost_show(menor)<<std::endl;
+}
+intmain(intargc,char**argv){
+try{
+#ifdef_WIN32SetConsoleOutputCP(CP_UTF8);
+SetConsoleCP(CP_UTF8);
+#endifstd::cout<<std::boolalpha;
+std::stringghost_args="";
+std::vector<std::string>ghost_args_vec;
+for(inti=1;
+i<argc;
+++i){
+ghost_args+=argv[i];
+ghost_args_vec.push_back(argv[i]);
+if(i<argc-1)ghost_args+=" ";
+}
+ghost_main();
+return0;
+}
+catch(conststd::exception&e){
+std::cerr<<e.what()<<std::endl;
+return1;
+}
+}

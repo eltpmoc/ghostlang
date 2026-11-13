@@ -1,0 +1,31 @@
+{
+  "data_registro_utc": "2026-09-26T09:00:51.983680+00:00",
+  "origem": "treinado do zero localmente, sem pesos externos",
+  "dispositivo": "NVIDIA GeForce RTX 4050 Laptop GPU / CUDA",
+  "epocas": 30,
+  "taxa": 0.001,
+  "parametros": 636633,
+  "contexto": 64,
+  "embedding": 32,
+  "oculta": 192,
+  "lote": 32,
+  "vocabulario": 1081,
+  "arquivos": {
+    "ia_propria/v3/dados/treino.txt": {
+      "bytes": 37609,
+      "sha256": "c25f096c3f3eb535e8af7166667e7de1c25e91a748260901791a4cca3e40ffa4"
+    },
+    "ia_propria/v3/dados/validacao.txt": {
+      "bytes": 19326,
+      "sha256": "32533d0df771711ffe7fac4cf17137f5aef272f67b02b8081dd309b5d7b53b75"
+    },
+    "ia_propria/checkpoints/v3/ghost_g.bin": {
+      "bytes": 7657799,
+      "sha256": "ef710a2411c7e4d8174ba013de22ce3ad8daf85f9a54bbc313622120cf4b58f2"
+    },
+    "ia_propria/checkpoints/v3/ghost_g.bin.ultimo": {
+      "bytes": 7657799,
+      "sha256": "ef710a2411c7e4d8174ba013de22ce3ad8daf85f9a54bbc313622120cf4b58f2"
+    }
+  }
+}

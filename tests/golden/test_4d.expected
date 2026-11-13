@@ -1,0 +1,39 @@
+=== Iniciando Teste de Tensores Hiper-Complexos 4D ===
+
+Tensor A original:
+
+
+Estado da estrutura 'tensor_a':
+[ -1.22168+0g	]
+[ 0.155752+0g	]
+[ -0.751248+0g	]
+
+Aplicando ReLU no Tensor A:
+
+[Ghost OS] Colapso Quântico/Matemático (relu) aplicado em 'tensor_a'.
+
+Estado da estrutura 'tensor_a':
+[ 0+0g	]
+[ 0.155752+0g	]
+[ 0+0g	]
+
+Aplicando Sigmoid no Tensor B:
+
+[Ghost OS] Colapso Quântico/Matemático (sigmoid) aplicado em 'tensor_b'.
+
+Estado da estrutura 'tensor_b':
+[ 0.68054+0g	]
+[ 0.55187+0g	]
+[ 0.487677+0g	]
+
+Aplicando Seno (sin) no Tensor C:
+
+[Ghost OS] Colapso Quântico/Matemático (sin) aplicado em 'tensor_c'.
+
+Estado da estrutura 'tensor_c':
+[ -0.358546+0g	]
+[ 0.824832+0g	]
+[ 0.710911+0g	]
+
+=== Teste Finalizado ===
+

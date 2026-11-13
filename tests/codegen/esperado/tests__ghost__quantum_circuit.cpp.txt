@@ -1,0 +1,543 @@
+#line 13 "libs/quantum.g"
+#line 14 "libs/quantum.g"
+#line 19 "libs/quantum.g"
+#line 20 "libs/quantum.g"
+#line 21 "libs/quantum.g"
+#line 27 "libs/quantum.g"
+#line 32 "libs/quantum.g"
+#line 33 "libs/quantum.g"
+#line 34 "libs/quantum.g"
+#line 35 "libs/quantum.g"
+#line 36 "libs/quantum.g"
+#line 44 "libs/quantum.g"
+#line 45 "libs/quantum.g"
+#line 46 "libs/quantum.g"
+#line 47 "libs/quantum.g"
+#line 48 "libs/quantum.g"
+#line 50 "libs/quantum.g"
+#line 51 "libs/quantum.g"
+#line 52 "libs/quantum.g"
+#line 55 "libs/quantum.g"
+#line 56 "libs/quantum.g"
+#line 58 "libs/quantum.g"
+#line 59 "libs/quantum.g"
+#line 60 "libs/quantum.g"
+#line 61 "libs/quantum.g"
+#line 64 "libs/quantum.g"
+#line 69 "libs/quantum.g"
+#line 70 "libs/quantum.g"
+#line 86 "libs/quantum.g"
+#line 87 "libs/quantum.g"
+#line 88 "libs/quantum.g"
+#line 89 "libs/quantum.g"
+#line 90 "libs/quantum.g"
+#line 9 "tests/ghost/quantum_circuit.g"
+#line 76 "tests/ghost/quantum_circuit.g"
+#line 77 "tests/ghost/quantum_circuit.g"
+#line 78 "tests/ghost/quantum_circuit.g"
+#line 79 "tests/ghost/quantum_circuit.g"
+#line 80 "tests/ghost/quantum_circuit.g"
+#line 82 "tests/ghost/quantum_circuit.g"
+#line 83 "tests/ghost/quantum_circuit.g"
+#line 84 "tests/ghost/quantum_circuit.g"
+#line 85 "tests/ghost/quantum_circuit.g"
+#line 87 "tests/ghost/quantum_circuit.g"
+#line 88 "tests/ghost/quantum_circuit.g"
+#line 89 "tests/ghost/quantum_circuit.g"
+#line 90 "tests/ghost/quantum_circuit.g"
+#line 91 "tests/ghost/quantum_circuit.g"
+#line 93 "tests/ghost/quantum_circuit.g"
+#line 94 "tests/ghost/quantum_circuit.g"
+#line 95 "tests/ghost/quantum_circuit.g"
+#line 96 "tests/ghost/quantum_circuit.g"
+#line 98 "tests/ghost/quantum_circuit.g"
+#line 99 "tests/ghost/quantum_circuit.g"
+#line 100 "tests/ghost/quantum_circuit.g"
+#line 101 "tests/ghost/quantum_circuit.g"
+#line 102 "tests/ghost/quantum_circuit.g"
+#line 104 "tests/ghost/quantum_circuit.g"
+#line 106 "tests/ghost/quantum_circuit.g"
+#line 107 "tests/ghost/quantum_circuit.g"
+#line 108 "tests/ghost/quantum_circuit.g"
+#line 109 "tests/ghost/quantum_circuit.g"
+#line 110 "tests/ghost/quantum_circuit.g"
+#line 111 "tests/ghost/quantum_circuit.g"
+#line 112 "tests/ghost/quantum_circuit.g"
+#line 113 "tests/ghost/quantum_circuit.g"
+#line 114 "tests/ghost/quantum_circuit.g"
+#line 116 "tests/ghost/quantum_circuit.g"
+#line 117 "tests/ghost/quantum_circuit.g"
+#line 118 "tests/ghost/quantum_circuit.g"
+#line 119 "tests/ghost/quantum_circuit.g"
+#line 120 "tests/ghost/quantum_circuit.g"
+#line 122 "tests/ghost/quantum_circuit.g"
+#line 123 "tests/ghost/quantum_circuit.g"
+#line 124 "tests/ghost/quantum_circuit.g"
+#line 125 "tests/ghost/quantum_circuit.g"
+#line 126 "tests/ghost/quantum_circuit.g"
+#line 127 "tests/ghost/quantum_circuit.g"
+#line 129 "tests/ghost/quantum_circuit.g"
+#line 130 "tests/ghost/quantum_circuit.g"
+#line 131 "tests/ghost/quantum_circuit.g"
+#line 132 "tests/ghost/quantum_circuit.g"
+#line 134 "tests/ghost/quantum_circuit.g"
+#line 135 "tests/ghost/quantum_circuit.g"
+#line 136 "tests/ghost/quantum_circuit.g"
+#line 137 "tests/ghost/quantum_circuit.g"
+#line 139 "tests/ghost/quantum_circuit.g"
+#line 140 "tests/ghost/quantum_circuit.g"
+#line 141 "tests/ghost/quantum_circuit.g"
+#line 142 "tests/ghost/quantum_circuit.g"
+#line 143 "tests/ghost/quantum_circuit.g"
+#line 145 "tests/ghost/quantum_circuit.g"
+#line 146 "tests/ghost/quantum_circuit.g"
+#line 147 "tests/ghost/quantum_circuit.g"
+#line 148 "tests/ghost/quantum_circuit.g"
+#line 149 "tests/ghost/quantum_circuit.g"
+#line 150 "tests/ghost/quantum_circuit.g"
+#line 151 "tests/ghost/quantum_circuit.g"
+#line 152 "tests/ghost/quantum_circuit.g"
+#line 155 "tests/ghost/quantum_circuit.g"
+#line 156 "tests/ghost/quantum_circuit.g"
+#line 157 "tests/ghost/quantum_circuit.g"
+#line 158 "tests/ghost/quantum_circuit.g"
+#line 160 "tests/ghost/quantum_circuit.g"
+#line 161 "tests/ghost/quantum_circuit.g"
+#line 162 "tests/ghost/quantum_circuit.g"
+#line 163 "tests/ghost/quantum_circuit.g"
+#line 165 "tests/ghost/quantum_circuit.g"
+#line 167 "tests/ghost/quantum_circuit.g"
+#line 168 "tests/ghost/quantum_circuit.g"
+#line 12 "libs/quantum.g"
+#line 18 "libs/quantum.g"
+#line 26 "libs/quantum.g"
+#line 31 "libs/quantum.g"
+#line 43 "libs/quantum.g"
+#line 68 "libs/quantum.g"
+#line 85 "libs/quantum.g"
+#line 8 "tests/ghost/quantum_circuit.g"
+#line 13 "tests/ghost/quantum_circuit.g"
+#line 19 "tests/ghost/quantum_circuit.g"
+#line 27 "tests/ghost/quantum_circuit.g"
+#line 33 "tests/ghost/quantum_circuit.g"
+#line 36 "tests/ghost/quantum_circuit.g"
+#line 42 "tests/ghost/quantum_circuit.g"
+#line 53 "tests/ghost/quantum_circuit.g"
+#line 64 "tests/ghost/quantum_circuit.g"
+#line 71 "tests/ghost/quantum_circuit.g"
+#line 75 "tests/ghost/quantum_circuit.g"
+----
+/*TranspiladopeloGhostCompilerv1.0*/#include<iostream>#include<cstdio>#include<cstdlib>#include<string>#include<complex>#include<type_traits>#include<fstream>#include<sstream>#include<thread>#include<chrono>#include<mutex>#include"include/GhostNumberG.hpp"#include"include/GhostMatrix.hpp"#include"include/GhostLLM.hpp"#include"include/GhostLib.hpp"#include"include/GhostDevice.hpp"#include"include/GhostTextModel.hpp"#include"include/GhostWeb.hpp"#include"include/GhostKnowledge.hpp"#include"include/GhostTemporal.hpp"#include"include/GhostTransformer.hpp"#include"include/GhostTransformerG.hpp"#include"include/GhostMatrixG.hpp"#include"include/GhostQuantum.hpp"#include"include/GhostQML.hpp"#include"include/GhostHybrid.hpp"#include"include/GhostQTape.hpp"#include"include/GhostCore.hpp"#ifdef_WIN32#include<windows.h>#endifvoidbell(GhostQReg&q,inta,intb);
+voidghz(GhostQReg&q);
+intgrover_iterations(intn);
+voidgrover(GhostQReg&q,intmarcado);
+intdeutsch_jozsa(intn,inttipo);
+voidqft_de(GhostQReg&q,intvalor);
+voidhamiltoniano_h2(GhostQCircuit&c);
+voidpreparar(GhostQReg&q);
+template<classGhostQ_,classGhostT0_,classGhostT1_>voidemaranhar(GhostQ_&ghost_q_,GhostT0_a,GhostT1_b);
+template<classGhostQ_,classGhostT0_,classGhostT1_>voidemaranhar_dg(GhostQ_&ghost_q_,GhostT0_a,GhostT1_b);
+template<classGhostQ_,classGhostC_,classGhostT0_,classGhostT1_>voidemaranhar_ctrl(GhostQ_&ghost_q_,GhostC_ghost_ctrl_,GhostT0_a,GhostT1_b);
+template<classGhostQ_,classGhostC_,classGhostT0_,classGhostT1_>voidemaranhar_dg_ctrl(GhostQ_&ghost_q_,GhostC_ghost_ctrl_,GhostT0_a,GhostT1_b);
+template<classGhostQ_>voidcadeia_ghz(GhostQ_&ghost_q_,intn);
+template<classGhostQ_>voidcadeia_ghz_dg(GhostQ_&ghost_q_,intn);
+template<classGhostQ_,classGhostC_>voidcadeia_ghz_ctrl(GhostQ_&ghost_q_,GhostC_ghost_ctrl_,intn);
+template<classGhostQ_,classGhostC_>voidcadeia_ghz_dg_ctrl(GhostQ_&ghost_q_,GhostC_ghost_ctrl_,intn);
+template<classGhostQ_>voidgirar(GhostQ_&ghost_q_,intk,doubletheta);
+template<classGhostQ_>voidgirar_dg(GhostQ_&ghost_q_,intk,doubletheta);
+template<classGhostQ_,classGhostC_>voidgirar_ctrl(GhostQ_&ghost_q_,GhostC_ghost_ctrl_,intk,doubletheta);
+template<classGhostQ_,classGhostC_>voidgirar_dg_ctrl(GhostQ_&ghost_q_,GhostC_ghost_ctrl_,intk,doubletheta);
+template<classGhostQ_>voidoraculo(GhostQ_&ghost_q_,intalvo);
+template<classGhostQ_>voidoraculo_dg(GhostQ_&ghost_q_,intalvo);
+template<classGhostQ_,classGhostC_>voidoraculo_ctrl(GhostQ_&ghost_q_,GhostC_ghost_ctrl_,intalvo);
+template<classGhostQ_,classGhostC_>voidoraculo_dg_ctrl(GhostQ_&ghost_q_,GhostC_ghost_ctrl_,intalvo);
+template<classGhostQ_>voidpasso_grover(GhostQ_&ghost_q_,intalvo);
+template<classGhostQ_>voidpasso_grover_dg(GhostQ_&ghost_q_,intalvo);
+template<classGhostQ_,classGhostC_>voidpasso_grover_ctrl(GhostQ_&ghost_q_,GhostC_ghost_ctrl_,intalvo);
+template<classGhostQ_,classGhostC_>voidpasso_grover_dg_ctrl(GhostQ_&ghost_q_,GhostC_ghost_ctrl_,intalvo);
+template<classGhostQ_>voidcamada(GhostQ_&ghost_q_,intn);
+template<classGhostQ_>voidcamada_dg(GhostQ_&ghost_q_,intn);
+template<classGhostQ_,classGhostC_>voidcamada_ctrl(GhostQ_&ghost_q_,GhostC_ghost_ctrl_,intn);
+template<classGhostQ_,classGhostC_>voidcamada_dg_ctrl(GhostQ_&ghost_q_,GhostC_ghost_ctrl_,intn);
+template<classGhostQ_>voidsomar(GhostQ_&ghost_q_,intn,intk);
+template<classGhostQ_>voidsomar_dg(GhostQ_&ghost_q_,intn,intk);
+template<classGhostQ_,classGhostC_>voidsomar_ctrl(GhostQ_&ghost_q_,GhostC_ghost_ctrl_,intn,intk);
+template<classGhostQ_,classGhostC_>voidsomar_dg_ctrl(GhostQ_&ghost_q_,GhostC_ghost_ctrl_,intn,intk);
+template<classGhostQ_,classGhostT0_,classGhostT1_>voidfase_conjugada(GhostQ_&ghost_q_,GhostT0_a,GhostT1_b);
+template<classGhostQ_,classGhostT0_,classGhostT1_>voidfase_conjugada_dg(GhostQ_&ghost_q_,GhostT0_a,GhostT1_b);
+template<classGhostQ_,classGhostC_,classGhostT0_,classGhostT1_>voidfase_conjugada_ctrl(GhostQ_&ghost_q_,GhostC_ghost_ctrl_,GhostT0_a,GhostT1_b);
+template<classGhostQ_,classGhostC_,classGhostT0_,classGhostT1_>voidfase_conjugada_dg_ctrl(GhostQ_&ghost_q_,GhostC_ghost_ctrl_,GhostT0_a,GhostT1_b);
+template<classGhostQ_>voidfase(GhostQ_&ghost_q_,intalvo,doubleth);
+template<classGhostQ_>voidfase_dg(GhostQ_&ghost_q_,intalvo,doubleth);
+template<classGhostQ_,classGhostC_>voidfase_ctrl(GhostQ_&ghost_q_,GhostC_ghost_ctrl_,intalvo,doubleth);
+template<classGhostQ_,classGhostC_>voidfase_dg_ctrl(GhostQ_&ghost_q_,GhostC_ghost_ctrl_,intalvo,doubleth);
+voidghost_main();
+voidbell(GhostQReg&q,inta,intb){
+q.h(a);
+q.cx(a,b);
+}
+voidghz(GhostQReg&q){
+q.h(0);
+for(autok=0;
+k<q.size()-1;
+k=k+1){
+q.cx(k,k+1);
+}
+}
+intgrover_iterations(intn){
+return(int)floor(PI/4.0*sqrt(pow(2.0,n)));
+}
+voidgrover(GhostQReg&q,intmarcado){
+q.h_all();
+intvoltas=grover_iterations(q.size());
+for(autok=0;
+k<voltas;
+k=k+1){
+q.phase_flip(marcado);
+q.diffuser();
+}
+}
+intdeutsch_jozsa(intn,inttipo){
+GhostQRegq=GhostQReg(n+1);
+q.x(n);
+q.h_all();
+if(tipo==1){
+q.x(n);
+}
+if(tipo==2){
+for(autok=0;
+k<n;
+k=k+1){
+q.cx(k,n);
+}
+}
+for(autok=0;
+k<n;
+k=k+1){
+q.h(k);
+}
+intresultado=0;
+for(autok=0;
+k<n;
+k=k+1){
+if(q.measure(k)==1){
+resultado=1;
+}
+}
+returnresultado;
+}
+voidqft_de(GhostQReg&q,intvalor){
+q.set_basis(valor);
+q.qft();
+}
+voidhamiltoniano_h2(GhostQCircuit&c){
+c.observable(std::string("II"),-1.052373245772859);
+c.observable(std::string("IZ"),0.39793742484318045);
+c.observable(std::string("ZI"),-0.39793742484318045);
+c.observable(std::string("ZZ"),-0.01128010425623538);
+c.observable(std::string("XX"),0.18093119978423156);
+}
+voidpreparar(GhostQReg&q){
+emaranhar(q,0,1);
+}
+//circuitemaranhartemplate<classGhostQ_,classGhostT0_,classGhostT1_>voidemaranhar(GhostQ_&ghost_q_,GhostT0_a,GhostT1_b){
+ghost_q_.h(a);
+ghost_q_.cx(a,b);
+}
+//circuitemaranhar_dg:inverso(portasinversasemordemreversa)template<classGhostQ_,classGhostT0_,classGhostT1_>voidemaranhar_dg(GhostQ_&ghost_q_,GhostT0_a,GhostT1_b){
+autoghost_rec_=ghost_begin_inverse(ghost_q_);
+emaranhar(ghost_rec_,a,b);
+ghost_end_inverse(ghost_q_,ghost_rec_);
+}
+//circuitemaranhar_ctrl:versaocontroladatemplate<classGhostQ_,classGhostC_,classGhostT0_,classGhostT1_>voidemaranhar_ctrl(GhostQ_&ghost_q_,GhostC_ghost_ctrl_,GhostT0_a,GhostT1_b){
+autoghost_rec_=ghost_begin_record(ghost_q_);
+emaranhar(ghost_rec_,a,b);
+ghost_end_controlled(ghost_q_,ghost_rec_,ghost_ctrl_);
+}
+//circuitemaranhar_dg_ctrl:versaocontroladatemplate<classGhostQ_,classGhostC_,classGhostT0_,classGhostT1_>voidemaranhar_dg_ctrl(GhostQ_&ghost_q_,GhostC_ghost_ctrl_,GhostT0_a,GhostT1_b){
+autoghost_rec_=ghost_begin_record(ghost_q_);
+emaranhar_dg(ghost_rec_,a,b);
+ghost_end_controlled(ghost_q_,ghost_rec_,ghost_ctrl_);
+}
+//circuitcadeia_ghztemplate<classGhostQ_>voidcadeia_ghz(GhostQ_&ghost_q_,intn){
+ghost_q_.h(0);
+for(inti=0;
+i<n-1;
+i=i+1){
+ghost_q_.cx(i,i+1);
+}
+}
+//circuitcadeia_ghz_dg:inverso(portasinversasemordemreversa)template<classGhostQ_>voidcadeia_ghz_dg(GhostQ_&ghost_q_,intn){
+autoghost_rec_=ghost_begin_inverse(ghost_q_);
+cadeia_ghz(ghost_rec_,n);
+ghost_end_inverse(ghost_q_,ghost_rec_);
+}
+//circuitcadeia_ghz_ctrl:versaocontroladatemplate<classGhostQ_,classGhostC_>voidcadeia_ghz_ctrl(GhostQ_&ghost_q_,GhostC_ghost_ctrl_,intn){
+autoghost_rec_=ghost_begin_record(ghost_q_);
+cadeia_ghz(ghost_rec_,n);
+ghost_end_controlled(ghost_q_,ghost_rec_,ghost_ctrl_);
+}
+//circuitcadeia_ghz_dg_ctrl:versaocontroladatemplate<classGhostQ_,classGhostC_>voidcadeia_ghz_dg_ctrl(GhostQ_&ghost_q_,GhostC_ghost_ctrl_,intn){
+autoghost_rec_=ghost_begin_record(ghost_q_);
+cadeia_ghz_dg(ghost_rec_,n);
+ghost_end_controlled(ghost_q_,ghost_rec_,ghost_ctrl_);
+}
+//circuitgirartemplate<classGhostQ_>voidgirar(GhostQ_&ghost_q_,intk,doubletheta){
+ghost_q_.ry(k,theta);
+ghost_q_.rz(k,theta/2.0);
+}
+//circuitgirar_dg:inverso(portasinversasemordemreversa)template<classGhostQ_>voidgirar_dg(GhostQ_&ghost_q_,intk,doubletheta){
+autoghost_rec_=ghost_begin_inverse(ghost_q_);
+girar(ghost_rec_,k,theta);
+ghost_end_inverse(ghost_q_,ghost_rec_);
+}
+//circuitgirar_ctrl:versaocontroladatemplate<classGhostQ_,classGhostC_>voidgirar_ctrl(GhostQ_&ghost_q_,GhostC_ghost_ctrl_,intk,doubletheta){
+autoghost_rec_=ghost_begin_record(ghost_q_);
+girar(ghost_rec_,k,theta);
+ghost_end_controlled(ghost_q_,ghost_rec_,ghost_ctrl_);
+}
+//circuitgirar_dg_ctrl:versaocontroladatemplate<classGhostQ_,classGhostC_>voidgirar_dg_ctrl(GhostQ_&ghost_q_,GhostC_ghost_ctrl_,intk,doubletheta){
+autoghost_rec_=ghost_begin_record(ghost_q_);
+girar_dg(ghost_rec_,k,theta);
+ghost_end_controlled(ghost_q_,ghost_rec_,ghost_ctrl_);
+}
+//circuitoraculotemplate<classGhostQ_>voidoraculo(GhostQ_&ghost_q_,intalvo){
+ghost_q_.phase_flip(alvo);
+}
+//circuitoraculo_dg:inverso(portasinversasemordemreversa)template<classGhostQ_>voidoraculo_dg(GhostQ_&ghost_q_,intalvo){
+autoghost_rec_=ghost_begin_inverse(ghost_q_);
+oraculo(ghost_rec_,alvo);
+ghost_end_inverse(ghost_q_,ghost_rec_);
+}
+//circuitoraculo_ctrl:versaocontroladatemplate<classGhostQ_,classGhostC_>voidoraculo_ctrl(GhostQ_&ghost_q_,GhostC_ghost_ctrl_,intalvo){
+autoghost_rec_=ghost_begin_record(ghost_q_);
+oraculo(ghost_rec_,alvo);
+ghost_end_controlled(ghost_q_,ghost_rec_,ghost_ctrl_);
+}
+//circuitoraculo_dg_ctrl:versaocontroladatemplate<classGhostQ_,classGhostC_>voidoraculo_dg_ctrl(GhostQ_&ghost_q_,GhostC_ghost_ctrl_,intalvo){
+autoghost_rec_=ghost_begin_record(ghost_q_);
+oraculo_dg(ghost_rec_,alvo);
+ghost_end_controlled(ghost_q_,ghost_rec_,ghost_ctrl_);
+}
+//circuitpasso_grovertemplate<classGhostQ_>voidpasso_grover(GhostQ_&ghost_q_,intalvo){
+oraculo(ghost_q_,alvo);
+ghost_q_.diffuser();
+}
+//circuitpasso_grover_dg:inverso(portasinversasemordemreversa)template<classGhostQ_>voidpasso_grover_dg(GhostQ_&ghost_q_,intalvo){
+autoghost_rec_=ghost_begin_inverse(ghost_q_);
+passo_grover(ghost_rec_,alvo);
+ghost_end_inverse(ghost_q_,ghost_rec_);
+}
+//circuitpasso_grover_ctrl:versaocontroladatemplate<classGhostQ_,classGhostC_>voidpasso_grover_ctrl(GhostQ_&ghost_q_,GhostC_ghost_ctrl_,intalvo){
+autoghost_rec_=ghost_begin_record(ghost_q_);
+passo_grover(ghost_rec_,alvo);
+ghost_end_controlled(ghost_q_,ghost_rec_,ghost_ctrl_);
+}
+//circuitpasso_grover_dg_ctrl:versaocontroladatemplate<classGhostQ_,classGhostC_>voidpasso_grover_dg_ctrl(GhostQ_&ghost_q_,GhostC_ghost_ctrl_,intalvo){
+autoghost_rec_=ghost_begin_record(ghost_q_);
+passo_grover_dg(ghost_rec_,alvo);
+ghost_end_controlled(ghost_q_,ghost_rec_,ghost_ctrl_);
+}
+//circuitcamadatemplate<classGhostQ_>voidcamada(GhostQ_&ghost_q_,intn){
+for(inti=0;
+i<n;
+i=i+1){
+ghost_q_.ry_train(i);
+}
+for(inti=0;
+i<n-1;
+i=i+1){
+ghost_q_.cx(i,i+1);
+}
+}
+//circuitcamada_dg:inverso(portasinversasemordemreversa)template<classGhostQ_>voidcamada_dg(GhostQ_&ghost_q_,intn){
+autoghost_rec_=ghost_begin_inverse(ghost_q_);
+camada(ghost_rec_,n);
+ghost_end_inverse(ghost_q_,ghost_rec_);
+}
+//circuitcamada_ctrl:versaocontroladatemplate<classGhostQ_,classGhostC_>voidcamada_ctrl(GhostQ_&ghost_q_,GhostC_ghost_ctrl_,intn){
+autoghost_rec_=ghost_begin_record(ghost_q_);
+camada(ghost_rec_,n);
+ghost_end_controlled(ghost_q_,ghost_rec_,ghost_ctrl_);
+}
+//circuitcamada_dg_ctrl:versaocontroladatemplate<classGhostQ_,classGhostC_>voidcamada_dg_ctrl(GhostQ_&ghost_q_,GhostC_ghost_ctrl_,intn){
+autoghost_rec_=ghost_begin_record(ghost_q_);
+camada_dg(ghost_rec_,n);
+ghost_end_controlled(ghost_q_,ghost_rec_,ghost_ctrl_);
+}
+//circuitsomartemplate<classGhostQ_>voidsomar(GhostQ_&ghost_q_,intn,intk){
+ghost_q_.qft();
+doubleang=PI*k;
+for(intj=n-1;
+j>=0;
+j=j-1){
+ghost_q_.p(j,ang);
+ang=ang/2.0;
+}
+ghost_q_.iqft();
+}
+//circuitsomar_dg:inverso(portasinversasemordemreversa)template<classGhostQ_>voidsomar_dg(GhostQ_&ghost_q_,intn,intk){
+autoghost_rec_=ghost_begin_inverse(ghost_q_);
+somar(ghost_rec_,n,k);
+ghost_end_inverse(ghost_q_,ghost_rec_);
+}
+//circuitsomar_ctrl:versaocontroladatemplate<classGhostQ_,classGhostC_>voidsomar_ctrl(GhostQ_&ghost_q_,GhostC_ghost_ctrl_,intn,intk){
+autoghost_rec_=ghost_begin_record(ghost_q_);
+somar(ghost_rec_,n,k);
+ghost_end_controlled(ghost_q_,ghost_rec_,ghost_ctrl_);
+}
+//circuitsomar_dg_ctrl:versaocontroladatemplate<classGhostQ_,classGhostC_>voidsomar_dg_ctrl(GhostQ_&ghost_q_,GhostC_ghost_ctrl_,intn,intk){
+autoghost_rec_=ghost_begin_record(ghost_q_);
+somar_dg(ghost_rec_,n,k);
+ghost_end_controlled(ghost_q_,ghost_rec_,ghost_ctrl_);
+}
+//circuitfase_conjugadatemplate<classGhostQ_,classGhostT0_,classGhostT1_>voidfase_conjugada(GhostQ_&ghost_q_,GhostT0_a,GhostT1_b){
+emaranhar(ghost_q_,a,b);
+ghost_q_.t(b);
+emaranhar_dg(ghost_q_,a,b);
+}
+//circuitfase_conjugada_dg:inverso(portasinversasemordemreversa)template<classGhostQ_,classGhostT0_,classGhostT1_>voidfase_conjugada_dg(GhostQ_&ghost_q_,GhostT0_a,GhostT1_b){
+autoghost_rec_=ghost_begin_inverse(ghost_q_);
+fase_conjugada(ghost_rec_,a,b);
+ghost_end_inverse(ghost_q_,ghost_rec_);
+}
+//circuitfase_conjugada_ctrl:versaocontroladatemplate<classGhostQ_,classGhostC_,classGhostT0_,classGhostT1_>voidfase_conjugada_ctrl(GhostQ_&ghost_q_,GhostC_ghost_ctrl_,GhostT0_a,GhostT1_b){
+autoghost_rec_=ghost_begin_record(ghost_q_);
+fase_conjugada(ghost_rec_,a,b);
+ghost_end_controlled(ghost_q_,ghost_rec_,ghost_ctrl_);
+}
+//circuitfase_conjugada_dg_ctrl:versaocontroladatemplate<classGhostQ_,classGhostC_,classGhostT0_,classGhostT1_>voidfase_conjugada_dg_ctrl(GhostQ_&ghost_q_,GhostC_ghost_ctrl_,GhostT0_a,GhostT1_b){
+autoghost_rec_=ghost_begin_record(ghost_q_);
+fase_conjugada_dg(ghost_rec_,a,b);
+ghost_end_controlled(ghost_q_,ghost_rec_,ghost_ctrl_);
+}
+//circuitfasetemplate<classGhostQ_>voidfase(GhostQ_&ghost_q_,intalvo,doubleth){
+ghost_q_.p(alvo,th);
+}
+//circuitfase_dg:inverso(portasinversasemordemreversa)template<classGhostQ_>voidfase_dg(GhostQ_&ghost_q_,intalvo,doubleth){
+autoghost_rec_=ghost_begin_inverse(ghost_q_);
+fase(ghost_rec_,alvo,th);
+ghost_end_inverse(ghost_q_,ghost_rec_);
+}
+//circuitfase_ctrl:versaocontroladatemplate<classGhostQ_,classGhostC_>voidfase_ctrl(GhostQ_&ghost_q_,GhostC_ghost_ctrl_,intalvo,doubleth){
+autoghost_rec_=ghost_begin_record(ghost_q_);
+fase(ghost_rec_,alvo,th);
+ghost_end_controlled(ghost_q_,ghost_rec_,ghost_ctrl_);
+}
+//circuitfase_dg_ctrl:versaocontroladatemplate<classGhostQ_,classGhostC_>voidfase_dg_ctrl(GhostQ_&ghost_q_,GhostC_ghost_ctrl_,intalvo,doubleth){
+autoghost_rec_=ghost_begin_record(ghost_q_);
+fase_dg(ghost_rec_,alvo,th);
+ghost_end_controlled(ghost_q_,ghost_rec_,ghost_ctrl_);
+}
+voidghost_main(){
+std::cout<<ghost_show(std::string("=== Bell com circuit ==="))<<std::endl;
+GhostQRegb=GhostQReg(2);
+emaranhar(b,0,1);
+std::cout<<ghost_show(ghost_fstr(std::string("estado: "),(b)))<<std::endl;
+std::cout<<ghost_show(ghost_fstr(std::string("<ZZ> = "),(b.expect(std::string("ZZ")))))<<std::endl;
+GhostQRegb2=GhostQReg(3);
+preparar(b2);
+emaranhar(b2,1,2);
+std::cout<<ghost_show(ghost_fstr(std::string("emaranhar(b2, 1, 2) depois de preparar: "),(b2)))<<std::endl;
+std::cout<<ghost_show(std::string("=== GHZ(5) com laco ==="))<<std::endl;
+GhostQRegg=GhostQReg(5);
+cadeia_ghz(g,5);
+std::cout<<ghost_show(ghost_fstr(std::string("estado: "),(g)))<<std::endl;
+std::cout<<ghost_show(g.draw())<<std::endl;
+std::cout<<ghost_show(std::string("=== Rotacao parametrizada ==="))<<std::endl;
+GhostQRegr=GhostQReg(1);
+girar(r,0,PI/3.0);
+std::cout<<ghost_show(ghost_fstr(std::string("P(1) = "),(r.prob(0))))<<std::endl;
+std::cout<<ghost_show(std::string("=== Grover com circuit (alvo |1011>) ==="))<<std::endl;
+GhostQRegbusca=GhostQReg(4);
+busca.h_all();
+for(intk=0;
+k<grover_iterations(4);
+k=k+1){
+passo_grover(busca,11);
+}
+std::cout<<ghost_show(ghost_fstr(std::string("P(|1011>) = "),(busca.prob_state(11))))<<std::endl;
+std::cout<<ghost_show(std::string("=== VQE do H2 com ansatz feito de circuits ==="))<<std::endl;
+GhostQCircuith2=GhostQCircuit(2);
+h2.seed(3);
+camada(h2,2);
+camada(h2,2);
+hamiltoniano_h2(h2);
+std::cout<<ghost_show(ghost_fstr(std::string("parametros treinaveis: "),(h2.num_params())))<<std::endl;
+doublee=h2.minimize(300,0.05);
+std::cout<<ghost_show(ghost_fstr(std::string("Energia VQE: "),(e),std::string(" Ha (exata: -1.857275)")))<<std::endl;
+std::cout<<ghost_show(std::string("=== Inverso automatico: nome_dg ==="))<<std::endl;
+GhostQRegu=GhostQReg(2);
+emaranhar(u,0,1);
+emaranhar_dg(u,0,1);
+std::cout<<ghost_show(ghost_fstr(std::string("emaranhar + emaranhar_dg: "),(u)))<<std::endl;
+GhostQRegsoma=GhostQReg(4);
+soma.set_basis(5);
+somar(soma,4,3);
+std::cout<<ghost_show(ghost_fstr(std::string("5 + 3 = "),(soma)))<<std::endl;
+somar_dg(soma,4,6);
+std::cout<<ghost_show(ghost_fstr(std::string("8 - 6 = "),(soma)))<<std::endl;
+GhostQRegrot=GhostQReg(1);
+girar(rot,0,1.234);
+girar_dg(rot,0,1.234);
+std::cout<<ghost_show(ghost_fstr(std::string("girar + girar_dg: P(1) = "),(rot.prob(0))))<<std::endl;
+GhostQRegcj=GhostQReg(2);
+cj.h(0);
+fase_conjugada(cj,0,1);
+std::cout<<ghost_show(ghost_fstr(std::string("fase_conjugada (inverso dentro de circuit): "),(cj)))<<std::endl;
+GhostQCircuitvqc=GhostQCircuit(2);
+vqc.seed(1);
+camada(vqc,2);
+camada_dg(vqc,2);
+std::cout<<ghost_show(ghost_fstr(std::string("qcircuit camada + camada_dg: "),(vqc.num_params()),std::string(" parametros, "),(vqc.num_gates()),std::string(" portas")))<<std::endl;
+std::cout<<ghost_show(std::string("=== Circuit controlado: nome_ctrl(controle, ...) ==="))<<std::endl;
+GhostQRegcc=GhostQReg(3);
+cc.h(2);
+emaranhar_ctrl(cc,2,0,1);
+std::cout<<ghost_show(ghost_fstr(std::string("emaranhar_ctrl com controle em superposicao: "),(cc)))<<std::endl;
+emaranhar_dg_ctrl(cc,2,0,1);
+cc.h(2);
+std::cout<<ghost_show(ghost_fstr(std::string("desfeito com emaranhar_dg_ctrl: "),(cc)))<<std::endl;
+GhostQRegqpe=GhostQReg(4);
+qpe.x(3);
+for(intj=0;
+j<3;
+j=j+1){
+qpe.h(j);
+}
+intreps=1;
+for(intj=0;
+j<3;
+j=j+1){
+for(intr=0;
+r<reps;
+r=r+1){
+fase_ctrl(qpe,j,3,2.0*PI*0.375);
+}
+reps=reps*2;
+}
+qpe.iqft_range(0,3);
+std::cout<<ghost_show(ghost_fstr(std::string("QPE: "),(qpe),std::string("  (contagem 011 = 3 -> fase 3/8 = 0.375)")))<<std::endl;
+}
+intmain(intargc,char**argv){
+try{
+#ifdef_WIN32SetConsoleOutputCP(CP_UTF8);
+SetConsoleCP(CP_UTF8);
+#endifstd::cout<<std::boolalpha;
+std::stringghost_args="";
+std::vector<std::string>ghost_args_vec;
+for(inti=1;
+i<argc;
+++i){
+ghost_args+=argv[i];
+ghost_args_vec.push_back(argv[i]);
+if(i<argc-1)ghost_args+=" ";
+}
+ghost_main();
+return0;
+}
+catch(conststd::exception&e){
+std::cerr<<e.what()<<std::endl;
+return1;
+}
+}

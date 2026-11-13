@@ -1,0 +1,20 @@
+import "libs/tensor.g" as tn;
+
+var a = tn.tensor_create_2d(70, 50, 0.0);
+var b = tn.tensor_create_2d(50, 40, 0.0);
+for (int i = 0; i < 70; i++) {
+    for (int p = 0; p < 50; p++) {
+        tn.tensor_set_2d(a, i, p, (i % 7) - 3 + (p % 5));
+    }
+}
+for (int p = 0; p < 50; p++) {
+    for (int j = 0; j < 40; j++) {
+        tn.tensor_set_2d(b, p, j, (p % 4) - (j % 3) + 1);
+    }
+}
+var c = tn.tensor_matmul(a, b);
+print(tn.tensor_dim(c, 0), "x", tn.tensor_dim(c, 1));
+print(tn.tensor_get_2d(c, 0, 0));
+print(tn.tensor_get_2d(c, 33, 17));
+print(tn.tensor_get_2d(c, 69, 39));
+print(tn.tensor_sum(c));

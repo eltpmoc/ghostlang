@@ -1,0 +1,14 @@
+qcircuit: 2 qubits, 12 portas, 8 parametros, 2 features, 64 amostras; observavel Z(q0)
+q0: --RY(x0)------------RY(t0)---RZ(t1)---------------------*---RY(t4)---RZ(t5)---------------------*--
+                                                            |                                       |
+q1: -----------RY(x1)---------------------RY(t2)---RZ(t3)---X---------------------RY(t6)---RZ(t7)---X--
+
+Antes do treino: acuracia 59.375%  perda 1.17315
+  epoca 1/60  perda=1.1732  acuracia=59.4%
+  epoca 20/60  perda=0.3579  acuracia=87.5%
+  epoca 40/60  perda=0.2687  acuracia=95.3%
+  epoca 60/60  perda=0.2651  acuracia=96.9%
+Depois do treino: acuracia 96.875%  perda 0.264824
+Ponto (0.3, 0.5) -> classe 0
+Ponto (2.8, 2.6) -> classe 1
+Parametros: [-0.1704, -3.5930, -1.5158, 3.7910, -1.9825, -2.5363, -2.3259, 1.1799] w=1.8703 b=-0.0632

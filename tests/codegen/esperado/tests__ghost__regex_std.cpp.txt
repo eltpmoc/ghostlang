@@ -1,0 +1,125 @@
+#line 4 "libs/test.g"
+#line 5 "libs/test.g"
+#line 6 "libs/test.g"
+#line 11 "libs/test.g"
+#line 12 "libs/test.g"
+#line 13 "libs/test.g"
+#line 18 "libs/test.g"
+#line 19 "libs/test.g"
+#line 20 "libs/test.g"
+#line 21 "libs/test.g"
+#line 26 "libs/test.g"
+#line 27 "libs/test.g"
+#line 28 "libs/test.g"
+#line 29 "libs/test.g"
+#line 34 "libs/test.g"
+#line 35 "libs/test.g"
+#line 36 "libs/test.g"
+#line 38 "libs/test.g"
+#line 39 "libs/test.g"
+#line 40 "libs/test.g"
+#line 41 "libs/test.g"
+#line 4 "tests/ghost/regex_std.g"
+#line 5 "tests/ghost/regex_std.g"
+#line 7 "tests/ghost/regex_std.g"
+#line 8 "tests/ghost/regex_std.g"
+#line 10 "tests/ghost/regex_std.g"
+#line 11 "tests/ghost/regex_std.g"
+#line 13 "tests/ghost/regex_std.g"
+#line 14 "tests/ghost/regex_std.g"
+#line 16 "tests/ghost/regex_std.g"
+#line 17 "tests/ghost/regex_std.g"
+#line 19 "tests/ghost/regex_std.g"
+#line 23 "tests/ghost/regex_std.g"
+#line 24 "tests/ghost/regex_std.g"
+#line 3 "libs/test.g"
+#line 10 "libs/test.g"
+#line 17 "libs/test.g"
+#line 25 "libs/test.g"
+#line 33 "libs/test.g"
+#line 3 "tests/ghost/regex_std.g"
+#line 22 "tests/ghost/regex_std.g"
+----
+/*TranspiladopeloGhostCompilerv1.0*/#include<iostream>#include<cstdio>#include<cstdlib>#include<string>#include<complex>#include<type_traits>#include<fstream>#include<sstream>#include<thread>#include<chrono>#include<mutex>#include"include/GhostNumberG.hpp"#include"include/GhostMatrix.hpp"#include"include/GhostLLM.hpp"#include"include/GhostLib.hpp"#include"include/GhostDevice.hpp"#include"include/GhostTextModel.hpp"#include"include/GhostWeb.hpp"#include"include/GhostKnowledge.hpp"#include"include/GhostTemporal.hpp"#include"include/GhostTransformer.hpp"#include"include/GhostTransformerG.hpp"#include"include/GhostMatrixG.hpp"#include"include/GhostQuantum.hpp"#include"include/GhostQML.hpp"#include"include/GhostHybrid.hpp"#include"include/GhostQTape.hpp"#include"include/GhostCore.hpp"#ifdef_WIN32#include<windows.h>#endifvoidassert_true(boolcond,std::stringmsg=std::string("Esperado true, obtido false"));
+voidassert_false(boolcond,std::stringmsg=std::string("Esperado false, obtido true"));
+voidassert_eq_int(intatual,intesperado,std::stringmsg=std::string(""));
+voidassert_eq_str(std::stringatual,std::stringesperado,std::stringmsg=std::string(""));
+voidassert_eq_double(doubleatual,doubleesperado,doubletol=0.0001,std::stringmsg=std::string(""));
+voidtest_regex();
+voidghost_main();
+voidassert_true(boolcond,std::stringmsg){
+if(!cond){
+std::cout<<ghost_show(std::string("[FALHA DE TESTE] ")+msg)<<std::endl;
+throwghost_error(msg);
+}
+}
+voidassert_false(boolcond,std::stringmsg){
+if(cond){
+std::cout<<ghost_show(std::string("[FALHA DE TESTE] ")+msg)<<std::endl;
+throwghost_error(msg);
+}
+}
+voidassert_eq_int(intatual,intesperado,std::stringmsg){
+if(atual!=esperado){
+std::stringerro=std::string("[FALHA DE TESTE] ")+msg+std::string(" (esperado: ")+esperado+std::string(", obtido: ")+atual+std::string(")");
+std::cout<<ghost_show(erro)<<std::endl;
+throwghost_error(erro);
+}
+}
+voidassert_eq_str(std::stringatual,std::stringesperado,std::stringmsg){
+if(atual!=esperado){
+std::stringerro=std::string("[FALHA DE TESTE] ")+msg+std::string(" (esperado: \"")+esperado+std::string("\", obtido: \"")+atual+std::string("\")");
+std::cout<<ghost_show(erro)<<std::endl;
+throwghost_error(erro);
+}
+}
+voidassert_eq_double(doubleatual,doubleesperado,doubletol,std::stringmsg){
+doublediff=atual-esperado;
+if(diff<0.0){
+diff=-diff;
+}
+if(diff>tol){
+std::stringerro=std::string("[FALHA DE TESTE] ")+msg+std::string(" (esperado: ")+esperado+std::string(", obtido: ")+atual+std::string(")");
+std::cout<<ghost_show(erro)<<std::endl;
+throwghost_error(erro);
+}
+}
+voidtest_regex(){
+boolm1=regex_match(std::string("12345"),std::string("^[0-9]+$"));
+assert_true(m1,std::string("regex_match digitos"));
+boolm2=regex_match(std::string("123a45"),std::string("^[0-9]+$"));
+assert_false(m2,std::string("regex_match nao digitos"));
+bools1=regex_search(std::string("GhostLang v0.5 2026"),std::string("v[0-9]+\\.[0-9]+"));
+assert_true(s1,std::string("regex_search versao"));
+bools2=regex_search(std::string("GhostLang"),std::string("v[0-9]+"));
+assert_false(s2,std::string("regex_search sem versao"));
+std::stringr=regex_replace(std::string("Hello 123 World 456"),std::string("[0-9]+"),std::string("#"));
+assert_eq_str(r,std::string("Hello # World #"),std::string("regex_replace numeros"));
+std::cout<<ghost_show(std::string("test_regex: OK"))<<std::endl;
+}
+voidghost_main(){
+test_regex();
+std::cout<<ghost_show(std::string("todos os testes de regex passaram com sucesso!"))<<std::endl;
+}
+intmain(intargc,char**argv){
+try{
+#ifdef_WIN32SetConsoleOutputCP(CP_UTF8);
+SetConsoleCP(CP_UTF8);
+#endifstd::cout<<std::boolalpha;
+std::stringghost_args="";
+std::vector<std::string>ghost_args_vec;
+for(inti=1;
+i<argc;
+++i){
+ghost_args+=argv[i];
+ghost_args_vec.push_back(argv[i]);
+if(i<argc-1)ghost_args+=" ";
+}
+ghost_main();
+return0;
+}
+catch(conststd::exception&e){
+std::cerr<<e.what()<<std::endl;
+return1;
+}
+}

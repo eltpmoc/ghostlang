@@ -1,0 +1,673 @@
+#line 14 "src/modelo.g"
+#line 15 "src/modelo.g"
+#line 20 "src/modelo.g"
+#line 21 "src/modelo.g"
+#line 22 "src/modelo.g"
+#line 23 "src/modelo.g"
+#line 24 "src/modelo.g"
+#line 25 "src/modelo.g"
+#line 26 "src/modelo.g"
+#line 27 "src/modelo.g"
+#line 28 "src/modelo.g"
+#line 29 "src/modelo.g"
+#line 30 "src/modelo.g"
+#line 31 "src/modelo.g"
+#line 32 "src/modelo.g"
+#line 33 "src/modelo.g"
+#line 34 "src/modelo.g"
+#line 35 "src/modelo.g"
+#line 37 "src/modelo.g"
+#line 38 "src/modelo.g"
+#line 39 "src/modelo.g"
+#line 40 "src/modelo.g"
+#line 42 "src/modelo.g"
+#line 44 "src/modelo.g"
+#line 48 "src/modelo.g"
+#line 49 "src/modelo.g"
+#line 51 "src/modelo.g"
+#line 52 "src/modelo.g"
+#line 53 "src/modelo.g"
+#line 55 "src/modelo.g"
+#line 56 "src/modelo.g"
+#line 57 "src/modelo.g"
+#line 58 "src/modelo.g"
+#line 60 "src/modelo.g"
+#line 61 "src/modelo.g"
+#line 63 "src/modelo.g"
+#line 67 "src/modelo.g"
+#line 68 "src/modelo.g"
+#line 70 "src/modelo.g"
+#line 71 "src/modelo.g"
+#line 72 "src/modelo.g"
+#line 77 "src/modelo.g"
+#line 78 "src/modelo.g"
+#line 79 "src/modelo.g"
+#line 80 "src/modelo.g"
+#line 81 "src/modelo.g"
+#line 82 "src/modelo.g"
+#line 83 "src/modelo.g"
+#line 84 "src/modelo.g"
+#line 85 "src/modelo.g"
+#line 86 "src/modelo.g"
+#line 87 "src/modelo.g"
+#line 88 "src/modelo.g"
+#line 90 "src/modelo.g"
+#line 91 "src/modelo.g"
+#line 92 "src/modelo.g"
+#line 93 "src/modelo.g"
+#line 96 "src/modelo.g"
+#line 97 "src/modelo.g"
+#line 100 "src/modelo.g"
+#line 101 "src/modelo.g"
+#line 105 "src/modelo.g"
+#line 107 "src/modelo.g"
+#line 108 "src/modelo.g"
+#line 109 "src/modelo.g"
+#line 110 "src/modelo.g"
+#line 112 "src/modelo.g"
+#line 114 "src/modelo.g"
+#line 115 "src/modelo.g"
+#line 116 "src/modelo.g"
+#line 118 "src/modelo.g"
+#line 120 "src/modelo.g"
+#line 121 "src/modelo.g"
+#line 122 "src/modelo.g"
+#line 124 "src/modelo.g"
+#line 125 "src/modelo.g"
+#line 130 "src/modelo.g"
+#line 131 "src/modelo.g"
+#line 132 "src/modelo.g"
+#line 134 "src/modelo.g"
+#line 135 "src/modelo.g"
+#line 136 "src/modelo.g"
+#line 138 "src/modelo.g"
+#line 139 "src/modelo.g"
+#line 140 "src/modelo.g"
+#line 142 "src/modelo.g"
+#line 143 "src/modelo.g"
+#line 144 "src/modelo.g"
+#line 146 "src/modelo.g"
+#line 147 "src/modelo.g"
+#line 148 "src/modelo.g"
+#line 150 "src/modelo.g"
+#line 151 "src/modelo.g"
+#line 152 "src/modelo.g"
+#line 153 "src/modelo.g"
+#line 156 "src/modelo.g"
+#line 157 "src/modelo.g"
+#line 158 "src/modelo.g"
+#line 159 "src/modelo.g"
+#line 160 "src/modelo.g"
+#line 162 "src/modelo.g"
+#line 163 "src/modelo.g"
+#line 165 "src/modelo.g"
+#line 166 "src/modelo.g"
+#line 167 "src/modelo.g"
+#line 168 "src/modelo.g"
+#line 170 "src/modelo.g"
+#line 171 "src/modelo.g"
+#line 176 "src/modelo.g"
+#line 177 "src/modelo.g"
+#line 178 "src/modelo.g"
+#line 179 "src/modelo.g"
+#line 180 "src/modelo.g"
+#line 181 "src/modelo.g"
+#line 182 "src/modelo.g"
+#line 184 "src/modelo.g"
+#line 186 "src/modelo.g"
+#line 187 "src/modelo.g"
+#line 188 "src/modelo.g"
+#line 189 "src/modelo.g"
+#line 190 "src/modelo.g"
+#line 192 "src/modelo.g"
+#line 193 "src/modelo.g"
+#line 194 "src/modelo.g"
+#line 195 "src/modelo.g"
+#line 196 "src/modelo.g"
+#line 198 "src/modelo.g"
+#line 199 "src/modelo.g"
+#line 200 "src/modelo.g"
+#line 201 "src/modelo.g"
+#line 203 "src/modelo.g"
+#line 206 "src/modelo.g"
+#line 207 "src/modelo.g"
+#line 208 "src/modelo.g"
+#line 209 "src/modelo.g"
+#line 210 "src/modelo.g"
+#line 212 "src/modelo.g"
+#line 213 "src/modelo.g"
+#line 215 "src/modelo.g"
+#line 216 "src/modelo.g"
+#line 217 "src/modelo.g"
+#line 221 "src/modelo.g"
+#line 222 "src/modelo.g"
+#line 223 "src/modelo.g"
+#line 224 "src/modelo.g"
+#line 225 "src/modelo.g"
+#line 226 "src/modelo.g"
+#line 227 "src/modelo.g"
+#line 228 "src/modelo.g"
+#line 229 "src/modelo.g"
+#line 232 "src/modelo.g"
+#line 233 "src/modelo.g"
+#line 234 "src/modelo.g"
+#line 236 "src/modelo.g"
+#line 4 "src/main.g"
+#line 5 "src/main.g"
+#line 6 "src/main.g"
+#line 7 "src/main.g"
+#line 8 "src/main.g"
+#line 9 "src/main.g"
+#line 13 "src/main.g"
+#line 14 "src/main.g"
+#line 15 "src/main.g"
+#line 17 "src/main.g"
+#line 18 "src/main.g"
+#line 19 "src/main.g"
+#line 20 "src/main.g"
+#line 22 "src/main.g"
+#line 23 "src/main.g"
+#line 24 "src/main.g"
+#line 25 "src/main.g"
+#line 27 "src/main.g"
+#line 28 "src/main.g"
+#line 29 "src/main.g"
+#line 30 "src/main.g"
+#line 31 "src/main.g"
+#line 33 "src/main.g"
+#line 34 "src/main.g"
+#line 35 "src/main.g"
+#line 37 "src/main.g"
+#line 38 "src/main.g"
+#line 39 "src/main.g"
+#line 41 "src/main.g"
+#line 42 "src/main.g"
+#line 43 "src/main.g"
+#line 45 "src/main.g"
+#line 46 "src/main.g"
+#line 47 "src/main.g"
+#line 48 "src/main.g"
+#line 49 "src/main.g"
+#line 51 "src/main.g"
+#line 52 "src/main.g"
+#line 53 "src/main.g"
+#line 55 "src/main.g"
+#line 56 "src/main.g"
+#line 57 "src/main.g"
+#line 58 "src/main.g"
+#line 60 "src/main.g"
+#line 61 "src/main.g"
+#line 62 "src/main.g"
+#line 64 "src/main.g"
+#line 65 "src/main.g"
+#line 67 "src/main.g"
+#line 68 "src/main.g"
+#line 69 "src/main.g"
+#line 70 "src/main.g"
+#line 71 "src/main.g"
+#line 72 "src/main.g"
+#line 73 "src/main.g"
+#line 75 "src/main.g"
+#line 76 "src/main.g"
+#line 77 "src/main.g"
+#line 78 "src/main.g"
+#line 79 "src/main.g"
+#line 81 "src/main.g"
+#line 82 "src/main.g"
+#line 83 "src/main.g"
+#line 84 "src/main.g"
+#line 86 "src/main.g"
+#line 87 "src/main.g"
+#line 88 "src/main.g"
+#line 90 "src/main.g"
+#line 91 "src/main.g"
+#line 3 "src/modelo.g"
+#line 4 "src/modelo.g"
+#line 5 "src/modelo.g"
+#line 6 "src/modelo.g"
+#line 7 "src/modelo.g"
+#line 8 "src/modelo.g"
+#line 9 "src/modelo.g"
+#line 10 "src/modelo.g"
+#line 11 "src/modelo.g"
+#line 13 "src/modelo.g"
+#line 18 "src/modelo.g"
+#line 47 "src/modelo.g"
+#line 66 "src/modelo.g"
+#line 76 "src/modelo.g"
+#line 104 "src/modelo.g"
+#line 129 "src/modelo.g"
+#line 175 "src/modelo.g"
+#line 220 "src/modelo.g"
+#line 3 "src/main.g"
+#line 12 "src/main.g"
+----
+/*TranspiladopeloGhostCompilerv1.0*/#include<iostream>#include<cstdio>#include<cstdlib>#include<string>#include<complex>#include<type_traits>#include<fstream>#include<sstream>#include<thread>#include<chrono>#include<mutex>#include"include/GhostNumberG.hpp"#include"include/GhostMatrix.hpp"#include"include/GhostLLM.hpp"#include"include/GhostLib.hpp"#include"include/GhostDevice.hpp"#include"include/GhostTextModel.hpp"#include"include/GhostWeb.hpp"#include"include/GhostKnowledge.hpp"#include"include/GhostTemporal.hpp"#include"include/GhostTransformer.hpp"#include"include/GhostTransformerG.hpp"#include"include/GhostMatrixG.hpp"#include"include/GhostQuantum.hpp"#include"include/GhostQML.hpp"#include"include/GhostHybrid.hpp"#include"include/GhostQTape.hpp"#include"include/GhostCore.hpp"#ifdef_WIN32#include<windows.h>#endifvoidfalhar(std::stringmensagem);
+std::stringnormalizar(std::stringtexto);
+std::stringler_corpus(std::stringcaminho);
+voidpreparar(std::stringcontexto);
+doubleavaliar(std::stringtexto);
+voidsalvar_pesos(std::stringcaminho);
+voidcarregar_pesos(std::stringcaminho);
+voidtreinar(std::stringtreino,std::stringvalidacao,intepocas,doubletaxa,std::stringdestino);
+std::stringgerar(std::stringinicio,intquantidade);
+voidajuda();
+voidghost_main(GhostList<std::string>args);
+externstd::stringalfabeto;
+externGhostMatrixoculta;
+externGhostMatrixsaida;
+externGhostNetwork*modelo;
+externintusar_gpu;
+externGhostMatrixentrada;
+externGhostMatrixalvo;
+externdoubleultima_acuracia;
+std::stringalfabeto;
+GhostMatrixoculta;
+GhostMatrixsaida;
+GhostNetwork*modelo;
+intusar_gpu;
+GhostMatrixentrada;
+GhostMatrixalvo;
+doubleultima_acuracia;
+voidfalhar(std::stringmensagem){
+std::cout<<ghost_show(std::string("Erro: ")+mensagem)<<std::endl;
+exit(1);
+}
+std::stringnormalizar(std::stringtexto){
+texto=regex_replace(texto,std::string("á|à|â|ã|ä|Á|À|Â|Ã|Ä"),std::string("a"));
+texto=regex_replace(texto,std::string("é|è|ê|ë|É|È|Ê|Ë"),std::string("e"));
+texto=regex_replace(texto,std::string("í|ì|î|ï|Í|Ì|Î|Ï"),std::string("i"));
+texto=regex_replace(texto,std::string("ó|ò|ô|õ|ö|Ó|Ò|Ô|Õ|Ö"),std::string("o"));
+texto=regex_replace(texto,std::string("ú|ù|û|ü|Ú|Ù|Û|Ü"),std::string("u"));
+texto=regex_replace(texto,std::string("ç|Ç"),std::string("c"));
+texto=regex_replace(texto,std::string("\r\n"),std::string("\n"));
+std::stringmaiusculas=std::string("ABCDEFGHIJKLMNOPQRSTUVWXYZ");
+std::stringminusculas=std::string("abcdefghijklmnopqrstuvwxyz");
+std::stringresultado=std::string("");
+for(inti=0;
+i<texto.size();
+i=i+1){
+std::stringletra=texto.substr(i,1);
+intindice=maiusculas.find(letra);
+intcondicao_1=indice>=0&&indice<26;
+if(condicao_1){
+letra=minusculas.substr(indice,1);
+}
+indice=alfabeto.find(letra);
+intcondicao_2=indice<0||indice>=42;
+if(condicao_2){
+letra=std::string(" ");
+}
+resultado=resultado+letra;
+}
+returnresultado;
+}
+std::stringler_corpus(std::stringcaminho){
+if(!file_exists(caminho)){
+falhar(std::string("Corpus nao encontrado: ")+caminho);
+}
+std::stringtexto=readfile(caminho);
+if(texto.size()>1000000){
+falhar(std::string("Use um arquivo de ate 1 MB nesta primeira versao."));
+}
+texto=normalizar(texto);
+intcondicao_3=texto.size()<5||texto.size()>20000;
+if(condicao_3){
+falhar(std::string("O corpus normalizado precisa ter entre 5 e 20000 caracteres."));
+}
+if(!regex_search(texto,std::string("[a-z0-9]"))){
+falhar(std::string("O corpus precisa conter letras ou numeros suportados."));
+}
+returntexto;
+}
+voidpreparar(std::stringcontexto){
+for(inti=0;
+i<168;
+i=i+1){
+entrada(i,0).x=0.0;
+}
+for(inti=0;
+i<4;
+i=i+1){
+inttoken=alfabeto.find(contexto.substr(i,1));
+entrada(i*42+token,0).x=1.0;
+}
+}
+doubleavaliar(std::stringtexto){
+doubleerro_total=0.0;
+intacertos=0;
+intamostras=texto.size()-4;
+for(intpos=4;
+pos<texto.size();
+pos=pos+1){
+preparar(texto.substr(pos-4,4));
+GhostMatrixpredicao=ia_prever(modelo,entrada);
+intesperado=alfabeto.find(texto.substr(pos,1));
+intmelhor=0;
+for(intj=0;
+j<42;
+j=j+1){
+doubledesejado=0.0;
+if(j==esperado){
+desejado=1.0;
+}
+doublediferenca=predicao(j,0).x-desejado;
+erro_total=erro_total+diferenca*diferenca;
+if(predicao(j,0).x>predicao(melhor,0).x){
+melhor=j;
+}
+}
+if(melhor==esperado){
+acertos=acertos+1;
+}
+}
+ultima_acuracia=1.0*acertos/amostras;
+returnerro_total/(amostras*42.0);
+}
+voidsalvar_pesos(std::stringcaminho){
+ia_sincronizar(modelo);
+std::stringdados=std::string("GHOST_TEXT_V1\n168\n32\n42\n");
+for(intr=0;
+r<32;
+r=r+1){
+for(intc=0;
+c<168;
+c=c+1){
+dados=dados+format_number(oculta(r,c).x,17)+std::string("\n");
+}
+dados=dados+format_number(oculta.bias[r].x,17)+std::string("\n");
+}
+for(intr=0;
+r<42;
+r=r+1){
+for(intc=0;
+c<32;
+c=c+1){
+dados=dados+format_number(saida(r,c).x,17)+std::string("\n");
+}
+dados=dados+format_number(saida.bias[r].x,17)+std::string("\n");
+}
+writefile(caminho+std::string(".tmp"),dados);
+if(readfile(caminho+std::string(".tmp"))!=dados){
+falhar(std::string("Falha ao gravar checkpoint temporario: ")+caminho);
+}
+if(rename((caminho+std::string(".tmp")).c_str(),caminho.c_str())!=0){
+falhar(std::string("Falha ao concluir checkpoint: ")+caminho);
+}
+}
+voidcarregar_pesos(std::stringcaminho){
+ia_invalidar();
+if(!file_exists(caminho)){
+falhar(std::string("Checkpoint nao encontrado: ")+caminho);
+}
+std::stringdados=readfile(caminho);
+if(dados.size()>1000000){
+falhar(std::string("Checkpoint excede o tamanho permitido."));
+}
+autolinhas=string_split(dados,10);
+if(linhas.size()!=6798){
+falhar(std::string("Checkpoint incompleto ou com arquitetura incompativel."));
+}
+intcondicao_4=linhas[0]!=std::string("GHOST_TEXT_V1")||linhas[1]!=std::string("168")||linhas[2]!=std::string("32")||linhas[3]!=std::string("42");
+if(condicao_4){
+falhar(std::string("Formato de checkpoint incompativel."));
+}
+for(inti=4;
+i<linhas.size();
+i=i+1){
+if(!regex_match(linhas[i],std::string("-?[0-9]+[.][0-9]+"))){
+falhar(std::string("Checkpoint contem um valor numerico invalido."));
+}
+doublevalor=parse_number(linhas[i]);
+intcondicao_5=linhas[i].size()>30||valor<-1000.0||valor>1000.0;
+if(condicao_5){
+falhar(std::string("Checkpoint contem um peso fora dos limites."));
+}
+}
+intindice=4;
+for(intr=0;
+r<32;
+r=r+1){
+for(intc=0;
+c<168;
+c=c+1){
+oculta(r,c).x=parse_number(linhas[indice]);
+indice=indice+1;
+}
+oculta.bias[r].x=parse_number(linhas[indice]);
+indice=indice+1;
+}
+for(intr=0;
+r<42;
+r=r+1){
+for(intc=0;
+c<32;
+c=c+1){
+saida(r,c).x=parse_number(linhas[indice]);
+indice=indice+1;
+}
+saida.bias[r].x=parse_number(linhas[indice]);
+indice=indice+1;
+}
+}
+voidtreinar(std::stringtreino,std::stringvalidacao,intepocas,doubletaxa,std::stringdestino){
+doubleinicial=avaliar(treino);
+std::cout<<ghost_show(std::string("MSE inicial treino: ")+inicial)<<std::endl;
+std::stringhistorico=std::string("epoca,mse_treino,mse_validacao,acuracia_validacao\n");
+intamostras=treino.size()-4;
+GhostMatrixordem=encode(std::string(""),amostras);
+for(inti=0;
+i<amostras;
+i=i+1){
+ordem(i,0).x=i;
+}
+for(intepoca=1;
+epoca<=epocas;
+epoca=epoca+1){
+for(inti=amostras-1;
+i>0;
+i=i-1){
+intj=rand()%(i+1);
+doubletemporario=ordem(i,0).x;
+ordem(i,0).x=ordem(j,0).x;
+ordem(j,0).x=temporario;
+}
+for(inti=0;
+i<amostras;
+i=i+1){
+intpos=ordem(i,0).x+4;
+preparar(treino.substr(pos-4,4));
+for(intj=0;
+j<42;
+j=j+1){
+alvo(j,0).x=0.0;
+}
+intesperado=alfabeto.find(treino.substr(pos,1));
+alvo(esperado,0).x=1.0;
+if(usar_gpu){
+ia_treinar_gpu(modelo,entrada,alvo,taxa);
+}
+else{
+//ChamandootimizadorBackpropagationnaRedeProfundamodelo->optimize(entrada,alvo,1,taxa,"adam");
+}
+}
+doubleerro_treino=avaliar(treino);
+doubleerro_validacao=avaliar(validacao);
+intcondicao_6=!(erro_treino>=0.0&&erro_treino<1000.0&&erro_validacao>=0.0&&erro_validacao<1000.0);
+if(condicao_6){
+falhar(std::string("Treino divergiu. Reduza a taxa de aprendizado."));
+}
+std::cout<<ghost_show(std::string("Epoca ")+epoca+std::string(" | MSE treino ")+erro_treino+std::string(" | MSE validacao ")+erro_validacao+std::string(" | acuracia ")+ultima_acuracia)<<std::endl;
+historico=historico+format_number(epoca,0)+std::string(",")+format_number(erro_treino,12)+std::string(",")+format_number(erro_validacao,12)+std::string(",")+format_number(ultima_acuracia,12)+std::string("\n");
+}
+salvar_pesos(destino);
+writefile(destino+std::string(".metricas.csv"),historico);
+std::cout<<ghost_show(std::string("Checkpoint salvo: ")+destino)<<std::endl;
+}
+std::stringgerar(std::stringinicio,intquantidade){
+std::stringresultado=normalizar(inicio);
+std::stringcontexto=std::string("    ")+resultado;
+for(inti=0;
+i<quantidade;
+i=i+1){
+preparar(contexto.substr(contexto.size()-4,4));
+GhostMatrixpredicao=ia_prever(modelo,entrada);
+intmelhor=0;
+for(intj=1;
+j<42;
+j=j+1){
+if(predicao(j,0).x>predicao(melhor,0).x){
+melhor=j;
+}
+}
+std::stringletra=alfabeto.substr(melhor,1);
+resultado=resultado+letra;
+contexto=contexto+letra;
+}
+returnresultado;
+}
+voidajuda(){
+std::cout<<ghost_show(std::string("Ghost Texto v1 - modelo proprio, 6794 parametros, CPU/OpenMP ou CUDA"))<<std::endl;
+std::cout<<ghost_show(std::string("treinar TREINO VALIDACAO EPOCAS TAXA CHECKPOINT"))<<std::endl;
+std::cout<<ghost_show(std::string("continuar TREINO VALIDACAO EPOCAS TAXA ORIGEM DESTINO"))<<std::endl;
+std::cout<<ghost_show(std::string("avaliar CORPUS CHECKPOINT"))<<std::endl;
+std::cout<<ghost_show(std::string("gerar CHECKPOINT TEXTO QUANTIDADE"))<<std::endl;
+std::cout<<ghost_show(std::string("normalizar TEXTO"))<<std::endl;
+}
+voidghost_main(GhostList<std::string>args){
+if(args.size()==0){
+ajuda();
+return;
+}
+std::stringcomando=args[0];
+if(comando==std::string("hardware")){
+std::cout<<ghost_show(std::string("Arquitetura: 168 -> 32 -> 42; dispositivo informado pelo backend."))<<std::endl;
+return;
+}
+intcondicao_1=comando==std::string("normalizar")&&args.size()==2;
+if(condicao_1){
+std::cout<<ghost_show(normalizar(args[1]))<<std::endl;
+return;
+}
+intcondicao_2=comando==std::string("treinar")||comando==std::string("continuar");
+if(condicao_2){
+intesperado=6;
+if(comando==std::string("continuar")){
+esperado=7;
+}
+if(args.size()!=esperado){
+ajuda();
+falhar(std::string("Argumentos de treinamento invalidos."));
+}
+intcondicao_3=!regex_match(args[3],std::string("[0-9]+"))||args[3].size()>3;
+if(condicao_3){
+falhar(std::string("Epocas deve ser um inteiro entre 1 e 200."));
+}
+intcondicao_4=!regex_match(args[4],std::string("0[.][0-9]+"))||args[4].size()>12;
+if(condicao_4){
+falhar(std::string("Taxa deve ser decimal, por exemplo 0.003."));
+}
+intepocas=to_int(args[3]);
+doubletaxa=parse_number(args[4]);
+intcondicao_5=epocas<1||epocas>200||taxa<0.000001||taxa>0.05;
+if(condicao_5){
+falhar(std::string("Use 1..200 epocas e taxa entre 0.000001 e 0.05."));
+}
+std::stringdestino=args[esperado-1];
+if(file_exists(destino)){
+falhar(std::string("O destino ja existe. Escolha um novo nome para preservar o treino anterior."));
+}
+std::stringtreino=ler_corpus(args[1]);
+std::stringvalidacao=ler_corpus(args[2]);
+if(treino==validacao){
+falhar(std::string("Use textos distintos para treino e validacao."));
+}
+if(comando==std::string("continuar")){
+carregar_pesos(args[5]);
+std::cout<<ghost_show(std::string("Continuando dos pesos; os momentos do Adam reiniciam."))<<std::endl;
+}
+treinar(treino,validacao,epocas,taxa,destino);
+return;
+}
+intcondicao_6=comando==std::string("avaliar")&&args.size()==3;
+if(condicao_6){
+std::stringcorpus=ler_corpus(args[1]);
+carregar_pesos(args[2]);
+doubleerro=avaliar(corpus);
+std::cout<<ghost_show(std::string("MSE=")+format_number(erro,12)+std::string(" acuracia=")+format_number(ultima_acuracia,12))<<std::endl;
+return;
+}
+intcondicao_7=comando==std::string("gerar")&&args.size()==4;
+if(condicao_7){
+intcondicao_8=!regex_match(args[3],std::string("[0-9]+"))||args[3].size()>4||args[2].size()>2000;
+if(condicao_8){
+falhar(std::string("Use um inicio de ate 2000 bytes e uma quantidade inteira de caracteres."));
+}
+intquantidade=to_int(args[3]);
+intcondicao_9=quantidade<1||quantidade>2000;
+if(condicao_9){
+falhar(std::string("Gere entre 1 e 2000 caracteres por chamada."));
+}
+carregar_pesos(args[1]);
+std::cout<<ghost_show(gerar(args[2],quantidade))<<std::endl;
+return;
+}
+ajuda();
+falhar(std::string("Comando ou argumentos invalidos."));
+}
+intmain(intargc,char**argv){
+try{
+#ifdef_WIN32SetConsoleOutputCP(CP_UTF8);
+SetConsoleCP(CP_UTF8);
+#endifstd::cout<<std::boolalpha;
+std::stringghost_args="";
+std::vector<std::string>ghost_args_vec;
+for(inti=1;
+i<argc;
+++i){
+ghost_args+=argv[i];
+ghost_args_vec.push_back(argv[i]);
+if(i<argc-1)ghost_args+=" ";
+}
+alfabeto=std::string(" abcdefghijklmnopqrstuvwxyz.,!?0123456789\n");
+srand(42);
+oculta=GhostMatrix(32,168);
+doublelimit_oculta=std::sqrt(6.0/(32+168));
+for(size_tghost_r=0;
+ghost_r<oculta.getRows();
+++ghost_r){
+for(size_tghost_c=0;
+ghost_c<oculta.getCols();
+++ghost_c){
+doubleghost_val=(((double)rand()/RAND_MAX)*2.0-1.0)*limit_oculta;
+oculta(ghost_r,ghost_c)=GhostNumberG(ghost_val,0.0,0.0);
+}
+}
+saida=GhostMatrix(42,32);
+doublelimit_saida=std::sqrt(6.0/(42+32));
+for(size_tghost_r=0;
+ghost_r<saida.getRows();
+++ghost_r){
+for(size_tghost_c=0;
+ghost_c<saida.getCols();
+++ghost_c){
+doubleghost_val=(((double)rand()/RAND_MAX)*2.0-1.0)*limit_saida;
+saida(ghost_r,ghost_c)=GhostNumberG(ghost_val,0.0,0.0);
+}
+}
+//EstruturaDeepGhost:modelomodelo=newGhostNetwork("modelo",{
+&oculta,&saida}
+);
+std::cout<<"[Ghost OS] Rede Profunda 'modelo' montada com 2 camadas."<<std::endl;
+usar_gpu=ia_iniciar();
+entrada=encode(std::string(""),168);
+alvo=encode(std::string(""),42);
+ultima_acuracia=0.0;
+ghost_main(ghost_args_vec);
+return0;
+}
+catch(conststd::exception&e){
+std::cerr<<e.what()<<std::endl;
+return1;
+}
+}

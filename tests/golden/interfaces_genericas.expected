@@ -1,0 +1,15 @@
+== metodos padrao em interfaces ==
+pStr inicialmente vazia? true
+pStr apos adicionar vazia? false
+pStr: tamanho=2 vazia=false primeiro=primeiro
+== interfaces genericas e polimorfismo ==
+via interface: primeiro tamanho=2 vazia=false
+via interface texto: alfa tamanho=1
+== list<Interface> ==
+colecoes na lista: 2
+item da lista: primeiro
+item da lista: alfa
+== restricoes em interfaces genericas ==
+soma numList = 60 vazia? false
+via Somavel<int>: soma=60 primeiro=10
+fim interfaces genericas

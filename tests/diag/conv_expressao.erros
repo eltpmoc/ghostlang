@@ -1,0 +1,2 @@
+conv_expressao.g:4:11: erro GHOST-E0601: conv(...) so vale como comando
+ 4 |     print(conv(a, k));

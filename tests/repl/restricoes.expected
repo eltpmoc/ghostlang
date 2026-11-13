@@ -1,0 +1,23 @@
+== funcoes com restricao ==
+3 1.2
+caixa:4 gato faz miau peixe faz ...
+6 3.5 1=um 2=true
+== classes com restricao ==
+total 7 melhor 5
+miau miau | ... ...
+== metodos com restricao ==
+42 2.5 miau ...
+== erros ==
+[Erro de Execucao] soma<string>: string nao e numero (restricao T extends number)
+[Erro de Execucao] falar<Caixa>: Caixa nao e Animal nem subclasse (restricao T extends Animal)
+[Erro de Execucao] descrever<Regua>: Regua nao implementa Nomeado (restricao T implements Nomeado)
+[Erro de Execucao] Ranking<Animal>: Animal nao implementa Medivel (restricao T implements Medivel)
+[Erro de Execucao] Abrigo<Caixa>: Caixa nao e Animal nem subclasse (restricao T extends Animal)
+[Erro de Execucao] Util.dobro<string>: string nao e numero (restricao T extends number)
+[Erro de Execucao] Util.ouvir<Caixa>: Caixa nao e Animal nem subclasse (restricao A extends Animal)
+[Erro de Execucao] function f1: T extends Inexistente: 'Inexistente' nao e uma classe declarada (use uma classe ou number)
+[Erro de Execucao] function f2: T implements Animal: 'Animal' nao e uma interface declarada
+[Erro de Execucao] class C1: T extends Medivel: 'Medivel' nao e uma classe declarada (use uma classe ou number)
+[Erro de Execucao] function f3: depois de T use ',' , extends ou implements
+1 3 caixa:9
+fim do roteiro de restricoes

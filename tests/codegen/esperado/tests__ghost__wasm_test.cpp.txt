@@ -1,0 +1,43 @@
+#line 2 "tests/ghost/wasm_test.g"
+#line 6 "tests/ghost/wasm_test.g"
+#line 10 "tests/ghost/wasm_test.g"
+#line 11 "tests/ghost/wasm_test.g"
+#line 1 "tests/ghost/wasm_test.g"
+#line 5 "tests/ghost/wasm_test.g"
+#line 9 "tests/ghost/wasm_test.g"
+----
+/*TranspiladopeloGhostCompilerv1.0*/#include<iostream>#include<cstdio>#include<cstdlib>#include<string>#include<complex>#include<type_traits>#include<fstream>#include<sstream>#include<thread>#include<chrono>#include<mutex>#include"include/GhostNumberG.hpp"#include"include/GhostMatrix.hpp"#include"include/GhostLLM.hpp"#include"include/GhostLib.hpp"#include"include/GhostDevice.hpp"#include"include/GhostTextModel.hpp"#include"include/GhostWeb.hpp"#include"include/GhostKnowledge.hpp"#include"include/GhostTemporal.hpp"#include"include/GhostTransformer.hpp"#include"include/GhostTransformerG.hpp"#include"include/GhostMatrixG.hpp"#include"include/GhostQuantum.hpp"#include"include/GhostQML.hpp"#include"include/GhostHybrid.hpp"#include"include/GhostQTape.hpp"#include"include/GhostCore.hpp"#ifdef_WIN32#include<windows.h>#endifintsoma(inta,intb);
+doublehipotenusa(doublex,doubley);
+intghost_main();
+intsoma(inta,intb){
+returna+b;
+}
+doublehipotenusa(doublex,doubley){
+returnsqrt(x*x+y*y);
+}
+intghost_main(){
+std::cout<<ghost_show(std::string("Ghost WASM"))<<std::endl;
+return0;
+}
+intmain(intargc,char**argv){
+try{
+#ifdef_WIN32SetConsoleOutputCP(CP_UTF8);
+SetConsoleCP(CP_UTF8);
+#endifstd::cout<<std::boolalpha;
+std::stringghost_args="";
+std::vector<std::string>ghost_args_vec;
+for(inti=1;
+i<argc;
+++i){
+ghost_args+=argv[i];
+ghost_args_vec.push_back(argv[i]);
+if(i<argc-1)ghost_args+=" ";
+}
+ghost_main();
+return0;
+}
+catch(conststd::exception&e){
+std::cerr<<e.what()<<std::endl;
+return1;
+}
+}

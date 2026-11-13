@@ -1,0 +1,11 @@
+{
+  "data_utc": "2026-09-26T16:34:45.991983+00:00",
+  "origem": "ia_propria/checkpoints/v4/transformer_ampliado.bin.ultimo",
+  "destino": "ia_propria/checkpoints/v4/transformer_selecionado.bin",
+  "sha256": "39e00ca8eeea328b684af13dd8f2db64068bbdca2e8e7b826a745f102465cd4a",
+  "passos": 7000,
+  "criterio": "12/60 respostas completas corretas na amostra de validacao, contra 11/60 no candidato selecionado por CE. Amostra pequena; sem alegacao de significancia estatistica. Nenhum teste final usado na selecao.",
+  "validacao": "ia_propria/v4/relatorios/validacao_20260926T163259140282.json",
+  "treino": "treino.gtd seguido de treino_ampliado.gtd",
+  "teste_ainda_nao_avaliado": true
+}

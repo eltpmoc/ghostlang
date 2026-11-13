@@ -1,0 +1,14 @@
+== interfaces ==
+quadrado de area 4 | circulo de area 3 | cubo de area 6
+soma 27 | maior: circulo | criados: ["quadrado", "circulo", "quadrado"]
+copia por valor: f 4 g 400
+elemento alterado: 48 3
+interface base: cubo
+*[]*
+cena: 4 destaque circulo
+== static ==
+quadrados criados: 8 8
+depois: 101 101
+4 registro(s): id-1, id-2, id-3, especial | ids 1 2 3
+6 registro(s): id-1, id-2, id-3, especial, manual, #4
+1 registro(s): #1 1 1 registro(s): #1

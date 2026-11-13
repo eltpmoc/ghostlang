@@ -1,0 +1,35 @@
+import "libs/stats.g";
+import "libs/test.g";
+
+function void test_estatistica() {
+    list<double> dados = [2.0, 4.0, 4.0, 4.0, 5.0, 5.0, 7.0, 9.0];
+
+    double m = media(dados);
+    assert_eq_double(m, 5.0, 0.001, "media dos dados");
+
+    double min_v = minimo(dados);
+    assert_eq_double(min_v, 2.0, 0.001, "minimo dos dados");
+
+    double max_v = maximo(dados);
+    assert_eq_double(max_v, 9.0, 0.001, "maximo dos dados");
+
+    double var_v = variancia(dados);
+    assert_eq_double(var_v, 4.5714, 0.01, "variancia amostral");
+
+    double dp = desvio_padrao(dados);
+    assert_eq_double(dp, 2.138, 0.01, "desvio padrao");
+
+    double cl = clamp(15.0, 0.0, 10.0);
+    assert_eq_double(cl, 10.0, 0.001, "clamp superior");
+
+    double lp = lerp(0.0, 100.0, 0.25);
+    assert_eq_double(lp, 25.0, 0.001, "lerp 25%");
+
+    double r = lcg_uniform(12345);
+    assert_true(r >= 0.0 && r <= 1.0, "numero aleatorio uniforme entre 0 e 1");
+
+    print("test_estatistica: OK");
+}
+
+test_estatistica();
+print("todos os testes de stats_std passaram com sucesso!");

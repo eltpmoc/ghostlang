@@ -1,0 +1,206 @@
+#line 29 "tests/ghost/nucleo_avancado.g"
+#line 33 "tests/ghost/nucleo_avancado.g"
+#line 36 "tests/ghost/nucleo_avancado.g"
+#line 43 "tests/ghost/nucleo_avancado.g"
+#line 57 "tests/ghost/nucleo_avancado.g"
+#line 60 "tests/ghost/nucleo_avancado.g"
+#line 72 "tests/ghost/nucleo_avancado.g"
+#line 73 "tests/ghost/nucleo_avancado.g"
+#line 77 "tests/ghost/nucleo_avancado.g"
+#line 81 "tests/ghost/nucleo_avancado.g"
+#line 89 "tests/ghost/nucleo_avancado.g"
+#line 93 "tests/ghost/nucleo_avancado.g"
+#line 97 "tests/ghost/nucleo_avancado.g"
+#line 5 "tests/ghost/nucleo_avancado.g"
+#line 9 "tests/ghost/nucleo_avancado.g"
+#line 13 "tests/ghost/nucleo_avancado.g"
+#line 17 "tests/ghost/nucleo_avancado.g"
+#line 21 "tests/ghost/nucleo_avancado.g"
+#line 102 "tests/ghost/nucleo_avancado.g"
+#line 103 "tests/ghost/nucleo_avancado.g"
+#line 104 "tests/ghost/nucleo_avancado.g"
+#line 105 "tests/ghost/nucleo_avancado.g"
+#line 106 "tests/ghost/nucleo_avancado.g"
+#line 107 "tests/ghost/nucleo_avancado.g"
+#line 109 "tests/ghost/nucleo_avancado.g"
+#line 110 "tests/ghost/nucleo_avancado.g"
+#line 111 "tests/ghost/nucleo_avancado.g"
+#line 112 "tests/ghost/nucleo_avancado.g"
+#line 113 "tests/ghost/nucleo_avancado.g"
+#line 115 "tests/ghost/nucleo_avancado.g"
+#line 116 "tests/ghost/nucleo_avancado.g"
+#line 117 "tests/ghost/nucleo_avancado.g"
+#line 119 "tests/ghost/nucleo_avancado.g"
+#line 120 "tests/ghost/nucleo_avancado.g"
+#line 121 "tests/ghost/nucleo_avancado.g"
+#line 122 "tests/ghost/nucleo_avancado.g"
+#line 124 "tests/ghost/nucleo_avancado.g"
+#line 125 "tests/ghost/nucleo_avancado.g"
+#line 126 "tests/ghost/nucleo_avancado.g"
+#line 128 "tests/ghost/nucleo_avancado.g"
+#line 129 "tests/ghost/nucleo_avancado.g"
+#line 130 "tests/ghost/nucleo_avancado.g"
+#line 132 "tests/ghost/nucleo_avancado.g"
+#line 133 "tests/ghost/nucleo_avancado.g"
+#line 134 "tests/ghost/nucleo_avancado.g"
+#line 135 "tests/ghost/nucleo_avancado.g"
+#line 136 "tests/ghost/nucleo_avancado.g"
+#line 137 "tests/ghost/nucleo_avancado.g"
+#line 138 "tests/ghost/nucleo_avancado.g"
+#line 4 "tests/ghost/nucleo_avancado.g"
+#line 8 "tests/ghost/nucleo_avancado.g"
+#line 12 "tests/ghost/nucleo_avancado.g"
+#line 16 "tests/ghost/nucleo_avancado.g"
+#line 20 "tests/ghost/nucleo_avancado.g"
+#line 25 "tests/ghost/nucleo_avancado.g"
+#line 40 "tests/ghost/nucleo_avancado.g"
+#line 51 "tests/ghost/nucleo_avancado.g"
+#line 65 "tests/ghost/nucleo_avancado.g"
+#line 86 "tests/ghost/nucleo_avancado.g"
+#line 101 "tests/ghost/nucleo_avancado.g"
+----
+/*TranspiladopeloGhostCompilerv1.0*/#include<iostream>#include<cstdio>#include<cstdlib>#include<string>#include<complex>#include<type_traits>#include<fstream>#include<sstream>#include<thread>#include<chrono>#include<mutex>#include"include/GhostNumberG.hpp"#include"include/GhostMatrix.hpp"#include"include/GhostLLM.hpp"#include"include/GhostLib.hpp"#include"include/GhostDevice.hpp"#include"include/GhostTextModel.hpp"#include"include/GhostWeb.hpp"#include"include/GhostKnowledge.hpp"#include"include/GhostTemporal.hpp"#include"include/GhostTransformer.hpp"#include"include/GhostTransformerG.hpp"#include"include/GhostMatrixG.hpp"#include"include/GhostQuantum.hpp"#include"include/GhostQML.hpp"#include"include/GhostHybrid.hpp"#include"include/GhostQTape.hpp"#include"include/GhostCore.hpp"#ifdef_WIN32#include<windows.h>#endifclassBase;
+classCalculadora;
+template<classT>classContador;
+classFolha;
+classMeio;
+std::stringformatar(intx);
+std::stringformatar(doublex);
+std::stringformatar(std::strings);
+std::stringformatar(inta,intb);
+std::stringformatar(inta,intb,intc);
+voidghost_main();
+classBase{
+public:protected:intsegredo{
+}
+;
+virtualstd::stringgetSegredo(){
+returnstd::string("segredo-")+segredo;
+}
+public:Base(ints){
+(*this).segredo=s;
+}
+virtualstd::stringrevelarBase(){
+returnstd::string("base:")+getSegredo();
+}
+}
+;
+classMeio:publicBase{
+public:protected:virtualvoidalterarSegredo(intnovo){
+(*this).segredo=novo;
+}
+public:Meio(ints):Base(s){
+}
+}
+;
+classFolha:publicMeio{
+public:public:Folha(ints):Meio(s){
+}
+virtualstd::stringrevelarFolha(){
+returnstd::string("folha:")+(*this).getSegredo();
+}
+virtualvoidatualizar(intv){
+(*this).alterarSegredo(v);
+}
+}
+;
+template<classT>classContador{
+public:public:staticinlineinttotal=0;
+staticinlinestd::stringetiqueta=std::string("contador");
+Tvalor{
+}
+;
+Contador(Tv){
+(*this).valor=v;
+Contador<T>::total=Contador<T>::total+1;
+}
+staticintobterTotal(){
+returnContador<T>::total;
+}
+staticvoidresetar(){
+Contador<T>::total=0;
+}
+}
+;
+classCalculadora{
+public:public:virtualintsomar(inta,intb){
+returna+b;
+}
+virtualdoublesomar(doublea,doubleb){
+returna+b;
+}
+virtualstd::stringsomar(std::stringa,std::stringb){
+returna+b;
+}
+}
+;
+std::stringformatar(intx){
+returnstd::string("int:")+x;
+}
+std::stringformatar(doublex){
+returnstd::string("double:")+x;
+}
+std::stringformatar(std::strings){
+returnstd::string("string:")+s;
+}
+std::stringformatar(inta,intb){
+returnstd::string("par:")+a+std::string(",")+b;
+}
+std::stringformatar(inta,intb,intc){
+returnstd::string("trio:")+a+std::string(",")+b+std::string(",")+c;
+}
+voidghost_main(){
+std::cout<<ghost_show(std::string("== sobrecarga global =="))<<std::endl;
+std::cout<<ghost_show(formatar(42))<<std::endl;
+std::cout<<ghost_show(formatar(3.14))<<std::endl;
+std::cout<<ghost_show(formatar(std::string("ghost")))<<std::endl;
+std::cout<<ghost_show(formatar(10,20))<<std::endl;
+std::cout<<ghost_show(formatar(1,2,3))<<std::endl;
+std::cout<<ghost_show(std::string("== sobrecarga em metodos =="))<<std::endl;
+autocalc=Calculadora();
+std::cout<<ghost_show(calc.somar(10,25))<<std::endl;
+std::cout<<ghost_show(calc.somar(1.5,2.5))<<std::endl;
+std::cout<<ghost_show(calc.somar(std::string("Ghost"),std::string("Lang")))<<std::endl;
+std::cout<<ghost_show(std::string("== static generico =="))<<std::endl;
+std::cout<<ghost_show(std::string("inicio int: "))<<ghost_show(Contador<int>::obterTotal())<<std::endl;
+std::cout<<ghost_show(std::string("inicio str: "))<<ghost_show(Contador<std::string>::obterTotal())<<std::endl;
+autoc1=Contador<int>(10);
+autoc2=Contador<int>(20);
+std::cout<<ghost_show(std::string("apos 2 ints: "))<<ghost_show(Contador<int>::obterTotal())<<std::endl;
+std::cout<<ghost_show(std::string("str continua zero: "))<<ghost_show(Contador<std::string>::obterTotal())<<std::endl;
+autos1=Contador<std::string>(std::string("teste"));
+std::cout<<ghost_show(std::string("apos 1 str: "))<<ghost_show(Contador<std::string>::obterTotal())<<std::endl;
+std::cout<<ghost_show(std::string("int continua dois: "))<<ghost_show(Contador<int>::obterTotal())<<std::endl;
+Contador<int>::resetar();
+std::cout<<ghost_show(std::string("apos reset int: "))<<ghost_show(Contador<int>::obterTotal())<<std::endl;
+std::cout<<ghost_show(std::string("str permanece: "))<<ghost_show(Contador<std::string>::obterTotal())<<std::endl;
+std::cout<<ghost_show(std::string("== protected em heranca profunda =="))<<std::endl;
+autof=Folha(100);
+std::cout<<ghost_show(f.revelarBase())<<std::endl;
+std::cout<<ghost_show(f.revelarFolha())<<std::endl;
+f.atualizar(999);
+std::cout<<ghost_show(f.revelarFolha())<<std::endl;
+std::cout<<ghost_show(std::string("fim nucleo avancado"))<<std::endl;
+}
+intmain(intargc,char**argv){
+try{
+#ifdef_WIN32SetConsoleOutputCP(CP_UTF8);
+SetConsoleCP(CP_UTF8);
+#endifstd::cout<<std::boolalpha;
+std::stringghost_args="";
+std::vector<std::string>ghost_args_vec;
+for(inti=1;
+i<argc;
+++i){
+ghost_args+=argv[i];
+ghost_args_vec.push_back(argv[i]);
+if(i<argc-1)ghost_args+=" ";
+}
+ghost_main();
+return0;
+}
+catch(conststd::exception&e){
+std::cerr<<e.what()<<std::endl;
+return1;
+}
+}

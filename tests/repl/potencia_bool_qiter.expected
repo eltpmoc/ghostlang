@@ -1,0 +1,27 @@
+--- potencia ---
+8
+81
+512
+32
+8
+25
+--- bool ---
+false
+true
+true
+true
+false
+true
+false
+true
+false
+true
+--- qreg foreach ---
+0
+1
+2
+3
+0
+10
+20
+30

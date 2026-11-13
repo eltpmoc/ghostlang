@@ -1,0 +1,18 @@
+{
+  "dispositivo": "cpu",
+  "franca_e_erro_digitacao": "sem rede e sem memoria: recusa antes da geracao",
+  "streaming_e_resposta_completa": "texto identico",
+  "saudacao_e_identidade": "controle local sem inferencia neural",
+  "utf8": "valido",
+  "controles": "ok",
+  "tempos": {
+    "/neural": {
+      "segundos": 1.459,
+      "trechos_recebidos": 180
+    },
+    "/fontes": {
+      "segundos": 1.571,
+      "trechos_recebidos": 194
+    }
+  }
+}

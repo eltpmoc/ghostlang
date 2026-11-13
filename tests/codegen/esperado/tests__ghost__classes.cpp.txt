@@ -1,0 +1,418 @@
+#line 8 "tests/ghost/classes.g"
+#line 9 "tests/ghost/classes.g"
+#line 13 "tests/ghost/classes.g"
+#line 14 "tests/ghost/classes.g"
+#line 18 "tests/ghost/classes.g"
+#line 22 "tests/ghost/classes.g"
+#line 33 "tests/ghost/classes.g"
+#line 37 "tests/ghost/classes.g"
+#line 38 "tests/ghost/classes.g"
+#line 42 "tests/ghost/classes.g"
+#line 53 "tests/ghost/classes.g"
+#line 59 "tests/ghost/classes.g"
+#line 60 "tests/ghost/classes.g"
+#line 61 "tests/ghost/classes.g"
+#line 65 "tests/ghost/classes.g"
+#line 66 "tests/ghost/classes.g"
+#line 68 "tests/ghost/classes.g"
+#line 69 "tests/ghost/classes.g"
+#line 73 "tests/ghost/classes.g"
+#line 74 "tests/ghost/classes.g"
+#line 76 "tests/ghost/classes.g"
+#line 77 "tests/ghost/classes.g"
+#line 81 "tests/ghost/classes.g"
+#line 85 "tests/ghost/classes.g"
+#line 94 "tests/ghost/classes.g"
+#line 98 "tests/ghost/classes.g"
+#line 107 "tests/ghost/classes.g"
+#line 108 "tests/ghost/classes.g"
+#line 112 "tests/ghost/classes.g"
+#line 120 "tests/ghost/classes.g"
+#line 124 "tests/ghost/classes.g"
+#line 128 "tests/ghost/classes.g"
+#line 138 "tests/ghost/classes.g"
+#line 139 "tests/ghost/classes.g"
+#line 141 "tests/ghost/classes.g"
+#line 143 "tests/ghost/classes.g"
+#line 147 "tests/ghost/classes.g"
+#line 156 "tests/ghost/classes.g"
+#line 157 "tests/ghost/classes.g"
+#line 161 "tests/ghost/classes.g"
+#line 162 "tests/ghost/classes.g"
+#line 166 "tests/ghost/classes.g"
+#line 175 "tests/ghost/classes.g"
+#line 180 "tests/ghost/classes.g"
+#line 181 "tests/ghost/classes.g"
+#line 182 "tests/ghost/classes.g"
+#line 184 "tests/ghost/classes.g"
+#line 189 "tests/ghost/classes.g"
+#line 190 "tests/ghost/classes.g"
+#line 191 "tests/ghost/classes.g"
+#line 196 "tests/ghost/classes.g"
+#line 200 "tests/ghost/classes.g"
+#line 201 "tests/ghost/classes.g"
+#line 202 "tests/ghost/classes.g"
+#line 203 "tests/ghost/classes.g"
+#line 204 "tests/ghost/classes.g"
+#line 205 "tests/ghost/classes.g"
+#line 206 "tests/ghost/classes.g"
+#line 208 "tests/ghost/classes.g"
+#line 209 "tests/ghost/classes.g"
+#line 210 "tests/ghost/classes.g"
+#line 211 "tests/ghost/classes.g"
+#line 213 "tests/ghost/classes.g"
+#line 214 "tests/ghost/classes.g"
+#line 215 "tests/ghost/classes.g"
+#line 216 "tests/ghost/classes.g"
+#line 217 "tests/ghost/classes.g"
+#line 218 "tests/ghost/classes.g"
+#line 219 "tests/ghost/classes.g"
+#line 221 "tests/ghost/classes.g"
+#line 222 "tests/ghost/classes.g"
+#line 223 "tests/ghost/classes.g"
+#line 224 "tests/ghost/classes.g"
+#line 229 "tests/ghost/classes.g"
+#line 234 "tests/ghost/classes.g"
+#line 235 "tests/ghost/classes.g"
+#line 236 "tests/ghost/classes.g"
+#line 238 "tests/ghost/classes.g"
+#line 239 "tests/ghost/classes.g"
+#line 240 "tests/ghost/classes.g"
+#line 241 "tests/ghost/classes.g"
+#line 242 "tests/ghost/classes.g"
+#line 243 "tests/ghost/classes.g"
+#line 244 "tests/ghost/classes.g"
+#line 245 "tests/ghost/classes.g"
+#line 246 "tests/ghost/classes.g"
+#line 248 "tests/ghost/classes.g"
+#line 249 "tests/ghost/classes.g"
+#line 250 "tests/ghost/classes.g"
+#line 251 "tests/ghost/classes.g"
+#line 252 "tests/ghost/classes.g"
+#line 253 "tests/ghost/classes.g"
+#line 254 "tests/ghost/classes.g"
+#line 255 "tests/ghost/classes.g"
+#line 257 "tests/ghost/classes.g"
+#line 259 "tests/ghost/classes.g"
+#line 260 "tests/ghost/classes.g"
+#line 261 "tests/ghost/classes.g"
+#line 262 "tests/ghost/classes.g"
+#line 263 "tests/ghost/classes.g"
+#line 264 "tests/ghost/classes.g"
+#line 266 "tests/ghost/classes.g"
+#line 267 "tests/ghost/classes.g"
+#line 268 "tests/ghost/classes.g"
+#line 269 "tests/ghost/classes.g"
+#line 271 "tests/ghost/classes.g"
+#line 3 "tests/ghost/classes.g"
+#line 27 "tests/ghost/classes.g"
+#line 47 "tests/ghost/classes.g"
+#line 90 "tests/ghost/classes.g"
+#line 103 "tests/ghost/classes.g"
+#line 117 "tests/ghost/classes.g"
+#line 133 "tests/ghost/classes.g"
+#line 152 "tests/ghost/classes.g"
+#line 171 "tests/ghost/classes.g"
+#line 174 "tests/ghost/classes.g"
+#line 179 "tests/ghost/classes.g"
+#line 188 "tests/ghost/classes.g"
+#line 195 "tests/ghost/classes.g"
+#line 199 "tests/ghost/classes.g"
+----
+/*TranspiladopeloGhostCompilerv1.0*/#include<iostream>#include<cstdio>#include<cstdlib>#include<string>#include<complex>#include<type_traits>#include<fstream>#include<sstream>#include<thread>#include<chrono>#include<mutex>#include"include/GhostNumberG.hpp"#include"include/GhostMatrix.hpp"#include"include/GhostLLM.hpp"#include"include/GhostLib.hpp"#include"include/GhostDevice.hpp"#include"include/GhostTextModel.hpp"#include"include/GhostWeb.hpp"#include"include/GhostKnowledge.hpp"#include"include/GhostTemporal.hpp"#include"include/GhostTransformer.hpp"#include"include/GhostTransformerG.hpp"#include"include/GhostMatrixG.hpp"#include"include/GhostQuantum.hpp"#include"include/GhostQML.hpp"#include"include/GhostHybrid.hpp"#include"include/GhostQTape.hpp"#include"include/GhostCore.hpp"#ifdef_WIN32#include<windows.h>#endifclassConta;
+classCubo;
+classEstoque;
+classForma;
+classPilha;
+classPonto;
+classQuadrado;
+classRetangulo;
+voidcontar();
+intesvaziar(Pilhap);
+doubledistancia2(Pontoa,Pontob);
+std::stringapresentar(Formaf);
+voidghost_main();
+externintchamadas;
+classPonto{
+public:doublex{
+}
+;
+doubley{
+}
+;
+Ponto(doublex=0,doubley=0){
+(*this).x=x;
+(*this).y=y;
+}
+virtualvoidmover(doubledx,doubledy){
+x+=dx;
+y+=dy;
+}
+virtualPontosomado(Pontoo){
+returnPonto(x+o.x,y+o.y);
+}
+virtualstd::stringtexto(){
+returnstd::string("(")+x+std::string(", ")+y+std::string(")");
+}
+}
+;
+classRetangulo{
+public:Pontocanto{
+}
+;
+doublelargura=1;
+doublealtura=1;
+virtualdoublearea(){
+returnlargura*altura;
+}
+virtualvoidescalar(doublek){
+largura*=k;
+altura*=k;
+}
+virtualvoiddobrar(){
+escalar(2);
+}
+}
+;
+classConta{
+public:private:doublesaldo=0;
+GhostList<std::string>historico{
+}
+;
+virtualvoidregistrar(std::stringop){
+historico.push(op);
+}
+public:std::stringtitular{
+}
+;
+Conta(std::stringt,doubleinicial=0){
+titular=t;
+saldo=inicial;
+registrar(std::string("abertura ")+inicial);
+}
+virtualvoiddepositar(doublev){
+if(v<=0){
+throwghost_error(std::string("deposito precisa ser positivo"));
+}
+saldo+=v;
+registrar(std::string("deposito ")+v);
+}
+virtualvoidsacar(doublev){
+if(v>saldo){
+throwghost_error(std::string("saldo insuficiente para sacar ")+v);
+}
+saldo-=v;
+registrar(std::string("saque ")+v);
+}
+virtualdoubleconsultar(){
+returnsaldo;
+}
+virtualstd::stringextrato(){
+returnhistorico.join(std::string("; "));
+}
+}
+;
+classForma{
+public:std::stringnome=std::string("forma");
+virtualdoublearea(){
+return0;
+}
+virtualstd::stringresumo(){
+returnnome+std::string(" com area ")+area();
+}
+}
+;
+classQuadrado:publicForma{
+public:doublelado{
+}
+;
+Quadrado(doublel){
+nome=std::string("quadrado");
+lado=l;
+}
+virtualdoublearea(){
+returnlado*lado;
+}
+}
+;
+classCubo:publicQuadrado{
+public:Cubo(doublel):Quadrado(l){
+nome=std::string("cubo");
+}
+virtualdoublearea(){
+return6*Quadrado::area();
+}
+virtualstd::stringresumo(){
+returnQuadrado::resumo()+std::string(" (6 faces)");
+}
+}
+;
+classEstoque{
+public:GhostMap<std::string,int>itens{
+}
+;
+inttotal=0;
+virtualvoidadicionar(std::stringnome,intqtd=1){
+if(itens.has(nome)){
+itens[nome]+=qtd;
+}
+else{
+itens[nome]=qtd;
+}
+total+=qtd;
+}
+virtualintquantidade(std::stringnome){
+returnitens.get(nome,0);
+}
+}
+;
+classPilha{
+public:GhostList<int>itens{
+}
+;
+virtualvoidempilhar(intv){
+contar();
+itens.push(v);
+}
+virtualintdesempilhar(){
+contar();
+returnitens.pop();
+}
+virtualboolvazia(){
+returnitens.length()==0;
+}
+}
+;
+intchamadas;
+voidcontar(){
+chamadas++;
+}
+intesvaziar(Pilhap){
+ints=0;
+while(!p.vazia()){
+s+=p.desempilhar();
+}
+returns;
+}
+doubledistancia2(Pontoa,Pontob){
+doubledx=a.x-b.x;
+doubledy=a.y-b.y;
+returndx*dx+dy*dy;
+}
+std::stringapresentar(Formaf){
+returnf.resumo();
+}
+voidghost_main(){
+std::cout<<ghost_show(std::string("== objetos e metodos =="))<<std::endl;
+Pontoa=Ponto(1,2);
+Pontob=Ponto(4,6);
+Pontoorigem{
+}
+;
+a.mover(1,1);
+std::cout<<ghost_show(std::string("a "))<<ghost_show(a.texto())<<ghost_show(std::string(" b "))<<ghost_show(b.texto())<<ghost_show(std::string(" origem "))<<ghost_show(origem.texto())<<std::endl;
+std::cout<<ghost_show(std::string("soma "))<<ghost_show(a.somado(b).texto())<<ghost_show(std::string(" distancia2 "))<<ghost_show(distancia2(a,b))<<std::endl;
+std::cout<<ghost_show(std::string("== semantica de valor =="))<<std::endl;
+Pontoc=a;
+c.x=100;
+std::cout<<ghost_show(std::string("a.x "))<<ghost_show(a.x)<<ghost_show(std::string(" c.x "))<<ghost_show(c.x)<<std::endl;
+std::cout<<ghost_show(std::string("== campo objeto =="))<<std::endl;
+Retangulor{
+}
+;
+r.canto.mover(2,3);
+r.canto.x+=1;
+r.dobrar();
+r.largura+=0.5;
+std::cout<<ghost_show(std::string("canto "))<<ghost_show(r.canto.texto())<<ghost_show(std::string(" area "))<<ghost_show(r.area())<<std::endl;
+std::cout<<ghost_show(std::string("== private e excecoes =="))<<std::endl;
+Contaconta=Conta(std::string("Ana"),50);
+conta.depositar(25);
+{
+try{
+conta.sacar(500);
+}
+catch(...){
+std::stringe=ghost_exception_message(std::current_exception());
+(void)e;
+std::cout<<ghost_show(std::string("erro: "))<<ghost_show(e)<<std::endl;
+}
+}
+{
+try{
+conta.depositar(-1);
+}
+catch(...){
+std::stringe=ghost_exception_message(std::current_exception());
+(void)e;
+std::cout<<ghost_show(std::string("erro: "))<<ghost_show(e)<<std::endl;
+}
+}
+conta.sacar(30);
+std::cout<<ghost_show(conta.titular)<<ghost_show(std::string(" saldo "))<<ghost_show(conta.consultar())<<std::endl;
+std::cout<<ghost_show(std::string("extrato: "))<<ghost_show(conta.extrato())<<std::endl;
+std::cout<<ghost_show(std::string("== heranca, super e metodos virtuais =="))<<std::endl;
+Formaf{
+}
+;
+Quadradoq=Quadrado(3);
+Cubocubo=Cubo(2);
+std::cout<<ghost_show(f.resumo())<<std::endl;
+std::cout<<ghost_show(q.resumo())<<std::endl;
+std::cout<<ghost_show(cubo.resumo())<<std::endl;
+std::cout<<ghost_show(std::string("cubo.lado "))<<ghost_show(cubo.lado)<<ghost_show(std::string(" cubo.nome "))<<ghost_show(cubo.nome)<<std::endl;
+std::cout<<ghost_show(std::string("parametro do tipo base: "))<<ghost_show(apresentar(cubo))<<std::endl;
+std::cout<<ghost_show(std::string("== listas de objetos =="))<<std::endl;
+GhostList<Ponto>pts=GhostList<Ponto>{
+Ponto(1,1),Ponto(2,2),Ponto(3,3)}
+;
+pts[0].mover(10,0);
+pts[1].y=-2;
+pts.push(Ponto(9,9));
+doublesomaX=0;
+for(auto&p:pts){
+somaX+=p.x;
+}
+std::cout<<ghost_show(std::string("pontos "))<<ghost_show(pts.length())<<ghost_show(std::string(" primeiro "))<<ghost_show(pts[0].texto())<<ghost_show(std::string(" segundo "))<<ghost_show(pts[1].texto())<<ghost_show(std::string(" soma x "))<<ghost_show(somaX)<<std::endl;
+std::cout<<ghost_show(std::string("== mapa em campo =="))<<std::endl;
+Estoqueest{
+}
+;
+est.adicionar(std::string("parafuso"),10);
+est.adicionar(std::string("porca"));
+est.adicionar(std::string("parafuso"),5);
+std::cout<<ghost_show(std::string("parafusos "))<<ghost_show(est.quantidade(std::string("parafuso")))<<ghost_show(std::string(" porcas "))<<ghost_show(est.quantidade(std::string("porca")))<<ghost_show(std::string(" pregos "))<<ghost_show(est.quantidade(std::string("prego")))<<ghost_show(std::string(" total "))<<ghost_show(est.total)<<std::endl;
+std::cout<<ghost_show(std::string("== metodos chamando funcoes =="))<<std::endl;
+Pilhapilha{
+}
+;
+for(inti=1;
+i<=4;
+i++){
+pilha.empilhar(i*10);
+}
+std::cout<<ghost_show(std::string("soma "))<<ghost_show(esvaziar(pilha))<<ghost_show(std::string(" original ainda tem "))<<ghost_show(pilha.itens.length())<<ghost_show(std::string(" chamadas "))<<ghost_show(chamadas)<<std::endl;
+}
+intmain(intargc,char**argv){
+try{
+#ifdef_WIN32SetConsoleOutputCP(CP_UTF8);
+SetConsoleCP(CP_UTF8);
+#endifstd::cout<<std::boolalpha;
+std::stringghost_args="";
+std::vector<std::string>ghost_args_vec;
+for(inti=1;
+i<argc;
+++i){
+ghost_args+=argv[i];
+ghost_args_vec.push_back(argv[i]);
+if(i<argc-1)ghost_args+=" ";
+}
+chamadas=0;
+ghost_main();
+return0;
+}
+catch(conststd::exception&e){
+std::cerr<<e.what()<<std::endl;
+return1;
+}
+}

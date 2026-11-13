@@ -1,0 +1,91 @@
+#line 3 "libs/dataset.g"
+#line 7 "libs/dataset.g"
+#line 11 "libs/dataset.g"
+#line 15 "libs/dataset.g"
+#line 19 "libs/dataset.g"
+#line 23 "libs/dataset.g"
+#line 27 "libs/dataset.g"
+#line 31 "libs/dataset.g"
+#line 4 "tests/ghost/dataset_std.g"
+#line 5 "tests/ghost/dataset_std.g"
+#line 6 "tests/ghost/dataset_std.g"
+#line 7 "tests/ghost/dataset_std.g"
+#line 8 "tests/ghost/dataset_std.g"
+#line 9 "tests/ghost/dataset_std.g"
+#line 10 "tests/ghost/dataset_std.g"
+#line 11 "tests/ghost/dataset_std.g"
+#line 2 "libs/dataset.g"
+#line 6 "libs/dataset.g"
+#line 10 "libs/dataset.g"
+#line 14 "libs/dataset.g"
+#line 18 "libs/dataset.g"
+#line 22 "libs/dataset.g"
+#line 26 "libs/dataset.g"
+#line 30 "libs/dataset.g"
+#line 3 "tests/ghost/dataset_std.g"
+----
+/*TranspiladopeloGhostCompilerv1.0*/#include<iostream>#include<cstdio>#include<cstdlib>#include<string>#include<complex>#include<type_traits>#include<fstream>#include<sstream>#include<thread>#include<chrono>#include<mutex>#include"include/GhostNumberG.hpp"#include"include/GhostMatrix.hpp"#include"include/GhostLLM.hpp"#include"include/GhostLib.hpp"#include"include/GhostDevice.hpp"#include"include/GhostTextModel.hpp"#include"include/GhostWeb.hpp"#include"include/GhostKnowledge.hpp"#include"include/GhostTemporal.hpp"#include"include/GhostTransformer.hpp"#include"include/GhostTransformerG.hpp"#include"include/GhostMatrixG.hpp"#include"include/GhostQuantum.hpp"#include"include/GhostQML.hpp"#include"include/GhostHybrid.hpp"#include"include/GhostQTape.hpp"#include"include/GhostCore.hpp"#ifdef_WIN32#include<windows.h>#endifintds__dataset_load_csv(std::stringpath,boolhas_header=true);
+intds__dataset_from_matrix(introws,intcols,GhostList<double>vals);
+intds__dataset_len(inthandle);
+intds__dataset_num_features(inthandle);
+GhostList<int>ds__dataset_train_test_split(inthandle,doubleratio=0.8);
+voidds__dataset_make_batches(inthandle,intbsize);
+intds__dataset_get_num_batches(inthandle);
+doubleds__dataset_cell(inthandle,introw,intcol);
+voidghost_main();
+intds__dataset_load_csv(std::stringpath,boolhas_header){
+returnghost_dataset_create_csv(path,has_header);
+}
+intds__dataset_from_matrix(introws,intcols,GhostList<double>vals){
+returnghost_dataset_create_matrix(rows,cols,vals);
+}
+intds__dataset_len(inthandle){
+returnghost_dataset_size(handle);
+}
+intds__dataset_num_features(inthandle){
+returnghost_dataset_features(handle);
+}
+GhostList<int>ds__dataset_train_test_split(inthandle,doubleratio){
+returnghost_dataset_split(handle,ratio);
+}
+voidds__dataset_make_batches(inthandle,intbsize){
+ghost_dataset_create_batches(handle,bsize);
+}
+intds__dataset_get_num_batches(inthandle){
+returnghost_dataset_num_batches(handle);
+}
+doubleds__dataset_cell(inthandle,introw,intcol){
+returnghost_dataset_get_item(handle,row,col);
+}
+voidghost_main(){
+autodados=ghost_list(1.0,2.0,10.0,3.0,4.0,20.0,5.0,6.0,30.0,7.0,8.0,40.0);
+autod=ds__dataset_from_matrix(4,3,dados);
+std::cout<<ghost_show(ds__dataset_len(d))<<std::endl;
+std::cout<<ghost_show(ds__dataset_num_features(d))<<std::endl;
+std::cout<<ghost_show(ds__dataset_cell(d,0,0))<<std::endl;
+std::cout<<ghost_show(ds__dataset_cell(d,0,2))<<std::endl;
+ds__dataset_make_batches(d,2);
+std::cout<<ghost_show(ds__dataset_get_num_batches(d))<<std::endl;
+}
+intmain(intargc,char**argv){
+try{
+#ifdef_WIN32SetConsoleOutputCP(CP_UTF8);
+SetConsoleCP(CP_UTF8);
+#endifstd::cout<<std::boolalpha;
+std::stringghost_args="";
+std::vector<std::string>ghost_args_vec;
+for(inti=1;
+i<argc;
+++i){
+ghost_args+=argv[i];
+ghost_args_vec.push_back(argv[i]);
+if(i<argc-1)ghost_args+=" ";
+}
+ghost_main();
+return0;
+}
+catch(conststd::exception&e){
+std::cerr<<e.what()<<std::endl;
+return1;
+}
+}

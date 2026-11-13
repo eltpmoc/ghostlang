@@ -1,0 +1,25 @@
+Estado inicial |0>:
+[ 1+0g	]
+[ 0+0g	]
+[Colapso Quantico] Porta 'H' aplicada sobre 'psi0'.
+Apos Hadamard H|0> = |+>:
+[ 0.707107+0g	]
+[ 0.707107+0g	]
+[Colapso Quantico] Porta 'H' aplicada sobre 'psi0'.
+Apos segundo Hadamard H|+> = |0>:
+[ 1+0g	]
+[ 0+0g	]
+[Colapso Quantico] Porta 'X' aplicada sobre 'psi0'.
+Apos Pauli-X X|0> = |1>:
+[ 0+0g	]
+[ 1+0g	]
+[Colapso Quantico] Porta 'Z' aplicada sobre 'psi0'.
+Apos Pauli-Z Z|1> = -|1>:
+[ 0+0g	]
+[ -1+0g	]
+Estado de 2 qubits |00>:
+[ 1+0g	]
+[ 0+0g	]
+[ 0+0g	]
+[ 0+0g	]
+state_apply_std: OK

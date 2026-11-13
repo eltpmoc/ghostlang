@@ -1,0 +1,24 @@
+== objetos e metodos ==
+a (2, 3) b (4, 6) origem (0, 0)
+soma (6, 9) distancia2 13
+== semantica de valor ==
+a.x 2 c.x 100
+== campo objeto ==
+canto (3, 3) area 5
+== private e excecoes ==
+erro: saldo insuficiente para sacar 500
+erro: deposito precisa ser positivo
+Ana saldo 45
+extrato: abertura 50; deposito 25; saque 30
+== heranca, super e metodos virtuais ==
+forma com area 0
+quadrado com area 9
+cubo com area 24 (6 faces)
+cubo.lado 2 cubo.nome cubo
+parametro do tipo base: cubo com area 0
+== listas de objetos ==
+pontos 4 primeiro (11, 1) segundo (2, -2) soma x 25
+== mapa em campo ==
+parafusos 15 porcas 1 pregos 0 total 16
+== metodos chamando funcoes ==
+soma 100 original ainda tem 4 chamadas 8

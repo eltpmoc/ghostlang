@@ -1,0 +1,32 @@
+[
+  {
+    "id": "ghostlang_exemplo",
+    "pergunta": "Apresente a linguagem GhostLang e um pequeno programa comentado.",
+    "resposta": "GhostLang é a linguagem deste projeto. Seu compilador transforma arquivos .g em C++ e gera um executável. Ela oferece tipos e operações para matrizes, redes neurais e Números G.\nExemplo:\nfunction void main() {\n    string nome = \"GhostLang\";\n    int dobro = 2 * 5;\n    print(\"Ola, \" + nome + \"!\");\n    print(\"O dobro de 5 e \" + dobro);\n}\nstring nome guarda um texto; int dobro calcula 2 * 5; print mostra os dois resultados. Esse exemplo não depende de CUDA."
+  },
+  {
+    "id": "teoria_exemplo",
+    "pergunta": "Como representar e operar Números G num programa completo?",
+    "resposta": "No código deste projeto, um Número G é representado por (x + i y) + p theta, com o parâmetro theta2. x é a parte real, y a imaginária e p a fantasma. A implementação usa regras próprias; há diferenças documentadas em relação à descrição 4D do manual.\nExemplo:\nfunction void main() {\n    ghost a = GhostNumberG(1.0, 2.0, 3.0);\n    ghost b = GhostNumberG(4.0, 5.0, 6.0);\n    ghost soma = a + b;\n    ghost produto = a * b;\n    print(\"Soma: \" + soma.x + \", \" + soma.y + \", \" + soma.p);\n    print(\"Produto: \" + produto.x + \", \" + produto.y + \", \" + produto.p);\n}\nOs construtores usam literais decimais explícitos. O exemplo lê as componentes .x, .y e .p para mostrar o cálculo sem depender dos sufixos algébricos antigos."
+  },
+  {
+    "id": "gate_exemplo",
+    "pergunta": "Pode mostrar uma matriz 2x2 aplicada a um vetor?",
+    "resposta": "gate representa uma matriz. Por exemplo: gate camada(3, 2); cria três linhas e duas colunas. A sintaxe também permite portas predefinidas como hadamard.\nExemplo:\nfunction void main() {\n    pragma auto;\n    state entrada = [1.0, 2.0];\n    gate pesos(2, 2);\n    pesos(0, 0) = GhostNumberG(1.0);\n    pesos(0, 1) = GhostNumberG(0.0);\n    pesos(1, 0) = GhostNumberG(0.0);\n    pesos(1, 1) = GhostNumberG(2.0);\n    state saida = pesos * entrada;\n    print(saida(0, 0).x);\n    print(saida(1, 0).x);\n}\nA primeira linha calcula 1*1 + 0*2 = 1. A segunda calcula 0*1 + 2*2 = 4. O modo auto pode manter esse produto pequeno na CPU."
+  },
+  {
+    "id": "nilpotente_exemplo",
+    "pergunta": "Escreva um exemplo verificando que theta ao quadrado resulta em zero.",
+    "resposta": "Sim, no produto implementado, theta = (0, 0, 1) satisfaz theta*theta = (0, 0, 0). Essa afirmação descreve a regra executada no código, que retorna theta2 igual a zero.\nExemplo:\nfunction void main() {\n    ghost theta = GhostNumberG(0.0, 0.0, 1.0);\n    ghost quadrado = theta * theta;\n    print(quadrado.x);\n    print(quadrado.y);\n    print(quadrado.p);\n}\nCada linha mostra uma componente do quadrado: x, y e p."
+  },
+  {
+    "id": "textmodel_exemplo",
+    "pergunta": "Como fica um arquivo .g que treina um modelo de texto?",
+    "resposta": "textmodel é o tipo nativo para um modelo de linguagem treinável localmente. Exemplo: textmodel ia = text_model(64, 32, 192, 32, 4096, 42); Os argumentos são contexto, embedding, camada oculta, lote, limite de vocabulário e semente.\nExemplo:\n// Execute na raiz do projeto; requer os arquivos de corpus da V3.\nfunction void main() {\n    pragma auto;\n    textmodel ia = text_model(8, 8, 24, 16, 2048, 42);\n    ia.prepare(\"ia_propria/v3/dados/treino.txt\", \"ia_propria/v3/dados/validacao.txt\");\n    double perda = ia.epoch(0.001);\n    print(\"Erro medio no treino: \" + perda);\n    print(\"Erro na validacao: \" + ia.validate());\n    print(\"Uma epoca demonstra a API; ainda nao cria um bom conversador.\");\n}\nExecute na raiz do projeto para que os caminhos dos corpus sejam encontrados. Este exemplo usa uma rede pequena e não salva checkpoint."
+  },
+  {
+    "id": "auto_exemplo",
+    "pergunta": "Preciso de um programa que identifique o hardware e teste CUDA.",
+    "resposta": "O padrão é GHOST_DEVICE=auto. O runtime testa CUDA e usa a GPU disponível; sem CUDA funcional, usa CPU. Você pode chamar use_device(\"auto\") antes de preparar ou carregar o modelo. device_info informa a seleção.\nExemplo:\nfunction void main() {\n    pragma auto;\n    print(device_info());\n    textmodel ia = text_model(64, 32, 192, 32, 4096, 42);\n    ia.self_test();\n}\nTroque pragma auto por pragma cpu para forçar CPU ou por pragma gpu para exigir CUDA."
+  }
+]

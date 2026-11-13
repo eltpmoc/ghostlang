@@ -1,0 +1,15 @@
+print("=== Testando Declaracoes Algebricas de Variaveis Ghost ===");
+
+print("1. Sintaxe com Sufixos");
+ghost G1 = 1.0 + 2.0i + 3.0g;
+show(G1);
+
+print("2. Sintaxe com Operadores (*)");
+ghost G2 = 1.5 - 2.5*i + 3.5*theta;
+show(G2);
+
+print("3. Soma Algebrica Complexa");
+ghost G3 = (2.0 + 1.0)*i - 5.0theta + 10.0;
+show(G3);
+
+print("=== Concluido ===");

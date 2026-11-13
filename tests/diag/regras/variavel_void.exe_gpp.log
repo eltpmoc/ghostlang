@@ -1,0 +1,3 @@
+tests\diag\regras\variavel_void.exe_temp.cpp:38:10: error: variable or field 'v' declared void
+   38 |     void v{};
+      |          ^

@@ -1,0 +1,6 @@
+true
+false
+false
+false
+erro: use_device: o backend vulkan ainda nao foi implementado (disponiveis: auto, cpu, cuda).
+cpu

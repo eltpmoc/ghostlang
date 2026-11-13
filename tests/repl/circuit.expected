@@ -1,0 +1,33 @@
+bell: 0.7071|00> + 0.7071|11>
+b2: 0.5|000> + 0.5|001> + 0.5|110> - 0.5|111>
+ghz: 0.7071|00000> + 0.7071|11111>
+P1 = 0.25
+grover = 0.961319
+params = 4
+VQE = -1.8572
+tudo2: 1|00>
+a depois = 7
+circuit emaranhar: esperado 2 argumento(s), recebido 1
+qreg.inexistente nao existe
+'h' ja e uma porta/metodo quantico
+'foo' nao e uma porta quantica nem um circuit
+fim
+inv bell: 1|00>
+soma 5+3: 1|1000>
+sub 8-6: 1|0010>
+conj: 0.7071|00> + 0.7071|01>
+conj inv: 1|00>
+ghz inv: 1|0000>
+vqc dg: 4 params
+circuit inverso: measure nao e reversivel
+nomes terminados em _dg sao reservados para o inverso
+circuit emaranhar: esperado 2 argumento(s), recebido 1
+fim dg
+QPE: 1|1011>
+ctrl: 0.7071|000> + 0.5|100> + 0.5|111>
+ctrl inv: 1|000>
+circuit controlado: h usa o qubit 0, que e o controle
+h_all atua no registrador inteiro
+ainda nao e suportado em qcircuit
+nomes terminados em _ctrl sao reservados
+fim ctrl

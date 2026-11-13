@@ -1,0 +1,59 @@
+== lambdas basicas ==
+ola lambda | 42 | 49 | q-q-q
+== fn vazia, texto e conversoes ==
+slot vazio: true
+capturado: fn sem funcao: guarde uma funcao ou lambda antes de chamar
+estado: ativo | <fn> | <fn>/<fn>
+alargada: 5.0
+[void] executado
+[descarta] 3
+== retorno explicito e result ==
+rampa: 0.00 / 2.50
+inversos: ok(7) | err("divisao por zero")
+== closures por valor ==
+capValor: 16
+for: 11,21,31
+comp: 8,20,36
+contadores: p1=15, p2=20, c1=25, c2=25, c1=30
+filaCont: 1,2,110
+== currying e funcoes nomeadas ==
+[AVISO] sistema pronto | somador: 15
+compor: 13 | par: qubits=4
+ops: [10, 6, 25]
+== alta ordem generica ==
+mapear: [2, 4, 6, 8, 10] | ["#1", "#2", "#3", "#4", "#5"]
+filtrar: [1, 3, 5]
+reduzir: 55 | ini-a-b-c
+pipeline: 110
+== iife, ternario e mapa ==
+iife expr: 43
+iife bloco: rodou
+ternario: -75 / 42
+calc: 11,5,24
+== classes e interfaces ==
+Enviar->ok(2) | ok(9)
+static fn: 70 -> 10
+this valor: 22,23,esc.desloc=10
+iface: <quantico>
+== erros ==
+tipos: fn<int(int)> | fn<string(string)>
+[Erro de Execucao] fn sem funcao: guarde uma funcao ou lambda antes de chamar
+[Erro de Execucao] chamada de funcao: recebeu 2 argumento(s), espera 1
+[Erro de Execucao] errAridade: funcao de 2 parametro(s) nao cabe em fn<int(int)>
+[Erro de Execucao] errParam: parametro 1 da funcao e string, mas fn<int(int)> espera int
+[Erro de Execucao] errRet: retorno string da funcao nao converte para int em fn<int(int)>
+[Erro de Execucao] errNarrow: retorno double da funcao nao converte para int em fn<int(int)>
+[Erro de Execucao] para inferir o tipo do parametro na lambda escreva apenas o nome: (x) => ...
+[Erro de Execucao] parametros de lambda nao tem valor padrao
+[Erro de Execucao] parametro de fn<...> nao pode ser void (para zero parametros use fn<tipo()>)
+[Erro de Execucao] parametro da lambda nao pode ser void
+[Erro de Execucao] use fn<retorno(parametros)>, ex.: fn<int(int)> errFnPuro
+[Erro de Execucao] use fn<retorno(parametros)>, ex.: fn<int(int)> ou fn<void()>
+[Erro de Execucao] dentro de fn<...> informe apenas os tipos, sem nomes de parametros (ex.: fn<int(int, string)>)
+[Erro de Execucao] print(...) e um comando: use chaves na lambda, ex.: (string s) => { print(s); }
+[Erro de Execucao] o operador ? dentro de lambda exige retorno explicito '-> result<T>'
+[Erro de Execucao] lambda com retornos de tipos diferentes (int e double): informe o tipo com '-> tipo' antes de '=>' (ex.: (...) -> double => { ... } ou (...) -> result<T> => { ... })
+[Erro de Execucao] '7' nao e uma funcao (use fn<...> ou lambda)
+[Erro de Execucao] errGenVal: funcao generica mapear de 2 parametro(s) nao cabe em fn<int(string)>
+recuperou: 81 7
+fim do roteiro de lambdas

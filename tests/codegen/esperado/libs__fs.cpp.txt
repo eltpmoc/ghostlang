@@ -1,0 +1,52 @@
+#line 7 "libs/fs.g"
+#line 11 "libs/fs.g"
+#line 15 "libs/fs.g"
+#line 19 "libs/fs.g"
+#line 23 "libs/fs.g"
+#line 6 "libs/fs.g"
+#line 10 "libs/fs.g"
+#line 14 "libs/fs.g"
+#line 18 "libs/fs.g"
+#line 22 "libs/fs.g"
+----
+/*TranspiladopeloGhostCompilerv1.0*/#include<iostream>#include<cstdio>#include<cstdlib>#include<string>#include<complex>#include<type_traits>#include<fstream>#include<sstream>#include<thread>#include<chrono>#include<mutex>#include"include/GhostNumberG.hpp"#include"include/GhostMatrix.hpp"#include"include/GhostLLM.hpp"#include"include/GhostLib.hpp"#include"include/GhostDevice.hpp"#include"include/GhostTextModel.hpp"#include"include/GhostWeb.hpp"#include"include/GhostKnowledge.hpp"#include"include/GhostTemporal.hpp"#include"include/GhostTransformer.hpp"#include"include/GhostTransformerG.hpp"#include"include/GhostMatrixG.hpp"#include"include/GhostQuantum.hpp"#include"include/GhostQML.hpp"#include"include/GhostHybrid.hpp"#include"include/GhostQTape.hpp"#include"include/GhostCore.hpp"#ifdef_WIN32#include<windows.h>#endifstd::stringfs_read(std::stringpath);
+voidfs_write(std::stringpath,std::stringcontent);
+voidfs_delete(std::stringpath);
+voidfs_copy(std::stringsrc,std::stringdest);
+voidfs_mkdir(std::stringpath);
+std::stringfs_read(std::stringpath){
+returnreadfile(path);
+}
+voidfs_write(std::stringpath,std::stringcontent){
+writefile(path,content);
+}
+voidfs_delete(std::stringpath){
+deletefile(path);
+}
+voidfs_copy(std::stringsrc,std::stringdest){
+copyfile(src,dest);
+}
+voidfs_mkdir(std::stringpath){
+dir_create(path);
+}
+intmain(intargc,char**argv){
+try{
+#ifdef_WIN32SetConsoleOutputCP(CP_UTF8);
+SetConsoleCP(CP_UTF8);
+#endifstd::cout<<std::boolalpha;
+std::stringghost_args="";
+std::vector<std::string>ghost_args_vec;
+for(inti=1;
+i<argc;
+++i){
+ghost_args+=argv[i];
+ghost_args_vec.push_back(argv[i]);
+if(i<argc-1)ghost_args+=" ";
+}
+return0;
+}
+catch(conststd::exception&e){
+std::cerr<<e.what()<<std::endl;
+return1;
+}
+}

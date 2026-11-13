@@ -1,0 +1,24 @@
+== sobrecarga global ==
+int:42
+double:3.14
+string:ghost
+par:10,20
+trio:1,2,3
+== sobrecarga em metodos ==
+35
+4
+GhostLang
+== static generico ==
+inicio int: 0
+inicio str: 0
+apos 2 ints: 2
+str continua zero: 0
+apos 1 str: 1
+int continua dois: 2
+apos reset int: 0
+str permanece: 1
+== protected em heranca profunda ==
+base:segredo-100
+folha:segredo-100
+folha:segredo-999
+fim nucleo avancado

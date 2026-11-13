@@ -1,0 +1,129 @@
+#line 7 "tests/ghost/qml_rede_hibrida.g"
+#line 8 "tests/ghost/qml_rede_hibrida.g"
+#line 9 "tests/ghost/qml_rede_hibrida.g"
+#line 10 "tests/ghost/qml_rede_hibrida.g"
+#line 11 "tests/ghost/qml_rede_hibrida.g"
+#line 12 "tests/ghost/qml_rede_hibrida.g"
+#line 13 "tests/ghost/qml_rede_hibrida.g"
+#line 14 "tests/ghost/qml_rede_hibrida.g"
+#line 15 "tests/ghost/qml_rede_hibrida.g"
+#line 16 "tests/ghost/qml_rede_hibrida.g"
+#line 17 "tests/ghost/qml_rede_hibrida.g"
+#line 18 "tests/ghost/qml_rede_hibrida.g"
+#line 23 "tests/ghost/qml_rede_hibrida.g"
+#line 24 "tests/ghost/qml_rede_hibrida.g"
+#line 25 "tests/ghost/qml_rede_hibrida.g"
+#line 26 "tests/ghost/qml_rede_hibrida.g"
+#line 27 "tests/ghost/qml_rede_hibrida.g"
+#line 28 "tests/ghost/qml_rede_hibrida.g"
+#line 30 "tests/ghost/qml_rede_hibrida.g"
+#line 31 "tests/ghost/qml_rede_hibrida.g"
+#line 32 "tests/ghost/qml_rede_hibrida.g"
+#line 33 "tests/ghost/qml_rede_hibrida.g"
+#line 35 "tests/ghost/qml_rede_hibrida.g"
+#line 36 "tests/ghost/qml_rede_hibrida.g"
+#line 6 "tests/ghost/qml_rede_hibrida.g"
+----
+/*TranspiladopeloGhostCompilerv1.0*/#include<iostream>#include<cstdio>#include<cstdlib>#include<string>#include<complex>#include<type_traits>#include<fstream>#include<sstream>#include<thread>#include<chrono>#include<mutex>#include"include/GhostNumberG.hpp"#include"include/GhostMatrix.hpp"#include"include/GhostLLM.hpp"#include"include/GhostLib.hpp"#include"include/GhostDevice.hpp"#include"include/GhostTextModel.hpp"#include"include/GhostWeb.hpp"#include"include/GhostKnowledge.hpp"#include"include/GhostTemporal.hpp"#include"include/GhostTransformer.hpp"#include"include/GhostTransformerG.hpp"#include"include/GhostMatrixG.hpp"#include"include/GhostQuantum.hpp"#include"include/GhostQML.hpp"#include"include/GhostHybrid.hpp"#include"include/GhostQTape.hpp"#include"include/GhostCore.hpp"#ifdef_WIN32#include<windows.h>#endifvoidghost_main();
+voidghost_main(){
+GhostMatrixX(2,64);
+doublelimit_X=std::sqrt(6.0/(2+64));
+for(size_tghost_r=0;
+ghost_r<X.getRows();
+++ghost_r){
+for(size_tghost_c=0;
+ghost_c<X.getCols();
+++ghost_c){
+doubleghost_val=(((double)rand()/RAND_MAX)*2.0-1.0)*limit_X;
+X(ghost_r,ghost_c)=GhostNumberG(ghost_val,0.0,0.0);
+}
+}
+GhostMatrixY(1,64);
+doublelimit_Y=std::sqrt(6.0/(1+64));
+for(size_tghost_r=0;
+ghost_r<Y.getRows();
+++ghost_r){
+for(size_tghost_c=0;
+ghost_c<Y.getCols();
+++ghost_c){
+doubleghost_val=(((double)rand()/RAND_MAX)*2.0-1.0)*limit_Y;
+Y(ghost_r,ghost_c)=GhostNumberG(ghost_val,0.0,0.0);
+}
+}
+for(autoi=0;
+i<8;
+i=i+1){
+for(autoj=0;
+j<8;
+j=j+1){
+intk=i*8+j;
+doublea=-1.0+2.0*i/7.0;
+doubleb=-1.0+2.0*j/7.0;
+X(0,k)=a;
+X(1,k)=b;
+Y(0,k)=0.0;
+if(a*a+b*b<0.45){
+Y(0,k)=1.0;
+}
+}
+}
+GhostMatrixW1(2,2);
+doublelimit_W1=std::sqrt(6.0/(2+2));
+for(size_tghost_r=0;
+ghost_r<W1.getRows();
+++ghost_r){
+for(size_tghost_c=0;
+ghost_c<W1.getCols();
+++ghost_c){
+doubleghost_val=(((double)rand()/RAND_MAX)*2.0-1.0)*limit_W1;
+W1(ghost_r,ghost_c)=GhostNumberG(ghost_val,0.0,0.0);
+}
+}
+GhostQLayerQ=GhostQLayer(2,2);
+GhostMatrixW2(1,2);
+doublelimit_W2=std::sqrt(6.0/(1+2));
+for(size_tghost_r=0;
+ghost_r<W2.getRows();
+++ghost_r){
+for(size_tghost_c=0;
+ghost_c<W2.getCols();
+++ghost_c){
+doubleghost_val=(((double)rand()/RAND_MAX)*2.0-1.0)*limit_W2;
+W2(ghost_r,ghost_c)=GhostNumberG(ghost_val,0.0,0.0);
+}
+}
+Q.seed(3);
+//Redehibridaclassico-quantica:redeGhostHybridNetworkrede("rede",{
+&W1,&Q,&W2}
+);
+std::cout<<"[Ghost OS] Rede hibrida 'rede' montada: "<<rede.summary()<<std::endl;
+std::cout<<ghost_show(Q.draw())<<std::endl;
+std::cout<<ghost_show(ghost_fstr(std::string("Antes:  perda "),(rede.loss(X,Y)),std::string("  acuracia "),(rede.accuracy(X,Y)*100.0),std::string("%")))<<std::endl;
+rede.set_verbose(50);
+//ChamandootimizadornativonaGhostMatrixrede.optimize(X,Y,150,0.05,"adam");
+std::cout<<ghost_show(ghost_fstr(std::string("Depois: perda "),(rede.loss(X,Y)),std::string("  acuracia "),(rede.accuracy(X,Y)*100.0),std::string("%")))<<std::endl;
+std::cout<<ghost_show(ghost_fstr(std::string("Centro (0, 0)        -> classe "),(rede.classify(0.0,0.0)),std::string("  saida "),(rede.predict(0.0,0.0))))<<std::endl;
+std::cout<<ghost_show(ghost_fstr(std::string("Canto (0.95, 0.95)   -> classe "),(rede.classify(0.95,0.95)),std::string("  saida "),(rede.predict(0.95,0.95))))<<std::endl;
+}
+intmain(intargc,char**argv){
+try{
+#ifdef_WIN32SetConsoleOutputCP(CP_UTF8);
+SetConsoleCP(CP_UTF8);
+#endifstd::cout<<std::boolalpha;
+std::stringghost_args="";
+std::vector<std::string>ghost_args_vec;
+for(inti=1;
+i<argc;
+++i){
+ghost_args+=argv[i];
+ghost_args_vec.push_back(argv[i]);
+if(i<argc-1)ghost_args+=" ";
+}
+ghost_main();
+return0;
+}
+catch(conststd::exception&e){
+std::cerr<<e.what()<<std::endl;
+return1;
+}
+}

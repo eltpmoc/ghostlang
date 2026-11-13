@@ -1,0 +1,21 @@
+gate img(4, 4);
+img(0, 0) = 1.0; img(0, 1) = 2.0; img(0, 2) = 3.0; img(0, 3) = 0.0;
+img(1, 0) = 4.0; img(1, 1) = 5.0; img(1, 2) = 6.0; img(1, 3) = 1.0;
+img(2, 0) = 7.0; img(2, 1) = 8.0; img(2, 2) = 9.0; img(2, 3) = 2.0;
+img(3, 0) = 0.0; img(3, 1) = 1.0; img(3, 2) = 2.0; img(3, 3) = 3.0;
+
+gate k(2, 2);
+k(0, 0) = 1.0; k(0, 1) = 0.0;
+k(1, 0) = 0.0; k(1, 1) = 1.0;
+
+gate feat = img.conv2d(k);
+gate pool = img.max_pool2d();
+gate avg = img.avg_pool2d();
+
+gate grad_out(3, 3);
+grad_out(0, 0) = 1.0;
+
+gate dK = k.conv2d_grad_kernel(img, grad_out);
+
+print("ia_conv: OK");
+exit

@@ -1,0 +1,13 @@
+[Ghost OS] Rede hibrida 'rede' montada: network rede (hibrida): 2 -> [densa 2x2] -> [qlayer 2 qubits, 8 parametros] -> [densa 1x2] -> 1 saida(s); 17 parametros treinaveis
+q0: --RY(x0)------------RY(t0)---RZ(t1)---------------------*---RY(t4)---RZ(t5)---------------------*--
+                                                            |                                       |
+q1: -----------RY(x1)---------------------RY(t2)---RZ(t3)---X---------------------RY(t6)---RZ(t7)---X--
+
+Antes:  perda 0.266056  acuracia 75%
+  epoca 1/150  perda=0.2661  acuracia=75.0%
+  epoca 50/150  perda=0.0490  acuracia=98.4%
+  epoca 100/150  perda=0.0403  acuracia=100.0%
+  epoca 150/150  perda=0.0402  acuracia=100.0%
+Depois: perda 0.0402054  acuracia 100%
+Centro (0, 0)        -> classe 1  saida 1.27293
+Canto (0.95, 0.95)   -> classe 0  saida 0.0196721

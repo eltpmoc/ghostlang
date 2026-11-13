@@ -1,0 +1,198 @@
+#line 10 "tests/ghost/metodos_genericos.g"
+#line 11 "tests/ghost/metodos_genericos.g"
+#line 15 "tests/ghost/metodos_genericos.g"
+#line 16 "tests/ghost/metodos_genericos.g"
+#line 18 "tests/ghost/metodos_genericos.g"
+#line 22 "tests/ghost/metodos_genericos.g"
+#line 23 "tests/ghost/metodos_genericos.g"
+#line 24 "tests/ghost/metodos_genericos.g"
+#line 26 "tests/ghost/metodos_genericos.g"
+#line 27 "tests/ghost/metodos_genericos.g"
+#line 31 "tests/ghost/metodos_genericos.g"
+#line 32 "tests/ghost/metodos_genericos.g"
+#line 36 "tests/ghost/metodos_genericos.g"
+#line 37 "tests/ghost/metodos_genericos.g"
+#line 39 "tests/ghost/metodos_genericos.g"
+#line 43 "tests/ghost/metodos_genericos.g"
+#line 52 "tests/ghost/metodos_genericos.g"
+#line 56 "tests/ghost/metodos_genericos.g"
+#line 57 "tests/ghost/metodos_genericos.g"
+#line 61 "tests/ghost/metodos_genericos.g"
+#line 65 "tests/ghost/metodos_genericos.g"
+#line 66 "tests/ghost/metodos_genericos.g"
+#line 67 "tests/ghost/metodos_genericos.g"
+#line 69 "tests/ghost/metodos_genericos.g"
+#line 70 "tests/ghost/metodos_genericos.g"
+#line 78 "tests/ghost/metodos_genericos.g"
+#line 79 "tests/ghost/metodos_genericos.g"
+#line 81 "tests/ghost/metodos_genericos.g"
+#line 86 "tests/ghost/metodos_genericos.g"
+#line 90 "tests/ghost/metodos_genericos.g"
+#line 91 "tests/ghost/metodos_genericos.g"
+#line 95 "tests/ghost/metodos_genericos.g"
+#line 96 "tests/ghost/metodos_genericos.g"
+#line 97 "tests/ghost/metodos_genericos.g"
+#line 98 "tests/ghost/metodos_genericos.g"
+#line 99 "tests/ghost/metodos_genericos.g"
+#line 100 "tests/ghost/metodos_genericos.g"
+#line 101 "tests/ghost/metodos_genericos.g"
+#line 102 "tests/ghost/metodos_genericos.g"
+#line 103 "tests/ghost/metodos_genericos.g"
+#line 105 "tests/ghost/metodos_genericos.g"
+#line 106 "tests/ghost/metodos_genericos.g"
+#line 108 "tests/ghost/metodos_genericos.g"
+#line 109 "tests/ghost/metodos_genericos.g"
+#line 110 "tests/ghost/metodos_genericos.g"
+#line 112 "tests/ghost/metodos_genericos.g"
+#line 113 "tests/ghost/metodos_genericos.g"
+#line 114 "tests/ghost/metodos_genericos.g"
+#line 115 "tests/ghost/metodos_genericos.g"
+#line 116 "tests/ghost/metodos_genericos.g"
+#line 117 "tests/ghost/metodos_genericos.g"
+#line 118 "tests/ghost/metodos_genericos.g"
+#line 4 "tests/ghost/metodos_genericos.g"
+#line 48 "tests/ghost/metodos_genericos.g"
+#line 75 "tests/ghost/metodos_genericos.g"
+#line 85 "tests/ghost/metodos_genericos.g"
+#line 89 "tests/ghost/metodos_genericos.g"
+#line 94 "tests/ghost/metodos_genericos.g"
+----
+/*TranspiladopeloGhostCompilerv1.0*/#include<iostream>#include<cstdio>#include<cstdlib>#include<string>#include<complex>#include<type_traits>#include<fstream>#include<sstream>#include<thread>#include<chrono>#include<mutex>#include"include/GhostNumberG.hpp"#include"include/GhostMatrix.hpp"#include"include/GhostLLM.hpp"#include"include/GhostLib.hpp"#include"include/GhostDevice.hpp"#include"include/GhostTextModel.hpp"#include"include/GhostWeb.hpp"#include"include/GhostKnowledge.hpp"#include"include/GhostTemporal.hpp"#include"include/GhostTransformer.hpp"#include"include/GhostTransformerG.hpp"#include"include/GhostMatrixG.hpp"#include"include/GhostQuantum.hpp"#include"include/GhostQML.hpp"#include"include/GhostHybrid.hpp"#include"include/GhostQTape.hpp"#include"include/GhostCore.hpp"#ifdef_WIN32#include<windows.h>#endiftemplate<classT>classCaixa;
+classRegistro;
+classRegistroFilho;
+template<classT>intcontar(Tobj);
+template<classT>GhostList<std::string>rotulos(Treg,intn);
+voidghost_main();
+classRegistro{
+public:GhostList<std::string>linhas=GhostList<std::string>{
+}
+;
+inttotal=0;
+template<classT>voidanotar(std::stringrotulo,Tvalor){
+linhas.push(rotulo+std::string("=")+valor);
+total++;
+}
+template<classT>TultimoOu(Tpadrao){
+if(total==0){
+returnpadrao;
+}
+returnpadrao;
+}
+template<classT>GhostList<T>repetir(Tvalor,intn){
+GhostList<T>r=GhostList<T>{
+}
+;
+for(intk=0;
+k<n;
+k++){
+r.push(valor);
+}
+anotar(std::string("repetir"),n);
+returnr;
+}
+virtualstd::stringresumo(){
+anotar<int>(std::string("resumo"),total);
+returnlinhas.join(std::string("; "));
+}
+template<classT>staticTmaior(Ta,Tb){
+if(a>b){
+returna;
+}
+returnb;
+}
+template<classT>staticGhostList<T>par(Ta,Tb){
+returnghost_list(maior(a,b),maior<T>(b,a));
+}
+}
+;
+template<classT>classCaixa{
+public:Tvalor{
+}
+;
+Caixa(Tv){
+valor=v;
+}
+template<classU>Uconverter(){
+Ur=valor;
+returnr;
+}
+template<classU>Caixa<U>com(Unovo){
+returnCaixa<U>(novo);
+}
+template<classU>GhostList<T>junto(GhostList<U>outros,Textra){
+GhostList<T>r=GhostList<T>{
+valor}
+;
+for(auto&o:outros){
+r.push(valor);
+}
+r.push(extra);
+returnr;
+}
+}
+;
+classRegistroFilho:publicRegistro{
+public:virtualvoidanotarTudo(GhostList<int>xs){
+for(auto&x:xs){
+anotar<int>(std::string("x"),x);
+}
+anotar(std::string("fim"),true);
+}
+}
+;
+template<classT>intcontar(Tobj){
+returnobj.total;
+}
+template<classT>GhostList<std::string>rotulos(Treg,intn){
+reg.templateanotar<int>(std::string("de fora"),n);
+returnreg.linhas;
+}
+voidghost_main(){
+std::cout<<ghost_show(std::string("== metodos genericos =="))<<std::endl;
+Registror{
+}
+;
+r.anotar(std::string("idade"),30);
+r.anotar(std::string("nome"),std::string("ana"));
+r.templateanotar<double>(std::string("pi"),3);
+r.anotar(std::string("ok"),true);
+std::cout<<ghost_show(r.linhas)<<ghost_show(std::string(" total "))<<ghost_show(r.total)<<std::endl;
+std::cout<<ghost_show(r.ultimoOu(7))<<ghost_show(std::string(" "))<<ghost_show(r.ultimoOu(std::string("x")))<<ghost_show(std::string(" "))<<ghost_show(r.templateultimoOu<double>(2))<<ghost_show(std::string(" "))<<ghost_show(r.repetir(std::string("ab"),2))<<ghost_show(std::string(" "))<<ghost_show(r.templaterepetir<double>(1,3))<<std::endl;
+std::cout<<ghost_show(r.resumo())<<std::endl;
+std::cout<<ghost_show(std::string("== static generico =="))<<std::endl;
+std::cout<<ghost_show(Registro::maior(3,9))<<ghost_show(std::string(" "))<<ghost_show(Registro::maior(std::string("b"),std::string("a")))<<ghost_show(std::string(" "))<<ghost_show(Registro::templatemaior<double>(2,2.5))<<ghost_show(std::string(" "))<<ghost_show(Registro::par(4,1))<<std::endl;
+std::cout<<ghost_show(std::string("== em classe generica =="))<<std::endl;
+Caixa<int>c=Caixa<int>(7);
+std::cout<<ghost_show(c.templateconverter<double>())<<ghost_show(std::string(" "))<<ghost_show(c.templateconverter<bool>())<<ghost_show(std::string(" "))<<ghost_show(c.com(std::string("texto")).valor)<<ghost_show(std::string(" "))<<ghost_show(c.templatecom<double>(2).valor)<<ghost_show(std::string(" "))<<ghost_show(c.junto(ghost_list(std::string("a"),std::string("b")),9))<<std::endl;
+std::cout<<ghost_show(std::string("== heranca e funcoes genericas =="))<<std::endl;
+RegistroFilhof{
+}
+;
+f.anotarTudo(ghost_list(1,2));
+std::cout<<ghost_show(f.linhas)<<ghost_show(std::string(" "))<<ghost_show(contar(f))<<ghost_show(std::string(" "))<<ghost_show(contar(r))<<ghost_show(std::string(" "))<<ghost_show(rotulos(r,5).length())<<std::endl;
+Registrocopia=r;
+copia.anotar(std::string("so na copia"),1);
+std::cout<<ghost_show(std::string("copia "))<<ghost_show(copia.total)<<ghost_show(std::string(" original "))<<ghost_show(r.total)<<std::endl;
+}
+intmain(intargc,char**argv){
+try{
+#ifdef_WIN32SetConsoleOutputCP(CP_UTF8);
+SetConsoleCP(CP_UTF8);
+#endifstd::cout<<std::boolalpha;
+std::stringghost_args="";
+std::vector<std::string>ghost_args_vec;
+for(inti=1;
+i<argc;
+++i){
+ghost_args+=argv[i];
+ghost_args_vec.push_back(argv[i]);
+if(i<argc-1)ghost_args+=" ";
+}
+ghost_main();
+return0;
+}
+catch(conststd::exception&e){
+std::cerr<<e.what()<<std::endl;
+return1;
+}
+}

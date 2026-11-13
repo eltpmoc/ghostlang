@@ -1,0 +1,117 @@
+#line 3 "libs/autograd.g"
+#line 7 "libs/autograd.g"
+#line 11 "libs/autograd.g"
+#line 15 "libs/autograd.g"
+#line 19 "libs/autograd.g"
+#line 23 "libs/autograd.g"
+#line 27 "libs/autograd.g"
+#line 31 "libs/autograd.g"
+#line 35 "libs/autograd.g"
+#line 39 "libs/autograd.g"
+#line 43 "libs/autograd.g"
+#line 4 "tests/ghost/autograd_std.g"
+#line 5 "tests/ghost/autograd_std.g"
+#line 6 "tests/ghost/autograd_std.g"
+#line 7 "tests/ghost/autograd_std.g"
+#line 8 "tests/ghost/autograd_std.g"
+#line 9 "tests/ghost/autograd_std.g"
+#line 10 "tests/ghost/autograd_std.g"
+#line 11 "tests/ghost/autograd_std.g"
+#line 12 "tests/ghost/autograd_std.g"
+#line 13 "tests/ghost/autograd_std.g"
+#line 14 "tests/ghost/autograd_std.g"
+#line 15 "tests/ghost/autograd_std.g"
+#line 2 "libs/autograd.g"
+#line 6 "libs/autograd.g"
+#line 10 "libs/autograd.g"
+#line 14 "libs/autograd.g"
+#line 18 "libs/autograd.g"
+#line 22 "libs/autograd.g"
+#line 26 "libs/autograd.g"
+#line 30 "libs/autograd.g"
+#line 34 "libs/autograd.g"
+#line 38 "libs/autograd.g"
+#line 42 "libs/autograd.g"
+#line 3 "tests/ghost/autograd_std.g"
+----
+/*TranspiladopeloGhostCompilerv1.0*/#include<iostream>#include<cstdio>#include<cstdlib>#include<string>#include<complex>#include<type_traits>#include<fstream>#include<sstream>#include<thread>#include<chrono>#include<mutex>#include"include/GhostNumberG.hpp"#include"include/GhostMatrix.hpp"#include"include/GhostLLM.hpp"#include"include/GhostLib.hpp"#include"include/GhostDevice.hpp"#include"include/GhostTextModel.hpp"#include"include/GhostWeb.hpp"#include"include/GhostKnowledge.hpp"#include"include/GhostTemporal.hpp"#include"include/GhostTransformer.hpp"#include"include/GhostTransformerG.hpp"#include"include/GhostMatrixG.hpp"#include"include/GhostQuantum.hpp"#include"include/GhostQML.hpp"#include"include/GhostHybrid.hpp"#include"include/GhostQTape.hpp"#include"include/GhostCore.hpp"#ifdef_WIN32#include<windows.h>#endifintag__tensor_create(introws,intcols,boolreq_grad=false,doubleinit_val=0.0);
+voidag__tensor_set(inthandle,intr,intc,doubleval);
+doubleag__tensor_get(inthandle,intr,intc);
+doubleag__tensor_grad(inthandle,intr,intc);
+intag__tensor_matmul(inthA,inthB);
+intag__tensor_add(inthA,inthB);
+intag__tensor_relu(inthA);
+intag__tensor_mse(inthPred,inthTarget);
+voidag__tensor_backward(inthLoss);
+voidag__tensor_step(inthandle,doubletaxa);
+voidag__tensor_zero_grad(inthandle);
+voidghost_main();
+intag__tensor_create(introws,intcols,boolreq_grad,doubleinit_val){
+returnghost_autograd_create(rows,cols,req_grad,init_val);
+}
+voidag__tensor_set(inthandle,intr,intc,doubleval){
+ghost_autograd_set(handle,r,c,val);
+}
+doubleag__tensor_get(inthandle,intr,intc){
+returnghost_autograd_get(handle,r,c);
+}
+doubleag__tensor_grad(inthandle,intr,intc){
+returnghost_autograd_grad(handle,r,c);
+}
+intag__tensor_matmul(inthA,inthB){
+returnghost_autograd_matmul(hA,hB);
+}
+intag__tensor_add(inthA,inthB){
+returnghost_autograd_add(hA,hB);
+}
+intag__tensor_relu(inthA){
+returnghost_autograd_relu(hA);
+}
+intag__tensor_mse(inthPred,inthTarget){
+returnghost_autograd_mse(hPred,hTarget);
+}
+voidag__tensor_backward(inthLoss){
+ghost_autograd_backward(hLoss);
+}
+voidag__tensor_step(inthandle,doubletaxa){
+ghost_autograd_step(handle,taxa);
+}
+voidag__tensor_zero_grad(inthandle){
+ghost_autograd_zero_grad(handle);
+}
+voidghost_main(){
+autoW=ag__tensor_create(2,2,true,0.5);
+autoX=ag__tensor_create(1,2,false,2.0);
+autoY=ag__tensor_matmul(X,W);
+std::cout<<ghost_show(ag__tensor_get(Y,0,0))<<std::endl;
+std::cout<<ghost_show(ag__tensor_get(Y,0,1))<<std::endl;
+autoTarget=ag__tensor_create(1,2,false,1.0);
+autoLoss=ag__tensor_mse(Y,Target);
+std::cout<<ghost_show(ag__tensor_get(Loss,0,0))<<std::endl;
+ag__tensor_backward(Loss);
+std::cout<<ghost_show(ag__tensor_grad(W,0,0)>0.0)<<std::endl;
+ag__tensor_step(W,0.1);
+std::cout<<ghost_show(ag__tensor_get(W,0,0)<0.5)<<std::endl;
+}
+intmain(intargc,char**argv){
+try{
+#ifdef_WIN32SetConsoleOutputCP(CP_UTF8);
+SetConsoleCP(CP_UTF8);
+#endifstd::cout<<std::boolalpha;
+std::stringghost_args="";
+std::vector<std::string>ghost_args_vec;
+for(inti=1;
+i<argc;
+++i){
+ghost_args+=argv[i];
+ghost_args_vec.push_back(argv[i]);
+if(i<argc-1)ghost_args+=" ";
+}
+ghost_main();
+return0;
+}
+catch(conststd::exception&e){
+std::cerr<<e.what()<<std::endl;
+return1;
+}
+}

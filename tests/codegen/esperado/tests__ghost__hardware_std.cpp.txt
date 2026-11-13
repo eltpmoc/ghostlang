@@ -1,0 +1,84 @@
+#line 4 "libs/hardware.g"
+#line 8 "libs/hardware.g"
+#line 12 "libs/hardware.g"
+#line 16 "libs/hardware.g"
+#line 20 "libs/hardware.g"
+#line 6 "tests/ghost/hardware_std.g"
+#line 9 "tests/ghost/hardware_std.g"
+#line 10 "tests/ghost/hardware_std.g"
+#line 11 "tests/ghost/hardware_std.g"
+#line 12 "tests/ghost/hardware_std.g"
+#line 13 "tests/ghost/hardware_std.g"
+#line 16 "tests/ghost/hardware_std.g"
+#line 17 "tests/ghost/hardware_std.g"
+#line 19 "tests/ghost/hardware_std.g"
+#line 3 "libs/hardware.g"
+#line 7 "libs/hardware.g"
+#line 11 "libs/hardware.g"
+#line 15 "libs/hardware.g"
+#line 19 "libs/hardware.g"
+#line 5 "tests/ghost/hardware_std.g"
+----
+/*TranspiladopeloGhostCompilerv1.0*/#include<iostream>#include<cstdio>#include<cstdlib>#include<string>#include<complex>#include<type_traits>#include<fstream>#include<sstream>#include<thread>#include<chrono>#include<mutex>#include"include/GhostNumberG.hpp"#include"include/GhostMatrix.hpp"#include"include/GhostLLM.hpp"#include"include/GhostLib.hpp"#include"include/GhostDevice.hpp"#include"include/GhostTextModel.hpp"#include"include/GhostWeb.hpp"#include"include/GhostKnowledge.hpp"#include"include/GhostTemporal.hpp"#include"include/GhostTransformer.hpp"#include"include/GhostTransformerG.hpp"#include"include/GhostMatrixG.hpp"#include"include/GhostQuantum.hpp"#include"include/GhostQML.hpp"#include"include/GhostHybrid.hpp"#include"include/GhostQTape.hpp"#include"include/GhostCore.hpp"#ifdef_WIN32#include<windows.h>#endifvoidqhw_configure(std::stringprovider,std::stringapi_token,std::stringdefault_backend);
+std::stringqhw_submit(std::stringqasm_code,std::stringbackend_name,intshots);
+std::stringqhw_status(std::stringjob_id);
+intqhw_get_count(std::stringjob_id,std::stringbitstring);
+std::stringqhw_summary(std::stringjob_id);
+voidghost_main();
+voidqhw_configure(std::stringprovider,std::stringapi_token,std::stringdefault_backend){
+ghost_qhw_configure(provider,api_token,default_backend);
+}
+std::stringqhw_submit(std::stringqasm_code,std::stringbackend_name,intshots){
+returnghost_qhw_submit(qasm_code,backend_name,shots);
+}
+std::stringqhw_status(std::stringjob_id){
+returnghost_qhw_status(job_id);
+}
+intqhw_get_count(std::stringjob_id,std::stringbitstring){
+returnghost_qhw_get_count(job_id,bitstring);
+}
+std::stringqhw_summary(std::stringjob_id){
+returnghost_qhw_summary(job_id);
+}
+voidghost_main(){
+qhw_configure(std::string("ibm"),std::string("token_nao_usado"),std::string("ibm_brisbane"));
+std::stringjid=qhw_submit(std::string("OPENQASM 2.0; qreg q[2]; creg c[2]; h q[0]; cx q[0], q[1]; measure q -> c;"),std::string("ibm_brisbane"),1000);
+std::cout<<ghost_show(qhw_status(jid))<<std::endl;
+std::cout<<ghost_show(qhw_get_count(jid,std::string("00"))+qhw_get_count(jid,std::string("11")))<<std::endl;
+std::cout<<ghost_show(qhw_get_count(jid,std::string("01"))+qhw_get_count(jid,std::string("10")))<<std::endl;
+std::cout<<ghost_show(qhw_get_count(jid,std::string("00"))>400)<<ghost_show(std::string(" "))<<ghost_show(qhw_get_count(jid,std::string("11"))>400)<<std::endl;
+std::stringj2=qhw_submit(std::string("OPENQASM 2.0; qreg q[2]; x q[0]; rx(pi) q[1]; measure q -> c;"),std::string(""),50);
+std::cout<<ghost_show(qhw_summary(j2))<<std::endl;
+{
+try{
+qhw_submit(std::string("OPENQASM 2.0; qreg q[1]; foo q[0];"),std::string(""),10);
+}
+catch(...){
+std::stringe=ghost_exception_message(std::current_exception());
+(void)e;
+std::cout<<ghost_show(std::string("erro: "))<<ghost_show(e)<<std::endl;
+}
+}
+}
+intmain(intargc,char**argv){
+try{
+#ifdef_WIN32SetConsoleOutputCP(CP_UTF8);
+SetConsoleCP(CP_UTF8);
+#endifstd::cout<<std::boolalpha;
+std::stringghost_args="";
+std::vector<std::string>ghost_args_vec;
+for(inti=1;
+i<argc;
+++i){
+ghost_args+=argv[i];
+ghost_args_vec.push_back(argv[i]);
+if(i<argc-1)ghost_args+=" ";
+}
+ghost_main();
+return0;
+}
+catch(conststd::exception&e){
+std::cerr<<e.what()<<std::endl;
+return1;
+}
+}

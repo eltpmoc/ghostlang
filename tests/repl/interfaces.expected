@@ -1,0 +1,33 @@
+== interfaces ==
+quadrado de area 4 | circulo de area 3 | cubo de area 6
+soma 27 | maior: circulo | criados: ["quadrado", "circulo", "quadrado"]
+copia por valor: f 4 g 400
+elemento alterado: 48 3
+interface base: cubo
+*[]*
+cena: 4 destaque circulo
+== static ==
+quadrados criados: 8 8
+depois: 101 101
+4 registro(s): id-1, id-2, id-3, especial | ids 1 2 3
+6 registro(s): id-1, id-2, id-3, especial, manual, #4
+1 registro(s): #1 1 1 registro(s): #1
+== erros ==
+[Erro de Execucao] a classe SemArea implementa Forma mas nao tem o metodo area()
+[Erro de Execucao] TipoErrado.nome() tem tipos diferentes dos da interface Nomeado
+[Erro de Execucao] Escondido.nome() e private; metodos da interface Nomeado precisam ser publicos
+[Erro de Execucao] Estatico.nome() e static; a interface Nomeado precisa de um metodo normal
+[Erro de Execucao] 'Voadora' nao e uma interface declarada (implements de Fantasma)
+[Erro de Execucao] dentro de interface ComCampo so vale: function tipo nome(parametros); ou com corpo { ... }
+[Erro de Execucao] Forma e interface: crie um objeto de uma classe que implementa Forma
+[Erro de Execucao] Forma sem objeto: guarde um objeto antes de chamar um metodo
+[Erro de Execucao] errada: esperado objeto que implementa Forma, recebido 5
+[Erro de Execucao] semInterface: Registro nao implementa a interface Forma
+[Erro de Execucao] a interface Forma nao tem campos ('.lado'); use os metodos de Forma
+[Erro de Execucao] a interface Forma nao tem o metodo desenho()
+[Erro de Execucao] Quadrado.nome() nao e static: chame em um objeto
+[Erro de Execucao] a classe Quadrado nao tem o campo static naoTem
+[Erro de Execucao] campo static proximoId e private em Registro (so os metodos de Registro acessam)
+[Erro de Execucao] a classe Quadrado nao tem o campo static inexistente
+Quadrado Forma Cubo
+fim do roteiro de interfaces

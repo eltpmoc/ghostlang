@@ -1,0 +1,4 @@
+uma ia aprende padroes nos textos.
+o modelo usa seus pesos para prever caracteres.
+ghostlang executa uma rede neural local.
+avaliar o modelo ajuda a acompanhar o aprendizado.

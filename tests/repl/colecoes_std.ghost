@@ -1,0 +1,54 @@
+import "libs/collections.g";
+import "libs/test.g";
+
+function void test_stack() {
+    Stack<int> s = new Stack<int>();
+    assert_true(s.is_empty(), "Pilha deve iniciar vazia");
+    assert_eq_int(s.size(), 0, "Tamanho inicial deve ser 0");
+
+    s.push(10);
+    s.push(20);
+    s.push(30);
+
+    assert_false(s.is_empty(), "Pilha nao deve estar vazia");
+    assert_eq_int(s.size(), 3, "Tamanho deve ser 3");
+    assert_eq_int(s.peek(), 30, "Topo deve ser 30");
+
+    int pop1 = s.pop();
+    assert_eq_int(pop1, 30, "Primeiro pop deve ser 30");
+    assert_eq_int(s.size(), 2, "Tamanho deve ser 2");
+
+    int pop2 = s.pop();
+    assert_eq_int(pop2, 20, "Segundo pop deve ser 20");
+    assert_eq_int(s.pop(), 10, "Terceiro pop deve ser 10");
+    assert_true(s.is_empty(), "Pilha deve voltar a ficar vazia");
+    print("test_stack: OK");
+}
+
+function void test_queue() {
+    Queue<string> q = new Queue<string>();
+    assert_true(q.is_empty(), "Fila deve iniciar vazia");
+    assert_eq_int(q.size(), 0, "Tamanho inicial da fila deve ser 0");
+
+    q.enqueue("primeiro");
+    q.enqueue("segundo");
+    q.enqueue("terceiro");
+
+    assert_false(q.is_empty(), "Fila nao deve estar vazia");
+    assert_eq_int(q.size(), 3, "Tamanho da fila deve ser 3");
+    assert_eq_str(q.peek(), "primeiro", "Frente da fila deve ser primeiro");
+
+    string deq1 = q.dequeue();
+    assert_eq_str(deq1, "primeiro", "Primeiro item desenfileirado");
+    assert_eq_int(q.size(), 2, "Tamanho deve ser 2");
+
+    string deq2 = q.dequeue();
+    assert_eq_str(deq2, "segundo", "Segundo item desenfileirado");
+    assert_eq_str(q.dequeue(), "terceiro", "Terceiro item desenfileirado");
+    assert_true(q.is_empty(), "Fila deve voltar a ficar vazia");
+    print("test_queue: OK");
+}
+
+test_stack();
+test_queue();
+print("todos os testes de colecoes_std passaram com sucesso!");

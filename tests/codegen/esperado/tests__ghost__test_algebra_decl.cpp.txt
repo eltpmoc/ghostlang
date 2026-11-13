@@ -1,0 +1,53 @@
+#line 1 "tests/ghost/test_algebra_decl.g"
+#line 3 "tests/ghost/test_algebra_decl.g"
+#line 4 "tests/ghost/test_algebra_decl.g"
+#line 5 "tests/ghost/test_algebra_decl.g"
+#line 7 "tests/ghost/test_algebra_decl.g"
+#line 8 "tests/ghost/test_algebra_decl.g"
+#line 9 "tests/ghost/test_algebra_decl.g"
+#line 11 "tests/ghost/test_algebra_decl.g"
+#line 12 "tests/ghost/test_algebra_decl.g"
+#line 13 "tests/ghost/test_algebra_decl.g"
+#line 15 "tests/ghost/test_algebra_decl.g"
+----
+/*TranspiladopeloGhostCompilerv1.0*/#include<iostream>#include<cstdio>#include<cstdlib>#include<string>#include<complex>#include<type_traits>#include<fstream>#include<sstream>#include<thread>#include<chrono>#include<mutex>#include"include/GhostNumberG.hpp"#include"include/GhostMatrix.hpp"#include"include/GhostLLM.hpp"#include"include/GhostLib.hpp"#include"include/GhostDevice.hpp"#include"include/GhostTextModel.hpp"#include"include/GhostWeb.hpp"#include"include/GhostKnowledge.hpp"#include"include/GhostTemporal.hpp"#include"include/GhostTransformer.hpp"#include"include/GhostTransformerG.hpp"#include"include/GhostMatrixG.hpp"#include"include/GhostQuantum.hpp"#include"include/GhostQML.hpp"#include"include/GhostHybrid.hpp"#include"include/GhostQTape.hpp"#include"include/GhostCore.hpp"#ifdef_WIN32#include<windows.h>#endifexternGhostNumberGG1;
+externGhostNumberGG2;
+externGhostNumberGG3;
+GhostNumberGG1;
+GhostNumberGG2;
+GhostNumberGG3;
+intmain(intargc,char**argv){
+try{
+#ifdef_WIN32SetConsoleOutputCP(CP_UTF8);
+SetConsoleCP(CP_UTF8);
+#endifstd::cout<<std::boolalpha;
+std::stringghost_args="";
+std::vector<std::string>ghost_args_vec;
+for(inti=1;
+i<argc;
+++i){
+ghost_args+=argv[i];
+ghost_args_vec.push_back(argv[i]);
+if(i<argc-1)ghost_args+=" ";
+}
+std::cout<<ghost_show(std::string("=== Testando Declaracoes Algebricas de Variaveis Ghost ==="))<<std::endl;
+std::cout<<ghost_show(std::string("1. Sintaxe com Sufixos"))<<std::endl;
+G1=1.0+ghost_i(2.0)+ghost_g(3.0);
+std::cout<<"\nEstado da estrutura '"<<"G1"<<"':"<<std::endl;
+G1.display();
+std::cout<<ghost_show(std::string("2. Sintaxe com Operadores (*)"))<<std::endl;
+G2=1.5-2.5*ghost_i(1.0)+3.5*ghost_g(1.0);
+std::cout<<"\nEstado da estrutura '"<<"G2"<<"':"<<std::endl;
+G2.display();
+std::cout<<ghost_show(std::string("3. Soma Algebrica Complexa"))<<std::endl;
+G3=(2.0+1.0)*ghost_i(1.0)-ghost_g(5.0)+10.0;
+std::cout<<"\nEstado da estrutura '"<<"G3"<<"':"<<std::endl;
+G3.display();
+std::cout<<ghost_show(std::string("=== Concluido ==="))<<std::endl;
+return0;
+}
+catch(conststd::exception&e){
+std::cerr<<e.what()<<std::endl;
+return1;
+}
+}

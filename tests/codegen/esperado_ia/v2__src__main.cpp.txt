@@ -1,0 +1,219 @@
+#line 4 "v2/src/main.g"
+#line 5 "v2/src/main.g"
+#line 6 "v2/src/main.g"
+#line 7 "v2/src/main.g"
+#line 8 "v2/src/main.g"
+#line 9 "v2/src/main.g"
+#line 13 "v2/src/main.g"
+#line 14 "v2/src/main.g"
+#line 15 "v2/src/main.g"
+#line 16 "v2/src/main.g"
+#line 18 "v2/src/main.g"
+#line 19 "v2/src/main.g"
+#line 20 "v2/src/main.g"
+#line 21 "v2/src/main.g"
+#line 23 "v2/src/main.g"
+#line 24 "v2/src/main.g"
+#line 25 "v2/src/main.g"
+#line 27 "v2/src/main.g"
+#line 28 "v2/src/main.g"
+#line 29 "v2/src/main.g"
+#line 30 "v2/src/main.g"
+#line 31 "v2/src/main.g"
+#line 32 "v2/src/main.g"
+#line 34 "v2/src/main.g"
+#line 35 "v2/src/main.g"
+#line 37 "v2/src/main.g"
+#line 38 "v2/src/main.g"
+#line 39 "v2/src/main.g"
+#line 40 "v2/src/main.g"
+#line 41 "v2/src/main.g"
+#line 42 "v2/src/main.g"
+#line 44 "v2/src/main.g"
+#line 45 "v2/src/main.g"
+#line 47 "v2/src/main.g"
+#line 48 "v2/src/main.g"
+#line 49 "v2/src/main.g"
+#line 50 "v2/src/main.g"
+#line 51 "v2/src/main.g"
+#line 52 "v2/src/main.g"
+#line 53 "v2/src/main.g"
+#line 54 "v2/src/main.g"
+#line 55 "v2/src/main.g"
+#line 56 "v2/src/main.g"
+#line 57 "v2/src/main.g"
+#line 58 "v2/src/main.g"
+#line 59 "v2/src/main.g"
+#line 60 "v2/src/main.g"
+#line 61 "v2/src/main.g"
+#line 62 "v2/src/main.g"
+#line 63 "v2/src/main.g"
+#line 64 "v2/src/main.g"
+#line 65 "v2/src/main.g"
+#line 66 "v2/src/main.g"
+#line 68 "v2/src/main.g"
+#line 70 "v2/src/main.g"
+#line 71 "v2/src/main.g"
+#line 72 "v2/src/main.g"
+#line 73 "v2/src/main.g"
+#line 74 "v2/src/main.g"
+#line 76 "v2/src/main.g"
+#line 77 "v2/src/main.g"
+#line 78 "v2/src/main.g"
+#line 80 "v2/src/main.g"
+#line 81 "v2/src/main.g"
+#line 82 "v2/src/main.g"
+#line 83 "v2/src/main.g"
+#line 84 "v2/src/main.g"
+#line 85 "v2/src/main.g"
+#line 87 "v2/src/main.g"
+#line 88 "v2/src/main.g"
+#line 89 "v2/src/main.g"
+#line 90 "v2/src/main.g"
+#line 91 "v2/src/main.g"
+#line 92 "v2/src/main.g"
+#line 94 "v2/src/main.g"
+#line 95 "v2/src/main.g"
+#line 96 "v2/src/main.g"
+#line 97 "v2/src/main.g"
+#line 98 "v2/src/main.g"
+#line 100 "v2/src/main.g"
+#line 101 "v2/src/main.g"
+#line 102 "v2/src/main.g"
+#line 103 "v2/src/main.g"
+#line 104 "v2/src/main.g"
+#line 106 "v2/src/main.g"
+#line 107 "v2/src/main.g"
+#line 3 "v2/src/main.g"
+#line 12 "v2/src/main.g"
+----
+/*TranspiladopeloGhostCompilerv1.0*/#include<iostream>#include<cstdio>#include<cstdlib>#include<string>#include<complex>#include<type_traits>#include<fstream>#include<sstream>#include<thread>#include<chrono>#include<mutex>#include"include/GhostNumberG.hpp"#include"include/GhostMatrix.hpp"#include"include/GhostLLM.hpp"#include"include/GhostLib.hpp"#include"include/GhostDevice.hpp"#include"include/GhostTextModel.hpp"#include"include/GhostWeb.hpp"#include"include/GhostKnowledge.hpp"#include"include/GhostTemporal.hpp"#include"include/GhostTransformer.hpp"#include"include/GhostTransformerG.hpp"#include"include/GhostMatrixG.hpp"#include"include/GhostQuantum.hpp"#include"include/GhostQML.hpp"#include"include/GhostHybrid.hpp"#include"include/GhostQTape.hpp"#include"include/GhostCore.hpp"#ifdef_WIN32#include<windows.h>#endifvoidajuda_v2();
+voidghost_main(GhostList<std::string>args);
+voidajuda_v2(){
+std::cout<<ghost_show(std::string("Ghost Conversa V2 - modelo proprio de palavras em portugues"))<<std::endl;
+std::cout<<ghost_show(std::string("treinar TREINO VALIDACAO EPOCAS TAXA DESTINO"))<<std::endl;
+std::cout<<ghost_show(std::string("continuar TREINO VALIDACAO EPOCAS TAXA ORIGEM DESTINO"))<<std::endl;
+std::cout<<ghost_show(std::string("avaliar CORPUS CHECKPOINT"))<<std::endl;
+std::cout<<ghost_show(std::string("gerar CHECKPOINT PROMPT MAX_TOKENS"))<<std::endl;
+std::cout<<ghost_show(std::string("chat CHECKPOINT | info CHECKPOINT | hardware | autoteste"))<<std::endl;
+}
+voidghost_main(GhostList<std::string>args){
+v2_iniciar();
+if(args.size()==0){
+ajuda_v2();
+return;
+}
+std::stringcomando=args[0];
+if(comando==std::string("hardware")){
+v2_info();
+return;
+}
+if(comando==std::string("autoteste")){
+v2_autoteste();
+return;
+}
+inttreino_solicitado=comando==std::string("treinar")||comando==std::string("continuar");
+if(treino_solicitado){
+inttamanho=6;
+std::stringorigem=std::string("");
+if(comando==std::string("continuar")){
+tamanho=7;
+}
+if(args.size()!=tamanho){
+v2_falhar(std::string("Argumentos invalidos para treinamento."));
+}
+intepocas=v2_inteiro(args[3],1,200);
+doubletaxa=v2_decimal(args[4],0.000001,0.02);
+std::stringdestino=args[tamanho-1];
+intexiste=file_exists(destino)||file_exists(destino+std::string(".ultimo"))||file_exists(destino+std::string(".metricas.csv"));
+if(existe){
+v2_falhar(std::string("Destino ja existe. Use um novo nome para preservar o modelo."));
+}
+if(comando==std::string("continuar")){
+origem=args[5];
+}
+v2_preparar(args[1],args[2],origem);
+doublemelhor=v2_validar();
+std::cout<<ghost_show(std::string("CE inicial validacao: ")+melhor+std::string(" | perplexidade: ")+v2_perplexidade(melhor))<<std::endl;
+v2_salvar(destino);
+intpaciencia=v2_paciencia();
+intsem_melhora=0;
+intepoca=0;
+intcontinuar_treino=1;
+std::stringmetricas=std::string("epoca,ce_treino_online,ce_validacao,perplexidade,acuracia\n");
+while(continuar_treino){
+doubleerro_treino=v2_epoca(taxa);
+doubleerro_validacao=v2_validar();
+doubleperplexidade=v2_perplexidade(erro_validacao);
+doubleacerto=v2_acuracia();
+inttotal_epocas=v2_epocas();
+v2_salvar(destino+std::string(".ultimo"));
+if(erro_validacao<melhor){
+melhor=erro_validacao;
+sem_melhora=0;
+v2_salvar(destino);
+}
+else{
+sem_melhora=sem_melhora+1;
+}
+std::cout<<ghost_show(std::string("Epoca ")+total_epocas+std::string(" | CE treino ")+erro_treino+std::string(" | CE validacao ")+erro_validacao+std::string(" | PPL ")+perplexidade+std::string(" | acuracia ")+acerto)<<std::endl;
+metricas=metricas+format_number(total_epocas,0)+std::string(",")+format_number(erro_treino,9)+std::string(",")+format_number(erro_validacao,9)+std::string(",")+format_number(perplexidade,9)+std::string(",")+format_number(acerto,9)+std::string("\n");
+writefile(destino+std::string(".metricas.csv"),metricas);
+epoca=epoca+1;
+continuar_treino=epoca<epocas&&sem_melhora<paciencia;
+}
+std::cout<<ghost_show(std::string("Melhor checkpoint: ")+destino+std::string(" | CE validacao ")+melhor)<<std::endl;
+std::cout<<ghost_show(std::string("Retomada completa: ")+destino+std::string(".ultimo"))<<std::endl;
+return;
+}
+intavaliar_solicitado=comando==std::string("avaliar")&&args.size()==3;
+if(avaliar_solicitado){
+v2_carregar(args[2]);
+doubleerro=v2_avaliar_arquivo(args[1]);
+std::cout<<ghost_show(std::string("CE=")+format_number(erro,9)+std::string(" perplexidade=")+v2_perplexidade(erro)+std::string(" acuracia=")+v2_acuracia())<<std::endl;
+return;
+}
+intgerar_solicitado=comando==std::string("gerar")&&args.size()==4;
+if(gerar_solicitado){
+intquantidade=v2_inteiro(args[3],1,2048);
+v2_carregar(args[1]);
+std::cout<<ghost_show(v2_gerar(args[2],quantidade))<<std::endl;
+return;
+}
+intchat_solicitado=comando==std::string("chat")&&args.size()==2;
+if(chat_solicitado){
+v2_carregar(args[1]);
+v2_chat();
+return;
+}
+intinfo_solicitado=comando==std::string("info")&&args.size()==2;
+if(info_solicitado){
+v2_carregar(args[1]);
+v2_info();
+return;
+}
+ajuda_v2();
+v2_falhar(std::string("Comando invalido."));
+}
+intmain(intargc,char**argv){
+try{
+#ifdef_WIN32SetConsoleOutputCP(CP_UTF8);
+SetConsoleCP(CP_UTF8);
+#endifstd::cout<<std::boolalpha;
+std::stringghost_args="";
+std::vector<std::string>ghost_args_vec;
+for(inti=1;
+i<argc;
+++i){
+ghost_args+=argv[i];
+ghost_args_vec.push_back(argv[i]);
+if(i<argc-1)ghost_args+=" ";
+}
+ghost_main(ghost_args_vec);
+return0;
+}
+catch(conststd::exception&e){
+std::cerr<<e.what()<<std::endl;
+return1;
+}
+}

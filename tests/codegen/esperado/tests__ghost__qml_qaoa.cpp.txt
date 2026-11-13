@@ -1,0 +1,67 @@
+#line 6 "tests/ghost/qml_qaoa.g"
+#line 7 "tests/ghost/qml_qaoa.g"
+#line 8 "tests/ghost/qml_qaoa.g"
+#line 8 "tests/ghost/qml_qaoa.g"
+#line 8 "tests/ghost/qml_qaoa.g"
+#line 9 "tests/ghost/qml_qaoa.g"
+#line 9 "tests/ghost/qml_qaoa.g"
+#line 9 "tests/ghost/qml_qaoa.g"
+#line 10 "tests/ghost/qml_qaoa.g"
+#line 10 "tests/ghost/qml_qaoa.g"
+#line 12 "tests/ghost/qml_qaoa.g"
+#line 13 "tests/ghost/qml_qaoa.g"
+#line 14 "tests/ghost/qml_qaoa.g"
+#line 15 "tests/ghost/qml_qaoa.g"
+#line 17 "tests/ghost/qml_qaoa.g"
+#line 18 "tests/ghost/qml_qaoa.g"
+#line 20 "tests/ghost/qml_qaoa.g"
+#line 21 "tests/ghost/qml_qaoa.g"
+#line 22 "tests/ghost/qml_qaoa.g"
+#line 23 "tests/ghost/qml_qaoa.g"
+#line 5 "tests/ghost/qml_qaoa.g"
+----
+/*TranspiladopeloGhostCompilerv1.0*/#include<iostream>#include<cstdio>#include<cstdlib>#include<string>#include<complex>#include<type_traits>#include<fstream>#include<sstream>#include<thread>#include<chrono>#include<mutex>#include"include/GhostNumberG.hpp"#include"include/GhostMatrix.hpp"#include"include/GhostLLM.hpp"#include"include/GhostLib.hpp"#include"include/GhostDevice.hpp"#include"include/GhostTextModel.hpp"#include"include/GhostWeb.hpp"#include"include/GhostKnowledge.hpp"#include"include/GhostTemporal.hpp"#include"include/GhostTransformer.hpp"#include"include/GhostTransformerG.hpp"#include"include/GhostMatrixG.hpp"#include"include/GhostQuantum.hpp"#include"include/GhostQML.hpp"#include"include/GhostHybrid.hpp"#include"include/GhostQTape.hpp"#include"include/GhostCore.hpp"#ifdef_WIN32#include<windows.h>#endifvoidghost_main();
+voidghost_main(){
+GhostQCircuitgrafo=GhostQCircuit(6);
+grafo.seed(4);
+grafo.edge(0,1);
+grafo.edge(1,2);
+grafo.edge(2,3);
+grafo.edge(3,4);
+grafo.edge(4,5);
+grafo.edge(5,0);
+grafo.edge(0,3);
+grafo.edge(1,4);
+grafo.qaoa(3);
+std::cout<<ghost_show(grafo)<<std::endl;
+std::cout<<ghost_show(ghost_fstr(std::string("Otimo exato (forca bruta): "),(grafo.maxcut_exact())))<<std::endl;
+std::cout<<ghost_show(ghost_fstr(std::string("Corte esperado antes:      "),(grafo.expected_cut())))<<std::endl;
+grafo.set_verbose(50);
+grafo.minimize(150,0.05);
+std::cout<<ghost_show(ghost_fstr(std::string("Corte esperado depois:     "),(grafo.expected_cut())))<<std::endl;
+std::cout<<ghost_show(ghost_fstr(std::string("Razao de aproximacao:      "),(grafo.expected_cut()/grafo.maxcut_exact())))<<std::endl;
+std::stringsolucao=grafo.maxcut_solution(2000);
+std::cout<<ghost_show(ghost_fstr(std::string("Melhor solucao amostrada:  "),(solucao),std::string(" -> corte "),(grafo.cut_of(solucao))))<<std::endl;
+}
+intmain(intargc,char**argv){
+try{
+#ifdef_WIN32SetConsoleOutputCP(CP_UTF8);
+SetConsoleCP(CP_UTF8);
+#endifstd::cout<<std::boolalpha;
+std::stringghost_args="";
+std::vector<std::string>ghost_args_vec;
+for(inti=1;
+i<argc;
+++i){
+ghost_args+=argv[i];
+ghost_args_vec.push_back(argv[i]);
+if(i<argc-1)ghost_args+=" ";
+}
+ghost_main();
+return0;
+}
+catch(conststd::exception&e){
+std::cerr<<e.what()<<std::endl;
+return1;
+}
+}

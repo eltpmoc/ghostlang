@@ -1,0 +1,19 @@
+7 100 medida 7 contadores: 2
+{"nome":"ghost","versao":2,"tags":["q","ia"]}
+{} {"a": 1, "bb": 2, "ccc": 3} [[0, 1], [0, 2], [1, 2]] {"bb": 4, "ccc": 6} {0, 1, 2}
+pouco 0
+dois ou queda 0
+pouco 1
+dois ou queda 1
+dois ou queda 2
+muito 3
+muito 4
+pegou interno
+de novo interno
+sem catch
+finally
+[Multiverso] Colapso temporal resolvido. Linha do tempo de maior score (3) assumida.
+hypothesis 3
+9 2.5 ok(3) err("impar: 3")
+11 12 30 42 42
+depois de preparar e desfazer: q.prob(0) = 0

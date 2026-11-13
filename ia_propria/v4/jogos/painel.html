@@ -1,0 +1,111 @@
+<!doctype html>
+<html lang="pt-BR">
+<head>
+<meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+<meta http-equiv="Content-Security-Policy" content="default-src 'none'; script-src 'unsafe-inline'; style-src 'unsafe-inline'; img-src data:; connect-src 'none'; base-uri 'none'; form-action 'none'">
+<title>GhostLang · Aprendizagem nos jogos</title>
+<style>
+:root{color-scheme:dark;--bg:#0c1220;--panel:#141f31;--border:#2a3b53;--text:#eef3fb;--muted:#adbed5;--blue:#819dff;--green:#68deb2;--grey:#72839b;--red:#ff9f99}*{box-sizing:border-box}body{margin:0;background:var(--bg);color:var(--text);font:16px/1.55 system-ui,sans-serif}main{max-width:1240px;margin:auto;padding:36px 24px 60px}header{border-bottom:1px solid var(--border);padding-bottom:24px}.eyebrow{letter-spacing:.12em;font-size:12px;text-transform:uppercase;color:var(--green);font-weight:700}h1{font-size:clamp(27px,4vw,42px);line-height:1.15;margin:12px 0}h2{font-size:21px;margin:0 0 8px}h3{font-size:16px;margin:0 0 8px}p{margin:8px 0}.muted,small{color:var(--muted)}.panel{background:var(--panel);border:1px solid var(--border);border-radius:14px;padding:22px;margin-top:20px}.controls{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:14px}label{display:flex;flex-direction:column;gap:6px;color:var(--muted);font-size:13px}select,input,button{font:inherit;color:var(--text);background:#0b1526;border:1px solid #47617d;border-radius:7px;padding:10px;min-height:44px}select,input{width:100%}button{cursor:pointer}button:hover{border-color:var(--green)}:focus-visible{outline:3px solid var(--green);outline-offset:3px}.cards{display:grid;grid-template-columns:repeat(4,1fr);gap:14px;margin-top:20px}.card{padding:18px;border:1px solid var(--border);border-radius:12px;background:var(--panel)}.number{font-size:30px;font-weight:720;letter-spacing:-.03em}.card p{font-size:13px}.green{color:var(--green)}.red{color:var(--red)}.legend{display:flex;flex-wrap:wrap;gap:20px;font-size:13px;margin:18px 0;color:var(--muted)}.dot{display:inline-block;width:12px;height:12px;border-radius:3px;margin-right:6px}.chartrow{display:grid;grid-template-columns:120px 1fr 75px;gap:12px;margin-bottom:20px;align-items:center}.tracks{display:grid;gap:4px}.track{background:#253248;height:12px;border-radius:3px;overflow:hidden}.bar{height:100%;min-width:0;border-radius:3px}.before{background:var(--blue)}.after{background:var(--green)}.reference{background:var(--grey)}.compact{font-size:12px;color:var(--muted)}.filters{display:flex;gap:12px;margin:16px 0;flex-wrap:wrap}.filters label{flex:1;min-width:160px}.tablewrap{overflow-x:auto}table{width:100%;border-collapse:collapse;font-size:14px}th,td{text-align:left;padding:12px 8px;border-bottom:1px solid var(--border);vertical-align:top}th{color:var(--muted);font-size:12px;letter-spacing:.03em}pre{white-space:pre-wrap;overflow-wrap:anywhere;font:14px/1.6 ui-monospace,monospace;background:#0b1526;padding:14px;border-radius:8px;margin:8px 0}.example{border:1px solid var(--border);border-radius:10px;padding:15px;margin-top:12px}.tag{display:inline-block;font-size:12px;border-radius:30px;padding:3px 10px;background:#26374b;margin-bottom:8px}.answers{display:grid;grid-template-columns:repeat(3,1fr);gap:12px}.answers div{min-width:0}.banner{border-left:4px solid var(--green)}.banner.warning{border-left-color:#ffc77c}summary{cursor:pointer;color:var(--muted)}code{overflow-wrap:anywhere}.actions{display:flex;justify-content:space-between;gap:12px;align-items:center;margin-top:16px}.hidden{display:none}footer{color:var(--muted);font-size:13px;margin-top:24px}.noscript{color:#ffc77c}#pairInfo{overflow-wrap:anywhere}@media(max-width:720px){main{padding:24px 14px}.controls,.answers{grid-template-columns:1fr}.cards{grid-template-columns:repeat(2,1fr)}.chartrow{grid-template-columns:82px 1fr 58px;gap:8px}.panel{padding:16px}.number{font-size:25px}}@media print{body{background:white;color:black}.panel,.card{background:white;border-color:#ccc}select,input,button,.actions{display:none}.muted,small{color:#555}pre{background:#eee;color:black}}
+</style>
+</head>
+<body><main>
+<header><div class="eyebrow">GhostLang · laboratório local</div><h1>A IA está aprendendo com os jogos?</h1><p class="muted">Compare respostas geradas pelos pesos, veja onde houve progresso e examine os erros que continuam.</p><p><strong>Este painel mede desempenho em exercícios. Não é um teste de QI nem uma medida de inteligência geral.</strong></p></header>
+<noscript><p class="noscript">Ative JavaScript para explorar os relatórios locais. Nenhum dado é enviado à internet.</p></noscript>
+<section class="panel" aria-labelledby="compareTitle"><h2 id="compareTitle">Comparar os mesmos desafios</h2><div class="controls">
+<label>Conjunto de avaliação<select id="partition"><option value="teste">Problemas inéditos · enunciado familiar</option><option value="teste_formulacao">Problemas inéditos · nova formulação</option><option value="validacao">Validação · usada para escolher os pesos</option></select></label>
+<label>Nível de dificuldade<select id="level"><option value="all">Todos os níveis</option><option value="1">Nível 1 · básico</option><option value="2">Nível 2 · intermediário</option><option value="3">Nível 3 · múltiplas etapas</option></select></label>
+<label>Antes · checkpoint de referência<select id="before"></select></label><label>Depois · checkpoint a comparar<select id="after"></select></label>
+</div><p class="compact" id="pairInfo"></p></section>
+<section id="verdict" class="panel banner" aria-live="polite"><h2 id="verdictTitle"></h2><p id="verdictText"></p></section>
+<div id="results">
+<section class="cards" aria-label="Resultados da comparação"><div class="card"><span class="muted">Antes</span><div class="number" id="beforeScore"></div><p id="beforePercent"></p></div><div class="card"><span class="muted">Depois</span><div class="number green" id="afterScore"></div><p id="afterPercent"></p></div><div class="card"><span class="muted">Mudança observada</span><div class="number" id="delta"></div><p id="deltaNote"></p></div><div class="card"><span class="muted">Referência simples</span><div class="number" id="referenceScore"></div><p>Responder sempre com a resposta mais frequente do treino, por jogo e nível.</p></div></section>
+<section class="panel"><h2>Quais habilidades estão avançando?</h2><p class="muted">As barras mostram a proporção de acertos nos mesmos problemas. Consulte as contagens: um único acerto pode alterar muito um grupo pequeno.</p><div class="legend"><span><i class="dot before"></i>Antes</span><span><i class="dot after"></i>Depois</span><span><i class="dot reference"></i>Referência simples</span></div><div id="chart" role="img" aria-label="Acertos por habilidade; valores completos na tabela abaixo"></div><div class="tablewrap"><table><thead><tr><th>Habilidade</th><th>Antes</th><th>Depois</th><th>Acertos novos</th><th>Regressões</th><th>Erros persistentes</th></tr></thead><tbody id="skills"></tbody></table></div></section>
+<section class="panel"><h2>Veja o que o modelo respondeu</h2><p class="muted">A resposta esperada é calculada pelas regras do jogo. A resposta da IA vem do gerador bruto, sem substituição pelo gabarito.</p><div class="filters"><label>Habilidade<select id="game"><option value="all">Todas</option></select></label><label>Tipo de resultado<select id="status"><option value="all">Todos</option><option value="gain">Passou a acertar</option><option value="loss">Passou a errar</option><option value="wrong">Errou antes e depois</option><option value="right">Acertou antes e depois</option></select></label><label>Buscar no enunciado<input id="search" type="search" placeholder="Caixa, portas, estoque…"></label></div><div id="examples"></div><div class="actions"><span id="exampleCount" class="muted"></span><button id="more">Mostrar mais 12</button></div></section>
+</div>
+<section class="panel"><h2>Partidas: repetir não é aprender</h2><p id="matchNote" class="muted"></p><p class="muted">Rodar o mesmo checkpoint nos mesmos desafios não atualiza seus pesos. Conjuntos repetidos foram agrupados; os placares abaixo não são somados à avaliação principal.</p><div class="tablewrap"><table><thead><tr><th>Checkpoint</th><th>Semente</th><th>Desafios</th><th>Acertos</th><th>Execuções desse conjunto</th></tr></thead><tbody id="matches"></tbody></table></div></section>
+<section class="panel"><h2>Como interpretar o progresso</h2><p><strong>Sinais úteis:</strong> acertar problemas inéditos, superar uma referência simples, manter acertos anteriores e lidar com enunciados diferentes.</p><p><strong>O que ainda falta provar:</strong> que o ganho persiste em outras sementes e tarefas e que se transfere para leitura e conversa livre. Acertar códigos curtos não demonstra fluência.</p><p>Treino, validação e teste têm funções diferentes. A validação escolhe os pesos; o teste mede o resultado. Não treine nem escolha modelos repetidamente pelo mesmo teste. Os resultados são observações destes problemas, sem garantia estatística de generalização.</p><details><summary>Fontes e atualização</summary><p id="generated"></p><p>O HTML é uma fotografia dos relatórios locais. Não treina o modelo nem faz novas avaliações. Depois de gerar novos relatórios, atualize:</p><pre>python3 ia_propria/v4/jogos/painel.py</pre><p>Em seguida, reabra ou atualize esta página. Nenhuma biblioteca externa, servidor ou conexão à internet é necessária.</p><div id="sources"></div><p id="warnings"></p></details></section>
+<footer>Resultados verificáveis · pesos locais · sem índice inventado de inteligência</footer>
+</main>
+<script id="data" type="application/json">__GHOST_DATA__</script>
+<script>
+'use strict';
+const DATA=JSON.parse(document.getElementById('data').textContent);
+const $=id=>document.getElementById(id);
+const names={copia:'Cópia',memoria:'Memória',regras:'Regras',caminho:'Caminhos',ordem:'Ordem',contagem:'Contagem'};
+const el=(tag,text,cls)=>{const e=document.createElement(tag);if(text!==undefined)e.textContent=text;if(cls)e.className=cls;return e;};
+const percent=(n,d)=>d?100*n/d:0;
+const pct=(n,d)=>percent(n,d).toFixed(1).replace('.',',')+'%';
+const label=r=>{const parts=r.checkpoint.split(/[\\/]/);return parts.slice(-2).join('/')+' · '+r.sha.slice(0,8)+' · '+r.rows.length+' casos';};
+let pairs=[],pageSize=12;
+function fillReports(){
+ const candidates=DATA.reports.map((r,i)=>({r,i})).filter(x=>x.r.partition===$('partition').value);
+ for(const id of ['before','after']){$(id).replaceChildren();for(const {r,i} of candidates){const o=el('option',label(r));o.value=String(i);$(id).append(o);}}
+ if(candidates.length){
+  const largest=Math.max(...candidates.map(x=>x.r.rows.length));const full=candidates.filter(x=>x.r.rows.length===largest);
+  $('before').value=String(full[0].i);$('after').value=String(full[full.length-1].i);
+ }
+ render();
+}
+function stats(items){return {n:items.length,b:items.filter(p=>p.b.correct).length,a:items.filter(p=>p.a.correct).length,
+ gain:items.filter(p=>!p.b.correct&&p.a.correct).length,loss:items.filter(p=>p.b.correct&&!p.a.correct).length,
+ wrong:items.filter(p=>!p.b.correct&&!p.a.correct).length,ref:items.every(p=>p.a.reference_correct!==null)?items.filter(p=>p.a.reference_correct).length:null,
+ errors:items.filter(p=>p.b.error||p.a.error).length};}
+function render(){
+ const b=DATA.reports[Number($('before').value)],a=DATA.reports[Number($('after').value)];pairs=[];pageSize=12;
+ if(!$('before').options.length||!b||!a||b.partition!==a.partition||b.dataset!==a.dataset||b.method!==a.method){
+  $('results').classList.add('hidden');$('verdictTitle').textContent='Sem comparação compatível';$('verdictText').textContent='Escolha duas avaliações do mesmo conjunto, partição e método. Não combinamos testes diferentes.';$('pairInfo').textContent='';return;
+ }
+ const previous=new Map(b.rows.map(r=>[r.signature,r]));
+ pairs=a.rows.filter(r=>previous.has(r.signature)&&($('level').value==='all'||r.level===Number($('level').value))).map(r=>({a:r,b:previous.get(r.signature)}));
+ const s=stats(pairs);
+ $('results').classList.toggle('hidden',!s.n);
+ $('pairInfo').textContent=s.n+' desafios em comum, após o filtro. Apenas esse conjunto entra nas contagens. Antes: '+b.file+' · Depois: '+a.file;
+ if(!s.n){$('verdictTitle').textContent='Sem desafios em comum';$('verdictText').textContent='Não é possível medir evolução entre problemas diferentes.';return;}
+ $('beforeScore').textContent=s.b+'/'+s.n;$('afterScore').textContent=s.a+'/'+s.n;
+ $('beforePercent').textContent=pct(s.b,s.n)+' de acertos';$('afterPercent').textContent=pct(s.a,s.n)+' de acertos';
+ const delta=percent(s.a-s.b,s.n);$('delta').textContent=(delta>0?'+':'')+delta.toFixed(1).replace('.',',')+' p.p.';
+ $('deltaNote').textContent=s.gain+' acertos novos · '+s.loss+' regressões';
+ $('referenceScore').textContent=s.ref===null?'Indisponível':s.ref+'/'+s.n;
+ const same=a.sha===b.sha;
+ let title=same?'Mesmos pesos: isto é uma repetição':s.a>s.b?'Houve ganho no placar destes jogos':s.a<s.b?'O placar caiu nesta comparação':'Não houve ganho líquido no placar';
+ $('verdictTitle').textContent=title;
+ $('verdictText').textContent=(same?'Esta comparação não representa aprendizado. ':s.a>s.b?'É um sinal inicial, não uma prova de inteligência geral. ':'Os dados não mostram melhora líquida neste conjunto. ')+s.wrong+' problemas continuaram errados; '+(s.n-s.a)+' erros no total depois. '+(s.ref!==null?(s.a>s.ref?'O resultado supera':'O resultado não supera')+' a referência simples neste recorte. ':'')+(s.errors?' '+s.errors+' casos tiveram falha de execução.':'')+($('partition').value==='validacao'?' Este conjunto participa da seleção dos pesos, portanto não é teste final.':'');
+ $('verdict').classList.toggle('warning',same||s.a<=s.b||s.ref!==null&&s.a<=s.ref);
+ $('chart').replaceChildren();$('skills').replaceChildren();
+ for(const game of DATA.games){const group=pairs.filter(p=>p.a.game===game),t=stats(group);if(!t.n)continue;
+  const row=el('div',undefined,'chartrow');row.append(el('strong',names[game]));const tracks=el('div',undefined,'tracks');
+  for(const [value,cls] of [[t.b,'before'],[t.a,'after'],[t.ref,'reference']]){const track=el('div',undefined,'track'),bar=el('div',undefined,'bar '+cls);bar.style.width=percent(value||0,t.n)+'%';bar.title=(cls==='after'?'Depois':cls==='before'?'Antes':'Referência')+': '+value+'/'+t.n;track.append(bar);tracks.append(track);}
+  row.append(tracks,el('span',pct(t.a,t.n),'compact'));$('chart').append(row);
+  const tr=el('tr');for(const text of [names[game],t.b+'/'+t.n,t.a+'/'+t.n,String(t.gain),String(t.loss),String(t.wrong)])tr.append(el('td',text));$('skills').append(tr);
+ }
+ renderExamples();
+}
+function renderExamples(){
+ const state=$('status').value,query=$('search').value.toLocaleLowerCase('pt-BR');
+ const filtered=pairs.filter(p=>($('game').value==='all'||p.a.game===$('game').value)&&p.a.prompt.toLocaleLowerCase('pt-BR').includes(query)&&
+  (state==='all'||state==='gain'&&!p.b.correct&&p.a.correct||state==='loss'&&p.b.correct&&!p.a.correct||state==='wrong'&&!p.b.correct&&!p.a.correct||state==='right'&&p.b.correct&&p.a.correct));
+ $('examples').replaceChildren();
+ for(const p of filtered.slice(0,pageSize)){
+  const box=el('article',undefined,'example'),status=p.a.correct?(p.b.correct?'Acertou ambos':'Passou a acertar'):(p.b.correct?'Passou a errar':'Errou ambos');
+  box.append(el('span',names[p.a.game]+' · nível '+p.a.level+' · '+status,'tag'),el('pre',p.a.prompt));
+  const answers=el('div',undefined,'answers');
+  for(const [name,value,ok] of [['Esperado',p.a.expected,true],['Antes',p.b.actual,p.b.correct],['Depois',p.a.actual,p.a.correct]]){
+   const part=el('div');part.append(el('h3',name),el('pre',JSON.stringify(value),ok?'green':'red'));answers.append(part);
+  }
+  box.append(answers);if(p.a.error||p.b.error)box.append(el('p','Falha de execução: '+(p.a.error||p.b.error),'red'));$('examples').append(box);
+ }
+ if(!filtered.length)$('examples').append(el('p','Nenhum exemplo corresponde a este filtro.','muted'));
+ $('exampleCount').textContent=Math.min(pageSize,filtered.length)+' de '+filtered.length+' exemplos';$('more').hidden=pageSize>=filtered.length;
+}
+for(const game of DATA.games){const o=el('option',names[game]);o.value=game;$('game').append(o);}
+$('partition').addEventListener('change',fillReports);
+for(const id of ['before','after','level'])$(id).addEventListener('change',render);
+for(const id of ['game','status','search'])$(id).addEventListener(id==='search'?'input':'change',()=>{pageSize=12;renderExamples();});
+$('more').addEventListener('click',()=>{pageSize+=12;renderExamples();});
+$('matchNote').textContent=DATA.match_files+' arquivos de partidas · '+DATA.matches.length+' combinações distintas de checkpoint e conjunto de desafios.';
+for(const m of DATA.matches){const tr=el('tr');for(const value of [m.sha.slice(0,12),m.seeds.join(', '),String(m.rows.length),m.rows.filter(r=>r.correct).length+'/'+m.rows.length+(m.variant?' (saídas variaram entre execuções)':''),String(m.repeats)])tr.append(el('td',value));$('matches').append(tr);}
+$('generated').textContent='Painel gerado em '+DATA.generated+'. Dados disponíveis em '+DATA.reports.length+' relatórios de avaliação.';
+for(const r of DATA.reports){const detail=el('details');detail.append(el('summary',r.file),el('pre','Checkpoint: '+r.checkpoint+'\nSHA-256: '+r.sha+'\nMétodo: '+r.method+'\nDataset SHA-256: '+r.dataset+'\nRelatório SHA-256: '+r.digest));$('sources').append(detail);}
+$('warnings').textContent=DATA.skipped.length?'Relatórios rejeitados por inconsistência: '+DATA.skipped.map(r=>r.file+' ('+r.reason+')').join('; '):'Todos os relatórios reconhecidos passaram pela conferência de gabaritos e contagens.';
+fillReports();
+</script></body></html>

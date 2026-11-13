@@ -1,0 +1,85 @@
+#line 7 "libs/db.g"
+#line 11 "libs/db.g"
+#line 15 "libs/db.g"
+#line 19 "libs/db.g"
+#line 23 "libs/db.g"
+#line 27 "libs/db.g"
+#line 4 "tests/ghost/sqlite_std.g"
+#line 5 "tests/ghost/sqlite_std.g"
+#line 6 "tests/ghost/sqlite_std.g"
+#line 7 "tests/ghost/sqlite_std.g"
+#line 9 "tests/ghost/sqlite_std.g"
+#line 10 "tests/ghost/sqlite_std.g"
+#line 12 "tests/ghost/sqlite_std.g"
+#line 13 "tests/ghost/sqlite_std.g"
+#line 15 "tests/ghost/sqlite_std.g"
+#line 16 "tests/ghost/sqlite_std.g"
+#line 17 "tests/ghost/sqlite_std.g"
+#line 6 "libs/db.g"
+#line 10 "libs/db.g"
+#line 14 "libs/db.g"
+#line 18 "libs/db.g"
+#line 22 "libs/db.g"
+#line 26 "libs/db.g"
+#line 3 "tests/ghost/sqlite_std.g"
+----
+/*TranspiladopeloGhostCompilerv1.0*/#include<iostream>#include<cstdio>#include<cstdlib>#include<string>#include<complex>#include<type_traits>#include<fstream>#include<sstream>#include<thread>#include<chrono>#include<mutex>#include"include/GhostNumberG.hpp"#include"include/GhostMatrix.hpp"#include"include/GhostLLM.hpp"#include"include/GhostLib.hpp"#include"include/GhostDevice.hpp"#include"include/GhostTextModel.hpp"#include"include/GhostWeb.hpp"#include"include/GhostKnowledge.hpp"#include"include/GhostTemporal.hpp"#include"include/GhostTransformer.hpp"#include"include/GhostTransformerG.hpp"#include"include/GhostMatrixG.hpp"#include"include/GhostQuantum.hpp"#include"include/GhostQML.hpp"#include"include/GhostHybrid.hpp"#include"include/GhostQTape.hpp"#include"include/GhostCore.hpp"#ifdef_WIN32#include<windows.h>#endifintdb_open(std::stringpath);
+intdb_exec(inthandle,std::stringsql);
+std::stringdb_query(inthandle,std::stringsql);
+intdb_close(inthandle);
+intdb_last_id(inthandle);
+intdb_changes(inthandle);
+intghost_main();
+intdb_open(std::stringpath){
+returnghost_db_open(path);
+}
+intdb_exec(inthandle,std::stringsql){
+returnghost_db_exec(handle,sql);
+}
+std::stringdb_query(inthandle,std::stringsql){
+returnghost_db_query(handle,sql);
+}
+intdb_close(inthandle){
+returnghost_db_close(handle);
+}
+intdb_last_id(inthandle){
+returnghost_db_last_id(handle);
+}
+intdb_changes(inthandle){
+returnghost_db_changes(handle);
+}
+intghost_main(){
+intdb=db_open(std::string(":memory:"));
+db_exec(db,std::string("CREATE TABLE produtos (id INTEGER PRIMARY KEY, item TEXT, preco REAL);"));
+db_exec(db,std::string("INSERT INTO produtos (item, preco) VALUES ('Teclado', 150.0);"));
+db_exec(db,std::string("INSERT INTO produtos (item, preco) VALUES ('Mouse', 75.5);"));
+std::stringres=db_query(db,std::string("SELECT item, preco FROM produtos ORDER BY id;"));
+std::cout<<ghost_show(res)<<std::endl;
+intlast=db_last_id(db);
+std::cout<<ghost_show(last)<<std::endl;
+db_close(db);
+std::cout<<ghost_show(std::string("sqlite_compilado: OK"))<<std::endl;
+return0;
+}
+intmain(intargc,char**argv){
+try{
+#ifdef_WIN32SetConsoleOutputCP(CP_UTF8);
+SetConsoleCP(CP_UTF8);
+#endifstd::cout<<std::boolalpha;
+std::stringghost_args="";
+std::vector<std::string>ghost_args_vec;
+for(inti=1;
+i<argc;
+++i){
+ghost_args+=argv[i];
+ghost_args_vec.push_back(argv[i]);
+if(i<argc-1)ghost_args+=" ";
+}
+ghost_main();
+return0;
+}
+catch(conststd::exception&e){
+std::cerr<<e.what()<<std::endl;
+return1;
+}
+}

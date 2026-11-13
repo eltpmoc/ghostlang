@@ -1,0 +1,5 @@
+print("Iniciando GhostLLM no REPL...");
+llm cerebro = load_gguf("dummy.gguf");
+print("Instancia llm criada.");
+print("test_llama_repl: OK");
+exit

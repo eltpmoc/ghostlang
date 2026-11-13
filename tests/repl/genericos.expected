@@ -1,0 +1,27 @@
+== Pilha<T> ==
+topo 40 tamanho 4 soma 100 (a original continua com 4)
+desempilha c b restam 1
+invertida: topo x ["z", "y", "x"]
+erro: pilha vazia
+== Par<A, B> ==
+(ana, 30) (30, ana) ana 31
+como interface: (2.5, true)
+["bia=9.5", "caio=7"]
+== Caixa<T> com varios tipos ==
+9 trocas 2 | ponto 5,2 | lista [1, 2, 3, 4] | dentro 40 de 4
+copia por valor: 9 100
+== heranca de Pilha<int> ==
+soma 11 topo 6 como Pilha<int>: 11
+== erros ==
+[Erro de Execucao] Pilha e uma classe generica: use Pilha<tipo> semTipo
+[Erro de Execucao] Pilha e uma classe generica: use Pilha<tipo>(...)
+[Erro de Execucao] Pilha precisa de 1 tipo(s) entre < >, recebeu 2
+[Erro de Execucao] Par precisa de 2 tipo(s) entre < >, recebeu 1
+[Erro de Execucao] class Derivada: a classe base nao pode depender de T (use um tipo fixo, ex.: extends Pilha<int>)
+[Erro de Execucao] class Dupla: tipo T repetido entre < >
+[Erro de Execucao] class Sombra: 'Ponto' ja e uma classe; use outro nome para o tipo (ex.: T)
+[Erro de Execucao] v: esperado numero, recebido texto "texto"
+[Erro de Execucao] outra: Pilha<string> nao e Pilha<int>
+[Erro de Execucao] Pilha e uma classe generica: use Pilha<tipo>.membro
+Pilha<int> Par<string,int> Pilha<int>{itens: [10, 20, 30, 40]}
+fim do roteiro de genericos

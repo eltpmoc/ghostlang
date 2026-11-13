@@ -1,0 +1,16 @@
+0.7071|00> + 0.7071|11>
+q0: --H---*--
+P(q0=1) = 0.5
+<ZZ> = 1  <XX> = 1
+Medicoes (1000 shots):
+medido 1 1 -> 1|11>
+Estado da estrutura 'q':
+-0.5|10> + 0.866|11>
+qreg(16) em
+VQE H2: -1.85727 Ha
+amostras 64
+acuracia 96.875%
+predict(0.3,0.5)=0 predict(2.8,2.6)=1
+corte 4 de 4
+qreg.foo nao existe
+fora do registrador de 2 qubits

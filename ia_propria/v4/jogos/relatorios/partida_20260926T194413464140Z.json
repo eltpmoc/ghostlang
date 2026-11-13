@@ -1,0 +1,176 @@
+{
+  "seed": 482918,
+  "checkpoint": "ia_propria/checkpoints/v4/jogos_piloto_20260926/selecionado.bin",
+  "sha256": "3d355564c1d32317e8b4ff11a917a4a33564a8b35a3679044f045a1b058be85c",
+  "acertos": 0,
+  "rodadas": [
+    {
+      "jogo": "copia",
+      "nivel": 3,
+      "estado": {
+        "fita": "OYPZJG"
+      },
+      "id": "9497fdcc01f16e53da89088b555b8592ad31794ff56d3e712dcbe753660fe05e",
+      "formulario": 2,
+      "prompt": "Usuário: Jogo copia. Fita: OYPZJG. Escreva a fita sem comentarios.\nAssistente:",
+      "resposta": "OKYYYY",
+      "avisos": "",
+      "correta": false
+    },
+    {
+      "jogo": "memoria",
+      "nivel": 3,
+      "estado": {
+        "caixas": [
+          [
+            "D",
+            "AN"
+          ],
+          [
+            "H",
+            "XM"
+          ],
+          [
+            "B",
+            "UZ"
+          ]
+        ],
+        "alvo": "B",
+        "atualizacoes": [
+          [
+            "H",
+            "KP"
+          ]
+        ]
+      },
+      "id": "c869df3863d6101a1965fc2cac9bf874b976688a1329495ea65b00067c48ff91",
+      "formulario": 0,
+      "prompt": "Usuário: Jogo memoria. Caixas: D=AN; H=XM; B=UZ. Atualize: H=KP.\nAssistente: OK\nUsuário: Qual o codigo atual da caixa B? Apenas o codigo.\nAssistente:",
+      "resposta": "BK",
+      "avisos": "",
+      "correta": false
+    },
+    {
+      "jogo": "regras",
+      "nivel": 3,
+      "estado": {
+        "regras": [
+          [
+            "verde",
+            "I"
+          ],
+          [
+            "azul",
+            "Q"
+          ],
+          [
+            "preta",
+            "M"
+          ]
+        ],
+        "cor": "preta",
+        "segunda_regra": [
+          [
+            "I",
+            "K"
+          ],
+          [
+            "Q",
+            "M"
+          ],
+          [
+            "M",
+            "P"
+          ]
+        ]
+      },
+      "id": "760e6dff8adbb44e6168012e4f81e926b58ebc0e9bfd0eb62413d5841fb4283d",
+      "formulario": 0,
+      "prompt": "Usuário: Jogo regras. Cor->grupo: verde->I; azul->Q; preta->M. Grupo->destino: I->K; Q->M; M->P. Peca de cor preta. Siga as regras. Diga apenas a letra final.\nAssistente:",
+      "resposta": "I",
+      "avisos": "",
+      "correta": false
+    },
+    {
+      "jogo": "caminho",
+      "nivel": 3,
+      "estado": {
+        "portas": [
+          [
+            "A",
+            "C"
+          ],
+          [
+            "B",
+            "E"
+          ],
+          [
+            "C",
+            "A"
+          ],
+          [
+            "D",
+            "F"
+          ],
+          [
+            "E",
+            "D"
+          ],
+          [
+            "F",
+            "B"
+          ]
+        ],
+        "inicio": "F",
+        "passos": 3
+      },
+      "id": "7ddeb751de80d29b54e0b394b7dbe73198a27b27bb1527480223a62593fee64c",
+      "formulario": 2,
+      "prompt": "Usuário: Jogo caminho. Portas: A>C; B>E; C>A; D>F; E>D; F>B. Inicio: F. Passos: 3. Percorra as portas. Responda somente a letra final.\nAssistente:",
+      "resposta": "F",
+      "avisos": "",
+      "correta": false
+    },
+    {
+      "jogo": "ordem",
+      "nivel": 3,
+      "estado": {
+        "lista": [
+          "A",
+          "K",
+          "Q",
+          "U",
+          "S",
+          "W",
+          "J"
+        ],
+        "posicao": 4,
+        "inverter": true
+      },
+      "id": "0e358d475dbcd5b0b8c76635309f9ba5c10919bc6105c9f732a08f4650f23112",
+      "formulario": 1,
+      "prompt": "Usuário: Jogo ordem. Lista: A,K,Q,U,S,W,J. Inverta a lista. Posicao: 4 (a primeira e 1). Qual letra ocupa a posicao pedida? Apenas ela.\nAssistente:",
+      "resposta": "K",
+      "avisos": "",
+      "correta": false
+    },
+    {
+      "jogo": "contagem",
+      "nivel": 3,
+      "estado": {
+        "inicio": 28,
+        "mudancas": [
+          4,
+          4,
+          -1
+        ]
+      },
+      "id": "68cadd30113989b34af0626eb5123a0c173f97533f2a8a41387c1a2732f8e04e",
+      "formulario": 1,
+      "prompt": "Usuário: Jogo contagem. Estoque inicial: 28. Movimentos: +4, +4, -1. Aplique os movimentos e diga somente o saldo.\nAssistente:",
+      "resposta": "31",
+      "avisos": "",
+      "correta": false
+    }
+  ]
+}

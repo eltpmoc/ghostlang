@@ -1,0 +1,4973 @@
+#line 3 "v3/src/conhecimento.g"
+#line 4 "v3/src/conhecimento.g"
+#line 5 "v3/src/conhecimento.g"
+#line 6 "v3/src/conhecimento.g"
+#line 7 "v3/src/conhecimento.g"
+#line 8 "v3/src/conhecimento.g"
+#line 9 "v3/src/conhecimento.g"
+#line 10 "v3/src/conhecimento.g"
+#line 11 "v3/src/conhecimento.g"
+#line 12 "v3/src/conhecimento.g"
+#line 13 "v3/src/conhecimento.g"
+#line 14 "v3/src/conhecimento.g"
+#line 15 "v3/src/conhecimento.g"
+#line 16 "v3/src/conhecimento.g"
+#line 17 "v3/src/conhecimento.g"
+#line 18 "v3/src/conhecimento.g"
+#line 19 "v3/src/conhecimento.g"
+#line 20 "v3/src/conhecimento.g"
+#line 21 "v3/src/conhecimento.g"
+#line 22 "v3/src/conhecimento.g"
+#line 23 "v3/src/conhecimento.g"
+#line 24 "v3/src/conhecimento.g"
+#line 25 "v3/src/conhecimento.g"
+#line 26 "v3/src/conhecimento.g"
+#line 27 "v3/src/conhecimento.g"
+#line 28 "v3/src/conhecimento.g"
+#line 29 "v3/src/conhecimento.g"
+#line 30 "v3/src/conhecimento.g"
+#line 31 "v3/src/conhecimento.g"
+#line 32 "v3/src/conhecimento.g"
+#line 33 "v3/src/conhecimento.g"
+#line 34 "v3/src/conhecimento.g"
+#line 35 "v3/src/conhecimento.g"
+#line 38 "v3/src/conhecimento.g"
+#line 39 "v3/src/conhecimento.g"
+#line 40 "v3/src/conhecimento.g"
+#line 41 "v3/src/conhecimento.g"
+#line 42 "v3/src/conhecimento.g"
+#line 43 "v3/src/conhecimento.g"
+#line 44 "v3/src/conhecimento.g"
+#line 45 "v3/src/conhecimento.g"
+#line 46 "v3/src/conhecimento.g"
+#line 46 "v3/src/conhecimento.g"
+#line 47 "v3/src/conhecimento.g"
+#line 49 "v3/src/conhecimento.g"
+#line 52 "v3/src/conhecimento.g"
+#line 53 "v3/src/conhecimento.g"
+#line 54 "v3/src/conhecimento.g"
+#line 55 "v3/src/conhecimento.g"
+#line 56 "v3/src/conhecimento.g"
+#line 57 "v3/src/conhecimento.g"
+#line 58 "v3/src/conhecimento.g"
+#line 59 "v3/src/conhecimento.g"
+#line 60 "v3/src/conhecimento.g"
+#line 61 "v3/src/conhecimento.g"
+#line 61 "v3/src/conhecimento.g"
+#line 63 "v3/src/conhecimento.g"
+#line 65 "v3/src/conhecimento.g"
+#line 66 "v3/src/conhecimento.g"
+#line 66 "v3/src/conhecimento.g"
+#line 66 "v3/src/conhecimento.g"
+#line 66 "v3/src/conhecimento.g"
+#line 67 "v3/src/conhecimento.g"
+#line 67 "v3/src/conhecimento.g"
+#line 68 "v3/src/conhecimento.g"
+#line 68 "v3/src/conhecimento.g"
+#line 69 "v3/src/conhecimento.g"
+#line 72 "v3/src/conhecimento.g"
+#line 72 "v3/src/conhecimento.g"
+#line 73 "v3/src/conhecimento.g"
+#line 74 "v3/src/conhecimento.g"
+#line 75 "v3/src/conhecimento.g"
+#line 76 "v3/src/conhecimento.g"
+#line 77 "v3/src/conhecimento.g"
+#line 78 "v3/src/conhecimento.g"
+#line 79 "v3/src/conhecimento.g"
+#line 80 "v3/src/conhecimento.g"
+#line 81 "v3/src/conhecimento.g"
+#line 81 "v3/src/conhecimento.g"
+#line 82 "v3/src/conhecimento.g"
+#line 83 "v3/src/conhecimento.g"
+#line 83 "v3/src/conhecimento.g"
+#line 84 "v3/src/conhecimento.g"
+#line 85 "v3/src/conhecimento.g"
+#line 85 "v3/src/conhecimento.g"
+#line 86 "v3/src/conhecimento.g"
+#line 87 "v3/src/conhecimento.g"
+#line 87 "v3/src/conhecimento.g"
+#line 88 "v3/src/conhecimento.g"
+#line 89 "v3/src/conhecimento.g"
+#line 89 "v3/src/conhecimento.g"
+#line 90 "v3/src/conhecimento.g"
+#line 91 "v3/src/conhecimento.g"
+#line 92 "v3/src/conhecimento.g"
+#line 92 "v3/src/conhecimento.g"
+#line 93 "v3/src/conhecimento.g"
+#line 93 "v3/src/conhecimento.g"
+#line 94 "v3/src/conhecimento.g"
+#line 95 "v3/src/conhecimento.g"
+#line 96 "v3/src/conhecimento.g"
+#line 96 "v3/src/conhecimento.g"
+#line 97 "v3/src/conhecimento.g"
+#line 98 "v3/src/conhecimento.g"
+#line 98 "v3/src/conhecimento.g"
+#line 99 "v3/src/conhecimento.g"
+#line 100 "v3/src/conhecimento.g"
+#line 100 "v3/src/conhecimento.g"
+#line 101 "v3/src/conhecimento.g"
+#line 102 "v3/src/conhecimento.g"
+#line 103 "v3/src/conhecimento.g"
+#line 103 "v3/src/conhecimento.g"
+#line 104 "v3/src/conhecimento.g"
+#line 104 "v3/src/conhecimento.g"
+#line 105 "v3/src/conhecimento.g"
+#line 106 "v3/src/conhecimento.g"
+#line 107 "v3/src/conhecimento.g"
+#line 107 "v3/src/conhecimento.g"
+#line 108 "v3/src/conhecimento.g"
+#line 109 "v3/src/conhecimento.g"
+#line 109 "v3/src/conhecimento.g"
+#line 110 "v3/src/conhecimento.g"
+#line 111 "v3/src/conhecimento.g"
+#line 111 "v3/src/conhecimento.g"
+#line 112 "v3/src/conhecimento.g"
+#line 113 "v3/src/conhecimento.g"
+#line 114 "v3/src/conhecimento.g"
+#line 114 "v3/src/conhecimento.g"
+#line 115 "v3/src/conhecimento.g"
+#line 115 "v3/src/conhecimento.g"
+#line 116 "v3/src/conhecimento.g"
+#line 117 "v3/src/conhecimento.g"
+#line 118 "v3/src/conhecimento.g"
+#line 118 "v3/src/conhecimento.g"
+#line 119 "v3/src/conhecimento.g"
+#line 120 "v3/src/conhecimento.g"
+#line 120 "v3/src/conhecimento.g"
+#line 121 "v3/src/conhecimento.g"
+#line 122 "v3/src/conhecimento.g"
+#line 122 "v3/src/conhecimento.g"
+#line 123 "v3/src/conhecimento.g"
+#line 124 "v3/src/conhecimento.g"
+#line 125 "v3/src/conhecimento.g"
+#line 125 "v3/src/conhecimento.g"
+#line 126 "v3/src/conhecimento.g"
+#line 126 "v3/src/conhecimento.g"
+#line 127 "v3/src/conhecimento.g"
+#line 128 "v3/src/conhecimento.g"
+#line 129 "v3/src/conhecimento.g"
+#line 129 "v3/src/conhecimento.g"
+#line 130 "v3/src/conhecimento.g"
+#line 131 "v3/src/conhecimento.g"
+#line 131 "v3/src/conhecimento.g"
+#line 132 "v3/src/conhecimento.g"
+#line 133 "v3/src/conhecimento.g"
+#line 133 "v3/src/conhecimento.g"
+#line 134 "v3/src/conhecimento.g"
+#line 135 "v3/src/conhecimento.g"
+#line 136 "v3/src/conhecimento.g"
+#line 136 "v3/src/conhecimento.g"
+#line 137 "v3/src/conhecimento.g"
+#line 137 "v3/src/conhecimento.g"
+#line 138 "v3/src/conhecimento.g"
+#line 139 "v3/src/conhecimento.g"
+#line 140 "v3/src/conhecimento.g"
+#line 140 "v3/src/conhecimento.g"
+#line 141 "v3/src/conhecimento.g"
+#line 142 "v3/src/conhecimento.g"
+#line 142 "v3/src/conhecimento.g"
+#line 143 "v3/src/conhecimento.g"
+#line 144 "v3/src/conhecimento.g"
+#line 144 "v3/src/conhecimento.g"
+#line 145 "v3/src/conhecimento.g"
+#line 146 "v3/src/conhecimento.g"
+#line 147 "v3/src/conhecimento.g"
+#line 147 "v3/src/conhecimento.g"
+#line 148 "v3/src/conhecimento.g"
+#line 148 "v3/src/conhecimento.g"
+#line 149 "v3/src/conhecimento.g"
+#line 150 "v3/src/conhecimento.g"
+#line 151 "v3/src/conhecimento.g"
+#line 151 "v3/src/conhecimento.g"
+#line 152 "v3/src/conhecimento.g"
+#line 153 "v3/src/conhecimento.g"
+#line 153 "v3/src/conhecimento.g"
+#line 154 "v3/src/conhecimento.g"
+#line 155 "v3/src/conhecimento.g"
+#line 155 "v3/src/conhecimento.g"
+#line 156 "v3/src/conhecimento.g"
+#line 157 "v3/src/conhecimento.g"
+#line 158 "v3/src/conhecimento.g"
+#line 158 "v3/src/conhecimento.g"
+#line 159 "v3/src/conhecimento.g"
+#line 159 "v3/src/conhecimento.g"
+#line 160 "v3/src/conhecimento.g"
+#line 161 "v3/src/conhecimento.g"
+#line 162 "v3/src/conhecimento.g"
+#line 162 "v3/src/conhecimento.g"
+#line 163 "v3/src/conhecimento.g"
+#line 164 "v3/src/conhecimento.g"
+#line 164 "v3/src/conhecimento.g"
+#line 165 "v3/src/conhecimento.g"
+#line 166 "v3/src/conhecimento.g"
+#line 166 "v3/src/conhecimento.g"
+#line 167 "v3/src/conhecimento.g"
+#line 168 "v3/src/conhecimento.g"
+#line 169 "v3/src/conhecimento.g"
+#line 169 "v3/src/conhecimento.g"
+#line 170 "v3/src/conhecimento.g"
+#line 170 "v3/src/conhecimento.g"
+#line 171 "v3/src/conhecimento.g"
+#line 172 "v3/src/conhecimento.g"
+#line 173 "v3/src/conhecimento.g"
+#line 173 "v3/src/conhecimento.g"
+#line 174 "v3/src/conhecimento.g"
+#line 175 "v3/src/conhecimento.g"
+#line 175 "v3/src/conhecimento.g"
+#line 176 "v3/src/conhecimento.g"
+#line 177 "v3/src/conhecimento.g"
+#line 177 "v3/src/conhecimento.g"
+#line 178 "v3/src/conhecimento.g"
+#line 179 "v3/src/conhecimento.g"
+#line 180 "v3/src/conhecimento.g"
+#line 180 "v3/src/conhecimento.g"
+#line 181 "v3/src/conhecimento.g"
+#line 181 "v3/src/conhecimento.g"
+#line 182 "v3/src/conhecimento.g"
+#line 183 "v3/src/conhecimento.g"
+#line 184 "v3/src/conhecimento.g"
+#line 184 "v3/src/conhecimento.g"
+#line 185 "v3/src/conhecimento.g"
+#line 186 "v3/src/conhecimento.g"
+#line 186 "v3/src/conhecimento.g"
+#line 187 "v3/src/conhecimento.g"
+#line 188 "v3/src/conhecimento.g"
+#line 188 "v3/src/conhecimento.g"
+#line 189 "v3/src/conhecimento.g"
+#line 190 "v3/src/conhecimento.g"
+#line 191 "v3/src/conhecimento.g"
+#line 191 "v3/src/conhecimento.g"
+#line 192 "v3/src/conhecimento.g"
+#line 192 "v3/src/conhecimento.g"
+#line 193 "v3/src/conhecimento.g"
+#line 194 "v3/src/conhecimento.g"
+#line 195 "v3/src/conhecimento.g"
+#line 195 "v3/src/conhecimento.g"
+#line 196 "v3/src/conhecimento.g"
+#line 197 "v3/src/conhecimento.g"
+#line 197 "v3/src/conhecimento.g"
+#line 198 "v3/src/conhecimento.g"
+#line 199 "v3/src/conhecimento.g"
+#line 199 "v3/src/conhecimento.g"
+#line 200 "v3/src/conhecimento.g"
+#line 201 "v3/src/conhecimento.g"
+#line 202 "v3/src/conhecimento.g"
+#line 202 "v3/src/conhecimento.g"
+#line 203 "v3/src/conhecimento.g"
+#line 203 "v3/src/conhecimento.g"
+#line 204 "v3/src/conhecimento.g"
+#line 205 "v3/src/conhecimento.g"
+#line 206 "v3/src/conhecimento.g"
+#line 206 "v3/src/conhecimento.g"
+#line 207 "v3/src/conhecimento.g"
+#line 208 "v3/src/conhecimento.g"
+#line 208 "v3/src/conhecimento.g"
+#line 209 "v3/src/conhecimento.g"
+#line 210 "v3/src/conhecimento.g"
+#line 210 "v3/src/conhecimento.g"
+#line 211 "v3/src/conhecimento.g"
+#line 212 "v3/src/conhecimento.g"
+#line 213 "v3/src/conhecimento.g"
+#line 213 "v3/src/conhecimento.g"
+#line 214 "v3/src/conhecimento.g"
+#line 214 "v3/src/conhecimento.g"
+#line 215 "v3/src/conhecimento.g"
+#line 216 "v3/src/conhecimento.g"
+#line 217 "v3/src/conhecimento.g"
+#line 217 "v3/src/conhecimento.g"
+#line 218 "v3/src/conhecimento.g"
+#line 219 "v3/src/conhecimento.g"
+#line 219 "v3/src/conhecimento.g"
+#line 220 "v3/src/conhecimento.g"
+#line 221 "v3/src/conhecimento.g"
+#line 221 "v3/src/conhecimento.g"
+#line 222 "v3/src/conhecimento.g"
+#line 223 "v3/src/conhecimento.g"
+#line 224 "v3/src/conhecimento.g"
+#line 224 "v3/src/conhecimento.g"
+#line 225 "v3/src/conhecimento.g"
+#line 225 "v3/src/conhecimento.g"
+#line 226 "v3/src/conhecimento.g"
+#line 227 "v3/src/conhecimento.g"
+#line 228 "v3/src/conhecimento.g"
+#line 228 "v3/src/conhecimento.g"
+#line 229 "v3/src/conhecimento.g"
+#line 230 "v3/src/conhecimento.g"
+#line 230 "v3/src/conhecimento.g"
+#line 231 "v3/src/conhecimento.g"
+#line 232 "v3/src/conhecimento.g"
+#line 232 "v3/src/conhecimento.g"
+#line 233 "v3/src/conhecimento.g"
+#line 234 "v3/src/conhecimento.g"
+#line 234 "v3/src/conhecimento.g"
+#line 235 "v3/src/conhecimento.g"
+#line 236 "v3/src/conhecimento.g"
+#line 236 "v3/src/conhecimento.g"
+#line 237 "v3/src/conhecimento.g"
+#line 238 "v3/src/conhecimento.g"
+#line 238 "v3/src/conhecimento.g"
+#line 239 "v3/src/conhecimento.g"
+#line 240 "v3/src/conhecimento.g"
+#line 241 "v3/src/conhecimento.g"
+#line 241 "v3/src/conhecimento.g"
+#line 242 "v3/src/conhecimento.g"
+#line 242 "v3/src/conhecimento.g"
+#line 243 "v3/src/conhecimento.g"
+#line 244 "v3/src/conhecimento.g"
+#line 245 "v3/src/conhecimento.g"
+#line 245 "v3/src/conhecimento.g"
+#line 246 "v3/src/conhecimento.g"
+#line 247 "v3/src/conhecimento.g"
+#line 247 "v3/src/conhecimento.g"
+#line 248 "v3/src/conhecimento.g"
+#line 249 "v3/src/conhecimento.g"
+#line 249 "v3/src/conhecimento.g"
+#line 250 "v3/src/conhecimento.g"
+#line 251 "v3/src/conhecimento.g"
+#line 252 "v3/src/conhecimento.g"
+#line 252 "v3/src/conhecimento.g"
+#line 253 "v3/src/conhecimento.g"
+#line 253 "v3/src/conhecimento.g"
+#line 254 "v3/src/conhecimento.g"
+#line 255 "v3/src/conhecimento.g"
+#line 256 "v3/src/conhecimento.g"
+#line 256 "v3/src/conhecimento.g"
+#line 257 "v3/src/conhecimento.g"
+#line 258 "v3/src/conhecimento.g"
+#line 258 "v3/src/conhecimento.g"
+#line 259 "v3/src/conhecimento.g"
+#line 260 "v3/src/conhecimento.g"
+#line 260 "v3/src/conhecimento.g"
+#line 261 "v3/src/conhecimento.g"
+#line 262 "v3/src/conhecimento.g"
+#line 263 "v3/src/conhecimento.g"
+#line 263 "v3/src/conhecimento.g"
+#line 264 "v3/src/conhecimento.g"
+#line 264 "v3/src/conhecimento.g"
+#line 265 "v3/src/conhecimento.g"
+#line 266 "v3/src/conhecimento.g"
+#line 267 "v3/src/conhecimento.g"
+#line 267 "v3/src/conhecimento.g"
+#line 268 "v3/src/conhecimento.g"
+#line 269 "v3/src/conhecimento.g"
+#line 269 "v3/src/conhecimento.g"
+#line 270 "v3/src/conhecimento.g"
+#line 271 "v3/src/conhecimento.g"
+#line 271 "v3/src/conhecimento.g"
+#line 272 "v3/src/conhecimento.g"
+#line 273 "v3/src/conhecimento.g"
+#line 273 "v3/src/conhecimento.g"
+#line 274 "v3/src/conhecimento.g"
+#line 275 "v3/src/conhecimento.g"
+#line 275 "v3/src/conhecimento.g"
+#line 276 "v3/src/conhecimento.g"
+#line 277 "v3/src/conhecimento.g"
+#line 277 "v3/src/conhecimento.g"
+#line 278 "v3/src/conhecimento.g"
+#line 279 "v3/src/conhecimento.g"
+#line 279 "v3/src/conhecimento.g"
+#line 280 "v3/src/conhecimento.g"
+#line 281 "v3/src/conhecimento.g"
+#line 282 "v3/src/conhecimento.g"
+#line 282 "v3/src/conhecimento.g"
+#line 283 "v3/src/conhecimento.g"
+#line 283 "v3/src/conhecimento.g"
+#line 284 "v3/src/conhecimento.g"
+#line 285 "v3/src/conhecimento.g"
+#line 286 "v3/src/conhecimento.g"
+#line 286 "v3/src/conhecimento.g"
+#line 287 "v3/src/conhecimento.g"
+#line 288 "v3/src/conhecimento.g"
+#line 288 "v3/src/conhecimento.g"
+#line 289 "v3/src/conhecimento.g"
+#line 290 "v3/src/conhecimento.g"
+#line 290 "v3/src/conhecimento.g"
+#line 291 "v3/src/conhecimento.g"
+#line 292 "v3/src/conhecimento.g"
+#line 293 "v3/src/conhecimento.g"
+#line 293 "v3/src/conhecimento.g"
+#line 294 "v3/src/conhecimento.g"
+#line 294 "v3/src/conhecimento.g"
+#line 295 "v3/src/conhecimento.g"
+#line 296 "v3/src/conhecimento.g"
+#line 297 "v3/src/conhecimento.g"
+#line 297 "v3/src/conhecimento.g"
+#line 298 "v3/src/conhecimento.g"
+#line 299 "v3/src/conhecimento.g"
+#line 299 "v3/src/conhecimento.g"
+#line 300 "v3/src/conhecimento.g"
+#line 301 "v3/src/conhecimento.g"
+#line 301 "v3/src/conhecimento.g"
+#line 302 "v3/src/conhecimento.g"
+#line 303 "v3/src/conhecimento.g"
+#line 303 "v3/src/conhecimento.g"
+#line 304 "v3/src/conhecimento.g"
+#line 305 "v3/src/conhecimento.g"
+#line 305 "v3/src/conhecimento.g"
+#line 306 "v3/src/conhecimento.g"
+#line 307 "v3/src/conhecimento.g"
+#line 308 "v3/src/conhecimento.g"
+#line 308 "v3/src/conhecimento.g"
+#line 309 "v3/src/conhecimento.g"
+#line 309 "v3/src/conhecimento.g"
+#line 310 "v3/src/conhecimento.g"
+#line 311 "v3/src/conhecimento.g"
+#line 312 "v3/src/conhecimento.g"
+#line 312 "v3/src/conhecimento.g"
+#line 313 "v3/src/conhecimento.g"
+#line 314 "v3/src/conhecimento.g"
+#line 314 "v3/src/conhecimento.g"
+#line 315 "v3/src/conhecimento.g"
+#line 316 "v3/src/conhecimento.g"
+#line 316 "v3/src/conhecimento.g"
+#line 317 "v3/src/conhecimento.g"
+#line 318 "v3/src/conhecimento.g"
+#line 318 "v3/src/conhecimento.g"
+#line 319 "v3/src/conhecimento.g"
+#line 320 "v3/src/conhecimento.g"
+#line 320 "v3/src/conhecimento.g"
+#line 321 "v3/src/conhecimento.g"
+#line 322 "v3/src/conhecimento.g"
+#line 323 "v3/src/conhecimento.g"
+#line 323 "v3/src/conhecimento.g"
+#line 324 "v3/src/conhecimento.g"
+#line 324 "v3/src/conhecimento.g"
+#line 325 "v3/src/conhecimento.g"
+#line 326 "v3/src/conhecimento.g"
+#line 327 "v3/src/conhecimento.g"
+#line 327 "v3/src/conhecimento.g"
+#line 328 "v3/src/conhecimento.g"
+#line 329 "v3/src/conhecimento.g"
+#line 329 "v3/src/conhecimento.g"
+#line 330 "v3/src/conhecimento.g"
+#line 331 "v3/src/conhecimento.g"
+#line 331 "v3/src/conhecimento.g"
+#line 332 "v3/src/conhecimento.g"
+#line 333 "v3/src/conhecimento.g"
+#line 334 "v3/src/conhecimento.g"
+#line 334 "v3/src/conhecimento.g"
+#line 335 "v3/src/conhecimento.g"
+#line 335 "v3/src/conhecimento.g"
+#line 336 "v3/src/conhecimento.g"
+#line 337 "v3/src/conhecimento.g"
+#line 338 "v3/src/conhecimento.g"
+#line 338 "v3/src/conhecimento.g"
+#line 339 "v3/src/conhecimento.g"
+#line 340 "v3/src/conhecimento.g"
+#line 340 "v3/src/conhecimento.g"
+#line 341 "v3/src/conhecimento.g"
+#line 342 "v3/src/conhecimento.g"
+#line 342 "v3/src/conhecimento.g"
+#line 343 "v3/src/conhecimento.g"
+#line 344 "v3/src/conhecimento.g"
+#line 345 "v3/src/conhecimento.g"
+#line 345 "v3/src/conhecimento.g"
+#line 346 "v3/src/conhecimento.g"
+#line 346 "v3/src/conhecimento.g"
+#line 347 "v3/src/conhecimento.g"
+#line 348 "v3/src/conhecimento.g"
+#line 349 "v3/src/conhecimento.g"
+#line 349 "v3/src/conhecimento.g"
+#line 350 "v3/src/conhecimento.g"
+#line 351 "v3/src/conhecimento.g"
+#line 351 "v3/src/conhecimento.g"
+#line 352 "v3/src/conhecimento.g"
+#line 353 "v3/src/conhecimento.g"
+#line 353 "v3/src/conhecimento.g"
+#line 354 "v3/src/conhecimento.g"
+#line 355 "v3/src/conhecimento.g"
+#line 356 "v3/src/conhecimento.g"
+#line 356 "v3/src/conhecimento.g"
+#line 357 "v3/src/conhecimento.g"
+#line 357 "v3/src/conhecimento.g"
+#line 358 "v3/src/conhecimento.g"
+#line 359 "v3/src/conhecimento.g"
+#line 360 "v3/src/conhecimento.g"
+#line 360 "v3/src/conhecimento.g"
+#line 361 "v3/src/conhecimento.g"
+#line 362 "v3/src/conhecimento.g"
+#line 362 "v3/src/conhecimento.g"
+#line 363 "v3/src/conhecimento.g"
+#line 364 "v3/src/conhecimento.g"
+#line 364 "v3/src/conhecimento.g"
+#line 365 "v3/src/conhecimento.g"
+#line 366 "v3/src/conhecimento.g"
+#line 367 "v3/src/conhecimento.g"
+#line 367 "v3/src/conhecimento.g"
+#line 368 "v3/src/conhecimento.g"
+#line 368 "v3/src/conhecimento.g"
+#line 369 "v3/src/conhecimento.g"
+#line 370 "v3/src/conhecimento.g"
+#line 371 "v3/src/conhecimento.g"
+#line 371 "v3/src/conhecimento.g"
+#line 372 "v3/src/conhecimento.g"
+#line 373 "v3/src/conhecimento.g"
+#line 373 "v3/src/conhecimento.g"
+#line 374 "v3/src/conhecimento.g"
+#line 375 "v3/src/conhecimento.g"
+#line 375 "v3/src/conhecimento.g"
+#line 376 "v3/src/conhecimento.g"
+#line 377 "v3/src/conhecimento.g"
+#line 378 "v3/src/conhecimento.g"
+#line 378 "v3/src/conhecimento.g"
+#line 379 "v3/src/conhecimento.g"
+#line 379 "v3/src/conhecimento.g"
+#line 380 "v3/src/conhecimento.g"
+#line 381 "v3/src/conhecimento.g"
+#line 382 "v3/src/conhecimento.g"
+#line 382 "v3/src/conhecimento.g"
+#line 383 "v3/src/conhecimento.g"
+#line 384 "v3/src/conhecimento.g"
+#line 384 "v3/src/conhecimento.g"
+#line 385 "v3/src/conhecimento.g"
+#line 386 "v3/src/conhecimento.g"
+#line 386 "v3/src/conhecimento.g"
+#line 387 "v3/src/conhecimento.g"
+#line 388 "v3/src/conhecimento.g"
+#line 389 "v3/src/conhecimento.g"
+#line 389 "v3/src/conhecimento.g"
+#line 390 "v3/src/conhecimento.g"
+#line 390 "v3/src/conhecimento.g"
+#line 391 "v3/src/conhecimento.g"
+#line 392 "v3/src/conhecimento.g"
+#line 393 "v3/src/conhecimento.g"
+#line 393 "v3/src/conhecimento.g"
+#line 394 "v3/src/conhecimento.g"
+#line 395 "v3/src/conhecimento.g"
+#line 395 "v3/src/conhecimento.g"
+#line 396 "v3/src/conhecimento.g"
+#line 397 "v3/src/conhecimento.g"
+#line 397 "v3/src/conhecimento.g"
+#line 398 "v3/src/conhecimento.g"
+#line 399 "v3/src/conhecimento.g"
+#line 400 "v3/src/conhecimento.g"
+#line 400 "v3/src/conhecimento.g"
+#line 401 "v3/src/conhecimento.g"
+#line 401 "v3/src/conhecimento.g"
+#line 402 "v3/src/conhecimento.g"
+#line 403 "v3/src/conhecimento.g"
+#line 404 "v3/src/conhecimento.g"
+#line 404 "v3/src/conhecimento.g"
+#line 405 "v3/src/conhecimento.g"
+#line 406 "v3/src/conhecimento.g"
+#line 406 "v3/src/conhecimento.g"
+#line 407 "v3/src/conhecimento.g"
+#line 408 "v3/src/conhecimento.g"
+#line 408 "v3/src/conhecimento.g"
+#line 409 "v3/src/conhecimento.g"
+#line 410 "v3/src/conhecimento.g"
+#line 411 "v3/src/conhecimento.g"
+#line 411 "v3/src/conhecimento.g"
+#line 412 "v3/src/conhecimento.g"
+#line 412 "v3/src/conhecimento.g"
+#line 413 "v3/src/conhecimento.g"
+#line 414 "v3/src/conhecimento.g"
+#line 415 "v3/src/conhecimento.g"
+#line 415 "v3/src/conhecimento.g"
+#line 416 "v3/src/conhecimento.g"
+#line 417 "v3/src/conhecimento.g"
+#line 417 "v3/src/conhecimento.g"
+#line 418 "v3/src/conhecimento.g"
+#line 419 "v3/src/conhecimento.g"
+#line 419 "v3/src/conhecimento.g"
+#line 420 "v3/src/conhecimento.g"
+#line 421 "v3/src/conhecimento.g"
+#line 422 "v3/src/conhecimento.g"
+#line 422 "v3/src/conhecimento.g"
+#line 423 "v3/src/conhecimento.g"
+#line 423 "v3/src/conhecimento.g"
+#line 424 "v3/src/conhecimento.g"
+#line 425 "v3/src/conhecimento.g"
+#line 426 "v3/src/conhecimento.g"
+#line 426 "v3/src/conhecimento.g"
+#line 427 "v3/src/conhecimento.g"
+#line 428 "v3/src/conhecimento.g"
+#line 428 "v3/src/conhecimento.g"
+#line 429 "v3/src/conhecimento.g"
+#line 430 "v3/src/conhecimento.g"
+#line 430 "v3/src/conhecimento.g"
+#line 431 "v3/src/conhecimento.g"
+#line 432 "v3/src/conhecimento.g"
+#line 433 "v3/src/conhecimento.g"
+#line 433 "v3/src/conhecimento.g"
+#line 434 "v3/src/conhecimento.g"
+#line 434 "v3/src/conhecimento.g"
+#line 435 "v3/src/conhecimento.g"
+#line 436 "v3/src/conhecimento.g"
+#line 437 "v3/src/conhecimento.g"
+#line 437 "v3/src/conhecimento.g"
+#line 438 "v3/src/conhecimento.g"
+#line 439 "v3/src/conhecimento.g"
+#line 439 "v3/src/conhecimento.g"
+#line 440 "v3/src/conhecimento.g"
+#line 441 "v3/src/conhecimento.g"
+#line 441 "v3/src/conhecimento.g"
+#line 442 "v3/src/conhecimento.g"
+#line 443 "v3/src/conhecimento.g"
+#line 444 "v3/src/conhecimento.g"
+#line 444 "v3/src/conhecimento.g"
+#line 445 "v3/src/conhecimento.g"
+#line 445 "v3/src/conhecimento.g"
+#line 446 "v3/src/conhecimento.g"
+#line 447 "v3/src/conhecimento.g"
+#line 448 "v3/src/conhecimento.g"
+#line 448 "v3/src/conhecimento.g"
+#line 449 "v3/src/conhecimento.g"
+#line 450 "v3/src/conhecimento.g"
+#line 450 "v3/src/conhecimento.g"
+#line 451 "v3/src/conhecimento.g"
+#line 452 "v3/src/conhecimento.g"
+#line 452 "v3/src/conhecimento.g"
+#line 453 "v3/src/conhecimento.g"
+#line 454 "v3/src/conhecimento.g"
+#line 455 "v3/src/conhecimento.g"
+#line 455 "v3/src/conhecimento.g"
+#line 456 "v3/src/conhecimento.g"
+#line 456 "v3/src/conhecimento.g"
+#line 457 "v3/src/conhecimento.g"
+#line 458 "v3/src/conhecimento.g"
+#line 459 "v3/src/conhecimento.g"
+#line 459 "v3/src/conhecimento.g"
+#line 460 "v3/src/conhecimento.g"
+#line 461 "v3/src/conhecimento.g"
+#line 461 "v3/src/conhecimento.g"
+#line 462 "v3/src/conhecimento.g"
+#line 463 "v3/src/conhecimento.g"
+#line 463 "v3/src/conhecimento.g"
+#line 464 "v3/src/conhecimento.g"
+#line 465 "v3/src/conhecimento.g"
+#line 466 "v3/src/conhecimento.g"
+#line 466 "v3/src/conhecimento.g"
+#line 467 "v3/src/conhecimento.g"
+#line 467 "v3/src/conhecimento.g"
+#line 468 "v3/src/conhecimento.g"
+#line 469 "v3/src/conhecimento.g"
+#line 470 "v3/src/conhecimento.g"
+#line 470 "v3/src/conhecimento.g"
+#line 471 "v3/src/conhecimento.g"
+#line 472 "v3/src/conhecimento.g"
+#line 472 "v3/src/conhecimento.g"
+#line 473 "v3/src/conhecimento.g"
+#line 474 "v3/src/conhecimento.g"
+#line 474 "v3/src/conhecimento.g"
+#line 475 "v3/src/conhecimento.g"
+#line 476 "v3/src/conhecimento.g"
+#line 477 "v3/src/conhecimento.g"
+#line 477 "v3/src/conhecimento.g"
+#line 478 "v3/src/conhecimento.g"
+#line 478 "v3/src/conhecimento.g"
+#line 479 "v3/src/conhecimento.g"
+#line 480 "v3/src/conhecimento.g"
+#line 481 "v3/src/conhecimento.g"
+#line 481 "v3/src/conhecimento.g"
+#line 482 "v3/src/conhecimento.g"
+#line 483 "v3/src/conhecimento.g"
+#line 483 "v3/src/conhecimento.g"
+#line 484 "v3/src/conhecimento.g"
+#line 485 "v3/src/conhecimento.g"
+#line 485 "v3/src/conhecimento.g"
+#line 486 "v3/src/conhecimento.g"
+#line 487 "v3/src/conhecimento.g"
+#line 488 "v3/src/conhecimento.g"
+#line 488 "v3/src/conhecimento.g"
+#line 489 "v3/src/conhecimento.g"
+#line 489 "v3/src/conhecimento.g"
+#line 490 "v3/src/conhecimento.g"
+#line 491 "v3/src/conhecimento.g"
+#line 492 "v3/src/conhecimento.g"
+#line 492 "v3/src/conhecimento.g"
+#line 493 "v3/src/conhecimento.g"
+#line 494 "v3/src/conhecimento.g"
+#line 494 "v3/src/conhecimento.g"
+#line 495 "v3/src/conhecimento.g"
+#line 496 "v3/src/conhecimento.g"
+#line 496 "v3/src/conhecimento.g"
+#line 497 "v3/src/conhecimento.g"
+#line 498 "v3/src/conhecimento.g"
+#line 499 "v3/src/conhecimento.g"
+#line 499 "v3/src/conhecimento.g"
+#line 500 "v3/src/conhecimento.g"
+#line 500 "v3/src/conhecimento.g"
+#line 501 "v3/src/conhecimento.g"
+#line 502 "v3/src/conhecimento.g"
+#line 503 "v3/src/conhecimento.g"
+#line 503 "v3/src/conhecimento.g"
+#line 504 "v3/src/conhecimento.g"
+#line 505 "v3/src/conhecimento.g"
+#line 505 "v3/src/conhecimento.g"
+#line 506 "v3/src/conhecimento.g"
+#line 507 "v3/src/conhecimento.g"
+#line 507 "v3/src/conhecimento.g"
+#line 508 "v3/src/conhecimento.g"
+#line 509 "v3/src/conhecimento.g"
+#line 510 "v3/src/conhecimento.g"
+#line 510 "v3/src/conhecimento.g"
+#line 511 "v3/src/conhecimento.g"
+#line 511 "v3/src/conhecimento.g"
+#line 512 "v3/src/conhecimento.g"
+#line 513 "v3/src/conhecimento.g"
+#line 514 "v3/src/conhecimento.g"
+#line 514 "v3/src/conhecimento.g"
+#line 515 "v3/src/conhecimento.g"
+#line 516 "v3/src/conhecimento.g"
+#line 516 "v3/src/conhecimento.g"
+#line 517 "v3/src/conhecimento.g"
+#line 518 "v3/src/conhecimento.g"
+#line 518 "v3/src/conhecimento.g"
+#line 519 "v3/src/conhecimento.g"
+#line 520 "v3/src/conhecimento.g"
+#line 521 "v3/src/conhecimento.g"
+#line 521 "v3/src/conhecimento.g"
+#line 522 "v3/src/conhecimento.g"
+#line 522 "v3/src/conhecimento.g"
+#line 523 "v3/src/conhecimento.g"
+#line 524 "v3/src/conhecimento.g"
+#line 525 "v3/src/conhecimento.g"
+#line 525 "v3/src/conhecimento.g"
+#line 526 "v3/src/conhecimento.g"
+#line 527 "v3/src/conhecimento.g"
+#line 527 "v3/src/conhecimento.g"
+#line 528 "v3/src/conhecimento.g"
+#line 529 "v3/src/conhecimento.g"
+#line 529 "v3/src/conhecimento.g"
+#line 530 "v3/src/conhecimento.g"
+#line 531 "v3/src/conhecimento.g"
+#line 532 "v3/src/conhecimento.g"
+#line 532 "v3/src/conhecimento.g"
+#line 533 "v3/src/conhecimento.g"
+#line 533 "v3/src/conhecimento.g"
+#line 534 "v3/src/conhecimento.g"
+#line 535 "v3/src/conhecimento.g"
+#line 536 "v3/src/conhecimento.g"
+#line 536 "v3/src/conhecimento.g"
+#line 537 "v3/src/conhecimento.g"
+#line 538 "v3/src/conhecimento.g"
+#line 538 "v3/src/conhecimento.g"
+#line 539 "v3/src/conhecimento.g"
+#line 540 "v3/src/conhecimento.g"
+#line 540 "v3/src/conhecimento.g"
+#line 541 "v3/src/conhecimento.g"
+#line 542 "v3/src/conhecimento.g"
+#line 543 "v3/src/conhecimento.g"
+#line 543 "v3/src/conhecimento.g"
+#line 544 "v3/src/conhecimento.g"
+#line 544 "v3/src/conhecimento.g"
+#line 545 "v3/src/conhecimento.g"
+#line 546 "v3/src/conhecimento.g"
+#line 547 "v3/src/conhecimento.g"
+#line 547 "v3/src/conhecimento.g"
+#line 548 "v3/src/conhecimento.g"
+#line 549 "v3/src/conhecimento.g"
+#line 549 "v3/src/conhecimento.g"
+#line 550 "v3/src/conhecimento.g"
+#line 551 "v3/src/conhecimento.g"
+#line 551 "v3/src/conhecimento.g"
+#line 552 "v3/src/conhecimento.g"
+#line 553 "v3/src/conhecimento.g"
+#line 554 "v3/src/conhecimento.g"
+#line 554 "v3/src/conhecimento.g"
+#line 555 "v3/src/conhecimento.g"
+#line 555 "v3/src/conhecimento.g"
+#line 556 "v3/src/conhecimento.g"
+#line 557 "v3/src/conhecimento.g"
+#line 558 "v3/src/conhecimento.g"
+#line 558 "v3/src/conhecimento.g"
+#line 559 "v3/src/conhecimento.g"
+#line 560 "v3/src/conhecimento.g"
+#line 560 "v3/src/conhecimento.g"
+#line 561 "v3/src/conhecimento.g"
+#line 562 "v3/src/conhecimento.g"
+#line 562 "v3/src/conhecimento.g"
+#line 563 "v3/src/conhecimento.g"
+#line 564 "v3/src/conhecimento.g"
+#line 565 "v3/src/conhecimento.g"
+#line 565 "v3/src/conhecimento.g"
+#line 566 "v3/src/conhecimento.g"
+#line 566 "v3/src/conhecimento.g"
+#line 567 "v3/src/conhecimento.g"
+#line 568 "v3/src/conhecimento.g"
+#line 569 "v3/src/conhecimento.g"
+#line 569 "v3/src/conhecimento.g"
+#line 570 "v3/src/conhecimento.g"
+#line 571 "v3/src/conhecimento.g"
+#line 571 "v3/src/conhecimento.g"
+#line 572 "v3/src/conhecimento.g"
+#line 573 "v3/src/conhecimento.g"
+#line 573 "v3/src/conhecimento.g"
+#line 574 "v3/src/conhecimento.g"
+#line 575 "v3/src/conhecimento.g"
+#line 576 "v3/src/conhecimento.g"
+#line 576 "v3/src/conhecimento.g"
+#line 577 "v3/src/conhecimento.g"
+#line 577 "v3/src/conhecimento.g"
+#line 578 "v3/src/conhecimento.g"
+#line 579 "v3/src/conhecimento.g"
+#line 580 "v3/src/conhecimento.g"
+#line 580 "v3/src/conhecimento.g"
+#line 581 "v3/src/conhecimento.g"
+#line 582 "v3/src/conhecimento.g"
+#line 582 "v3/src/conhecimento.g"
+#line 583 "v3/src/conhecimento.g"
+#line 584 "v3/src/conhecimento.g"
+#line 584 "v3/src/conhecimento.g"
+#line 585 "v3/src/conhecimento.g"
+#line 586 "v3/src/conhecimento.g"
+#line 587 "v3/src/conhecimento.g"
+#line 587 "v3/src/conhecimento.g"
+#line 588 "v3/src/conhecimento.g"
+#line 588 "v3/src/conhecimento.g"
+#line 589 "v3/src/conhecimento.g"
+#line 590 "v3/src/conhecimento.g"
+#line 591 "v3/src/conhecimento.g"
+#line 591 "v3/src/conhecimento.g"
+#line 592 "v3/src/conhecimento.g"
+#line 593 "v3/src/conhecimento.g"
+#line 593 "v3/src/conhecimento.g"
+#line 594 "v3/src/conhecimento.g"
+#line 595 "v3/src/conhecimento.g"
+#line 595 "v3/src/conhecimento.g"
+#line 596 "v3/src/conhecimento.g"
+#line 597 "v3/src/conhecimento.g"
+#line 598 "v3/src/conhecimento.g"
+#line 598 "v3/src/conhecimento.g"
+#line 599 "v3/src/conhecimento.g"
+#line 599 "v3/src/conhecimento.g"
+#line 600 "v3/src/conhecimento.g"
+#line 601 "v3/src/conhecimento.g"
+#line 602 "v3/src/conhecimento.g"
+#line 602 "v3/src/conhecimento.g"
+#line 603 "v3/src/conhecimento.g"
+#line 604 "v3/src/conhecimento.g"
+#line 604 "v3/src/conhecimento.g"
+#line 605 "v3/src/conhecimento.g"
+#line 606 "v3/src/conhecimento.g"
+#line 606 "v3/src/conhecimento.g"
+#line 607 "v3/src/conhecimento.g"
+#line 608 "v3/src/conhecimento.g"
+#line 609 "v3/src/conhecimento.g"
+#line 609 "v3/src/conhecimento.g"
+#line 610 "v3/src/conhecimento.g"
+#line 610 "v3/src/conhecimento.g"
+#line 611 "v3/src/conhecimento.g"
+#line 612 "v3/src/conhecimento.g"
+#line 613 "v3/src/conhecimento.g"
+#line 613 "v3/src/conhecimento.g"
+#line 614 "v3/src/conhecimento.g"
+#line 615 "v3/src/conhecimento.g"
+#line 615 "v3/src/conhecimento.g"
+#line 616 "v3/src/conhecimento.g"
+#line 617 "v3/src/conhecimento.g"
+#line 617 "v3/src/conhecimento.g"
+#line 618 "v3/src/conhecimento.g"
+#line 619 "v3/src/conhecimento.g"
+#line 620 "v3/src/conhecimento.g"
+#line 620 "v3/src/conhecimento.g"
+#line 621 "v3/src/conhecimento.g"
+#line 621 "v3/src/conhecimento.g"
+#line 622 "v3/src/conhecimento.g"
+#line 623 "v3/src/conhecimento.g"
+#line 624 "v3/src/conhecimento.g"
+#line 624 "v3/src/conhecimento.g"
+#line 625 "v3/src/conhecimento.g"
+#line 626 "v3/src/conhecimento.g"
+#line 626 "v3/src/conhecimento.g"
+#line 627 "v3/src/conhecimento.g"
+#line 628 "v3/src/conhecimento.g"
+#line 628 "v3/src/conhecimento.g"
+#line 629 "v3/src/conhecimento.g"
+#line 630 "v3/src/conhecimento.g"
+#line 631 "v3/src/conhecimento.g"
+#line 631 "v3/src/conhecimento.g"
+#line 632 "v3/src/conhecimento.g"
+#line 632 "v3/src/conhecimento.g"
+#line 633 "v3/src/conhecimento.g"
+#line 634 "v3/src/conhecimento.g"
+#line 635 "v3/src/conhecimento.g"
+#line 635 "v3/src/conhecimento.g"
+#line 636 "v3/src/conhecimento.g"
+#line 637 "v3/src/conhecimento.g"
+#line 637 "v3/src/conhecimento.g"
+#line 638 "v3/src/conhecimento.g"
+#line 639 "v3/src/conhecimento.g"
+#line 639 "v3/src/conhecimento.g"
+#line 640 "v3/src/conhecimento.g"
+#line 641 "v3/src/conhecimento.g"
+#line 642 "v3/src/conhecimento.g"
+#line 642 "v3/src/conhecimento.g"
+#line 643 "v3/src/conhecimento.g"
+#line 643 "v3/src/conhecimento.g"
+#line 644 "v3/src/conhecimento.g"
+#line 645 "v3/src/conhecimento.g"
+#line 646 "v3/src/conhecimento.g"
+#line 646 "v3/src/conhecimento.g"
+#line 647 "v3/src/conhecimento.g"
+#line 648 "v3/src/conhecimento.g"
+#line 648 "v3/src/conhecimento.g"
+#line 649 "v3/src/conhecimento.g"
+#line 650 "v3/src/conhecimento.g"
+#line 650 "v3/src/conhecimento.g"
+#line 651 "v3/src/conhecimento.g"
+#line 652 "v3/src/conhecimento.g"
+#line 653 "v3/src/conhecimento.g"
+#line 653 "v3/src/conhecimento.g"
+#line 654 "v3/src/conhecimento.g"
+#line 654 "v3/src/conhecimento.g"
+#line 655 "v3/src/conhecimento.g"
+#line 656 "v3/src/conhecimento.g"
+#line 657 "v3/src/conhecimento.g"
+#line 657 "v3/src/conhecimento.g"
+#line 658 "v3/src/conhecimento.g"
+#line 659 "v3/src/conhecimento.g"
+#line 659 "v3/src/conhecimento.g"
+#line 660 "v3/src/conhecimento.g"
+#line 661 "v3/src/conhecimento.g"
+#line 661 "v3/src/conhecimento.g"
+#line 662 "v3/src/conhecimento.g"
+#line 663 "v3/src/conhecimento.g"
+#line 664 "v3/src/conhecimento.g"
+#line 664 "v3/src/conhecimento.g"
+#line 665 "v3/src/conhecimento.g"
+#line 665 "v3/src/conhecimento.g"
+#line 666 "v3/src/conhecimento.g"
+#line 667 "v3/src/conhecimento.g"
+#line 668 "v3/src/conhecimento.g"
+#line 668 "v3/src/conhecimento.g"
+#line 669 "v3/src/conhecimento.g"
+#line 670 "v3/src/conhecimento.g"
+#line 670 "v3/src/conhecimento.g"
+#line 671 "v3/src/conhecimento.g"
+#line 672 "v3/src/conhecimento.g"
+#line 672 "v3/src/conhecimento.g"
+#line 673 "v3/src/conhecimento.g"
+#line 674 "v3/src/conhecimento.g"
+#line 675 "v3/src/conhecimento.g"
+#line 675 "v3/src/conhecimento.g"
+#line 676 "v3/src/conhecimento.g"
+#line 676 "v3/src/conhecimento.g"
+#line 677 "v3/src/conhecimento.g"
+#line 678 "v3/src/conhecimento.g"
+#line 679 "v3/src/conhecimento.g"
+#line 679 "v3/src/conhecimento.g"
+#line 680 "v3/src/conhecimento.g"
+#line 681 "v3/src/conhecimento.g"
+#line 681 "v3/src/conhecimento.g"
+#line 682 "v3/src/conhecimento.g"
+#line 683 "v3/src/conhecimento.g"
+#line 683 "v3/src/conhecimento.g"
+#line 684 "v3/src/conhecimento.g"
+#line 685 "v3/src/conhecimento.g"
+#line 686 "v3/src/conhecimento.g"
+#line 686 "v3/src/conhecimento.g"
+#line 687 "v3/src/conhecimento.g"
+#line 687 "v3/src/conhecimento.g"
+#line 688 "v3/src/conhecimento.g"
+#line 689 "v3/src/conhecimento.g"
+#line 690 "v3/src/conhecimento.g"
+#line 690 "v3/src/conhecimento.g"
+#line 691 "v3/src/conhecimento.g"
+#line 692 "v3/src/conhecimento.g"
+#line 692 "v3/src/conhecimento.g"
+#line 693 "v3/src/conhecimento.g"
+#line 694 "v3/src/conhecimento.g"
+#line 694 "v3/src/conhecimento.g"
+#line 695 "v3/src/conhecimento.g"
+#line 696 "v3/src/conhecimento.g"
+#line 697 "v3/src/conhecimento.g"
+#line 697 "v3/src/conhecimento.g"
+#line 698 "v3/src/conhecimento.g"
+#line 698 "v3/src/conhecimento.g"
+#line 699 "v3/src/conhecimento.g"
+#line 700 "v3/src/conhecimento.g"
+#line 701 "v3/src/conhecimento.g"
+#line 701 "v3/src/conhecimento.g"
+#line 702 "v3/src/conhecimento.g"
+#line 703 "v3/src/conhecimento.g"
+#line 703 "v3/src/conhecimento.g"
+#line 704 "v3/src/conhecimento.g"
+#line 705 "v3/src/conhecimento.g"
+#line 705 "v3/src/conhecimento.g"
+#line 706 "v3/src/conhecimento.g"
+#line 707 "v3/src/conhecimento.g"
+#line 708 "v3/src/conhecimento.g"
+#line 708 "v3/src/conhecimento.g"
+#line 709 "v3/src/conhecimento.g"
+#line 709 "v3/src/conhecimento.g"
+#line 710 "v3/src/conhecimento.g"
+#line 711 "v3/src/conhecimento.g"
+#line 712 "v3/src/conhecimento.g"
+#line 712 "v3/src/conhecimento.g"
+#line 713 "v3/src/conhecimento.g"
+#line 714 "v3/src/conhecimento.g"
+#line 714 "v3/src/conhecimento.g"
+#line 715 "v3/src/conhecimento.g"
+#line 716 "v3/src/conhecimento.g"
+#line 716 "v3/src/conhecimento.g"
+#line 717 "v3/src/conhecimento.g"
+#line 718 "v3/src/conhecimento.g"
+#line 719 "v3/src/conhecimento.g"
+#line 719 "v3/src/conhecimento.g"
+#line 720 "v3/src/conhecimento.g"
+#line 720 "v3/src/conhecimento.g"
+#line 721 "v3/src/conhecimento.g"
+#line 722 "v3/src/conhecimento.g"
+#line 723 "v3/src/conhecimento.g"
+#line 723 "v3/src/conhecimento.g"
+#line 724 "v3/src/conhecimento.g"
+#line 725 "v3/src/conhecimento.g"
+#line 725 "v3/src/conhecimento.g"
+#line 726 "v3/src/conhecimento.g"
+#line 727 "v3/src/conhecimento.g"
+#line 727 "v3/src/conhecimento.g"
+#line 728 "v3/src/conhecimento.g"
+#line 729 "v3/src/conhecimento.g"
+#line 730 "v3/src/conhecimento.g"
+#line 730 "v3/src/conhecimento.g"
+#line 731 "v3/src/conhecimento.g"
+#line 731 "v3/src/conhecimento.g"
+#line 732 "v3/src/conhecimento.g"
+#line 733 "v3/src/conhecimento.g"
+#line 734 "v3/src/conhecimento.g"
+#line 734 "v3/src/conhecimento.g"
+#line 735 "v3/src/conhecimento.g"
+#line 736 "v3/src/conhecimento.g"
+#line 736 "v3/src/conhecimento.g"
+#line 737 "v3/src/conhecimento.g"
+#line 738 "v3/src/conhecimento.g"
+#line 738 "v3/src/conhecimento.g"
+#line 739 "v3/src/conhecimento.g"
+#line 740 "v3/src/conhecimento.g"
+#line 741 "v3/src/conhecimento.g"
+#line 741 "v3/src/conhecimento.g"
+#line 742 "v3/src/conhecimento.g"
+#line 742 "v3/src/conhecimento.g"
+#line 743 "v3/src/conhecimento.g"
+#line 744 "v3/src/conhecimento.g"
+#line 745 "v3/src/conhecimento.g"
+#line 745 "v3/src/conhecimento.g"
+#line 746 "v3/src/conhecimento.g"
+#line 747 "v3/src/conhecimento.g"
+#line 747 "v3/src/conhecimento.g"
+#line 748 "v3/src/conhecimento.g"
+#line 749 "v3/src/conhecimento.g"
+#line 749 "v3/src/conhecimento.g"
+#line 750 "v3/src/conhecimento.g"
+#line 751 "v3/src/conhecimento.g"
+#line 752 "v3/src/conhecimento.g"
+#line 752 "v3/src/conhecimento.g"
+#line 753 "v3/src/conhecimento.g"
+#line 753 "v3/src/conhecimento.g"
+#line 754 "v3/src/conhecimento.g"
+#line 755 "v3/src/conhecimento.g"
+#line 756 "v3/src/conhecimento.g"
+#line 756 "v3/src/conhecimento.g"
+#line 757 "v3/src/conhecimento.g"
+#line 758 "v3/src/conhecimento.g"
+#line 758 "v3/src/conhecimento.g"
+#line 759 "v3/src/conhecimento.g"
+#line 760 "v3/src/conhecimento.g"
+#line 760 "v3/src/conhecimento.g"
+#line 761 "v3/src/conhecimento.g"
+#line 762 "v3/src/conhecimento.g"
+#line 763 "v3/src/conhecimento.g"
+#line 763 "v3/src/conhecimento.g"
+#line 764 "v3/src/conhecimento.g"
+#line 764 "v3/src/conhecimento.g"
+#line 765 "v3/src/conhecimento.g"
+#line 766 "v3/src/conhecimento.g"
+#line 767 "v3/src/conhecimento.g"
+#line 767 "v3/src/conhecimento.g"
+#line 768 "v3/src/conhecimento.g"
+#line 769 "v3/src/conhecimento.g"
+#line 769 "v3/src/conhecimento.g"
+#line 770 "v3/src/conhecimento.g"
+#line 771 "v3/src/conhecimento.g"
+#line 771 "v3/src/conhecimento.g"
+#line 772 "v3/src/conhecimento.g"
+#line 773 "v3/src/conhecimento.g"
+#line 774 "v3/src/conhecimento.g"
+#line 774 "v3/src/conhecimento.g"
+#line 775 "v3/src/conhecimento.g"
+#line 775 "v3/src/conhecimento.g"
+#line 776 "v3/src/conhecimento.g"
+#line 777 "v3/src/conhecimento.g"
+#line 778 "v3/src/conhecimento.g"
+#line 778 "v3/src/conhecimento.g"
+#line 779 "v3/src/conhecimento.g"
+#line 780 "v3/src/conhecimento.g"
+#line 780 "v3/src/conhecimento.g"
+#line 781 "v3/src/conhecimento.g"
+#line 782 "v3/src/conhecimento.g"
+#line 782 "v3/src/conhecimento.g"
+#line 783 "v3/src/conhecimento.g"
+#line 784 "v3/src/conhecimento.g"
+#line 785 "v3/src/conhecimento.g"
+#line 785 "v3/src/conhecimento.g"
+#line 786 "v3/src/conhecimento.g"
+#line 786 "v3/src/conhecimento.g"
+#line 787 "v3/src/conhecimento.g"
+#line 788 "v3/src/conhecimento.g"
+#line 789 "v3/src/conhecimento.g"
+#line 789 "v3/src/conhecimento.g"
+#line 790 "v3/src/conhecimento.g"
+#line 791 "v3/src/conhecimento.g"
+#line 791 "v3/src/conhecimento.g"
+#line 792 "v3/src/conhecimento.g"
+#line 793 "v3/src/conhecimento.g"
+#line 793 "v3/src/conhecimento.g"
+#line 794 "v3/src/conhecimento.g"
+#line 795 "v3/src/conhecimento.g"
+#line 796 "v3/src/conhecimento.g"
+#line 796 "v3/src/conhecimento.g"
+#line 797 "v3/src/conhecimento.g"
+#line 797 "v3/src/conhecimento.g"
+#line 798 "v3/src/conhecimento.g"
+#line 799 "v3/src/conhecimento.g"
+#line 800 "v3/src/conhecimento.g"
+#line 800 "v3/src/conhecimento.g"
+#line 801 "v3/src/conhecimento.g"
+#line 802 "v3/src/conhecimento.g"
+#line 802 "v3/src/conhecimento.g"
+#line 803 "v3/src/conhecimento.g"
+#line 804 "v3/src/conhecimento.g"
+#line 804 "v3/src/conhecimento.g"
+#line 805 "v3/src/conhecimento.g"
+#line 806 "v3/src/conhecimento.g"
+#line 807 "v3/src/conhecimento.g"
+#line 807 "v3/src/conhecimento.g"
+#line 808 "v3/src/conhecimento.g"
+#line 808 "v3/src/conhecimento.g"
+#line 809 "v3/src/conhecimento.g"
+#line 810 "v3/src/conhecimento.g"
+#line 811 "v3/src/conhecimento.g"
+#line 811 "v3/src/conhecimento.g"
+#line 812 "v3/src/conhecimento.g"
+#line 813 "v3/src/conhecimento.g"
+#line 813 "v3/src/conhecimento.g"
+#line 814 "v3/src/conhecimento.g"
+#line 815 "v3/src/conhecimento.g"
+#line 815 "v3/src/conhecimento.g"
+#line 816 "v3/src/conhecimento.g"
+#line 817 "v3/src/conhecimento.g"
+#line 818 "v3/src/conhecimento.g"
+#line 818 "v3/src/conhecimento.g"
+#line 819 "v3/src/conhecimento.g"
+#line 819 "v3/src/conhecimento.g"
+#line 820 "v3/src/conhecimento.g"
+#line 821 "v3/src/conhecimento.g"
+#line 822 "v3/src/conhecimento.g"
+#line 822 "v3/src/conhecimento.g"
+#line 823 "v3/src/conhecimento.g"
+#line 824 "v3/src/conhecimento.g"
+#line 824 "v3/src/conhecimento.g"
+#line 825 "v3/src/conhecimento.g"
+#line 826 "v3/src/conhecimento.g"
+#line 826 "v3/src/conhecimento.g"
+#line 827 "v3/src/conhecimento.g"
+#line 828 "v3/src/conhecimento.g"
+#line 829 "v3/src/conhecimento.g"
+#line 829 "v3/src/conhecimento.g"
+#line 830 "v3/src/conhecimento.g"
+#line 830 "v3/src/conhecimento.g"
+#line 831 "v3/src/conhecimento.g"
+#line 832 "v3/src/conhecimento.g"
+#line 833 "v3/src/conhecimento.g"
+#line 833 "v3/src/conhecimento.g"
+#line 834 "v3/src/conhecimento.g"
+#line 835 "v3/src/conhecimento.g"
+#line 835 "v3/src/conhecimento.g"
+#line 836 "v3/src/conhecimento.g"
+#line 837 "v3/src/conhecimento.g"
+#line 837 "v3/src/conhecimento.g"
+#line 838 "v3/src/conhecimento.g"
+#line 839 "v3/src/conhecimento.g"
+#line 840 "v3/src/conhecimento.g"
+#line 840 "v3/src/conhecimento.g"
+#line 841 "v3/src/conhecimento.g"
+#line 841 "v3/src/conhecimento.g"
+#line 842 "v3/src/conhecimento.g"
+#line 843 "v3/src/conhecimento.g"
+#line 844 "v3/src/conhecimento.g"
+#line 844 "v3/src/conhecimento.g"
+#line 845 "v3/src/conhecimento.g"
+#line 846 "v3/src/conhecimento.g"
+#line 846 "v3/src/conhecimento.g"
+#line 847 "v3/src/conhecimento.g"
+#line 848 "v3/src/conhecimento.g"
+#line 848 "v3/src/conhecimento.g"
+#line 849 "v3/src/conhecimento.g"
+#line 850 "v3/src/conhecimento.g"
+#line 851 "v3/src/conhecimento.g"
+#line 851 "v3/src/conhecimento.g"
+#line 852 "v3/src/conhecimento.g"
+#line 852 "v3/src/conhecimento.g"
+#line 853 "v3/src/conhecimento.g"
+#line 854 "v3/src/conhecimento.g"
+#line 855 "v3/src/conhecimento.g"
+#line 855 "v3/src/conhecimento.g"
+#line 856 "v3/src/conhecimento.g"
+#line 857 "v3/src/conhecimento.g"
+#line 857 "v3/src/conhecimento.g"
+#line 858 "v3/src/conhecimento.g"
+#line 859 "v3/src/conhecimento.g"
+#line 859 "v3/src/conhecimento.g"
+#line 860 "v3/src/conhecimento.g"
+#line 861 "v3/src/conhecimento.g"
+#line 862 "v3/src/conhecimento.g"
+#line 862 "v3/src/conhecimento.g"
+#line 863 "v3/src/conhecimento.g"
+#line 863 "v3/src/conhecimento.g"
+#line 864 "v3/src/conhecimento.g"
+#line 865 "v3/src/conhecimento.g"
+#line 866 "v3/src/conhecimento.g"
+#line 866 "v3/src/conhecimento.g"
+#line 867 "v3/src/conhecimento.g"
+#line 868 "v3/src/conhecimento.g"
+#line 868 "v3/src/conhecimento.g"
+#line 869 "v3/src/conhecimento.g"
+#line 870 "v3/src/conhecimento.g"
+#line 870 "v3/src/conhecimento.g"
+#line 871 "v3/src/conhecimento.g"
+#line 872 "v3/src/conhecimento.g"
+#line 873 "v3/src/conhecimento.g"
+#line 873 "v3/src/conhecimento.g"
+#line 874 "v3/src/conhecimento.g"
+#line 874 "v3/src/conhecimento.g"
+#line 875 "v3/src/conhecimento.g"
+#line 876 "v3/src/conhecimento.g"
+#line 877 "v3/src/conhecimento.g"
+#line 877 "v3/src/conhecimento.g"
+#line 878 "v3/src/conhecimento.g"
+#line 879 "v3/src/conhecimento.g"
+#line 879 "v3/src/conhecimento.g"
+#line 880 "v3/src/conhecimento.g"
+#line 881 "v3/src/conhecimento.g"
+#line 881 "v3/src/conhecimento.g"
+#line 882 "v3/src/conhecimento.g"
+#line 883 "v3/src/conhecimento.g"
+#line 884 "v3/src/conhecimento.g"
+#line 884 "v3/src/conhecimento.g"
+#line 885 "v3/src/conhecimento.g"
+#line 885 "v3/src/conhecimento.g"
+#line 886 "v3/src/conhecimento.g"
+#line 887 "v3/src/conhecimento.g"
+#line 888 "v3/src/conhecimento.g"
+#line 888 "v3/src/conhecimento.g"
+#line 889 "v3/src/conhecimento.g"
+#line 890 "v3/src/conhecimento.g"
+#line 890 "v3/src/conhecimento.g"
+#line 891 "v3/src/conhecimento.g"
+#line 892 "v3/src/conhecimento.g"
+#line 892 "v3/src/conhecimento.g"
+#line 893 "v3/src/conhecimento.g"
+#line 894 "v3/src/conhecimento.g"
+#line 895 "v3/src/conhecimento.g"
+#line 895 "v3/src/conhecimento.g"
+#line 896 "v3/src/conhecimento.g"
+#line 896 "v3/src/conhecimento.g"
+#line 897 "v3/src/conhecimento.g"
+#line 898 "v3/src/conhecimento.g"
+#line 899 "v3/src/conhecimento.g"
+#line 899 "v3/src/conhecimento.g"
+#line 900 "v3/src/conhecimento.g"
+#line 901 "v3/src/conhecimento.g"
+#line 901 "v3/src/conhecimento.g"
+#line 902 "v3/src/conhecimento.g"
+#line 903 "v3/src/conhecimento.g"
+#line 903 "v3/src/conhecimento.g"
+#line 904 "v3/src/conhecimento.g"
+#line 905 "v3/src/conhecimento.g"
+#line 906 "v3/src/conhecimento.g"
+#line 906 "v3/src/conhecimento.g"
+#line 907 "v3/src/conhecimento.g"
+#line 907 "v3/src/conhecimento.g"
+#line 908 "v3/src/conhecimento.g"
+#line 909 "v3/src/conhecimento.g"
+#line 910 "v3/src/conhecimento.g"
+#line 910 "v3/src/conhecimento.g"
+#line 911 "v3/src/conhecimento.g"
+#line 912 "v3/src/conhecimento.g"
+#line 912 "v3/src/conhecimento.g"
+#line 913 "v3/src/conhecimento.g"
+#line 914 "v3/src/conhecimento.g"
+#line 914 "v3/src/conhecimento.g"
+#line 915 "v3/src/conhecimento.g"
+#line 916 "v3/src/conhecimento.g"
+#line 917 "v3/src/conhecimento.g"
+#line 917 "v3/src/conhecimento.g"
+#line 918 "v3/src/conhecimento.g"
+#line 918 "v3/src/conhecimento.g"
+#line 919 "v3/src/conhecimento.g"
+#line 920 "v3/src/conhecimento.g"
+#line 921 "v3/src/conhecimento.g"
+#line 921 "v3/src/conhecimento.g"
+#line 922 "v3/src/conhecimento.g"
+#line 923 "v3/src/conhecimento.g"
+#line 923 "v3/src/conhecimento.g"
+#line 924 "v3/src/conhecimento.g"
+#line 925 "v3/src/conhecimento.g"
+#line 925 "v3/src/conhecimento.g"
+#line 926 "v3/src/conhecimento.g"
+#line 927 "v3/src/conhecimento.g"
+#line 928 "v3/src/conhecimento.g"
+#line 928 "v3/src/conhecimento.g"
+#line 929 "v3/src/conhecimento.g"
+#line 929 "v3/src/conhecimento.g"
+#line 930 "v3/src/conhecimento.g"
+#line 931 "v3/src/conhecimento.g"
+#line 932 "v3/src/conhecimento.g"
+#line 932 "v3/src/conhecimento.g"
+#line 933 "v3/src/conhecimento.g"
+#line 934 "v3/src/conhecimento.g"
+#line 934 "v3/src/conhecimento.g"
+#line 935 "v3/src/conhecimento.g"
+#line 936 "v3/src/conhecimento.g"
+#line 936 "v3/src/conhecimento.g"
+#line 937 "v3/src/conhecimento.g"
+#line 938 "v3/src/conhecimento.g"
+#line 939 "v3/src/conhecimento.g"
+#line 939 "v3/src/conhecimento.g"
+#line 940 "v3/src/conhecimento.g"
+#line 940 "v3/src/conhecimento.g"
+#line 941 "v3/src/conhecimento.g"
+#line 942 "v3/src/conhecimento.g"
+#line 943 "v3/src/conhecimento.g"
+#line 943 "v3/src/conhecimento.g"
+#line 944 "v3/src/conhecimento.g"
+#line 945 "v3/src/conhecimento.g"
+#line 945 "v3/src/conhecimento.g"
+#line 946 "v3/src/conhecimento.g"
+#line 947 "v3/src/conhecimento.g"
+#line 947 "v3/src/conhecimento.g"
+#line 948 "v3/src/conhecimento.g"
+#line 949 "v3/src/conhecimento.g"
+#line 950 "v3/src/conhecimento.g"
+#line 950 "v3/src/conhecimento.g"
+#line 951 "v3/src/conhecimento.g"
+#line 951 "v3/src/conhecimento.g"
+#line 952 "v3/src/conhecimento.g"
+#line 953 "v3/src/conhecimento.g"
+#line 954 "v3/src/conhecimento.g"
+#line 954 "v3/src/conhecimento.g"
+#line 955 "v3/src/conhecimento.g"
+#line 956 "v3/src/conhecimento.g"
+#line 956 "v3/src/conhecimento.g"
+#line 957 "v3/src/conhecimento.g"
+#line 958 "v3/src/conhecimento.g"
+#line 958 "v3/src/conhecimento.g"
+#line 959 "v3/src/conhecimento.g"
+#line 960 "v3/src/conhecimento.g"
+#line 961 "v3/src/conhecimento.g"
+#line 961 "v3/src/conhecimento.g"
+#line 962 "v3/src/conhecimento.g"
+#line 962 "v3/src/conhecimento.g"
+#line 963 "v3/src/conhecimento.g"
+#line 964 "v3/src/conhecimento.g"
+#line 965 "v3/src/conhecimento.g"
+#line 965 "v3/src/conhecimento.g"
+#line 966 "v3/src/conhecimento.g"
+#line 967 "v3/src/conhecimento.g"
+#line 967 "v3/src/conhecimento.g"
+#line 968 "v3/src/conhecimento.g"
+#line 969 "v3/src/conhecimento.g"
+#line 969 "v3/src/conhecimento.g"
+#line 970 "v3/src/conhecimento.g"
+#line 971 "v3/src/conhecimento.g"
+#line 972 "v3/src/conhecimento.g"
+#line 972 "v3/src/conhecimento.g"
+#line 973 "v3/src/conhecimento.g"
+#line 973 "v3/src/conhecimento.g"
+#line 974 "v3/src/conhecimento.g"
+#line 975 "v3/src/conhecimento.g"
+#line 976 "v3/src/conhecimento.g"
+#line 976 "v3/src/conhecimento.g"
+#line 977 "v3/src/conhecimento.g"
+#line 978 "v3/src/conhecimento.g"
+#line 978 "v3/src/conhecimento.g"
+#line 979 "v3/src/conhecimento.g"
+#line 980 "v3/src/conhecimento.g"
+#line 980 "v3/src/conhecimento.g"
+#line 981 "v3/src/conhecimento.g"
+#line 982 "v3/src/conhecimento.g"
+#line 983 "v3/src/conhecimento.g"
+#line 983 "v3/src/conhecimento.g"
+#line 984 "v3/src/conhecimento.g"
+#line 984 "v3/src/conhecimento.g"
+#line 985 "v3/src/conhecimento.g"
+#line 986 "v3/src/conhecimento.g"
+#line 987 "v3/src/conhecimento.g"
+#line 987 "v3/src/conhecimento.g"
+#line 988 "v3/src/conhecimento.g"
+#line 989 "v3/src/conhecimento.g"
+#line 989 "v3/src/conhecimento.g"
+#line 990 "v3/src/conhecimento.g"
+#line 991 "v3/src/conhecimento.g"
+#line 991 "v3/src/conhecimento.g"
+#line 992 "v3/src/conhecimento.g"
+#line 993 "v3/src/conhecimento.g"
+#line 994 "v3/src/conhecimento.g"
+#line 994 "v3/src/conhecimento.g"
+#line 995 "v3/src/conhecimento.g"
+#line 995 "v3/src/conhecimento.g"
+#line 996 "v3/src/conhecimento.g"
+#line 997 "v3/src/conhecimento.g"
+#line 998 "v3/src/conhecimento.g"
+#line 998 "v3/src/conhecimento.g"
+#line 999 "v3/src/conhecimento.g"
+#line 1000 "v3/src/conhecimento.g"
+#line 1000 "v3/src/conhecimento.g"
+#line 1001 "v3/src/conhecimento.g"
+#line 1002 "v3/src/conhecimento.g"
+#line 1002 "v3/src/conhecimento.g"
+#line 1003 "v3/src/conhecimento.g"
+#line 1004 "v3/src/conhecimento.g"
+#line 1005 "v3/src/conhecimento.g"
+#line 1005 "v3/src/conhecimento.g"
+#line 1006 "v3/src/conhecimento.g"
+#line 1006 "v3/src/conhecimento.g"
+#line 1007 "v3/src/conhecimento.g"
+#line 1008 "v3/src/conhecimento.g"
+#line 1009 "v3/src/conhecimento.g"
+#line 1009 "v3/src/conhecimento.g"
+#line 1010 "v3/src/conhecimento.g"
+#line 1011 "v3/src/conhecimento.g"
+#line 1011 "v3/src/conhecimento.g"
+#line 1012 "v3/src/conhecimento.g"
+#line 1013 "v3/src/conhecimento.g"
+#line 1013 "v3/src/conhecimento.g"
+#line 1014 "v3/src/conhecimento.g"
+#line 1015 "v3/src/conhecimento.g"
+#line 1016 "v3/src/conhecimento.g"
+#line 1016 "v3/src/conhecimento.g"
+#line 1017 "v3/src/conhecimento.g"
+#line 1017 "v3/src/conhecimento.g"
+#line 1018 "v3/src/conhecimento.g"
+#line 1019 "v3/src/conhecimento.g"
+#line 1020 "v3/src/conhecimento.g"
+#line 1020 "v3/src/conhecimento.g"
+#line 1021 "v3/src/conhecimento.g"
+#line 1022 "v3/src/conhecimento.g"
+#line 1022 "v3/src/conhecimento.g"
+#line 1023 "v3/src/conhecimento.g"
+#line 1024 "v3/src/conhecimento.g"
+#line 1024 "v3/src/conhecimento.g"
+#line 1025 "v3/src/conhecimento.g"
+#line 1026 "v3/src/conhecimento.g"
+#line 1027 "v3/src/conhecimento.g"
+#line 1027 "v3/src/conhecimento.g"
+#line 1028 "v3/src/conhecimento.g"
+#line 1028 "v3/src/conhecimento.g"
+#line 1029 "v3/src/conhecimento.g"
+#line 1030 "v3/src/conhecimento.g"
+#line 1031 "v3/src/conhecimento.g"
+#line 1031 "v3/src/conhecimento.g"
+#line 1032 "v3/src/conhecimento.g"
+#line 1033 "v3/src/conhecimento.g"
+#line 1033 "v3/src/conhecimento.g"
+#line 1034 "v3/src/conhecimento.g"
+#line 1035 "v3/src/conhecimento.g"
+#line 1035 "v3/src/conhecimento.g"
+#line 1036 "v3/src/conhecimento.g"
+#line 1037 "v3/src/conhecimento.g"
+#line 1038 "v3/src/conhecimento.g"
+#line 1038 "v3/src/conhecimento.g"
+#line 1039 "v3/src/conhecimento.g"
+#line 1039 "v3/src/conhecimento.g"
+#line 1040 "v3/src/conhecimento.g"
+#line 1041 "v3/src/conhecimento.g"
+#line 1042 "v3/src/conhecimento.g"
+#line 1042 "v3/src/conhecimento.g"
+#line 1043 "v3/src/conhecimento.g"
+#line 1044 "v3/src/conhecimento.g"
+#line 1044 "v3/src/conhecimento.g"
+#line 1045 "v3/src/conhecimento.g"
+#line 1046 "v3/src/conhecimento.g"
+#line 1046 "v3/src/conhecimento.g"
+#line 1047 "v3/src/conhecimento.g"
+#line 1048 "v3/src/conhecimento.g"
+#line 1049 "v3/src/conhecimento.g"
+#line 1049 "v3/src/conhecimento.g"
+#line 1050 "v3/src/conhecimento.g"
+#line 1050 "v3/src/conhecimento.g"
+#line 1051 "v3/src/conhecimento.g"
+#line 1052 "v3/src/conhecimento.g"
+#line 1053 "v3/src/conhecimento.g"
+#line 1053 "v3/src/conhecimento.g"
+#line 1054 "v3/src/conhecimento.g"
+#line 1055 "v3/src/conhecimento.g"
+#line 1055 "v3/src/conhecimento.g"
+#line 1056 "v3/src/conhecimento.g"
+#line 1057 "v3/src/conhecimento.g"
+#line 1057 "v3/src/conhecimento.g"
+#line 1058 "v3/src/conhecimento.g"
+#line 1059 "v3/src/conhecimento.g"
+#line 1060 "v3/src/conhecimento.g"
+#line 1060 "v3/src/conhecimento.g"
+#line 1061 "v3/src/conhecimento.g"
+#line 1061 "v3/src/conhecimento.g"
+#line 1062 "v3/src/conhecimento.g"
+#line 1063 "v3/src/conhecimento.g"
+#line 1064 "v3/src/conhecimento.g"
+#line 1064 "v3/src/conhecimento.g"
+#line 1065 "v3/src/conhecimento.g"
+#line 1066 "v3/src/conhecimento.g"
+#line 1066 "v3/src/conhecimento.g"
+#line 1067 "v3/src/conhecimento.g"
+#line 1068 "v3/src/conhecimento.g"
+#line 1068 "v3/src/conhecimento.g"
+#line 1069 "v3/src/conhecimento.g"
+#line 1070 "v3/src/conhecimento.g"
+#line 1071 "v3/src/conhecimento.g"
+#line 1071 "v3/src/conhecimento.g"
+#line 1072 "v3/src/conhecimento.g"
+#line 1072 "v3/src/conhecimento.g"
+#line 1073 "v3/src/conhecimento.g"
+#line 1074 "v3/src/conhecimento.g"
+#line 1075 "v3/src/conhecimento.g"
+#line 1075 "v3/src/conhecimento.g"
+#line 1076 "v3/src/conhecimento.g"
+#line 1077 "v3/src/conhecimento.g"
+#line 1077 "v3/src/conhecimento.g"
+#line 1078 "v3/src/conhecimento.g"
+#line 1079 "v3/src/conhecimento.g"
+#line 1079 "v3/src/conhecimento.g"
+#line 1080 "v3/src/conhecimento.g"
+#line 1081 "v3/src/conhecimento.g"
+#line 1082 "v3/src/conhecimento.g"
+#line 1082 "v3/src/conhecimento.g"
+#line 1083 "v3/src/conhecimento.g"
+#line 1083 "v3/src/conhecimento.g"
+#line 1084 "v3/src/conhecimento.g"
+#line 1084 "v3/src/conhecimento.g"
+#line 1085 "v3/src/conhecimento.g"
+#line 1088 "v3/src/conhecimento.g"
+#line 1091 "v3/src/conhecimento.g"
+#line 1094 "v3/src/conhecimento.g"
+#line 1095 "v3/src/conhecimento.g"
+#line 1096 "v3/src/conhecimento.g"
+#line 1097 "v3/src/conhecimento.g"
+#line 1098 "v3/src/conhecimento.g"
+#line 1099 "v3/src/conhecimento.g"
+#line 1099 "v3/src/conhecimento.g"
+#line 1100 "v3/src/conhecimento.g"
+#line 1100 "v3/src/conhecimento.g"
+#line 1101 "v3/src/conhecimento.g"
+#line 1103 "v3/src/conhecimento.g"
+#line 1104 "v3/src/conhecimento.g"
+#line 1105 "v3/src/conhecimento.g"
+#line 1105 "v3/src/conhecimento.g"
+#line 1106 "v3/src/conhecimento.g"
+#line 1106 "v3/src/conhecimento.g"
+#line 1107 "v3/src/conhecimento.g"
+#line 1109 "v3/src/conhecimento.g"
+#line 1110 "v3/src/conhecimento.g"
+#line 1111 "v3/src/conhecimento.g"
+#line 1111 "v3/src/conhecimento.g"
+#line 1112 "v3/src/conhecimento.g"
+#line 1114 "v3/src/conhecimento.g"
+#line 1115 "v3/src/conhecimento.g"
+#line 1116 "v3/src/conhecimento.g"
+#line 1116 "v3/src/conhecimento.g"
+#line 1117 "v3/src/conhecimento.g"
+#line 1117 "v3/src/conhecimento.g"
+#line 1118 "v3/src/conhecimento.g"
+#line 1120 "v3/src/conhecimento.g"
+#line 1121 "v3/src/conhecimento.g"
+#line 1122 "v3/src/conhecimento.g"
+#line 1122 "v3/src/conhecimento.g"
+#line 1123 "v3/src/conhecimento.g"
+#line 1123 "v3/src/conhecimento.g"
+#line 1124 "v3/src/conhecimento.g"
+#line 1126 "v3/src/conhecimento.g"
+#line 1127 "v3/src/conhecimento.g"
+#line 1128 "v3/src/conhecimento.g"
+#line 1128 "v3/src/conhecimento.g"
+#line 1129 "v3/src/conhecimento.g"
+#line 1129 "v3/src/conhecimento.g"
+#line 1130 "v3/src/conhecimento.g"
+#line 1132 "v3/src/conhecimento.g"
+#line 1133 "v3/src/conhecimento.g"
+#line 1134 "v3/src/conhecimento.g"
+#line 1134 "v3/src/conhecimento.g"
+#line 1135 "v3/src/conhecimento.g"
+#line 1137 "v3/src/conhecimento.g"
+#line 1138 "v3/src/conhecimento.g"
+#line 1139 "v3/src/conhecimento.g"
+#line 1139 "v3/src/conhecimento.g"
+#line 1140 "v3/src/conhecimento.g"
+#line 1140 "v3/src/conhecimento.g"
+#line 1141 "v3/src/conhecimento.g"
+#line 1143 "v3/src/conhecimento.g"
+#line 1144 "v3/src/conhecimento.g"
+#line 1145 "v3/src/conhecimento.g"
+#line 1145 "v3/src/conhecimento.g"
+#line 1146 "v3/src/conhecimento.g"
+#line 1146 "v3/src/conhecimento.g"
+#line 1147 "v3/src/conhecimento.g"
+#line 1149 "v3/src/conhecimento.g"
+#line 1150 "v3/src/conhecimento.g"
+#line 1151 "v3/src/conhecimento.g"
+#line 1151 "v3/src/conhecimento.g"
+#line 1152 "v3/src/conhecimento.g"
+#line 1152 "v3/src/conhecimento.g"
+#line 1153 "v3/src/conhecimento.g"
+#line 1155 "v3/src/conhecimento.g"
+#line 1156 "v3/src/conhecimento.g"
+#line 1157 "v3/src/conhecimento.g"
+#line 1157 "v3/src/conhecimento.g"
+#line 1158 "v3/src/conhecimento.g"
+#line 1160 "v3/src/conhecimento.g"
+#line 1161 "v3/src/conhecimento.g"
+#line 1162 "v3/src/conhecimento.g"
+#line 1162 "v3/src/conhecimento.g"
+#line 1163 "v3/src/conhecimento.g"
+#line 1163 "v3/src/conhecimento.g"
+#line 1164 "v3/src/conhecimento.g"
+#line 1166 "v3/src/conhecimento.g"
+#line 1167 "v3/src/conhecimento.g"
+#line 1168 "v3/src/conhecimento.g"
+#line 1168 "v3/src/conhecimento.g"
+#line 1169 "v3/src/conhecimento.g"
+#line 1169 "v3/src/conhecimento.g"
+#line 1170 "v3/src/conhecimento.g"
+#line 1172 "v3/src/conhecimento.g"
+#line 1173 "v3/src/conhecimento.g"
+#line 1174 "v3/src/conhecimento.g"
+#line 1174 "v3/src/conhecimento.g"
+#line 1175 "v3/src/conhecimento.g"
+#line 1175 "v3/src/conhecimento.g"
+#line 1176 "v3/src/conhecimento.g"
+#line 1178 "v3/src/conhecimento.g"
+#line 1179 "v3/src/conhecimento.g"
+#line 1180 "v3/src/conhecimento.g"
+#line 1180 "v3/src/conhecimento.g"
+#line 1181 "v3/src/conhecimento.g"
+#line 1183 "v3/src/conhecimento.g"
+#line 1184 "v3/src/conhecimento.g"
+#line 1185 "v3/src/conhecimento.g"
+#line 1185 "v3/src/conhecimento.g"
+#line 1186 "v3/src/conhecimento.g"
+#line 1188 "v3/src/conhecimento.g"
+#line 1189 "v3/src/conhecimento.g"
+#line 1190 "v3/src/conhecimento.g"
+#line 1190 "v3/src/conhecimento.g"
+#line 1191 "v3/src/conhecimento.g"
+#line 1191 "v3/src/conhecimento.g"
+#line 1192 "v3/src/conhecimento.g"
+#line 1194 "v3/src/conhecimento.g"
+#line 1195 "v3/src/conhecimento.g"
+#line 1196 "v3/src/conhecimento.g"
+#line 1196 "v3/src/conhecimento.g"
+#line 1197 "v3/src/conhecimento.g"
+#line 1197 "v3/src/conhecimento.g"
+#line 1198 "v3/src/conhecimento.g"
+#line 1200 "v3/src/conhecimento.g"
+#line 1201 "v3/src/conhecimento.g"
+#line 1202 "v3/src/conhecimento.g"
+#line 1202 "v3/src/conhecimento.g"
+#line 1203 "v3/src/conhecimento.g"
+#line 1203 "v3/src/conhecimento.g"
+#line 1204 "v3/src/conhecimento.g"
+#line 1206 "v3/src/conhecimento.g"
+#line 1207 "v3/src/conhecimento.g"
+#line 1208 "v3/src/conhecimento.g"
+#line 1208 "v3/src/conhecimento.g"
+#line 1209 "v3/src/conhecimento.g"
+#line 1209 "v3/src/conhecimento.g"
+#line 1210 "v3/src/conhecimento.g"
+#line 1212 "v3/src/conhecimento.g"
+#line 1213 "v3/src/conhecimento.g"
+#line 1214 "v3/src/conhecimento.g"
+#line 1214 "v3/src/conhecimento.g"
+#line 1215 "v3/src/conhecimento.g"
+#line 1215 "v3/src/conhecimento.g"
+#line 1216 "v3/src/conhecimento.g"
+#line 1218 "v3/src/conhecimento.g"
+#line 1219 "v3/src/conhecimento.g"
+#line 1220 "v3/src/conhecimento.g"
+#line 1220 "v3/src/conhecimento.g"
+#line 1221 "v3/src/conhecimento.g"
+#line 1223 "v3/src/conhecimento.g"
+#line 1224 "v3/src/conhecimento.g"
+#line 1225 "v3/src/conhecimento.g"
+#line 1225 "v3/src/conhecimento.g"
+#line 1226 "v3/src/conhecimento.g"
+#line 1228 "v3/src/conhecimento.g"
+#line 1229 "v3/src/conhecimento.g"
+#line 1230 "v3/src/conhecimento.g"
+#line 1230 "v3/src/conhecimento.g"
+#line 1231 "v3/src/conhecimento.g"
+#line 1233 "v3/src/conhecimento.g"
+#line 1234 "v3/src/conhecimento.g"
+#line 1235 "v3/src/conhecimento.g"
+#line 1235 "v3/src/conhecimento.g"
+#line 1236 "v3/src/conhecimento.g"
+#line 1238 "v3/src/conhecimento.g"
+#line 1239 "v3/src/conhecimento.g"
+#line 1240 "v3/src/conhecimento.g"
+#line 1240 "v3/src/conhecimento.g"
+#line 1241 "v3/src/conhecimento.g"
+#line 1243 "v3/src/conhecimento.g"
+#line 1244 "v3/src/conhecimento.g"
+#line 1245 "v3/src/conhecimento.g"
+#line 1245 "v3/src/conhecimento.g"
+#line 1246 "v3/src/conhecimento.g"
+#line 1248 "v3/src/conhecimento.g"
+#line 1249 "v3/src/conhecimento.g"
+#line 1250 "v3/src/conhecimento.g"
+#line 1250 "v3/src/conhecimento.g"
+#line 1251 "v3/src/conhecimento.g"
+#line 1253 "v3/src/conhecimento.g"
+#line 1254 "v3/src/conhecimento.g"
+#line 1255 "v3/src/conhecimento.g"
+#line 1255 "v3/src/conhecimento.g"
+#line 1256 "v3/src/conhecimento.g"
+#line 1258 "v3/src/conhecimento.g"
+#line 1259 "v3/src/conhecimento.g"
+#line 1260 "v3/src/conhecimento.g"
+#line 1260 "v3/src/conhecimento.g"
+#line 1261 "v3/src/conhecimento.g"
+#line 1263 "v3/src/conhecimento.g"
+#line 1264 "v3/src/conhecimento.g"
+#line 1265 "v3/src/conhecimento.g"
+#line 1265 "v3/src/conhecimento.g"
+#line 1266 "v3/src/conhecimento.g"
+#line 1268 "v3/src/conhecimento.g"
+#line 1269 "v3/src/conhecimento.g"
+#line 1270 "v3/src/conhecimento.g"
+#line 1270 "v3/src/conhecimento.g"
+#line 1271 "v3/src/conhecimento.g"
+#line 1273 "v3/src/conhecimento.g"
+#line 1274 "v3/src/conhecimento.g"
+#line 1275 "v3/src/conhecimento.g"
+#line 1275 "v3/src/conhecimento.g"
+#line 1276 "v3/src/conhecimento.g"
+#line 1278 "v3/src/conhecimento.g"
+#line 1279 "v3/src/conhecimento.g"
+#line 1280 "v3/src/conhecimento.g"
+#line 1280 "v3/src/conhecimento.g"
+#line 1281 "v3/src/conhecimento.g"
+#line 1283 "v3/src/conhecimento.g"
+#line 1284 "v3/src/conhecimento.g"
+#line 1285 "v3/src/conhecimento.g"
+#line 1285 "v3/src/conhecimento.g"
+#line 1286 "v3/src/conhecimento.g"
+#line 1288 "v3/src/conhecimento.g"
+#line 1289 "v3/src/conhecimento.g"
+#line 1290 "v3/src/conhecimento.g"
+#line 1290 "v3/src/conhecimento.g"
+#line 1291 "v3/src/conhecimento.g"
+#line 1293 "v3/src/conhecimento.g"
+#line 1294 "v3/src/conhecimento.g"
+#line 1295 "v3/src/conhecimento.g"
+#line 1295 "v3/src/conhecimento.g"
+#line 1296 "v3/src/conhecimento.g"
+#line 1298 "v3/src/conhecimento.g"
+#line 1299 "v3/src/conhecimento.g"
+#line 1300 "v3/src/conhecimento.g"
+#line 1300 "v3/src/conhecimento.g"
+#line 1301 "v3/src/conhecimento.g"
+#line 1303 "v3/src/conhecimento.g"
+#line 1304 "v3/src/conhecimento.g"
+#line 1305 "v3/src/conhecimento.g"
+#line 1305 "v3/src/conhecimento.g"
+#line 1306 "v3/src/conhecimento.g"
+#line 1308 "v3/src/conhecimento.g"
+#line 1309 "v3/src/conhecimento.g"
+#line 1310 "v3/src/conhecimento.g"
+#line 1310 "v3/src/conhecimento.g"
+#line 1311 "v3/src/conhecimento.g"
+#line 1313 "v3/src/conhecimento.g"
+#line 1314 "v3/src/conhecimento.g"
+#line 1315 "v3/src/conhecimento.g"
+#line 1315 "v3/src/conhecimento.g"
+#line 1316 "v3/src/conhecimento.g"
+#line 1318 "v3/src/conhecimento.g"
+#line 1319 "v3/src/conhecimento.g"
+#line 1320 "v3/src/conhecimento.g"
+#line 1320 "v3/src/conhecimento.g"
+#line 1321 "v3/src/conhecimento.g"
+#line 1323 "v3/src/conhecimento.g"
+#line 1324 "v3/src/conhecimento.g"
+#line 1325 "v3/src/conhecimento.g"
+#line 1325 "v3/src/conhecimento.g"
+#line 1326 "v3/src/conhecimento.g"
+#line 1328 "v3/src/conhecimento.g"
+#line 1329 "v3/src/conhecimento.g"
+#line 1330 "v3/src/conhecimento.g"
+#line 1330 "v3/src/conhecimento.g"
+#line 1331 "v3/src/conhecimento.g"
+#line 1333 "v3/src/conhecimento.g"
+#line 1334 "v3/src/conhecimento.g"
+#line 1335 "v3/src/conhecimento.g"
+#line 1335 "v3/src/conhecimento.g"
+#line 1336 "v3/src/conhecimento.g"
+#line 1338 "v3/src/conhecimento.g"
+#line 1339 "v3/src/conhecimento.g"
+#line 1340 "v3/src/conhecimento.g"
+#line 1340 "v3/src/conhecimento.g"
+#line 1341 "v3/src/conhecimento.g"
+#line 1343 "v3/src/conhecimento.g"
+#line 1344 "v3/src/conhecimento.g"
+#line 1345 "v3/src/conhecimento.g"
+#line 1345 "v3/src/conhecimento.g"
+#line 1346 "v3/src/conhecimento.g"
+#line 1348 "v3/src/conhecimento.g"
+#line 1349 "v3/src/conhecimento.g"
+#line 1350 "v3/src/conhecimento.g"
+#line 1350 "v3/src/conhecimento.g"
+#line 1351 "v3/src/conhecimento.g"
+#line 1353 "v3/src/conhecimento.g"
+#line 1354 "v3/src/conhecimento.g"
+#line 1355 "v3/src/conhecimento.g"
+#line 1355 "v3/src/conhecimento.g"
+#line 1356 "v3/src/conhecimento.g"
+#line 1358 "v3/src/conhecimento.g"
+#line 1359 "v3/src/conhecimento.g"
+#line 1360 "v3/src/conhecimento.g"
+#line 1360 "v3/src/conhecimento.g"
+#line 1361 "v3/src/conhecimento.g"
+#line 1363 "v3/src/conhecimento.g"
+#line 1364 "v3/src/conhecimento.g"
+#line 1365 "v3/src/conhecimento.g"
+#line 1365 "v3/src/conhecimento.g"
+#line 1366 "v3/src/conhecimento.g"
+#line 1368 "v3/src/conhecimento.g"
+#line 1369 "v3/src/conhecimento.g"
+#line 1370 "v3/src/conhecimento.g"
+#line 1370 "v3/src/conhecimento.g"
+#line 1371 "v3/src/conhecimento.g"
+#line 1373 "v3/src/conhecimento.g"
+#line 1374 "v3/src/conhecimento.g"
+#line 1375 "v3/src/conhecimento.g"
+#line 1375 "v3/src/conhecimento.g"
+#line 1376 "v3/src/conhecimento.g"
+#line 1378 "v3/src/conhecimento.g"
+#line 1379 "v3/src/conhecimento.g"
+#line 1380 "v3/src/conhecimento.g"
+#line 1380 "v3/src/conhecimento.g"
+#line 1381 "v3/src/conhecimento.g"
+#line 1383 "v3/src/conhecimento.g"
+#line 1384 "v3/src/conhecimento.g"
+#line 1385 "v3/src/conhecimento.g"
+#line 1385 "v3/src/conhecimento.g"
+#line 1386 "v3/src/conhecimento.g"
+#line 1388 "v3/src/conhecimento.g"
+#line 1389 "v3/src/conhecimento.g"
+#line 1390 "v3/src/conhecimento.g"
+#line 1390 "v3/src/conhecimento.g"
+#line 1391 "v3/src/conhecimento.g"
+#line 1393 "v3/src/conhecimento.g"
+#line 1394 "v3/src/conhecimento.g"
+#line 1395 "v3/src/conhecimento.g"
+#line 1395 "v3/src/conhecimento.g"
+#line 1396 "v3/src/conhecimento.g"
+#line 1398 "v3/src/conhecimento.g"
+#line 1399 "v3/src/conhecimento.g"
+#line 1400 "v3/src/conhecimento.g"
+#line 1400 "v3/src/conhecimento.g"
+#line 1401 "v3/src/conhecimento.g"
+#line 1403 "v3/src/conhecimento.g"
+#line 1404 "v3/src/conhecimento.g"
+#line 1405 "v3/src/conhecimento.g"
+#line 1405 "v3/src/conhecimento.g"
+#line 1406 "v3/src/conhecimento.g"
+#line 1408 "v3/src/conhecimento.g"
+#line 1409 "v3/src/conhecimento.g"
+#line 1410 "v3/src/conhecimento.g"
+#line 1410 "v3/src/conhecimento.g"
+#line 1411 "v3/src/conhecimento.g"
+#line 1413 "v3/src/conhecimento.g"
+#line 1414 "v3/src/conhecimento.g"
+#line 1415 "v3/src/conhecimento.g"
+#line 1415 "v3/src/conhecimento.g"
+#line 1416 "v3/src/conhecimento.g"
+#line 1418 "v3/src/conhecimento.g"
+#line 1419 "v3/src/conhecimento.g"
+#line 1420 "v3/src/conhecimento.g"
+#line 1420 "v3/src/conhecimento.g"
+#line 1421 "v3/src/conhecimento.g"
+#line 1423 "v3/src/conhecimento.g"
+#line 1424 "v3/src/conhecimento.g"
+#line 1425 "v3/src/conhecimento.g"
+#line 1425 "v3/src/conhecimento.g"
+#line 1426 "v3/src/conhecimento.g"
+#line 1428 "v3/src/conhecimento.g"
+#line 1429 "v3/src/conhecimento.g"
+#line 1430 "v3/src/conhecimento.g"
+#line 1430 "v3/src/conhecimento.g"
+#line 1431 "v3/src/conhecimento.g"
+#line 1433 "v3/src/conhecimento.g"
+#line 1434 "v3/src/conhecimento.g"
+#line 1435 "v3/src/conhecimento.g"
+#line 1435 "v3/src/conhecimento.g"
+#line 1436 "v3/src/conhecimento.g"
+#line 1438 "v3/src/conhecimento.g"
+#line 1439 "v3/src/conhecimento.g"
+#line 1440 "v3/src/conhecimento.g"
+#line 1440 "v3/src/conhecimento.g"
+#line 1441 "v3/src/conhecimento.g"
+#line 1443 "v3/src/conhecimento.g"
+#line 1444 "v3/src/conhecimento.g"
+#line 1445 "v3/src/conhecimento.g"
+#line 1445 "v3/src/conhecimento.g"
+#line 1446 "v3/src/conhecimento.g"
+#line 1448 "v3/src/conhecimento.g"
+#line 1449 "v3/src/conhecimento.g"
+#line 1450 "v3/src/conhecimento.g"
+#line 1450 "v3/src/conhecimento.g"
+#line 1451 "v3/src/conhecimento.g"
+#line 1453 "v3/src/conhecimento.g"
+#line 1454 "v3/src/conhecimento.g"
+#line 1455 "v3/src/conhecimento.g"
+#line 1455 "v3/src/conhecimento.g"
+#line 1456 "v3/src/conhecimento.g"
+#line 1458 "v3/src/conhecimento.g"
+#line 1459 "v3/src/conhecimento.g"
+#line 1460 "v3/src/conhecimento.g"
+#line 1460 "v3/src/conhecimento.g"
+#line 1461 "v3/src/conhecimento.g"
+#line 1463 "v3/src/conhecimento.g"
+#line 1464 "v3/src/conhecimento.g"
+#line 1465 "v3/src/conhecimento.g"
+#line 1465 "v3/src/conhecimento.g"
+#line 1466 "v3/src/conhecimento.g"
+#line 1468 "v3/src/conhecimento.g"
+#line 1469 "v3/src/conhecimento.g"
+#line 1470 "v3/src/conhecimento.g"
+#line 1470 "v3/src/conhecimento.g"
+#line 1471 "v3/src/conhecimento.g"
+#line 1473 "v3/src/conhecimento.g"
+#line 1474 "v3/src/conhecimento.g"
+#line 1475 "v3/src/conhecimento.g"
+#line 1475 "v3/src/conhecimento.g"
+#line 1476 "v3/src/conhecimento.g"
+#line 1478 "v3/src/conhecimento.g"
+#line 1479 "v3/src/conhecimento.g"
+#line 1480 "v3/src/conhecimento.g"
+#line 1480 "v3/src/conhecimento.g"
+#line 1481 "v3/src/conhecimento.g"
+#line 1483 "v3/src/conhecimento.g"
+#line 1484 "v3/src/conhecimento.g"
+#line 1485 "v3/src/conhecimento.g"
+#line 1485 "v3/src/conhecimento.g"
+#line 1486 "v3/src/conhecimento.g"
+#line 1488 "v3/src/conhecimento.g"
+#line 1489 "v3/src/conhecimento.g"
+#line 1490 "v3/src/conhecimento.g"
+#line 1490 "v3/src/conhecimento.g"
+#line 1491 "v3/src/conhecimento.g"
+#line 1493 "v3/src/conhecimento.g"
+#line 1494 "v3/src/conhecimento.g"
+#line 1495 "v3/src/conhecimento.g"
+#line 1495 "v3/src/conhecimento.g"
+#line 1496 "v3/src/conhecimento.g"
+#line 1498 "v3/src/conhecimento.g"
+#line 1499 "v3/src/conhecimento.g"
+#line 1500 "v3/src/conhecimento.g"
+#line 1500 "v3/src/conhecimento.g"
+#line 1501 "v3/src/conhecimento.g"
+#line 1503 "v3/src/conhecimento.g"
+#line 1504 "v3/src/conhecimento.g"
+#line 1505 "v3/src/conhecimento.g"
+#line 1505 "v3/src/conhecimento.g"
+#line 1506 "v3/src/conhecimento.g"
+#line 1508 "v3/src/conhecimento.g"
+#line 1509 "v3/src/conhecimento.g"
+#line 1510 "v3/src/conhecimento.g"
+#line 1510 "v3/src/conhecimento.g"
+#line 1511 "v3/src/conhecimento.g"
+#line 1513 "v3/src/conhecimento.g"
+#line 1514 "v3/src/conhecimento.g"
+#line 1515 "v3/src/conhecimento.g"
+#line 1515 "v3/src/conhecimento.g"
+#line 1516 "v3/src/conhecimento.g"
+#line 1518 "v3/src/conhecimento.g"
+#line 1519 "v3/src/conhecimento.g"
+#line 1520 "v3/src/conhecimento.g"
+#line 1520 "v3/src/conhecimento.g"
+#line 1521 "v3/src/conhecimento.g"
+#line 1523 "v3/src/conhecimento.g"
+#line 1524 "v3/src/conhecimento.g"
+#line 1525 "v3/src/conhecimento.g"
+#line 1525 "v3/src/conhecimento.g"
+#line 1526 "v3/src/conhecimento.g"
+#line 1528 "v3/src/conhecimento.g"
+#line 1529 "v3/src/conhecimento.g"
+#line 1530 "v3/src/conhecimento.g"
+#line 1530 "v3/src/conhecimento.g"
+#line 1531 "v3/src/conhecimento.g"
+#line 1533 "v3/src/conhecimento.g"
+#line 1534 "v3/src/conhecimento.g"
+#line 1535 "v3/src/conhecimento.g"
+#line 1535 "v3/src/conhecimento.g"
+#line 1536 "v3/src/conhecimento.g"
+#line 1538 "v3/src/conhecimento.g"
+#line 1539 "v3/src/conhecimento.g"
+#line 1540 "v3/src/conhecimento.g"
+#line 1540 "v3/src/conhecimento.g"
+#line 1541 "v3/src/conhecimento.g"
+#line 1543 "v3/src/conhecimento.g"
+#line 1544 "v3/src/conhecimento.g"
+#line 1545 "v3/src/conhecimento.g"
+#line 1545 "v3/src/conhecimento.g"
+#line 1546 "v3/src/conhecimento.g"
+#line 1548 "v3/src/conhecimento.g"
+#line 1549 "v3/src/conhecimento.g"
+#line 1550 "v3/src/conhecimento.g"
+#line 1550 "v3/src/conhecimento.g"
+#line 1551 "v3/src/conhecimento.g"
+#line 1553 "v3/src/conhecimento.g"
+#line 1554 "v3/src/conhecimento.g"
+#line 1555 "v3/src/conhecimento.g"
+#line 1555 "v3/src/conhecimento.g"
+#line 1556 "v3/src/conhecimento.g"
+#line 1558 "v3/src/conhecimento.g"
+#line 1561 "v3/src/conhecimento.g"
+#line 1561 "v3/src/conhecimento.g"
+#line 1562 "v3/src/conhecimento.g"
+#line 1563 "v3/src/conhecimento.g"
+#line 1563 "v3/src/conhecimento.g"
+#line 1564 "v3/src/conhecimento.g"
+#line 1565 "v3/src/conhecimento.g"
+#line 1566 "v3/src/conhecimento.g"
+#line 1567 "v3/src/conhecimento.g"
+#line 1567 "v3/src/conhecimento.g"
+#line 1568 "v3/src/conhecimento.g"
+#line 1569 "v3/src/conhecimento.g"
+#line 1572 "v3/src/conhecimento.g"
+#line 2 "v3/src/conhecimento.g"
+#line 37 "v3/src/conhecimento.g"
+#line 51 "v3/src/conhecimento.g"
+#line 71 "v3/src/conhecimento.g"
+#line 1087 "v3/src/conhecimento.g"
+#line 1090 "v3/src/conhecimento.g"
+#line 1093 "v3/src/conhecimento.g"
+#line 1560 "v3/src/conhecimento.g"
+----
+/*TranspiladopeloGhostCompilerv1.0*/#include<iostream>#include<cstdio>#include<cstdlib>#include<string>#include<complex>#include<type_traits>#include<fstream>#include<sstream>#include<thread>#include<chrono>#include<mutex>#include"include/GhostNumberG.hpp"#include"include/GhostMatrix.hpp"#include"include/GhostLLM.hpp"#include"include/GhostLib.hpp"#include"include/GhostDevice.hpp"#include"include/GhostTextModel.hpp"#include"include/GhostWeb.hpp"#include"include/GhostKnowledge.hpp"#include"include/GhostTemporal.hpp"#include"include/GhostTransformer.hpp"#include"include/GhostTransformerG.hpp"#include"include/GhostMatrixG.hpp"#include"include/GhostQuantum.hpp"#include"include/GhostQML.hpp"#include"include/GhostHybrid.hpp"#include"include/GhostQTape.hpp"#include"include/GhostCore.hpp"#ifdef_WIN32#include<windows.h>#endifstd::stringminusculas(std::stringtexto);
+std::stringnormalizar(std::stringtexto);
+doublesimilaridade(std::stringpergunta,std::stringexemplo);
+intlocalizar(std::stringtexto);
+intpedido_exemplo(std::stringtexto);
+intpedido_continuacao(std::stringtexto);
+std::stringresponder_ficha(intficha,std::stringpedido);
+std::stringconsultar(std::stringtexto);
+std::stringminusculas(std::stringtexto){
+texto=regex_replace(texto,std::string("A"),std::string("a"));
+texto=regex_replace(texto,std::string("B"),std::string("b"));
+texto=regex_replace(texto,std::string("C"),std::string("c"));
+texto=regex_replace(texto,std::string("D"),std::string("d"));
+texto=regex_replace(texto,std::string("E"),std::string("e"));
+texto=regex_replace(texto,std::string("F"),std::string("f"));
+texto=regex_replace(texto,std::string("G"),std::string("g"));
+texto=regex_replace(texto,std::string("H"),std::string("h"));
+texto=regex_replace(texto,std::string("I"),std::string("i"));
+texto=regex_replace(texto,std::string("J"),std::string("j"));
+texto=regex_replace(texto,std::string("K"),std::string("k"));
+texto=regex_replace(texto,std::string("L"),std::string("l"));
+texto=regex_replace(texto,std::string("M"),std::string("m"));
+texto=regex_replace(texto,std::string("N"),std::string("n"));
+texto=regex_replace(texto,std::string("O"),std::string("o"));
+texto=regex_replace(texto,std::string("P"),std::string("p"));
+texto=regex_replace(texto,std::string("Q"),std::string("q"));
+texto=regex_replace(texto,std::string("R"),std::string("r"));
+texto=regex_replace(texto,std::string("S"),std::string("s"));
+texto=regex_replace(texto,std::string("T"),std::string("t"));
+texto=regex_replace(texto,std::string("U"),std::string("u"));
+texto=regex_replace(texto,std::string("V"),std::string("v"));
+texto=regex_replace(texto,std::string("W"),std::string("w"));
+texto=regex_replace(texto,std::string("X"),std::string("x"));
+texto=regex_replace(texto,std::string("Y"),std::string("y"));
+texto=regex_replace(texto,std::string("Z"),std::string("z"));
+texto=regex_replace(texto,std::string("(Á|À|Â|Ã|Ä|á|à|â|ã|ä)"),std::string("a"));
+texto=regex_replace(texto,std::string("(É|È|Ê|Ë|Ẽ|é|è|ê|ë|ẽ)"),std::string("e"));
+texto=regex_replace(texto,std::string("(Í|Ì|Î|Ï|í|ì|î|ï)"),std::string("i"));
+texto=regex_replace(texto,std::string("(Ó|Ò|Ô|Õ|Ö|ó|ò|ô|õ|ö)"),std::string("o"));
+texto=regex_replace(texto,std::string("(Ú|Ù|Û|Ü|ú|ù|û|ü)"),std::string("u"));
+texto=regex_replace(texto,std::string("(Ç|ç)"),std::string("c"));
+returntexto;
+}
+std::stringnormalizar(std::stringtexto){
+texto=regex_replace(minusculas(texto),std::string("[^a-z0-9]+"),std::string(" "));
+autopalavras=string_split(texto,32);
+std::stringsaida=std::string(" ");
+intn=0;
+while(n<palavras.size()){
+std::stringpalavra=palavras[n];
+std::stringbusca=std::string(" ")+palavra+std::string(" ");
+std::stringignorar=std::string(" a agora apresente as breve codigo com como completo criar crie curto da das de depois descreva detalhe detalhes do dois dos duas e em eu exemplo exemplos explique favor mais me meu mim mostrar mostre na nas no nos o os para pode por pratico quais qual que resuma resumo se simples sobre um uma umas uns voce é ");
+if(palavra.size()>0&&string_contains(ignorar,busca)==std::string("false")&&string_contains(saida,busca)==std::string("false")){
+saida=saida+palavra+std::string(" ");
+}
+n=n+1;
+}
+returnsaida;
+}
+doublesimilaridade(std::stringpergunta,std::stringexemplo){
+autopalavras=string_split(pergunta,32);
+autotermos=string_split(exemplo,32);
+doublecomuns=0.0;
+doubletotal=0.0;
+doubletamanho=0.0;
+inti=0;
+while(i<palavras.size()){
+if(palavras[i].size()>0){
+total=total+1.0;
+if(string_contains(exemplo,std::string(" ")+palavras[i]+std::string(" "))==std::string("true")){
+comuns=comuns+1.0;
+}
+}
+i=i+1;
+}
+i=0;
+while(i<termos.size()){
+if(termos[i].size()>0){
+tamanho=tamanho+1.0;
+}
+i=i+1;
+}
+if(total<1.0||tamanho<1.0){
+return0.0;
+}
+if(tamanho>total){
+total=tamanho;
+}
+returncomuns/total;
+}
+intlocalizar(std::stringtexto){
+if(texto.size()>4000){
+return-1;
+}
+std::stringpergunta=normalizar(texto);
+doublemelhor=0.0;
+doublesegundo=0.0;
+doublepontuacao=0.0;
+doubleatual=0.0;
+intficha=-1;
+pontuacao=0.0;
+atual=similaridade(pergunta,std::string(" ghostlang "));
+if(atual>pontuacao){
+pontuacao=atual;
+}
+atual=similaridade(pergunta,std::string(" linguagem ghostlang "));
+if(atual>pontuacao){
+pontuacao=atual;
+}
+atual=similaridade(pergunta,std::string(" serve ghostlang "));
+if(atual>pontuacao){
+pontuacao=atual;
+}
+atual=similaridade(pergunta,std::string(" defina ghostlang "));
+if(atual>pontuacao){
+pontuacao=atual;
+}
+atual=similaridade(pergunta,std::string(" quero conhecer ghostlang "));
+if(atual>pontuacao){
+pontuacao=atual;
+}
+if(pontuacao>melhor){
+segundo=melhor;
+melhor=pontuacao;
+ficha=0;
+}
+else{
+if(pontuacao>segundo){
+segundo=pontuacao;
+}
+}
+pontuacao=0.0;
+atual=similaridade(pergunta,std::string(" compilar programa ghostlang "));
+if(atual>pontuacao){
+pontuacao=atual;
+}
+atual=similaridade(pergunta,std::string(" comando compila arquivo g "));
+if(atual>pontuacao){
+pontuacao=atual;
+}
+atual=similaridade(pergunta,std::string(" gerar executavel ghostlang "));
+if(atual>pontuacao){
+pontuacao=atual;
+}
+if(pontuacao>melhor){
+segundo=melhor;
+melhor=pontuacao;
+ficha=1;
+}
+else{
+if(pontuacao>segundo){
+segundo=pontuacao;
+}
+}
+pontuacao=0.0;
+atual=similaridade(pergunta,std::string(" foi criada ghostlang "));
+if(atual>pontuacao){
+pontuacao=atual;
+}
+atual=similaridade(pergunta,std::string(" estamos usando ghostlang ia modelo "));
+if(atual>pontuacao){
+pontuacao=atual;
+}
+atual=similaridade(pergunta,std::string(" v3 usa realmente ghostlang "));
+if(atual>pontuacao){
+pontuacao=atual;
+}
+if(pontuacao>melhor){
+segundo=melhor;
+melhor=pontuacao;
+ficha=2;
+}
+else{
+if(pontuacao>segundo){
+segundo=pontuacao;
+}
+}
+pontuacao=0.0;
+atual=similaridade(pergunta,std::string(" textmodel "));
+if(atual>pontuacao){
+pontuacao=atual;
+}
+atual=similaridade(pergunta,std::string(" declarar modelo texto "));
+if(atual>pontuacao){
+pontuacao=atual;
+}
+atual=similaridade(pergunta,std::string(" tipo nativo cria modelo linguagem "));
+if(atual>pontuacao){
+pontuacao=atual;
+}
+if(pontuacao>melhor){
+segundo=melhor;
+melhor=pontuacao;
+ficha=3;
+}
+else{
+if(pontuacao>segundo){
+segundo=pontuacao;
+}
+}
+pontuacao=0.0;
+atual=similaridade(pergunta,std::string(" arquitetura v3 "));
+if(atual>pontuacao){
+pontuacao=atual;
+}
+atual=similaridade(pergunta,std::string(" v3 transformer "));
+if(atual>pontuacao){
+pontuacao=atual;
+}
+atual=similaridade(pergunta,std::string(" funciona rede texto v3 "));
+if(atual>pontuacao){
+pontuacao=atual;
+}
+if(pontuacao>melhor){
+segundo=melhor;
+melhor=pontuacao;
+ficha=4;
+}
+else{
+if(pontuacao>segundo){
+segundo=pontuacao;
+}
+}
+pontuacao=0.0;
+atual=similaridade(pergunta,std::string(" treinar textmodel "));
+if(atual>pontuacao){
+pontuacao=atual;
+}
+atual=similaridade(pergunta,std::string(" metodos treinam modelo nativo "));
+if(atual>pontuacao){
+pontuacao=atual;
+}
+atual=similaridade(pergunta,std::string(" ajustar pesos ia ghostlang "));
+if(atual>pontuacao){
+pontuacao=atual;
+}
+if(pontuacao>melhor){
+segundo=melhor;
+melhor=pontuacao;
+ficha=5;
+}
+else{
+if(pontuacao>segundo){
+segundo=pontuacao;
+}
+}
+pontuacao=0.0;
+atual=similaridade(pergunta,std::string(" salvar carregar modelo "));
+if(atual>pontuacao){
+pontuacao=atual;
+}
+atual=similaridade(pergunta,std::string(" guarda checkpoint v3 "));
+if(atual>pontuacao){
+pontuacao=atual;
+}
+atual=similaridade(pergunta,std::string(" retomar treinamento "));
+if(atual>pontuacao){
+pontuacao=atual;
+}
+if(pontuacao>melhor){
+segundo=melhor;
+melhor=pontuacao;
+ficha=6;
+}
+else{
+if(pontuacao>segundo){
+segundo=pontuacao;
+}
+}
+pontuacao=0.0;
+atual=similaridade(pergunta,std::string(" selecionar cpu ou gpu automaticamente "));
+if(atual>pontuacao){
+pontuacao=atual;
+}
+atual=similaridade(pergunta,std::string(" ativar reconhecimento automatico hardware "));
+if(atual>pontuacao){
+pontuacao=atual;
+}
+atual=similaridade(pergunta,std::string(" ia detecta rtx automaticamente "));
+if(atual>pontuacao){
+pontuacao=atual;
+}
+if(pontuacao>melhor){
+segundo=melhor;
+melhor=pontuacao;
+ficha=7;
+}
+else{
+if(pontuacao>segundo){
+segundo=pontuacao;
+}
+}
+pontuacao=0.0;
+atual=similaridade(pergunta,std::string(" forcar execucao cpu "));
+if(atual>pontuacao){
+pontuacao=atual;
+}
+atual=similaridade(pergunta,std::string(" quero rodar ia sem gpu "));
+if(atual>pontuacao){
+pontuacao=atual;
+}
+atual=similaridade(pergunta,std::string(" escolher somente processador "));
+if(atual>pontuacao){
+pontuacao=atual;
+}
+if(pontuacao>melhor){
+segundo=melhor;
+melhor=pontuacao;
+ficha=8;
+}
+else{
+if(pontuacao>segundo){
+segundo=pontuacao;
+}
+}
+pontuacao=0.0;
+atual=similaridade(pergunta,std::string(" forcar cuda v3 "));
+if(atual>pontuacao){
+pontuacao=atual;
+}
+atual=similaridade(pergunta,std::string(" quero executar ia gpu nvidia "));
+if(atual>pontuacao){
+pontuacao=atual;
+}
+atual=similaridade(pergunta,std::string(" usar pragma gpu "));
+if(atual>pontuacao){
+pontuacao=atual;
+}
+if(pontuacao>melhor){
+segundo=melhor;
+melhor=pontuacao;
+ficha=9;
+}
+else{
+if(pontuacao>segundo){
+segundo=pontuacao;
+}
+}
+pontuacao=0.0;
+atual=similaridade(pergunta,std::string(" gpu intel uhd executa cuda "));
+if(atual>pontuacao){
+pontuacao=atual;
+}
+atual=similaridade(pergunta,std::string(" posso usar cuda placa integrada intel "));
+if(atual>pontuacao){
+pontuacao=atual;
+}
+atual=similaridade(pergunta,std::string(" placa deste computador roda backend cuda "));
+if(atual>pontuacao){
+pontuacao=atual;
+}
+if(pontuacao>melhor){
+segundo=melhor;
+melhor=pontuacao;
+ficha=10;
+}
+else{
+if(pontuacao>segundo){
+segundo=pontuacao;
+}
+}
+pontuacao=0.0;
+atual=similaridade(pergunta,std::string(" tudo ghostlang roda gpu "));
+if(atual>pontuacao){
+pontuacao=atual;
+}
+atual=similaridade(pergunta,std::string(" operacoes usam cuda nativa "));
+if(atual>pontuacao){
+pontuacao=atual;
+}
+atual=similaridade(pergunta,std::string(" gpu acelera nesta versao "));
+if(atual>pontuacao){
+pontuacao=atual;
+}
+if(pontuacao>melhor){
+segundo=melhor;
+melhor=pontuacao;
+ficha=11;
+}
+else{
+if(pontuacao>segundo){
+segundo=pontuacao;
+}
+}
+pontuacao=0.0;
+atual=similaridade(pergunta,std::string(" state ghostlang "));
+if(atual>pontuacao){
+pontuacao=atual;
+}
+atual=similaridade(pergunta,std::string(" representar vetor estado "));
+if(atual>pontuacao){
+pontuacao=atual;
+}
+atual=similaridade(pergunta,std::string(" serve tipo state "));
+if(atual>pontuacao){
+pontuacao=atual;
+}
+if(pontuacao>melhor){
+segundo=melhor;
+melhor=pontuacao;
+ficha=12;
+}
+else{
+if(pontuacao>segundo){
+segundo=pontuacao;
+}
+}
+pontuacao=0.0;
+atual=similaridade(pergunta,std::string(" gate ghostlang "));
+if(atual>pontuacao){
+pontuacao=atual;
+}
+atual=similaridade(pergunta,std::string(" declarar matriz pesos "));
+if(atual>pontuacao){
+pontuacao=atual;
+}
+atual=similaridade(pergunta,std::string(" serve tipo gate "));
+if(atual>pontuacao){
+pontuacao=atual;
+}
+atual=similaridade(pergunta,std::string(" matriz ghostlang "));
+if(atual>pontuacao){
+pontuacao=atual;
+}
+atual=similaridade(pergunta,std::string(" matrizes ghostlang "));
+if(atual>pontuacao){
+pontuacao=atual;
+}
+atual=similaridade(pergunta,std::string(" multiplicacao matricial ghostlang "));
+if(atual>pontuacao){
+pontuacao=atual;
+}
+if(pontuacao>melhor){
+segundo=melhor;
+melhor=pontuacao;
+ficha=13;
+}
+else{
+if(pontuacao>segundo){
+segundo=pontuacao;
+}
+}
+pontuacao=0.0;
+atual=similaridade(pergunta,std::string(" montar network "));
+if(atual>pontuacao){
+pontuacao=atual;
+}
+atual=similaridade(pergunta,std::string(" faz operador encadeamento "));
+if(atual>pontuacao){
+pontuacao=atual;
+}
+atual=similaridade(pergunta,std::string(" conectar camadas ghostlang "));
+if(atual>pontuacao){
+pontuacao=atual;
+}
+if(pontuacao>melhor){
+segundo=melhor;
+melhor=pontuacao;
+ficha=14;
+}
+else{
+if(pontuacao>segundo){
+segundo=pontuacao;
+}
+}
+pontuacao=0.0;
+atual=similaridade(pergunta,std::string(" funciona multiplicacao matricial cuda "));
+if(atual>pontuacao){
+pontuacao=atual;
+}
+atual=similaridade(pergunta,std::string(" matriz cuda preserva numeros g "));
+if(atual>pontuacao){
+pontuacao=atual;
+}
+atual=similaridade(pergunta,std::string(" componentes gpu multiplica matrizes "));
+if(atual>pontuacao){
+pontuacao=atual;
+}
+if(pontuacao>melhor){
+segundo=melhor;
+melhor=pontuacao;
+ficha=15;
+}
+else{
+if(pontuacao>segundo){
+segundo=pontuacao;
+}
+}
+pontuacao=0.0;
+atual=similaridade(pergunta,std::string(" teoria numeros fantasmas g "));
+if(atual>pontuacao){
+pontuacao=atual;
+}
+atual=similaridade(pergunta,std::string(" numeros fantasmas g "));
+if(atual>pontuacao){
+pontuacao=atual;
+}
+atual=similaridade(pergunta,std::string(" teoria g definida projeto "));
+if(atual>pontuacao){
+pontuacao=atual;
+}
+atual=similaridade(pergunta,std::string(" teoria g "));
+if(atual>pontuacao){
+pontuacao=atual;
+}
+atual=similaridade(pergunta,std::string(" numeros fantasmas "));
+if(atual>pontuacao){
+pontuacao=atual;
+}
+atual=similaridade(pergunta,std::string(" numeros g "));
+if(atual>pontuacao){
+pontuacao=atual;
+}
+atual=similaridade(pergunta,std::string(" sao numeros g "));
+if(atual>pontuacao){
+pontuacao=atual;
+}
+if(pontuacao>melhor){
+segundo=melhor;
+melhor=pontuacao;
+ficha=16;
+}
+else{
+if(pontuacao>segundo){
+segundo=pontuacao;
+}
+}
+pontuacao=0.0;
+atual=similaridade(pergunta,std::string(" sao componentes numero g "));
+if(atual>pontuacao){
+pontuacao=atual;
+}
+atual=similaridade(pergunta,std::string(" significam x y p theta2 "));
+if(atual>pontuacao){
+pontuacao=atual;
+}
+atual=similaridade(pergunta,std::string(" representar numero fantasma "));
+if(atual>pontuacao){
+pontuacao=atual;
+}
+if(pontuacao>melhor){
+segundo=melhor;
+melhor=pontuacao;
+ficha=17;
+}
+else{
+if(pontuacao>segundo){
+segundo=pontuacao;
+}
+}
+pontuacao=0.0;
+atual=similaridade(pergunta,std::string(" somar numeros g "));
+if(atual>pontuacao){
+pontuacao=atual;
+}
+atual=similaridade(pergunta,std::string(" regra adicao fantasmas "));
+if(atual>pontuacao){
+pontuacao=atual;
+}
+atual=similaridade(pergunta,std::string(" funciona soma ghostnumberg "));
+if(atual>pontuacao){
+pontuacao=atual;
+}
+atual=similaridade(pergunta,std::string(" soma ghostlang "));
+if(atual>pontuacao){
+pontuacao=atual;
+}
+atual=similaridade(pergunta,std::string(" adicao numeros g "));
+if(atual>pontuacao){
+pontuacao=atual;
+}
+if(pontuacao>melhor){
+segundo=melhor;
+melhor=pontuacao;
+ficha=18;
+}
+else{
+if(pontuacao>segundo){
+segundo=pontuacao;
+}
+}
+pontuacao=0.0;
+atual=similaridade(pergunta,std::string(" multiplicar numeros g "));
+if(atual>pontuacao){
+pontuacao=atual;
+}
+atual=similaridade(pergunta,std::string(" formula produto fantasma "));
+if(atual>pontuacao){
+pontuacao=atual;
+}
+atual=similaridade(pergunta,std::string(" funciona multiplicacao ghostnumberg "));
+if(atual>pontuacao){
+pontuacao=atual;
+}
+atual=similaridade(pergunta,std::string(" produto ghostlang "));
+if(atual>pontuacao){
+pontuacao=atual;
+}
+atual=similaridade(pergunta,std::string(" multiplicacao numeros g "));
+if(atual>pontuacao){
+pontuacao=atual;
+}
+if(pontuacao>melhor){
+segundo=melhor;
+melhor=pontuacao;
+ficha=19;
+}
+else{
+if(pontuacao>segundo){
+segundo=pontuacao;
+}
+}
+pontuacao=0.0;
+atual=similaridade(pergunta,std::string(" theta nilpotente "));
+if(atual>pontuacao){
+pontuacao=atual;
+}
+atual=similaridade(pergunta,std::string(" quanto theta vezes "));
+if(atual>pontuacao){
+pontuacao=atual;
+}
+atual=similaridade(pergunta,std::string(" quadrado fantasma puro zero "));
+if(atual>pontuacao){
+pontuacao=atual;
+}
+if(pontuacao>melhor){
+segundo=melhor;
+melhor=pontuacao;
+ficha=20;
+}
+else{
+if(pontuacao>segundo){
+segundo=pontuacao;
+}
+}
+pontuacao=0.0;
+atual=similaridade(pergunta,std::string(" multiplicacao numeros g associativa "));
+if(atual>pontuacao){
+pontuacao=atual;
+}
+atual=similaridade(pergunta,std::string(" posso mudar parenteses produto g "));
+if(atual>pontuacao){
+pontuacao=atual;
+}
+atual=similaridade(pergunta,std::string(" existe contraexemplo associatividade ghostnumberg "));
+if(atual>pontuacao){
+pontuacao=atual;
+}
+if(pontuacao>melhor){
+segundo=melhor;
+melhor=pontuacao;
+ficha=21;
+}
+else{
+if(pontuacao>segundo){
+segundo=pontuacao;
+}
+}
+pontuacao=0.0;
+atual=similaridade(pergunta,std::string(" acontece divisao zero g "));
+if(atual>pontuacao){
+pontuacao=atual;
+}
+atual=similaridade(pergunta,std::string(" quanto dividido zero ghostnumberg "));
+if(atual>pontuacao){
+pontuacao=atual;
+}
+atual=similaridade(pergunta,std::string(" divisao trata divisor fantasma puro "));
+if(atual>pontuacao){
+pontuacao=atual;
+}
+if(pontuacao>melhor){
+segundo=melhor;
+melhor=pontuacao;
+ficha=22;
+}
+else{
+if(pontuacao>segundo){
+segundo=pontuacao;
+}
+}
+pontuacao=0.0;
+atual=similaridade(pergunta,std::string(" campo theta2 preservado operacoes "));
+if(atual>pontuacao){
+pontuacao=atual;
+}
+atual=similaridade(pergunta,std::string(" theta2 quarta coordenada aditiva "));
+if(atual>pontuacao){
+pontuacao=atual;
+}
+atual=similaridade(pergunta,std::string(" acontece theta2 soma produto "));
+if(atual>pontuacao){
+pontuacao=atual;
+}
+if(pontuacao>melhor){
+segundo=melhor;
+melhor=pontuacao;
+ficha=23;
+}
+else{
+if(pontuacao>segundo){
+segundo=pontuacao;
+}
+}
+pontuacao=0.0;
+atual=similaridade(pergunta,std::string(" norma quadrada numero g "));
+if(atual>pontuacao){
+pontuacao=atual;
+}
+atual=similaridade(pergunta,std::string(" funciona norm squared "));
+if(atual>pontuacao){
+pontuacao=atual;
+}
+atual=similaridade(pergunta,std::string(" formula usa x y p theta2 norma "));
+if(atual>pontuacao){
+pontuacao=atual;
+}
+if(pontuacao>melhor){
+segundo=melhor;
+melhor=pontuacao;
+ficha=24;
+}
+else{
+if(pontuacao>segundo){
+segundo=pontuacao;
+}
+}
+pontuacao=0.0;
+atual=similaridade(pergunta,std::string(" calcular conjugado numero g "));
+if(atual>pontuacao){
+pontuacao=atual;
+}
+atual=similaridade(pergunta,std::string(" faz conjugate ghostnumberg "));
+if(atual>pontuacao){
+pontuacao=atual;
+}
+atual=similaridade(pergunta,std::string(" componentes mudam conjugacao "));
+if(atual>pontuacao){
+pontuacao=atual;
+}
+if(pontuacao>melhor){
+segundo=melhor;
+melhor=pontuacao;
+ficha=25;
+}
+else{
+if(pontuacao>segundo){
+segundo=pontuacao;
+}
+}
+pontuacao=0.0;
+atual=similaridade(pergunta,std::string(" funciona rotate numeros g "));
+if(atual>pontuacao){
+pontuacao=atual;
+}
+atual=similaridade(pergunta,std::string(" faz rotacao componentes fantasmas "));
+if(atual>pontuacao){
+pontuacao=atual;
+}
+atual=similaridade(pergunta,std::string(" ordem componentes rotate "));
+if(atual>pontuacao){
+pontuacao=atual;
+}
+if(pontuacao>melhor){
+segundo=melhor;
+melhor=pontuacao;
+ficha=26;
+}
+else{
+if(pontuacao>segundo){
+segundo=pontuacao;
+}
+}
+pontuacao=0.0;
+atual=similaridade(pergunta,std::string(" manual g concordam "));
+if(atual>pontuacao){
+pontuacao=atual;
+}
+atual=similaridade(pergunta,std::string(" diferencas existem descricao 4d "));
+if(atual>pontuacao){
+pontuacao=atual;
+}
+atual=similaridade(pergunta,std::string(" teoria g ja esta consistente todo projeto "));
+if(atual>pontuacao){
+pontuacao=atual;
+}
+if(pontuacao>melhor){
+segundo=melhor;
+melhor=pontuacao;
+ficha=27;
+}
+else{
+if(pontuacao>segundo){
+segundo=pontuacao;
+}
+}
+pontuacao=0.0;
+atual=similaridade(pergunta,std::string(" pesos v3 sao numeros g "));
+if(atual>pontuacao){
+pontuacao=atual;
+}
+atual=similaridade(pergunta,std::string(" textmodel treina componentes fantasmas "));
+if(atual>pontuacao){
+pontuacao=atual;
+}
+atual=similaridade(pergunta,std::string(" rede texto usa algebra fantasma pesos "));
+if(atual>pontuacao){
+pontuacao=atual;
+}
+if(pontuacao>melhor){
+segundo=melhor;
+melhor=pontuacao;
+ficha=28;
+}
+else{
+if(pontuacao>segundo){
+segundo=pontuacao;
+}
+}
+pontuacao=0.0;
+atual=similaridade(pergunta,std::string(" diferenca entre consulta geracao neural "));
+if(atual>pontuacao){
+pontuacao=atual;
+}
+atual=similaridade(pergunta,std::string(" resposta documental foi gerada pela rede "));
+if(atual>pontuacao){
+pontuacao=atual;
+}
+atual=similaridade(pergunta,std::string(" sei v3 consultou fonte "));
+if(atual>pontuacao){
+pontuacao=atual;
+}
+if(pontuacao>melhor){
+segundo=melhor;
+melhor=pontuacao;
+ficha=29;
+}
+else{
+if(pontuacao>segundo){
+segundo=pontuacao;
+}
+}
+pontuacao=0.0;
+atual=similaridade(pergunta,std::string(" aprende automaticamente enquanto conversamos "));
+if(atual>pontuacao){
+pontuacao=atual;
+}
+atual=similaridade(pergunta,std::string(" conversas alteram seus pesos "));
+if(atual>pontuacao){
+pontuacao=atual;
+}
+atual=similaridade(pergunta,std::string(" chat treina modelo tempo real "));
+if(atual>pontuacao){
+pontuacao=atual;
+}
+if(pontuacao>melhor){
+segundo=melhor;
+melhor=pontuacao;
+ficha=30;
+}
+else{
+if(pontuacao>segundo){
+segundo=pontuacao;
+}
+}
+pontuacao=0.0;
+atual=similaridade(pergunta,std::string(" quem "));
+if(atual>pontuacao){
+pontuacao=atual;
+}
+atual=similaridade(pergunta,std::string(" sao suas habilidades capacidades "));
+if(atual>pontuacao){
+pontuacao=atual;
+}
+atual=similaridade(pergunta,std::string(" quando foi treinada "));
+if(atual>pontuacao){
+pontuacao=atual;
+}
+if(pontuacao>melhor){
+segundo=melhor;
+melhor=pontuacao;
+ficha=31;
+}
+else{
+if(pontuacao>segundo){
+segundo=pontuacao;
+}
+}
+pontuacao=0.0;
+atual=similaridade(pergunta,std::string(" ola "));
+if(atual>pontuacao){
+pontuacao=atual;
+}
+atual=similaridade(pergunta,std::string(" oi tudo bem "));
+if(atual>pontuacao){
+pontuacao=atual;
+}
+atual=similaridade(pergunta,std::string(" ola vai "));
+if(atual>pontuacao){
+pontuacao=atual;
+}
+if(pontuacao>melhor){
+segundo=melhor;
+melhor=pontuacao;
+ficha=32;
+}
+else{
+if(pontuacao>segundo){
+segundo=pontuacao;
+}
+}
+pontuacao=0.0;
+atual=similaridade(pergunta,std::string(" bom dia "));
+if(atual>pontuacao){
+pontuacao=atual;
+}
+atual=similaridade(pergunta,std::string(" oi bom dia "));
+if(atual>pontuacao){
+pontuacao=atual;
+}
+atual=similaridade(pergunta,std::string(" bom dia esta "));
+if(atual>pontuacao){
+pontuacao=atual;
+}
+if(pontuacao>melhor){
+segundo=melhor;
+melhor=pontuacao;
+ficha=33;
+}
+else{
+if(pontuacao>segundo){
+segundo=pontuacao;
+}
+}
+pontuacao=0.0;
+atual=similaridade(pergunta,std::string(" boa tarde "));
+if(atual>pontuacao){
+pontuacao=atual;
+}
+atual=similaridade(pergunta,std::string(" oi boa tarde "));
+if(atual>pontuacao){
+pontuacao=atual;
+}
+atual=similaridade(pergunta,std::string(" boa tarde tudo bem "));
+if(atual>pontuacao){
+pontuacao=atual;
+}
+if(pontuacao>melhor){
+segundo=melhor;
+melhor=pontuacao;
+ficha=34;
+}
+else{
+if(pontuacao>segundo){
+segundo=pontuacao;
+}
+}
+pontuacao=0.0;
+atual=similaridade(pergunta,std::string(" boa noite "));
+if(atual>pontuacao){
+pontuacao=atual;
+}
+atual=similaridade(pergunta,std::string(" oi boa noite "));
+if(atual>pontuacao){
+pontuacao=atual;
+}
+atual=similaridade(pergunta,std::string(" boa noite vai "));
+if(atual>pontuacao){
+pontuacao=atual;
+}
+if(pontuacao>melhor){
+segundo=melhor;
+melhor=pontuacao;
+ficha=35;
+}
+else{
+if(pontuacao>segundo){
+segundo=pontuacao;
+}
+}
+pontuacao=0.0;
+atual=similaridade(pergunta,std::string(" obrigado pela ajuda "));
+if(atual>pontuacao){
+pontuacao=atual;
+}
+atual=similaridade(pergunta,std::string(" muito obrigado "));
+if(atual>pontuacao){
+pontuacao=atual;
+}
+atual=similaridade(pergunta,std::string(" valeu pela ajuda "));
+if(atual>pontuacao){
+pontuacao=atual;
+}
+if(pontuacao>melhor){
+segundo=melhor;
+melhor=pontuacao;
+ficha=36;
+}
+else{
+if(pontuacao>segundo){
+segundo=pontuacao;
+}
+}
+pontuacao=0.0;
+atual=similaridade(pergunta,std::string(" ate logo "));
+if(atual>pontuacao){
+pontuacao=atual;
+}
+atual=similaridade(pergunta,std::string(" preciso sair "));
+if(atual>pontuacao){
+pontuacao=atual;
+}
+atual=similaridade(pergunta,std::string(" vou embora ate "));
+if(atual>pontuacao){
+pontuacao=atual;
+}
+if(pontuacao>melhor){
+segundo=melhor;
+melhor=pontuacao;
+ficha=37;
+}
+else{
+if(pontuacao>segundo){
+segundo=pontuacao;
+}
+}
+pontuacao=0.0;
+atual=similaridade(pergunta,std::string(" sabe tudo "));
+if(atual>pontuacao){
+pontuacao=atual;
+}
+atual=similaridade(pergunta,std::string(" nunca erra "));
+if(atual>pontuacao){
+pontuacao=atual;
+}
+atual=similaridade(pergunta,std::string(" posso confiar qualquer resposta sua "));
+if(atual>pontuacao){
+pontuacao=atual;
+}
+if(pontuacao>melhor){
+segundo=melhor;
+melhor=pontuacao;
+ficha=38;
+}
+else{
+if(pontuacao>segundo){
+segundo=pontuacao;
+}
+}
+pontuacao=0.0;
+atual=similaridade(pergunta,std::string(" nao entendi sua resposta "));
+if(atual>pontuacao){
+pontuacao=atual;
+}
+atual=similaridade(pergunta,std::string(" explicar outro jeito "));
+if(atual>pontuacao){
+pontuacao=atual;
+}
+atual=similaridade(pergunta,std::string(" sua explicacao ficou confusa "));
+if(atual>pontuacao){
+pontuacao=atual;
+}
+if(pontuacao>melhor){
+segundo=melhor;
+melhor=pontuacao;
+ficha=39;
+}
+else{
+if(pontuacao>segundo){
+segundo=pontuacao;
+}
+}
+pontuacao=0.0;
+atual=similaridade(pergunta,std::string(" dar "));
+if(atual>pontuacao){
+pontuacao=atual;
+}
+atual=similaridade(pergunta,std::string(" quero "));
+if(atual>pontuacao){
+pontuacao=atual;
+}
+atual=similaridade(pergunta,std::string(" consegue "));
+if(atual>pontuacao){
+pontuacao=atual;
+}
+if(pontuacao>melhor){
+segundo=melhor;
+melhor=pontuacao;
+ficha=40;
+}
+else{
+if(pontuacao>segundo){
+segundo=pontuacao;
+}
+}
+pontuacao=0.0;
+atual=similaridade(pergunta,std::string(" quero resposta curta "));
+if(atual>pontuacao){
+pontuacao=atual;
+}
+atual=similaridade(pergunta,std::string(" responda forma "));
+if(atual>pontuacao){
+pontuacao=atual;
+}
+atual=similaridade(pergunta,std::string(" resumir sua resposta "));
+if(atual>pontuacao){
+pontuacao=atual;
+}
+if(pontuacao>melhor){
+segundo=melhor;
+melhor=pontuacao;
+ficha=41;
+}
+else{
+if(pontuacao>segundo){
+segundo=pontuacao;
+}
+}
+pontuacao=0.0;
+atual=similaridade(pergunta,std::string(" quero conversar "));
+if(atual>pontuacao){
+pontuacao=atual;
+}
+atual=similaridade(pergunta,std::string(" podemos conversar pouco "));
+if(atual>pontuacao){
+pontuacao=atual;
+}
+atual=similaridade(pergunta,std::string(" gostaria falar alguma coisa "));
+if(atual>pontuacao){
+pontuacao=atual;
+}
+if(pontuacao>melhor){
+segundo=melhor;
+melhor=pontuacao;
+ficha=42;
+}
+else{
+if(pontuacao>segundo){
+segundo=pontuacao;
+}
+}
+pontuacao=0.0;
+atual=similaridade(pergunta,std::string(" nao sei perguntar "));
+if(atual>pontuacao){
+pontuacao=atual;
+}
+atual=similaridade(pergunta,std::string(" estou sem ideias conversar "));
+if(atual>pontuacao){
+pontuacao=atual;
+}
+atual=similaridade(pergunta,std::string(" comeco esta conversa "));
+if(atual>pontuacao){
+pontuacao=atual;
+}
+if(pontuacao>melhor){
+segundo=melhor;
+melhor=pontuacao;
+ficha=43;
+}
+else{
+if(pontuacao>segundo){
+segundo=pontuacao;
+}
+}
+pontuacao=0.0;
+atual=similaridade(pergunta,std::string(" organizar dia "));
+if(atual>pontuacao){
+pontuacao=atual;
+}
+atual=similaridade(pergunta,std::string(" preciso planejar minhas tarefas "));
+if(atual>pontuacao){
+pontuacao=atual;
+}
+atual=similaridade(pergunta,std::string(" quero organizar melhor minha rotina "));
+if(atual>pontuacao){
+pontuacao=atual;
+}
+if(pontuacao>melhor){
+segundo=melhor;
+melhor=pontuacao;
+ficha=44;
+}
+else{
+if(pontuacao>segundo){
+segundo=pontuacao;
+}
+}
+pontuacao=0.0;
+atual=similaridade(pergunta,std::string(" tenho muitas tarefas "));
+if(atual>pontuacao){
+pontuacao=atual;
+}
+atual=similaridade(pergunta,std::string(" nao sei onde comecar trabalho "));
+if(atual>pontuacao){
+pontuacao=atual;
+}
+atual=similaridade(pergunta,std::string(" escolher fazer primeiro "));
+if(atual>pontuacao){
+pontuacao=atual;
+}
+if(pontuacao>melhor){
+segundo=melhor;
+melhor=pontuacao;
+ficha=45;
+}
+else{
+if(pontuacao>segundo){
+segundo=pontuacao;
+}
+}
+pontuacao=0.0;
+atual=similaridade(pergunta,std::string(" habito "));
+if(atual>pontuacao){
+pontuacao=atual;
+}
+atual=similaridade(pergunta,std::string(" quero manter rotina nova "));
+if(atual>pontuacao){
+pontuacao=atual;
+}
+atual=similaridade(pergunta,std::string(" comecar habito pequeno "));
+if(atual>pontuacao){
+pontuacao=atual;
+}
+if(pontuacao>melhor){
+segundo=melhor;
+melhor=pontuacao;
+ficha=46;
+}
+else{
+if(pontuacao>segundo){
+segundo=pontuacao;
+}
+}
+pontuacao=0.0;
+atual=similaridade(pergunta,std::string(" estudar melhor "));
+if(atual>pontuacao){
+pontuacao=atual;
+}
+atual=similaridade(pergunta,std::string(" preciso melhorar meus estudos "));
+if(atual>pontuacao){
+pontuacao=atual;
+}
+atual=similaridade(pergunta,std::string(" forma organizar estudo "));
+if(atual>pontuacao){
+pontuacao=atual;
+}
+if(pontuacao>melhor){
+segundo=melhor;
+melhor=pontuacao;
+ficha=47;
+}
+else{
+if(pontuacao>segundo){
+segundo=pontuacao;
+}
+}
+pontuacao=0.0;
+atual=similaridade(pergunta,std::string(" lembrar estudei "));
+if(atual>pontuacao){
+pontuacao=atual;
+}
+atual=similaridade(pergunta,std::string(" esqueco conteudo estudar "));
+if(atual>pontuacao){
+pontuacao=atual;
+}
+atual=similaridade(pergunta,std::string(" ajuda revisar materia "));
+if(atual>pontuacao){
+pontuacao=atual;
+}
+if(pontuacao>melhor){
+segundo=melhor;
+melhor=pontuacao;
+ficha=48;
+}
+else{
+if(pontuacao>segundo){
+segundo=pontuacao;
+}
+}
+pontuacao=0.0;
+atual=similaridade(pergunta,std::string(" aprender palavra nova "));
+if(atual>pontuacao){
+pontuacao=atual;
+}
+atual=similaridade(pergunta,std::string(" quero ampliar vocabulario "));
+if(atual>pontuacao){
+pontuacao=atual;
+}
+atual=similaridade(pergunta,std::string(" estudar palavras novas "));
+if(atual>pontuacao){
+pontuacao=atual;
+}
+if(pontuacao>melhor){
+segundo=melhor;
+melhor=pontuacao;
+ficha=49;
+}
+else{
+if(pontuacao>segundo){
+segundo=pontuacao;
+}
+}
+pontuacao=0.0;
+atual=similaridade(pergunta,std::string(" comecar ler "));
+if(atual>pontuacao){
+pontuacao=atual;
+}
+atual=similaridade(pergunta,std::string(" quero habito leitura "));
+if(atual>pontuacao){
+pontuacao=atual;
+}
+atual=similaridade(pergunta,std::string(" incluir leitura rotina "));
+if(atual>pontuacao){
+pontuacao=atual;
+}
+if(pontuacao>melhor){
+segundo=melhor;
+melhor=pontuacao;
+ficha=50;
+}
+else{
+if(pontuacao>segundo){
+segundo=pontuacao;
+}
+}
+pontuacao=0.0;
+atual=similaridade(pergunta,std::string(" escrever mensagem clara "));
+if(atual>pontuacao){
+pontuacao=atual;
+}
+atual=similaridade(pergunta,std::string(" quero melhorar minha escrita "));
+if(atual>pontuacao){
+pontuacao=atual;
+}
+atual=similaridade(pergunta,std::string(" deixar texto facil entender "));
+if(atual>pontuacao){
+pontuacao=atual;
+}
+if(pontuacao>melhor){
+segundo=melhor;
+melhor=pontuacao;
+ficha=51;
+}
+else{
+if(pontuacao>segundo){
+segundo=pontuacao;
+}
+}
+pontuacao=0.0;
+atual=similaridade(pergunta,std::string(" fazer "));
+if(atual>pontuacao){
+pontuacao=atual;
+}
+atual=similaridade(pergunta,std::string(" preciso resumir texto "));
+if(atual>pontuacao){
+pontuacao=atual;
+}
+atual=similaridade(pergunta,std::string(" identificar essencial texto "));
+if(atual>pontuacao){
+pontuacao=atual;
+}
+if(pontuacao>melhor){
+segundo=melhor;
+melhor=pontuacao;
+ficha=52;
+}
+else{
+if(pontuacao>segundo){
+segundo=pontuacao;
+}
+}
+pontuacao=0.0;
+atual=similaridade(pergunta,std::string(" revisar texto "));
+if(atual>pontuacao){
+pontuacao=atual;
+}
+atual=similaridade(pergunta,std::string(" devo verificar antes enviar mensagem "));
+if(atual>pontuacao){
+pontuacao=atual;
+}
+atual=similaridade(pergunta,std::string(" encontrar erros minha escrita "));
+if(atual>pontuacao){
+pontuacao=atual;
+}
+if(pontuacao>melhor){
+segundo=melhor;
+melhor=pontuacao;
+ficha=53;
+}
+else{
+if(pontuacao>segundo){
+segundo=pontuacao;
+}
+}
+pontuacao=0.0;
+atual=similaridade(pergunta,std::string(" ter ideias historia "));
+if(atual>pontuacao){
+pontuacao=atual;
+}
+atual=similaridade(pergunta,std::string(" quero escrever historia curta "));
+if(atual>pontuacao){
+pontuacao=atual;
+}
+atual=similaridade(pergunta,std::string(" onde comeco historia "));
+if(atual>pontuacao){
+pontuacao=atual;
+}
+if(pontuacao>melhor){
+segundo=melhor;
+melhor=pontuacao;
+ficha=54;
+}
+else{
+if(pontuacao>segundo){
+segundo=pontuacao;
+}
+}
+pontuacao=0.0;
+atual=similaridade(pergunta,std::string(" conte historia curta "));
+if(atual>pontuacao){
+pontuacao=atual;
+}
+atual=similaridade(pergunta,std::string(" quero pequena historia "));
+if(atual>pontuacao){
+pontuacao=atual;
+}
+atual=similaridade(pergunta,std::string(" contar historia "));
+if(atual>pontuacao){
+pontuacao=atual;
+}
+if(pontuacao>melhor){
+segundo=melhor;
+melhor=pontuacao;
+ficha=55;
+}
+else{
+if(pontuacao>segundo){
+segundo=pontuacao;
+}
+}
+pontuacao=0.0;
+atual=similaridade(pergunta,std::string(" planejar projeto "));
+if(atual>pontuacao){
+pontuacao=atual;
+}
+atual=similaridade(pergunta,std::string(" tenho ideia quero comecar "));
+if(atual>pontuacao){
+pontuacao=atual;
+}
+atual=similaridade(pergunta,std::string(" transformar ideia projeto "));
+if(atual>pontuacao){
+pontuacao=atual;
+}
+if(pontuacao>melhor){
+segundo=melhor;
+melhor=pontuacao;
+ficha=56;
+}
+else{
+if(pontuacao>segundo){
+segundo=pontuacao;
+}
+}
+pontuacao=0.0;
+atual=similaridade(pergunta,std::string(" dividir problema grande "));
+if(atual>pontuacao){
+pontuacao=atual;
+}
+atual=similaridade(pergunta,std::string(" tarefa parece dificil demais "));
+if(atual>pontuacao){
+pontuacao=atual;
+}
+atual=similaridade(pergunta,std::string(" tornar trabalho complexo "));
+if(atual>pontuacao){
+pontuacao=atual;
+}
+if(pontuacao>melhor){
+segundo=melhor;
+melhor=pontuacao;
+ficha=57;
+}
+else{
+if(pontuacao>segundo){
+segundo=pontuacao;
+}
+}
+pontuacao=0.0;
+atual=similaridade(pergunta,std::string(" algoritmo "));
+if(atual>pontuacao){
+pontuacao=atual;
+}
+atual=similaridade(pergunta,std::string(" explicar algoritmo "));
+if(atual>pontuacao){
+pontuacao=atual;
+}
+atual=similaridade(pergunta,std::string(" significado algoritmo "));
+if(atual>pontuacao){
+pontuacao=atual;
+}
+if(pontuacao>melhor){
+segundo=melhor;
+melhor=pontuacao;
+ficha=58;
+}
+else{
+if(pontuacao>segundo){
+segundo=pontuacao;
+}
+}
+pontuacao=0.0;
+atual=similaridade(pergunta,std::string(" programacao "));
+if(atual>pontuacao){
+pontuacao=atual;
+}
+atual=similaridade(pergunta,std::string(" serve programar "));
+if(atual>pontuacao){
+pontuacao=atual;
+}
+atual=similaridade(pergunta,std::string(" explica programacao "));
+if(atual>pontuacao){
+pontuacao=atual;
+}
+if(pontuacao>melhor){
+segundo=melhor;
+melhor=pontuacao;
+ficha=59;
+}
+else{
+if(pontuacao>segundo){
+segundo=pontuacao;
+}
+}
+pontuacao=0.0;
+atual=similaridade(pergunta,std::string(" variavel "));
+if(atual>pontuacao){
+pontuacao=atual;
+}
+atual=similaridade(pergunta,std::string(" explicar variavel programacao "));
+if(atual>pontuacao){
+pontuacao=atual;
+}
+atual=similaridade(pergunta,std::string(" serve variavel "));
+if(atual>pontuacao){
+pontuacao=atual;
+}
+if(pontuacao>melhor){
+segundo=melhor;
+melhor=pontuacao;
+ficha=60;
+}
+else{
+if(pontuacao>segundo){
+segundo=pontuacao;
+}
+}
+pontuacao=0.0;
+atual=similaridade(pergunta,std::string(" teste software "));
+if(atual>pontuacao){
+pontuacao=atual;
+}
+atual=similaridade(pergunta,std::string(" testar programa "));
+if(atual>pontuacao){
+pontuacao=atual;
+}
+atual=similaridade(pergunta,std::string(" testes ajudam programacao "));
+if(atual>pontuacao){
+pontuacao=atual;
+}
+if(pontuacao>melhor){
+segundo=melhor;
+melhor=pontuacao;
+ficha=61;
+}
+else{
+if(pontuacao>segundo){
+segundo=pontuacao;
+}
+}
+pontuacao=0.0;
+atual=similaridade(pergunta,std::string(" programa deu erro "));
+if(atual>pontuacao){
+pontuacao=atual;
+}
+atual=similaridade(pergunta,std::string(" nao esta funcionando "));
+if(atual>pontuacao){
+pontuacao=atual;
+}
+atual=similaridade(pergunta,std::string(" comeco investigar falha programa "));
+if(atual>pontuacao){
+pontuacao=atual;
+}
+if(pontuacao>melhor){
+segundo=melhor;
+melhor=pontuacao;
+ficha=62;
+}
+else{
+if(pontuacao>segundo){
+segundo=pontuacao;
+}
+}
+pontuacao=0.0;
+atual=similaridade(pergunta,std::string(" inteligencia artificial "));
+if(atual>pontuacao){
+pontuacao=atual;
+}
+atual=similaridade(pergunta,std::string(" explica ia "));
+if(atual>pontuacao){
+pontuacao=atual;
+}
+atual=similaridade(pergunta,std::string(" ideia inteligencia artificial "));
+if(atual>pontuacao){
+pontuacao=atual;
+}
+if(pontuacao>melhor){
+segundo=melhor;
+melhor=pontuacao;
+ficha=63;
+}
+else{
+if(pontuacao>segundo){
+segundo=pontuacao;
+}
+}
+pontuacao=0.0;
+atual=similaridade(pergunta,std::string(" rede neural aprende "));
+if(atual>pontuacao){
+pontuacao=atual;
+}
+atual=similaridade(pergunta,std::string(" acontece treinamento ia "));
+if(atual>pontuacao){
+pontuacao=atual;
+}
+atual=similaridade(pergunta,std::string(" modelo ajusta suas respostas "));
+if(atual>pontuacao){
+pontuacao=atual;
+}
+if(pontuacao>melhor){
+segundo=melhor;
+melhor=pontuacao;
+ficha=64;
+}
+else{
+if(pontuacao>segundo){
+segundo=pontuacao;
+}
+}
+pontuacao=0.0;
+atual=similaridade(pergunta,std::string(" sao dados treinamento "));
+if(atual>pontuacao){
+pontuacao=atual;
+}
+atual=similaridade(pergunta,std::string(" servem treinamento "));
+if(atual>pontuacao){
+pontuacao=atual;
+}
+atual=similaridade(pergunta,std::string(" textos ajudam ia aprender "));
+if(atual>pontuacao){
+pontuacao=atual;
+}
+if(pontuacao>melhor){
+segundo=melhor;
+melhor=pontuacao;
+ficha=65;
+}
+else{
+if(pontuacao>segundo){
+segundo=pontuacao;
+}
+}
+pontuacao=0.0;
+atual=similaridade(pergunta,std::string(" separar treino validacao "));
+if(atual>pontuacao){
+pontuacao=atual;
+}
+atual=similaridade(pergunta,std::string(" conjunto validacao "));
+if(atual>pontuacao){
+pontuacao=atual;
+}
+atual=similaridade(pergunta,std::string(" verificar modelo aprendeu alem "));
+if(atual>pontuacao){
+pontuacao=atual;
+}
+if(pontuacao>melhor){
+segundo=melhor;
+melhor=pontuacao;
+ficha=66;
+}
+else{
+if(pontuacao>segundo){
+segundo=pontuacao;
+}
+}
+pontuacao=0.0;
+atual=similaridade(pergunta,std::string(" memoria ram "));
+if(atual>pontuacao){
+pontuacao=atual;
+}
+atual=similaridade(pergunta,std::string(" serve memoria computador "));
+if(atual>pontuacao){
+pontuacao=atual;
+}
+atual=similaridade(pergunta,std::string(" explica ram "));
+if(atual>pontuacao){
+pontuacao=atual;
+}
+if(pontuacao>melhor){
+segundo=melhor;
+melhor=pontuacao;
+ficha=67;
+}
+else{
+if(pontuacao>segundo){
+segundo=pontuacao;
+}
+}
+pontuacao=0.0;
+atual=similaridade(pergunta,std::string(" faz gpu "));
+if(atual>pontuacao){
+pontuacao=atual;
+}
+atual=similaridade(pergunta,std::string(" serve placa video "));
+if(atual>pontuacao){
+pontuacao=atual;
+}
+atual=similaridade(pergunta,std::string(" gpu ajuda calculos "));
+if(atual>pontuacao){
+pontuacao=atual;
+}
+if(pontuacao>melhor){
+segundo=melhor;
+melhor=pontuacao;
+ficha=68;
+}
+else{
+if(pontuacao>segundo){
+segundo=pontuacao;
+}
+}
+pontuacao=0.0;
+atual=similaridade(pergunta,std::string(" copia seguranca "));
+if(atual>pontuacao){
+pontuacao=atual;
+}
+atual=similaridade(pergunta,std::string(" fazer backup "));
+if(atual>pontuacao){
+pontuacao=atual;
+}
+atual=similaridade(pergunta,std::string(" proteger arquivo contra perda "));
+if(atual>pontuacao){
+pontuacao=atual;
+}
+if(pontuacao>melhor){
+segundo=melhor;
+melhor=pontuacao;
+ficha=69;
+}
+else{
+if(pontuacao>segundo){
+segundo=pontuacao;
+}
+}
+pontuacao=0.0;
+atual=similaridade(pergunta,std::string(" escolher senha "));
+if(atual>pontuacao){
+pontuacao=atual;
+}
+atual=similaridade(pergunta,std::string(" quero melhorar seguranca conta "));
+if(atual>pontuacao){
+pontuacao=atual;
+}
+atual=similaridade(pergunta,std::string(" ajuda proteger minhas senhas "));
+if(atual>pontuacao){
+pontuacao=atual;
+}
+if(pontuacao>melhor){
+segundo=melhor;
+melhor=pontuacao;
+ficha=70;
+}
+else{
+if(pontuacao>segundo){
+segundo=pontuacao;
+}
+}
+pontuacao=0.0;
+atual=similaridade(pergunta,std::string(" fonte confiavel "));
+if(atual>pontuacao){
+pontuacao=atual;
+}
+atual=similaridade(pergunta,std::string(" verificar informacao "));
+if(atual>pontuacao){
+pontuacao=atual;
+}
+atual=similaridade(pergunta,std::string(" avaliar noticia esta correta "));
+if(atual>pontuacao){
+pontuacao=atual;
+}
+if(pontuacao>melhor){
+segundo=melhor;
+melhor=pontuacao;
+ficha=71;
+}
+else{
+if(pontuacao>segundo){
+segundo=pontuacao;
+}
+}
+pontuacao=0.0;
+atual=similaridade(pergunta,std::string(" diferenca entre fato opiniao "));
+if(atual>pontuacao){
+pontuacao=atual;
+}
+atual=similaridade(pergunta,std::string(" reconhecer opiniao "));
+if(atual>pontuacao){
+pontuacao=atual;
+}
+atual=similaridade(pergunta,std::string(" opiniao mesmo fato "));
+if(atual>pontuacao){
+pontuacao=atual;
+}
+if(pontuacao>melhor){
+segundo=melhor;
+melhor=pontuacao;
+ficha=72;
+}
+else{
+if(pontuacao>segundo){
+segundo=pontuacao;
+}
+}
+pontuacao=0.0;
+atual=similaridade(pergunta,std::string(" ouvir melhor pessoa "));
+if(atual>pontuacao){
+pontuacao=atual;
+}
+atual=similaridade(pergunta,std::string(" quero melhorar conversa "));
+if(atual>pontuacao){
+pontuacao=atual;
+}
+atual=similaridade(pergunta,std::string(" ajuda entender alguem diz "));
+if(atual>pontuacao){
+pontuacao=atual;
+}
+if(pontuacao>melhor){
+segundo=melhor;
+melhor=pontuacao;
+ficha=73;
+}
+else{
+if(pontuacao>segundo){
+segundo=pontuacao;
+}
+}
+pontuacao=0.0;
+atual=similaridade(pergunta,std::string(" pedir ajuda "));
+if(atual>pontuacao){
+pontuacao=atual;
+}
+atual=similaridade(pergunta,std::string(" tenho duvida nao sei explicar "));
+if(atual>pontuacao){
+pontuacao=atual;
+}
+atual=similaridade(pergunta,std::string(" descrever problema outra pessoa "));
+if(atual>pontuacao){
+pontuacao=atual;
+}
+if(pontuacao>melhor){
+segundo=melhor;
+melhor=pontuacao;
+ficha=74;
+}
+else{
+if(pontuacao>segundo){
+segundo=pontuacao;
+}
+}
+pontuacao=0.0;
+atual=similaridade(pergunta,std::string(" cometi erro trabalho "));
+if(atual>pontuacao){
+pontuacao=atual;
+}
+atual=similaridade(pergunta,std::string(" algo tentei nao deu certo "));
+if(atual>pontuacao){
+pontuacao=atual;
+}
+atual=similaridade(pergunta,std::string(" aprender erro "));
+if(atual>pontuacao){
+pontuacao=atual;
+}
+if(pontuacao>melhor){
+segundo=melhor;
+melhor=pontuacao;
+ficha=75;
+}
+else{
+if(pontuacao>segundo){
+segundo=pontuacao;
+}
+}
+pontuacao=0.0;
+atual=similaridade(pergunta,std::string(" estou desanimado projeto "));
+if(atual>pontuacao){
+pontuacao=atual;
+}
+atual=similaridade(pergunta,std::string(" projeto parece nao avancar "));
+if(atual>pontuacao){
+pontuacao=atual;
+}
+atual=similaridade(pergunta,std::string(" perdi motivacao continuar tarefa "));
+if(atual>pontuacao){
+pontuacao=atual;
+}
+if(pontuacao>melhor){
+segundo=melhor;
+melhor=pontuacao;
+ficha=76;
+}
+else{
+if(pontuacao>segundo){
+segundo=pontuacao;
+}
+}
+pontuacao=0.0;
+atual=similaridade(pergunta,std::string(" nao tenho certeza resposta "));
+if(atual>pontuacao){
+pontuacao=atual;
+}
+atual=similaridade(pergunta,std::string(" estou duvida informacao "));
+if(atual>pontuacao){
+pontuacao=atual;
+}
+atual=similaridade(pergunta,std::string(" fazer quando nao sei algo "));
+if(atual>pontuacao){
+pontuacao=atual;
+}
+if(pontuacao>melhor){
+segundo=melhor;
+melhor=pontuacao;
+ficha=77;
+}
+else{
+if(pontuacao>segundo){
+segundo=pontuacao;
+}
+}
+pontuacao=0.0;
+atual=similaridade(pergunta,std::string(" pergunta aberta "));
+if(atual>pontuacao){
+pontuacao=atual;
+}
+atual=similaridade(pergunta,std::string(" fazer pergunta incentive conversa "));
+if(atual>pontuacao){
+pontuacao=atual;
+}
+atual=similaridade(pergunta,std::string(" explicar pergunta aberta "));
+if(atual>pontuacao){
+pontuacao=atual;
+}
+if(pontuacao>melhor){
+segundo=melhor;
+melhor=pontuacao;
+ficha=78;
+}
+else{
+if(pontuacao>segundo){
+segundo=pontuacao;
+}
+}
+pontuacao=0.0;
+atual=similaridade(pergunta,std::string(" preparar apresentacao "));
+if(atual>pontuacao){
+pontuacao=atual;
+}
+atual=similaridade(pergunta,std::string(" preciso falar assunto outras pessoas "));
+if(atual>pontuacao){
+pontuacao=atual;
+}
+atual=similaridade(pergunta,std::string(" organizar ideias apresentacao "));
+if(atual>pontuacao){
+pontuacao=atual;
+}
+if(pontuacao>melhor){
+segundo=melhor;
+melhor=pontuacao;
+ficha=79;
+}
+else{
+if(pontuacao>segundo){
+segundo=pontuacao;
+}
+}
+pontuacao=0.0;
+atual=similaridade(pergunta,std::string(" significa comparar alternativas "));
+if(atual>pontuacao){
+pontuacao=atual;
+}
+atual=similaridade(pergunta,std::string(" analisar opcoes "));
+if(atual>pontuacao){
+pontuacao=atual;
+}
+atual=similaridade(pergunta,std::string(" organizar escolha entre possibilidades "));
+if(atual>pontuacao){
+pontuacao=atual;
+}
+if(pontuacao>melhor){
+segundo=melhor;
+melhor=pontuacao;
+ficha=80;
+}
+else{
+if(pontuacao>segundo){
+segundo=pontuacao;
+}
+}
+pontuacao=0.0;
+atual=similaridade(pergunta,std::string(" fazer lista compras "));
+if(atual>pontuacao){
+pontuacao=atual;
+}
+atual=similaridade(pergunta,std::string(" quero organizar compras casa "));
+if(atual>pontuacao){
+pontuacao=atual;
+}
+atual=similaridade(pergunta,std::string(" evitar esquecer itens ao comprar "));
+if(atual>pontuacao){
+pontuacao=atual;
+}
+if(pontuacao>melhor){
+segundo=melhor;
+melhor=pontuacao;
+ficha=81;
+}
+else{
+if(pontuacao>segundo){
+segundo=pontuacao;
+}
+}
+pontuacao=0.0;
+atual=similaridade(pergunta,std::string(" cuidar planta "));
+if(atual>pontuacao){
+pontuacao=atual;
+}
+atual=similaridade(pergunta,std::string(" quero comecar cultivar planta "));
+if(atual>pontuacao){
+pontuacao=atual;
+}
+atual=similaridade(pergunta,std::string(" observar ao cuidar plantas "));
+if(atual>pontuacao){
+pontuacao=atual;
+}
+if(pontuacao>melhor){
+segundo=melhor;
+melhor=pontuacao;
+ficha=82;
+}
+else{
+if(pontuacao>segundo){
+segundo=pontuacao;
+}
+}
+pontuacao=0.0;
+atual=similaridade(pergunta,std::string(" organizar meus arquivos "));
+if(atual>pontuacao){
+pontuacao=atual;
+}
+atual=similaridade(pergunta,std::string(" tenho muitos documentos computador "));
+if(atual>pontuacao){
+pontuacao=atual;
+}
+atual=similaridade(pergunta,std::string(" encontrar meus arquivos facilidade "));
+if(atual>pontuacao){
+pontuacao=atual;
+}
+if(pontuacao>melhor){
+segundo=melhor;
+melhor=pontuacao;
+ficha=83;
+}
+else{
+if(pontuacao>segundo){
+segundo=pontuacao;
+}
+}
+pontuacao=0.0;
+atual=similaridade(pergunta,std::string(" aprender "));
+if(atual>pontuacao){
+pontuacao=atual;
+}
+atual=similaridade(pergunta,std::string(" tenho pronto quero entender "));
+if(atual>pontuacao){
+pontuacao=atual;
+}
+atual=similaridade(pergunta,std::string(" estudar solucao ja feita "));
+if(atual>pontuacao){
+pontuacao=atual;
+}
+if(pontuacao>melhor){
+segundo=melhor;
+melhor=pontuacao;
+ficha=84;
+}
+else{
+if(pontuacao>segundo){
+segundo=pontuacao;
+}
+}
+pontuacao=0.0;
+atual=similaridade(pergunta,std::string(" proximo passo "));
+if(atual>pontuacao){
+pontuacao=atual;
+}
+atual=similaridade(pergunta,std::string(" continuar comecar "));
+if(atual>pontuacao){
+pontuacao=atual;
+}
+atual=similaridade(pergunta,std::string(" ja fiz primeira etapa "));
+if(atual>pontuacao){
+pontuacao=atual;
+}
+if(pontuacao>melhor){
+segundo=melhor;
+melhor=pontuacao;
+ficha=85;
+}
+else{
+if(pontuacao>segundo){
+segundo=pontuacao;
+}
+}
+pontuacao=0.0;
+atual=similaridade(pergunta,std::string(" fazer pergunta "));
+if(atual>pontuacao){
+pontuacao=atual;
+}
+atual=similaridade(pergunta,std::string(" quero comece conversa "));
+if(atual>pontuacao){
+pontuacao=atual;
+}
+atual=similaridade(pergunta,std::string(" pergunte alguma coisa "));
+if(atual>pontuacao){
+pontuacao=atual;
+}
+if(pontuacao>melhor){
+segundo=melhor;
+melhor=pontuacao;
+ficha=86;
+}
+else{
+if(pontuacao>segundo){
+segundo=pontuacao;
+}
+}
+pontuacao=0.0;
+atual=similaridade(pergunta,std::string(" gostei explicacao "));
+if(atual>pontuacao){
+pontuacao=atual;
+}
+atual=similaridade(pergunta,std::string(" entendi melhor "));
+if(atual>pontuacao){
+pontuacao=atual;
+}
+atual=similaridade(pergunta,std::string(" sua resposta ajudou "));
+if(atual>pontuacao){
+pontuacao=atual;
+}
+if(pontuacao>melhor){
+segundo=melhor;
+melhor=pontuacao;
+ficha=87;
+}
+else{
+if(pontuacao>segundo){
+segundo=pontuacao;
+}
+}
+pontuacao=0.0;
+atual=similaridade(pergunta,std::string(" preciso contexto "));
+if(atual>pontuacao){
+pontuacao=atual;
+}
+atual=similaridade(pergunta,std::string(" ainda falta informacao "));
+if(atual>pontuacao){
+pontuacao=atual;
+}
+atual=similaridade(pergunta,std::string(" nao tenho suficientes decidir "));
+if(atual>pontuacao){
+pontuacao=atual;
+}
+if(pontuacao>melhor){
+segundo=melhor;
+melhor=pontuacao;
+ficha=88;
+}
+else{
+if(pontuacao>segundo){
+segundo=pontuacao;
+}
+}
+if(melhor<0.68||melhor-segundo<0.10){
+return-1;
+}
+returnficha;
+}
+intpedido_exemplo(std::stringtexto){
+returnregex_search(minusculas(texto),std::string("\\b(exemplo|exemplos|codigo|demonstre)\\b"));
+}
+intpedido_continuacao(std::stringtexto){
+returnnormalizar(texto)==std::string(" ")&&regex_search(minusculas(texto),std::string("\\b(exemplo|exemplos|codigo|detalhe|detalhes|explique|resuma|resumo)\\b"));
+}
+std::stringresponder_ficha(intficha,std::stringpedido){
+intexemplo=pedido_exemplo(pedido);
+intbreve=regex_search(minusculas(pedido),std::string("\\b(resuma|resumo|breve|curto)\\b"));
+std::stringresposta=std::string("");
+if(ficha==0){
+resposta=std::string("[Consulta documental] GhostLang é a linguagem deste projeto. Seu compilador transforma arquivos .g em C++ e gera um executável. Ela oferece tipos e operações para matrizes, redes neurais e Números G.");
+if(breve==0){
+resposta=resposta+std::string("\n\nComo funciona: você escreve um arquivo .g, o compilador o transforma em C++ e gera um executável local. O programa pode usar variáveis, funções, condições e laços. Para cálculos, há state (vetor), gate (matriz), network (rede de camadas) e ghost (Número G); textmodel reúne o modelo de texto treinável.\nUm programa simples começa em function void main(). Cada instrução termina com ponto e vírgula.");
+}
+if(exemplo==1){
+resposta=resposta+std::string("\n\nExemplo completo em GhostLang:\n```ghost\nfunction void main() {\n    string nome = \"GhostLang\";\n    int dobro = 2 * 5;\n    print(\"Ola, \" + nome + \"!\");\n    print(\"O dobro de 5 e \" + dobro);\n}\n```\n\nstring nome guarda um texto; int dobro calcula 2 * 5; print mostra os dois resultados. Esse exemplo não depende de CUDA.\n\nResultado esperado:\nOla, GhostLang!\nO dobro de 5 e 10\n\nPara executar, na raiz do projeto:\nbuild_native/ghost ia_propria/v3/exemplos/ola.g -o /tmp/ghost_exemplo\n/tmp/ghost_exemplo");
+}
+returnresposta+std::string("\nFonte: docs/SPEC.md:5; ia_propria/v3/GUIA_EXEMPLOS.md; ia_propria/v3/exemplos/ola.g");
+}
+if(ficha==1){
+resposta=std::string("[Consulta documental] Na raiz do projeto, use build_native/ghost programa.g -o programa. Depois execute ./programa. O compilador nativo liga automaticamente a biblioteca ghost_runtime.");
+if(breve==0){
+resposta=resposta+std::string("\n\nSalve o código em um arquivo .g. Na raiz do projeto, compile com build_native/ghost arquivo.g -o programa e execute ./programa. Para construir o compilador, use bash ia_propria/scripts/compilar_v3.sh. Os exemplos abaixo já existem no projeto.");
+}
+if(exemplo==1){
+resposta=resposta+std::string("\n\nExemplo completo em GhostLang:\n```ghost\nfunction void main() {\n    string nome = \"GhostLang\";\n    int dobro = 2 * 5;\n    print(\"Ola, \" + nome + \"!\");\n    print(\"O dobro de 5 e \" + dobro);\n}\n```\n\nO compilador liga automaticamente o runtime nativo. O exemplo funciona em CPU.\n\nResultado esperado:\nOla, GhostLang!\nO dobro de 5 e 10\n\nPara executar, na raiz do projeto:\nbuild_native/ghost ia_propria/v3/exemplos/ola.g -o /tmp/ghost_exemplo\n/tmp/ghost_exemplo");
+}
+returnresposta+std::string("\nFonte: src/ghost_compiler.cpp:175; ia_propria/v3/GUIA_EXEMPLOS.md; ia_propria/v3/exemplos/ola.g");
+}
+if(ficha==2){
+resposta=std::string("[Consulta documental] Sim. A V3 declara seu textmodel e controla treino e execução em GhostLang. O compilador traduz o programa para C++; o runtime nativo implementa os cálculos em C++ e CUDA. Isso não significa que os kernels CUDA sejam escritos em sintaxe GhostLang.");
+if(exemplo==1){
+resposta=resposta+std::string("\n\nEsta ficha ainda não possui exemplo executável validado. Posso apresentar exemplos de GhostLang, matrizes, Números G, textmodel ou CUDA.");
+}
+returnresposta+std::string("\nFonte: ia_propria/v3/src/main.g:13");
+}
+if(ficha==3){
+resposta=std::string("[Consulta documental] textmodel é o tipo nativo para um modelo de linguagem treinável localmente. Exemplo: textmodel ia = text_model(64, 32, 192, 32, 4096, 42); Os argumentos são contexto, embedding, camada oculta, lote, limite de vocabulário e semente.");
+if(breve==0){
+resposta=resposta+std::string("\n\nO modelo aprende a prever o próximo token: converte palavras em embeddings, combina uma janela de contexto na camada oculta e calcula probabilidades na saída. O treinamento compara a previsão com o alvo e ajusta os pesos reais float32 com AdamW.\nprepare carrega os dados; epoch ajusta os pesos; validate mede a perda. Uma perda menor não garante uma boa resposta completa. É necessário testar também relevância, fatos e generalização.");
+}
+if(exemplo==1){
+resposta=resposta+std::string("\n\nExemplo completo em GhostLang:\n```ghost\n// Execute na raiz do projeto; requer os arquivos de corpus da V3.\nfunction void main() {\n    pragma auto;\n    textmodel ia = text_model(8, 8, 24, 16, 2048, 42);\n    ia.prepare(\"ia_propria/v3/dados/treino.txt\", \"ia_propria/v3/dados/validacao.txt\");\n    double perda = ia.epoch(0.001);\n    print(\"Erro medio no treino: \" + perda);\n    print(\"Erro na validacao: \" + ia.validate());\n    print(\"Uma epoca demonstra a API; ainda nao cria um bom conversador.\");\n}\n```\n\nExecute na raiz do projeto para que os caminhos dos corpus sejam encontrados. Este exemplo usa uma rede pequena e não salva checkpoint.\n\nResultado esperado:\nAs perdas numéricas variam conforme os dados e o dispositivo. Ao final: Uma epoca demonstra a API; ainda nao cria um bom conversador.\n\nPara executar, na raiz do projeto:\nbuild_native/ghost ia_propria/v3/exemplos/textmodel.g -o /tmp/ghost_exemplo\n/tmp/ghost_exemplo");
+}
+returnresposta+std::string("\nFonte: include/GhostTextModel.hpp:32; ia_propria/v3/GUIA_EXEMPLOS.md; ia_propria/v3/exemplos/textmodel.g");
+}
+if(ficha==4){
+resposta=std::string("[Consulta documental] A V3 usa embeddings de palavras, uma janela fixa de contexto, camada oculta tanh e saída softmax. Treina com entropia cruzada e AdamW. É uma rede pequena, sem atenção Transformer, e sua capacidade de generalização é limitada.");
+if(breve==0){
+resposta=resposta+std::string("\n\nO modelo aprende a prever o próximo token: converte palavras em embeddings, combina uma janela de contexto na camada oculta e calcula probabilidades na saída. O treinamento compara a previsão com o alvo e ajusta os pesos reais float32 com AdamW.\nprepare carrega os dados; epoch ajusta os pesos; validate mede a perda. Uma perda menor não garante uma boa resposta completa. É necessário testar também relevância, fatos e generalização.");
+}
+if(exemplo==1){
+resposta=resposta+std::string("\n\nExemplo completo em GhostLang:\n```ghost\n// Execute na raiz do projeto; requer os arquivos de corpus da V3.\nfunction void main() {\n    pragma auto;\n    textmodel ia = text_model(8, 8, 24, 16, 2048, 42);\n    ia.prepare(\"ia_propria/v3/dados/treino.txt\", \"ia_propria/v3/dados/validacao.txt\");\n    double perda = ia.epoch(0.001);\n    print(\"Erro medio no treino: \" + perda);\n    print(\"Erro na validacao: \" + ia.validate());\n    print(\"Uma epoca demonstra a API; ainda nao cria um bom conversador.\");\n}\n```\n\nExecute na raiz do projeto para que os caminhos dos corpus sejam encontrados. Este exemplo usa uma rede pequena e não salva checkpoint.\n\nResultado esperado:\nAs perdas numéricas variam conforme os dados e o dispositivo. Ao final: Uma epoca demonstra a API; ainda nao cria um bom conversador.\n\nPara executar, na raiz do projeto:\nbuild_native/ghost ia_propria/v3/exemplos/textmodel.g -o /tmp/ghost_exemplo\n/tmp/ghost_exemplo");
+}
+returnresposta+std::string("\nFonte: src/GhostTextModel.cpp:243; ia_propria/v3/GUIA_EXEMPLOS.md; ia_propria/v3/exemplos/textmodel.g");
+}
+if(ficha==5){
+resposta=std::string("[Consulta documental] Declare o textmodel, chame prepare com arquivos de treino e validação, execute epoch com uma taxa de aprendizado, avalie com validate e grave com save. O script V3 oferece o comando treinar e preserva o melhor checkpoint de validação.");
+if(breve==0){
+resposta=resposta+std::string("\n\nO modelo aprende a prever o próximo token: converte palavras em embeddings, combina uma janela de contexto na camada oculta e calcula probabilidades na saída. O treinamento compara a previsão com o alvo e ajusta os pesos reais float32 com AdamW.\nprepare carrega os dados; epoch ajusta os pesos; validate mede a perda. Uma perda menor não garante uma boa resposta completa. É necessário testar também relevância, fatos e generalização.");
+}
+if(exemplo==1){
+resposta=resposta+std::string("\n\nExemplo completo em GhostLang:\n```ghost\n// Execute na raiz do projeto; requer os arquivos de corpus da V3.\nfunction void main() {\n    pragma auto;\n    textmodel ia = text_model(8, 8, 24, 16, 2048, 42);\n    ia.prepare(\"ia_propria/v3/dados/treino.txt\", \"ia_propria/v3/dados/validacao.txt\");\n    double perda = ia.epoch(0.001);\n    print(\"Erro medio no treino: \" + perda);\n    print(\"Erro na validacao: \" + ia.validate());\n    print(\"Uma epoca demonstra a API; ainda nao cria um bom conversador.\");\n}\n```\n\nExecute na raiz do projeto para que os caminhos dos corpus sejam encontrados. Este exemplo usa uma rede pequena e não salva checkpoint.\n\nResultado esperado:\nAs perdas numéricas variam conforme os dados e o dispositivo. Ao final: Uma epoca demonstra a API; ainda nao cria um bom conversador.\n\nPara executar, na raiz do projeto:\nbuild_native/ghost ia_propria/v3/exemplos/textmodel.g -o /tmp/ghost_exemplo\n/tmp/ghost_exemplo");
+}
+returnresposta+std::string("\nFonte: include/GhostTextModel.hpp:16; ia_propria/v3/GUIA_EXEMPLOS.md; ia_propria/v3/exemplos/textmodel.g");
+}
+if(ficha==6){
+resposta=std::string("[Consulta documental] save grava pesos, momentos do AdamW, vocabulário, arquitetura, épocas e estado aleatório. load restaura o modelo. Para retomar com os textos, passe o checkpoint como terceiro argumento de prepare. O comando continuar faz isso na V3.");
+if(exemplo==1){
+resposta=resposta+std::string("\n\nEsta ficha ainda não possui exemplo executável validado. Posso apresentar exemplos de GhostLang, matrizes, Números G, textmodel ou CUDA.");
+}
+returnresposta+std::string("\nFonte: src/GhostTextModel.cpp:446");
+}
+if(ficha==7){
+resposta=std::string("[Consulta documental] O padrão é GHOST_DEVICE=auto. O runtime testa CUDA e usa a GPU disponível; sem CUDA funcional, usa CPU. Você pode chamar use_device(\"auto\") antes de preparar ou carregar o modelo. device_info informa a seleção.");
+if(breve==0){
+resposta=resposta+std::string("\n\nA escolha do dispositivo deve acontecer antes de prepare ou load. auto tenta um kernel real na NVIDIA e usa CPU se CUDA não estiver disponível; cuda exige GPU funcional; cpu força o processador. O textmodel mantém pesos e momentos do otimizador na GPU durante o treino. Tokenização e interface permanecem na CPU.");
+}
+if(exemplo==1){
+resposta=resposta+std::string("\n\nExemplo completo em GhostLang:\n```ghost\nfunction void main() {\n    pragma auto;\n    print(device_info());\n    textmodel ia = text_model(64, 32, 192, 32, 4096, 42);\n    ia.self_test();\n}\n```\n\nTroque pragma auto por pragma cpu para forçar CPU ou por pragma gpu para exigir CUDA.\n\nResultado esperado:\nInformações do dispositivo e mensagem OK do autoteste. A identificação varia conforme CPU/GPU.\n\nPara executar, na raiz do projeto:\nbuild_native/ghost ia_propria/v3/exemplos/cuda.g -o /tmp/ghost_exemplo\n/tmp/ghost_exemplo");
+}
+returnresposta+std::string("\nFonte: src/GhostDevice.cpp:17; ia_propria/v3/GUIA_EXEMPLOS.md; ia_propria/v3/exemplos/cuda.g");
+}
+if(ficha==8){
+resposta=std::string("[Consulta documental] Use bash scripts/ia_v3.sh --device cpu chat, dentro de ia_propria. Em GhostLang, use use_device(\"cpu\") antes de prepare ou load. A versão CPU também pode ser compilada com GHOST_CUDA=OFF.");
+if(breve==0){
+resposta=resposta+std::string("\n\nA escolha do dispositivo deve acontecer antes de prepare ou load. auto tenta um kernel real na NVIDIA e usa CPU se CUDA não estiver disponível; cuda exige GPU funcional; cpu força o processador. O textmodel mantém pesos e momentos do otimizador na GPU durante o treino. Tokenização e interface permanecem na CPU.");
+}
+if(exemplo==1){
+resposta=resposta+std::string("\n\nExemplo completo em GhostLang:\n```ghost\nfunction void main() {\n    pragma auto;\n    print(device_info());\n    textmodel ia = text_model(64, 32, 192, 32, 4096, 42);\n    ia.self_test();\n}\n```\n\nTroque pragma auto por pragma cpu para forçar CPU ou por pragma gpu para exigir CUDA.\n\nResultado esperado:\nInformações do dispositivo e mensagem OK do autoteste. A identificação varia conforme CPU/GPU.\n\nPara executar, na raiz do projeto:\nbuild_native/ghost ia_propria/v3/exemplos/cuda.g -o /tmp/ghost_exemplo\n/tmp/ghost_exemplo");
+}
+returnresposta+std::string("\nFonte: ia_propria/scripts/ia_v3.sh:5; ia_propria/v3/GUIA_EXEMPLOS.md; ia_propria/v3/exemplos/cuda.g");
+}
+if(ficha==9){
+resposta=std::string("[Consulta documental] Use bash scripts/ia_v3.sh --device cuda chat. Em GhostLang, use pragma gpu ou use_device(\"cuda\") antes de preparar o modelo. Esse modo exige CUDA funcional e informa erro se ela não estiver disponível.");
+if(breve==0){
+resposta=resposta+std::string("\n\nA escolha do dispositivo deve acontecer antes de prepare ou load. auto tenta um kernel real na NVIDIA e usa CPU se CUDA não estiver disponível; cuda exige GPU funcional; cpu força o processador. O textmodel mantém pesos e momentos do otimizador na GPU durante o treino. Tokenização e interface permanecem na CPU.");
+}
+if(exemplo==1){
+resposta=resposta+std::string("\n\nExemplo completo em GhostLang:\n```ghost\nfunction void main() {\n    pragma auto;\n    print(device_info());\n    textmodel ia = text_model(64, 32, 192, 32, 4096, 42);\n    ia.self_test();\n}\n```\n\nTroque pragma auto por pragma cpu para forçar CPU ou por pragma gpu para exigir CUDA.\n\nResultado esperado:\nInformações do dispositivo e mensagem OK do autoteste. A identificação varia conforme CPU/GPU.\n\nPara executar, na raiz do projeto:\nbuild_native/ghost ia_propria/v3/exemplos/cuda.g -o /tmp/ghost_exemplo\n/tmp/ghost_exemplo");
+}
+returnresposta+std::string("\nFonte: src/Parser.cpp:667; ia_propria/v3/GUIA_EXEMPLOS.md; ia_propria/v3/exemplos/cuda.g");
+}
+if(ficha==10){
+resposta=std::string("[Consulta documental] Este backend procura dispositivos pelo runtime CUDA. A RTX NVIDIA é a placa usada neste projeto. Não foi implementado um backend para a Intel UHD; a alternativa disponível aqui é CPU.");
+if(exemplo==1){
+resposta=resposta+std::string("\n\nEsta ficha ainda não possui exemplo executável validado. Posso apresentar exemplos de GhostLang, matrizes, Números G, textmodel ou CUDA.");
+}
+returnresposta+std::string("\nFonte: src/GhostCuda.cu:40");
+}
+if(ficha==11){
+resposta=std::string("[Consulta documental] O textmodel executa passagem direta, gradientes e atualização AdamW na GPU. Produtos de GhostMatrix também têm kernel CUDA para x, y e p. Tokenização e interface ficam na CPU. Isso não torna automaticamente todos os recursos da linguagem operações de GPU.");
+if(breve==0){
+resposta=resposta+std::string("\n\nA escolha do dispositivo deve acontecer antes de prepare ou load. auto tenta um kernel real na NVIDIA e usa CPU se CUDA não estiver disponível; cuda exige GPU funcional; cpu força o processador. O textmodel mantém pesos e momentos do otimizador na GPU durante o treino. Tokenização e interface permanecem na CPU.");
+}
+if(exemplo==1){
+resposta=resposta+std::string("\n\nExemplo completo em GhostLang:\n```ghost\nfunction void main() {\n    pragma auto;\n    print(device_info());\n    textmodel ia = text_model(64, 32, 192, 32, 4096, 42);\n    ia.self_test();\n}\n```\n\nTroque pragma auto por pragma cpu para forçar CPU ou por pragma gpu para exigir CUDA.\n\nResultado esperado:\nInformações do dispositivo e mensagem OK do autoteste. A identificação varia conforme CPU/GPU.\n\nPara executar, na raiz do projeto:\nbuild_native/ghost ia_propria/v3/exemplos/cuda.g -o /tmp/ghost_exemplo\n/tmp/ghost_exemplo");
+}
+returnresposta+std::string("\nFonte: src/GhostTextCuda.cu:136; ia_propria/v3/GUIA_EXEMPLOS.md; ia_propria/v3/exemplos/cuda.g");
+}
+if(ficha==12){
+resposta=std::string("[Consulta documental] state representa um vetor coluna de valores. Por exemplo: state entrada = [1.0, 0.0]; Ele pode ser usado como entrada de operações matriciais e redes neurais.");
+if(breve==0){
+resposta=resposta+std::string("\n\nPara multiplicar uma matriz por um vetor, o número de colunas da matriz deve ser igual ao número de entradas do vetor. No exemplo, uma matriz 2x2 multiplica um vetor 2x1. Preenchemos todos os pesos explicitamente para obter um resultado reproduzível.");
+}
+if(exemplo==1){
+resposta=resposta+std::string("\n\nExemplo completo em GhostLang:\n```ghost\nfunction void main() {\n    pragma auto;\n    state entrada = [1.0, 2.0];\n    gate pesos(2, 2);\n    pesos(0, 0) = GhostNumberG(1.0);\n    pesos(0, 1) = GhostNumberG(0.0);\n    pesos(1, 0) = GhostNumberG(0.0);\n    pesos(1, 1) = GhostNumberG(2.0);\n    state saida = pesos * entrada;\n    print(saida(0, 0).x);\n    print(saida(1, 0).x);\n}\n```\n\nA primeira linha calcula 1*1 + 0*2 = 1. A segunda calcula 0*1 + 2*2 = 4. O modo auto pode manter esse produto pequeno na CPU.\n\nResultado esperado:\n1\n4\n\nPara executar, na raiz do projeto:\nbuild_native/ghost ia_propria/v3/exemplos/matrizes.g -o /tmp/ghost_exemplo\n/tmp/ghost_exemplo");
+}
+returnresposta+std::string("\nFonte: src/Parser.cpp:33; ia_propria/v3/GUIA_EXEMPLOS.md; ia_propria/v3/exemplos/matrizes.g");
+}
+if(ficha==13){
+resposta=std::string("[Consulta documental] gate representa uma matriz. Por exemplo: gate camada(3, 2); cria três linhas e duas colunas. A sintaxe também permite portas predefinidas como hadamard.");
+if(breve==0){
+resposta=resposta+std::string("\n\nPara multiplicar uma matriz por um vetor, o número de colunas da matriz deve ser igual ao número de entradas do vetor. No exemplo, uma matriz 2x2 multiplica um vetor 2x1. Preenchemos todos os pesos explicitamente para obter um resultado reproduzível.");
+}
+if(exemplo==1){
+resposta=resposta+std::string("\n\nExemplo completo em GhostLang:\n```ghost\nfunction void main() {\n    pragma auto;\n    state entrada = [1.0, 2.0];\n    gate pesos(2, 2);\n    pesos(0, 0) = GhostNumberG(1.0);\n    pesos(0, 1) = GhostNumberG(0.0);\n    pesos(1, 0) = GhostNumberG(0.0);\n    pesos(1, 1) = GhostNumberG(2.0);\n    state saida = pesos * entrada;\n    print(saida(0, 0).x);\n    print(saida(1, 0).x);\n}\n```\n\nA primeira linha calcula 1*1 + 0*2 = 1. A segunda calcula 0*1 + 2*2 = 4. O modo auto pode manter esse produto pequeno na CPU.\n\nResultado esperado:\n1\n4\n\nPara executar, na raiz do projeto:\nbuild_native/ghost ia_propria/v3/exemplos/matrizes.g -o /tmp/ghost_exemplo\n/tmp/ghost_exemplo");
+}
+returnresposta+std::string("\nFonte: src/Parser.cpp:87; ia_propria/v3/GUIA_EXEMPLOS.md; ia_propria/v3/exemplos/matrizes.g");
+}
+if(ficha==14){
+resposta=std::string("[Consulta documental] network conecta matrizes de pesos com o operador >>. Exemplo: network rede = camada1 >> camada2; É um recurso diferente de textmodel, que já reúne o modelo de linguagem e seu treinamento.");
+if(exemplo==1){
+resposta=resposta+std::string("\n\nEsta ficha ainda não possui exemplo executável validado. Posso apresentar exemplos de GhostLang, matrizes, Números G, textmodel ou CUDA.");
+}
+returnresposta+std::string("\nFonte: src/Parser.cpp:461");
+}
+if(ficha==15){
+resposta=std::string("[Consulta documental] O kernel matricial reproduz as fórmulas atuais de GhostNumberG para x, y e p e devolve theta2 igual a zero, como o caminho CPU. O modo auto evita GPU em produtos pequenos para reduzir o custo de transferências.");
+if(exemplo==1){
+resposta=resposta+std::string("\n\nEsta ficha ainda não possui exemplo executável validado. Posso apresentar exemplos de GhostLang, matrizes, Números G, textmodel ou CUDA.");
+}
+returnresposta+std::string("\nFonte: src/GhostCuda.cu:58");
+}
+if(ficha==16){
+resposta=std::string("[Consulta documental] No código deste projeto, um Número G é representado por (x + i y) + p theta, com o parâmetro theta2. x é a parte real, y a imaginária e p a fantasma. A implementação usa regras próprias; há diferenças documentadas em relação à descrição 4D do manual.");
+if(breve==0){
+resposta=resposta+std::string("\n\nAs componentes são x (real), y (imaginária) e p (fantasma). Na soma, cada componente é adicionada separadamente. No produto, x=x1*x2-y1*y2, y=x1*y2+y1*x2 e p=x1*p2+x2*p1.\nPara a=(1,2,3) e b=(4,5,6), a soma é (5,7,9) e o produto é (-6,13,18). A implementação zera theta2 nesses resultados. Essas regras não permitem assumir associatividade; há diferenças entre o manual e o código.");
+}
+if(exemplo==1){
+resposta=resposta+std::string("\n\nExemplo completo em GhostLang:\n```ghost\nfunction void main() {\n    ghost a = GhostNumberG(1.0, 2.0, 3.0);\n    ghost b = GhostNumberG(4.0, 5.0, 6.0);\n    ghost soma = a + b;\n    ghost produto = a * b;\n    print(\"Soma: \" + soma.x + \", \" + soma.y + \", \" + soma.p);\n    print(\"Produto: \" + produto.x + \", \" + produto.y + \", \" + produto.p);\n}\n```\n\nOs construtores usam literais decimais explícitos. O exemplo lê as componentes .x, .y e .p para mostrar o cálculo sem depender dos sufixos algébricos antigos.\n\nResultado esperado:\nSoma: 5, 7, 9\nProduto: -6, 13, 18\n\nPara executar, na raiz do projeto:\nbuild_native/ghost ia_propria/v3/exemplos/numeros_g.g -o /tmp/ghost_exemplo\n/tmp/ghost_exemplo");
+}
+returnresposta+std::string("\nFonte: src/GhostNumberG.cpp:198; ia_propria/v3/GUIA_EXEMPLOS.md; ia_propria/v3/exemplos/numeros_g.g");
+}
+if(ficha==17){
+resposta=std::string("[Consulta documental] Os componentes usados nas operações principais são x, y e p. O campo theta2 é um parâmetro adicional. Para criar um exemplo explícito, use ghost z = GhostNumberG(1.0, 2.0, 3.0, 0.0);");
+if(breve==0){
+resposta=resposta+std::string("\n\nAs componentes são x (real), y (imaginária) e p (fantasma). Na soma, cada componente é adicionada separadamente. No produto, x=x1*x2-y1*y2, y=x1*y2+y1*x2 e p=x1*p2+x2*p1.\nPara a=(1,2,3) e b=(4,5,6), a soma é (5,7,9) e o produto é (-6,13,18). A implementação zera theta2 nesses resultados. Essas regras não permitem assumir associatividade; há diferenças entre o manual e o código.");
+}
+if(exemplo==1){
+resposta=resposta+std::string("\n\nExemplo completo em GhostLang:\n```ghost\nfunction void main() {\n    ghost a = GhostNumberG(1.0, 2.0, 3.0);\n    ghost b = GhostNumberG(4.0, 5.0, 6.0);\n    ghost soma = a + b;\n    ghost produto = a * b;\n    print(\"Soma: \" + soma.x + \", \" + soma.y + \", \" + soma.p);\n    print(\"Produto: \" + produto.x + \", \" + produto.y + \", \" + produto.p);\n}\n```\n\nOs construtores usam literais decimais explícitos. O exemplo lê as componentes .x, .y e .p para mostrar o cálculo sem depender dos sufixos algébricos antigos.\n\nResultado esperado:\nSoma: 5, 7, 9\nProduto: -6, 13, 18\n\nPara executar, na raiz do projeto:\nbuild_native/ghost ia_propria/v3/exemplos/numeros_g.g -o /tmp/ghost_exemplo\n/tmp/ghost_exemplo");
+}
+returnresposta+std::string("\nFonte: src/GhostNumberG.cpp:36; ia_propria/v3/GUIA_EXEMPLOS.md; ia_propria/v3/exemplos/numeros_g.g");
+}
+if(ficha==18){
+resposta=std::string("[Consulta documental] A soma adiciona x, y e p componente a componente. O resultado recebe theta2 igual a zero. Por exemplo, (1, 2, 3) + (4, 5, 6) produz (5, 7, 9) nessas três componentes.");
+if(breve==0){
+resposta=resposta+std::string("\n\nAs componentes são x (real), y (imaginária) e p (fantasma). Na soma, cada componente é adicionada separadamente. No produto, x=x1*x2-y1*y2, y=x1*y2+y1*x2 e p=x1*p2+x2*p1.\nPara a=(1,2,3) e b=(4,5,6), a soma é (5,7,9) e o produto é (-6,13,18). A implementação zera theta2 nesses resultados. Essas regras não permitem assumir associatividade; há diferenças entre o manual e o código.");
+}
+if(exemplo==1){
+resposta=resposta+std::string("\n\nExemplo completo em GhostLang:\n```ghost\nfunction void main() {\n    ghost a = GhostNumberG(1.0, 2.0, 3.0);\n    ghost b = GhostNumberG(4.0, 5.0, 6.0);\n    ghost soma = a + b;\n    ghost produto = a * b;\n    print(\"Soma: \" + soma.x + \", \" + soma.y + \", \" + soma.p);\n    print(\"Produto: \" + produto.x + \", \" + produto.y + \", \" + produto.p);\n}\n```\n\nOs construtores usam literais decimais explícitos. O exemplo lê as componentes .x, .y e .p para mostrar o cálculo sem depender dos sufixos algébricos antigos.\n\nResultado esperado:\nSoma: 5, 7, 9\nProduto: -6, 13, 18\n\nPara executar, na raiz do projeto:\nbuild_native/ghost ia_propria/v3/exemplos/numeros_g.g -o /tmp/ghost_exemplo\n/tmp/ghost_exemplo");
+}
+returnresposta+std::string("\nFonte: src/GhostNumberG.cpp:249; ia_propria/v3/GUIA_EXEMPLOS.md; ia_propria/v3/exemplos/numeros_g.g");
+}
+if(ficha==19){
+resposta=std::string("[Consulta documental] A regra implementada é x = x1*x2 - y1*y2; y = x1*y2 + y1*x2; p = x1*p2 + x2*p1. O resultado tem theta2 igual a zero. Termos envolvendo y e p não entram na parte fantasma dessa fórmula.");
+if(breve==0){
+resposta=resposta+std::string("\n\nAs componentes são x (real), y (imaginária) e p (fantasma). Na soma, cada componente é adicionada separadamente. No produto, x=x1*x2-y1*y2, y=x1*y2+y1*x2 e p=x1*p2+x2*p1.\nPara a=(1,2,3) e b=(4,5,6), a soma é (5,7,9) e o produto é (-6,13,18). A implementação zera theta2 nesses resultados. Essas regras não permitem assumir associatividade; há diferenças entre o manual e o código.");
+}
+if(exemplo==1){
+resposta=resposta+std::string("\n\nExemplo completo em GhostLang:\n```ghost\nfunction void main() {\n    ghost a = GhostNumberG(1.0, 2.0, 3.0);\n    ghost b = GhostNumberG(4.0, 5.0, 6.0);\n    ghost soma = a + b;\n    ghost produto = a * b;\n    print(\"Soma: \" + soma.x + \", \" + soma.y + \", \" + soma.p);\n    print(\"Produto: \" + produto.x + \", \" + produto.y + \", \" + produto.p);\n}\n```\n\nOs construtores usam literais decimais explícitos. O exemplo lê as componentes .x, .y e .p para mostrar o cálculo sem depender dos sufixos algébricos antigos.\n\nResultado esperado:\nSoma: 5, 7, 9\nProduto: -6, 13, 18\n\nPara executar, na raiz do projeto:\nbuild_native/ghost ia_propria/v3/exemplos/numeros_g.g -o /tmp/ghost_exemplo\n/tmp/ghost_exemplo");
+}
+returnresposta+std::string("\nFonte: src/GhostNumberG.cpp:197; ia_propria/v3/GUIA_EXEMPLOS.md; ia_propria/v3/exemplos/numeros_g.g");
+}
+if(ficha==20){
+resposta=std::string("[Consulta documental] Sim, no produto implementado, theta = (0, 0, 1) satisfaz theta*theta = (0, 0, 0). Essa afirmação descreve a regra executada no código, que retorna theta2 igual a zero.");
+if(breve==0){
+resposta=resposta+std::string("\n\nSer nilpotente aqui significa que o produto do elemento por si mesmo chega a zero, embora o elemento inicial não seja zero. O exemplo usa theta=(0,0,1) e aplica exatamente o operador já existente. Isso não altera as demais propriedades da álgebra.");
+}
+if(exemplo==1){
+resposta=resposta+std::string("\n\nExemplo completo em GhostLang:\n```ghost\nfunction void main() {\n    ghost theta = GhostNumberG(0.0, 0.0, 1.0);\n    ghost quadrado = theta * theta;\n    print(quadrado.x);\n    print(quadrado.y);\n    print(quadrado.p);\n}\n```\n\nCada linha mostra uma componente do quadrado: x, y e p.\n\nResultado esperado:\n0\n0\n0\n\nPara executar, na raiz do projeto:\nbuild_native/ghost ia_propria/v3/exemplos/nilpotente.g -o /tmp/ghost_exemplo\n/tmp/ghost_exemplo");
+}
+returnresposta+std::string("\nFonte: src/GhostNumberG.cpp:197; ia_propria/v3/GUIA_EXEMPLOS.md; ia_propria/v3/exemplos/nilpotente.g");
+}
+if(ficha==21){
+resposta=std::string("[Consulta documental] A implementação atual não é associativa em geral. Com i = (0, 1, 0) e theta = (0, 0, 1), temos (i*i)*theta = -theta, mas i*(i*theta) = 0. A integração CUDA preserva esse comportamento; não altera a teoria silenciosamente.");
+if(exemplo==1){
+resposta=resposta+std::string("\n\nEsta ficha ainda não possui exemplo executável validado. Posso apresentar exemplos de GhostLang, matrizes, Números G, textmodel ou CUDA.");
+}
+returnresposta+std::string("\nFonte: tests/cpp/native_runtime.cpp:22");
+}
+if(ficha==22){
+resposta=std::string("[Consulta documental] Se x e y do divisor forem próximos de zero, a divisão implementada devolve x = 0, y = 0 e transfere a magnitude complexa do numerador para p, ou preserva seu p quando essa magnitude é quase zero. Assim, 1.0 dividido por zero produz (0, 0, 1). É uma convenção do projeto, não a divisão usual.");
+if(exemplo==1){
+resposta=resposta+std::string("\n\nEsta ficha ainda não possui exemplo executável validado. Posso apresentar exemplos de GhostLang, matrizes, Números G, textmodel ou CUDA.");
+}
+returnresposta+std::string("\nFonte: src/GhostNumberG.cpp:229");
+}
+if(ficha==23){
+resposta=std::string("[Consulta documental] Soma, subtração e multiplicação retornam theta2 igual a zero na implementação atual. Outros métodos, como conjugate e set_theta2, podem preservá-lo ou alterá-lo. Portanto, o código atual não trata theta2 simplesmente como uma quarta coordenada aditiva.");
+if(exemplo==1){
+resposta=resposta+std::string("\n\nEsta ficha ainda não possui exemplo executável validado. Posso apresentar exemplos de GhostLang, matrizes, Números G, textmodel ou CUDA.");
+}
+returnresposta+std::string("\nFonte: src/GhostNumberG.cpp:249");
+}
+if(ficha==24){
+resposta=std::string("[Consulta documental] norm_squared calcula x*x + y*y + p*p*theta2. Por exemplo, x = 3, y = 4, p = 2 e theta2 = 2 dão 33. real_norm_squared usa apenas x*x + y*y.");
+if(exemplo==1){
+resposta=resposta+std::string("\n\nEsta ficha ainda não possui exemplo executável validado. Posso apresentar exemplos de GhostLang, matrizes, Números G, textmodel ou CUDA.");
+}
+returnresposta+std::string("\nFonte: src/GhostNumberG.cpp:109");
+}
+if(ficha==25){
+resposta=std::string("[Consulta documental] conjugate troca o sinal de y e preserva x, p e theta2. Portanto, o conjugado de (1, 2, 3, 4) é (1, -2, 3, 4).");
+if(exemplo==1){
+resposta=resposta+std::string("\n\nEsta ficha ainda não possui exemplo executável validado. Posso apresentar exemplos de GhostLang, matrizes, Números G, textmodel ou CUDA.");
+}
+returnresposta+std::string("\nFonte: src/GhostNumberG.cpp:96");
+}
+if(ficha==26){
+resposta=std::string("[Consulta documental] rotate modifica o próprio objeto, fazendo x receber o antigo y, y receber o antigo p e p receber o antigo x. Por exemplo, (1, 2, 3) passa a (2, 3, 1).");
+if(exemplo==1){
+resposta=resposta+std::string("\n\nEsta ficha ainda não possui exemplo executável validado. Posso apresentar exemplos de GhostLang, matrizes, Números G, textmodel ou CUDA.");
+}
+returnresposta+std::string("\nFonte: src/GhostNumberG.cpp:275");
+}
+if(ficha==27){
+resposta=std::string("[Consulta documental] Há diferenças. O manual descreve a + bi + cg + d theta, enquanto as operações principais usam x, y e p e frequentemente zeram theta2. A V3 distingue documentação de comportamento executável. Consulte docs/NUMEROS_G_IMPLEMENTACAO.md para os exemplos verificados.");
+if(exemplo==1){
+resposta=resposta+std::string("\n\nEsta ficha ainda não possui exemplo executável validado. Posso apresentar exemplos de GhostLang, matrizes, Números G, textmodel ou CUDA.");
+}
+returnresposta+std::string("\nFonte: docs/MANUAL.md:889");
+}
+if(ficha==28){
+resposta=std::string("[Consulta documental] Não. O textmodel usa pesos reais float32 em CPU e CUDA. Ele recebe conteúdo sobre Números G nos textos de treinamento e na base documental. As matrizes GhostMatrix usam componentes G; isso é diferente de treinar o modelo de texto com pesos fantasmas.");
+if(exemplo==1){
+resposta=resposta+std::string("\n\nEsta ficha ainda não possui exemplo executável validado. Posso apresentar exemplos de GhostLang, matrizes, Números G, textmodel ou CUDA.");
+}
+returnresposta+std::string("\nFonte: src/GhostTextModel.cpp:113");
+}
+if(ficha==29){
+resposta=std::string("[Consulta documental] O modo fontes busca respostas revisadas na base local e mostra a origem. O modo neural gera tokens pelos pesos treinados e pode errar. No chat, use /neural ou /fontes. Uma boa resposta documental não mede a capacidade da rede.");
+if(exemplo==1){
+resposta=resposta+std::string("\n\nEsta ficha ainda não possui exemplo executável validado. Posso apresentar exemplos de GhostLang, matrizes, Números G, textmodel ou CUDA.");
+}
+returnresposta+std::string("\nFonte: ia_propria/v3/src/main.g:12");
+}
+if(ficha==30){
+resposta=std::string("[Consulta documental] Não. O chat não altera os pesos e não grava automaticamente suas mensagens. Para aprender novos textos, prepare um corpus e execute treinar ou continuar. A base de fontes também precisa ser revisada e recompilada para incluir novas respostas.");
+if(exemplo==1){
+resposta=resposta+std::string("\n\nEsta ficha ainda não possui exemplo executável validado. Posso apresentar exemplos de GhostLang, matrizes, Números G, textmodel ou CUDA.");
+}
+returnresposta+std::string("\nFonte: ia_propria/v3/src/main.g:12");
+}
+if(ficha==31){
+resposta=std::string("[Consulta documental] Sou a IA V3 experimental deste projeto. Posso consultar a base local sobre GhostLang e Números G, com fontes, ou gerar texto com um modelo pequeno treinado localmente. Não tenho conhecimento geral amplo nem acesso automático à internet. As métricas e a data do treino ficam nos arquivos do checkpoint.");
+if(exemplo==1){
+resposta=resposta+std::string("\n\nEsta ficha ainda não possui exemplo executável validado. Posso apresentar exemplos de GhostLang, matrizes, Números G, textmodel ou CUDA.");
+}
+returnresposta+std::string("\nFonte: ia_propria/v3/README.md:1");
+}
+if(ficha==32){
+resposta=std::string("[Consulta documental] Olá! Como posso ajudar você hoje?");
+if(exemplo==1){
+resposta=resposta+std::string("\n\nEsta ficha ainda não possui exemplo executável validado. Posso apresentar exemplos de GhostLang, matrizes, Números G, textmodel ou CUDA.");
+}
+returnresposta+std::string("\nFonte: ia_propria/v2/dados/conversas.json:2");
+}
+if(ficha==33){
+resposta=std::string("[Consulta documental] Bom dia! Espero que seu dia comece bem. Sobre o que você gostaria de conversar?");
+if(exemplo==1){
+resposta=resposta+std::string("\n\nEsta ficha ainda não possui exemplo executável validado. Posso apresentar exemplos de GhostLang, matrizes, Números G, textmodel ou CUDA.");
+}
+returnresposta+std::string("\nFonte: ia_propria/v2/dados/conversas.json:3");
+}
+if(ficha==34){
+resposta=std::string("[Consulta documental] Boa tarde! Estou aqui para conversar e ajudar com suas ideias.");
+if(exemplo==1){
+resposta=resposta+std::string("\n\nEsta ficha ainda não possui exemplo executável validado. Posso apresentar exemplos de GhostLang, matrizes, Números G, textmodel ou CUDA.");
+}
+returnresposta+std::string("\nFonte: ia_propria/v2/dados/conversas.json:4");
+}
+if(ficha==35){
+resposta=std::string("[Consulta documental] Boa noite! Como posso ajudar antes de você encerrar o dia?");
+if(exemplo==1){
+resposta=resposta+std::string("\n\nEsta ficha ainda não possui exemplo executável validado. Posso apresentar exemplos de GhostLang, matrizes, Números G, textmodel ou CUDA.");
+}
+returnresposta+std::string("\nFonte: ia_propria/v2/dados/conversas.json:5");
+}
+if(ficha==36){
+resposta=std::string("[Consulta documental] De nada! Fico à disposição para continuar a conversa.");
+if(exemplo==1){
+resposta=resposta+std::string("\n\nEsta ficha ainda não possui exemplo executável validado. Posso apresentar exemplos de GhostLang, matrizes, Números G, textmodel ou CUDA.");
+}
+returnresposta+std::string("\nFonte: ia_propria/v2/dados/conversas.json:8");
+}
+if(ficha==37){
+resposta=std::string("[Consulta documental] Até mais! Quando quiser continuar, estarei por aqui.");
+if(exemplo==1){
+resposta=resposta+std::string("\n\nEsta ficha ainda não possui exemplo executável validado. Posso apresentar exemplos de GhostLang, matrizes, Números G, textmodel ou CUDA.");
+}
+returnresposta+std::string("\nFonte: ia_propria/v2/dados/conversas.json:9");
+}
+if(ficha==38){
+resposta=std::string("[Consulta documental] Não. Posso errar ou não ter informação suficiente. É importante verificar as respostas, especialmente em decisões importantes.");
+if(exemplo==1){
+resposta=resposta+std::string("\n\nEsta ficha ainda não possui exemplo executável validado. Posso apresentar exemplos de GhostLang, matrizes, Números G, textmodel ou CUDA.");
+}
+returnresposta+std::string("\nFonte: ia_propria/v2/dados/conversas.json:11");
+}
+if(ficha==39){
+resposta=std::string("[Consulta documental] Claro. Diga qual parte ficou confusa e tentarei explicar com palavras mais simples e um exemplo.");
+if(exemplo==1){
+resposta=resposta+std::string("\n\nEsta ficha ainda não possui exemplo executável validado. Posso apresentar exemplos de GhostLang, matrizes, Números G, textmodel ou CUDA.");
+}
+returnresposta+std::string("\nFonte: ia_propria/v2/dados/conversas.json:12");
+}
+if(ficha==40){
+resposta=std::string("[Consulta documental] Posso tentar. Sobre qual assunto você gostaria de ver um exemplo?");
+if(exemplo==1){
+resposta=resposta+std::string("\n\nEsta ficha ainda não possui exemplo executável validado. Posso apresentar exemplos de GhostLang, matrizes, Números G, textmodel ou CUDA.");
+}
+returnresposta+std::string("\nFonte: ia_propria/v2/dados/conversas.json:13");
+}
+if(ficha==41){
+resposta=std::string("[Consulta documental] Claro. Vou procurar responder de maneira direta e destacar a ideia principal.");
+if(exemplo==1){
+resposta=resposta+std::string("\n\nEsta ficha ainda não possui exemplo executável validado. Posso apresentar exemplos de GhostLang, matrizes, Números G, textmodel ou CUDA.");
+}
+returnresposta+std::string("\nFonte: ia_propria/v2/dados/conversas.json:14");
+}
+if(ficha==42){
+resposta=std::string("[Consulta documental] Podemos conversar. Você prefere falar sobre seu dia, algum projeto ou uma dúvida?");
+if(exemplo==1){
+resposta=resposta+std::string("\n\nEsta ficha ainda não possui exemplo executável validado. Posso apresentar exemplos de GhostLang, matrizes, Números G, textmodel ou CUDA.");
+}
+returnresposta+std::string("\nFonte: ia_propria/v2/dados/conversas.json:15");
+}
+if(ficha==43){
+resposta=std::string("[Consulta documental] Podemos começar com algo simples: o que chamou sua atenção hoje?");
+if(exemplo==1){
+resposta=resposta+std::string("\n\nEsta ficha ainda não possui exemplo executável validado. Posso apresentar exemplos de GhostLang, matrizes, Números G, textmodel ou CUDA.");
+}
+returnresposta+std::string("\nFonte: ia_propria/v2/dados/conversas.json:16");
+}
+if(ficha==44){
+resposta=std::string("[Consulta documental] Liste suas tarefas, escolha as mais importantes e reserve um horário para cada uma. Deixe espaço para pausas e imprevistos.");
+if(exemplo==1){
+resposta=resposta+std::string("\n\nEsta ficha ainda não possui exemplo executável validado. Posso apresentar exemplos de GhostLang, matrizes, Números G, textmodel ou CUDA.");
+}
+returnresposta+std::string("\nFonte: ia_propria/v2/dados/conversas.json:17");
+}
+if(ficha==45){
+resposta=std::string("[Consulta documental] Separe o que é urgente do que pode esperar. Escolha uma tarefa importante e divida o trabalho em passos pequenos.");
+if(exemplo==1){
+resposta=resposta+std::string("\n\nEsta ficha ainda não possui exemplo executável validado. Posso apresentar exemplos de GhostLang, matrizes, Números G, textmodel ou CUDA.");
+}
+returnresposta+std::string("\nFonte: ia_propria/v2/dados/conversas.json:18");
+}
+if(ficha==46){
+resposta=std::string("[Consulta documental] Comece com uma ação pequena e repita em um horário definido. Acompanhe seu progresso e ajuste a rotina quando necessário.");
+if(exemplo==1){
+resposta=resposta+std::string("\n\nEsta ficha ainda não possui exemplo executável validado. Posso apresentar exemplos de GhostLang, matrizes, Números G, textmodel ou CUDA.");
+}
+returnresposta+std::string("\nFonte: ia_propria/v2/dados/conversas.json:19");
+}
+if(ficha==47){
+resposta=std::string("[Consulta documental] Divida o conteúdo em partes, estude com atenção e tente explicar o que aprendeu sem consultar o material. Faça revisões e exercícios.");
+if(exemplo==1){
+resposta=resposta+std::string("\n\nEsta ficha ainda não possui exemplo executável validado. Posso apresentar exemplos de GhostLang, matrizes, Números G, textmodel ou CUDA.");
+}
+returnresposta+std::string("\nFonte: ia_propria/v2/dados/conversas.json:20");
+}
+if(ficha==48){
+resposta=std::string("[Consulta documental] Faça perguntas sobre o conteúdo e tente responder de memória. Revise em dias diferentes e use exercícios para descobrir suas dúvidas.");
+if(exemplo==1){
+resposta=resposta+std::string("\n\nEsta ficha ainda não possui exemplo executável validado. Posso apresentar exemplos de GhostLang, matrizes, Números G, textmodel ou CUDA.");
+}
+returnresposta+std::string("\nFonte: ia_propria/v2/dados/conversas.json:21");
+}
+if(ficha==49){
+resposta=std::string("[Consulta documental] Leia a palavra em uma frase, descubra seu significado e crie um exemplo próprio. Volte a usá-la em outros momentos.");
+if(exemplo==1){
+resposta=resposta+std::string("\n\nEsta ficha ainda não possui exemplo executável validado. Posso apresentar exemplos de GhostLang, matrizes, Números G, textmodel ou CUDA.");
+}
+returnresposta+std::string("\nFonte: ia_propria/v2/dados/conversas.json:22");
+}
+if(ficha==50){
+resposta=std::string("[Consulta documental] Escolha um texto que desperte seu interesse e reserve alguns minutos por dia. Comece com uma meta pequena e mantenha a regularidade.");
+if(exemplo==1){
+resposta=resposta+std::string("\n\nEsta ficha ainda não possui exemplo executável validado. Posso apresentar exemplos de GhostLang, matrizes, Números G, textmodel ou CUDA.");
+}
+returnresposta+std::string("\nFonte: ia_propria/v2/dados/conversas.json:23");
+}
+if(ficha==51){
+resposta=std::string("[Consulta documental] Comece pela informação principal. Use frases claras, retire repetições e revise o texto pensando em quem vai ler.");
+if(exemplo==1){
+resposta=resposta+std::string("\n\nEsta ficha ainda não possui exemplo executável validado. Posso apresentar exemplos de GhostLang, matrizes, Números G, textmodel ou CUDA.");
+}
+returnresposta+std::string("\nFonte: ia_propria/v2/dados/conversas.json:24");
+}
+if(ficha==52){
+resposta=std::string("[Consulta documental] Leia o texto, identifique a ideia principal e selecione os pontos que a sustentam. Escreva com suas palavras sem mudar o sentido.");
+if(exemplo==1){
+resposta=resposta+std::string("\n\nEsta ficha ainda não possui exemplo executável validado. Posso apresentar exemplos de GhostLang, matrizes, Números G, textmodel ou CUDA.");
+}
+returnresposta+std::string("\nFonte: ia_propria/v2/dados/conversas.json:25");
+}
+if(ficha==53){
+resposta=std::string("[Consulta documental] Confira o sentido, a ordem das ideias, a pontuação e a ortografia. Uma leitura em voz alta pode ajudar a perceber frases confusas.");
+if(exemplo==1){
+resposta=resposta+std::string("\n\nEsta ficha ainda não possui exemplo executável validado. Posso apresentar exemplos de GhostLang, matrizes, Números G, textmodel ou CUDA.");
+}
+returnresposta+std::string("\nFonte: ia_propria/v2/dados/conversas.json:26");
+}
+if(ficha==54){
+resposta=std::string("[Consulta documental] Escolha um personagem, um lugar e um problema. Pense no que o personagem deseja e em como suas escolhas mudam a situação.");
+if(exemplo==1){
+resposta=resposta+std::string("\n\nEsta ficha ainda não possui exemplo executável validado. Posso apresentar exemplos de GhostLang, matrizes, Números G, textmodel ou CUDA.");
+}
+returnresposta+std::string("\nFonte: ia_propria/v2/dados/conversas.json:27");
+}
+if(ficha==55){
+resposta=std::string("[Consulta documental] Uma menina plantou uma semente e cuidou dela todos os dias. Quando surgiu a primeira folha, percebeu que a paciência também fazia parte da descoberta.");
+if(exemplo==1){
+resposta=resposta+std::string("\n\nEsta ficha ainda não possui exemplo executável validado. Posso apresentar exemplos de GhostLang, matrizes, Números G, textmodel ou CUDA.");
+}
+returnresposta+std::string("\nFonte: ia_propria/v2/dados/conversas.json:28");
+}
+if(ficha==56){
+resposta=std::string("[Consulta documental] Defina o objetivo, descreva uma primeira versão pequena e liste as etapas necessárias. Teste cedo e ajuste o plano com base no resultado.");
+if(exemplo==1){
+resposta=resposta+std::string("\n\nEsta ficha ainda não possui exemplo executável validado. Posso apresentar exemplos de GhostLang, matrizes, Números G, textmodel ou CUDA.");
+}
+returnresposta+std::string("\nFonte: ia_propria/v2/dados/conversas.json:29");
+}
+if(ficha==57){
+resposta=std::string("[Consulta documental] Descreva o resultado desejado e separe o trabalho em partes que possam ser verificadas. Resolva uma parte por vez e acompanhe as dependências.");
+if(exemplo==1){
+resposta=resposta+std::string("\n\nEsta ficha ainda não possui exemplo executável validado. Posso apresentar exemplos de GhostLang, matrizes, Números G, textmodel ou CUDA.");
+}
+returnresposta+std::string("\nFonte: ia_propria/v2/dados/conversas.json:30");
+}
+if(ficha==58){
+resposta=std::string("[Consulta documental] Um algoritmo é uma sequência de instruções para realizar uma tarefa ou resolver um problema. Uma receita simples é um exemplo de passos organizados.");
+if(exemplo==1){
+resposta=resposta+std::string("\n\nEsta ficha ainda não possui exemplo executável validado. Posso apresentar exemplos de GhostLang, matrizes, Números G, textmodel ou CUDA.");
+}
+returnresposta+std::string("\nFonte: ia_propria/v2/dados/conversas.json:31");
+}
+if(ficha==59){
+resposta=std::string("[Consulta documental] Programar é escrever instruções para que um computador execute tarefas. O trabalho envolve entender o problema, criar uma solução e testar o resultado.");
+if(exemplo==1){
+resposta=resposta+std::string("\n\nEsta ficha ainda não possui exemplo executável validado. Posso apresentar exemplos de GhostLang, matrizes, Números G, textmodel ou CUDA.");
+}
+returnresposta+std::string("\nFonte: ia_propria/v2/dados/conversas.json:32");
+}
+if(ficha==60){
+resposta=std::string("[Consulta documental] Uma variável dá um nome a um valor usado pelo programa. Esse valor pode representar, por exemplo, uma quantidade, uma palavra ou um resultado.");
+if(exemplo==1){
+resposta=resposta+std::string("\n\nEsta ficha ainda não possui exemplo executável validado. Posso apresentar exemplos de GhostLang, matrizes, Números G, textmodel ou CUDA.");
+}
+returnresposta+std::string("\nFonte: ia_propria/v2/dados/conversas.json:33");
+}
+if(ficha==61){
+resposta=std::string("[Consulta documental] Um teste verifica se o programa se comporta como esperado em determinada situação. Ele ajuda a encontrar erros e a conferir mudanças.");
+if(exemplo==1){
+resposta=resposta+std::string("\n\nEsta ficha ainda não possui exemplo executável validado. Posso apresentar exemplos de GhostLang, matrizes, Números G, textmodel ou CUDA.");
+}
+returnresposta+std::string("\nFonte: ia_propria/v2/dados/conversas.json:34");
+}
+if(ficha==62){
+resposta=std::string("[Consulta documental] Leia a mensagem de erro, identifique onde a falha ocorre e tente reproduzir o problema com um exemplo pequeno. Qual mensagem apareceu?");
+if(exemplo==1){
+resposta=resposta+std::string("\n\nEsta ficha ainda não possui exemplo executável validado. Posso apresentar exemplos de GhostLang, matrizes, Números G, textmodel ou CUDA.");
+}
+returnresposta+std::string("\nFonte: ia_propria/v2/dados/conversas.json:35");
+}
+if(ficha==63){
+resposta=std::string("[Consulta documental] Inteligência artificial reúne métodos para realizar tarefas como reconhecer padrões e produzir previsões. Muitos modelos aprendem esses padrões a partir de exemplos.");
+if(exemplo==1){
+resposta=resposta+std::string("\n\nEsta ficha ainda não possui exemplo executável validado. Posso apresentar exemplos de GhostLang, matrizes, Números G, textmodel ou CUDA.");
+}
+returnresposta+std::string("\nFonte: ia_propria/v2/dados/conversas.json:36");
+}
+if(ficha==64){
+resposta=std::string("[Consulta documental] O modelo faz uma previsão, compara o resultado com um alvo e ajusta seus parâmetros para reduzir o erro. Esse processo é repetido com muitos exemplos.");
+if(exemplo==1){
+resposta=resposta+std::string("\n\nEsta ficha ainda não possui exemplo executável validado. Posso apresentar exemplos de GhostLang, matrizes, Números G, textmodel ou CUDA.");
+}
+returnresposta+std::string("\nFonte: ia_propria/v2/dados/conversas.json:37");
+}
+if(ficha==65){
+resposta=std::string("[Consulta documental] São os exemplos usados para ajustar o modelo. A qualidade, a diversidade e a organização desses dados influenciam o que ele consegue aprender.");
+if(exemplo==1){
+resposta=resposta+std::string("\n\nEsta ficha ainda não possui exemplo executável validado. Posso apresentar exemplos de GhostLang, matrizes, Números G, textmodel ou CUDA.");
+}
+returnresposta+std::string("\nFonte: ia_propria/v2/dados/conversas.json:38");
+}
+if(ficha==66){
+resposta=std::string("[Consulta documental] A validação usa exemplos separados para avaliar o comportamento do modelo. Isso ajuda a perceber quando ele apenas memoriza os dados de treinamento.");
+if(exemplo==1){
+resposta=resposta+std::string("\n\nEsta ficha ainda não possui exemplo executável validado. Posso apresentar exemplos de GhostLang, matrizes, Números G, textmodel ou CUDA.");
+}
+returnresposta+std::string("\nFonte: ia_propria/v2/dados/conversas.json:39");
+}
+if(ficha==67){
+resposta=std::string("[Consulta documental] A memória RAM guarda temporariamente dados que os programas estão usando. Seu conteúdo normalmente não é preservado quando o computador é desligado.");
+if(exemplo==1){
+resposta=resposta+std::string("\n\nEsta ficha ainda não possui exemplo executável validado. Posso apresentar exemplos de GhostLang, matrizes, Números G, textmodel ou CUDA.");
+}
+returnresposta+std::string("\nFonte: ia_propria/v2/dados/conversas.json:40");
+}
+if(ficha==68){
+resposta=std::string("[Consulta documental] Uma GPU executa muitas operações em paralelo. Além de produzir imagens, ela pode acelerar cálculos quando o programa possui um backend compatível.");
+if(exemplo==1){
+resposta=resposta+std::string("\n\nEsta ficha ainda não possui exemplo executável validado. Posso apresentar exemplos de GhostLang, matrizes, Números G, textmodel ou CUDA.");
+}
+returnresposta+std::string("\nFonte: ia_propria/v2/dados/conversas.json:41");
+}
+if(ficha==69){
+resposta=std::string("[Consulta documental] Uma cópia de segurança permite recuperar dados quando o original é perdido. Guarde cópias em locais separados e verifique se consegue restaurá-las.");
+if(exemplo==1){
+resposta=resposta+std::string("\n\nEsta ficha ainda não possui exemplo executável validado. Posso apresentar exemplos de GhostLang, matrizes, Números G, textmodel ou CUDA.");
+}
+returnresposta+std::string("\nFonte: ia_propria/v2/dados/conversas.json:42");
+}
+if(ficha==70){
+resposta=std::string("[Consulta documental] Use uma senha longa e exclusiva para cada conta. Um gerenciador de senhas e a autenticação em dois fatores podem ajudar a proteger o acesso.");
+if(exemplo==1){
+resposta=resposta+std::string("\n\nEsta ficha ainda não possui exemplo executável validado. Posso apresentar exemplos de GhostLang, matrizes, Números G, textmodel ou CUDA.");
+}
+returnresposta+std::string("\nFonte: ia_propria/v2/dados/conversas.json:43");
+}
+if(ficha==71){
+resposta=std::string("[Consulta documental] Confira quem publicou a informação, procure a fonte original e compare com outras fontes independentes. Observe a data e diferencie evidência de opinião.");
+if(exemplo==1){
+resposta=resposta+std::string("\n\nEsta ficha ainda não possui exemplo executável validado. Posso apresentar exemplos de GhostLang, matrizes, Números G, textmodel ou CUDA.");
+}
+returnresposta+std::string("\nFonte: ia_propria/v2/dados/conversas.json:44");
+}
+if(ficha==72){
+resposta=std::string("[Consulta documental] Um fato pode ser verificado por evidências. Uma opinião expressa uma avaliação ou preferência. Um texto pode conter os dois, por isso é útil distingui-los.");
+if(exemplo==1){
+resposta=resposta+std::string("\n\nEsta ficha ainda não possui exemplo executável validado. Posso apresentar exemplos de GhostLang, matrizes, Números G, textmodel ou CUDA.");
+}
+returnresposta+std::string("\nFonte: ia_propria/v2/dados/conversas.json:45");
+}
+if(ficha==73){
+resposta=std::string("[Consulta documental] Preste atenção, evite interromper e faça perguntas para confirmar o que entendeu. Tente compreender a ideia antes de preparar sua resposta.");
+if(exemplo==1){
+resposta=resposta+std::string("\n\nEsta ficha ainda não possui exemplo executável validado. Posso apresentar exemplos de GhostLang, matrizes, Números G, textmodel ou CUDA.");
+}
+returnresposta+std::string("\nFonte: ia_propria/v2/dados/conversas.json:46");
+}
+if(ficha==74){
+resposta=std::string("[Consulta documental] Explique o que você queria fazer, o que aconteceu e o que já tentou. Um exemplo concreto ajuda a outra pessoa a entender sua dúvida.");
+if(exemplo==1){
+resposta=resposta+std::string("\n\nEsta ficha ainda não possui exemplo executável validado. Posso apresentar exemplos de GhostLang, matrizes, Números G, textmodel ou CUDA.");
+}
+returnresposta+std::string("\nFonte: ia_propria/v2/dados/conversas.json:47");
+}
+if(ficha==75){
+resposta=std::string("[Consulta documental] Procure entender o que aconteceu e quais fatores você pode mudar. Escolha um ajuste pequeno, teste novamente e registre o que aprendeu.");
+if(exemplo==1){
+resposta=resposta+std::string("\n\nEsta ficha ainda não possui exemplo executável validado. Posso apresentar exemplos de GhostLang, matrizes, Números G, textmodel ou CUDA.");
+}
+returnresposta+std::string("\nFonte: ia_propria/v2/dados/conversas.json:48");
+}
+if(ficha==76){
+resposta=std::string("[Consulta documental] Talvez ajude revisar o objetivo e escolher uma etapa pequena para hoje. Se quiser, podemos conversar sobre o que está dificultando seu progresso.");
+if(exemplo==1){
+resposta=resposta+std::string("\n\nEsta ficha ainda não possui exemplo executável validado. Posso apresentar exemplos de GhostLang, matrizes, Números G, textmodel ou CUDA.");
+}
+returnresposta+std::string("\nFonte: ia_propria/v2/dados/conversas.json:49");
+}
+if(ficha==77){
+resposta=std::string("[Consulta documental] É possível reconhecer a dúvida e buscar mais informações. Podemos começar identificando exatamente o que precisa ser verificado.");
+if(exemplo==1){
+resposta=resposta+std::string("\n\nEsta ficha ainda não possui exemplo executável validado. Posso apresentar exemplos de GhostLang, matrizes, Números G, textmodel ou CUDA.");
+}
+returnresposta+std::string("\nFonte: ia_propria/v2/dados/conversas.json:50");
+}
+if(ficha==78){
+resposta=std::string("[Consulta documental] Uma pergunta aberta permite uma resposta desenvolvida, em vez de apenas sim ou não. Perguntar como alguém chegou a uma ideia é um exemplo.");
+if(exemplo==1){
+resposta=resposta+std::string("\n\nEsta ficha ainda não possui exemplo executável validado. Posso apresentar exemplos de GhostLang, matrizes, Números G, textmodel ou CUDA.");
+}
+returnresposta+std::string("\nFonte: ia_propria/v2/dados/conversas.json:51");
+}
+if(ficha==79){
+resposta=std::string("[Consulta documental] Defina a mensagem principal, escolha poucos pontos de apoio e prepare exemplos. Ensaie a explicação e ajuste o tempo disponível.");
+if(exemplo==1){
+resposta=resposta+std::string("\n\nEsta ficha ainda não possui exemplo executável validado. Posso apresentar exemplos de GhostLang, matrizes, Números G, textmodel ou CUDA.");
+}
+returnresposta+std::string("\nFonte: ia_propria/v2/dados/conversas.json:52");
+}
+if(ficha==80){
+resposta=std::string("[Consulta documental] Escolha critérios relevantes, como objetivo, esforço e limitações. Compare cada opção pelos mesmos critérios e registre o que ainda precisa descobrir.");
+if(exemplo==1){
+resposta=resposta+std::string("\n\nEsta ficha ainda não possui exemplo executável validado. Posso apresentar exemplos de GhostLang, matrizes, Números G, textmodel ou CUDA.");
+}
+returnresposta+std::string("\nFonte: ia_propria/v2/dados/conversas.json:53");
+}
+if(ficha==81){
+resposta=std::string("[Consulta documental] Confira o que já existe em casa, anote o que está faltando e agrupe os itens por categoria. Revise a lista antes de sair.");
+if(exemplo==1){
+resposta=resposta+std::string("\n\nEsta ficha ainda não possui exemplo executável validado. Posso apresentar exemplos de GhostLang, matrizes, Números G, textmodel ou CUDA.");
+}
+returnresposta+std::string("\nFonte: ia_propria/v2/dados/conversas.json:54");
+}
+if(ficha==82){
+resposta=std::string("[Consulta documental] Identifique a espécie e procure suas necessidades de luz e água. Observe o solo e o crescimento, pois plantas diferentes precisam de cuidados diferentes.");
+if(exemplo==1){
+resposta=resposta+std::string("\n\nEsta ficha ainda não possui exemplo executável validado. Posso apresentar exemplos de GhostLang, matrizes, Números G, textmodel ou CUDA.");
+}
+returnresposta+std::string("\nFonte: ia_propria/v2/dados/conversas.json:55");
+}
+if(ficha==83){
+resposta=std::string("[Consulta documental] Crie pastas com nomes claros, use um padrão para os arquivos e separe materiais atuais dos antigos. Mantenha uma cópia de segurança dos documentos importantes.");
+if(exemplo==1){
+resposta=resposta+std::string("\n\nEsta ficha ainda não possui exemplo executável validado. Posso apresentar exemplos de GhostLang, matrizes, Números G, textmodel ou CUDA.");
+}
+returnresposta+std::string("\nFonte: ia_propria/v2/dados/conversas.json:56");
+}
+if(ficha==84){
+resposta=std::string("[Consulta documental] Observe cada etapa, explique por que ela existe e altere uma parte para testar seu entendimento. Depois tente resolver um problema parecido sem copiar.");
+if(exemplo==1){
+resposta=resposta+std::string("\n\nEsta ficha ainda não possui exemplo executável validado. Posso apresentar exemplos de GhostLang, matrizes, Números G, textmodel ou CUDA.");
+}
+returnresposta+std::string("\nFonte: ia_propria/v2/dados/conversas.json:57");
+}
+if(ficha==85){
+resposta=std::string("[Consulta documental] Depende do objetivo e do resultado da primeira etapa. Conte o que você já fez e o que deseja alcançar para definirmos o próximo passo.");
+if(exemplo==1){
+resposta=resposta+std::string("\n\nEsta ficha ainda não possui exemplo executável validado. Posso apresentar exemplos de GhostLang, matrizes, Números G, textmodel ou CUDA.");
+}
+returnresposta+std::string("\nFonte: ia_propria/v2/dados/conversas.json:58");
+}
+if(ficha==86){
+resposta=std::string("[Consulta documental] Qual foi uma coisa interessante que você aprendeu ou percebeu hoje?");
+if(exemplo==1){
+resposta=resposta+std::string("\n\nEsta ficha ainda não possui exemplo executável validado. Posso apresentar exemplos de GhostLang, matrizes, Números G, textmodel ou CUDA.");
+}
+returnresposta+std::string("\nFonte: ia_propria/v2/dados/conversas.json:59");
+}
+if(ficha==87){
+resposta=std::string("[Consulta documental] Que bom que a explicação ajudou. Você gostaria de explorar algum detalhe ou passar para outra dúvida?");
+if(exemplo==1){
+resposta=resposta+std::string("\n\nEsta ficha ainda não possui exemplo executável validado. Posso apresentar exemplos de GhostLang, matrizes, Números G, textmodel ou CUDA.");
+}
+returnresposta+std::string("\nFonte: ia_propria/v2/dados/conversas.json:60");
+}
+if(ficha==88){
+resposta=std::string("[Consulta documental] Vamos identificar o que está faltando. Qual informação mudaria sua compreensão do problema?");
+if(exemplo==1){
+resposta=resposta+std::string("\n\nEsta ficha ainda não possui exemplo executável validado. Posso apresentar exemplos de GhostLang, matrizes, Números G, textmodel ou CUDA.");
+}
+returnresposta+std::string("\nFonte: ia_propria/v2/dados/conversas.json:61");
+}
+returnstd::string("[Sem fonte suficiente] Não encontrei uma resposta inequívoca para esse assunto. Posso explicar GhostLang, matrizes, textmodel, CUDA e Números G com exemplos revisados. Não consigo criar programas arbitrários a partir desta base.");
+}
+std::stringconsultar(std::stringtexto){
+if(texto.size()>4000){
+returnstd::string("Mensagem longa demais (4000 bytes).");
+}
+intficha=localizar(texto);
+if(ficha>=0){
+returnresponder_ficha(ficha,texto);
+}
+std::stringseparado=regex_replace(minusculas(texto),std::string(" e "),std::string("\n"));
+autopartes=string_split(separado,10);
+if(partes.size()==2){
+intprimeira=localizar(partes[0]);
+intsegunda=localizar(partes[1]);
+if(primeira>=0&&segunda>=0&&primeira!=segunda){
+returnresponder_ficha(primeira,partes[0])+std::string("\n\n")+responder_ficha(segunda,partes[1]);
+}
+}
+returnresponder_ficha(-1,texto);
+}
+intmain(intargc,char**argv){
+try{
+#ifdef_WIN32SetConsoleOutputCP(CP_UTF8);
+SetConsoleCP(CP_UTF8);
+#endifstd::cout<<std::boolalpha;
+std::stringghost_args="";
+std::vector<std::string>ghost_args_vec;
+for(inti=1;
+i<argc;
+++i){
+ghost_args+=argv[i];
+ghost_args_vec.push_back(argv[i]);
+if(i<argc-1)ghost_args+=" ";
+}
+return0;
+}
+catch(conststd::exception&e){
+std::cerr<<e.what()<<std::endl;
+return1;
+}
+}

@@ -1,0 +1,127 @@
+#line 4 "libs/test.g"
+#line 5 "libs/test.g"
+#line 6 "libs/test.g"
+#line 11 "libs/test.g"
+#line 12 "libs/test.g"
+#line 13 "libs/test.g"
+#line 18 "libs/test.g"
+#line 19 "libs/test.g"
+#line 20 "libs/test.g"
+#line 21 "libs/test.g"
+#line 26 "libs/test.g"
+#line 27 "libs/test.g"
+#line 28 "libs/test.g"
+#line 29 "libs/test.g"
+#line 34 "libs/test.g"
+#line 35 "libs/test.g"
+#line 36 "libs/test.g"
+#line 38 "libs/test.g"
+#line 39 "libs/test.g"
+#line 40 "libs/test.g"
+#line 41 "libs/test.g"
+#line 7 "libs/crypto.g"
+#line 11 "libs/crypto.g"
+#line 5 "tests/ghost/crypto_std.g"
+#line 6 "tests/ghost/crypto_std.g"
+#line 7 "tests/ghost/crypto_std.g"
+#line 8 "tests/ghost/crypto_std.g"
+#line 9 "tests/ghost/crypto_std.g"
+#line 10 "tests/ghost/crypto_std.g"
+#line 14 "tests/ghost/crypto_std.g"
+#line 15 "tests/ghost/crypto_std.g"
+#line 3 "libs/test.g"
+#line 10 "libs/test.g"
+#line 17 "libs/test.g"
+#line 25 "libs/test.g"
+#line 33 "libs/test.g"
+#line 6 "libs/crypto.g"
+#line 10 "libs/crypto.g"
+#line 4 "tests/ghost/crypto_std.g"
+#line 13 "tests/ghost/crypto_std.g"
+----
+/*TranspiladopeloGhostCompilerv1.0*/#include<iostream>#include<cstdio>#include<cstdlib>#include<string>#include<complex>#include<type_traits>#include<fstream>#include<sstream>#include<thread>#include<chrono>#include<mutex>#include"include/GhostNumberG.hpp"#include"include/GhostMatrix.hpp"#include"include/GhostLLM.hpp"#include"include/GhostLib.hpp"#include"include/GhostDevice.hpp"#include"include/GhostTextModel.hpp"#include"include/GhostWeb.hpp"#include"include/GhostKnowledge.hpp"#include"include/GhostTemporal.hpp"#include"include/GhostTransformer.hpp"#include"include/GhostTransformerG.hpp"#include"include/GhostMatrixG.hpp"#include"include/GhostQuantum.hpp"#include"include/GhostQML.hpp"#include"include/GhostHybrid.hpp"#include"include/GhostQTape.hpp"#include"include/GhostCore.hpp"#ifdef_WIN32#include<windows.h>#endifvoidassert_true(boolcond,std::stringmsg=std::string("Esperado true, obtido false"));
+voidassert_false(boolcond,std::stringmsg=std::string("Esperado false, obtido true"));
+voidassert_eq_int(intatual,intesperado,std::stringmsg=std::string(""));
+voidassert_eq_str(std::stringatual,std::stringesperado,std::stringmsg=std::string(""));
+voidassert_eq_double(doubleatual,doubleesperado,doubletol=0.0001,std::stringmsg=std::string(""));
+std::stringcrypto_base64_encode(std::stringtext);
+std::stringcrypto_base64_decode(std::stringb64);
+voidtest_crypto();
+voidghost_main();
+voidassert_true(boolcond,std::stringmsg){
+if(!cond){
+std::cout<<ghost_show(std::string("[FALHA DE TESTE] ")+msg)<<std::endl;
+throwghost_error(msg);
+}
+}
+voidassert_false(boolcond,std::stringmsg){
+if(cond){
+std::cout<<ghost_show(std::string("[FALHA DE TESTE] ")+msg)<<std::endl;
+throwghost_error(msg);
+}
+}
+voidassert_eq_int(intatual,intesperado,std::stringmsg){
+if(atual!=esperado){
+std::stringerro=std::string("[FALHA DE TESTE] ")+msg+std::string(" (esperado: ")+esperado+std::string(", obtido: ")+atual+std::string(")");
+std::cout<<ghost_show(erro)<<std::endl;
+throwghost_error(erro);
+}
+}
+voidassert_eq_str(std::stringatual,std::stringesperado,std::stringmsg){
+if(atual!=esperado){
+std::stringerro=std::string("[FALHA DE TESTE] ")+msg+std::string(" (esperado: \"")+esperado+std::string("\", obtido: \"")+atual+std::string("\")");
+std::cout<<ghost_show(erro)<<std::endl;
+throwghost_error(erro);
+}
+}
+voidassert_eq_double(doubleatual,doubleesperado,doubletol,std::stringmsg){
+doublediff=atual-esperado;
+if(diff<0.0){
+diff=-diff;
+}
+if(diff>tol){
+std::stringerro=std::string("[FALHA DE TESTE] ")+msg+std::string(" (esperado: ")+esperado+std::string(", obtido: ")+atual+std::string(")");
+std::cout<<ghost_show(erro)<<std::endl;
+throwghost_error(erro);
+}
+}
+std::stringcrypto_base64_encode(std::stringtext){
+returnghost_base64_encode(text);
+}
+std::stringcrypto_base64_decode(std::stringb64){
+returnghost_base64_decode(b64);
+}
+voidtest_crypto(){
+std::stringmsg=std::string("GhostLang 2026");
+std::stringenc=crypto_base64_encode(msg);
+assert_eq_str(enc,std::string("R2hvc3RMYW5nIDIwMjY="),std::string("base64 encode"));
+std::stringdec=crypto_base64_decode(enc);
+assert_eq_str(dec,msg,std::string("base64 decode"));
+std::cout<<ghost_show(std::string("test_crypto: OK"))<<std::endl;
+}
+voidghost_main(){
+test_crypto();
+std::cout<<ghost_show(std::string("todos os testes de crypto passaram!"))<<std::endl;
+}
+intmain(intargc,char**argv){
+try{
+#ifdef_WIN32SetConsoleOutputCP(CP_UTF8);
+SetConsoleCP(CP_UTF8);
+#endifstd::cout<<std::boolalpha;
+std::stringghost_args="";
+std::vector<std::string>ghost_args_vec;
+for(inti=1;
+i<argc;
+++i){
+ghost_args+=argv[i];
+ghost_args_vec.push_back(argv[i]);
+if(i<argc-1)ghost_args+=" ";
+}
+ghost_main();
+return0;
+}
+catch(conststd::exception&e){
+std::cerr<<e.what()<<std::endl;
+return1;
+}
+}

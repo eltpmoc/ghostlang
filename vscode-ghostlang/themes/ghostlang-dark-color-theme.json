@@ -1,0 +1,155 @@
+{
+  "name": "GhostLang Dark",
+  "type": "dark",
+  "colors": {
+    "editor.background":              "#0D1117",
+    "editor.foreground":              "#CDD9E5",
+    "editorLineNumber.foreground":    "#3B4551",
+    "editorLineNumber.activeForeground": "#8899AA",
+    "editor.selectionBackground":     "#1F3555",
+    "editor.lineHighlightBackground": "#161B22",
+    "editorCursor.foreground":        "#58A6FF",
+    "editorIndentGuide.background":   "#21262D",
+    "editorBracketMatch.background":  "#1F3555",
+    "editorBracketMatch.border":      "#388BFD",
+    "statusBar.background":           "#161B22",
+    "statusBar.foreground":           "#8B949E",
+    "activityBar.background":         "#0D1117",
+    "sideBar.background":             "#161B22",
+    "tab.activeBackground":           "#0D1117",
+    "tab.inactiveBackground":         "#161B22"
+  },
+  "tokenColors": [
+    {
+      "name": "Comments",
+      "scope": ["comment", "comment.line", "comment.block"],
+      "settings": {
+        "foreground": "#4A5568",
+        "fontStyle": "italic"
+      }
+    },
+    {
+      "name": "Strings",
+      "scope": ["string", "string.quoted.double"],
+      "settings": { "foreground": "#A8CC8C" }
+    },
+    {
+      "name": "Escape sequences in strings",
+      "scope": "constant.character.escape",
+      "settings": { "foreground": "#56D364" }
+    },
+    {
+      "name": "Control flow keywords (if, else, for, return...)",
+      "scope": "keyword.control",
+      "settings": {
+        "foreground": "#F97583",
+        "fontStyle": "bold"
+      }
+    },
+    {
+      "name": "Declaration keywords (function, var, class, import...)",
+      "scope": "keyword.other.declaration",
+      "settings": {
+        "foreground": "#C678DD",
+        "fontStyle": "bold"
+      }
+    },
+    {
+      "name": "Quantum keywords (state, gate, optimize...)",
+      "scope": "support.class.quantum",
+      "settings": {
+        "foreground": "#79C0FF",
+        "fontStyle": "bold"
+      }
+    },
+    {
+      "name": "HTTP server keywords (server, route, listen...)",
+      "scope": "support.function.http",
+      "settings": {
+        "foreground": "#FFD700",
+        "fontStyle": "bold"
+      }
+    },
+    {
+      "name": "Types (string, int, double, void...)",
+      "scope": "storage.type",
+      "settings": { "foreground": "#56B6C2" }
+    },
+    {
+      "name": "Constants (true, false, null)",
+      "scope": "constant.language",
+      "settings": {
+        "foreground": "#D19A66",
+        "fontStyle": "bold"
+      }
+    },
+    {
+      "name": "Defined function name",
+      "scope": "entity.name.function",
+      "settings": { "foreground": "#E5C07B" }
+    },
+    {
+      "name": "Function call",
+      "scope": "entity.name.function.call",
+      "settings": { "foreground": "#61AFEF" }
+    },
+    {
+      "name": "Method call on object",
+      "scope": "entity.name.function.member",
+      "settings": { "foreground": "#61AFEF" }
+    },
+    {
+      "name": "Object/variable name before method",
+      "scope": "variable.other.object",
+      "settings": { "foreground": "#E06C75" }
+    },
+    {
+      "name": "Numbers",
+      "scope": ["constant.numeric", "constant.numeric.float", "constant.numeric.integer"],
+      "settings": { "foreground": "#D19A66" }
+    },
+    {
+      "name": "Arrow operator =>",
+      "scope": "keyword.operator.arrow",
+      "settings": {
+        "foreground": "#C678DD",
+        "fontStyle": "bold"
+      }
+    },
+    {
+      "name": "Comparison operators",
+      "scope": "keyword.operator.comparison",
+      "settings": { "foreground": "#56B6C2" }
+    },
+    {
+      "name": "Assignment operator",
+      "scope": "keyword.operator.assignment",
+      "settings": { "foreground": "#ABB2BF" }
+    },
+    {
+      "name": "Arithmetic operators",
+      "scope": "keyword.operator.arithmetic",
+      "settings": { "foreground": "#ABB2BF" }
+    },
+    {
+      "name": "Logical operators",
+      "scope": "keyword.operator.logical",
+      "settings": { "foreground": "#C678DD" }
+    },
+    {
+      "name": "Semicolons",
+      "scope": "punctuation.terminator",
+      "settings": { "foreground": "#4A5568" }
+    },
+    {
+      "name": "Braces",
+      "scope": "punctuation.definition.block",
+      "settings": { "foreground": "#D4D4D4" }
+    },
+    {
+      "name": "Parentheses",
+      "scope": "punctuation.definition.parameters",
+      "settings": { "foreground": "#D4D4D4" }
+    }
+  ]
+}

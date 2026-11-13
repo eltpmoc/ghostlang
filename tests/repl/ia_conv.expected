@@ -1,0 +1,5 @@
+[Matematica] feat = img.conv2d(k)
+[Matematica] pool = img.max_pool2d()
+[Matematica] avg = img.avg_pool2d()
+[Matematica] dK = k.conv2d_grad_kernel(img, grad_out)
+ia_conv: OK

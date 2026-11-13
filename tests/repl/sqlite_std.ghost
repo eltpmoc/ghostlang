@@ -1,0 +1,11 @@
+int db = db_open(":memory:");
+int r1 = db_exec(db, "CREATE TABLE usuarios (id INTEGER PRIMARY KEY, nome TEXT, pontos REAL);");
+int r2 = db_exec(db, "INSERT INTO usuarios (nome, pontos) VALUES ('Alice', 95.5);");
+int r3 = db_exec(db, "INSERT INTO usuarios (nome, pontos) VALUES ('Bob', 82.0);");
+int last = db_last_id(db);
+int chg = db_changes(db);
+string res = db_query(db, "SELECT nome, pontos FROM usuarios ORDER BY id;");
+print(res);
+db_close(db);
+print("sqlite_std: OK");
+exit

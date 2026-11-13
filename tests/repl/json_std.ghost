@@ -1,0 +1,20 @@
+import "libs/test.g";
+
+function void test_json() {
+    string payload = "{\"nome\": \"GhostLang\", \"versao\": \"1.0\", \"status\": \"ativo\"}";
+    var j = json_parse(payload);
+    assert_eq_str(json_get(j, "nome"), "GhostLang", "json nome");
+    assert_eq_str(json_get(j, "versao"), "1.0", "json versao");
+    assert_eq_str(json_get(j, "status"), "ativo", "json status");
+    assert_eq_str(json_get(j, "inexistente"), "null", "json chave inexistente");
+
+    string out = json_stringify(j);
+    var j2 = json_parse(out);
+    assert_eq_str(json_get(j2, "nome"), "GhostLang", "json reparse nome");
+    assert_eq_str(json_get(j2, "versao"), "1.0", "json reparse versao");
+
+    print("test_json: OK");
+}
+
+test_json();
+print("todos os testes de json passaram com sucesso!");

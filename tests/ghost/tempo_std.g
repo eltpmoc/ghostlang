@@ -1,0 +1,21 @@
+import "libs/test.g";
+
+function void test_tempo() {
+    var d = parse_date("2026-11-08 15:30:00", "%Y-%m-%d %H:%M:%S");
+    string ano_mes = format_date(d, "%Y-%m");
+    assert_eq_str(ano_mes, "2026-11", "ano e mes");
+
+    string hora = format_date(d, "%H:%M");
+    assert_eq_str(hora, "15:30", "hora e minuto");
+
+    var n = now();
+    string ano_atual = format_date(n, "%Y");
+    assert_eq_str(ano_atual, "2026", "ano atual 2026");
+
+    print("test_tempo: OK");
+}
+
+function void main() {
+    test_tempo();
+    print("todos os testes de tempo passaram com sucesso!");
+}

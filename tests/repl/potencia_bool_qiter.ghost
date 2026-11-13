@@ -1,0 +1,51 @@
+// ---- 1. Operador de potencia ** ----
+print("--- potencia ---");
+var p1 = 2 ** 3;
+print(p1);
+
+var p2 = 3 ** 4;
+print(p2);
+
+// Associatividade a direita: 2 ** (3 ** 2) = 2 ** 9 = 512
+var p3 = 2 ** 3 ** 2;
+print(p3);
+
+// Com expressoes entre parenteses
+var base = 2;
+var exp = 5;
+var p4 = base ** exp;
+print(p4);
+
+var p5 = (1 + 1) ** (2 + 1);
+print(p5);
+
+// Precedencia: ** tem maior precedencia que * e +
+var p6 = 3 * 2 ** 3 + 1;
+print(p6);
+
+// ---- 2. Conversao explicita bool(x) ----
+print("--- bool ---");
+print(bool(0));
+print(bool(1));
+print(bool(42));
+print(bool(-5));
+print(bool(0.0));
+print(bool(3.14));
+print(bool(""));
+print(bool("ghost"));
+
+list<int> l_vazia = [];
+list<int> l_cheia = [10, 20];
+print(bool(l_vazia));
+print(bool(l_cheia));
+
+// ---- 3. foreach em registrador quantico qreg ----
+print("--- qreg foreach ---");
+qreg qr(4);
+foreach (q in qr) {
+    print(q);
+}
+
+foreach (int qubit in qr) {
+    print(qubit * 10);
+}

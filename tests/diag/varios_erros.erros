@@ -1,0 +1,5 @@
+varios_erros.g:3:14: erro GHOST-E0102: faltou ';' no fim da linha (depois de '5')
+varios_erros.g:5:13: erro GHOST-E0102: faltou ')' para fechar o '(' aberto aqui
+varios_erros.g:6:15: erro GHOST-E0102: esperado ')', encontrado '{'
+varios_erros.g:9:16: erro GHOST-E0102: esperado um valor, encontrado '*'
+[Ghost] 4 erros encontrados.

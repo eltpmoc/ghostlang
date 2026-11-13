@@ -1,0 +1,155 @@
+{
+  "seed": 482918,
+  "checkpoint": "ia_propria/checkpoints/v4/jogos_piloto_20260926/selecionado.bin",
+  "sha256": "3d355564c1d32317e8b4ff11a917a4a33564a8b35a3679044f045a1b058be85c",
+  "acertos": 1,
+  "rodadas": [
+    {
+      "jogo": "copia",
+      "nivel": 2,
+      "estado": {
+        "fita": "OYPZ"
+      },
+      "id": "8031ced7538a787df2743bab4e9171a6fd6c87c43a1fa8562997ea20d2f13c87",
+      "formulario": 2,
+      "prompt": "Usuário: Jogo copia. Fita: OYPZ. Escreva a fita sem comentarios.\nAssistente:",
+      "resposta": "OYYZ",
+      "avisos": "",
+      "correta": false
+    },
+    {
+      "jogo": "memoria",
+      "nivel": 2,
+      "estado": {
+        "caixas": [
+          [
+            "E",
+            "FF"
+          ],
+          [
+            "F",
+            "GA"
+          ],
+          [
+            "A",
+            "JU"
+          ]
+        ],
+        "alvo": "E",
+        "atualizacoes": []
+      },
+      "id": "3a8b2e1bd1461f460ce05a674cf9fcf3567cd3b83a4e2df117a9637b699cda99",
+      "formulario": 3,
+      "prompt": "Usuário: Jogo memoria. Caixas: E=FF; F=GA; A=JU.\nAssistente: OK\nUsuário: Recupere o conteudo mais recente de E. Nada alem do codigo.\nAssistente:",
+      "resposta": "K",
+      "avisos": "",
+      "correta": false
+    },
+    {
+      "jogo": "regras",
+      "nivel": 2,
+      "estado": {
+        "regras": [
+          [
+            "prateada",
+            "C"
+          ],
+          [
+            "rosa",
+            "V"
+          ],
+          [
+            "marrom",
+            "B"
+          ]
+        ],
+        "cor": "prateada",
+        "segunda_regra": []
+      },
+      "id": "3c902e4c1262601b4e2b9c806d3672c2fd08345b8f22981355eb569b28bdd933",
+      "formulario": 2,
+      "prompt": "Usuário: Jogo regras. Cor->grupo: prateada->C; rosa->V; marrom->B. Peca de cor prateada. Aplique as regras e escreva somente a letra final.\nAssistente:",
+      "resposta": "C",
+      "avisos": "",
+      "correta": true
+    },
+    {
+      "jogo": "caminho",
+      "nivel": 2,
+      "estado": {
+        "portas": [
+          [
+            "A",
+            "C"
+          ],
+          [
+            "B",
+            "F"
+          ],
+          [
+            "C",
+            "D"
+          ],
+          [
+            "D",
+            "E"
+          ],
+          [
+            "E",
+            "A"
+          ],
+          [
+            "F",
+            "B"
+          ]
+        ],
+        "inicio": "C",
+        "passos": 2
+      },
+      "id": "f7369236b136addce89fcdcacf543474dcba1c60ef65bcea85c012774527916d",
+      "formulario": 2,
+      "prompt": "Usuário: Jogo caminho. Portas: A>C; B>F; C>D; D>E; E>A; F>B. Inicio: C. Passos: 2. Percorra as portas. Responda somente a letra final.\nAssistente:",
+      "resposta": "D",
+      "avisos": "",
+      "correta": false
+    },
+    {
+      "jogo": "ordem",
+      "nivel": 2,
+      "estado": {
+        "lista": [
+          "Q",
+          "A",
+          "R",
+          "C",
+          "P"
+        ],
+        "posicao": 2,
+        "inverter": false
+      },
+      "id": "f0b50fa0f2e8de1bb80406ae5f70ccdd58afa70e5ea7144ba1dc085e07010a23",
+      "formulario": 2,
+      "prompt": "Usuário: Jogo ordem. Lista: Q,A,R,C,P. Posicao: 2 (a primeira e 1). Retorne somente a letra da posicao indicada.\nAssistente:",
+      "resposta": "C",
+      "avisos": "",
+      "correta": false
+    },
+    {
+      "jogo": "contagem",
+      "nivel": 2,
+      "estado": {
+        "inicio": 20,
+        "mudancas": [
+          4,
+          5
+        ]
+      },
+      "id": "449ca7e50a276b41bb4742975b99572150f3bca6dfa5d708bea8b08162f84ee7",
+      "formulario": 0,
+      "prompt": "Usuário: Jogo contagem. Estoque inicial: 20. Movimentos: +4, +5. Qual o estoque final? Apenas o inteiro.\nAssistente:",
+      "resposta": "20",
+      "avisos": "",
+      "correta": false
+    }
+  ]
+}

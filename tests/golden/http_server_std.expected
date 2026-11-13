@@ -1,0 +1,6 @@
+=== Teste Servidor HTTP Nativo ===
+[GhostServer] Pasta estatica: /public -> public
+Rotas registradas com sucesso na porta 9999
+Executando listen_step com timeout (nao-bloqueante):
+[Ghost OS] Servidor HTTP nativo rodando na porta 9999...
+http_server_std: OK

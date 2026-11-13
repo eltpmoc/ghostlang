@@ -1,0 +1,74 @@
+{
+  "treino": "ia_propria/checkpoints/v4/jogos_piloto_20260926/treino.json",
+  "passos_adicionais": 600,
+  "comparacao": {
+    "teste": {
+      "antes": 2,
+      "depois": 8,
+      "casos": 54,
+      "referencia_resposta_frequente": 5,
+      "falhas_execucao": 0,
+      "por_jogo": {
+        "copia": {
+          "antes": 0,
+          "depois": 1
+        },
+        "memoria": {
+          "antes": 0,
+          "depois": 0
+        },
+        "regras": {
+          "antes": 1,
+          "depois": 2
+        },
+        "caminho": {
+          "antes": 0,
+          "depois": 2
+        },
+        "ordem": {
+          "antes": 1,
+          "depois": 3
+        },
+        "contagem": {
+          "antes": 0,
+          "depois": 0
+        }
+      }
+    },
+    "formulacao": {
+      "antes": 1,
+      "depois": 7,
+      "casos": 54,
+      "referencia_resposta_frequente": 3,
+      "falhas_execucao": 0,
+      "por_jogo": {
+        "copia": {
+          "antes": 0,
+          "depois": 0
+        },
+        "memoria": {
+          "antes": 0,
+          "depois": 0
+        },
+        "regras": {
+          "antes": 1,
+          "depois": 2
+        },
+        "caminho": {
+          "antes": 0,
+          "depois": 2
+        },
+        "ordem": {
+          "antes": 0,
+          "depois": 2
+        },
+        "contagem": {
+          "antes": 0,
+          "depois": 1
+        }
+      }
+    }
+  },
+  "checkpoint_chat_preservado": true,
+  "limites": "Amostra pequena, 3 casos por jogo/nivel. Sem prova de raciocinio geral ou fluencia. Selecao por validacao antes do teste. O teste nao orientou novo treino neste piloto."
+}

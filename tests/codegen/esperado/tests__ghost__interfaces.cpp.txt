@@ -1,0 +1,410 @@
+#line 22 "tests/ghost/interfaces.g"
+#line 23 "tests/ghost/interfaces.g"
+#line 27 "tests/ghost/interfaces.g"
+#line 31 "tests/ghost/interfaces.g"
+#line 35 "tests/ghost/interfaces.g"
+#line 39 "tests/ghost/interfaces.g"
+#line 43 "tests/ghost/interfaces.g"
+#line 51 "tests/ghost/interfaces.g"
+#line 55 "tests/ghost/interfaces.g"
+#line 59 "tests/ghost/interfaces.g"
+#line 63 "tests/ghost/interfaces.g"
+#line 73 "tests/ghost/interfaces.g"
+#line 77 "tests/ghost/interfaces.g"
+#line 86 "tests/ghost/interfaces.g"
+#line 87 "tests/ghost/interfaces.g"
+#line 91 "tests/ghost/interfaces.g"
+#line 92 "tests/ghost/interfaces.g"
+#line 93 "tests/ghost/interfaces.g"
+#line 95 "tests/ghost/interfaces.g"
+#line 108 "tests/ghost/interfaces.g"
+#line 109 "tests/ghost/interfaces.g"
+#line 110 "tests/ghost/interfaces.g"
+#line 114 "tests/ghost/interfaces.g"
+#line 115 "tests/ghost/interfaces.g"
+#line 119 "tests/ghost/interfaces.g"
+#line 126 "tests/ghost/interfaces.g"
+#line 131 "tests/ghost/interfaces.g"
+#line 135 "tests/ghost/interfaces.g"
+#line 136 "tests/ghost/interfaces.g"
+#line 138 "tests/ghost/interfaces.g"
+#line 142 "tests/ghost/interfaces.g"
+#line 143 "tests/ghost/interfaces.g"
+#line 145 "tests/ghost/interfaces.g"
+#line 149 "tests/ghost/interfaces.g"
+#line 150 "tests/ghost/interfaces.g"
+#line 151 "tests/ghost/interfaces.g"
+#line 152 "tests/ghost/interfaces.g"
+#line 153 "tests/ghost/interfaces.g"
+#line 154 "tests/ghost/interfaces.g"
+#line 155 "tests/ghost/interfaces.g"
+#line 157 "tests/ghost/interfaces.g"
+#line 158 "tests/ghost/interfaces.g"
+#line 159 "tests/ghost/interfaces.g"
+#line 160 "tests/ghost/interfaces.g"
+#line 161 "tests/ghost/interfaces.g"
+#line 162 "tests/ghost/interfaces.g"
+#line 163 "tests/ghost/interfaces.g"
+#line 164 "tests/ghost/interfaces.g"
+#line 165 "tests/ghost/interfaces.g"
+#line 166 "tests/ghost/interfaces.g"
+#line 167 "tests/ghost/interfaces.g"
+#line 168 "tests/ghost/interfaces.g"
+#line 169 "tests/ghost/interfaces.g"
+#line 170 "tests/ghost/interfaces.g"
+#line 172 "tests/ghost/interfaces.g"
+#line 173 "tests/ghost/interfaces.g"
+#line 174 "tests/ghost/interfaces.g"
+#line 175 "tests/ghost/interfaces.g"
+#line 176 "tests/ghost/interfaces.g"
+#line 177 "tests/ghost/interfaces.g"
+#line 178 "tests/ghost/interfaces.g"
+#line 179 "tests/ghost/interfaces.g"
+#line 180 "tests/ghost/interfaces.g"
+#line 181 "tests/ghost/interfaces.g"
+#line 182 "tests/ghost/interfaces.g"
+#line 183 "tests/ghost/interfaces.g"
+#line 184 "tests/ghost/interfaces.g"
+#line 185 "tests/ghost/interfaces.g"
+#line 186 "tests/ghost/interfaces.g"
+#line 187 "tests/ghost/interfaces.g"
+#line 4 "tests/ghost/interfaces.g"
+#line 8 "tests/ghost/interfaces.g"
+#line 13 "tests/ghost/interfaces.g"
+#line 17 "tests/ghost/interfaces.g"
+#line 47 "tests/ghost/interfaces.g"
+#line 67 "tests/ghost/interfaces.g"
+#line 81 "tests/ghost/interfaces.g"
+#line 99 "tests/ghost/interfaces.g"
+#line 123 "tests/ghost/interfaces.g"
+#line 130 "tests/ghost/interfaces.g"
+#line 134 "tests/ghost/interfaces.g"
+#line 141 "tests/ghost/interfaces.g"
+#line 148 "tests/ghost/interfaces.g"
+----
+/*TranspiladopeloGhostCompilerv1.0*/#include<iostream>#include<cstdio>#include<cstdlib>#include<string>#include<complex>#include<type_traits>#include<fstream>#include<sstream>#include<thread>#include<chrono>#include<mutex>#include"include/GhostNumberG.hpp"#include"include/GhostMatrix.hpp"#include"include/GhostLLM.hpp"#include"include/GhostLib.hpp"#include"include/GhostDevice.hpp"#include"include/GhostTextModel.hpp"#include"include/GhostWeb.hpp"#include"include/GhostKnowledge.hpp"#include"include/GhostTemporal.hpp"#include"include/GhostTransformer.hpp"#include"include/GhostTransformerG.hpp"#include"include/GhostMatrixG.hpp"#include"include/GhostQuantum.hpp"#include"include/GhostQML.hpp"#include"include/GhostHybrid.hpp"#include"include/GhostQTape.hpp"#include"include/GhostCore.hpp"#ifdef_WIN32#include<windows.h>#endifclassCena;
+classCirculo;
+classCubo;
+classQuadrado;
+classRegistro;
+classRegistroEspecial;
+classDesenhavel;
+classForma;
+classNomeado;
+std::stringdescrever(Formaf);
+Formamaior(Formaa,Formab);
+Formacriar(inttipo,doubletamanho);
+voidghost_main();
+classNomeado;
+classghost_iface_Nomeado{
+public:virtual~ghost_iface_Nomeado()=default;
+virtualstd::stringnome()=0;
+}
+;
+classNomeado:publicvirtualghost_iface_Nomeado{
+std::shared_ptr<ghost_iface_Nomeado>ghost_p_;
+std::shared_ptr<ghost_iface_Nomeado>(*ghost_clone_)(constghost_iface_Nomeado&)=nullptr;
+ghost_iface_Nomeado&ghost_obj()const{
+if(!ghost_p_)throwstd::runtime_error("Nomeado sem objeto: guarde um objeto antes de chamar um metodo");
+return*ghost_p_;
+}
+public:Nomeado()=default;
+template<classT,class=std::enable_if_t<std::is_base_of_v<ghost_iface_Nomeado,T>&&!std::is_same_v<T,Nomeado>>>Nomeado(constT&v):ghost_p_(std::make_shared<T>(v)),ghost_clone_([](constghost_iface_Nomeado&x)->std::shared_ptr<ghost_iface_Nomeado>{
+returnstd::make_shared<T>(dynamic_cast<constT&>(x));
+}
+){
+}
+Nomeado(constNomeado&o):ghost_iface_Nomeado(),ghost_p_(o.ghost_p_?o.ghost_clone_(*o.ghost_p_):nullptr),ghost_clone_(o.ghost_clone_){
+}
+Nomeado&operator=(constNomeado&o){
+if(this!=&o){
+ghost_p_=o.ghost_p_?o.ghost_clone_(*o.ghost_p_):nullptr;
+ghost_clone_=o.ghost_clone_;
+}
+return*this;
+}
+std::stringnome()override{
+returnghost_obj().nome();
+}
+}
+;
+classForma;
+classghost_iface_Forma:publicvirtualghost_iface_Nomeado{
+public:virtual~ghost_iface_Forma()=default;
+virtualdoublearea()=0;
+virtualvoidescalar(double)=0;
+}
+;
+classForma:publicvirtualghost_iface_Forma{
+std::shared_ptr<ghost_iface_Forma>ghost_p_;
+std::shared_ptr<ghost_iface_Forma>(*ghost_clone_)(constghost_iface_Forma&)=nullptr;
+ghost_iface_Forma&ghost_obj()const{
+if(!ghost_p_)throwstd::runtime_error("Forma sem objeto: guarde um objeto antes de chamar um metodo");
+return*ghost_p_;
+}
+public:Forma()=default;
+template<classT,class=std::enable_if_t<std::is_base_of_v<ghost_iface_Forma,T>&&!std::is_same_v<T,Forma>>>Forma(constT&v):ghost_p_(std::make_shared<T>(v)),ghost_clone_([](constghost_iface_Forma&x)->std::shared_ptr<ghost_iface_Forma>{
+returnstd::make_shared<T>(dynamic_cast<constT&>(x));
+}
+){
+}
+Forma(constForma&o):ghost_iface_Forma(),ghost_p_(o.ghost_p_?o.ghost_clone_(*o.ghost_p_):nullptr),ghost_clone_(o.ghost_clone_){
+}
+Forma&operator=(constForma&o){
+if(this!=&o){
+ghost_p_=o.ghost_p_?o.ghost_clone_(*o.ghost_p_):nullptr;
+ghost_clone_=o.ghost_clone_;
+}
+return*this;
+}
+std::stringnome()override{
+returnghost_obj().nome();
+}
+doublearea()override{
+returnghost_obj().area();
+}
+voidescalar(doublea0)override{
+returnghost_obj().escalar(a0);
+}
+}
+;
+classDesenhavel;
+classghost_iface_Desenhavel{
+public:virtual~ghost_iface_Desenhavel()=default;
+virtualstd::stringdesenho(std::string)=0;
+}
+;
+classDesenhavel:publicvirtualghost_iface_Desenhavel{
+std::shared_ptr<ghost_iface_Desenhavel>ghost_p_;
+std::shared_ptr<ghost_iface_Desenhavel>(*ghost_clone_)(constghost_iface_Desenhavel&)=nullptr;
+ghost_iface_Desenhavel&ghost_obj()const{
+if(!ghost_p_)throwstd::runtime_error("Desenhavel sem objeto: guarde um objeto antes de chamar um metodo");
+return*ghost_p_;
+}
+public:Desenhavel()=default;
+template<classT,class=std::enable_if_t<std::is_base_of_v<ghost_iface_Desenhavel,T>&&!std::is_same_v<T,Desenhavel>>>Desenhavel(constT&v):ghost_p_(std::make_shared<T>(v)),ghost_clone_([](constghost_iface_Desenhavel&x)->std::shared_ptr<ghost_iface_Desenhavel>{
+returnstd::make_shared<T>(dynamic_cast<constT&>(x));
+}
+){
+}
+Desenhavel(constDesenhavel&o):ghost_iface_Desenhavel(),ghost_p_(o.ghost_p_?o.ghost_clone_(*o.ghost_p_):nullptr),ghost_clone_(o.ghost_clone_){
+}
+Desenhavel&operator=(constDesenhavel&o){
+if(this!=&o){
+ghost_p_=o.ghost_p_?o.ghost_clone_(*o.ghost_p_):nullptr;
+ghost_clone_=o.ghost_clone_;
+}
+return*this;
+}
+std::stringdesenho(std::stringa0)override{
+returnghost_obj().desenho(a0);
+}
+}
+;
+classQuadrado:publicvirtualghost_iface_Forma,publicvirtualghost_iface_Desenhavel{
+public:staticinlineintcriados=0;
+doublelado{
+}
+;
+Quadrado(doublel){
+lado=l;
+criados++;
+}
+virtualstd::stringnome(){
+returnstd::string("quadrado");
+}
+virtualdoublearea(){
+returnlado*lado;
+}
+virtualvoidescalar(doublek){
+lado*=k;
+}
+virtualstd::stringdesenho(std::stringpincel){
+returnpincel+std::string("[]")+pincel;
+}
+staticintquantos(){
+returncriados;
+}
+}
+;
+classCirculo:publicvirtualghost_iface_Forma{
+public:doubleraio{
+}
+;
+Circulo(doubler){
+raio=r;
+}
+virtualstd::stringnome(){
+returnstd::string("circulo");
+}
+virtualdoublearea(){
+return3*raio*raio;
+}
+virtualvoidescalar(doublek){
+raio*=k;
+}
+}
+;
+classCubo:publicQuadrado{
+public:Cubo(doublel):Quadrado(l){
+}
+virtualstd::stringnome(){
+returnstd::string("cubo");
+}
+virtualdoublearea(){
+return6*Quadrado::area();
+}
+}
+;
+classCena{
+public:Formadestaque{
+}
+;
+GhostList<Forma>formas=GhostList<Forma>{
+}
+;
+virtualvoidadicionar(Formaf){
+formas.push(f);
+destaque=f;
+}
+virtualdoubletotal(){
+doublet=0;
+for(auto&f:formas){
+t+=f.area();
+}
+returnt;
+}
+}
+;
+classRegistro{
+public:private:staticinlineintproximoId=1;
+public:staticinlineGhostList<std::string>log=GhostList<std::string>{
+}
+;
+staticinlinestd::stringprefixo=std::string("id-");
+intid{
+}
+;
+Registro(){
+id=proximoId;
+proximoId++;
+log.push(prefixo+id);
+}
+staticvoidreiniciar(){
+proximoId=1;
+log.clear();
+}
+staticstd::stringresumo(){
+returnlog.length()+std::string(" registro(s): ")+log.join(std::string(", "));
+}
+}
+;
+classRegistroEspecial:publicRegistro{
+public:RegistroEspecial():Registro(){
+log.push(std::string("especial"));
+}
+}
+;
+std::stringdescrever(Formaf){
+returnf.nome()+std::string(" de area ")+f.area();
+}
+Formamaior(Formaa,Formab){
+if(a.area()>=b.area()){
+returna;
+}
+returnb;
+}
+Formacriar(inttipo,doubletamanho){
+if(tipo==0){
+returnQuadrado(tamanho);
+}
+returnCirculo(tamanho);
+}
+voidghost_main(){
+std::cout<<ghost_show(std::string("== interfaces =="))<<std::endl;
+Formaf=Quadrado(2);
+std::cout<<ghost_show(descrever(f))<<ghost_show(std::string(" | "))<<ghost_show(descrever(Circulo(1)))<<ghost_show(std::string(" | "))<<ghost_show(descrever(Cubo(1)))<<std::endl;
+GhostList<Forma>formas=GhostList<Forma>{
+Quadrado(3),Circulo(2),Cubo(1)}
+;
+doublesoma=0;
+for(auto&x:formas){
+soma+=x.area();
+}
+std::cout<<ghost_show(std::string("soma "))<<ghost_show(soma)<<ghost_show(std::string(" | maior: "))<<ghost_show(maior(formas[0],formas[1]).nome())<<ghost_show(std::string(" | criados: "))<<ghost_show(([&](){
+auto&&ghost_src_1=ghost_iter(range(3));
+autoghost_fx_1=[&](autok){
+returncriar(k%2,k).nome();
+}
+;
+GhostList<std::decay_t<decltype(ghost_fx_1(*std::begin(ghost_src_1)))>>ghost_out_1;
+for(constauto&k:ghost_src_1){
+ghost_collect(ghost_out_1,ghost_fx_1(k));
+}
+returnghost_out_1;
+}
+()))<<std::endl;
+Formag=f;
+g.escalar(10);
+std::cout<<ghost_show(std::string("copia por valor: f "))<<ghost_show(f.area())<<ghost_show(std::string(" g "))<<ghost_show(g.area())<<std::endl;
+formas[1].escalar(2);
+std::cout<<ghost_show(std::string("elemento alterado: "))<<ghost_show(formas[1].area())<<ghost_show(std::string(" "))<<ghost_show(formas.length())<<std::endl;
+Nomeadon=formas[2];
+std::cout<<ghost_show(std::string("interface base: "))<<ghost_show(n.nome())<<std::endl;
+Desenhaveld=Quadrado(1);
+std::cout<<ghost_show(d.desenho(std::string("*")))<<std::endl;
+Cenacena{
+}
+;
+cena.adicionar(Quadrado(1));
+cena.adicionar(Circulo(1));
+std::cout<<ghost_show(std::string("cena: "))<<ghost_show(cena.total())<<ghost_show(std::string(" destaque "))<<ghost_show(cena.destaque.nome())<<std::endl;
+std::cout<<ghost_show(std::string("== static =="))<<std::endl;
+std::cout<<ghost_show(std::string("quadrados criados: "))<<ghost_show(Quadrado::criados)<<ghost_show(std::string(" "))<<ghost_show(Quadrado::quantos())<<std::endl;
+Quadrado::criados=100;
+Quadradoq=Quadrado(5);
+std::cout<<ghost_show(std::string("depois: "))<<ghost_show(Quadrado::quantos())<<ghost_show(std::string(" "))<<ghost_show(Cubo::criados)<<std::endl;
+Registror1{
+}
+;
+Registror2{
+}
+;
+RegistroEspecialr3{
+}
+;
+std::cout<<ghost_show(Registro::resumo())<<ghost_show(std::string(" | ids "))<<ghost_show(r1.id)<<ghost_show(std::string(" "))<<ghost_show(r2.id)<<ghost_show(std::string(" "))<<ghost_show(r3.id)<<std::endl;
+Registro::log.push(std::string("manual"));
+Registro::prefixo=std::string("#");
+Registror4{
+}
+;
+std::cout<<ghost_show(Registro::resumo())<<std::endl;
+Registro::reiniciar();
+Registror5{
+}
+;
+std::cout<<ghost_show(Registro::resumo())<<ghost_show(std::string(" "))<<ghost_show(r5.id)<<ghost_show(std::string(" "))<<ghost_show(RegistroEspecial::resumo())<<std::endl;
+}
+intmain(intargc,char**argv){
+try{
+#ifdef_WIN32SetConsoleOutputCP(CP_UTF8);
+SetConsoleCP(CP_UTF8);
+#endifstd::cout<<std::boolalpha;
+std::stringghost_args="";
+std::vector<std::string>ghost_args_vec;
+for(inti=1;
+i<argc;
+++i){
+ghost_args+=argv[i];
+ghost_args_vec.push_back(argv[i]);
+if(i<argc-1)ghost_args+=" ";
+}
+ghost_main();
+return0;
+}
+catch(conststd::exception&e){
+std::cerr<<e.what()<<std::endl;
+return1;
+}
+}

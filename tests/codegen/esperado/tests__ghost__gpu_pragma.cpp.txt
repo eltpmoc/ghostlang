@@ -1,0 +1,37 @@
+#line 4 "tests/ghost/gpu_pragma.g"
+#line 5 "tests/ghost/gpu_pragma.g"
+#line 6 "tests/ghost/gpu_pragma.g"
+#line 7 "tests/ghost/gpu_pragma.g"
+#line 1 "tests/ghost/gpu_pragma.g"
+#line 3 "tests/ghost/gpu_pragma.g"
+----
+/*TranspiladopeloGhostCompilerv1.0*/#include<iostream>#include<cstdio>#include<cstdlib>#include<string>#include<complex>#include<type_traits>#include<fstream>#include<sstream>#include<thread>#include<chrono>#include<mutex>#include"include/GhostNumberG.hpp"#include"include/GhostMatrix.hpp"#include"include/GhostLLM.hpp"#include"include/GhostLib.hpp"#include"include/GhostDevice.hpp"#include"include/GhostTextModel.hpp"#include"include/GhostWeb.hpp"#include"include/GhostKnowledge.hpp"#include"include/GhostTemporal.hpp"#include"include/GhostTransformer.hpp"#include"include/GhostTransformerG.hpp"#include"include/GhostMatrixG.hpp"#include"include/GhostQuantum.hpp"#include"include/GhostQML.hpp"#include"include/GhostHybrid.hpp"#include"include/GhostQTape.hpp"#include"include/GhostCore.hpp"#ifdef_WIN32#include<windows.h>#endifvoidghost_main(GhostList<std::string>args);
+voidghost_main(GhostList<std::string>args){
+std::cout<<ghost_show(std::string("Backend: ")+device_backend())<<std::endl;
+use_device("cpu");
+std::cout<<ghost_show(std::string("Backend apos cpu: ")+device_backend())<<std::endl;
+std::cout<<ghost_show(std::string("gpu_pragma: OK"))<<std::endl;
+}
+intmain(intargc,char**argv){
+try{
+#ifdef_WIN32SetConsoleOutputCP(CP_UTF8);
+SetConsoleCP(CP_UTF8);
+#endifstd::cout<<std::boolalpha;
+std::stringghost_args="";
+std::vector<std::string>ghost_args_vec;
+for(inti=1;
+i<argc;
+++i){
+ghost_args+=argv[i];
+ghost_args_vec.push_back(argv[i]);
+if(i<argc-1)ghost_args+=" ";
+}
+use_device("auto");
+ghost_main(ghost_args_vec);
+return0;
+}
+catch(conststd::exception&e){
+std::cerr<<e.what()<<std::endl;
+return1;
+}
+}

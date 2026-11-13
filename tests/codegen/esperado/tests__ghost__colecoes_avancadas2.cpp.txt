@@ -1,0 +1,155 @@
+#line 4 "tests/ghost/colecoes_avancadas2.g"
+#line 5 "tests/ghost/colecoes_avancadas2.g"
+#line 6 "tests/ghost/colecoes_avancadas2.g"
+#line 7 "tests/ghost/colecoes_avancadas2.g"
+#line 8 "tests/ghost/colecoes_avancadas2.g"
+#line 9 "tests/ghost/colecoes_avancadas2.g"
+#line 10 "tests/ghost/colecoes_avancadas2.g"
+#line 11 "tests/ghost/colecoes_avancadas2.g"
+#line 12 "tests/ghost/colecoes_avancadas2.g"
+#line 13 "tests/ghost/colecoes_avancadas2.g"
+#line 14 "tests/ghost/colecoes_avancadas2.g"
+#line 16 "tests/ghost/colecoes_avancadas2.g"
+#line 17 "tests/ghost/colecoes_avancadas2.g"
+#line 18 "tests/ghost/colecoes_avancadas2.g"
+#line 19 "tests/ghost/colecoes_avancadas2.g"
+#line 20 "tests/ghost/colecoes_avancadas2.g"
+#line 21 "tests/ghost/colecoes_avancadas2.g"
+#line 22 "tests/ghost/colecoes_avancadas2.g"
+#line 24 "tests/ghost/colecoes_avancadas2.g"
+#line 25 "tests/ghost/colecoes_avancadas2.g"
+#line 26 "tests/ghost/colecoes_avancadas2.g"
+#line 27 "tests/ghost/colecoes_avancadas2.g"
+#line 28 "tests/ghost/colecoes_avancadas2.g"
+#line 29 "tests/ghost/colecoes_avancadas2.g"
+#line 30 "tests/ghost/colecoes_avancadas2.g"
+#line 31 "tests/ghost/colecoes_avancadas2.g"
+#line 32 "tests/ghost/colecoes_avancadas2.g"
+#line 34 "tests/ghost/colecoes_avancadas2.g"
+#line 35 "tests/ghost/colecoes_avancadas2.g"
+#line 36 "tests/ghost/colecoes_avancadas2.g"
+#line 37 "tests/ghost/colecoes_avancadas2.g"
+#line 38 "tests/ghost/colecoes_avancadas2.g"
+#line 39 "tests/ghost/colecoes_avancadas2.g"
+#line 40 "tests/ghost/colecoes_avancadas2.g"
+#line 42 "tests/ghost/colecoes_avancadas2.g"
+#line 47 "tests/ghost/colecoes_avancadas2.g"
+#line 48 "tests/ghost/colecoes_avancadas2.g"
+#line 49 "tests/ghost/colecoes_avancadas2.g"
+#line 50 "tests/ghost/colecoes_avancadas2.g"
+#line 53 "tests/ghost/colecoes_avancadas2.g"
+#line 54 "tests/ghost/colecoes_avancadas2.g"
+#line 55 "tests/ghost/colecoes_avancadas2.g"
+#line 56 "tests/ghost/colecoes_avancadas2.g"
+#line 3 "tests/ghost/colecoes_avancadas2.g"
+----
+/*TranspiladopeloGhostCompilerv1.0*/#include<iostream>#include<cstdio>#include<cstdlib>#include<string>#include<complex>#include<type_traits>#include<fstream>#include<sstream>#include<thread>#include<chrono>#include<mutex>#include"include/GhostNumberG.hpp"#include"include/GhostMatrix.hpp"#include"include/GhostLLM.hpp"#include"include/GhostLib.hpp"#include"include/GhostDevice.hpp"#include"include/GhostTextModel.hpp"#include"include/GhostWeb.hpp"#include"include/GhostKnowledge.hpp"#include"include/GhostTemporal.hpp"#include"include/GhostTransformer.hpp"#include"include/GhostTransformerG.hpp"#include"include/GhostMatrixG.hpp"#include"include/GhostQuantum.hpp"#include"include/GhostQML.hpp"#include"include/GhostHybrid.hpp"#include"include/GhostQTape.hpp"#include"include/GhostCore.hpp"#ifdef_WIN32#include<windows.h>#endifvoidghost_main();
+voidghost_main(){
+std::cout<<ghost_show(std::string("== fatiamento com passo em listas =="))<<std::endl;
+GhostList<int>xs=GhostList<int>{
+0,1,2,3,4,5,6,7,8,9}
+;
+std::cout<<ghost_show(ghost_slice(xs,GhostSliceArg{
+false,0,false,0,true,static_cast<longlong>(2)}
+))<<std::endl;
+std::cout<<ghost_show(ghost_slice(xs,GhostSliceArg{
+true,static_cast<longlong>(1),false,0,true,static_cast<longlong>(2)}
+))<<std::endl;
+std::cout<<ghost_show(ghost_slice(xs,GhostSliceArg{
+false,0,false,0,true,static_cast<longlong>(-1)}
+))<<std::endl;
+std::cout<<ghost_show(ghost_slice(xs,GhostSliceArg{
+true,static_cast<longlong>(2),true,static_cast<longlong>(8),true,static_cast<longlong>(2)}
+))<<std::endl;
+std::cout<<ghost_show(ghost_slice(xs,GhostSliceArg{
+false,0,true,static_cast<longlong>(5),false,1}
+))<<std::endl;
+std::cout<<ghost_show(ghost_slice(xs,GhostSliceArg{
+true,static_cast<longlong>(6),false,0,false,1}
+))<<std::endl;
+std::cout<<ghost_show(ghost_slice(xs,GhostSliceArg{
+true,static_cast<longlong>(-4),false,0,false,1}
+))<<std::endl;
+std::cout<<ghost_show(ghost_slice(xs,GhostSliceArg{
+false,0,true,static_cast<longlong>(-3),false,1}
+))<<std::endl;
+std::cout<<ghost_show(ghost_slice(xs,GhostSliceArg{
+true,static_cast<longlong>(8),true,static_cast<longlong>(2),true,static_cast<longlong>(-2)}
+))<<std::endl;
+std::cout<<ghost_show(std::string("== fatiamento com passo em textos =="))<<std::endl;
+std::strings=std::string("GhostLang");
+std::cout<<ghost_show(ghost_slice(s,GhostSliceArg{
+false,0,false,0,true,static_cast<longlong>(2)}
+))<<std::endl;
+std::cout<<ghost_show(ghost_slice(s,GhostSliceArg{
+false,0,false,0,true,static_cast<longlong>(-1)}
+))<<std::endl;
+std::cout<<ghost_show(ghost_slice(s,GhostSliceArg{
+true,static_cast<longlong>(0),true,static_cast<longlong>(5),false,1}
+))<<std::endl;
+std::cout<<ghost_show(ghost_slice(s,GhostSliceArg{
+true,static_cast<longlong>(5),false,0,false,1}
+))<<std::endl;
+std::cout<<ghost_show(ghost_slice(s,GhostSliceArg{
+true,static_cast<longlong>(1),true,static_cast<longlong>(7),true,static_cast<longlong>(2)}
+))<<std::endl;
+std::cout<<ghost_show(std::string("== operacoes vetoriais em lote =="))<<std::endl;
+GhostList<int>v1=GhostList<int>{
+1,2,3,4}
+;
+GhostList<int>v2=GhostList<int>{
+10,20,30,40}
+;
+std::cout<<ghost_show(std::string("soma: "))<<ghost_show(vec_add(v1,v2))<<std::endl;
+std::cout<<ghost_show(std::string("sub: "))<<ghost_show(vec_sub(v2,v1))<<std::endl;
+std::cout<<ghost_show(std::string("mul: "))<<ghost_show(vec_mul(v1,v2))<<std::endl;
+std::cout<<ghost_show(std::string("scale: "))<<ghost_show(vec_scale(v1,2.5))<<std::endl;
+std::cout<<ghost_show(std::string("dot: "))<<ghost_show(dot(v1,v2))<<std::endl;
+std::cout<<ghost_show(std::string("norm: "))<<ghost_show(v1.norm())<<std::endl;
+std::cout<<ghost_show(std::string("== metodos fluentes de vetor em listas =="))<<std::endl;
+std::cout<<ghost_show(std::string("v1.vec_add: "))<<ghost_show(v1.vec_add(v2))<<std::endl;
+std::cout<<ghost_show(std::string("v2.vec_sub: "))<<ghost_show(v2.vec_sub(v1))<<std::endl;
+std::cout<<ghost_show(std::string("v1.vec_mul: "))<<ghost_show(v1.vec_mul(v2))<<std::endl;
+std::cout<<ghost_show(std::string("v1.vec_scale: "))<<ghost_show(v1.vec_scale(0.5))<<std::endl;
+std::cout<<ghost_show(std::string("v1.dot: "))<<ghost_show(v1.dot(v2))<<std::endl;
+std::cout<<ghost_show(std::string("v1.slice com step: "))<<ghost_show(v1.slice(0,4,2))<<std::endl;
+std::cout<<ghost_show(std::string("== operacoes matriciais em lote =="))<<std::endl;
+GhostList<double>mA=GhostList<double>{
+1.0,2.0,3.0,4.0}
+;
+GhostList<double>mB=GhostList<double>{
+5.0,6.0,7.0,8.0}
+;
+std::cout<<ghost_show(std::string("mat_mul: "))<<ghost_show(mat_mul(mA,mB,2,2,2))<<std::endl;
+std::cout<<ghost_show(std::string("transpose: "))<<ghost_show(mat_transpose(mA,2,2))<<std::endl;
+GhostList<GhostList<double>>A2D=GhostList<GhostList<double>>{
+ghost_list(1.0,2.0),ghost_list(3.0,4.0)}
+;
+GhostList<GhostList<double>>B2D=GhostList<GhostList<double>>{
+ghost_list(2.0,0.0),ghost_list(1.0,2.0)}
+;
+std::cout<<ghost_show(std::string("mat2d_mul: "))<<ghost_show(mat2d_mul(A2D,B2D))<<std::endl;
+std::cout<<ghost_show(std::string("fim colecoes avancadas 2"))<<std::endl;
+}
+intmain(intargc,char**argv){
+try{
+#ifdef_WIN32SetConsoleOutputCP(CP_UTF8);
+SetConsoleCP(CP_UTF8);
+#endifstd::cout<<std::boolalpha;
+std::stringghost_args="";
+std::vector<std::string>ghost_args_vec;
+for(inti=1;
+i<argc;
+++i){
+ghost_args+=argv[i];
+ghost_args_vec.push_back(argv[i]);
+if(i<argc-1)ghost_args+=" ";
+}
+ghost_main();
+return0;
+}
+catch(conststd::exception&e){
+std::cerr<<e.what()<<std::endl;
+return1;
+}
+}

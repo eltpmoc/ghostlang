@@ -1,0 +1,402 @@
+#line 12 "tests/ghost/codegen_completo.g"
+#line 12 "tests/ghost/codegen_completo.g"
+#line 13 "tests/ghost/codegen_completo.g"
+#line 14 "tests/ghost/codegen_completo.g"
+#line 15 "tests/ghost/codegen_completo.g"
+#line 20 "tests/ghost/codegen_completo.g"
+#line 23 "tests/ghost/codegen_completo.g"
+#line 25 "tests/ghost/codegen_completo.g"
+#line 25 "tests/ghost/codegen_completo.g"
+#line 26 "tests/ghost/codegen_completo.g"
+#line 29 "tests/ghost/codegen_completo.g"
+#line 30 "tests/ghost/codegen_completo.g"
+#line 31 "tests/ghost/codegen_completo.g"
+#line 33 "tests/ghost/codegen_completo.g"
+#line 41 "tests/ghost/codegen_completo.g"
+#line 42 "tests/ghost/codegen_completo.g"
+#line 43 "tests/ghost/codegen_completo.g"
+#line 44 "tests/ghost/codegen_completo.g"
+#line 46 "tests/ghost/codegen_completo.g"
+#line 47 "tests/ghost/codegen_completo.g"
+#line 48 "tests/ghost/codegen_completo.g"
+#line 49 "tests/ghost/codegen_completo.g"
+#line 50 "tests/ghost/codegen_completo.g"
+#line 51 "tests/ghost/codegen_completo.g"
+#line 52 "tests/ghost/codegen_completo.g"
+#line 53 "tests/ghost/codegen_completo.g"
+#line 55 "tests/ghost/codegen_completo.g"
+#line 56 "tests/ghost/codegen_completo.g"
+#line 62 "tests/ghost/codegen_completo.g"
+#line 65 "tests/ghost/codegen_completo.g"
+#line 67 "tests/ghost/codegen_completo.g"
+#line 68 "tests/ghost/codegen_completo.g"
+#line 72 "tests/ghost/codegen_completo.g"
+#line 74 "tests/ghost/codegen_completo.g"
+#line 75 "tests/ghost/codegen_completo.g"
+#line 76 "tests/ghost/codegen_completo.g"
+#line 77 "tests/ghost/codegen_completo.g"
+#line 78 "tests/ghost/codegen_completo.g"
+#line 79 "tests/ghost/codegen_completo.g"
+#line 80 "tests/ghost/codegen_completo.g"
+#line 81 "tests/ghost/codegen_completo.g"
+#line 82 "tests/ghost/codegen_completo.g"
+#line 83 "tests/ghost/codegen_completo.g"
+#line 85 "tests/ghost/codegen_completo.g"
+#line 86 "tests/ghost/codegen_completo.g"
+#line 87 "tests/ghost/codegen_completo.g"
+#line 88 "tests/ghost/codegen_completo.g"
+#line 2 "tests/ghost/codegen_completo.g"
+#line 7 "tests/ghost/codegen_completo.g"
+#line 18 "tests/ghost/codegen_completo.g"
+#line 23 "tests/ghost/codegen_completo.g"
+#line 24 "tests/ghost/codegen_completo.g"
+#line 28 "tests/ghost/codegen_completo.g"
+#line 33 "tests/ghost/codegen_completo.g"
+#line 35 "tests/ghost/codegen_completo.g"
+#line 40 "tests/ghost/codegen_completo.g"
+----
+/*TranspiladopeloGhostCompilerv1.0*/#include<iostream>#include<cstdio>#include<cstdlib>#include<string>#include<complex>#include<type_traits>#include<fstream>#include<sstream>#include<thread>#include<chrono>#include<mutex>#include"include/GhostNumberG.hpp"#include"include/GhostMatrix.hpp"#include"include/GhostLLM.hpp"#include"include/GhostLib.hpp"#include"include/GhostDevice.hpp"#include"include/GhostTextModel.hpp"#include"include/GhostWeb.hpp"#include"include/GhostKnowledge.hpp"#include"include/GhostTemporal.hpp"#include"include/GhostTransformer.hpp"#include"include/GhostTransformerG.hpp"#include"include/GhostMatrixG.hpp"#include"include/GhostQuantum.hpp"#include"include/GhostQML.hpp"#include"include/GhostHybrid.hpp"#include"include/GhostQTape.hpp"#include"include/GhostCore.hpp"#ifdef_WIN32#include<windows.h>#endifclassContador;
+classDobrador;
+template<classT>classMedida;
+template<classT>Tmaior(Ta,Tb);
+GhostResult<int>metade(intx);
+GhostResult<int>quarto(intx);
+template<classU>UaplicarDuas(GhostFn<U(U)>f,Uv);
+template<classU,classGhostCallable_0,classGhostEn_=std::enable_if_t<(!ghost_detail::is_ghost_fn<std::decay_t<GhostCallable_0>>::value)>>UaplicarDuas(GhostCallable_0&&f,Uv);
+template<classGhostQ_,classGhostT0_,classGhostT1_>voidpreparar(GhostQ_&ghost_q_,GhostT0_a,GhostT1_b);
+template<classGhostQ_,classGhostT0_,classGhostT1_>voidpreparar_dg(GhostQ_&ghost_q_,GhostT0_a,GhostT1_b);
+template<classGhostQ_,classGhostC_,classGhostT0_,classGhostT1_>voidpreparar_ctrl(GhostQ_&ghost_q_,GhostC_ghost_ctrl_,GhostT0_a,GhostT1_b);
+template<classGhostQ_,classGhostC_,classGhostT0_,classGhostT1_>voidpreparar_dg_ctrl(GhostQ_&ghost_q_,GhostC_ghost_ctrl_,GhostT0_a,GhostT1_b);
+voidghost_main();
+template<classT>classMedida;
+template<classT>classghost_iface_Medida{
+public:virtual~ghost_iface_Medida()=default;
+virtualTvalor()=0;
+virtualstd::stringrotulo(){
+returnstd::string("medida ")+this->valor();
+}
+}
+;
+template<classT>classMedida:publicvirtualghost_iface_Medida<T>{
+std::shared_ptr<ghost_iface_Medida<T>>ghost_p_;
+std::shared_ptr<ghost_iface_Medida<T>>(*ghost_clone_)(constghost_iface_Medida<T>&)=nullptr;
+ghost_iface_Medida<T>&ghost_obj()const{
+if(!ghost_p_)throwstd::runtime_error("Medida sem objeto: guarde um objeto antes de chamar um metodo");
+return*ghost_p_;
+}
+public:Medida()=default;
+template<classGhostObj_,class=std::enable_if_t<std::is_base_of_v<ghost_iface_Medida<T>,GhostObj_>&&!std::is_same_v<GhostObj_,Medida<T>>>>Medida(constGhostObj_&v):ghost_p_(std::make_shared<GhostObj_>(v)),ghost_clone_([](constghost_iface_Medida<T>&x)->std::shared_ptr<ghost_iface_Medida<T>>{
+returnstd::make_shared<GhostObj_>(dynamic_cast<constGhostObj_&>(x));
+}
+){
+}
+Medida(constMedida&o):ghost_iface_Medida<T>(),ghost_p_(o.ghost_p_?o.ghost_clone_(*o.ghost_p_):nullptr),ghost_clone_(o.ghost_clone_){
+}
+Medida&operator=(constMedida&o){
+if(this!=&o){
+ghost_p_=o.ghost_p_?o.ghost_clone_(*o.ghost_p_):nullptr;
+ghost_clone_=o.ghost_clone_;
+}
+return*this;
+}
+Tvalor()override{
+returnghost_obj().valor();
+}
+std::stringrotulo()override{
+returnghost_obj().rotulo();
+}
+}
+;
+classContador:publicvirtualghost_iface_Medida<int>{
+public:protected:intn{
+}
+;
+public:staticinlineintcriados=0;
+Contador(intinicio){
+n=inicio;
+Contador::criados=Contador::criados+1;
+}
+virtualintvalor(){
+returnn;
+}
+virtualvoidsomar(intk){
+n+=k;
+}
+staticstd::stringdescrever(){
+returnstd::string("contadores: ")+Contador::criados;
+}
+}
+;
+classDobrador:publicContador{
+public:Dobrador(intinicio):Contador(inicio*2){
+}
+virtualintvalor(){
+returnn*10;
+}
+}
+;
+template<classT>Tmaior(Ta,Tb){
+static_assert(std::is_arithmetic_v<T>&&!std::is_same_v<T,bool>,"T precisa ser numero (int, double ou float): restricao de function maior");
+returna>b?a:b;
+}
+GhostResult<int>metade(intx){
+if(x%2!=0){
+returnerr(std::string("impar: ")+x);
+}
+returnok(x/2);
+}
+GhostResult<int>quarto(intx){
+intm=({
+autoghost_try_1=ghost_try_arg(metade(x));
+if(ghost_try_1.is_err())returnGhostErr{
+ghost_try_1.error()}
+;
+ghost_try_1.value();
+}
+);
+intq=({
+autoghost_try_2=ghost_try_arg(metade(m));
+if(ghost_try_2.is_err())returnGhostErr{
+ghost_try_2.error()}
+;
+ghost_try_2.value();
+}
+);
+returnok(q);
+}
+template<classU>UaplicarDuas(GhostFn<U(U)>f,Uv){
+returnf(f(v));
+}
+template<classU,classGhostCallable_0,classGhostEn_>UaplicarDuas(GhostCallable_0&&f,Uv){
+returnaplicarDuas<U>(GhostFn<U(U)>(std::forward<GhostCallable_0>(f)),v);
+}
+//circuitpreparartemplate<classGhostQ_,classGhostT0_,classGhostT1_>voidpreparar(GhostQ_&ghost_q_,GhostT0_a,GhostT1_b){
+ghost_q_.h(a);
+ghost_q_.cx(a,b);
+}
+//circuitpreparar_dg:inverso(portasinversasemordemreversa)template<classGhostQ_,classGhostT0_,classGhostT1_>voidpreparar_dg(GhostQ_&ghost_q_,GhostT0_a,GhostT1_b){
+autoghost_rec_=ghost_begin_inverse(ghost_q_);
+preparar(ghost_rec_,a,b);
+ghost_end_inverse(ghost_q_,ghost_rec_);
+}
+//circuitpreparar_ctrl:versaocontroladatemplate<classGhostQ_,classGhostC_,classGhostT0_,classGhostT1_>voidpreparar_ctrl(GhostQ_&ghost_q_,GhostC_ghost_ctrl_,GhostT0_a,GhostT1_b){
+autoghost_rec_=ghost_begin_record(ghost_q_);
+preparar(ghost_rec_,a,b);
+ghost_end_controlled(ghost_q_,ghost_rec_,ghost_ctrl_);
+}
+//circuitpreparar_dg_ctrl:versaocontroladatemplate<classGhostQ_,classGhostC_,classGhostT0_,classGhostT1_>voidpreparar_dg_ctrl(GhostQ_&ghost_q_,GhostC_ghost_ctrl_,GhostT0_a,GhostT1_b){
+autoghost_rec_=ghost_begin_record(ghost_q_);
+preparar_dg(ghost_rec_,a,b);
+ghost_end_controlled(ghost_q_,ghost_rec_,ghost_ctrl_);
+}
+voidghost_main(){
+Contadorc=Contador(3);
+c.somar(4);
+Dobradord=Dobrador(5);
+std::cout<<ghost_show(c.valor())<<ghost_show(std::string(" "))<<ghost_show(d.valor())<<ghost_show(std::string(" "))<<ghost_show(c.rotulo())<<ghost_show(std::string(" "))<<ghost_show(Contador::descrever())<<std::endl;
+autoj=std::string("{")+std::string("\""+std::string("nome")+"\"")+std::string(":")+std::string("\""+std::string("ghost")+"\"")+std::string(",")+std::string("\""+std::string("versao")+"\"")+std::string(":")+ghost_to_json_string(2)+std::string(",")+std::string("\""+std::string("tags")+"\"")+std::string(":")+std::string("[")+std::string("\""+std::string("q")+"\"")+std::string(",")+std::string("\""+std::string("ia")+"\"")+std::string("]")+std::string("}");
+std::cout<<ghost_show(j)<<std::endl;
+GhostSet<int>vazio=GhostSet<int>{
+}
+;
+GhostMap<std::string,int>quadrados=([&](){
+GhostMap<std::string,int>ghost_out_3;
+for(autos:ghost_iter(ghost_list(std::string("a"),std::string("bb"),std::string("ccc")))){
+ghost_collect(ghost_out_3,s,len(s));
+}
+returnghost_out_3;
+}
+());
+autopares=([&](){
+autoghost_ty_4=[&](){
+auto&&ghost_p_4_0=ghost_iter(range(3));
+autox=*std::begin(ghost_p_4_0);
+(void)x;
+auto&&ghost_p_4_1=ghost_iter(range(3));
+autoy=*std::begin(ghost_p_4_1);
+(void)y;
+returnGhostList<std::decay_t<decltype(ghost_list(x,y))>>{
+}
+;
+}
+;
+usingghost_rt_4=decltype(ghost_ty_4());
+ghost_rt_4ghost_out_4;
+for(autox:ghost_iter(range(3))){
+for(autoy:ghost_iter(range(3))){
+if(!static_cast<bool>(x<y))continue;
+ghost_collect(ghost_out_4,ghost_list(x,y));
+}
+}
+returnghost_out_4;
+}
+());
+autosomas=([&](){
+autoghost_ty_5=[&](){
+auto&&ghost_p_5_0=ghost_iter_kv(quadrados);
+autoghost_pkv_5_0=*std::begin(ghost_p_5_0);
+autok=ghost_pkv_5_0.first;
+autov=ghost_pkv_5_0.second;
+(void)k;
+(void)v;
+returnGhostMap<std::decay_t<decltype(k)>,std::decay_t<decltype(v*2)>>{
+}
+;
+}
+;
+usingghost_rt_5=decltype(ghost_ty_5());
+ghost_rt_5ghost_out_5;
+for(constauto&ghost_kv_5_0:ghost_iter_kv(quadrados)){
+autok=ghost_kv_5_0.first;
+autov=ghost_kv_5_0.second;
+if(!static_cast<bool>(v>1))continue;
+ghost_collect(ghost_out_5,k,v*2);
+}
+returnghost_out_5;
+}
+());
+GhostSet<int>restos=([&](){
+GhostSet<int>ghost_out_6;
+for(auton:ghost_iter(range(10))){
+ghost_collect(ghost_out_6,n%3);
+}
+returnghost_out_6;
+}
+());
+std::cout<<ghost_show(vazio)<<ghost_show(std::string(" "))<<ghost_show(quadrados)<<ghost_show(std::string(" "))<<ghost_show(pares)<<ghost_show(std::string(" "))<<ghost_show(somas)<<ghost_show(std::string(" "))<<ghost_show(restos)<<std::endl;
+for(inti=0;
+i<5;
+i++){
+{
+constautoghost_sw_7=(i);
+boolghost_fall_7=false;
+if(ghost_fall_7||ghost_sw_7==(0)||ghost_sw_7==(1)){
+ghost_fall_7=true;
+std::cout<<ghost_show(std::string("pouco "))<<ghost_show(i)<<std::endl;
+}
+if(ghost_fall_7||ghost_sw_7==(2)){
+ghost_fall_7=true;
+std::cout<<ghost_show(std::string("dois ou queda "))<<ghost_show(i)<<std::endl;
+gotoghost_sw_end_7;
+}
+if(ghost_fall_7||!(ghost_sw_7==(0)||ghost_sw_7==(1)||ghost_sw_7==(2))){
+ghost_fall_7=true;
+std::cout<<ghost_show(std::string("muito "))<<ghost_show(i)<<std::endl;
+}
+(void)ghost_fall_7;
+}
+ghost_sw_end_7:;
+}
+{
+try{
+{
+try{
+throwghost_error(std::string("interno"));
+}
+catch(...){
+std::stringe=ghost_exception_message(std::current_exception());
+(void)e;
+std::cout<<ghost_show(std::string("pegou "))<<ghost_show(e)<<std::endl;
+throw;
+}
+}
+}
+catch(...){
+std::stringe2=ghost_exception_message(std::current_exception());
+(void)e2;
+std::cout<<ghost_show(std::string("de novo "))<<ghost_show(e2)<<std::endl;
+}
+}
+{
+GhostDeferghost_fin_10([&](){
+std::cout<<ghost_show(std::string("finally"))<<std::endl;
+}
+);
+{
+std::cout<<ghost_show(std::string("sem catch"))<<std::endl;
+}
+}
+intmelhor=0;
+{
+//hypothesisautoghost_hyp_items_11=ghost_list(7,3,9);
+boolghost_hyp_has_11=false;
+doubleghost_hyp_best_11=0.0;
+autoghost_hyp_best_melhor_11=melhor;
+for(auto&t:ghost_hyp_items_11){
+autoghost_hyp_o_melhor_11=melhor;
+{
+automelhor=ghost_hyp_o_melhor_11;
+boolghost_hyp_scored_11=false;
+doubleghost_hyp_score_11=0.0;
+intghost_hyp_kind_11=1;
+melhor=t;
+ghost_hyp_scored_11=true;
+ghost_hyp_score_11=static_cast<double>(t);
+ghost_hyp_kind_11=-1;
+if(ghost_hyp_scored_11&&(!ghost_hyp_has_11||(ghost_hyp_kind_11>0?ghost_hyp_score_11>ghost_hyp_best_11:ghost_hyp_score_11<ghost_hyp_best_11))){
+ghost_hyp_has_11=true;
+ghost_hyp_best_11=ghost_hyp_score_11;
+ghost_hyp_best_melhor_11=melhor;
+}
+(void)t;
+}
+}
+if(ghost_hyp_has_11){
+melhor=ghost_hyp_best_melhor_11;
+std::cout<<"[Multiverso] Colapso temporal resolvido. Linha do tempo de maior score ("<<ghost_hyp_best_11<<") assumida."<<std::endl;
+}
+}
+std::cout<<ghost_show(std::string("hypothesis "))<<ghost_show(melhor)<<std::endl;
+std::cout<<ghost_show(maior(3,9))<<ghost_show(std::string(" "))<<ghost_show(maior(2.5,1.5))<<ghost_show(std::string(" "))<<ghost_show(quarto(12))<<ghost_show(std::string(" "))<<ghost_show(quarto(6))<<std::endl;
+intbase=10;
+inttotal=0;
+autoporValor=ghost_make_fn<int>([base=base](intv)mutable{
+returnv+base;
+}
+);
+autoporRef=ghost_make_fn<int>([&total=total](intv)mutable{
+total+=v;
+returntotal;
+}
+);
+autotudoRef=ghost_make_fn<int>([&](intv)mutable{
+returnbase*v;
+}
+);
+autopoli=ghost_make_poly_fn([=](autov)mutable{
+returnv*2;
+}
+);
+porRef(5);
+porRef(7);
+std::cout<<ghost_show(porValor(1))<<ghost_show(std::string(" "))<<ghost_show(total)<<ghost_show(std::string(" "))<<ghost_show(tudoRef(3))<<ghost_show(std::string(" "))<<ghost_show(poli(21))<<ghost_show(std::string(" "))<<ghost_show(aplicarDuas(ghost_make_fn<int>([=](intv)mutable{
+returnv+1;
+}
+),40))<<std::endl;
+GhostQRegq=GhostQReg(2);
+preparar(q,0,1);
+preparar_dg(q,0,1);
+std::cout<<ghost_show(std::string("depois de preparar e desfazer: q.prob(0) = "))<<ghost_show(q.prob(0))<<std::endl;
+}
+intmain(intargc,char**argv){
+try{
+#ifdef_WIN32SetConsoleOutputCP(CP_UTF8);
+SetConsoleCP(CP_UTF8);
+#endifstd::cout<<std::boolalpha;
+std::stringghost_args="";
+std::vector<std::string>ghost_args_vec;
+for(inti=1;
+i<argc;
+++i){
+ghost_args+=argv[i];
+ghost_args_vec.push_back(argv[i]);
+if(i<argc-1)ghost_args+=" ";
+}
+ghost_main();
+return0;
+}
+catch(conststd::exception&e){
+std::cerr<<e.what()<<std::endl;
+return1;
+}
+}

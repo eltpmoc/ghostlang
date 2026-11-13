@@ -1,0 +1,6 @@
+qcircuit: 2 qubits, 12 portas, 8 parametros, 2 features, 64 amostras; observavel Z(q0)
+Antes do treino: acuracia 59.375%
+Depois do treino: acuracia 96.875%
+Ponto (0.3, 0.5) -> classe 0
+Ponto (2.8, 2.6) -> classe 1
+qml_classificador: OK

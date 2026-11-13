@@ -1,0 +1,38 @@
+qcircuit kernel(2);
+kernel.zz_feature_map(1, 1.0);
+print(kernel.draw());
+
+for (var i = 0; i < 6; i = i + 1) {
+    for (var j = 0; j < 6; j = j + 1) {
+        double a = -0.9 + 0.36 * i;
+        double b = -0.9 + 0.36 * j;
+        int classe = 0;
+        if (a * b > 0) {
+            classe = 1;
+        }
+        kernel.add_sample(classe, a, b);
+    }
+}
+for (var i = 0; i < 5; i = i + 1) {
+    for (var j = 0; j < 5; j = j + 1) {
+        double a = -0.74 + 0.375 * i;
+        double b = -0.73 + 0.375 * j;
+        int classe = 0;
+        if (a * b > 0) {
+            classe = 1;
+        }
+        kernel.add_test(classe, a, b);
+    }
+}
+
+print("Matriz de kernel (4 primeiras amostras):");
+print(kernel.kernel_matrix(4));
+print(f"k(x, x) = ${kernel.kernel(0.3, -0.2, 0.3, -0.2)}   k(x, y) = ${kernel.kernel(0.3, -0.2, -0.6, 0.8)}");
+
+double treino = kernel.kernel_fit(0.001);
+print(f"Amostras: ${kernel.samples()} treino, ${kernel.test_samples()} teste");
+print(f"Acuracia de treino: ${treino * 100.0}%");
+print(f"Acuracia de teste:  ${kernel.kernel_test_accuracy() * 100.0}%");
+print(f"(0.5, 0.5) -> ${kernel.kernel_predict(0.5, 0.5)}   (-0.5, 0.5) -> ${kernel.kernel_predict(-0.5, 0.5)}");
+print("qml_kernel: OK");
+exit

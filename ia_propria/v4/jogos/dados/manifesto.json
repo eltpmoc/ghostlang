@@ -1,0 +1,44 @@
+{
+  "versao": 1,
+  "seed": 482917,
+  "contexto_bytes": 384,
+  "particoes": {
+    "treino": {
+      "casos": 2160,
+      "sha256_gtd": "86b37f84d64b143ee6a5ff7b11fd96c837ac4aef16f4bd48d68f5f88f57b2b03",
+      "sha256_jsonl": "826320f02147ebce196dbb292e512a059f965adb2bc483d663311d2f7eea4801"
+    },
+    "validacao": {
+      "casos": 216,
+      "sha256_gtd": "ec41623b269bb7954177f4fc436026c7f3d78f221ee2382a67f736f3ae1266c3",
+      "sha256_jsonl": "d3cd1d387854fe27346c4cf69ec2a9d014cd47c62c284a5f6b47aa870960bc86"
+    },
+    "teste": {
+      "casos": 216,
+      "sha256_gtd": "0bc73e6b3109577e35b80dec1574c22d24a3f4e013cf1c33c20587ef37ddf2d3",
+      "sha256_jsonl": "10fcda1813c8180f109f42938dce3b35c5b1886030bdbef41b2fe6f9a4f56e4e"
+    },
+    "teste_formulacao": {
+      "casos": 216,
+      "sha256_gtd": "ee1bb7395fa5199b5c7b67d6e30bd95bb2d6dad6ee7ec20348641896d853209e",
+      "sha256_jsonl": "4f583ad143831518c592c4560cdb6aa26f199b027e3a7e3d36b21369ffeb0db5"
+    }
+  },
+  "arquivos_sha256": {
+    "treino.gtd": "86b37f84d64b143ee6a5ff7b11fd96c837ac4aef16f4bd48d68f5f88f57b2b03",
+    "treino.jsonl": "826320f02147ebce196dbb292e512a059f965adb2bc483d663311d2f7eea4801",
+    "validacao.gtd": "ec41623b269bb7954177f4fc436026c7f3d78f221ee2382a67f736f3ae1266c3",
+    "validacao.jsonl": "d3cd1d387854fe27346c4cf69ec2a9d014cd47c62c284a5f6b47aa870960bc86",
+    "teste.gtd": "0bc73e6b3109577e35b80dec1574c22d24a3f4e013cf1c33c20587ef37ddf2d3",
+    "teste.jsonl": "10fcda1813c8180f109f42938dce3b35c5b1886030bdbef41b2fe6f9a4f56e4e",
+    "teste_formulacao.gtd": "ee1bb7395fa5199b5c7b67d6e30bd95bb2d6dad6ee7ec20348641896d853209e",
+    "teste_formulacao.jsonl": "4f583ad143831518c592c4560cdb6aa26f199b027e3a7e3d36b21369ffeb0db5",
+    "treino_nivel1.gtd": "c5ea5484d0ad9dbd8d90398eb5fed9d8bf4ce7e75dae45d84b36a83a8d0906d3",
+    "validacao_nivel1.gtd": "7fed08d492342907bddd40f242e6b323dca0bc48d82f53d3d2bc4b4ebdaeb5c2",
+    "treino_nivel2.gtd": "5d4d62a16384c32da9da68d2683f8f4bc38f2cb6a2ad7f481d7c5c6beab2dd2d",
+    "validacao_nivel2.gtd": "e6060bedacb359a7692c93b37d3ccf9badc7cd66cc6f4b3efee3754775a31075",
+    "treino_nivel3.gtd": "86b37f84d64b143ee6a5ff7b11fd96c837ac4aef16f4bd48d68f5f88f57b2b03",
+    "validacao_nivel3.gtd": "ec41623b269bb7954177f4fc436026c7f3d78f221ee2382a67f736f3ae1266c3"
+  },
+  "separacao": "Estados e prompts disjuntos. Formularios 0..2: treino/validacao/teste; formulario 3: teste de nova formulacao. Curriculo cumulativo por nivel."
+}

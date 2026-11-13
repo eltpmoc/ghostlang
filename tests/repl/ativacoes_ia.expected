@@ -1,0 +1,10 @@
+[Memoria] Gate 't1' alocado (2x2).
+[Ativacao] Tanh aplicada a 't1'.
+[Memoria] Gate 't2' alocado (2x2).
+[Ativacao] LeakyReLU aplicada a 't2'.
+[Memoria] Gate 't3' alocado (2x2).
+[Ativacao] GELU aplicada a 't3'.
+[Memoria] Gate 't4' alocado (2x2).
+[Ativacao] Softmax aplicada a 't4'.
+test_ativacoes_ia: OK
+todos os testes de ativacoes_ia passaram com sucesso!

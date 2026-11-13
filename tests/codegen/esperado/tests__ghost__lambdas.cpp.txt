@@ -1,0 +1,618 @@
+#line 10 "tests/ghost/lambdas.g"
+#line 13 "tests/ghost/lambdas.g"
+#line 23 "tests/ghost/lambdas.g"
+#line 24 "tests/ghost/lambdas.g"
+#line 28 "tests/ghost/lambdas.g"
+#line 37 "tests/ghost/lambdas.g"
+#line 38 "tests/ghost/lambdas.g"
+#line 42 "tests/ghost/lambdas.g"
+#line 46 "tests/ghost/lambdas.g"
+#line 58 "tests/ghost/lambdas.g"
+#line 62 "tests/ghost/lambdas.g"
+#line 63 "tests/ghost/lambdas.g"
+#line 64 "tests/ghost/lambdas.g"
+#line 66 "tests/ghost/lambdas.g"
+#line 71 "tests/ghost/lambdas.g"
+#line 75 "tests/ghost/lambdas.g"
+#line 79 "tests/ghost/lambdas.g"
+#line 83 "tests/ghost/lambdas.g"
+#line 84 "tests/ghost/lambdas.g"
+#line 91 "tests/ghost/lambdas.g"
+#line 95 "tests/ghost/lambdas.g"
+#line 99 "tests/ghost/lambdas.g"
+#line 100 "tests/ghost/lambdas.g"
+#line 101 "tests/ghost/lambdas.g"
+#line 103 "tests/ghost/lambdas.g"
+#line 107 "tests/ghost/lambdas.g"
+#line 108 "tests/ghost/lambdas.g"
+#line 109 "tests/ghost/lambdas.g"
+#line 110 "tests/ghost/lambdas.g"
+#line 113 "tests/ghost/lambdas.g"
+#line 117 "tests/ghost/lambdas.g"
+#line 118 "tests/ghost/lambdas.g"
+#line 119 "tests/ghost/lambdas.g"
+#line 121 "tests/ghost/lambdas.g"
+#line 125 "tests/ghost/lambdas.g"
+#line 126 "tests/ghost/lambdas.g"
+#line 127 "tests/ghost/lambdas.g"
+#line 131 "tests/ghost/lambdas.g"
+#line 132 "tests/ghost/lambdas.g"
+#line 140 "tests/ghost/lambdas.g"
+#line 142 "tests/ghost/lambdas.g"
+#line 143 "tests/ghost/lambdas.g"
+#line 144 "tests/ghost/lambdas.g"
+#line 145 "tests/ghost/lambdas.g"
+#line 150 "tests/ghost/lambdas.g"
+#line 151 "tests/ghost/lambdas.g"
+#line 152 "tests/ghost/lambdas.g"
+#line 153 "tests/ghost/lambdas.g"
+#line 154 "tests/ghost/lambdas.g"
+#line 157 "tests/ghost/lambdas.g"
+#line 158 "tests/ghost/lambdas.g"
+#line 162 "tests/ghost/lambdas.g"
+#line 164 "tests/ghost/lambdas.g"
+#line 165 "tests/ghost/lambdas.g"
+#line 169 "tests/ghost/lambdas.g"
+#line 171 "tests/ghost/lambdas.g"
+#line 175 "tests/ghost/lambdas.g"
+#line 180 "tests/ghost/lambdas.g"
+#line 182 "tests/ghost/lambdas.g"
+#line 183 "tests/ghost/lambdas.g"
+#line 184 "tests/ghost/lambdas.g"
+#line 185 "tests/ghost/lambdas.g"
+#line 186 "tests/ghost/lambdas.g"
+#line 188 "tests/ghost/lambdas.g"
+#line 189 "tests/ghost/lambdas.g"
+#line 190 "tests/ghost/lambdas.g"
+#line 192 "tests/ghost/lambdas.g"
+#line 194 "tests/ghost/lambdas.g"
+#line 195 "tests/ghost/lambdas.g"
+#line 197 "tests/ghost/lambdas.g"
+#line 198 "tests/ghost/lambdas.g"
+#line 199 "tests/ghost/lambdas.g"
+#line 200 "tests/ghost/lambdas.g"
+#line 201 "tests/ghost/lambdas.g"
+#line 202 "tests/ghost/lambdas.g"
+#line 203 "tests/ghost/lambdas.g"
+#line 204 "tests/ghost/lambdas.g"
+#line 206 "tests/ghost/lambdas.g"
+#line 207 "tests/ghost/lambdas.g"
+#line 208 "tests/ghost/lambdas.g"
+#line 209 "tests/ghost/lambdas.g"
+#line 210 "tests/ghost/lambdas.g"
+#line 212 "tests/ghost/lambdas.g"
+#line 213 "tests/ghost/lambdas.g"
+#line 214 "tests/ghost/lambdas.g"
+#line 215 "tests/ghost/lambdas.g"
+#line 217 "tests/ghost/lambdas.g"
+#line 218 "tests/ghost/lambdas.g"
+#line 219 "tests/ghost/lambdas.g"
+#line 221 "tests/ghost/lambdas.g"
+#line 222 "tests/ghost/lambdas.g"
+#line 223 "tests/ghost/lambdas.g"
+#line 224 "tests/ghost/lambdas.g"
+#line 226 "tests/ghost/lambdas.g"
+#line 228 "tests/ghost/lambdas.g"
+#line 229 "tests/ghost/lambdas.g"
+#line 230 "tests/ghost/lambdas.g"
+#line 231 "tests/ghost/lambdas.g"
+#line 232 "tests/ghost/lambdas.g"
+#line 234 "tests/ghost/lambdas.g"
+#line 235 "tests/ghost/lambdas.g"
+#line 236 "tests/ghost/lambdas.g"
+#line 237 "tests/ghost/lambdas.g"
+#line 238 "tests/ghost/lambdas.g"
+#line 240 "tests/ghost/lambdas.g"
+#line 241 "tests/ghost/lambdas.g"
+#line 242 "tests/ghost/lambdas.g"
+#line 244 "tests/ghost/lambdas.g"
+#line 245 "tests/ghost/lambdas.g"
+#line 246 "tests/ghost/lambdas.g"
+#line 247 "tests/ghost/lambdas.g"
+#line 249 "tests/ghost/lambdas.g"
+#line 254 "tests/ghost/lambdas.g"
+#line 256 "tests/ghost/lambdas.g"
+#line 257 "tests/ghost/lambdas.g"
+#line 258 "tests/ghost/lambdas.g"
+#line 259 "tests/ghost/lambdas.g"
+#line 260 "tests/ghost/lambdas.g"
+#line 261 "tests/ghost/lambdas.g"
+#line 262 "tests/ghost/lambdas.g"
+#line 264 "tests/ghost/lambdas.g"
+#line 265 "tests/ghost/lambdas.g"
+#line 266 "tests/ghost/lambdas.g"
+#line 267 "tests/ghost/lambdas.g"
+#line 268 "tests/ghost/lambdas.g"
+#line 269 "tests/ghost/lambdas.g"
+#line 271 "tests/ghost/lambdas.g"
+#line 272 "tests/ghost/lambdas.g"
+#line 273 "tests/ghost/lambdas.g"
+#line 3 "tests/ghost/lambdas.g"
+#line 7 "tests/ghost/lambdas.g"
+#line 17 "tests/ghost/lambdas.g"
+#line 32 "tests/ghost/lambdas.g"
+#line 54 "tests/ghost/lambdas.g"
+#line 70 "tests/ghost/lambdas.g"
+#line 74 "tests/ghost/lambdas.g"
+#line 78 "tests/ghost/lambdas.g"
+#line 82 "tests/ghost/lambdas.g"
+#line 90 "tests/ghost/lambdas.g"
+#line 94 "tests/ghost/lambdas.g"
+#line 98 "tests/ghost/lambdas.g"
+#line 106 "tests/ghost/lambdas.g"
+#line 116 "tests/ghost/lambdas.g"
+#line 124 "tests/ghost/lambdas.g"
+----
+/*TranspiladopeloGhostCompilerv1.0*/#include<iostream>#include<cstdio>#include<cstdlib>#include<string>#include<complex>#include<type_traits>#include<fstream>#include<sstream>#include<thread>#include<chrono>#include<mutex>#include"include/GhostNumberG.hpp"#include"include/GhostMatrix.hpp"#include"include/GhostLLM.hpp"#include"include/GhostLib.hpp"#include"include/GhostDevice.hpp"#include"include/GhostTextModel.hpp"#include"include/GhostWeb.hpp"#include"include/GhostKnowledge.hpp"#include"include/GhostTemporal.hpp"#include"include/GhostTransformer.hpp"#include"include/GhostTransformerG.hpp"#include"include/GhostMatrixG.hpp"#include"include/GhostQuantum.hpp"#include"include/GhostQML.hpp"#include"include/GhostHybrid.hpp"#include"include/GhostQTape.hpp"#include"include/GhostCore.hpp"#ifdef_WIN32#include<windows.h>#endifclassBotao;
+classEscalador;
+classEtiqueta;
+template<classT>classPipeline;
+classDescritivel;
+intdobro(intx);
+intsomarUm(intx);
+std::stringformatarPar(std::stringk,intv);
+GhostFn<int()>criarContador(intinicio,intpasso);
+GhostFn<int(int)>somador(intbase);
+GhostFn<int(int)>compor(GhostFn<int(int)>f,GhostFn<int(int)>g);
+template<classT,classU>GhostList<U>mapear(GhostList<T>xs,GhostFn<U(T)>f);
+template<classT>GhostList<T>filtrar(GhostList<T>xs,GhostFn<bool(T)>pred);
+template<classT,classAcc>Accreduzir(GhostList<T>xs,Accinicial,GhostFn<Acc(Acc,T)>comb);
+voidghost_main();
+classDescritivel;
+classghost_iface_Descritivel{
+public:virtual~ghost_iface_Descritivel()=default;
+virtualstd::stringdescrever()=0;
+}
+;
+classDescritivel:publicvirtualghost_iface_Descritivel{
+std::shared_ptr<ghost_iface_Descritivel>ghost_p_;
+std::shared_ptr<ghost_iface_Descritivel>(*ghost_clone_)(constghost_iface_Descritivel&)=nullptr;
+ghost_iface_Descritivel&ghost_obj()const{
+if(!ghost_p_)throwstd::runtime_error("Descritivel sem objeto: guarde um objeto antes de chamar um metodo");
+return*ghost_p_;
+}
+public:Descritivel()=default;
+template<classT,class=std::enable_if_t<std::is_base_of_v<ghost_iface_Descritivel,T>&&!std::is_same_v<T,Descritivel>>>Descritivel(constT&v):ghost_p_(std::make_shared<T>(v)),ghost_clone_([](constghost_iface_Descritivel&x)->std::shared_ptr<ghost_iface_Descritivel>{
+returnstd::make_shared<T>(dynamic_cast<constT&>(x));
+}
+){
+}
+Descritivel(constDescritivel&o):ghost_iface_Descritivel(),ghost_p_(o.ghost_p_?o.ghost_clone_(*o.ghost_p_):nullptr),ghost_clone_(o.ghost_clone_){
+}
+Descritivel&operator=(constDescritivel&o){
+if(this!=&o){
+ghost_p_=o.ghost_p_?o.ghost_clone_(*o.ghost_p_):nullptr;
+ghost_clone_=o.ghost_clone_;
+}
+return*this;
+}
+std::stringdescrever()override{
+returnghost_obj().descrever();
+}
+}
+;
+classEtiqueta:publicvirtualghost_iface_Descritivel{
+public:std::stringtexto{
+}
+;
+Etiqueta(std::stringt){
+texto=t;
+}
+virtualstd::stringdescrever(){
+returnghost_fstr(std::string("<"),(texto),std::string(">"));
+}
+}
+;
+classBotao{
+public:std::stringrotulo{
+}
+;
+GhostFn<std::string(int)>aoClicar{
+}
+;
+staticinlineGhostFn<int(int)>globalOp=ghost_make_fn<int>([](intx)mutable{
+returnx*10;
+}
+);
+Botao(std::stringr,GhostFn<std::string(int)>cb){
+rotulo=r;
+aoClicar=cb;
+}
+virtualstd::stringclicar(intcliques){
+returnghost_fstr((rotulo),std::string("->"),(aoClicar(cliques)));
+}
+}
+;
+classEscalador{
+public:intfator{
+}
+;
+intdeslocamento{
+}
+;
+Escalador(intf,intd){
+fator=f;
+deslocamento=d;
+}
+virtualintajuste(intv){
+returnv+deslocamento;
+}
+virtualGhostFn<int(int)>criarAcumulador(){
+returnghost_make_fn<int>([=,*this](intx)mutable{
+intres=ajuste(x*fator);
+deslocamento+=1;
+returnres;
+}
+);
+}
+}
+;
+template<classT>classPipeline{
+public:GhostList<GhostFn<T(T)>>etapas=GhostList<GhostFn<T(T)>>{
+}
+;
+virtualvoidadicionar(GhostFn<T(T)>f){
+etapas.push(f);
+}
+virtualTexecutar(Tvalor){
+Tatual=valor;
+for(GhostFn<T(T)>etapa:etapas){
+atual=etapa(atual);
+}
+returnatual;
+}
+}
+;
+intdobro(intx){
+returnx*2;
+}
+intsomarUm(intx){
+returnx+1;
+}
+std::stringformatarPar(std::stringk,intv){
+returnghost_fstr((k),std::string("="),(v));
+}
+GhostFn<int()>criarContador(intinicio,intpasso){
+intatual=inicio;
+returnghost_make_fn([=]()mutable{
+atual+=passo;
+returnatual;
+}
+);
+}
+GhostFn<int(int)>somador(intbase){
+returnghost_make_fn<int>([=](intx)mutable{
+returnbase+x;
+}
+);
+}
+GhostFn<int(int)>compor(GhostFn<int(int)>f,GhostFn<int(int)>g){
+returnghost_make_fn<int>([=](intx)mutable{
+returnf(g(x));
+}
+);
+}
+template<classT,classU>GhostList<U>mapear(GhostList<T>xs,GhostFn<U(T)>f){
+GhostList<U>out=GhostList<U>{
+}
+;
+for(Titem:xs){
+out.push(f(item));
+}
+returnout;
+}
+template<classT>GhostList<T>filtrar(GhostList<T>xs,GhostFn<bool(T)>pred){
+GhostList<T>out=GhostList<T>{
+}
+;
+for(Titem:xs){
+if(pred(item)){
+out.push(item);
+}
+}
+returnout;
+}
+template<classT,classAcc>Accreduzir(GhostList<T>xs,Accinicial,GhostFn<Acc(Acc,T)>comb){
+Accacc=inicial;
+for(Titem:xs){
+acc=comb(acc,item);
+}
+returnacc;
+}
+voidghost_main(){
+std::cout<<ghost_show(std::string("== lambdas basicas =="))<<std::endl;
+autosaudacao=ghost_make_fn([=]()mutable{
+returnstd::string("ola lambda");
+}
+);
+GhostFn<int()>resposta=ghost_make_fn([=]()mutable{
+intbase=40;
+returnbase+2;
+}
+);
+GhostFn<int(int)>quadrado=ghost_make_fn<int>([=](intx)mutable{
+returnx*x;
+}
+);
+GhostFn<std::string(std::string,int)>repetirTag=ghost_make_fn<std::string,int>([=](std::strings,intn)mutable{
+std::stringacc=std::string("");
+for(inti=0;
+i<n;
+i++){
+if(i>0){
+acc=acc+std::string("-");
+}
+acc=acc+s;
+}
+returnacc;
+}
+);
+std::cout<<ghost_show(saudacao())<<ghost_show(std::string(" | "))<<ghost_show(resposta())<<ghost_show(std::string(" | "))<<ghost_show(quadrado(7))<<ghost_show(std::string(" | "))<<ghost_show(repetirTag(std::string("q"),3))<<std::endl;
+std::cout<<ghost_show(std::string("== fn vazia, texto e conversoes =="))<<std::endl;
+GhostFn<int(int)>slot{
+}
+;
+std::cout<<ghost_show(std::string("slot vazio: "))<<ghost_show(!slot)<<std::endl;
+{
+try{
+std::cout<<ghost_show(slot(10))<<std::endl;
+}
+catch(...){
+std::stringe=ghost_exception_message(std::current_exception());
+(void)e;
+std::cout<<ghost_show(std::string("capturado: "))<<ghost_show(e)<<std::endl;
+}
+}
+slot=ghost_make_fn<int>([=](intx)mutable{
+returnx+5;
+}
+);
+std::cout<<ghost_show(std::string("estado: "))<<ghost_show(slot?std::string("ativo"):std::string("vazio"))<<ghost_show(std::string(" | "))<<ghost_show(slot)<<ghost_show(std::string(" | "))<<ghost_show(str(slot)+std::string("/")+ghost_fstr((slot)))<<std::endl;
+GhostFn<double(int)>alargada=ghost_make_fn<int>([=](intx)mutable{
+returnx+1;
+}
+);
+std::cout<<ghost_show(ghost_fstr(std::string("alargada: "),ghost_fmt((alargada(4)),".1f")))<<std::endl;
+GhostFn<void(std::string)>logar=ghost_make_fn<std::string>([=](std::stringmsg)mutable{
+std::cout<<ghost_show(ghost_fstr(std::string("[void] "),(msg)))<<std::endl;
+}
+);
+logar(std::string("executado"));
+GhostFn<void(int)>descartaRetorno=ghost_make_fn<int>([=](intx)mutable{
+std::cout<<ghost_show(ghost_fstr(std::string("[descarta] "),(x)))<<std::endl;
+returnx*100;
+}
+);
+descartaRetorno(3);
+std::cout<<ghost_show(std::string("== retorno explicito e result =="))<<std::endl;
+autorampa=GhostFn<double(int)>([=](intx)mutable->double{
+if(x<0){
+return0;
+}
+returnx*1.25;
+}
+);
+std::cout<<ghost_show(ghost_fstr(std::string("rampa: "),ghost_fmt((rampa(-3)),".2f"),std::string(" / "),ghost_fmt((rampa(2)),".2f")))<<std::endl;
+autodivSegura=GhostFn<GhostResult<double>(double,double)>([=](doublea,doubleb)mutable->GhostResult<double>{
+if(b==0){
+returnerr(std::string("divisao por zero"));
+}
+returnok(a/b);
+}
+);
+autosomaInversos=GhostFn<GhostResult<double>(double,double)>([=](doublex,doubley)mutable->GhostResult<double>{
+doubleix=({
+autoghost_try_2=ghost_try_arg(divSegura(12.0,x));
+if(ghost_try_2.is_err())returnGhostErr{
+ghost_try_2.error()}
+;
+ghost_try_2.value();
+}
+);
+doubleiy=({
+autoghost_try_3=ghost_try_arg(divSegura(12.0,y));
+if(ghost_try_3.is_err())returnGhostErr{
+ghost_try_3.error()}
+;
+ghost_try_3.value();
+}
+);
+returnok(ix+iy);
+}
+);
+std::cout<<ghost_show(std::string("inversos: "))<<ghost_show(somaInversos(3.0,4.0))<<ghost_show(std::string(" | "))<<ghost_show(somaInversos(3.0,0.0))<<std::endl;
+std::cout<<ghost_show(std::string("== closures por valor =="))<<std::endl;
+intexterno=10;
+autocapValor=ghost_make_fn<int>([=](intx)mutable{
+returnx+externo;
+}
+);
+externo=500;
+std::cout<<ghost_show(std::string("capValor: "))<<ghost_show(capValor(6))<<std::endl;
+GhostList<GhostFn<int(int)>>somadoresFor=GhostList<GhostFn<int(int)>>{
+}
+;
+for(inti=1;
+i<=3;
+i++){
+somadoresFor.push(ghost_make_fn<int>([=](intx)mutable{
+returnx+i*10;
+}
+));
+}
+std::cout<<ghost_show(ghost_fstr(std::string("for: "),(somadoresFor[0](1)),std::string(","),(somadoresFor[1](1)),std::string(","),(somadoresFor[2](1))))<<std::endl;
+automultsComp=([&](){
+auto&&ghost_src_4=ghost_iter(ghost_list(2,5,9));
+autoghost_fx_4=[&](autok){
+returnghost_make_fn<int>([=](intx)mutable{
+returnx*k;
+}
+);
+}
+;
+GhostList<std::decay_t<decltype(ghost_fx_4(*std::begin(ghost_src_4)))>>ghost_out_4;
+for(constauto&k:ghost_src_4){
+ghost_collect(ghost_out_4,ghost_fx_4(k));
+}
+returnghost_out_4;
+}
+());
+std::cout<<ghost_show(ghost_fstr(std::string("comp: "),(multsComp[0](4)),std::string(","),(multsComp[1](4)),std::string(","),(multsComp[2](4))))<<std::endl;
+autoc1=criarContador(10,5);
+intp1=c1();
+intp2=c1();
+autoc2=c1;
+intv1=c1();
+intv2=c2();
+intv3=c1();
+std::cout<<ghost_show(ghost_fstr(std::string("contadores: p1="),(p1),std::string(", p2="),(p2),std::string(", c1="),(v1),std::string(", c2="),(v2),std::string(", c1="),(v3)))<<std::endl;
+autofilaCont=ghost_list(criarContador(0,1),criarContador(100,10));
+intfc1=filaCont[0]();
+intfc2=filaCont[0]();
+intfc3=filaCont[1]();
+std::cout<<ghost_show(ghost_fstr(std::string("filaCont: "),(fc1),std::string(","),(fc2),std::string(","),(fc3)))<<std::endl;
+std::cout<<ghost_show(std::string("== currying e funcoes nomeadas =="))<<std::endl;
+GhostFn<GhostFn<std::string(std::string)>(std::string)>prefixar=ghost_make_fn<std::string>([=](std::stringp)mutable{
+returnghost_make_fn<std::string>([=](std::strings)mutable{
+returnghost_fstr(std::string("["),(p),std::string("] "),(s));
+}
+);
+}
+);
+autoaviso=prefixar(std::string("AVISO"));
+std::cout<<ghost_show(aviso(std::string("sistema pronto")))<<ghost_show(std::string(" | somador: "))<<ghost_show(somador(7)(8))<<std::endl;
+autodobroMaisUm=compor(ghost_fn_val(somarUm),ghost_fn_val(dobro));
+GhostFn<std::string(std::string,int)>fp=ghost_fn_val(formatarPar);
+std::cout<<ghost_show(std::string("compor: "))<<ghost_show(dobroMaisUm(6))<<ghost_show(std::string(" | par: "))<<ghost_show(fp(std::string("qubits"),4))<<std::endl;
+GhostList<GhostFn<int(int)>>ops=GhostList<GhostFn<int(int)>>{
+ghost_fn_val(dobro),ghost_fn_val(somarUm),ghost_make_fn<int>([=](intx)mutable{
+returnx*x;
+}
+)}
+;
+GhostList<int>resultadosOps=GhostList<int>{
+}
+;
+for(GhostFn<int(int)>op:ops){
+resultadosOps.push(op(5));
+}
+std::cout<<ghost_show(std::string("ops: "))<<ghost_show(resultadosOps)<<std::endl;
+std::cout<<ghost_show(std::string("== alta ordem generica =="))<<std::endl;
+GhostList<int>nums=GhostList<int>{
+1,2,3,4,5}
+;
+std::cout<<ghost_show(std::string("mapear: "))<<ghost_show(mapear(nums,ghost_fn_val(dobro)))<<ghost_show(std::string(" | "))<<ghost_show(mapear(nums,ghost_make_fn<int>([=](intx)mutable{
+returnghost_fstr(std::string("#"),(x));
+}
+)))<<std::endl;
+std::cout<<ghost_show(std::string("filtrar: "))<<ghost_show(filtrar(nums,ghost_make_fn<int>([=](intx)mutable{
+returnx%2==1;
+}
+)))<<std::endl;
+std::cout<<ghost_show(std::string("reduzir: "))<<ghost_show(reduzir(nums,0,ghost_make_fn<int,int>([=](intacc,intx)mutable{
+returnacc+x*x;
+}
+)))<<ghost_show(std::string(" | "))<<ghost_show(reduzir(ghost_list(std::string("a"),std::string("b"),std::string("c")),std::string("ini"),ghost_make_fn<std::string,std::string>([=](std::stringacc,std::strings)mutable{
+returnghost_fstr((acc),std::string("-"),(s));
+}
+)))<<std::endl;
+Pipeline<int>pipe=Pipeline<int>();
+pipe.adicionar(ghost_fn_val(dobro));
+pipe.adicionar(ghost_make_fn<int>([=](intx)mutable{
+returnx+3;
+}
+));
+pipe.adicionar(ghost_make_fn<int>([=](intx)mutable{
+returnx*10;
+}
+));
+std::cout<<ghost_show(std::string("pipeline: "))<<ghost_show(pipe.executar(4))<<std::endl;
+std::cout<<ghost_show(std::string("== iife, ternario e mapa =="))<<std::endl;
+std::cout<<ghost_show(std::string("iife expr: "))<<ghost_show((ghost_make_fn<int,int>([=](inta,intb)mutable{
+returna*b+1;
+}
+))(6,7))<<std::endl;
+(ghost_make_fn<std::string>([=](std::strings)mutable{
+std::cout<<ghost_show(ghost_fstr(std::string("iife bloco: "),(s)))<<std::endl;
+}
+))(std::string("rodou"));
+boolcrescer=false;
+intrTern=(crescer?ghost_make_fn<int>([=](intx)mutable{
+returnx+100;
+}
+):ghost_make_fn<int>([=](intx)mutable{
+returnx-100;
+}
+))(25);
+automodulo=ghost_make_fn<int>([=](intx)mutable{
+returnx>=0?x:-x;
+}
+);
+std::cout<<ghost_show(ghost_fstr(std::string("ternario: "),(rTern),std::string(" / "),(modulo(-42))))<<std::endl;
+GhostMap<std::string,GhostFn<int(int,int)>>calc=GhostMap<std::string,GhostFn<int(int,int)>>{
+{
+std::string("add"),ghost_make_fn<int,int>([=](inta,intb)mutable{
+returna+b;
+}
+)}
+,{
+std::string("sub"),ghost_make_fn<int,int>([=](inta,intb)mutable{
+returna-b;
+}
+)}
+,{
+std::string("mul"),ghost_make_fn<int,int>([=](inta,intb)mutable{
+returna*b;
+}
+)}
+}
+;
+std::cout<<ghost_show(ghost_fstr(std::string("calc: "),(calc[std::string("add")](8,3)),std::string(","),(calc[std::string("sub")](8,3)),std::string(","),(calc[std::string("mul")](8,3))))<<std::endl;
+std::cout<<ghost_show(std::string("== classes e interfaces =="))<<std::endl;
+Botaobtn=Botao(std::string("Enviar"),ghost_make_fn<int>([=](intn)mutable{
+returnghost_fstr(std::string("ok("),(n),std::string(")"));
+}
+));
+std::cout<<ghost_show(btn.clicar(2))<<ghost_show(std::string(" | "))<<ghost_show(btn.aoClicar(9))<<std::endl;
+intgAntes=Botao::globalOp(7);
+Botao::globalOp=ghost_make_fn<int>([=](intx)mutable{
+returnx+3;
+}
+);
+intgDepois=Botao::globalOp(7);
+std::cout<<ghost_show(ghost_fstr(std::string("static fn: "),(gAntes),std::string(" -> "),(gDepois)))<<std::endl;
+Escaladoresc=Escalador(3,10);
+autoacum=esc.criarAcumulador();
+esc.fator=999;
+intac1=acum(4);
+intac2=acum(4);
+std::cout<<ghost_show(ghost_fstr(std::string("this valor: "),(ac1),std::string(","),(ac2),std::string(",esc.desloc="),(esc.deslocamento)))<<std::endl;
+GhostFn<Descritivel(std::string)>fabricaDesc=GhostFn<Descritivel(std::string)>([=](std::stringt)mutable->Descritivel{
+returnEtiqueta(t);
+}
+);
+Descritiveld=fabricaDesc(std::string("quantico"));
+std::cout<<ghost_show(std::string("iface: "))<<ghost_show(d.descrever())<<std::endl;
+}
+intmain(intargc,char**argv){
+try{
+#ifdef_WIN32SetConsoleOutputCP(CP_UTF8);
+SetConsoleCP(CP_UTF8);
+#endifstd::cout<<std::boolalpha;
+std::stringghost_args="";
+std::vector<std::string>ghost_args_vec;
+for(inti=1;
+i<argc;
+++i){
+ghost_args+=argv[i];
+ghost_args_vec.push_back(argv[i]);
+if(i<argc-1)ghost_args+=" ";
+}
+ghost_main();
+return0;
+}
+catch(conststd::exception&e){
+std::cerr<<e.what()<<std::endl;
+return1;
+}
+}

@@ -1,0 +1,154 @@
+// Blocos circuit { } no REPL (mesma semantica do compilador)
+circuit emaranhar(a, b) {
+    h(a);
+    cx(a, b);
+}
+circuit cadeia_ghz(int n) {
+    h(0);
+    for (int i = 0; i < n - 1; i = i + 1) {
+        cx(i, i + 1);
+    }
+}
+circuit girar(int k, double theta) {
+    ry(k, theta);
+    rz(k, theta / 2.0);
+}
+circuit oraculo(int alvo) {
+    phase_flip(alvo);
+}
+circuit passo_grover(int alvo) {
+    oraculo(alvo);
+    diffuser();
+}
+circuit camada(int n) {
+    for (int i = 0; i < n; i = i + 1) {
+        ry_train(i);
+    }
+    for (int i = 0; i < n - 1; i = i + 1) {
+        cx(i, i + 1);
+    }
+}
+circuit tudo() {
+    h_all();
+}
+qreg b(2);
+b.emaranhar(0, 1);
+print(f"bell: ${b}");
+qreg b2(3);
+b2.emaranhar(0, 1);
+emaranhar(b2, 1, 2);
+print(f"b2: ${b2}");
+qreg g(5);
+g.cadeia_ghz(5);
+print(f"ghz: ${g}");
+qreg r(1);
+r.girar(0, PI / 3.0);
+print(f"P1 = ${r.prob(0)}");
+qreg busca(4);
+busca.h_all();
+for (int k = 0; k < 3; k = k + 1) {
+    busca.passo_grover(11);
+}
+print(f"grover = ${busca.prob_state(11)}");
+qcircuit h2(2);
+h2.seed(3);
+h2.camada(2);
+h2.camada(2);
+h2.observable("II", -1.052373245772859);
+h2.observable("IZ", 0.39793742484318045);
+h2.observable("ZI", -0.39793742484318045);
+h2.observable("ZZ", -0.01128010425623538);
+h2.observable("XX", 0.18093119978423156);
+print(f"params = ${h2.num_params()}");
+print(f"VQE = ${h2.minimize(300, 0.05)}");
+qreg t(2);
+t.tudo();
+tudo(t);
+print(f"tudo2: ${t}");
+int a = 7;
+t.emaranhar(0, 1);
+print(f"a depois = ${a}");
+b.emaranhar(0);
+b.inexistente(0);
+circuit h(a) { x(a); }
+circuit ruim(a) { foo(a); }
+b.ruim(0);
+print("fim");
+// ---- Inverso automatico: nome_dg ----
+qreg u(2);
+u.emaranhar(0, 1);
+u.emaranhar_dg(0, 1);
+print(f"inv bell: ${u}");
+circuit somar(int n, int k) {
+    qft();
+    double ang = PI * k;
+    for (int j = n - 1; j >= 0; j = j - 1) {
+        p(j, ang);
+        ang = ang / 2.0;
+    }
+    iqft();
+}
+qreg soma(4);
+soma.set_basis(5);
+soma.somar(4, 3);
+print(f"soma 5+3: ${soma}");
+somar_dg(soma, 4, 6);
+print(f"sub 8-6: ${soma}");
+circuit fase_conjugada(a, b) {
+    emaranhar(a, b);
+    t(b);
+    emaranhar_dg(a, b);
+}
+qreg cj(2);
+cj.h(0);
+cj.fase_conjugada(0, 1);
+print(f"conj: ${cj}");
+cj.fase_conjugada_dg(0, 1);
+cj.h(0);
+print(f"conj inv: ${cj}");
+qreg gz(4);
+gz.cadeia_ghz(4);
+gz.cadeia_ghz_dg(4);
+print(f"ghz inv: ${gz}");
+qcircuit vqc(2);
+vqc.seed(1);
+vqc.camada(2);
+vqc.camada_dg(2);
+print(f"vqc dg: ${vqc.num_params()} params");
+circuit medir(a) { h(a); measure(a); }
+gz.medir_dg(0);
+circuit bell_dg(a) { x(a); }
+gz.emaranhar_dg(0);
+print("fim dg");
+// ---- Circuit controlado: nome_ctrl ----
+circuit fase(int alvo, double th) {
+    p(alvo, th);
+}
+qreg qpe(4);
+qpe.x(3);
+for (int j = 0; j < 3; j = j + 1) {
+    qpe.h(j);
+}
+int reps = 1;
+for (int j = 0; j < 3; j = j + 1) {
+    for (int rr = 0; rr < reps; rr = rr + 1) {
+        qpe.fase_ctrl(j, 3, 2.0 * PI * 0.375);
+    }
+    reps = reps * 2;
+}
+qpe.iqft_range(0, 3);
+print(f"QPE: ${qpe}");
+qreg cc(3);
+cc.h(2);
+cc.emaranhar_ctrl(2, 0, 1);
+print(f"ctrl: ${cc}");
+cc.emaranhar_dg_ctrl(2, 0, 1);
+cc.h(2);
+print(f"ctrl inv: ${cc}");
+cc.emaranhar_ctrl(0, 0, 1);
+circuit todo() { h_all(); }
+cc.todo_ctrl(0);
+qcircuit k(2);
+k.emaranhar_ctrl(1, 0, 1);
+circuit x_ctrl(a) { x(a); }
+print("fim ctrl");

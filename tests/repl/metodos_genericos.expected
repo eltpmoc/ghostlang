@@ -1,0 +1,22 @@
+== metodos genericos ==
+["idade=30", "nome=ana", "pi=3", "ok=true"] total 4
+7 x 2 ["ab", "ab"] [1, 1, 1]
+idade=30; nome=ana; pi=3; ok=true; repetir=2; repetir=3; resumo=6
+== static generico ==
+9 b 2.5 [4, 4]
+== em classe generica ==
+7 true texto 2 [7, 7, 7, 9]
+== heranca e funcoes genericas ==
+["x=1", "x=2", "fim=true"] 3 7 8
+copia 8 original 7
+== erros ==
+[Erro de Execucao] Sobrescreve.anotar(): o metodo generico de Registro nao pode ser redefinido (metodos genericos nao sao virtuais)
+[Erro de Execucao] GenericoSobre.resumo(): um metodo generico nao pode redefinir o metodo resumo de Registro
+[Erro de Execucao] Errada.rotulo() e generico; a interface Rotulavel precisa de um metodo normal
+[Erro de Execucao] o construtor de CtorGenerico nao pode ser generico
+[Erro de Execucao] Registro.anotar() nao e static: chame em um objeto
+[Erro de Execucao] Registro.maior(): T deduzido como int e como double (use Registro.maior<tipo>(...))
+[Erro de Execucao] Registro.ultimoOu(): nao deu para descobrir o tipo T pelos argumentos (use Registro.ultimoOu<tipo>(...))
+[Erro de Execucao] Registro.anotar tem 1 tipo(s) entre < >, recebeu 2
+2 8
+fim do roteiro de metodos genericos

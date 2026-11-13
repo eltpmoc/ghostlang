@@ -1,0 +1,166 @@
+#line 14 "tests/ghost/classes_quantum.g"
+#line 15 "tests/ghost/classes_quantum.g"
+#line 19 "tests/ghost/classes_quantum.g"
+#line 23 "tests/ghost/classes_quantum.g"
+#line 27 "tests/ghost/classes_quantum.g"
+#line 36 "tests/ghost/classes_quantum.g"
+#line 37 "tests/ghost/classes_quantum.g"
+#line 41 "tests/ghost/classes_quantum.g"
+#line 42 "tests/ghost/classes_quantum.g"
+#line 51 "tests/ghost/classes_quantum.g"
+#line 52 "tests/ghost/classes_quantum.g"
+#line 53 "tests/ghost/classes_quantum.g"
+#line 57 "tests/ghost/classes_quantum.g"
+#line 62 "tests/ghost/classes_quantum.g"
+#line 66 "tests/ghost/classes_quantum.g"
+#line 67 "tests/ghost/classes_quantum.g"
+#line 68 "tests/ghost/classes_quantum.g"
+#line 69 "tests/ghost/classes_quantum.g"
+#line 70 "tests/ghost/classes_quantum.g"
+#line 71 "tests/ghost/classes_quantum.g"
+#line 72 "tests/ghost/classes_quantum.g"
+#line 73 "tests/ghost/classes_quantum.g"
+#line 74 "tests/ghost/classes_quantum.g"
+#line 75 "tests/ghost/classes_quantum.g"
+#line 77 "tests/ghost/classes_quantum.g"
+#line 78 "tests/ghost/classes_quantum.g"
+#line 79 "tests/ghost/classes_quantum.g"
+#line 81 "tests/ghost/classes_quantum.g"
+#line 82 "tests/ghost/classes_quantum.g"
+#line 84 "tests/ghost/classes_quantum.g"
+#line 85 "tests/ghost/classes_quantum.g"
+#line 86 "tests/ghost/classes_quantum.g"
+#line 4 "tests/ghost/classes_quantum.g"
+#line 9 "tests/ghost/classes_quantum.g"
+#line 31 "tests/ghost/classes_quantum.g"
+#line 47 "tests/ghost/classes_quantum.g"
+#line 61 "tests/ghost/classes_quantum.g"
+#line 65 "tests/ghost/classes_quantum.g"
+----
+/*TranspiladopeloGhostCompilerv1.0*/#include<iostream>#include<cstdio>#include<cstdlib>#include<string>#include<complex>#include<type_traits>#include<fstream>#include<sstream>#include<thread>#include<chrono>#include<mutex>#include"include/GhostNumberG.hpp"#include"include/GhostMatrix.hpp"#include"include/GhostLLM.hpp"#include"include/GhostLib.hpp"#include"include/GhostDevice.hpp"#include"include/GhostTextModel.hpp"#include"include/GhostWeb.hpp"#include"include/GhostKnowledge.hpp"#include"include/GhostTemporal.hpp"#include"include/GhostTransformer.hpp"#include"include/GhostTransformerG.hpp"#include"include/GhostMatrixG.hpp"#include"include/GhostQuantum.hpp"#include"include/GhostQML.hpp"#include"include/GhostHybrid.hpp"#include"include/GhostQTape.hpp"#include"include/GhostCore.hpp"#ifdef_WIN32#include<windows.h>#endifclassAnsatz;
+classPar;
+classRegistrador;
+template<classGhostQ_,classGhostT0_,classGhostT1_>voidbell(GhostQ_&ghost_q_,GhostT0_a,GhostT1_b);
+template<classGhostQ_,classGhostT0_,classGhostT1_>voidbell_dg(GhostQ_&ghost_q_,GhostT0_a,GhostT1_b);
+template<classGhostQ_,classGhostC_,classGhostT0_,classGhostT1_>voidbell_ctrl(GhostQ_&ghost_q_,GhostC_ghost_ctrl_,GhostT0_a,GhostT1_b);
+template<classGhostQ_,classGhostC_,classGhostT0_,classGhostT1_>voidbell_dg_ctrl(GhostQ_&ghost_q_,GhostC_ghost_ctrl_,GhostT0_a,GhostT1_b);
+doublechanceDeIguais(Parpar);
+voidghost_main();
+classPar{
+public:GhostQRegq=GhostQReg(2);
+intpreparos=0;
+virtualvoidpreparar(){
+bell(q,0,1);
+preparos++;
+}
+virtualvoidinverter(){
+(*this).q.x(0);
+}
+virtualdoublep(intk){
+returnq.prob_state(k);
+}
+virtualstd::stringestado(){
+returnghost_fstr((q),std::string(" (preparos: "),(preparos),std::string(")"));
+}
+}
+;
+classRegistrador{
+public:intn{
+}
+;
+GhostQRegq=GhostQReg(1);
+Registrador(intn){
+(*this).n=n;
+q=GhostQReg(n);
+}
+virtualvoidsuperpor(){
+for(intk=0;
+k<n;
+k++){
+q.h(k);
+}
+}
+}
+;
+classAnsatz{
+public:GhostQCircuitc=GhostQCircuit(2);
+Ansatz(){
+c.ry_train(0);
+c.ry_train(1);
+c.cx(0,1);
+}
+virtualintparametros(){
+returnc.num_params();
+}
+}
+;
+//circuitbelltemplate<classGhostQ_,classGhostT0_,classGhostT1_>voidbell(GhostQ_&ghost_q_,GhostT0_a,GhostT1_b){
+ghost_q_.h(a);
+ghost_q_.cx(a,b);
+}
+//circuitbell_dg:inverso(portasinversasemordemreversa)template<classGhostQ_,classGhostT0_,classGhostT1_>voidbell_dg(GhostQ_&ghost_q_,GhostT0_a,GhostT1_b){
+autoghost_rec_=ghost_begin_inverse(ghost_q_);
+bell(ghost_rec_,a,b);
+ghost_end_inverse(ghost_q_,ghost_rec_);
+}
+//circuitbell_ctrl:versaocontroladatemplate<classGhostQ_,classGhostC_,classGhostT0_,classGhostT1_>voidbell_ctrl(GhostQ_&ghost_q_,GhostC_ghost_ctrl_,GhostT0_a,GhostT1_b){
+autoghost_rec_=ghost_begin_record(ghost_q_);
+bell(ghost_rec_,a,b);
+ghost_end_controlled(ghost_q_,ghost_rec_,ghost_ctrl_);
+}
+//circuitbell_dg_ctrl:versaocontroladatemplate<classGhostQ_,classGhostC_,classGhostT0_,classGhostT1_>voidbell_dg_ctrl(GhostQ_&ghost_q_,GhostC_ghost_ctrl_,GhostT0_a,GhostT1_b){
+autoghost_rec_=ghost_begin_record(ghost_q_);
+bell_dg(ghost_rec_,a,b);
+ghost_end_controlled(ghost_q_,ghost_rec_,ghost_ctrl_);
+}
+doublechanceDeIguais(Parpar){
+returnpar.p(0)+par.p(3);
+}
+voidghost_main(){
+Para{
+}
+;
+std::cout<<ghost_show(std::string("novo: "))<<ghost_show(a.q)<<ghost_show(std::string(" "))<<ghost_show(a.estado())<<std::endl;
+a.preparar();
+std::cout<<ghost_show(std::string("bell: "))<<ghost_show(a.estado())<<ghost_show(std::string(" p00="))<<ghost_show(ghost_fstr(ghost_fmt((a.p(0)),".4f")))<<ghost_show(std::string(" p11="))<<ghost_show(ghost_fstr(ghost_fmt((a.p(3)),".4f")))<<ghost_show(std::string(" p01="))<<ghost_show(ghost_fstr(ghost_fmt((a.p(1)),".4f")))<<std::endl;
+Parb=a;
+b.inverter();
+std::cout<<ghost_show(std::string("copia invertida: "))<<ghost_show(b.q)<<ghost_show(std::string(" | original: "))<<ghost_show(a.q)<<std::endl;
+a.q.h(0);
+std::cout<<ghost_show(std::string("depois de a.q.h(0): "))<<ghost_show(ghost_fstr(ghost_fmt((a.q.prob_state(0)),".4f"),std::string(" "),ghost_fmt((a.q.prob_state(1)),".4f"),std::string(" "),ghost_fmt((a.q.prob_state(2)),".4f"),std::string(" "),ghost_fmt((a.q.prob_state(3)),".4f"),std::string(" qubit1="),ghost_fmt((a.q.prob(1)),".4f")))<<std::endl;
+std::cout<<ghost_show(std::string("iguais em b: "))<<ghost_show(ghost_fstr(ghost_fmt((chanceDeIguais(b)),".4f")))<<ghost_show(std::string(" em a: "))<<ghost_show(ghost_fstr(ghost_fmt((chanceDeIguais(a)),".4f")))<<std::endl;
+Registradorr=Registrador(3);
+r.superpor();
+std::cout<<ghost_show(std::string("registrador de "))<<ghost_show(r.n)<<ghost_show(std::string(" qubits: p(000)="))<<ghost_show(ghost_fstr(ghost_fmt((r.q.prob_state(0)),".4f")))<<ghost_show(std::string(" p(111)="))<<ghost_show(ghost_fstr(ghost_fmt((r.q.prob_state(7)),".4f")))<<std::endl;
+Ansatzz{
+}
+;
+std::cout<<ghost_show(std::string("ansatz: "))<<ghost_show(z.parametros())<<ghost_show(std::string(" parametro(s)"))<<std::endl;
+GhostList<Par>pares=GhostList<Par>{
+Par(),Par()}
+;
+pares[1].preparar();
+std::cout<<ghost_show(std::string("lista: "))<<ghost_show(pares[0].q)<<ghost_show(std::string(" | "))<<ghost_show(pares[1].q)<<ghost_show(std::string(" | preparos "))<<ghost_show(pares[1].preparos)<<std::endl;
+}
+intmain(intargc,char**argv){
+try{
+#ifdef_WIN32SetConsoleOutputCP(CP_UTF8);
+SetConsoleCP(CP_UTF8);
+#endifstd::cout<<std::boolalpha;
+std::stringghost_args="";
+std::vector<std::string>ghost_args_vec;
+for(inti=1;
+i<argc;
+++i){
+ghost_args+=argv[i];
+ghost_args_vec.push_back(argv[i]);
+if(i<argc-1)ghost_args+=" ";
+}
+ghost_main();
+return0;
+}
+catch(conststd::exception&e){
+std::cerr<<e.what()<<std::endl;
+return1;
+}
+}

@@ -1,0 +1,460 @@
+#line 8 "tests/ghost/result.g"
+#line 9 "tests/ghost/result.g"
+#line 18 "tests/ghost/result.g"
+#line 22 "tests/ghost/result.g"
+#line 26 "tests/ghost/result.g"
+#line 30 "tests/ghost/result.g"
+#line 34 "tests/ghost/result.g"
+#line 35 "tests/ghost/result.g"
+#line 37 "tests/ghost/result.g"
+#line 42 "tests/ghost/result.g"
+#line 43 "tests/ghost/result.g"
+#line 45 "tests/ghost/result.g"
+#line 49 "tests/ghost/result.g"
+#line 50 "tests/ghost/result.g"
+#line 52 "tests/ghost/result.g"
+#line 57 "tests/ghost/result.g"
+#line 58 "tests/ghost/result.g"
+#line 59 "tests/ghost/result.g"
+#line 61 "tests/ghost/result.g"
+#line 65 "tests/ghost/result.g"
+#line 66 "tests/ghost/result.g"
+#line 68 "tests/ghost/result.g"
+#line 72 "tests/ghost/result.g"
+#line 73 "tests/ghost/result.g"
+#line 75 "tests/ghost/result.g"
+#line 76 "tests/ghost/result.g"
+#line 77 "tests/ghost/result.g"
+#line 79 "tests/ghost/result.g"
+#line 83 "tests/ghost/result.g"
+#line 84 "tests/ghost/result.g"
+#line 86 "tests/ghost/result.g"
+#line 90 "tests/ghost/result.g"
+#line 91 "tests/ghost/result.g"
+#line 93 "tests/ghost/result.g"
+#line 98 "tests/ghost/result.g"
+#line 99 "tests/ghost/result.g"
+#line 100 "tests/ghost/result.g"
+#line 104 "tests/ghost/result.g"
+#line 108 "tests/ghost/result.g"
+#line 109 "tests/ghost/result.g"
+#line 110 "tests/ghost/result.g"
+#line 112 "tests/ghost/result.g"
+#line 116 "tests/ghost/result.g"
+#line 117 "tests/ghost/result.g"
+#line 118 "tests/ghost/result.g"
+#line 122 "tests/ghost/result.g"
+#line 126 "tests/ghost/result.g"
+#line 127 "tests/ghost/result.g"
+#line 131 "tests/ghost/result.g"
+#line 140 "tests/ghost/result.g"
+#line 141 "tests/ghost/result.g"
+#line 142 "tests/ghost/result.g"
+#line 143 "tests/ghost/result.g"
+#line 144 "tests/ghost/result.g"
+#line 145 "tests/ghost/result.g"
+#line 146 "tests/ghost/result.g"
+#line 148 "tests/ghost/result.g"
+#line 149 "tests/ghost/result.g"
+#line 156 "tests/ghost/result.g"
+#line 157 "tests/ghost/result.g"
+#line 158 "tests/ghost/result.g"
+#line 159 "tests/ghost/result.g"
+#line 160 "tests/ghost/result.g"
+#line 161 "tests/ghost/result.g"
+#line 162 "tests/ghost/result.g"
+#line 163 "tests/ghost/result.g"
+#line 164 "tests/ghost/result.g"
+#line 165 "tests/ghost/result.g"
+#line 167 "tests/ghost/result.g"
+#line 168 "tests/ghost/result.g"
+#line 169 "tests/ghost/result.g"
+#line 170 "tests/ghost/result.g"
+#line 171 "tests/ghost/result.g"
+#line 173 "tests/ghost/result.g"
+#line 174 "tests/ghost/result.g"
+#line 176 "tests/ghost/result.g"
+#line 177 "tests/ghost/result.g"
+#line 179 "tests/ghost/result.g"
+#line 180 "tests/ghost/result.g"
+#line 182 "tests/ghost/result.g"
+#line 183 "tests/ghost/result.g"
+#line 184 "tests/ghost/result.g"
+#line 186 "tests/ghost/result.g"
+#line 187 "tests/ghost/result.g"
+#line 188 "tests/ghost/result.g"
+#line 189 "tests/ghost/result.g"
+#line 190 "tests/ghost/result.g"
+#line 192 "tests/ghost/result.g"
+#line 193 "tests/ghost/result.g"
+#line 194 "tests/ghost/result.g"
+#line 195 "tests/ghost/result.g"
+#line 196 "tests/ghost/result.g"
+#line 197 "tests/ghost/result.g"
+#line 198 "tests/ghost/result.g"
+#line 200 "tests/ghost/result.g"
+#line 203 "tests/ghost/result.g"
+#line 205 "tests/ghost/result.g"
+#line 206 "tests/ghost/result.g"
+#line 207 "tests/ghost/result.g"
+#line 208 "tests/ghost/result.g"
+#line 209 "tests/ghost/result.g"
+#line 210 "tests/ghost/result.g"
+#line 211 "tests/ghost/result.g"
+#line 213 "tests/ghost/result.g"
+#line 214 "tests/ghost/result.g"
+#line 215 "tests/ghost/result.g"
+#line 216 "tests/ghost/result.g"
+#line 217 "tests/ghost/result.g"
+#line 218 "tests/ghost/result.g"
+#line 219 "tests/ghost/result.g"
+#line 220 "tests/ghost/result.g"
+#line 221 "tests/ghost/result.g"
+#line 222 "tests/ghost/result.g"
+#line 223 "tests/ghost/result.g"
+#line 224 "tests/ghost/result.g"
+#line 3 "tests/ghost/result.g"
+#line 13 "tests/ghost/result.g"
+#line 41 "tests/ghost/result.g"
+#line 48 "tests/ghost/result.g"
+#line 56 "tests/ghost/result.g"
+#line 64 "tests/ghost/result.g"
+#line 71 "tests/ghost/result.g"
+#line 82 "tests/ghost/result.g"
+#line 89 "tests/ghost/result.g"
+#line 97 "tests/ghost/result.g"
+#line 103 "tests/ghost/result.g"
+#line 107 "tests/ghost/result.g"
+#line 115 "tests/ghost/result.g"
+#line 121 "tests/ghost/result.g"
+#line 125 "tests/ghost/result.g"
+#line 130 "tests/ghost/result.g"
+#line 139 "tests/ghost/result.g"
+----
+/*TranspiladopeloGhostCompilerv1.0*/#include<iostream>#include<cstdio>#include<cstdlib>#include<string>#include<complex>#include<type_traits>#include<fstream>#include<sstream>#include<thread>#include<chrono>#include<mutex>#include"include/GhostNumberG.hpp"#include"include/GhostMatrix.hpp"#include"include/GhostLLM.hpp"#include"include/GhostLib.hpp"#include"include/GhostDevice.hpp"#include"include/GhostTextModel.hpp"#include"include/GhostWeb.hpp"#include"include/GhostKnowledge.hpp"#include"include/GhostTemporal.hpp"#include"include/GhostTransformer.hpp"#include"include/GhostTransformerG.hpp"#include"include/GhostMatrixG.hpp"#include"include/GhostQuantum.hpp"#include"include/GhostQML.hpp"#include"include/GhostHybrid.hpp"#include"include/GhostQTape.hpp"#include"include/GhostCore.hpp"#ifdef_WIN32#include<windows.h>#endifclassPonto;
+classTarefa;
+GhostResult<double>dividir(doublea,doubleb);
+GhostResult<double>raiz(doublex);
+GhostResult<double>raizDaDivisao(doublea,doubleb);
+GhostResult<int>metade(intn);
+GhostResult<GhostList<int>>pares(intn);
+GhostResult<Ponto>criarPonto(doublex,doubley);
+std::stringdescrever(GhostResult<double>r);
+GhostResult<double>mediaDasDivisoes(doublea,doubleb,doublec);
+GhostResult<double>raizDaDivisao2(doublea,doubleb);
+GhostResult<int>somaMetades(GhostList<int>xs);
+GhostResult<std::string>descreverPar(intn);
+GhostResult<int>comprimento(intn);
+GhostResult<double>escolher(boolusar,doublea,doubleb);
+GhostResult<int>comFinally(intn);
+voidghost_main();
+classPonto{
+public:doublex{
+}
+;
+doubley{
+}
+;
+Ponto(doublex=0,doubley=0){
+(*this).x=x;
+(*this).y=y;
+}
+}
+;
+classTarefa{
+public:std::stringnome{
+}
+;
+GhostResult<int>codigo{
+}
+;
+Tarefa(std::stringn){
+nome=n;
+}
+virtualvoidconcluir(intc){
+codigo=ok(c);
+}
+virtualvoidfalhar(std::stringmotivo){
+codigo=err(nome+std::string(": ")+motivo);
+}
+virtualGhostResult<int>dobroDoCodigo(){
+returnok(({
+autoghost_try_1=ghost_try_arg(codigo);
+if(ghost_try_1.is_err())returnGhostErr{
+ghost_try_1.error()}
+;
+ghost_try_1.value();
+}
+)*2);
+}
+virtualstd::stringestado(){
+if(codigo.is_ok()){
+returnnome+std::string(" ok ")+codigo.value();
+}
+returnnome+std::string(" falhou (")+codigo.error()+std::string(")");
+}
+}
+;
+GhostResult<double>dividir(doublea,doubleb){
+if(b==0){
+returnerr(std::string("divisao por zero"));
+}
+returnok(a/b);
+}
+GhostResult<double>raiz(doublex){
+if(x<0){
+returnerr(std::string("raiz de negativo: ")+x);
+}
+returnok(sqrt(x));
+}
+GhostResult<double>raizDaDivisao(doublea,doubleb){
+GhostResult<double>d=dividir(a,b);
+if(d.is_err()){
+returnerr(std::string("raizDaDivisao: ")+d.error());
+}
+returnraiz(d.value());
+}
+GhostResult<int>metade(intn){
+if(n%2!=0){
+returnerr(n);
+}
+returnok(n/2);
+}
+GhostResult<GhostList<int>>pares(intn){
+if(n<0){
+returnerr(std::string("n negativo"));
+}
+GhostList<int>xs=GhostList<int>{
+}
+;
+for(inti=0;
+i<n;
+i++){
+xs.push(i*2);
+}
+returnok(xs);
+}
+GhostResult<Ponto>criarPonto(doublex,doubley){
+if(x<0||y<0){
+returnerr(std::string("coordenada negativa"));
+}
+returnok(Ponto(x,y));
+}
+std::stringdescrever(GhostResult<double>r){
+if(r.is_ok()){
+returnstd::string("valor ")+r.value();
+}
+returnstd::string("falha: ")+r.error();
+}
+GhostResult<double>mediaDasDivisoes(doublea,doubleb,doublec){
+doublex=({
+autoghost_try_2=ghost_try_arg(dividir(a,b));
+if(ghost_try_2.is_err())returnGhostErr{
+ghost_try_2.error()}
+;
+ghost_try_2.value();
+}
+);
+doubley=({
+autoghost_try_3=ghost_try_arg(dividir(a,c));
+if(ghost_try_3.is_err())returnGhostErr{
+ghost_try_3.error()}
+;
+ghost_try_3.value();
+}
+);
+returnok((x+y)/2);
+}
+GhostResult<double>raizDaDivisao2(doublea,doubleb){
+returnraiz(({
+autoghost_try_4=ghost_try_arg(dividir(a,b));
+if(ghost_try_4.is_err())returnGhostErr{
+ghost_try_4.error()}
+;
+ghost_try_4.value();
+}
+));
+}
+GhostResult<int>somaMetades(GhostList<int>xs){
+ints=0;
+for(auto&x:xs){
+s+=({
+autoghost_try_5=ghost_try_arg(metade(x));
+if(ghost_try_5.is_err())returnGhostErr{
+ghost_try_5.error()}
+;
+ghost_try_5.value();
+}
+);
+}
+returnok(s);
+}
+GhostResult<std::string>descreverPar(intn){
+intm=({
+autoghost_try_6=ghost_try_arg(metade(n));
+if(ghost_try_6.is_err())returnGhostErr{
+ghost_try_6.error()}
+;
+ghost_try_6.value();
+}
+)*10;
+std::strings=std::string("metade*10=")+m;
+returnok(s+std::string(" / ")+(({
+autoghost_try_7=ghost_try_arg(metade(m));
+if(ghost_try_7.is_err())returnGhostErr{
+ghost_try_7.error()}
+;
+ghost_try_7.value();
+}
+)+1));
+}
+GhostResult<int>comprimento(intn){
+returnok(({
+autoghost_try_8=ghost_try_arg(pares(n));
+if(ghost_try_8.is_err())returnGhostErr{
+ghost_try_8.error()}
+;
+ghost_try_8.value();
+}
+).length());
+}
+GhostResult<double>escolher(boolusar,doublea,doubleb){
+doublew=usar?({
+autoghost_try_9=ghost_try_arg(dividir(a,b));
+if(ghost_try_9.is_err())returnGhostErr{
+ghost_try_9.error()}
+;
+ghost_try_9.value();
+}
+):-1;
+returnok(w);
+}
+GhostResult<int>comFinally(intn){
+{
+GhostDeferghost_fin_10([&](){
+std::cout<<ghost_show(std::string("finally de comFinally("))<<ghost_show(n)<<ghost_show(std::string(")"))<<std::endl;
+}
+);
+{
+intm=({
+autoghost_try_11=ghost_try_arg(metade(n));
+if(ghost_try_11.is_err())returnGhostErr{
+ghost_try_11.error()}
+;
+ghost_try_11.value();
+}
+);
+returnok(m);
+}
+}
+}
+voidghost_main(){
+std::cout<<ghost_show(std::string("== ok e err =="))<<std::endl;
+GhostResult<double>r1=dividir(10,4);
+GhostResult<double>r2=dividir(1,0);
+std::cout<<ghost_show(r1)<<ghost_show(std::string(" "))<<ghost_show(r2)<<std::endl;
+std::cout<<ghost_show(r1.is_ok())<<ghost_show(std::string(" "))<<ghost_show(r1.is_err())<<ghost_show(std::string(" "))<<ghost_show(r2.is_ok())<<ghost_show(std::string(" "))<<ghost_show(r2.is_err())<<std::endl;
+std::cout<<ghost_show(r1.value())<<ghost_show(std::string(" "))<<ghost_show(r2.value_or(-1))<<ghost_show(std::string(" erro: "))<<ghost_show(r2.error())<<ghost_show(std::string(" erro de ok: ["))<<ghost_show(r1.error())<<ghost_show(std::string("]"))<<std::endl;
+std::cout<<ghost_show(descrever(r1))<<ghost_show(std::string(" | "))<<ghost_show(descrever(r2))<<std::endl;
+std::cout<<ghost_show(std::string("== value() de um erro lanca =="))<<std::endl;
+{
+try{
+doublev=r2.value();
+std::cout<<ghost_show(std::string("nao deveria chegar aqui "))<<ghost_show(v)<<std::endl;
+}
+catch(...){
+std::stringe=ghost_exception_message(std::current_exception());
+(void)e;
+std::cout<<ghost_show(std::string("capturado: "))<<ghost_show(e)<<std::endl;
+}
+}
+std::cout<<ghost_show(std::string("== conversao para o tipo declarado =="))<<std::endl;
+GhostResult<int>t=ok(7/2.0);
+GhostResult<double>d=ok(5);
+GhostResult<std::string>s=ok(std::string("pronto"));
+GhostResult<bool>b=ok();
+GhostResult<int>vazio{
+}
+;
+std::cout<<ghost_show(t)<<ghost_show(std::string(" "))<<ghost_show(d)<<ghost_show(std::string(" "))<<ghost_show(s)<<ghost_show(std::string(" "))<<ghost_show(b)<<ghost_show(std::string(" "))<<ghost_show(vazio)<<std::endl;
+GhostResult<int>falha=err(std::string("sem numero"));
+std::cout<<ghost_show(std::string("value_or trunca: "))<<ghost_show(falha.value_or(2.9))<<std::endl;
+std::cout<<ghost_show(std::string("err de numero: "))<<ghost_show(metade(7))<<ghost_show(std::string(" "))<<ghost_show(metade(8))<<std::endl;
+std::cout<<ghost_show(std::string("== reatribuicao e condicoes =="))<<std::endl;
+r2=dividir(9,3);
+std::cout<<ghost_show(std::string("r2 agora "))<<ghost_show(r2)<<std::endl;
+if(r2){
+std::cout<<ghost_show(std::string("if (r2): ok"))<<std::endl;
+}
+if(!vazio){
+std::cout<<ghost_show(std::string("if (!vazio): vazio e erro"))<<std::endl;
+}
+std::stringsinal=r1.is_ok()?std::string("sim"):std::string("nao");
+std::cout<<ghost_show(std::string("ternario: "))<<ghost_show(sinal)<<std::endl;
+std::cout<<ghost_show(std::string("== encadeamento =="))<<std::endl;
+std::cout<<ghost_show(raizDaDivisao(32,2))<<ghost_show(std::string(" "))<<ghost_show(raizDaDivisao(1,0))<<ghost_show(std::string(" "))<<ghost_show(raizDaDivisao(-8,2))<<std::endl;
+std::cout<<ghost_show(std::string("== texto =="))<<std::endl;
+std::stringtexto=std::string("r1 = ")+r1;
+std::cout<<ghost_show(texto)<<ghost_show(std::string(" | "))<<ghost_show(str(r2))<<ghost_show(std::string(" | "))<<ghost_show(ghost_fstr(std::string("r1 vale "),(r1)))<<std::endl;
+std::cout<<ghost_show(std::string("== result de lista e de objeto =="))<<std::endl;
+GhostResult<GhostList<int>>ps=pares(4);
+std::cout<<ghost_show(ps)<<ghost_show(std::string(" tamanho "))<<ghost_show(ps.value().length())<<ghost_show(std::string(" "))<<ghost_show(pares(-1))<<std::endl;
+GhostResult<Ponto>p=criarPonto(3,4);
+std::cout<<ghost_show(std::string("ponto "))<<ghost_show(p.value().x)<<ghost_show(std::string(", "))<<ghost_show(p.value().y)<<ghost_show(std::string(" "))<<ghost_show(criarPonto(-1,0).error())<<std::endl;
+std::cout<<ghost_show(std::string("== lista de results =="))<<std::endl;
+GhostList<GhostResult<int>>rs=GhostList<GhostResult<int>>{
+metade(10),metade(3),metade(4)}
+;
+intsoma=0;
+intfalhas=0;
+for(auto&r:rs){
+if(r.is_ok()){
+soma+=r.value();
+}
+else{
+falhas++;
+}
+}
+std::cout<<ghost_show(rs)<<ghost_show(std::string(" soma "))<<ghost_show(soma)<<ghost_show(std::string(" falhas "))<<ghost_show(falhas)<<std::endl;
+std::cout<<ghost_show(std::string("== campo result em classe =="))<<std::endl;
+Tarefaa=Tarefa(std::string("backup"));
+Tarefac=Tarefa(std::string("deploy"));
+std::cout<<ghost_show(a.estado())<<ghost_show(std::string(" | "))<<ghost_show(a.codigo)<<std::endl;
+a.concluir(200);
+c.falhar(std::string("sem rede"));
+std::cout<<ghost_show(a.estado())<<ghost_show(std::string(" | "))<<ghost_show(c.estado())<<ghost_show(std::string(" | "))<<ghost_show(c.codigo.is_err())<<std::endl;
+std::cout<<ghost_show(std::string("== operador ? =="))<<std::endl;
+std::cout<<ghost_show(mediaDasDivisoes(8,2,4))<<ghost_show(std::string(" "))<<ghost_show(mediaDasDivisoes(8,0,4))<<ghost_show(std::string(" "))<<ghost_show(mediaDasDivisoes(8,2,0))<<std::endl;
+std::cout<<ghost_show(raizDaDivisao2(18,2))<<ghost_show(std::string(" "))<<ghost_show(raizDaDivisao2(-18,2))<<ghost_show(std::string(" "))<<ghost_show(raizDaDivisao2(1,0))<<std::endl;
+std::cout<<ghost_show(somaMetades(ghost_list(2,4,6)))<<ghost_show(std::string(" "))<<ghost_show(somaMetades(ghost_list(2,5,7)))<<std::endl;
+std::cout<<ghost_show(descreverPar(8))<<ghost_show(std::string(" "))<<ghost_show(descreverPar(7))<<ghost_show(std::string(" "))<<ghost_show(descreverPar(6))<<std::endl;
+std::cout<<ghost_show(comprimento(3))<<ghost_show(std::string(" "))<<ghost_show(comprimento(-1))<<std::endl;
+std::cout<<ghost_show(escolher(true,9,3))<<ghost_show(std::string(" "))<<ghost_show(escolher(false,9,0))<<ghost_show(std::string(" "))<<ghost_show(escolher(true,9,0))<<std::endl;
+std::cout<<ghost_show(comFinally(6))<<std::endl;
+std::cout<<ghost_show(comFinally(3))<<std::endl;
+std::cout<<ghost_show(a.dobroDoCodigo())<<ghost_show(std::string(" "))<<ghost_show(c.dobroDoCodigo())<<std::endl;
+intlado=r1.is_ok()?1:-1;
+std::cout<<ghost_show(std::string("ternario continua valendo: "))<<ghost_show(lado)<<ghost_show(std::string(" "))<<ghost_show(r1.is_err()?-2:2)<<std::endl;
+}
+intmain(intargc,char**argv){
+try{
+#ifdef_WIN32SetConsoleOutputCP(CP_UTF8);
+SetConsoleCP(CP_UTF8);
+#endifstd::cout<<std::boolalpha;
+std::stringghost_args="";
+std::vector<std::string>ghost_args_vec;
+for(inti=1;
+i<argc;
+++i){
+ghost_args+=argv[i];
+ghost_args_vec.push_back(argv[i]);
+if(i<argc-1)ghost_args+=" ";
+}
+ghost_main();
+return0;
+}
+catch(conststd::exception&e){
+std::cerr<<e.what()<<std::endl;
+return1;
+}
+}

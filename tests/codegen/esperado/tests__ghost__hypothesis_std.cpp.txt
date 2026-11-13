@@ -1,0 +1,99 @@
+#line 2 "tests/ghost/hypothesis_std.g"
+#line 3 "tests/ghost/hypothesis_std.g"
+#line 7 "tests/ghost/hypothesis_std.g"
+#line 9 "tests/ghost/hypothesis_std.g"
+#line 10 "tests/ghost/hypothesis_std.g"
+#line 14 "tests/ghost/hypothesis_std.g"
+#line 15 "tests/ghost/hypothesis_std.g"
+#line 16 "tests/ghost/hypothesis_std.g"
+#line 1 "tests/ghost/hypothesis_std.g"
+----
+/*TranspiladopeloGhostCompilerv1.0*/#include<iostream>#include<cstdio>#include<cstdlib>#include<string>#include<complex>#include<type_traits>#include<fstream>#include<sstream>#include<thread>#include<chrono>#include<mutex>#include"include/GhostNumberG.hpp"#include"include/GhostMatrix.hpp"#include"include/GhostLLM.hpp"#include"include/GhostLib.hpp"#include"include/GhostDevice.hpp"#include"include/GhostTextModel.hpp"#include"include/GhostWeb.hpp"#include"include/GhostKnowledge.hpp"#include"include/GhostTemporal.hpp"#include"include/GhostTransformer.hpp"#include"include/GhostTransformerG.hpp"#include"include/GhostMatrixG.hpp"#include"include/GhostQuantum.hpp"#include"include/GhostQML.hpp"#include"include/GhostHybrid.hpp"#include"include/GhostQTape.hpp"#include"include/GhostCore.hpp"#ifdef_WIN32#include<windows.h>#endifintghost_main();
+intghost_main(){
+intescolhido=0;
+{
+//hypothesisautoghost_hyp_items_1=ghost_list(10,50,30,20);
+boolghost_hyp_has_1=false;
+doubleghost_hyp_best_1=0.0;
+autoghost_hyp_best_escolhido_1=escolhido;
+for(auto&x:ghost_hyp_items_1){
+autoghost_hyp_o_escolhido_1=escolhido;
+{
+autoescolhido=ghost_hyp_o_escolhido_1;
+boolghost_hyp_scored_1=false;
+doubleghost_hyp_score_1=0.0;
+intghost_hyp_kind_1=1;
+escolhido=x;
+ghost_hyp_scored_1=true;
+ghost_hyp_score_1=static_cast<double>(x);
+ghost_hyp_kind_1=1;
+if(ghost_hyp_scored_1&&(!ghost_hyp_has_1||(ghost_hyp_kind_1>0?ghost_hyp_score_1>ghost_hyp_best_1:ghost_hyp_score_1<ghost_hyp_best_1))){
+ghost_hyp_has_1=true;
+ghost_hyp_best_1=ghost_hyp_score_1;
+ghost_hyp_best_escolhido_1=escolhido;
+}
+(void)x;
+}
+}
+if(ghost_hyp_has_1){
+escolhido=ghost_hyp_best_escolhido_1;
+std::cout<<"[Multiverso] Colapso temporal resolvido. Linha do tempo de maior score ("<<ghost_hyp_best_1<<") assumida."<<std::endl;
+}
+}
+std::cout<<ghost_show(std::string("Escolhido final: ")+escolhido)<<std::endl;
+intmenor=0;
+{
+//hypothesisautoghost_hyp_items_2=ghost_list(100,25,75,50);
+boolghost_hyp_has_2=false;
+doubleghost_hyp_best_2=0.0;
+autoghost_hyp_best_menor_2=menor;
+for(auto&y:ghost_hyp_items_2){
+autoghost_hyp_o_menor_2=menor;
+{
+automenor=ghost_hyp_o_menor_2;
+boolghost_hyp_scored_2=false;
+doubleghost_hyp_score_2=0.0;
+intghost_hyp_kind_2=1;
+menor=y;
+ghost_hyp_scored_2=true;
+ghost_hyp_score_2=static_cast<double>(y);
+ghost_hyp_kind_2=-1;
+if(ghost_hyp_scored_2&&(!ghost_hyp_has_2||(ghost_hyp_kind_2>0?ghost_hyp_score_2>ghost_hyp_best_2:ghost_hyp_score_2<ghost_hyp_best_2))){
+ghost_hyp_has_2=true;
+ghost_hyp_best_2=ghost_hyp_score_2;
+ghost_hyp_best_menor_2=menor;
+}
+(void)y;
+}
+}
+if(ghost_hyp_has_2){
+menor=ghost_hyp_best_menor_2;
+std::cout<<"[Multiverso] Colapso temporal resolvido. Linha do tempo de maior score ("<<ghost_hyp_best_2<<") assumida."<<std::endl;
+}
+}
+std::cout<<ghost_show(std::string("Menor final: ")+menor)<<std::endl;
+std::cout<<ghost_show(std::string("hypothesis_compilado: OK"))<<std::endl;
+return0;
+}
+intmain(intargc,char**argv){
+try{
+#ifdef_WIN32SetConsoleOutputCP(CP_UTF8);
+SetConsoleCP(CP_UTF8);
+#endifstd::cout<<std::boolalpha;
+std::stringghost_args="";
+std::vector<std::string>ghost_args_vec;
+for(inti=1;
+i<argc;
+++i){
+ghost_args+=argv[i];
+ghost_args_vec.push_back(argv[i]);
+if(i<argc-1)ghost_args+=" ";
+}
+ghost_main();
+return0;
+}
+catch(conststd::exception&e){
+std::cerr<<e.what()<<std::endl;
+return1;
+}
+}

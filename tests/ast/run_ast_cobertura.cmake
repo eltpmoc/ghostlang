@@ -1,0 +1,22 @@
+# A AST precisa aceitar todo programa válido do projeto (c40): ghost ast --erros em tests/ghost/*.g e libs/*.g.
+# (error.g tem erro de propósito.) Uso: cmake -DGHOST=<ghost.exe> -DROOT=<raiz do projeto> -P run_ast_cobertura.cmake
+file(GLOB progs "${ROOT}/tests/ghost/*.g" "${ROOT}/libs/*.g")
+set(bad 0)
+set(n 0)
+foreach(p IN LISTS progs)
+  get_filename_component(name "${p}" NAME)
+  if(name STREQUAL "error.g")
+    continue()
+  endif()
+  math(EXPR n "${n}+1")
+  execute_process(COMMAND "${GHOST}" ast "${p}" --erros WORKING_DIRECTORY "${ROOT}"
+                  OUTPUT_QUIET ERROR_VARIABLE err RESULT_VARIABLE rc ENCODING UTF-8)
+  if(NOT rc EQUAL 0)
+    message(SEND_ERROR "AST recusou ${name}:\n${err}")
+    math(EXPR bad "${bad}+1")
+  endif()
+endforeach()
+if(bad GREATER 0)
+  message(FATAL_ERROR "${bad} de ${n} programas recusados pela AST")
+endif()
+message(STATUS "AST aceitou os ${n} programas")

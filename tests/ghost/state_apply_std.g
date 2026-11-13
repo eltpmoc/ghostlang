@@ -1,0 +1,33 @@
+// state_apply_std.g - Teste de state e apply (F3)
+function void main() {
+    print("=== Teste de State e Apply ===");
+    gate H = hadamard;
+    gate X = paulix;
+    gate Z = pauliz;
+
+    state psi0 = [1.0, 0.0];
+    print("Estado inicial |0>:");
+    show(psi0);
+
+    apply(H, psi0);
+    print("Apos Hadamard H|0> = |+>:");
+    show(psi0);
+
+    apply(H, psi0);
+    print("Apos segundo Hadamard H|+> = |0>:");
+    show(psi0);
+
+    apply(X, psi0);
+    print("Apos Pauli-X X|0> = |1>:");
+    show(psi0);
+
+    apply(Z, psi0);
+    print("Apos Pauli-Z Z|1> = -|1>:");
+    show(psi0);
+
+    state psi2q = [1.0, 0.0, 0.0, 0.0];
+    print("Estado de 2 qubits |00>:");
+    show(psi2q);
+
+    print("state_apply_std: OK");
+}

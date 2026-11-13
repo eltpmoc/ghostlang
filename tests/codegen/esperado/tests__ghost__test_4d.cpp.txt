@@ -1,0 +1,99 @@
+#line 2 "tests/ghost/test_4d.g"
+#line 4 "tests/ghost/test_4d.g"
+#line 6 "tests/ghost/test_4d.g"
+#line 7 "tests/ghost/test_4d.g"
+#line 9 "tests/ghost/test_4d.g"
+#line 10 "tests/ghost/test_4d.g"
+#line 11 "tests/ghost/test_4d.g"
+#line 13 "tests/ghost/test_4d.g"
+#line 15 "tests/ghost/test_4d.g"
+#line 16 "tests/ghost/test_4d.g"
+#line 17 "tests/ghost/test_4d.g"
+#line 19 "tests/ghost/test_4d.g"
+#line 21 "tests/ghost/test_4d.g"
+#line 22 "tests/ghost/test_4d.g"
+#line 23 "tests/ghost/test_4d.g"
+#line 25 "tests/ghost/test_4d.g"
+#line 1 "tests/ghost/test_4d.g"
+----
+/*TranspiladopeloGhostCompilerv1.0*/#include<iostream>#include<cstdio>#include<cstdlib>#include<string>#include<complex>#include<type_traits>#include<fstream>#include<sstream>#include<thread>#include<chrono>#include<mutex>#include"include/GhostNumberG.hpp"#include"include/GhostMatrix.hpp"#include"include/GhostLLM.hpp"#include"include/GhostLib.hpp"#include"include/GhostDevice.hpp"#include"include/GhostTextModel.hpp"#include"include/GhostWeb.hpp"#include"include/GhostKnowledge.hpp"#include"include/GhostTemporal.hpp"#include"include/GhostTransformer.hpp"#include"include/GhostTransformerG.hpp"#include"include/GhostMatrixG.hpp"#include"include/GhostQuantum.hpp"#include"include/GhostQML.hpp"#include"include/GhostHybrid.hpp"#include"include/GhostQTape.hpp"#include"include/GhostCore.hpp"#ifdef_WIN32#include<windows.h>#endifvoidghost_main();
+voidghost_main(){
+std::cout<<ghost_show(std::string("=== Iniciando Teste de Tensores Hiper-Complexos 4D ===\n"))<<std::endl;
+GhostMatrixtensor_a(3,1);
+doublelimit_tensor_a=std::sqrt(6.0/(3+1));
+for(size_tghost_r=0;
+ghost_r<tensor_a.getRows();
+++ghost_r){
+for(size_tghost_c=0;
+ghost_c<tensor_a.getCols();
+++ghost_c){
+doubleghost_val=(((double)rand()/RAND_MAX)*2.0-1.0)*limit_tensor_a;
+tensor_a(ghost_r,ghost_c)=GhostNumberG(ghost_val,0.0,0.0);
+}
+}
+std::cout<<ghost_show(std::string("Tensor A original:\n"))<<std::endl;
+std::cout<<"\nEstado da estrutura '"<<"tensor_a"<<"':"<<std::endl;
+tensor_a.display();
+std::cout<<ghost_show(std::string("\nAplicando ReLU no Tensor A:\n"))<<std::endl;
+tensor_a.activateReLU();
+std::cout<<"[Ghost OS] Colapso Quântico/Matemático (relu) aplicado em 'tensor_a'."<<std::endl;
+std::cout<<"\nEstado da estrutura '"<<"tensor_a"<<"':"<<std::endl;
+tensor_a.display();
+GhostMatrixtensor_b(3,1);
+doublelimit_tensor_b=std::sqrt(6.0/(3+1));
+for(size_tghost_r=0;
+ghost_r<tensor_b.getRows();
+++ghost_r){
+for(size_tghost_c=0;
+ghost_c<tensor_b.getCols();
+++ghost_c){
+doubleghost_val=(((double)rand()/RAND_MAX)*2.0-1.0)*limit_tensor_b;
+tensor_b(ghost_r,ghost_c)=GhostNumberG(ghost_val,0.0,0.0);
+}
+}
+std::cout<<ghost_show(std::string("\nAplicando Sigmoid no Tensor B:\n"))<<std::endl;
+tensor_b.activateSigmoid();
+std::cout<<"[Ghost OS] Colapso Quântico/Matemático (sigmoid) aplicado em 'tensor_b'."<<std::endl;
+std::cout<<"\nEstado da estrutura '"<<"tensor_b"<<"':"<<std::endl;
+tensor_b.display();
+GhostMatrixtensor_c(3,1);
+doublelimit_tensor_c=std::sqrt(6.0/(3+1));
+for(size_tghost_r=0;
+ghost_r<tensor_c.getRows();
+++ghost_r){
+for(size_tghost_c=0;
+ghost_c<tensor_c.getCols();
+++ghost_c){
+doubleghost_val=(((double)rand()/RAND_MAX)*2.0-1.0)*limit_tensor_c;
+tensor_c(ghost_r,ghost_c)=GhostNumberG(ghost_val,0.0,0.0);
+}
+}
+std::cout<<ghost_show(std::string("\nAplicando Seno (sin) no Tensor C:\n"))<<std::endl;
+tensor_c.activateSin();
+std::cout<<"[Ghost OS] Colapso Quântico/Matemático (sin) aplicado em 'tensor_c'."<<std::endl;
+std::cout<<"\nEstado da estrutura '"<<"tensor_c"<<"':"<<std::endl;
+tensor_c.display();
+std::cout<<ghost_show(std::string("\n=== Teste Finalizado ===\n"))<<std::endl;
+}
+intmain(intargc,char**argv){
+try{
+#ifdef_WIN32SetConsoleOutputCP(CP_UTF8);
+SetConsoleCP(CP_UTF8);
+#endifstd::cout<<std::boolalpha;
+std::stringghost_args="";
+std::vector<std::string>ghost_args_vec;
+for(inti=1;
+i<argc;
+++i){
+ghost_args+=argv[i];
+ghost_args_vec.push_back(argv[i]);
+if(i<argc-1)ghost_args+=" ";
+}
+ghost_main();
+return0;
+}
+catch(conststd::exception&e){
+std::cerr<<e.what()<<std::endl;
+return1;
+}
+}

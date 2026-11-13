@@ -1,0 +1,55 @@
+== tipos e operadores ==
+2 1 21 20 -18 68 8
+bool: true true false
+precedencia: 14 20 3 1024
+inteiros: 3 3.5 -3 1
+compostos: 3
+GhostLang tem 9 letras; ternario: grande
+texto: GHOSTLANG true ["a", "b", "c"]
+== controle de fluxo ==
+soma for com break/continue: 19
+while 3 do-while 8
+B
+== switch ==
+um
+dois ou tres
+dois ou tres
+outro
+natureza
+(caiu no proximo case)
+== funcoes ==
+42 120 Ola, Ana! Oi, Bia!
+global alterado pela funcao: 2
+== colecoes ==
+[5, 3, 8, 1, 4] tamanho 5 primeiro 5 ultimo 4
+ordenada [1, 3, 4, 5, 8] soma 21 max 8 contem 8? true
+ana, bia | fatia [3, 4]
+media 8.16667
+{"ana": 31, "bia": 25, "caio": 41} tem bia? true get -1
+foreach total 21
+ana -> 31
+bia -> 25
+caio -> 41
+range 0
+range 1
+range 2
+grade [[1, 2], [3, 4]] elemento 3
+== erros ==
+antes
+capturado: falhou de proposito
+finally roda sempre
+indice: indice 99 fora da lista de 5 elemento(s)
+assert: matematica quebrou
+ok(2.5) err("divisao por zero") 2.5 -1 erro: divisao por zero
+r2 falhou como esperado
+== hypothesis ==
+[Multiverso] Colapso temporal resolvido. Linha do tempo de maior score (35) assumida.
+melhor linha do tempo: 35
+[Multiverso] Colapso temporal resolvido. Linha do tempo de maior score (0) assumida.
+menor: 0
+== erros de uso ==
+[Erro de Execucao] break fora de laco ou switch
+[Erro de Execucao] Variavel nao encontrada: nao_existe
+[Erro de Execucao] a classe base 'Nada' precisa ser declarada antes de X.
+fim
+

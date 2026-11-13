@@ -1,0 +1,7 @@
+Matriz de kernel (4 primeiras amostras):
+1.000 0.787 0.359 0.071
+k(x, x) = 1
+Acuracia de treino: 100%
+Acuracia de teste:  100%
+(0.5, 0.5) -> 1   (-0.5, 0.5) -> 0
+qml_kernel: OK

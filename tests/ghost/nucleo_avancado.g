@@ -1,0 +1,139 @@
+// Teste de sobrecarga de funções, static em classes genéricas e protected em herança profunda
+
+// ---- Sobrecarga de funções globais ----
+function string formatar(int x) {
+    return "int:" + x;
+}
+
+function string formatar(double x) {
+    return "double:" + x;
+}
+
+function string formatar(string s) {
+    return "string:" + s;
+}
+
+function string formatar(int a, int b) {
+    return "par:" + a + "," + b;
+}
+
+function string formatar(int a, int b, int c) {
+    return "trio:" + a + "," + b + "," + c;
+}
+
+// ---- Modificador protected em hierarquia profunda (Base -> Meio -> Folha) ----
+class Base {
+protected:
+    int segredo;
+    function string getSegredo() {
+        return "segredo-" + segredo;
+    }
+public:
+    function Base(int s) {
+        this.segredo = s;
+    }
+    function string revelarBase() {
+        return "base:" + getSegredo();
+    }
+}
+
+class Meio extends Base {
+protected:
+    function void alterarSegredo(int novo) {
+        this.segredo = novo;
+    }
+public:
+    function Meio(int s) {
+        super(s);
+    }
+}
+
+class Folha extends Meio {
+public:
+    function Folha(int s) {
+        super(s);
+    }
+    function string revelarFolha() {
+        return "folha:" + this.getSegredo();
+    }
+    function void atualizar(int v) {
+        this.alterarSegredo(v);
+    }
+}
+
+// ---- Membros static parametrizados em classes genéricas ----
+class Contador<T> {
+public:
+    static int total = 0;
+    static string etiqueta = "contador";
+    T valor;
+
+    function Contador(T v) {
+        this.valor = v;
+        Contador<T>.total = Contador<T>.total + 1;
+    }
+
+    static function int obterTotal() {
+        return Contador<T>.total;
+    }
+
+    static function void resetar() {
+        Contador<T>.total = 0;
+    }
+}
+
+// ---- Sobrecarga de métodos em classes ----
+class Calculadora {
+public:
+    function int somar(int a, int b) {
+        return a + b;
+    }
+
+    function double somar(double a, double b) {
+        return a + b;
+    }
+
+    function string somar(string a, string b) {
+        return a + b;
+    }
+}
+
+function main() {
+    print("== sobrecarga global ==");
+    print(formatar(42));
+    print(formatar(3.14));
+    print(formatar("ghost"));
+    print(formatar(10, 20));
+    print(formatar(1, 2, 3));
+
+    print("== sobrecarga em metodos ==");
+    var calc = new Calculadora();
+    print(calc.somar(10, 25));
+    print(calc.somar(1.5, 2.5));
+    print(calc.somar("Ghost", "Lang"));
+
+    print("== static generico ==");
+    print("inicio int: ", Contador<int>.obterTotal());
+    print("inicio str: ", Contador<string>.obterTotal());
+
+    var c1 = new Contador<int>(10);
+    var c2 = new Contador<int>(20);
+    print("apos 2 ints: ", Contador<int>.obterTotal());
+    print("str continua zero: ", Contador<string>.obterTotal());
+
+    var s1 = new Contador<string>("teste");
+    print("apos 1 str: ", Contador<string>.obterTotal());
+    print("int continua dois: ", Contador<int>.obterTotal());
+
+    Contador<int>.resetar();
+    print("apos reset int: ", Contador<int>.obterTotal());
+    print("str permanece: ", Contador<string>.obterTotal());
+
+    print("== protected em heranca profunda ==");
+    var f = new Folha(100);
+    print(f.revelarBase());
+    print(f.revelarFolha());
+    f.atualizar(999);
+    print(f.revelarFolha());
+    print("fim nucleo avancado");
+}

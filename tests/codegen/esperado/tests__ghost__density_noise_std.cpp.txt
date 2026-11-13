@@ -1,0 +1,127 @@
+#line 4 "libs/quantum_density.g"
+#line 8 "libs/quantum_density.g"
+#line 12 "libs/quantum_density.g"
+#line 16 "libs/quantum_density.g"
+#line 20 "libs/quantum_density.g"
+#line 24 "libs/quantum_density.g"
+#line 28 "libs/quantum_density.g"
+#line 32 "libs/quantum_density.g"
+#line 36 "libs/quantum_density.g"
+#line 40 "libs/quantum_density.g"
+#line 44 "libs/quantum_density.g"
+#line 48 "libs/quantum_density.g"
+#line 52 "libs/quantum_density.g"
+#line 4 "tests/ghost/density_noise_std.g"
+#line 5 "tests/ghost/density_noise_std.g"
+#line 6 "tests/ghost/density_noise_std.g"
+#line 7 "tests/ghost/density_noise_std.g"
+#line 8 "tests/ghost/density_noise_std.g"
+#line 9 "tests/ghost/density_noise_std.g"
+#line 10 "tests/ghost/density_noise_std.g"
+#line 11 "tests/ghost/density_noise_std.g"
+#line 12 "tests/ghost/density_noise_std.g"
+#line 13 "tests/ghost/density_noise_std.g"
+#line 14 "tests/ghost/density_noise_std.g"
+#line 3 "libs/quantum_density.g"
+#line 7 "libs/quantum_density.g"
+#line 11 "libs/quantum_density.g"
+#line 15 "libs/quantum_density.g"
+#line 19 "libs/quantum_density.g"
+#line 23 "libs/quantum_density.g"
+#line 27 "libs/quantum_density.g"
+#line 31 "libs/quantum_density.g"
+#line 35 "libs/quantum_density.g"
+#line 39 "libs/quantum_density.g"
+#line 43 "libs/quantum_density.g"
+#line 47 "libs/quantum_density.g"
+#line 51 "libs/quantum_density.g"
+#line 3 "tests/ghost/density_noise_std.g"
+----
+/*TranspiladopeloGhostCompilerv1.0*/#include<iostream>#include<cstdio>#include<cstdlib>#include<string>#include<complex>#include<type_traits>#include<fstream>#include<sstream>#include<thread>#include<chrono>#include<mutex>#include"include/GhostNumberG.hpp"#include"include/GhostMatrix.hpp"#include"include/GhostLLM.hpp"#include"include/GhostLib.hpp"#include"include/GhostDevice.hpp"#include"include/GhostTextModel.hpp"#include"include/GhostWeb.hpp"#include"include/GhostKnowledge.hpp"#include"include/GhostTemporal.hpp"#include"include/GhostTransformer.hpp"#include"include/GhostTransformerG.hpp"#include"include/GhostMatrixG.hpp"#include"include/GhostQuantum.hpp"#include"include/GhostQML.hpp"#include"include/GhostHybrid.hpp"#include"include/GhostQTape.hpp"#include"include/GhostCore.hpp"#ifdef_WIN32#include<windows.h>#endifintqd__qdensity_create(intqubits);
+intqd__qdensity_maximally_mixed(intqubits);
+doubleqd__qdensity_purity(inthandle);
+doubleqd__qdensity_trace(inthandle);
+doubleqd__qdensity_prob(inthandle,intestado);
+voidqd__qdensity_h(inthandle,intqubit);
+voidqd__qdensity_x(inthandle,intqubit);
+voidqd__qdensity_cnot(inthandle,intctrl,inttarget);
+voidqd__qdensity_depolarize(inthandle,intqubit,doublep);
+voidqd__qdensity_bit_flip(inthandle,intqubit,doublep);
+voidqd__qdensity_phase_flip(inthandle,intqubit,doublep);
+voidqd__qdensity_amplitude_damping(inthandle,intqubit,doublegamma);
+voidqd__qdensity_phase_damping(inthandle,intqubit,doubletaxa_lambda);
+voidghost_main();
+intqd__qdensity_create(intqubits){
+returnghost_density_create(qubits);
+}
+intqd__qdensity_maximally_mixed(intqubits){
+returnghost_density_maximally_mixed(qubits);
+}
+doubleqd__qdensity_purity(inthandle){
+returnghost_density_purity(handle);
+}
+doubleqd__qdensity_trace(inthandle){
+returnghost_density_trace(handle);
+}
+doubleqd__qdensity_prob(inthandle,intestado){
+returnghost_density_prob(handle,estado);
+}
+voidqd__qdensity_h(inthandle,intqubit){
+ghost_density_h(handle,qubit);
+}
+voidqd__qdensity_x(inthandle,intqubit){
+ghost_density_x(handle,qubit);
+}
+voidqd__qdensity_cnot(inthandle,intctrl,inttarget){
+ghost_density_cnot(handle,ctrl,target);
+}
+voidqd__qdensity_depolarize(inthandle,intqubit,doublep){
+ghost_density_depolarize(handle,qubit,p);
+}
+voidqd__qdensity_bit_flip(inthandle,intqubit,doublep){
+ghost_density_bit_flip(handle,qubit,p);
+}
+voidqd__qdensity_phase_flip(inthandle,intqubit,doublep){
+ghost_density_phase_flip(handle,qubit,p);
+}
+voidqd__qdensity_amplitude_damping(inthandle,intqubit,doublegamma){
+ghost_density_amplitude_damping(handle,qubit,gamma);
+}
+voidqd__qdensity_phase_damping(inthandle,intqubit,doubletaxa_lambda){
+ghost_density_phase_damping(handle,qubit,taxa_lambda);
+}
+voidghost_main(){
+autorho=qd__qdensity_create(1);
+std::cout<<ghost_show(qd__qdensity_purity(rho))<<std::endl;
+std::cout<<ghost_show(qd__qdensity_prob(rho,0))<<std::endl;
+qd__qdensity_h(rho,0);
+std::cout<<ghost_show(qd__qdensity_prob(rho,0))<<std::endl;
+std::cout<<ghost_show(qd__qdensity_purity(rho))<<std::endl;
+qd__qdensity_depolarize(rho,0,0.5);
+std::cout<<ghost_show(qd__qdensity_purity(rho)<1.0)<<std::endl;
+autorho_mixed=qd__qdensity_maximally_mixed(2);
+std::cout<<ghost_show(qd__qdensity_purity(rho_mixed))<<std::endl;
+std::cout<<ghost_show(qd__qdensity_trace(rho_mixed))<<std::endl;
+}
+intmain(intargc,char**argv){
+try{
+#ifdef_WIN32SetConsoleOutputCP(CP_UTF8);
+SetConsoleCP(CP_UTF8);
+#endifstd::cout<<std::boolalpha;
+std::stringghost_args="";
+std::vector<std::string>ghost_args_vec;
+for(inti=1;
+i<argc;
+++i){
+ghost_args+=argv[i];
+ghost_args_vec.push_back(argv[i]);
+if(i<argc-1)ghost_args+=" ";
+}
+ghost_main();
+return0;
+}
+catch(conststd::exception&e){
+std::cerr<<e.what()<<std::endl;
+return1;
+}
+}

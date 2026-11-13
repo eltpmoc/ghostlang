@@ -1,0 +1,2796 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="utf-8">
+    <title>GhostLang — Guia Oficial do Programador</title>
+    <style>
+
+@page {
+    size: A4;
+    margin: 20mm 18mm 20mm 18mm;
+    @top-right {
+        content: "GhostLang — Guia Oficial do Programador";
+        font-size: 8pt;
+        color: #94a3b8;
+        font-family: 'Segoe UI', system-ui, sans-serif;
+    }
+    @bottom-center {
+        content: counter(page);
+        font-size: 9pt;
+        font-weight: bold;
+        color: #64748b;
+        font-family: 'Segoe UI', system-ui, sans-serif;
+    }
+}
+
+@page:first {
+    margin: 0;
+    @top-right { content: none; }
+    @bottom-center { content: none; }
+}
+
+* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
+
+body {
+    font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+    font-size: 11pt;
+    line-height: 1.65;
+    color: #1e293b;
+    background-color: #ffffff;
+}
+
+/* Capa do Livro */
+.cover-page {
+    page-break-before: always;
+    page-break-after: always;
+    width: 100vw;
+    height: 100vh;
+    min-height: 297mm;
+    background: linear-gradient(135deg, #090d16 0%, #0f172a 45%, #1e1b4b 100%);
+    color: #f8fafc;
+    padding: 25mm 20mm;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    position: relative;
+    overflow: hidden;
+}
+
+.cover-badge-container {
+    display: flex;
+    gap: 8px;
+    margin-bottom: 25px;
+}
+
+.cover-badge {
+    background: rgba(56, 189, 248, 0.15);
+    border: 1px solid #38bdf8;
+    color: #38bdf8;
+    padding: 4px 12px;
+    border-radius: 20px;
+    font-size: 8.5pt;
+    font-weight: 600;
+    letter-spacing: 0.5px;
+    text-transform: uppercase;
+}
+
+.cover-badge.gold {
+    background: rgba(245, 158, 11, 0.15);
+    border-color: #f59e0b;
+    color: #fbbf24;
+}
+
+.cover-title {
+    font-size: 42pt;
+    font-weight: 900;
+    letter-spacing: -1.5px;
+    line-height: 1.05;
+    background: linear-gradient(90deg, #ffffff 0%, #38bdf8 50%, #c084fc 100%);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    margin-bottom: 15px;
+}
+
+.cover-subtitle {
+    font-size: 15pt;
+    font-weight: 400;
+    color: #94a3b8;
+    line-height: 1.4;
+    max-width: 580px;
+    margin-bottom: 30px;
+}
+
+.cover-art {
+    margin: 20px 0;
+    text-align: center;
+}
+
+.cover-art svg {
+    max-width: 100%;
+    filter: drop-shadow(0 0 25px rgba(56, 189, 248, 0.3));
+}
+
+.cover-features {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 15px;
+    background: rgba(255, 255, 255, 0.03);
+    border: 1px solid rgba(255, 255, 255, 0.1);
+    padding: 16px;
+    border-radius: 12px;
+    backdrop-filter: blur(8px);
+    margin-bottom: 25px;
+}
+
+.cover-feature-item {
+    font-size: 9pt;
+    color: #cbd5e1;
+    display: flex;
+    align-items: center;
+    gap: 8px;
+}
+
+.cover-feature-item span {
+    color: #38bdf8;
+    font-weight: bold;
+}
+
+.cover-footer {
+    border-top: 1px solid rgba(255, 255, 255, 0.15);
+    padding-top: 15px;
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-end;
+    font-size: 9pt;
+    color: #64748b;
+}
+
+.cover-author-name {
+    color: #f1f5f9;
+    font-size: 11pt;
+    font-weight: bold;
+}
+
+/* Folha de Rosto e Sumário */
+.title-page {
+    page-break-before: always;
+    page-break-after: always;
+    padding-top: 40mm;
+    text-align: center;
+}
+
+.toc-container {
+    page-break-before: always;
+    page-break-after: always;
+    padding: 10mm 0;
+}
+
+.toc-title {
+    font-size: 24pt;
+    font-weight: 800;
+    color: #0f172a;
+    border-bottom: 3px solid #0284c7;
+    padding-bottom: 8px;
+    margin-bottom: 25px;
+}
+
+.toc-item {
+    display: flex;
+    justify-content: space-between;
+    align-items: baseline;
+    padding: 7px 0;
+    border-bottom: 1px dotted #cbd5e1;
+    font-size: 10.5pt;
+}
+
+.toc-chapter-title {
+    font-weight: 700;
+    color: #1e293b;
+}
+
+.toc-page-num {
+    font-weight: bold;
+    color: #0284c7;
+}
+
+/* Estrutura de Capítulos */
+.chapter {
+    page-break-before: always;
+    padding-top: 10mm;
+    margin-bottom: 30px;
+}
+
+.chapter-badge {
+    display: inline-block;
+    background: #e0f2fe;
+    color: #0369a1;
+    font-weight: 800;
+    font-size: 9pt;
+    text-transform: uppercase;
+    padding: 3px 10px;
+    border-radius: 6px;
+    letter-spacing: 1px;
+    margin-bottom: 10px;
+}
+
+.chapter-title {
+    font-size: 24pt;
+    font-weight: 800;
+    color: #0f172a;
+    line-height: 1.15;
+    margin-bottom: 15px;
+    letter-spacing: -0.5px;
+}
+
+.chapter-intro {
+    font-size: 11pt;
+    font-style: italic;
+    color: #475569;
+    background: #f8fafc;
+    border-left: 4px solid #38bdf8;
+    padding: 12px 16px;
+    margin-bottom: 25px;
+    border-radius: 0 8px 8px 0;
+}
+
+/* Seções e Cabeçalhos */
+h2 {
+    font-size: 16pt;
+    font-weight: 700;
+    color: #0f172a;
+    margin-top: 25px;
+    margin-bottom: 12px;
+    padding-bottom: 5px;
+    border-bottom: 1.5px solid #e2e8f0;
+    page-break-after: avoid;
+}
+
+h3 {
+    font-size: 12.5pt;
+    font-weight: 600;
+    color: #1e293b;
+    margin-top: 18px;
+    margin-bottom: 8px;
+    page-break-after: avoid;
+}
+
+p {
+    font-size: 11pt;
+    line-height: 1.65;
+    margin-bottom: 12px;
+    text-align: justify;
+}
+
+ul, ol {
+    font-size: 11pt;
+    line-height: 1.65;
+    margin-bottom: 14px;
+    padding-left: 22px;
+}
+
+li {
+    font-size: 11pt;
+    margin-bottom: 6px;
+}
+
+/* Blocos de Código */
+.code-block {
+    background: #0f172a;
+    border-radius: 8px;
+    margin: 15px 0 20px 0;
+    overflow: hidden;
+    break-inside: avoid;
+    box-shadow: 0 4px 12px rgba(15, 23, 42, 0.15);
+    border: 1px solid #1e293b;
+}
+
+.code-header {
+    background: #1e293b;
+    color: #94a3b8;
+    padding: 6px 14px;
+    font-size: 9.5pt;
+    font-family: Consolas, "Fira Code", monospace;
+    display: flex;
+    justify-content: space-between;
+    border-bottom: 1px solid #334155;
+}
+
+.code-filename {
+    color: #38bdf8;
+    font-weight: bold;
+}
+
+pre {
+    padding: 12px 14px;
+    font-family: Consolas, "Fira Code", "Courier New", monospace;
+    font-size: 11pt;
+    line-height: 1.5;
+    color: #f8fafc;
+    overflow-x: auto;
+    margin: 0;
+}
+
+code {
+    font-family: Consolas, "Fira Code", "Courier New", monospace;
+    font-size: 11pt;
+}
+
+p code, li code, td code, .exercise-desc code, .exercise-hint code, .callout code {
+    font-family: Consolas, "Fira Code", "Courier New", monospace;
+    font-size: 10pt;
+    background: #f1f5f9;
+    color: #0f172a;
+    padding: 1px 5px;
+    border-radius: 4px;
+    border: 1px solid #e2e8f0;
+}
+
+/* Destaque de Sintaxe */
+.kw { color: #38bdf8; font-weight: bold; }
+.type { color: #fbbf24; font-weight: 600; }
+.fn { color: #c084fc; font-weight: 600; }
+.str { color: #34d399; }
+.num { color: #f97316; }
+.cm { color: #64748b; font-style: italic; }
+.op { color: #f43f5e; }
+
+/* Callouts Editoriais */
+.callout {
+    padding: 12px 16px;
+    border-radius: 8px;
+    margin: 16px 0;
+    break-inside: avoid;
+    font-size: 11pt;
+    line-height: 1.6;
+}
+
+.callout-title {
+    font-weight: 700;
+    margin-bottom: 4px;
+    display: flex;
+    align-items: center;
+    gap: 6px;
+}
+
+.callout-tip {
+    background: #f0fdf4;
+    border-left: 4px solid #22c55e;
+    color: #14532d;
+}
+
+.callout-quantum {
+    background: #eff6ff;
+    border-left: 4px solid #3b82f6;
+    color: #1e3a8a;
+}
+
+.callout-ai {
+    background: #faf5ff;
+    border-left: 4px solid #a855f7;
+    color: #581c87;
+}
+
+.callout-warning {
+    background: #fffbeb;
+    border-left: 4px solid #f59e0b;
+    color: #78350f;
+}
+
+/* Tabelas */
+table {
+    width: 100%;
+    border-collapse: collapse;
+    margin: 15px 0 20px 0;
+    font-size: 9pt;
+    break-inside: avoid;
+}
+
+th {
+    background: #0f172a;
+    color: #f8fafc;
+    padding: 8px 10px;
+    text-align: left;
+    font-weight: 600;
+}
+
+td {
+    padding: 7px 10px;
+    border-bottom: 1px solid #e2e8f0;
+}
+
+tr:nth-child(even) td {
+    background-color: #f8fafc;
+}
+
+/* Seções de Atividades Práticas */
+.exercises-section {
+    background: #f8fafc;
+    border: 1.5px solid #cbd5e1;
+    border-radius: 10px;
+    padding: 18px 20px;
+    margin-top: 25px;
+    break-inside: avoid;
+}
+
+.exercises-title {
+    font-size: 13pt;
+    font-weight: 800;
+    color: #0f172a;
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    margin-bottom: 12px;
+    border-bottom: 2px solid #38bdf8;
+    padding-bottom: 6px;
+}
+
+.exercise-item {
+    margin-bottom: 16px;
+    padding-bottom: 12px;
+    border-bottom: 1px dashed #e2e8f0;
+}
+
+.exercise-item:last-child {
+    border-bottom: none;
+    margin-bottom: 0;
+    padding-bottom: 0;
+}
+
+.exercise-header {
+    display: flex;
+    justify-content: space-between;
+    margin-bottom: 4px;
+}
+
+.exercise-name {
+    font-weight: 700;
+    color: #1e293b;
+    font-size: 11.5pt;
+}
+
+.exercise-badge {
+    font-size: 8pt;
+    font-weight: bold;
+    padding: 2px 8px;
+    border-radius: 12px;
+    text-transform: uppercase;
+}
+
+.badge-easy { background: #dcfce7; color: #15803d; }
+.badge-medium { background: #fef3c7; color: #b45309; }
+.badge-hard { background: #fee2e2; color: #b91c1c; }
+
+.exercise-desc {
+    font-size: 11pt;
+    line-height: 1.6;
+    color: #334155;
+    margin-bottom: 6px;
+}
+
+.exercise-hint {
+    font-size: 10pt;
+    color: #64748b;
+    font-style: italic;
+}
+
+/* Tipografia Matemática Elegante */
+.math {
+    font-family: 'Cambria Math', 'Times New Roman', Georgia, serif;
+    font-style: italic;
+    color: #0f172a;
+}
+
+.math-num {
+    font-family: 'Cambria Math', 'Times New Roman', Georgia, serif;
+    font-style: normal;
+    color: #0f172a;
+}
+
+    </style>
+</head>
+<body>
+
+<!-- CAPA DO LIVRO -->
+<div class="cover-page">
+    <div>
+        <div class="cover-badge-container">
+            <span class="cover-badge">Versão 0.9</span>
+            <span class="cover-badge gold">Em desenvolvimento</span>
+            <span class="cover-badge">Quantum & AI Native</span>
+        </div>
+        <h1 class="cover-title">GHOSTLANG</h1>
+        <p class="cover-subtitle">Guia Definitivo do Programador — Da Sintaxe Fundamental à Computação Quântica, Álgebra Hiper-Complexa G e Inteligência Artificial</p>
+    </div>
+
+    <div class="cover-art">
+        <svg width="460" height="200" viewBox="0 0 460 200" fill="none" xmlns="http://www.w3.org/2000/svg">
+            <circle cx="80" cy="100" r="40" stroke="#38bdf8" stroke-width="2.5" stroke-dasharray="4 4" fill="rgba(56,189,248,0.06)"/>
+            <circle cx="80" cy="100" r="5" fill="#38bdf8"/>
+            <text x="70" y="105" fill="#38bdf8" font-family="sans-serif" font-size="12" font-weight="bold">|ψ⟩</text>
+            
+            <line x1="120" y1="100" x2="190" y2="60" stroke="#818cf8" stroke-width="2"/>
+            <line x1="120" y1="100" x2="190" y2="140" stroke="#818cf8" stroke-width="2"/>
+            
+            <!-- Nó Rede Neural 1 -->
+            <rect x="190" y="40" width="80" height="40" rx="8" fill="#1e1b4b" stroke="#c084fc" stroke-width="2"/>
+            <text x="210" y="65" fill="#f8fafc" font-family="monospace" font-size="11" font-weight="bold">W1 &gt;&gt; Q</text>
+
+            <!-- Nó Rede Neural 2 -->
+            <rect x="190" y="120" width="80" height="40" rx="8" fill="#1e1b4b" stroke="#38bdf8" stroke-width="2"/>
+            <text x="205" y="145" fill="#f8fafc" font-family="monospace" font-size="11" font-weight="bold">GhostQubit</text>
+
+            <line x1="270" y1="60" x2="340" y2="100" stroke="#c084fc" stroke-width="2"/>
+            <line x1="270" y1="140" x2="340" y2="100" stroke="#c084fc" stroke-width="2"/>
+
+            <!-- Nó Saída / Tensor -->
+            <circle cx="370" cy="100" r="35" fill="rgba(192,132,252,0.12)" stroke="#f43f5e" stroke-width="2.5"/>
+            <circle cx="370" cy="100" r="6" fill="#f43f5e"/>
+            <text x="350" y="105" fill="#fb7185" font-family="monospace" font-size="12" font-weight="bold">G 4D</text>
+        </svg>
+    </div>
+
+    <div class="cover-features">
+        <div class="cover-feature-item"><span>✓</span> Transpilação C++17 Nativa com -O3</div>
+        <div class="cover-feature-item"><span>✓</span> Qubits, Portas e Circuitos Quânticos</div>
+        <div class="cover-feature-item"><span>✓</span> Deep Learning Nativo com Operador &gt;&gt;</div>
+        <div class="cover-feature-item"><span>✓</span> Álgebra Hiper-Complexa G e Tensores ND</div>
+        <div class="cover-feature-item"><span>✓</span> Autograd Reverso Clássico-Quântico</div>
+        <div class="cover-feature-item"><span>✓</span> Aceleração GPU CUDA e OpenMP</div>
+    </div>
+
+    <div class="cover-footer">
+        <div>
+            <div class="cover-author-name">Equipe de Engenharia GhostLang</div>
+            <div>Edição 2026 • Testado no Windows x64</div>
+        </div>
+        <div style="text-align: right;">
+            <div style="color: #38bdf8; font-weight: bold;">Manual e Guia Prático</div>
+            <div>Repositório público ainda não publicado</div>
+        </div>
+    </div>
+</div>
+
+<!-- FOLHA DE ROSTO -->
+<div class="title-page">
+    <div style="font-size: 14pt; color: #0284c7; font-weight: bold; letter-spacing: 2px; text-transform: uppercase; margin-bottom: 20px;">
+        Documentação Oficial e Livro Técnico de Referência
+    </div>
+    <h1 style="font-size: 32pt; font-weight: 900; color: #0f172a; margin-bottom: 10px;">GHOSTLANG</h1>
+    <h2 style="font-size: 16pt; font-weight: 500; color: #475569; border: none; margin-bottom: 40px;">
+        Guia Definitivo do Programador: Da Sintaxe ao Universo Quântico e IA
+    </h2>
+    <div style="width: 120px; height: 3px; background: #0284c7; margin: 0 auto 50px auto;"></div>
+    
+    <div style="margin-top: 60px; font-size: 10pt; color: #64748b; line-height: 1.8;">
+        <strong>Autor:</strong> Engenharia e Comunidade GhostLang<br>
+        <strong>Versão Coberta:</strong> 0.9, em desenvolvimento (a maturidade de cada recurso está em <code>dashboard/ghostlang-status.json</code>)<br>
+        <strong>Padrão de Compilação:</strong> C++17, testado com GCC 15.2 (MSYS2 UCRT64) no Windows x64; Clang, Linux e macOS ainda não verificados<br>
+        <strong>Aceleração de Hardware:</strong> NVIDIA CUDA (testado numa GTX 1050 Ti, sm_61) e OpenMP multi-core; Vulkan, Metal e ROCm ainda não implementados<br>
+        <strong>Repositório do Projeto:</strong> ainda não publicado
+    </div>
+</div>
+
+<!-- PREFÁCIO -->
+<div class="chapter">
+    <span class="chapter-badge">Prefácio</span>
+    <h1 class="chapter-title">A Filosofia do GhostLang</h1>
+    <div class="chapter-intro">
+        "Por que criar uma nova linguagem de programação em um mundo saturado de opções? Porque a computação clássica, a computação quântica e a inteligência artificial não podem mais viver em mundos isolados."
+    </div>
+
+    <p>
+        Durante décadas, a ciência da computação operou sob uma clara divisão de trabalho. O desenvolvimento de sistemas de alta performance pertencia ao C e C++; a análise de dados e prototipagem de redes neurais pertencia ao Python; e os simuladores de computação quântica eram mantidos como bibliotecas externas complexas, difíceis de instalar e desacopladas dos compiladores nativos.
+    </p>
+
+    <p>
+        O <strong>GhostLang</strong> nasceu com a missão ousada de romper essas barreiras. Criada do zero com foco em <strong>três pilares inegociáveis</strong>:
+    </p>
+
+    <ul>
+        <li><strong>Desempenho Nativo Extremo:</strong> Programas GhostLang são analisados em uma Árvore Sintática Abstrata (AST) rigorosa e transpilados diretamente para código C++17 ultra-otimizado com suporte a OpenMP e CUDA, gerando binários estáticos sem qualquer dependência de máquinas virtuais lentas ou interpretadores pesados.</li>
+        <li><strong>Computação Quântica como Cidadã de Primeira Classe:</strong> Qubits, registradores quânticos (<code>qreg</code>), circuitos variacionais (<code>circuit</code>), matrizes de densidade e medições probabilísticas não são pacotes de terceiros. Eles fazem parte da própria gramática e do runtime C++ do GhostLang.</li>
+        <li><strong>Inteligência Artificial e Álgebra Hiper-Complexa Nativas:</strong> O operador de pipeline de camadas neurais <code>>></code>, diferenciação automática reversa (Autograd), números 4D de álgebra fantasma <span class="math"><b>G</b></span>, e tensores N-dimensionais estão embutidos no coração da linguagem.</li>
+    </ul>
+
+    <div class="callout callout-tip">
+        <div class="callout-title">💡 Como estudar com este livro</div>
+        Cada capítulo foi cuidadosamente estruturado em três níveis de aprendizado:
+        <strong>1. Fundamentação Teórica e Sintaxe Exata</strong>;
+        <strong>2. Códigos Exemplo Canônicos</strong>; e
+        <strong>3. Laboratório Prático de Exercícios</strong> com desafios graduais (Aquecimento, Aplicação e Desafio Avançado). Não hesite em abrir o terminal, compilar com <code>ghost run</code> e experimentar no REPL!
+    </div>
+</div>
+
+<!-- SUMÁRIO DO LIVRO -->
+<div class="toc-container">
+    <h2 class="toc-title">Sumário Geral</h2>
+    
+    <div class="toc-item">
+        <span class="toc-chapter-title">Capítulo 1: Introdução, Instalação e Arquitetura da Toolchain</span>
+        <span class="toc-page-num">Cap. 1</span>
+    </div>
+    <div class="toc-item">
+        <span class="toc-chapter-title">Capítulo 2: Sintaxe Fundamental, Tipos Primitivos e Variáveis</span>
+        <span class="toc-page-num">Cap. 2</span>
+    </div>
+    <div class="toc-item">
+        <span class="toc-chapter-title">Capítulo 3: Controle de Fluxo Estruturado, Coleções e Exceções</span>
+        <span class="toc-page-num">Cap. 3</span>
+    </div>
+    <div class="toc-item">
+        <span class="toc-chapter-title">Capítulo 4: Funções, Expressões Lambdas, Closures e Concorrência</span>
+        <span class="toc-page-num">Cap. 4</span>
+    </div>
+    <div class="toc-item">
+        <span class="toc-chapter-title">Capítulo 5: Programação Orientada a Objetos, Herança e Módulos</span>
+        <span class="toc-page-num">Cap. 5</span>
+    </div>
+    <div class="toc-item">
+        <span class="toc-chapter-title">Capítulo 6: Álgebra Hiper-Complexa G (4D) e Tensores N-Dimensionais</span>
+        <span class="toc-page-num">Cap. 6</span>
+    </div>
+    <div class="toc-item">
+        <span class="toc-chapter-title">Capítulo 7: Computação Quântica Nativa (Qubits, Portas, Circuitos e Algoritmos)</span>
+        <span class="toc-page-num">Cap. 7</span>
+    </div>
+    <div class="toc-item">
+        <span class="toc-chapter-title">Capítulo 8: Inteligência Artificial, Redes Neurais e Autograd Reverso</span>
+        <span class="toc-page-num">Cap. 8</span>
+    </div>
+    <div class="toc-item">
+        <span class="toc-chapter-title">Capítulo 9: Machine Learning Quântico (QML), VQE, QAOA e TransformerG</span>
+        <span class="toc-page-num">Cap. 9</span>
+    </div>
+    <div class="toc-item">
+        <span class="toc-chapter-title">Capítulo 10: Biblioteca Padrão, Rede HTTP RESTful, SQLite e GUI</span>
+        <span class="toc-page-num">Cap. 10</span>
+    </div>
+    <div class="toc-item">
+        <span class="toc-chapter-title">Capítulo 11: A Toolchain Oficial (CLI ghost, REPL, Debugger e CTest)</span>
+        <span class="toc-page-num">Cap. 11</span>
+    </div>
+    <div class="toc-item">
+        <span class="toc-chapter-title">Apêndice A: Laboratório Prático — Soluções Comentadas dos Desafios</span>
+        <span class="toc-page-num">Apênd. A</span>
+    </div>
+    <div class="toc-item">
+        <span class="toc-chapter-title">Apêndice B: Tabela Periódica Completa das Portas Quânticas e Métodos qreg</span>
+        <span class="toc-page-num">Apênd. B</span>
+    </div>
+    <div class="toc-item">
+        <span class="toc-chapter-title">Apêndice C: Cheat Sheet de Sintaxe Rápida e Comandos</span>
+        <span class="toc-page-num">Apênd. C</span>
+    </div>
+</div>
+
+
+<!-- CAPÍTULO 1 -->
+<div class="chapter">
+    <span class="chapter-badge">Capítulo 1</span>
+    <h1 class="chapter-title">Introdução, Instalação e Arquitetura da Toolchain</h1>
+    <div class="chapter-intro">
+        Compreenda a anatomia do GhostLang: como o compilador transforma código-fonte de alto nível em binários nativos C++17 ultra-otimizados com suporte a OpenMP e CUDA.
+    </div>
+
+    <h2>1.1 Como o GhostLang Funciona</h2>
+    <p>
+        Diferente de linguagens interpretadas tradicionais que dependem de uma máquina virtual pesada (como JVM ou CPython), o GhostLang opera sob um modelo de <strong>transpilação de alta fidelidade para C++17 ISO</strong>.
+    </p>
+
+    <div class="code-block">
+        <div class="code-header">
+            <span class="code-filename">Pipeline de Compilação do GhostLang</span>
+            <span>Fluxo Arquitetural</span>
+        </div>
+        <pre>
+Código Fonte (.g) 
+  ↓ [Lexer (Tokenização & Comentários)]
+Fluxo de Tokens
+  ↓ [Parser & GhostAst (Construção da Árvore Sintática Abstrata)]
+AST Unificada
+  ↓ [GhostTypes (Verificação Semântica Estrita - 102 Regras)]
+AST Validada & Tipada
+  ↓ [GhostCodegen (Emissão de C++17 + Runtime Nativo)]
+Código C++17 Otimizado (com #include &lt;GhostMatrix.hpp&gt;, &lt;GhostQuantum.hpp&gt;)
+  ↓ [g++ (-O3 -fopenmp; -static por padrão no Windows)]
+Binário Executável Nativo Autônomo (.exe / ELF)
+        </pre>
+    </div>
+
+    <h2>1.2 Instalação e Estrutura de Diretórios</h2>
+    <p>
+        O GhostLang é fornecido como uma distribuição portátil ou compilável via CMake. Na raiz do projeto, encontramos a seguinte organização canônica:
+    </p>
+
+    <table>
+        <thead>
+            <tr>
+                <th>Diretório</th>
+                <th>Finalidade</th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr>
+                <td><code>bin/</code></td>
+                <td>Binários executáveis principais (<code>ghost.exe</code>, <code>ghost_api</code>, <code>ghost_ask</code>).</td>
+            </tr>
+            <tr>
+                <td><code>include/</code></td>
+                <td>Cabeçalhos C++ do runtime (<code>GhostQuantum.hpp</code>, <code>GhostMatrix.hpp</code>, <code>GhostHybrid.hpp</code>).</td>
+            </tr>
+            <tr>
+                <td><code>libs/</code> e <code>modules/</code></td>
+                <td>Bibliotecas da biblioteca padrão em GhostLang (<code>fs.g</code>, <code>http.g</code>, <code>json.g</code>, <code>tempo.g</code>).</td>
+            </tr>
+            <tr>
+                <td><code>tests/</code></td>
+                <td>Suíte de testes de regressão (167 testes CTest, testes golden e oráculos da AST).</td>
+            </tr>
+            <tr>
+                <td><code>dashboard/</code></td>
+                <td>Painel de métricas e status oficial da linguagem (<code>ghostlang-status.json</code>).</td>
+            </tr>
+        </tbody>
+    </table>
+
+    <h2>1.3 Seu Primeiro Programa: "Olá, Universo Quântico!"</h2>
+    <p>
+        Abra o seu editor favorito e salve o seguinte arquivo como <code>ola_mundo.g</code>:
+    </p>
+
+    <div class="code-block">
+        <div class="code-header">
+            <span class="code-filename">exemplos/ola_mundo.g</span>
+            <span>GhostLang Source</span>
+        </div>
+        <pre>
+<span class="kw">import</span> <span class="str">"libs/quantum.g"</span>;
+
+<span class="kw">function</span> <span class="type">void</span> <span class="fn">main</span>() {
+    <span class="type">string</span> nome = <span class="str">"Pioneiro Quântico"</span>;
+    <span class="type">int</span> ano = <span class="num">2026</span>;
+    
+    <span class="fn">println</span>(<span class="str">f"Bem-vindo ao GhostLang, {nome}! Ano de consolidação: {ano}."</span>);
+    
+    <span class="cm">// Criando um qubit em superposição instantânea</span>
+    <span class="type">qreg</span> q(<span class="num">1</span>);
+    q.h(<span class="num">0</span>); <span class="cm">// Porta Hadamard</span>
+    
+    <span class="fn">println</span>(<span class="str">"Estado do qubit |ψ⟩:"</span>);
+    q.show();
+}
+        </pre>
+    </div>
+
+    <p>
+        Para compilar e executar diretamente em um único passo, use a CLI do GhostLang:
+    </p>
+
+    <div class="code-block">
+        <div class="code-header"><span>Terminal</span><span>Bash / PowerShell</span></div>
+        <pre>ghost run ola_mundo.g</pre>
+    </div>
+
+    <div class="callout callout-tip">
+        <div class="callout-title">💡 Dica de Compilação Estática</div>
+        Por padrão no Windows, <code>ghost build programa.g</code> gera um executável com linkagem estática total (<code>-x</code>), ou seja, você pode copiar o <code>programa.exe</code> resultante para qualquer computador Windows sem precisar instalar nenhuma DLL adicional!
+    </div>
+</div>
+
+<!-- CAPÍTULO 2 -->
+<div class="chapter">
+    <span class="chapter-badge">Capítulo 2</span>
+    <h1 class="chapter-title">Sintaxe Fundamental, Tipos Primitivos e Operadores</h1>
+    <div class="chapter-intro">
+        Domine os blocos de construção da linguagem: tipagem estática com inferência, números complexos de dupla precisão nativos e interpolação de strings moderna.
+    </div>
+
+    <h2>2.1 Tipos de Dados Primitivos</h2>
+    <p>
+        O GhostLang possui tipagem estática e fortemente vinculada, prevenindo falhas de memória e garantindo que o compilador C++ gere as instruções mais rápidas de máquina.
+    </p>
+
+    <table>
+        <thead>
+            <tr>
+                <th>Tipo</th>
+                <th>Descrição</th>
+                <th>Exemplo</th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr>
+                <td><code>int</code></td>
+                <td>Inteiro de 64 bits com sinal.</td>
+                <td><code>int valor = 42;</code></td>
+            </tr>
+            <tr>
+                <td><code>float</code></td>
+                <td>Ponto flutuante de precisão dupla (IEEE 754 64-bit).</td>
+                <td><code>float pi = 3.14159265;</code></td>
+            </tr>
+            <tr>
+                <td><code>string</code></td>
+                <td>Sequência de caracteres UTF-8 nativa.</td>
+                <td><code>string texto = "GhostLang";</code></td>
+            </tr>
+            <tr>
+                <td><code>bool</code></td>
+                <td>Booleano lógico (<code>true</code>/<code>false</code>).</td>
+                <td><code>bool ativo = true;</code></td>
+            </tr>
+            <tr>
+                <td><code>complex</code></td>
+                <td>Número complexo de dupla precisão com sufixo literal <code>i</code>.</td>
+                <td><code>complex z = 3.0 + 4.0i;</code></td>
+            </tr>
+            <tr>
+                <td><code>ghost</code></td>
+                <td>Número hipercomplexo quântico 4D (x + y·i + p·g + θ²).</td>
+                <td><code>ghost g = ghost(3.0, 4.0, 1.7, 2.0);</code></td>
+            </tr>
+            <tr>
+                <td><code>matrix</code></td>
+                <td>Matriz e Álgebra Linear clássica/numérica de alta performance.</td>
+                <td><code>matrix A(2, 2);</code></td>
+            </tr>
+            <tr>
+                <td><code>GhostMatrix</code></td>
+                <td>Matriz hipercomplexa 4D, tensores e camadas neurais de IA.</td>
+                <td><code>GhostMatrix G(2, 2);</code></td>
+            </tr>
+            <tr>
+                <td><code>json</code></td>
+                <td>Objeto JSON estruturado de primeira classe com serialização e parsing.</td>
+                <td><code>json obj = {"nome": "Ghost"};</code></td>
+            </tr>
+            <tr>
+                <td><code>void</code></td>
+                <td>Ausência de retorno em funções de comando.</td>
+                <td><code>function void executar() { }</code></td>
+            </tr>
+        </tbody>
+    </table>
+
+    <h2>2.2 Números Complexos Nativos</h2>
+    <p>
+        Em muitas linguagens, números complexos exigem a importação de bibliotecas lentas. No GhostLang, o número imaginário <code>i</code> é um literal nativo do Lexer. Você pode somar, subtrair, multiplicar e dividir números complexos diretamente:
+    </p>
+
+    <div class="code-block">
+        <div class="code-header">
+            <span class="code-filename">exemplos/complexos.g</span>
+            <span>GhostLang Source</span>
+        </div>
+        <pre>
+<span class="kw">function</span> <span class="type">void</span> <span class="fn">main</span>() {
+    <span class="type">complex</span> z1 = <span class="num">1.0</span> + <span class="num">2.0i</span>;
+    <span class="type">complex</span> z2 = <span class="num">3.0</span> - <span class="num">1.0i</span>;
+    
+    <span class="type">complex</span> soma = z1 + z2;       <span class="cm">// 4.0 + 1.0i</span>
+    <span class="type">complex</span> produto = z1 * z2;    <span class="cm">// (1*3 - 2*(-1)) + (1*(-1) + 2*3)i = 5.0 + 5.0i</span>
+    
+    <span class="fn">println</span>(<span class="str">f"z1 = {z1}"</span>);
+    <span class="fn">println</span>(<span class="str">f"z2 = {z2}"</span>);
+    <span class="fn">println</span>(<span class="str">f"z1 + z2 = {soma}"</span>);
+    <span class="fn">println</span>(<span class="str">f"z1 * z2 = {produto}"</span>);
+}
+        </pre>
+    </div>
+
+    <h2>2.3 Interpolação de Texto (f-strings)</h2>
+    <p>
+        O GhostLang oferece interpolação de strings de alta performance em tempo de compilação com a sintaxe <code>f"..."</code>. As expressões dentro das chaves <code>{expressao}</code> são avaliadas e convertidas diretamente para string sem alocações desnecessárias. Para imprimir uma chave literal, basta duplicá-la: <code>{{</code> ou <code>}}</code>.
+    </p>
+
+    <div class="code-block">
+        <div class="code-header"><span class="code-filename">exemplos/fstrings.g</span><span>GhostLang Source</span></div>
+        <pre>
+<span class="kw">function</span> <span class="type">void</span> <span class="fn">main</span>() {
+    <span class="type">float</span> raio = <span class="num">5.0</span>;
+    <span class="type">float</span> area = <span class="num">3.14159</span> * raio * raio;
+    <span class="fn">println</span>(<span class="str">f"Circulo de raio {raio} tem area = {area} m2."</span>);
+    <span class="fn">println</span>(<span class="str">f"JSON simulado: {{\"raio\": {raio}, \"area\": {area}}}"</span>);
+}
+        </pre>
+    </div>
+
+    <h2>2.4 Entrada de Dados Interativa: <code>input</code> e <code>inputln</code></h2>
+    <p>
+        Para interagir com o usuário via terminal ou capturar parâmetros em tempo de execução, o GhostLang oferece suporte nativo e de alta performance à leitura de dados pelo console com descarte automático de quebras de linha residuais:
+    </p>
+
+    <h3>2.4.1 Atribuição Direta com Retorno Tipado (<code>input</code>)</h3>
+    <p>
+        A função <code>input(prompt)</code> opera como uma expressão com retorno dinamicamente conversível, atribuindo o texto digitado diretamente ao tipo estático da variável (<code>string</code>, <code>int</code>, <code>float</code>, <code>double</code> ou <code>bool</code>):
+    </p>
+
+    <div class="code-block">
+        <div class="code-header"><span class="code-filename">exemplos/entrada_input.g</span><span>GhostLang Source</span></div>
+        <pre>
+<span class="kw">function</span> <span class="type">void</span> <span class="fn">main</span>() {
+    <span class="type">string</span> nome = <span class="fn">input</span>(<span class="str">"Digite o seu nome completo: "</span>);
+    <span class="type">int</span> idade = <span class="fn">input</span>(<span class="str">"Digite a sua Idade: "</span>);
+    <span class="type">float</span> valor = <span class="fn">input</span>(<span class="str">"Digite o valor do produto: "</span>);
+
+    <span class="fn">println</span>(<span class="str">f"Cliente cadastrado: {nome}, {idade} anos, R$ {valor:.2f}"</span>);
+}
+        </pre>
+    </div>
+
+    <h3>2.4.2 Declaração Prévia e Vinculação Direta com f-string (<code>inputln</code>)</h3>
+    <p>
+        A instrução de comando <code>inputln(f"Prompt: {variavel}")</code> permite projetar o prompt e vincular a variável receptora diretamente dentro das chaves <code>{variavel}</code> da f-string:
+    </p>
+
+    <div class="code-block">
+        <div class="code-header"><span class="code-filename">exemplos/entrada_inputln.g</span><span>GhostLang Source</span></div>
+        <pre>
+<span class="kw">function</span> <span class="type">void</span> <span class="fn">main</span>() {
+    <span class="type">string</span> nome;
+    <span class="fn">inputln</span>(<span class="str">f"Digite o seu nome completo: {nome}"</span>);
+
+    <span class="type">int</span> idade;
+    <span class="fn">inputln</span>(<span class="str">f"Digite a sua Idade: {idade}"</span>);
+
+    <span class="type">float</span> valor;
+    <span class="fn">inputln</span>(<span class="str">f"Digite o valor do produto: {valor}"</span>);
+
+    <span class="fn">println</span>(<span class="str">f"Dados capturados: {nome} | {idade} anos | R$ {valor:.2f}"</span>);
+}
+        </pre>
+    </div>
+
+    <h2>2.5 Tabela de Operadores e Precedência</h2>
+    <p>
+        Os operadores do GhostLang seguem uma ordem estrita e bem definida de precedência matemática:
+    </p>
+
+    <table>
+        <thead>
+            <tr>
+                <th>Categoria</th>
+                <th>Operadores</th>
+                <th>Associatividade</th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr>
+                <td>Primários</td>
+                <td><code>()</code>, <code>[]</code>, <code>.</code>, chamadas de método</td>
+                <td>Esquerda para Direita</td>
+            </tr>
+            <tr>
+                <td>Unários</td>
+                <td><code>+</code>, <code>-</code>, <code>!</code>, <code>~</code>, <code>++</code>, <code>--</code></td>
+                <td>Direita para Esquerda</td>
+            </tr>
+            <tr>
+                <td>Exponenciação / Potência</td>
+                <td><code>**</code> (ou função <code>potencia</code> / <code>pow</code>)</td>
+                <td>Direita para Esquerda</td>
+            </tr>
+            <tr>
+                <td>Multiplicativos</td>
+                <td><code>*</code>, <code>/</code>, <code>%</code></td>
+                <td>Esquerda para Direita</td>
+            </tr>
+            <tr>
+                <td>Aditivos</td>
+                <td><code>+</code>, <code>-</code></td>
+                <td>Esquerda para Direita</td>
+            </tr>
+            <tr>
+                <td>Bitwise / Deslocamento</td>
+                <td><code>&lt;&lt;</code>, <code>&gt;&gt;</code>, <code>&amp;</code>, <code>|</code>, <code>^</code> (XOR bit a bit)</td>
+                <td>Esquerda para Direita</td>
+            </tr>
+            <tr>
+                <td>Pipeline Neural</td>
+                <td><code>&gt;&gt;</code> (encadeamento de camadas em redes)</td>
+                <td>Esquerda para Direita</td>
+            </tr>
+            <tr>
+                <td>Relacionais</td>
+                <td><code>&lt;</code>, <code>&lt;=</code>, <code>&gt;</code>, <code>&gt;=</code></td>
+                <td>Esquerda para Direita</td>
+            </tr>
+            <tr>
+                <td>Igualdade</td>
+                <td><code>==</code>, <code>!=</code></td>
+                <td>Esquerda para Direita</td>
+            </tr>
+            <tr>
+                <td>Lógicos</td>
+                <td><code>e</code> (ou <code>&amp;&amp;</code>), <code>ou</code> (ou <code>||</code>)</td>
+                <td>Esquerda para Direita</td>
+            </tr>
+            <tr>
+                <td>Atribuição</td>
+                <td><code>=</code>, <code>+=</code>, <code>-=</code>, <code>*=</code>, <code>/=</code>, <code>**=</code></td>
+                <td>Direita para Esquerda</td>
+            </tr>
+        </tbody>
+    </table>
+
+    <h2>2.6 Operações Matemáticas Clássicas e Avançadas (libs/math.g)</h2>
+    <p>
+        O GhostLang possui suporte nativo integral à matemática analítica, clássica e computacional de alta precisão.
+        A linguagem integra operadores de ponta diretamente na sintaxe do compilador, além de fornecer a biblioteca especialista <code>libs/math.g</code>.
+    </p>
+
+    <h3>2.6.1 Exponenciação e Potenciação (x^n)</h3>
+    <p>
+        A exponenciação (<span class="math">x<sup>n</sup></span>, lê-se <em>"x elevado a n"</em>) utiliza o operador universal <code>**</code>, possuindo alta precedência e associatividade da direita para a esquerda:
+    </p>
+    <div class="code-block">
+        <div class="code-header"><span class="code-filename">exemplos/potencia.g</span><span>GhostLang Source</span></div>
+        <pre>
+<span class="kw">function</span> <span class="type">void</span> <span class="fn">main</span>() {
+    <span class="type">int</span> base_int = <span class="num">2</span>;
+    <span class="type">int</span> exp_int = <span class="num">10</span>;
+    <span class="type">int</span> resultado = base_int ** exp_int; <span class="cm">// 2^10 = 1024 (inteiro exato)</span>
+    <span class="type">double</span> fracao = <span class="num">4.0</span> ** -<span class="num">0.5</span>;        <span class="cm">// 4^(-0.5) = 0.5 (flutuante)</span>
+    <span class="fn">println</span>(<span class="str">f"2 elevado a 10 = {resultado}"</span>);
+    <span class="fn">println</span>(<span class="str">f"4 elevado a -0.5 = {fracao}"</span>);
+}
+        </pre>
+    </div>
+
+    <h3>2.6.2 Raiz Quadrada e Raiz n-ésima Universal (<sup>n</sup>&radic;x)</h3>
+    <p>
+        Para o cálculo de raízes, o GhostLang oferece tanto as funções elementares <code>sqrt(x)</code> (raiz quadrada, idêntica ao padrão de C++) e <code>cbrt(x)</code> (raiz cúbica), quanto a função universal para <strong>raiz n-ésima</strong> <code>raiz_n(x, n)</code> (também disponível como <code>nth_root(x, n)</code>).
+    </p>
+    <p>
+        Onde o índice da raiz <span class="math">n</span> pode ser <strong>qualquer número natural maior do que zero</strong> (<span class="math">n &ge; 1</span>):
+    </p>
+    <ul>
+        <li><strong>Radicando positivo (<span class="math">x &ge; 0</span>):</strong> calcula <span class="math"><sup>n</sup>&radic;x = x<sup>1/n</sup></span> com rigor IEEE 754 em precisão dupla (<code>double</code>).</li>
+        <li><strong>Radicando negativo (<span class="math">x &lt; 0</span>) com índice ímpar:</strong> calcula a raiz real exata no corpo dos reais: <span class="math"><sup>3</sup>&radic;(-8) = -2</span>, <span class="math"><sup>5</sup>&radic;(-32) = -2</span>.</li>
+        <li><strong>Raiz de números negativos e corpo dos Complexos (<code>complex</code>):</strong> Como o GhostLang possui suporte nativo ao tipo <code>complex</code>, <strong>é plenamente possível calcular raízes de números negativos e raízes de índice par!</strong> O GhostLang disponibiliza as funções especializadas <code>csqrt(z)</code> (raiz quadrada complexa) e <code>raiz_n_complexa(z, n)</code> (ou <code>nth_root_c(z, n)</code> / sobrecarga <code>raiz_n(complex z, n)</code>). Ao passar um número negativo, o cálculo opera no corpo dos complexos retornando o ramo principal:
+            <br>&bull; <span class="math">&radic;(-4) = 2i</span> &rarr; <code>(0, 2)</code>
+            <br>&bull; <span class="math">&radic;(-1) = 1i</span> &rarr; <code>(0, 1)</code>
+            <br>&bull; <span class="math">&radic;(-16) = 4i</span> &rarr; <code>(0, 4)</code>
+            <br>&bull; <span class="math"><sup>4</sup>&radic;(-16) = &radic;2 + &radic;2&middot;i</span> &rarr; <code>(1.41421, 1.41421)</code>
+            <br>&bull; Raízes de números complexos arbitrários: <code>sqrt(3.0 + 4.0i)</code> &rarr; <code>(2, 1)</code> (<span class="math">2 + 1i</span>).
+        </li>
+        <li><strong>Validação estrita de domínio:</strong> caso <span class="math">n &le; 0</span>, lança erro informando que o índice deve ser um número natural maior do que zero (<span class="math">n &ge; 1</span>). No domínio estritamente real (<code>raiz_n(double, int)</code> com índice par e radicando negativo), orienta o desenvolvedor a utilizar o tipo nativo <code>complex</code>.</li>
+    </ul>
+
+    <div class="code-block">
+        <div class="code-header"><span class="code-filename">exemplos/raizes.g</span><span>GhostLang Source</span></div>
+        <pre>
+<span class="kw">import</span> <span class="str">"libs/math.g"</span>;
+
+<span class="kw">function</span> <span class="type">void</span> <span class="fn">main</span>() {
+    <span class="cm">// 1. Raizes no dominio real</span>
+    <span class="type">double</span> raiz2 = <span class="fn">sqrt</span>(<span class="num">144.0</span>);             <span class="cm">// Raiz quadrada: 12.0</span>
+    <span class="type">double</span> raiz3 = <span class="fn">cbrt</span>(<span class="num">125.0</span>);             <span class="cm">// Raiz cubica: 5.0</span>
+    <span class="type">double</span> raiz10 = <span class="fn">raiz_n</span>(<span class="num">1024.0</span>, <span class="num">10</span>);      <span class="cm">// Raiz decima de 1024: 2.0</span>
+    <span class="type">double</span> raiz5_neg = <span class="fn">nth_root</span>(-<span class="num">32.0</span>, <span class="num">5</span>);   <span class="cm">// Raiz quinta de -32: -2.0</span>
+    <span class="fn">println</span>(<span class="str">f"Raiz decima de 1024 = {raiz10}"</span>);
+    <span class="fn">println</span>(<span class="str">f"Raiz quinta de -32 = {raiz5_neg}"</span>);
+
+    <span class="cm">// 2. Raizes de numeros negativos com complex nativo</span>
+    <span class="type">complex</span> raiz_neg4 = <span class="fn">csqrt</span>(-<span class="num">4.0</span>);         <span class="cm">// Raiz quadrada de -4: 2i -> (0, 2)</span>
+    <span class="type">complex</span> raiz_neg1 = <span class="fn">csqrt</span>(-<span class="num">1.0</span>);         <span class="cm">// Raiz quadrada de -1: 1i -> (0, 1)</span>
+    <span class="type">complex</span> raiz_cplx = <span class="fn">sqrt</span>(<span class="num">3.0</span> + <span class="num">4.0i</span>);    <span class="cm">// Raiz de complexo -> (2, 1)</span>
+    <span class="type">complex</span> raiz4_neg16 = <span class="fn">raiz_n_complexa</span>(-<span class="num">16.0</span>, <span class="num">4</span>); <span class="cm">// Raiz 4a de -16: (1.41421, 1.41421)</span>
+    <span class="type">complex</span> raiz2_neg9 = <span class="fn">raiz_n</span>(-<span class="num">9.0</span> + <span class="num">0.0i</span>, <span class="num">2</span>);     <span class="cm">// Sobrecarga complexa -> (0, 3)</span>
+    <span class="fn">println</span>(<span class="str">f"csqrt(-4.0) = {raiz_neg4}"</span>);
+    <span class="fn">println</span>(<span class="str">f"csqrt(-1.0) = {raiz_neg1}"</span>);
+    <span class="fn">println</span>(<span class="str">f"raiz_n_complexa(-16, 4) = {raiz4_neg16}"</span>);
+    <span class="fn">println</span>(<span class="str">f"raiz_n(-9+0i, 2) = {raiz2_neg9}"</span>);
+}
+        </pre>
+    </div>
+
+    <h3>2.6.3 Panorama Completo da Biblioteca libs/math.g</h3>
+    <table>
+        <thead>
+            <tr>
+                <th>Domínio Matemático</th>
+                <th>Funções e Fórmulas Disponíveis</th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr>
+                <td><strong>Constantes Fundamentais</strong></td>
+                <td><code>const_pi()</code> (&pi;), <code>const_tau()</code> (2&pi;), <code>const_e()</code> (e), <code>const_phi()</code> (&phi;), <code>const_sqrt2()</code> (&radic;2), <code>const_ln2()</code>, <code>const_ln10()</code></td>
+            </tr>
+            <tr>
+                <td><strong>Aritmética e Teoria dos Números</strong></td>
+                <td><code>soma</code>, <code>subtracao</code>, <code>multiplicacao</code>, <code>divisao</code>, <code>resto_divisao</code>, <code>mdc(a,b)</code>, <code>mmc(a,b)</code>, <code>eh_primo(n)</code>, <code>proximo_primo(n)</code>, <code>fatorial(n)</code>, <code>permutacao(n,k)</code>, <code>combinacao(n,k)</code></td>
+            </tr>
+            <tr>
+                <td><strong>Potenciação e Raízes</strong></td>
+                <td><code>potencia(base, exp)</code> (ou <code>**</code>), <code>raiz_quadrada(x)</code> (ou <code>sqrt</code>), <code>raiz_cubica(x)</code> (ou <code>cbrt</code>), <code>raiz_n(x, n)</code> / <code>nth_root(x, n)</code>, <code>csqrt(z)</code>, <code>raiz_n_complexa(z, n)</code> / <code>nth_root_c(z, n)</code>, <code>hipotenusa(a,b)</code></td>
+            </tr>
+            <tr>
+                <td><strong>Exponenciais e Logaritmos</strong></td>
+                <td><code>exponencial(x)</code> (e<sup>x</sup>), <code>exponencial2(x)</code> (2<sup>x</sup>), <code>logaritmo_natural(x)</code> (ln x), <code>logaritmo_base10(x)</code> (log<sub>10</sub>), <code>logaritmo_base2(x)</code> (log<sub>2</sub>), <code>logaritmo_base(x, b)</code> (log<sub>b</sub>)</td>
+            </tr>
+            <tr>
+                <td><strong>Trigonometria e Hiperbólicas</strong></td>
+                <td><code>seno</code>, <code>cosseno</code>, <code>tangente</code>, <code>cotangente</code>, <code>secante</code>, <code>cossecante</code>, <code>arco_seno</code>, <code>arco_cosseno</code>, <code>arco_tangente</code>, <code>arco_tangente2(y, x)</code>, <code>seno_hiperbolico</code>, <code>cosseno_hiperbolico</code>, <code>tangente_hiperbolica</code>, <code>graus_para_radianos</code>, <code>radianos_para_graus</code></td>
+            </tr>
+            <tr>
+                <td><strong>Funções Especiais e Ativações</strong></td>
+                <td><code>funcao_gama(x)</code> (&Gamma;), <code>log_gama(x)</code>, <code>funcao_beta(a, b)</code>, <code>funcao_erro(x)</code> (erf), <code>funcao_erro_complementar(x)</code> (erfc), <code>sigmoid(x)</code>, <code>relu(x)</code>, <code>gelu(x)</code></td>
+            </tr>
+        </tbody>
+    </table>
+
+    <h2>2.7 Estatística e Ciência de Dados (libs/stats.g)</h2>
+    <p>
+        Para análise quantitativa de dados, modelos preditivos e avaliação de amostragem quântica, a biblioteca <code>libs/stats.g</code> oferece um ferramental estatístico completo:
+    </p>
+
+    <table>
+        <thead>
+            <tr>
+                <th>Categoria Estatística</th>
+                <th>Funções e Métricas Disponíveis</th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr>
+                <td><strong>Tendência Central</strong></td>
+                <td><code>media(xs)</code>, <code>mediana(xs)</code>, <code>moda(xs)</code>, <code>media_ponderada(xs, pesos)</code>, <code>media_geometrica(xs)</code>, <code>media_harmonica(xs)</code>, <code>media_aparada(xs, p)</code></td>
+            </tr>
+            <tr>
+                <td><strong>Dispersão e Extremos</strong></td>
+                <td><code>minimo(xs)</code>, <code>maximo(xs)</code>, <code>amplitude(xs)</code>, <code>variancia(xs)</code> (amostral N-1), <code>variancia_populacional(xs)</code> (N), <code>desvio_padrao(xs)</code>, <code>desvio_padrao_populacional(xs)</code>, <code>erro_padrao(xs)</code>, <code>coeficiente_variacao(xs)</code>, <code>desvio_medio_absoluto(xs)</code></td>
+            </tr>
+            <tr>
+                <td><strong>Posição e Forma</strong></td>
+                <td><code>quantil(xs, q)</code>, <code>percentil(xs, p)</code>, <code>quartis(xs)</code> [Q1, Q2, Q3], <code>intervalo_interquartil(xs)</code> (IQR), <code>assimetria(xs)</code> (Skewness Fisher-Pearson), <code>curtose(xs)</code> (Kurtosis), <code>z_scores(xs)</code>, <code>escalonar_min_max(xs)</code></td>
+            </tr>
+            <tr>
+                <td><strong>Bivariada e Regressão</strong></td>
+                <td><code>covariancia(xs, ys)</code>, <code>covariancia_populacional(xs, ys)</code>, <code>correlacao_pearson(xs, ys)</code>, <code>regressao_linear(xs, ys)</code> retornando <code>[inclinacao, intercepto, r2]</code></td>
+            </tr>
+            <tr>
+                <td><strong>Probabilidade e Amostragem</strong></td>
+                <td><code>normal_pdf(x, mu, sigma)</code>, <code>normal_cdf(x, mu, sigma)</code>, <code>poisson_pmf(k, lambda)</code>, <code>binomial_pmf(k, n, p)</code>, <code>lcg_uniform(seed)</code></td>
+            </tr>
+        </tbody>
+    </table>
+
+    <!-- SEÇÃO DE ATIVIDADES PRÁTICAS DO CAPÍTULO -->
+    <div class="exercises-section">
+        <div class="exercises-title">
+            <span>✏️ </span> Laboratório Prático: Exercícios do Capítulo 1 & 2
+        </div>
+
+        <div class="exercise-item">
+            <div class="exercise-header">
+                <span class="exercise-name">Exercício 1.1: Calculadora de Impedância Complexa</span>
+                <span class="exercise-badge badge-easy">Aquecimento</span>
+            </div>
+            <div class="exercise-desc">
+                Crie um programa <code>impedancia.g</code> que receba a resistência <span class="math">R</span> = 50.0 Ω e a reatância indutiva <span class="math">X<sub>L</sub></span> = 30.0 Ω. Forme o número complexo de impedância <span class="math">Z = R + X<sub>L</sub> · i</span>, calcule seu módulo <span class="math">|Z| = √(R² + X<sub>L</sub>²)</span> usando <code>hypot</code> ou <code>sqrt</code> e exiba o resultado usando f-strings.
+            </div>
+            <div class="exercise-hint">Dica: Use literais de ponto flutuante explícitos e multiplique por <code>1.0i</code>.</div>
+        </div>
+
+        <div class="exercise-item">
+            <div class="exercise-header">
+                <span class="exercise-name">Exercício 1.2: Conversor Bilíngue de Lógica Booleana</span>
+                <span class="exercise-badge badge-medium">Aplicação</span>
+            </div>
+            <div class="exercise-desc">
+                Escreva um programa que imprima a tabela verdade dos operadores lógicos da GhostLang. Crie variáveis com <code>true</code> e <code>false</code>, combine-as com <code>&amp;&amp;</code>, <code>||</code> e <code>!</code>, e imprima o resultado em formato de tabela.
+            </div>
+            <div class="exercise-hint">Dica: <code>&amp;&amp;</code> e <code>||</code> fazem curto-circuito: em <code>a &amp;&amp; b</code>, <code>b</code> só é avaliado quando <code>a</code> é <code>true</code>.</div>
+        </div>
+
+        <div class="exercise-item">
+            <div class="exercise-header">
+                <span class="exercise-name">Exercício 1.3: Normalizador de Amplitudes Quânticas</span>
+                <span class="exercise-badge badge-hard">Desafio</span>
+            </div>
+            <div class="exercise-desc">
+                Dado um estado de superposição quântica arbitrário <span class="math">|ψ⟩ = α|0⟩ + β|1⟩</span>, com <span class="math">α = 3.0 + 1.0i</span> e <span class="math">β = 2.0 - 2.0i</span>, calcule a norma total <span class="math">N = √(|α|² + |β|²)</span> e calcule os coeficientes normalizados <span class="math">α' = α / N</span> e <span class="math">β' = β / N</span>, demonstrando que <span class="math">|α'|² + |β'|² = 1.0</span>.
+            </div>
+            <div class="exercise-hint">Dica: Em números complexos, o quadrado da magnitude de <span class="math">x + yi</span> é <span class="math">x² + y²</span>.</div>
+        </div>
+
+        <div class="exercise-item">
+            <div class="exercise-header">
+                <span class="exercise-name">Exercício 1.4: Raiz n-ésima e Crescimento Alométrico</span>
+                <span class="exercise-badge badge-medium">Aplicação Matemática</span>
+            </div>
+            <div class="exercise-desc">
+                Escreva um programa <code>escalas.g</code> que importe <code>libs/math.g</code> e calcule o raio característico de um cristal dado seu volume hiperdimensional <span class="math">V = 65536.0</span> na dimensão <span class="math">n = 8</span>, através da fórmula <span class="math">R = <sup>8</sup>&radic;V</span> (utilizando <code>raiz_n(V, 8)</code>). Em seguida, compare com a potenciação direta <code>V ** (1.0 / 8.0)</code> e verifique a igualdade.
+            </div>
+            <div class="exercise-hint">Dica: 65536 = 2^16, logo a raiz oitava deve resultar exatamente em 4.0.</div>
+        </div>
+
+        <div class="exercise-item">
+            <div class="exercise-header">
+                <span class="exercise-name">Exercício 1.5: Análise Estatística de Telemetria Quântica</span>
+                <span class="exercise-badge badge-hard">Desafio de Dados</span>
+            </div>
+            <div class="exercise-desc">
+                Utilizando <code>libs/stats.g</code>, crie uma lista com 10 medições de fidelidade de porta quântica: <code>[0.98, 0.95, 0.99, 0.94, 0.97, 0.99, 0.96, 0.98, 0.99, 0.95]</code>. Calcule e exiba a média, a mediana, os quartis <span class="math">[Q_1, Q_2, Q_3]</span>, o intervalo interquartil (<span class="math">IQR</span>), a variância amostral e o desvio padrão.
+            </div>
+            <div class="exercise-hint">Dica: Use <code>quartis(dados)</code> e acesse <code>q[0]</code>, <code>q[1]</code> e <code>q[2]</code>.</div>
+        </div>
+
+        <div class="exercise-item">
+            <div class="exercise-header">
+                <span class="exercise-name">Exercício 1.6: Sistema Interativo de Cadastro com input e inputln</span>
+                <span class="exercise-badge badge-medium">Aplicação Interativa</span>
+            </div>
+            <div class="exercise-desc">
+                Crie um programa <code>cadastro_interativo.g</code> que utilize os dois formatos de entrada de dados do GhostLang: primeiro leia o nome do operador e a frequência de amostragem em GHz via atribuição com <code>input(...)</code>; em seguida, declare previamente as variáveis de potência e número de disparos e utilize <code>inputln(f"Prompt: {var}")</code> para preenchê-las. No final, exiba um relatório completo usando interpolação moderna de f-strings.
+            </div>
+            <div class="exercise-hint">Dica: O runtime do GhostLang gerencia o buffer do console, permitindo alternar leituras numéricas e textuais consecutivas com segurança.</div>
+        </div>
+    </div>
+</div>
+
+
+<!-- CAPÍTULO 3 -->
+<div class="chapter">
+    <span class="chapter-badge">Capítulo 3</span>
+    <h1 class="chapter-title">Controle de Fluxo, Coleções e Tratamento de Exceções</h1>
+    <div class="chapter-intro">
+        Explore estruturas de repetição otimizadas, o laço de iteração <code>foreach</code>, coleções nativas dinâmicas e o mecanismo robusto de captura de erros <code>try/catch/finally</code>.
+    </div>
+
+    <h2>3.1 Estruturas Condicionais: <code>if / else</code> e <code>switch / case</code></h2>
+    <p>
+        O GhostLang adota controle de fluxo estruturado em estilo C/C++, com condicionais <code>if / else</code> e seleção multi-ramo de alta performance via <code>switch / case</code> com cláusula <code>default</code>:
+    </p>
+
+    <div class="code-block">
+        <div class="code-header"><span class="code-filename">exemplos/controle.g</span><span>GhostLang Source</span></div>
+        <pre>
+<span class="kw">function</span> <span class="type">void</span> <span class="fn">avaliar_porta</span>(<span class="type">string</span> porta) {
+    <span class="kw">switch</span> (porta) {
+        <span class="kw">case</span> <span class="str">"H"</span>:
+            <span class="fn">println</span>(<span class="str">"Hadamard: Cria superposicao equilibrada."</span>);
+            <span class="kw">break</span>;
+        <span class="kw">case</span> <span class="str">"X"</span>:
+            <span class="fn">println</span>(<span class="str">"Pauli-X: Inversor de bit quântico (NOT)."</span>);
+            <span class="kw">break</span>;
+        <span class="kw">case</span> <span class="str">"CX"</span>:
+            <span class="fn">println</span>(<span class="str">"CNOT: Entrelaçamento de 2 qubits."</span>);
+            <span class="kw">break</span>;
+        <span class="kw">default</span>:
+            <span class="fn">println</span>(<span class="str">f"Porta desconhecida ou customizada: {porta}"</span>);
+    }
+}
+        </pre>
+    </div>
+
+    <h2>3.2 Laços de Repetição: <code>while</code>, <code>for</code> e <code>foreach</code></h2>
+    <p>
+        Para iterações clássicas com contador ou condição prévia, usamos <code>for</code> e <code>while</code>; para percorrer coleções, listas nativas ou até mesmo registradores quânticos <code>qreg</code>, o laço <code>foreach (... in ...)</code> oferece a abordagem mais concisa, legível e segura:
+    </p>
+
+    <div class="code-block">
+        <div class="code-header"><span class="code-filename">exemplos/lacos.g</span><span>GhostLang Source</span></div>
+        <pre>
+<span class="kw">function</span> <span class="type">void</span> <span class="fn">main</span>() {
+    <span class="cm">// 1. Laço tradicional com acumulador</span>
+    <span class="type">int</span> total = <span class="num">0</span>;
+    <span class="kw">for</span> (<span class="type">int</span> i = <span class="num">1</span>; i &lt;= <span class="num">10</span>; i = i + <span class="num">1</span>) {
+        total = total + i;
+    }
+    <span class="fn">println</span>(<span class="str">f"Soma de 1 a 10 = {total}"</span>);
+
+    <span class="cm">// 2. Coleções dinâmicas e foreach</span>
+    <span class="type">list</span>&lt;<span class="type">string</span>&gt; nomes = [<span class="str">"Qubit-0"</span>, <span class="str">"Qubit-1"</span>, <span class="str">"Qubit-2"</span>];
+    nomes.append(<span class="str">"Qubit-3"</span>);
+    
+    <span class="kw">foreach</span> (<span class="type">string</span> item <span class="kw">in</span> nomes) {
+        <span class="fn">println</span>(<span class="str">f"Processando nó: {item}"</span>);
+    }
+}
+        </pre>
+    </div>
+
+    <h2>3.3 Tratamento de Exceções: <code>try / catch / finally</code></h2>
+    <p>
+        Operações que possam falhar (como divisão por zero, leitura de arquivos inexistentes ou índices fora do limite) devem ser protegidas com blocos estruturados de exceção. O bloco <code>finally</code> é sempre executado, garantindo liberação de recursos mesmo em caso de erro:
+    </p>
+
+    <div class="code-block">
+        <div class="code-header"><span class="code-filename">exemplos/erros.g</span><span>GhostLang Source</span></div>
+        <pre>
+<span class="kw">function</span> <span class="type">float</span> <span class="fn">dividir_seguro</span>(<span class="type">float</span> a, <span class="type">float</span> b) {
+    <span class="kw">try</span> {
+        <span class="kw">if</span> (b == <span class="num">0.0</span>) {
+            <span class="kw">throw</span> <span class="str">"Erro de Divisão: Denominador não pode ser nulo!"</span>;
+        }
+        <span class="kw">return</span> a / b;
+    } <span class="kw">catch</span> (<span class="type">string</span> erro) {
+        <span class="fn">println</span>(<span class="str">f"Interceptado: {erro}"</span>);
+        <span class="kw">return</span> <span class="num">0.0</span>;
+    } <span class="kw">finally</span> {
+        <span class="fn">println</span>(<span class="str">"Operação aritmética finalizada."</span>);
+    }
+}
+        </pre>
+    </div>
+</div>
+
+<!-- CAPÍTULO 4 -->
+<div class="chapter">
+    <span class="chapter-badge">Capítulo 4</span>
+    <h1 class="chapter-title">Funções de Primeira Classe, Lambdas e Concorrência</h1>
+    <div class="chapter-intro">
+        Aprenda a tratar funções como valores, criar funções anônimas (lambdas) com captura léxica de escopo e disparar threads concorrentes com sincronização via mutex.
+    </div>
+
+    <h2>4.1 Funções de Primeira Classe e Expressões Lambda</h2>
+    <p>
+        Em GhostLang, funções são tratadas como cidadãs de primeira classe: podem ser passadas como argumentos, retornadas por outras funções ou armazenadas em variáveis. As expressões lambda possuem sintaxe dual, oferecendo máxima expressividade:
+    </p>
+    <ul>
+        <li><strong>Notação Matemática com Pipes (padrão moderno):</strong> <code>|parametros| =&gt; expressao</code> (para zero parâmetros: <code>|| =&gt; expressao</code>).</li>
+        <li><strong>Notação Clássica com Parênteses:</strong> <code>(parametros) =&gt; expressao</code> (para zero parâmetros: <code>() =&gt; expressao</code>).</li>
+    </ul>
+    <p>
+        Os parâmetros suportam tanto <strong>tipagem estática explícita</strong> (como <code>|int x|</code>) quanto <strong>inferência automática polimórfica</strong> (como <code>|x|</code>). As coleções <code>list&lt;T&gt;</code> expõem métodos funcionais nativos de ordem superior (<code>map</code>, <code>filter</code>, <code>reduce</code> e <code>for_each</code>):
+    </p>
+
+    <div class="code-block">
+        <div class="code-header"><span class="code-filename">exemplos/lambdas.g</span><span>GhostLang Source</span></div>
+        <pre>
+<span class="kw">function</span> <span class="type">void</span> <span class="fn">main</span>() {
+    <span class="cm">// 1. Lambdas atribuídas a variáveis (tipada e inferida)</span>
+    <span class="kw">var</span> dobrar = |<span class="type">int</span> x| =&gt; x * <span class="num">2</span>;
+    <span class="kw">var</span> quadrado = |x| =&gt; x * x;
+    <span class="fn">println</span>(<span class="str">f"O dobro de 7 e: {dobrar(7)}"</span>);
+    <span class="fn">println</span>(<span class="str">f"O quadrado de 9 e: {quadrado(9)}"</span>);
+
+    <span class="cm">// 2. Pipeline funcional sobre coleções</span>
+    <span class="type">list</span>&lt;<span class="type">int</span>&gt; valores = [<span class="num">1</span>, <span class="num">2</span>, <span class="num">3</span>, <span class="num">4</span>, <span class="num">5</span>, <span class="num">6</span>];
+    <span class="type">list</span>&lt;<span class="type">int</span>&gt; pares = valores.filter(|x| =&gt; x % <span class="num">2</span> == <span class="num">0</span>);
+    <span class="type">list</span>&lt;<span class="type">int</span>&gt; valoresDobrados = pares.map(|x| =&gt; x * <span class="num">2</span>);
+    
+    <span class="fn">println</span>(<span class="str">f"Numeros pares: {pares}"</span>);
+    <span class="fn">println</span>(<span class="str">f"Valores dobrados: {valoresDobrados}"</span>);
+}
+        </pre>
+    </div>
+
+    <h2>4.2 Concorrência Real com Threads e Mutex</h2>
+    <p>
+        Ao contrário de interpretadores que possuem travas globais (GIL), o GhostLang compila cada bloco <code>spawn { }</code> para uma thread real do sistema operacional (<code>std::thread</code> no C++ gerado). <code>mutex</code>, <code>lock</code> e <code>unlock</code> protegem os dados compartilhados. Como <code>spawn</code> não devolve um objeto para <code>join</code>, o programa espera com <code>sleep(ms)</code>:
+    </p>
+
+    <div class="code-block">
+        <div class="code-header"><span class="code-filename">exemplos/threads_mutex.g</span><span>GhostLang Source</span></div>
+        <pre>
+<span class="type">int</span> contador_global = <span class="num">0</span>;
+
+<span class="kw">function</span> <span class="type">void</span> <span class="fn">main</span>() {
+    <span class="type">mutex</span> trava_memoria;
+    <span class="kw">for</span> (<span class="type">int</span> t = <span class="num">1</span>; t &lt;= <span class="num">2</span>; t++) {
+        <span class="kw">spawn</span> {
+            <span class="kw">for</span> (<span class="type">int</span> i = <span class="num">0</span>; i &lt; <span class="num">5000</span>; i++) {
+                <span class="kw">lock</span>(trava_memoria);
+                contador_global = contador_global + <span class="num">1</span>;
+                <span class="kw">unlock</span>(trava_memoria);
+            }
+        }
+    }
+    <span class="kw">sleep</span>(<span class="num">500</span>);   <span class="cm">// spawn não tem join: o main espera as threads terminarem</span>
+    <span class="kw">lock</span>(trava_memoria);
+    <span class="fn">println</span>(<span class="str">f"Valor final sincronizado: {contador_global} (esperado: 10000)"</span>);
+    <span class="kw">unlock</span>(trava_memoria);
+}
+        </pre>
+    </div>
+</div>
+
+<!-- CAPÍTULO 5 -->
+<div class="chapter">
+    <span class="chapter-badge">Capítulo 5</span>
+    <h1 class="chapter-title">Programação Orientada a Objetos, Herança e Módulos</h1>
+    <div class="chapter-intro">
+        Modele sistemas complexos com classes completas, métodos construtores, encapsulamento e importação de módulos com resolução estrita de dependências.
+    </div>
+
+    <h2>5.1 Classes, Construtores e Encapsulamento</h2>
+    <p>
+        Em GhostLang, as classes são cidadãs de primeira classe com suporte a atributos privados e métodos públicos, construtores formais e resolução estática de chamada:
+    </p>
+
+    <div class="code-block">
+        <div class="code-header"><span class="code-filename">exemplos/classes.g</span><span>GhostLang Source</span></div>
+        <pre>
+<span class="kw">class</span> SensorQuantico {
+    <span class="kw">private</span>:
+    <span class="type">string</span> id_sensor;
+    <span class="type">double</span> temperatura_kelvin;
+    <span class="kw">public</span>:
+    <span class="type">bool</span> calibrado;
+
+    <span class="kw">function</span> <span class="fn">SensorQuantico</span>(<span class="type">string</span> id, <span class="type">double</span> temp) {
+        <span class="kw">this</span>.id_sensor = id;
+        <span class="kw">this</span>.temperatura_kelvin = temp;
+        <span class="kw">this</span>.calibrado = <span class="kw">false</span>;
+    }
+
+    <span class="kw">function</span> <span class="type">void</span> <span class="fn">calibrar</span>() {
+        <span class="kw">if</span> (<span class="kw">this</span>.temperatura_kelvin &lt;= <span class="num">0.05</span>) {
+            <span class="kw">this</span>.calibrado = <span class="kw">true</span>;
+            <span class="fn">println</span>(<span class="str">f"Sensor {this.id_sensor}: calibracao criogenica BEM-SUCEDIDA!"</span>);
+        } <span class="kw">else</span> {
+            <span class="fn">println</span>(<span class="str">f"Sensor {this.id_sensor}: temperatura alta ({this.temperatura_kelvin}K)."</span>);
+        }
+    }
+}
+
+<span class="kw">function</span> <span class="type">void</span> <span class="fn">main</span>() {
+    SensorQuantico s1 = <span class="fn">SensorQuantico</span>(<span class="str">"Q-01"</span>, <span class="num">0.02</span>);
+    SensorQuantico s2 = <span class="fn">SensorQuantico</span>(<span class="str">"Q-02"</span>, <span class="num">4.2</span>);
+    s1.<span class="fn">calibrar</span>();
+    s2.<span class="fn">calibrar</span>();
+}
+        </pre>
+    </div>
+
+    <h2>5.2 Herança Simples e Redefinição de Métodos</h2>
+    <p>
+        Uma classe pode estender outra com <code>extends</code>: ela herda os campos e métodos da base, chama o construtor da base com <code>super(...)</code> na primeira linha do seu construtor e pode redefinir métodos. Atenção: objetos têm semântica de valor, como no C++ gerado; guardar um <code>QPU</code> numa variável do tipo <code>DispositivoHardware</code> copia só a parte da base:
+    </p>
+
+    <div class="code-block">
+        <div class="code-header"><span class="code-filename">exemplos/heranca.g</span><span>GhostLang Source</span></div>
+        <pre>
+<span class="kw">class</span> DispositivoHardware {
+    <span class="kw">public</span>:
+    <span class="type">string</span> fabricante;
+
+    <span class="kw">function</span> <span class="fn">DispositivoHardware</span>(<span class="type">string</span> fab) {
+        <span class="kw">this</span>.fabricante = fab;
+    }
+
+    <span class="kw">function</span> <span class="type">string</span> <span class="fn">descrever</span>() {
+        <span class="kw">return</span> <span class="str">f"Dispositivo de controle fabricado por {this.fabricante}."</span>;
+    }
+}
+
+<span class="kw">class</span> QPU <span class="kw">extends</span> DispositivoHardware {
+    <span class="kw">public</span>:
+    <span class="type">int</span> contagem_qubits;
+
+    <span class="kw">function</span> <span class="fn">QPU</span>(<span class="type">string</span> fab, <span class="type">int</span> n_qubits) {
+        <span class="kw">super</span>(fab);   <span class="cm">// primeira linha do construtor: chama o construtor da base</span>
+        <span class="kw">this</span>.contagem_qubits = n_qubits;
+    }
+
+    <span class="kw">function</span> <span class="type">string</span> <span class="fn">descrever</span>() {   <span class="cm">// redefine o método da base</span>
+        <span class="kw">return</span> <span class="str">f"QPU {this.fabricante} com {this.contagem_qubits} qubits."</span>;
+    }
+}
+
+<span class="kw">function</span> <span class="type">void</span> <span class="fn">main</span>() {
+    DispositivoHardware d = <span class="fn">DispositivoHardware</span>(<span class="str">"Ghost Labs"</span>);
+    QPU q = <span class="fn">QPU</span>(<span class="str">"Ghost Labs"</span>, <span class="num">27</span>);
+    <span class="fn">println</span>(d.<span class="fn">descrever</span>());
+    <span class="fn">println</span>(q.<span class="fn">descrever</span>());
+}
+        </pre>
+    </div>
+
+    <!-- SEÇÃO DE ATIVIDADES PRÁTICAS DO CAPÍTULO -->
+    <div class="exercises-section">
+        <div class="exercises-title">
+            <span>✏️</span> Laboratório Prático: Exercícios dos Capítulos 3, 4 e 5
+        </div>
+
+        <div class="exercise-item">
+            <div class="exercise-header">
+                <span class="exercise-name">Exercício 2.1: Validador de Telemetria com Exceção</span>
+                <span class="exercise-badge badge-easy">Aquecimento</span>
+            </div>
+            <div class="exercise-desc">
+                Crie uma função <code>validar_fidelidade(float f)</code> que verifique se uma fidelidade quântica está no intervalo [0.0, 1.0]. Se estiver fora, lance uma exceção textual com <code>throw</code>. No programa principal, teste valores válidos e inválidos dentro de um bloco <code>try/catch</code>.
+            </div>
+            <div class="exercise-hint">Dica: Trate o valor capturado na cláusula <code>catch (string erro)</code> exibindo uma mensagem de alerta.</div>
+        </div>
+
+        <div class="exercise-item">
+            <div class="exercise-header">
+                <span class="exercise-name">Exercício 2.2: Pipeline Funcional com Lambdas</span>
+                <span class="exercise-badge badge-medium">Aplicação</span>
+            </div>
+            <div class="exercise-desc">
+                Crie uma lista com 8 medições de energia molecular. Usando expressões lambda e métodos encadeados, filtre apenas as energias negativas (<span class="math">E</span> &lt; 0.0), calcule o módulo de cada valor filtrado e ordene a lista resultante.
+            </div>
+            <div class="exercise-hint">Dica: Utilize métodos encadeados <code>lista.filter(|x| =&gt; ...).map(|x| =&gt; ...)</code>.</div>
+        </div>
+
+        <div class="exercise-item">
+            <div class="exercise-header">
+                <span class="exercise-name">Exercício 2.3: Fila Concorrente de Trabalhos Quânticos</span>
+                <span class="exercise-badge badge-hard">Desafio</span>
+            </div>
+            <div class="exercise-desc">
+                Modele uma classe <code>FilaCircuitos</code> que armazene nomes de circuitos para execução. Duas threads paralelas devem retirar tarefas da fila e executá-las de forma segura sem condição de corrida, usando uma trava <code>mutex</code> para proteger a remoção de itens da lista.
+            </div>
+            <div class="exercise-hint">Dica: Bloqueie o mutex antes de verificar o tamanho e retirar o elemento da fila.</div>
+        </div>
+    </div>
+</div>
+
+
+<!-- CAPÍTULO 6 -->
+<div class="chapter">
+    <span class="chapter-badge">Capítulo 6</span>
+    <h1 class="chapter-title">Álgebra Hiper-Complexa G (4D) e Tensores N-Dimensionais</h1>
+    <div class="chapter-intro">
+        Aprofunde-se na assinatura matemática única do GhostLang: os Números Fantasmas 4D, comutadores quânticos, propagação analítica de incerteza, tensores multidimensionais e aceleração via GhostBLAS.
+    </div>
+
+    <h2>6.1 Os Números Fantasmas G: Definição e Estrutura 4D</h2>
+    <p>
+        O GhostLang introduz como primitivo matemático o número hiper-complexo <strong>Fantasma G</strong>, modelado em quatro coordenadas ortogonais:
+    </p>
+
+    <div style="text-align: center; font-size: 14pt; margin: 15px 0; color: #0284c7; font-weight: bold;">
+        G = x + y·i + p·g + θ²
+    </div>
+
+    <p>
+        Onde:
+    </p>
+    <ul>
+        <li><strong>x (Parte Real):</strong> Representa grandezas físicas clássicas e escalares.</li>
+        <li><strong>y (Parte Imaginária i):</strong> Comportamento oscilatório e amplitudes de fase (<span class="math">i² = -1</span>).</li>
+        <li><strong>p (Parte Fantasma g):</strong> Componente diferencial de incerteza quântica ou gradiente propagado.</li>
+        <li><strong>θ (Incerteza Grassmanniana / Dual):</strong> Elemento nilpotente onde <span class="math">θ² = 0</span>, utilizado em derivadas automáticas e aproximações de perturbação.</li>
+    </ul>
+
+    <div class="callout callout-warning">
+        <div class="callout-title">⚠️ Nota Matemática Rigorosa sobre a Álgebra G</div>
+        Conforme verificado em <code>src/GhostNumberG.cpp</code>, o produto dos números <span class="math"><b>G</b></span> não é estritamente associativo em todas as combinações: para o fantasma puro <span class="math">θ = (0, 0, 1)</span>, temos <span class="math">(i · i) · θ = -θ</span>, enquanto <span class="math">i · (i · θ) = 0</span>. Esta propriedade é intencional e reflete a física de comutadores e anti-comutadores de campos fermiônicos e estados entrelaçados.
+    </div>
+
+    <h2>6.2 Criando e Manipulando Números G no Código</h2>
+    <p>
+        No GhostLang, o tipo <code>ghost</code> é de primeira classe e pode ser criado com literais (como <code>1.0 + 2.0i + 3.0g</code>) ou diretamente através do construtor explícito <code>ghost(x, y, p, theta2)</code>:
+    </p>
+
+    <div class="code-block">
+        <div class="code-header"><span class="code-filename">exemplos/NumerosFantasmasG.g</span><span>GhostLang Source</span></div>
+        <pre>
+<span class="kw">function</span> <span class="type">void</span> <span class="fn">main</span>() {
+    <span class="cm">// Instanciação explícita de número G: x, y (i), p (g), theta2 (θ²)</span>
+    <span class="type">ghost</span> g1 = ghost(<span class="num">3.0</span>, <span class="num">4.0</span>, <span class="num">1.7</span>, <span class="num">2.0</span>);
+    <span class="type">ghost</span> g2 = ghost(<span class="num">1.0</span>, <span class="num">2.0</span>, <span class="num">3.0</span>, <span class="num">4.0</span>);
+
+    <span class="fn">println</span>(<span class="str">f"Número fantasma g1: {g1}"</span>);
+    <span class="fn">println</span>(<span class="str">f"Número fantasma g2: {g2}"</span>);
+
+    <span class="cm">// Operações algébricas nativas</span>
+    <span class="type">ghost</span> soma = g1 + g2;
+    <span class="type">ghost</span> produto = g1 * g2;
+    <span class="fn">println</span>(<span class="str">f"Soma dos números fantasmas G: {soma}"</span>);
+    <span class="fn">println</span>(<span class="str">f"Produto dos números fantasmas G: {produto}"</span>);
+
+    <span class="cm">// Formatos de Exibição Personalizados</span>
+    <span class="fn">println</span>(<span class="str">f"g1 em 4D: {g1:4d}"</span>);
+    <span class="fn">println</span>(<span class="str">"g1 em 4D com to_4d(): "</span> + g1.<span class="fn">to_4d</span>());
+    <span class="fn">println</span>(<span class="str">f"g1 em Matemático: {g1:math}"</span>);
+    <span class="fn">println</span>(<span class="str">"g1 em Matemático com to_math(): "</span> + g1.<span class="fn">to_math</span>());
+    <span class="fn">println</span>(<span class="str">f"Norma ao quadrado real: {g1.real_norm_squared()}"</span>);
+}
+        </pre>
+    </div>
+
+    <h3>6.2.1 Formatos de Saída em <code>print</code> e <code>println</code></h3>
+    <p>
+        O GhostLang oferece suporte nativo e flexível para exibir números fantasmas tanto na forma vetorial 4D quanto na forma algébrica matemática clássica:
+    </p>
+    <ul>
+        <li><strong>Formato Padrão:</strong> <code>(x, yi, p, θ²) = (3.0000, 4.0000, 1.7000, 2.0000)</code> — representação canônica rigorosa com 4 casas decimais.</li>
+        <li><strong>Formato 4D Vetorial:</strong> <code>G = (3.0, 4.0, 1.7, 2.0)</code> — exibe as 4 coordenadas <code>(x, yi, p, θ²)</code>. Acessível via especificador de f-string <code>{g:4d}</code> ou pelo método <code>g.to_4d()</code>.</li>
+        <li><strong>Formato Matemático Algébrico:</strong> <code>G = 3.0 + 4.0i - 1.7p + 2.0θ²</code> — expressa o número fantasma como combinação linear de suas unidades ortogonais, com respeito rigoroso aos sinais dos termos. Acessível via f-string <code>{g:math}</code> ou pelo método <code>g.to_math()</code>.</li>
+    </ul>
+
+    <h3>6.2.2 Entrada de Dados com <code>input</code> e <code>inputln</code></h3>
+    <p>
+        Os comandos <code>input()</code> e <code>inputln()</code> interpretam entradas do usuário para variáveis do tipo <code>ghost</code> em qualquer uma das formas aceitas, com resolução automática de formato:
+    </p>
+
+    <div class="code-block">
+        <div class="code-header"><span class="code-filename">exemplos/entrada_ghost.g</span><span>GhostLang Source</span></div>
+        <pre>
+<span class="kw">function</span> <span class="type">void</span> <span class="fn">main</span>() {
+    <span class="cm">// 1. Entrada no formato vetorial 4D: "(3.0, 4.0, 1.7, 2.0)" ou "G = (3.0, 4.0, 1.7, 2.0)"</span>
+    <span class="type">ghost</span> g1 = <span class="fn">input</span>(<span class="str">"Digite o número fantasma em 4D: "</span>);
+
+    <span class="cm">// 2. Entrada no formato algébrico: "3.0 + 4.0i - 1.7p + 2.0θ²" ou "G = 3.0 + 4.0i - 1.7p + 2.0θ²"</span>
+    <span class="type">ghost</span> g2;
+    <span class="fn">inputln</span>(<span class="str">f"Digite o número fantasma algébrico: {g2}"</span>);
+
+    <span class="fn">println</span>(<span class="str">f"g1 recebido (4D): {g1:4d}"</span>);
+    <span class="fn">println</span>(<span class="str">f"g2 recebido (Matemático): {g2:math}"</span>);
+}
+        </pre>
+    </div>
+
+    <h2>6.3 Matrizes e Álgebra Linear de Alta Performance: <code>matrix</code> e <code>GhostMatrix</code></h2>
+    <p>
+        O GhostLang oferece uma arquitetura matricial de alto desempenho com suporte a duas abordagens complementares e interoperáveis: o tipo conciso <code>matrix</code> para álgebra linear numérica clássica e a classe estendida <code>GhostMatrix</code> para computação hipercomplexa 4D e inteligência artificial quântica. Ambas contam com aceleração paralela multi-thread nativa via OpenMP e kernels dedicados em GPU (CUDA).
+    </p>
+
+    <h3>6.3.1 Álgebra Linear Numérica com <code>matrix</code></h3>
+    <p>
+        O recurso <code>matrix</code> foi projetado para operações matemáticas rigorosas, resolução de sistemas lineares, decomposições e computação científica:
+    </p>
+    <ul>
+        <li><strong>Instanciação Direta:</strong> <code>matrix A(linhas, colunas);</code> aloca a matriz com inicialização segura de zeros.</li>
+        <li><strong>Manipulação de Células:</strong> <code>A.set(i, j, valor)</code> define o elemento na posição especificada e <code>A.get(i, j)</code> recupera seu valor, com verificação estrita de limites de dimensionalidade.</li>
+        <li><strong>Inversão Numérica Rigorosa (Gauss-Jordan):</strong> O método <code>A.inverse()</code> (ou seu alias <code>A.inv()</code>) calcula a matriz inversa <span class="math">A⁻¹</span> com pivotamento parcial, detectando matrizes singulares com precisão de máquina.</li>
+        <li><strong>Cálculo de Determinante:</strong> <code>A.determinant()</code> (ou <code>A.det()</code>) computa <span class="math">\det(A)</span> em tempo cúbico <span class="math">O(n³)</span>.</li>
+        <li><strong>Aritmética e Multiplicação:</strong> Suporte nativo aos operadores <code>A * B</code> (produto matricial acelerado por hardware), <code>A + B</code>, <code>A - B</code>, além de multiplicação e divisão por escalares (<code>A * 2.0</code>, <code>A / 2.0</code>).</li>
+        <li><strong>Exibição Tabular Formatada:</strong> <code>A.show()</code> imprime a matriz com alinhamento tabular e colchetes limpos. Interpolações diretas em f-strings como <code>println(f"{A}")</code> ou <code>println(A)</code> também são aceitas diretamente.</li>
+    </ul>
+
+    <div class="code-block">
+        <div class="code-header"><span class="code-filename">exemplos/matrizes.g</span><span>GhostLang Source</span></div>
+        <pre>
+<span class="cm">// Álgebra Linear Clássica e Resolução de Sistemas: matrix</span>
+<span class="kw">function</span> <span class="type">void</span> <span class="fn">main</span>() {
+    <span class="cm">// 1. Instanciação de uma matriz 2x2</span>
+    <span class="type">matrix</span> A(<span class="num">2</span>, <span class="num">2</span>);
+    A.set(<span class="num">0</span>, <span class="num">0</span>, <span class="num">4.0</span>); A.set(<span class="num">0</span>, <span class="num">1</span>, <span class="num">7.0</span>);
+    A.set(<span class="num">1</span>, <span class="num">0</span>, <span class="num">2.0</span>); A.set(<span class="num">1</span>, <span class="num">1</span>, <span class="num">6.0</span>);
+
+    <span class="cm">// 2. Inversão matricial exata via Gauss-Jordan</span>
+    <span class="type">matrix</span> A_inv = A.inverse();
+    <span class="type">matrix</span> I = A * A_inv; <span class="cm">// Matriz Identidade Resultante (I) = A * A_inv</span>
+
+    <span class="fn">println</span>(<span class="str">"Matriz A original:"</span>);
+    A.show();
+    <span class="fn">println</span>(<span class="str">"Matriz A inversa A^-1:"</span>);
+    A_inv.show();
+    <span class="fn">println</span>(<span class="str">"Matriz Identidade Resultante (I) = A * A^-1:"</span>);
+    I.show();
+
+    <span class="cm">// 3. Determinante da matriz A</span>
+    <span class="type">double</span> d = A.det();
+    <span class="fn">println</span>(<span class="str">f"Determinante de A: {d}"</span>);
+}
+        </pre>
+    </div>
+
+    <h3>6.3.2 Álgebra Hipercomplexa 4D e Redes Neurais com <code>GhostMatrix</code></h3>
+    <p>
+        O recurso <code>GhostMatrix</code> expande o domínio matricial para os números hipercomplexos <span class="math">G = x + y\cdot i + p\cdot g + \theta^2</span>, integrando portas quânticas, funções de ativação de redes neurais e visão computacional:
+    </p>
+    <ul>
+        <li><strong>Elementos Hipercomplexos 4D:</strong> Cada elemento da matriz armazena as quatro componentes ortogonais (real, imaginária, gradiente fantasma e incerteza Grassmanniana).</li>
+        <li><strong>Transposição Matricial:</strong> O método <code>G.transpose()</code> permuta linhas e colunas preservando a assinatura quântica dos coeficientes.</li>
+        <li><strong>Funções de Ativação Vetorizadas de IA:</strong> Suporte direto a ativações não lineares sobre a matriz inteira via métodos <code>G.relu()</code>, <code>G.sigmoid()</code>, <code>G.tanh()</code>, <code>G.leaky_relu()</code>, <code>G.gelu()</code> e <code>G.softmax()</code>.</li>
+        <li><strong>Visão Computacional:</strong> Métodos integrados para pooling 2D (<code>G.max_pool2d(size, stride)</code> e <code>G.avg_pool2d(size, stride)</code>) e convoluções aceleradas.</li>
+        <li><strong>Persistência de Dados e Checkpoints:</strong> Leitura e escrita de datasets e pesos neurais via <code>G.loadCSV("dados.csv")</code>, <code>G.save("pesos.bin")</code> e <code>G.load("pesos.bin")</code>.</li>
+    </ul>
+
+    <div class="code-block">
+        <div class="code-header"><span class="code-filename">exemplos/ghost_matrix.g</span><span>GhostLang Source</span></div>
+        <pre>
+<span class="cm">// Álgebra Hipercomplexa G e Ativações de IA: GhostMatrix</span>
+<span class="kw">function</span> <span class="type">void</span> <span class="fn">main</span>() {
+    <span class="cm">// 1. Instanciação com o construtor GhostMatrix</span>
+    <span class="type">GhostMatrix</span> G(<span class="num">2</span>, <span class="num">2</span>);
+
+    <span class="cm">// 2. Definindo elementos hipercomplexos 4D (x, y, p, theta2)</span>
+    <span class="type">ghost</span> g1 = ghost(<span class="num">2.0</span>, <span class="num">1.0</span>, <span class="num">0.5</span>, <span class="num">0.0</span>);
+    <span class="type">ghost</span> g2 = ghost(-<span class="num">3.0</span>, <span class="num">0.0</span>, <span class="num">1.2</span>, <span class="num">0.0</span>);
+    <span class="type">ghost</span> g3 = ghost(<span class="num">1.5</span>, -<span class="num">0.5</span>, <span class="num">0.0</span>, <span class="num">0.0</span>);
+    <span class="type">ghost</span> g4 = ghost(<span class="num">4.0</span>, <span class="num">2.0</span>, -<span class="num">1.0</span>, <span class="num">0.0</span>);
+
+    G.set(<span class="num">0</span>, <span class="num">0</span>, g1);
+    G.set(<span class="num">0</span>, <span class="num">1</span>, g2);
+    G.set(<span class="num">1</span>, <span class="num">0</span>, g3);
+    G.set(<span class="num">1</span>, <span class="num">1</span>, g4);
+
+    <span class="fn">println</span>(<span class="str">"Matriz Hipercomplexa GhostMatrix G:"</span>);
+    G.show();
+
+    <span class="cm">// 3. Transposição da matriz</span>
+    <span class="type">GhostMatrix</span> G_t = G.transpose();
+    <span class="fn">println</span>(<span class="str">"Matriz Transposta G^T:"</span>);
+    G_t.show();
+
+    <span class="cm">// 4. Multiplicação por escalar com propagação de incerteza</span>
+    <span class="type">GhostMatrix</span> G_dobro = G * <span class="num">2.0</span>;
+    <span class="fn">println</span>(<span class="str">"Matriz G multiplicada pelo escalar 2.0:"</span>);
+    G_dobro.show();
+
+    <span class="cm">// 5. Função de ativação não-linear ReLU para camadas de IA</span>
+    <span class="type">GhostMatrix</span> G_relu = G.relu();
+    <span class="fn">println</span>(<span class="str">"Matriz apos ativacao ReLU:"</span>);
+    G_relu.show();
+}
+        </pre>
+    </div>
+
+    <h2>6.4 Tensores N-Dimensionais e Broadcasting</h2>
+    <p>
+        Importando o módulo <code>libs/tensor.g</code>, você tem acesso a tensores de 1 a 4 dimensões, manipulados por um identificador inteiro, com reshape, transposição, fatiamento e broadcasting semelhante ao NumPy:
+    </p>
+
+    <div class="code-block">
+        <div class="code-header"><span class="code-filename">exemplos/tensores.g</span><span>GhostLang Source</span></div>
+        <pre>
+<span class="kw">import</span> <span class="str">"libs/tensor.g"</span>;
+
+<span class="kw">function</span> <span class="type">void</span> <span class="fn">main</span>() {
+    <span class="cm">// Os tensores da libs/tensor.g são manipulados por um identificador (int)</span>
+    <span class="type">int</span> T = <span class="fn">tensor_create_3d</span>(<span class="num">2</span>, <span class="num">3</span>, <span class="num">4</span>, <span class="num">0.0</span>);       <span class="cm">// tensor 3D (2 x 3 x 4) com zeros</span>
+    <span class="fn">tensor_set_3d</span>(T, <span class="num">0</span>, <span class="num">1</span>, <span class="num">2</span>, <span class="num">99.5</span>);
+    <span class="fn">println</span>(<span class="str">f"Dimensoes: {tensor_ndim(T)}D, {tensor_size(T)} elementos"</span>);
+    <span class="fn">println</span>(<span class="str">f"Valor em [0, 1, 2]: {tensor_get_3d(T, 0, 1, 2)}"</span>);
+
+    <span class="cm">// Tensores 2D: reshape e broadcasting (matriz 3x2 + linha 1x2)</span>
+    <span class="type">int</span> A = <span class="fn">tensor_create_2d</span>(<span class="num">2</span>, <span class="num">3</span>, <span class="num">1.0</span>);
+    <span class="type">int</span> R = <span class="fn">tensor_reshape_2d</span>(A, <span class="num">3</span>, <span class="num">2</span>);
+    <span class="type">int</span> linha = <span class="fn">tensor_create_2d</span>(<span class="num">1</span>, <span class="num">2</span>, <span class="num">10.0</span>);
+    <span class="type">int</span> S = <span class="fn">tensor_add</span>(R, linha);
+    <span class="fn">println</span>(<span class="str">f"Formato apos reshape: {tensor_dim(R, 0)} x {tensor_dim(R, 1)}; soma apos broadcasting: {tensor_sum(S)}"</span>);
+}
+        </pre>
+    </div>
+
+    <!-- SEÇÃO DE ATIVIDADES PRÁTICAS DO CAPÍTULO -->
+    <div class="exercises-section">
+        <div class="exercises-title">
+            <span>✏️</span> Laboratório Prático: Exercícios do Capítulo 6
+        </div>
+
+        <div class="exercise-item">
+            <div class="exercise-header">
+                <span class="exercise-name">Exercício 3.1: Comutador de Operadores de GhostNumberG</span>
+                <span class="exercise-badge badge-easy">Aquecimento</span>
+            </div>
+            <div class="exercise-desc">
+                Crie dois números hiper-complexos <span class="math">A = (1.0, 2.0, 0.5, 0.0)</span> e <span class="math">B = (0.5, -1.0, 2.0, 0.0)</span>. Calcule o comutador quântico definido por <span class="math">[A, B] = A · B - B · A</span>. Imprima o resultado e verifique se o comutador é diferente de zero.
+            </div>
+            <div class="exercise-hint">Dica: Use operadores nativos de soma e produto entre objetos do tipo <code>ghost</code>.</div>
+        </div>
+
+        <div class="exercise-item">
+            <div class="exercise-header">
+                <span class="exercise-name">Exercício 3.2: Solucionador de Sistemas Lineares Ax = b</span>
+                <span class="exercise-badge badge-medium">Aplicação</span>
+            </div>
+            <div class="exercise-desc">
+                Escreva um programa que configure uma matriz <span class="math">A</span> de 3 × 3 e um vetor coluna <span class="math">b</span> de 3 × 1. Resolva o sistema linear <span class="math">Ax = b</span> calculando <span class="math">x = A⁻¹ · b</span>. Em seguida, multiplique <span class="math">A · x</span> e confira se o resultado coincide numericamente com <span class="math">b</span>.
+            </div>
+            <div class="exercise-hint">Dica: Use <code>matrix.inverse()</code> e o operador de multiplicação <code>*</code>.</div>
+        </div>
+
+        <div class="exercise-item">
+            <div class="exercise-header">
+                <span class="exercise-name">Exercício 3.3: Atenuador de Incerteza Tensorial</span>
+                <span class="exercise-badge badge-hard">Desafio</span>
+            </div>
+            <div class="exercise-desc">
+                Crie um tensor 3D de ruído com shape [4, 4, 4] contendo medições experimentais. Implemente uma função que percorra todos os elementos, extraia a componente fantasma <span class="math">p</span> de incerteza e aplique uma máscara de corte que zera qualquer incerteza inferior a um limiar <span class="math">ε = 0.01</span>.
+            </div>
+            <div class="exercise-hint">Dica: Utilize laços aninhados ou a iteração do tensor para aplicar o filtro.</div>
+        </div>
+    </div>
+</div>
+
+
+<!-- CAPÍTULO 7 -->
+<div class="chapter">
+    <span class="chapter-badge">Capítulo 7</span>
+    <h1 class="chapter-title">Computação Quântica Nativa de Primeira Classe</h1>
+    <div class="chapter-intro">
+        Mergulhe no paradigma quântico do GhostLang: registradores qreg, portas unitárias parametrizadas, sub-circuitos reutilizáveis, algoritmos de Grover e QFT, matrizes de densidade e interoperabilidade com OpenQASM 3.0.
+    </div>
+
+    <h2>7.1 O Tipo Nativo <code>qreg</code> e o Modelo Statevector</h2>
+    <p>
+        No GhostLang, o registrador quântico <code>qreg</code> representa um estado quântico puro de <span class="math">N</span> qubits:
+    </p>
+
+    <div style="text-align: center; font-size: 13pt; margin: 15px 0; color: #0284c7; font-weight: bold;">
+        |ψ⟩ = ∑ αᵢ |i⟩, &nbsp;&nbsp; com ∑ |αᵢ|² = 1.0, &nbsp;&nbsp; αᵢ ∈ ℂ
+    </div>
+
+    <p>
+        A simulação statevector opera diretamente em memória contígua em C++ com precisão dupla. A partir de 13 qubits, a aceleração OpenMP paraleliza automaticamente os laços de produto tensorial, permitindo simular com velocidade até 28 qubits (268 milhões de amplitudes complexas).
+    </p>
+
+    <div class="callout callout-quantum">
+        <div class="callout-title">🔬 Convenção Fundamental de Kets no GhostLang</div>
+        O qubit 0 é sempre o <strong>bit menos significativo</strong> (à direita). Um estado com <span class="math">q₀ = 1</span> e <span class="math">q₁ = 0</span> é escrito como <span class="math">|01⟩</span>. Da mesma forma, em strings de observáveis de Pauli como <code>"XZ"</code>, o operador <span class="math">X</span> atua sobre o qubit 1 e o operador <span class="math">Z</span> sobre o qubit 0.
+    </div>
+
+    <h2>7.2 O Circuito de Bell: Entrelaçamento Quântico Básico</h2>
+    <p>
+        Vejamos como gerar o par de Bell <span class="math">|Φ⁺⟩ = (1/√2)(|00⟩ + |11⟩)</span>:
+    </p>
+
+    <div class="code-block">
+        <div class="code-header"><span class="code-filename">exemplos/bell.g</span><span>GhostLang Source</span></div>
+        <pre>
+<span class="kw">import</span> <span class="str">"libs/quantum.g"</span>;
+
+<span class="kw">function</span> <span class="type">void</span> <span class="fn">main</span>() {
+    <span class="type">qreg</span> q(<span class="num">2</span>);        <span class="cm">// Inicializa |00></span>
+    q.seed(<span class="num">42</span>);       <span class="cm">// Semente pseudo-aleatória reprodutível</span>
+
+    q.h(<span class="num">0</span>);           <span class="cm">// Cria superposição: (|00> + |01>) / sqrt(2)</span>
+    q.cx(<span class="num">0</span>, <span class="num">1</span>);       <span class="cm">// CNOT: entrelaça q0 e q1</span>
+
+    <span class="fn">println</span>(<span class="str">"Estado do par de Bell gerado:"</span>);
+    q.show();         <span class="cm">// Saída: 0.7071|00> + 0.7071|11></span>
+
+    <span class="fn">println</span>(<span class="str">"Desenho do Circuito em ASCII:"</span>);
+    <span class="fn">println</span>(q.draw());
+
+    <span class="fn">println</span>(<span class="str">"Valor esperado de correlação &lt;ZZ&gt;:"</span>);
+    <span class="fn">println</span>(q.expect(<span class="str">"ZZ"</span>)); <span class="cm">// Retorna exatamente 1.0 (correlação perfeita)</span>
+
+    <span class="cm">// Medição e colapso de 1000 repetições (shots)</span>
+    <span class="fn">println</span>(<span class="str">"Histograma de 1000 disparos:"</span>);
+    <span class="fn">println</span>(q.histogram(<span class="num">1000</span>));
+}
+        </pre>
+    </div>
+
+    <h2>7.3 Sub-circuitos Declarativos com a Sintaxe <code>circuit { }</code></h2>
+    <p>
+        O GhostLang oferece uma sintaxe declarativa própria para composição modular de blocos quânticos. No corpo de um <code>circuit</code>, as portas são invocadas diretamente sem prefixo de objeto:
+    </p>
+
+    <div class="code-block">
+        <div class="code-header"><span class="code-filename">exemplos/circuit_ghz.g</span><span>GhostLang Source</span></div>
+        <pre>
+<span class="cm">// Sub-circuito para criar estado de Greenberger-Horne-Zeilinger (GHZ) em N qubits</span>
+<span class="kw">circuit</span> <span class="fn">estado_ghz</span>(<span class="type">int</span> n) {
+    h(<span class="num">0</span>);
+    <span class="kw">for</span> (<span class="type">int</span> i = <span class="num">0</span>; i &lt; n - <span class="num">1</span>; i = i + <span class="num">1</span>) {
+        cx(i, i + <span class="num">1</span>);
+    }
+}
+
+<span class="kw">function</span> <span class="type">void</span> <span class="fn">main</span>() {
+    <span class="type">qreg</span> q(<span class="num">5</span>);
+    q.estado_ghz(<span class="num">5</span>); <span class="cm">// Aplica o circuito no registrador q</span>
+    
+    <span class="fn">println</span>(<span class="str">"Estado GHZ de 5 Qubits (|00000> + |11111>) / sqrt(2):"</span>);
+    q.show();
+}
+        </pre>
+    </div>
+
+    <h2>7.4 Algoritmo de Busca Quântica de Grover</h2>
+    <p>
+        O GhostLang possui suporte nativo para primitivas de oráculo quântico (<code>phase_flip</code>) e o operador de difusão de Grover (<code>diffuser()</code>), permitindo encontrar um elemento em uma base desordenada de <span class="math">N = 2ⁿ</span> estados com complexidade <span class="math">𝒪(√N)</span>:
+    </p>
+
+    <div class="code-block">
+        <div class="code-header"><span class="code-filename">exemplos/grover.g</span><span>GhostLang Source</span></div>
+        <pre>
+<span class="kw">import</span> <span class="str">"libs/quantum.g"</span>;
+
+<span class="kw">function</span> <span class="type">void</span> <span class="fn">main</span>() {
+    <span class="type">int</span> n = <span class="num">3</span>;               <span class="cm">// 3 qubits -> 8 estados possíveis (0 a 7)</span>
+    <span class="type">int</span> alvo_secreto = <span class="num">6</span>;    <span class="cm">// Queremos localizar o número 6 (|110>)</span>
+
+    <span class="type">qreg</span> q(n);
+    q.h_all();               <span class="cm">// Superposição uniforme sobre os 8 estados</span>
+
+    <span class="cm">// Número ótimo de iterações: aproximadamente (pi / 4) * sqrt(8) ≈ 2</span>
+    <span class="kw">for</span> (<span class="type">int</span> passo = <span class="num">1</span>; passo &lt;= <span class="num">2</span>; passo = passo + <span class="num">1</span>) {
+        q.phase_flip(alvo_secreto); <span class="cm">// Oráculo: inverte a fase do estado procurado</span>
+        q.diffuser();              <span class="cm">// Difusor de Grover: amplifica a amplitude em torno da média</span>
+    }
+
+    <span class="fn">println</span>(<span class="str">f"Probabilidade de medir o alvo {alvo_secreto}: {q.prob_state(alvo_secreto) * 100}%"</span>);
+    <span class="fn">println</span>(<span class="str">"Histograma de 500 medições:"</span>);
+    <span class="fn">println</span>(q.histogram(<span class="num">500</span>));
+}
+        </pre>
+    </div>
+
+    <h2>7.5 Matrizes de Densidade e Exportação OpenQASM 3.0</h2>
+    <p>
+        Para modelar sistemas abertos com ruído ou entrelaçamento parcial, usamos <code>GhostDensityMatrix</code>. Além disso, circuitos podem ser exportados em OpenQASM 3.0, o formato aceito por plataformas como IBM Quantum e IonQ (o envio ao hardware real é feito fora do GhostLang):
+    </p>
+
+    <div class="code-block">
+        <div class="code-header"><span class="code-filename">exemplos/qasm_export.g</span><span>GhostLang Source</span></div>
+        <pre>
+<span class="kw">function</span> <span class="type">void</span> <span class="fn">main</span>() {
+    <span class="type">qreg</span> q(<span class="num">2</span>);
+    q.h(<span class="num">0</span>);
+    q.rz(<span class="num">0</span>, <span class="num">1.570796</span>); <span class="cm">// Rz(pi/2)</span>
+    q.cx(<span class="num">0</span>, <span class="num">1</span>);
+
+    <span class="type">string</span> qasm_code = q.to_qasm();
+    <span class="fn">println</span>(<span class="str">"Código OpenQASM 3.0 gerado:"</span>);
+    <span class="fn">println</span>(qasm_code);
+}
+        </pre>
+    </div>
+
+    <!-- SEÇÃO DE ATIVIDADES PRÁTICAS DO CAPÍTULO -->
+    <div class="exercises-section">
+        <div class="exercises-title">
+            <span>✏️</span> Laboratório Prático: Exercícios do Capítulo 7
+        </div>
+
+        <div class="exercise-item">
+            <div class="exercise-header">
+                <span class="exercise-name">Exercício 4.1: Gerador de Números Aleatórios Quânticos (QRNG)</span>
+                <span class="exercise-badge badge-easy">Aquecimento</span>
+            </div>
+            <div class="exercise-desc">
+                Escreva um programa <code>qrng.g</code> que aloque um registrador com 8 qubits, aplique portas Hadamard em todos eles com <code>h_all()</code> e execute <code>measure_all()</code> para produzir um byte aleatório puro (0 a 255) baseado no princípio de incerteza da mecânica quântica.
+            </div>
+            <div class="exercise-hint">Dica: Converta o mapa de medição ou os bits medidos para um inteiro clássico.</div>
+        </div>
+
+        <div class="exercise-item">
+            <div class="exercise-header">
+                <span class="exercise-name">Exercício 4.2: Protocolo de Teletransporte Quântico Completo</span>
+                <span class="exercise-badge badge-medium">Aplicação</span>
+            </div>
+            <div class="exercise-desc">
+                Implemente o protocolo de Teletransporte de Bennett et al. (1993) em 3 qubits: o qubit 0 armazena o estado a ser teleportado (aplique uma rotação <span class="math">R<sub>y</sub>(0, π/3)</span> nele), os qubits 1 e 2 formam o par entrelaçado. Alice mede seus dois qubits e Bob aplica as correções <span class="math">X</span> e <span class="math">Z</span> necessárias. Ao final, confira se o estado do qubit 2 é idêntico ao estado inicial.
+            </div>
+            <div class="exercise-hint">Dica: Use medições condicionais com <code>measure(0)</code> e <code>measure(1)</code>.</div>
+        </div>
+
+        <div class="exercise-item">
+            <div class="exercise-header">
+                <span class="exercise-name">Exercício 4.3: Transformada Quântica de Fourier (QFT) de 4 Qubits</span>
+                <span class="exercise-badge badge-hard">Desafio</span>
+            </div>
+            <div class="exercise-desc">
+                Construa manualmente a decomposição da Transformada Quântica de Fourier para 4 qubits utilizando portas Hadamard e portas de fase controladas <span class="math">CP(c, t, φ)</span> com ângulos <span class="math">π/2</span>, <span class="math">π/4</span> e <span class="math">π/8</span>, finalizando com as trocas SWAP. Compare os resultados de amplitude com a chamada nativa <code>q.qft()</code>.
+            </div>
+            <div class="exercise-hint">Dica: Lembre-se de aplicar a porta SWAP entre os qubits extremos ao final.</div>
+        </div>
+    </div>
+</div>
+
+
+<!-- CAPÍTULO 8 -->
+<div class="chapter">
+    <span class="chapter-badge">Capítulo 8</span>
+    <h1 class="chapter-title">Inteligência Artificial, Redes Neurais e Autograd Reverso</h1>
+    <div class="chapter-intro">
+        Construa e treine redes neurais com o operador de encadeamento '>>', use diferenciação automática e rode modelos de linguagem GGUF localmente.
+    </div>
+
+    <h2>8.1 O Operador Pipeline de Camadas Neurais: <code>>></code></h2>
+    <p>
+        No GhostLang, redes neurais multicamadas (Perceptrons Multicamadas e além) são montadas com o operador <code>>></code>. Cada camada de pesos é criada com <code>gate W(saidas, entradas)</code>, com inicialização aleatória (Xavier), e o treino é feito com <code>rede =&gt; optimize(...)</code>:
+    </p>
+
+    <div class="code-block">
+        <div class="code-header"><span class="code-filename">exemplos/rede_neural.g</span><span>GhostLang Source</span></div>
+        <pre>
+<span class="kw">function</span> <span class="type">void</span> <span class="fn">main</span>() {
+    <span class="cm">// Pesos: gate W(saidas, entradas) cria a matriz com inicialização aleatória (Xavier)</span>
+    <span class="type">gate</span> <span class="fn">W1</span>(<span class="num">8</span>, <span class="num">4</span>);   <span class="cm">// entrada 4 -&gt; oculta 8</span>
+    <span class="type">gate</span> <span class="fn">W2</span>(<span class="num">1</span>, <span class="num">8</span>);   <span class="cm">// oculta 8 -&gt; saída 1</span>
+
+    <span class="cm">// Encadeamento de camadas com o operador &gt;&gt;</span>
+    <span class="kw">network</span> modelo = W1 &gt;&gt; W2;
+
+    <span class="cm">// Dados: uma amostra por coluna (4 features x 4 amostras) e o alvo (1 x 4)</span>
+    <span class="type">gate</span> <span class="fn">X</span>(<span class="num">4</span>, <span class="num">4</span>);
+    <span class="type">gate</span> <span class="fn">Y</span>(<span class="num">1</span>, <span class="num">4</span>);
+    <span class="kw">for</span> (<span class="type">int</span> k = <span class="num">0</span>; k &lt; <span class="num">4</span>; k++) {
+        <span class="fn">Y</span>(<span class="num">0</span>, k) = <span class="num">0.5</span>;
+    }
+
+    modelo =&gt; <span class="fn">optimize</span>(X, Y, epochs=<span class="num">200</span>, lr=<span class="num">0.05</span>, opt=<span class="str">"adam"</span>);
+    <span class="fn">show</span>(W2);
+}
+        </pre>
+    </div>
+
+    <h2>8.2 Funções de Ativação Vetorizadas e Otimizadores</h2>
+    <p>
+        O GhostLang inclui uma biblioteca matemática com as funções de ativação mais utilizadas em Deep Learning moderno, com execução vetorizada e aceleração OpenMP:
+    </p>
+
+    <div class="code-block">
+        <div class="code-header"><span class="code-filename">exemplos/ativacoes_otimizadores.g</span><span>GhostLang Source</span></div>
+        <pre>
+<span class="kw">function</span> <span class="type">void</span> <span class="fn">main</span>() {
+    <span class="cm">// activate(matriz, funcao): relu, sigmoid, tanh, leaky_relu, gelu, softmax, sin, cos, tan</span>
+    <span class="type">gate</span> <span class="fn">logits</span>(<span class="num">1</span>, <span class="num">5</span>);
+    <span class="fn">activate</span>(logits, softmax);
+    <span class="fn">show</span>(logits);
+
+    <span class="type">gate</span> <span class="fn">ativ</span>(<span class="num">2</span>, <span class="num">3</span>);
+    <span class="fn">activate</span>(ativ, gelu);
+    <span class="fn">show</span>(ativ);
+}
+        </pre>
+    </div>
+
+    <h2>8.3 Diferenciação Automática Dinâmica: Autograd Reverso</h2>
+    <p>
+        O módulo <code>libs/autograd.g</code> implementa um motor de Reverse-Mode Automatic Differentiation de alta performance:
+    </p>
+
+    <div class="code-block">
+        <div class="code-header"><span class="code-filename">exemplos/autograd.g</span><span>GhostLang Source</span></div>
+        <pre>
+<span class="kw">import</span> <span class="str">"libs/autograd.g"</span> <span class="kw">as</span> ag;
+
+<span class="kw">function</span> <span class="type">void</span> <span class="fn">main</span>() {
+    <span class="cm">// W (2x2) rastreia gradiente; X (1x2) e o alvo, não</span>
+    <span class="type">var</span> W = ag.<span class="fn">tensor_create</span>(<span class="num">2</span>, <span class="num">2</span>, <span class="kw">true</span>, <span class="num">0.5</span>);
+    <span class="type">var</span> X = ag.<span class="fn">tensor_create</span>(<span class="num">1</span>, <span class="num">2</span>, <span class="kw">false</span>, <span class="num">2.0</span>);
+    <span class="type">var</span> alvo = ag.<span class="fn">tensor_create</span>(<span class="num">1</span>, <span class="num">2</span>, <span class="kw">false</span>, <span class="num">1.0</span>);
+
+    <span class="type">var</span> Y = ag.<span class="fn">tensor_matmul</span>(X, W);           <span class="cm">// Y = X . W  (grafo dinâmico)</span>
+    <span class="type">var</span> perda = ag.<span class="fn">tensor_mse</span>(Y, alvo);       <span class="cm">// erro quadrático médio</span>
+    <span class="fn">println</span>(<span class="str">f"Y = [{ag.tensor_get(Y, 0, 0)}, {ag.tensor_get(Y, 0, 1)}]  perda = {ag.tensor_get(perda, 0, 0)}"</span>);
+
+    ag.<span class="fn">tensor_backward</span>(perda);                <span class="cm">// retropropagação reversa</span>
+    <span class="fn">println</span>(<span class="str">f"dPerda/dW[0,0] = {ag.tensor_grad(W, 0, 0)}"</span>);
+
+    ag.<span class="fn">tensor_step</span>(W, <span class="num">0.1</span>);                   <span class="cm">// W = W - 0.1 * gradiente</span>
+    <span class="fn">println</span>(<span class="str">f"W[0,0] depois do passo: {ag.tensor_get(W, 0, 0)}"</span>);
+}
+        </pre>
+    </div>
+
+    <h2>8.4 Transformers Nativos e Inferência Local com Modelos GGUF</h2>
+    <p>
+        O GhostLang inclui o <code>GhostTransformer</code> nativo com auto-atenção causal multi-cabeça e suporte a modelos de linguagem no formato GGUF (como Llama 3.2 3B). A inferência chama o <code>llama-cli.exe</code> da distribuição llama.cpp, que precisa estar na pasta <code>compiler/</code> ao lado do <code>ghost</code> (hoje, só no Windows):
+    </p>
+
+    <div class="code-block">
+        <div class="code-header"><span class="code-filename">exemplos/llm_inference.g</span><span>GhostLang Source</span></div>
+        <pre>
+<span class="kw">function</span> <span class="type">void</span> <span class="fn">main</span>() {
+    <span class="fn">println</span>(<span class="str">"Carregando LLM local GGUF..."</span>);
+    <span class="cm">// Requer o llama-cli.exe na pasta compiler/ ao lado do ghost (hoje, só no Windows)</span>
+    <span class="type">llm</span> modelo = <span class="fn">load_gguf</span>(<span class="str">"modelos/llama-3.2-3b-q4.gguf"</span>);
+    <span class="type">string</span> resposta = modelo.<span class="fn">prompt</span>(<span class="str">"Explique em duas frases a vantagem da computacao quantica."</span>);
+    <span class="fn">println</span>(<span class="str">"Resposta da IA:"</span>);
+    <span class="fn">println</span>(resposta);
+}
+        </pre>
+    </div>
+
+    <!-- SEÇÃO DE ATIVIDADES PRÁTICAS DO CAPÍTULO -->
+    <div class="exercises-section">
+        <div class="exercises-title">
+            <span>✏️</span> Laboratório Prático: Exercícios do Capítulo 8
+        </div>
+
+        <div class="exercise-item">
+            <div class="exercise-header">
+                <span class="exercise-name">Exercício 5.1: Classificador de Porta XOR com Rede Neural</span>
+                <span class="exercise-badge badge-easy">Aquecimento</span>
+            </div>
+            <div class="exercise-desc">
+                Crie uma rede neural clássica com arquitetura 2 → 4 → 1 usando o operador <code>>></code>. Treine a rede sobre os 4 padrões da porta lógica XOR com o otimizador Adam durante 200 épocas e demonstre que a acurácia final atinge 100%.
+            </div>
+            <div class="exercise-hint">Dica: Utilize uma matriz de entrada 4 × 2 e uma matriz alvo 4 × 1.</div>
+        </div>
+
+        <div class="exercise-item">
+            <div class="exercise-header">
+                <span class="exercise-name">Exercício 5.2: Otimização de Regressão com Autograd Dinâmico</span>
+                <span class="exercise-badge badge-medium">Aplicação</span>
+            </div>
+            <div class="exercise-desc">
+                Implemente uma regressão linear univariada <span class="math">y = w · x + b</span> com os tensores com gradiente da <code>libs/autograd.g</code> (<code>ag.tensor_create(..., true, ...)</code>, <code>ag.tensor_mse</code>, <code>ag.tensor_backward</code> e <code>ag.tensor_step</code>). Ajuste os parâmetros <span class="math">w</span> e <span class="math">b</span> por gradiente descendente durante 50 passos sobre uma nuvem de pontos sintética, minimizando o erro quadrático médio (MSE).
+            </div>
+            <div class="exercise-hint">Dica: Atualize os parâmetros subtraindo <span class="math">η · grad()</span> a cada iteração.</div>
+        </div>
+
+        <div class="exercise-item">
+            <div class="exercise-header">
+                <span class="exercise-name">Exercício 5.3: Convolução 2D e MaxPooling para Detecção de Bordas</span>
+                <span class="exercise-badge badge-hard">Desafio</span>
+            </div>
+            <div class="exercise-desc">
+                Defina uma matriz 8 × 8 simulando uma imagem em escala de cinza com um degrau de contraste vertical. Aplique uma convolução 2D com o filtro de Sobel vertical 3 × 3 (com pesos <code>[[-1, 0, 1], [-2, 0, 2], [-1, 0, 1]]</code>) e, em seguida, aplique uma camada de <code>max_pool2d</code> com janela 2 × 2 e passo 2. Exiba o mapa de ativação resultante.
+            </div>
+            <div class="exercise-hint">Dica: Utilize <code>conv2d(imagem, kernel)</code> e <code>max_pool2d(mapa, 2, 2)</code>.</div>
+        </div>
+    </div>
+</div>
+
+
+<!-- CAPÍTULO 9 -->
+<div class="chapter">
+    <span class="chapter-badge">Capítulo 9</span>
+    <h1 class="chapter-title">Machine Learning Quântico (QML) e Redes Híbridas</h1>
+    <div class="chapter-intro">
+        O pináculo da inovação no GhostLang: camadas neurais quânticas intercaladas em redes clássicas, derivadas exatas via Parameter-Shift, VQE químico, QAOA e o TransformerG quântico.
+    </div>
+
+    <h2>9.1 A Regra de Parameter-Shift: Derivadas Exatas de Circuitos</h2>
+    <p>
+        Diferente do cálculo numérico comum por diferenças finitas que sofre com instabilidades numéricas, circuitos quânticos variacionais admitem gradientes analíticos exatos através da <strong>Regra de Parameter-Shift</strong>:
+    </p>
+
+    <div style="text-align: center; font-size: 13pt; margin: 15px 0; color: #0284c7; font-weight: bold;">
+        ∂⟨O⟩ / ∂θ = ( ⟨O⟩_(θ + π/2) - ⟨O⟩_(θ - π/2) ) / 2
+    </div>
+
+    <p>
+        O GhostLang calcula esses deslocamentos de fase diretamente no runtime C++ em <code>src/GhostQML.cpp</code> com precisão superior a 10⁻⁶, permitindo treinar portas unitárias parametrizadas (<span class="math">R<sub>x</sub>, R<sub>y</sub>, R<sub>z</sub></span>) com o otimizador Adam ou SGD com a mesma fluidez de uma rede neural clássica.
+    </p>
+
+    <h2>9.2 Redes Híbridas com <code>GhostQLayer</code>: <code>W1 >> Q >> W2</code></h2>
+    <p>
+        Uma das funcionalidades mais poderosas do GhostLang é a capacidade de inserir uma <strong>camada de processamento quântico</strong> diretamente entre camadas densas clássicas:
+    </p>
+
+    <div class="code-block">
+        <div class="code-header"><span class="code-filename">exemplos/rede_hibrida.g</span><span>GhostLang Source</span></div>
+        <pre>
+<span class="kw">function</span> <span class="type">void</span> <span class="fn">main</span>() {
+    <span class="cm">// Dados: 64 pontos do quadrado [-1, 1]^2, uma amostra por coluna; classe 1 dentro do círculo</span>
+    <span class="type">gate</span> <span class="fn">X</span>(<span class="num">2</span>, <span class="num">64</span>);
+    <span class="type">gate</span> <span class="fn">Y</span>(<span class="num">1</span>, <span class="num">64</span>);
+    <span class="kw">for</span> (<span class="type">int</span> i = <span class="num">0</span>; i &lt; <span class="num">8</span>; i++) {
+        <span class="kw">for</span> (<span class="type">int</span> j = <span class="num">0</span>; j &lt; <span class="num">8</span>; j++) {
+            <span class="type">int</span> k = i * <span class="num">8</span> + j;
+            <span class="type">double</span> a = -<span class="num">1.0</span> + <span class="num">2.0</span> * i / <span class="num">7.0</span>;
+            <span class="type">double</span> b = -<span class="num">1.0</span> + <span class="num">2.0</span> * j / <span class="num">7.0</span>;
+            <span class="fn">X</span>(<span class="num">0</span>, k) = a;
+            <span class="fn">X</span>(<span class="num">1</span>, k) = b;
+            <span class="fn">Y</span>(<span class="num">0</span>, k) = a * a + b * b &lt; <span class="num">0.45</span> ? <span class="num">1.0</span> : <span class="num">0.0</span>;
+        }
+    }
+
+    <span class="type">gate</span> <span class="fn">W1</span>(<span class="num">2</span>, <span class="num">2</span>);       <span class="cm">// densa clássica: 2 -&gt; 2</span>
+    <span class="type">qlayer</span> <span class="fn">Q</span>(<span class="num">2</span>, <span class="num">2</span>);      <span class="cm">// quântica: 2 qubits, 2 camadas treináveis</span>
+    <span class="type">gate</span> <span class="fn">W2</span>(<span class="num">1</span>, <span class="num">2</span>);       <span class="cm">// densa clássica: 2 -&gt; 1</span>
+    Q.<span class="fn">seed</span>(<span class="num">3</span>);
+    <span class="kw">network</span> rede_hibrida = W1 &gt;&gt; Q &gt;&gt; W2;
+
+    <span class="fn">println</span>(<span class="str">f"Antes:  acuracia {rede_hibrida.accuracy(X, Y) * 100.0}%"</span>);
+    rede_hibrida =&gt; <span class="fn">optimize</span>(X, Y, epochs=<span class="num">150</span>, lr=<span class="num">0.05</span>, opt=<span class="str">"adam"</span>);
+    <span class="fn">println</span>(<span class="str">f"Depois: acuracia {rede_hibrida.accuracy(X, Y) * 100.0}%"</span>);
+}
+        </pre>
+    </div>
+
+    <h2>9.3 Classificador Quântico Supervisionado Nativo</h2>
+    <p>
+        Um <code>qcircuit</code> com codificação (<code>encode_all</code>) e camadas treináveis (<code>ansatz</code>) vira um classificador: <code>add_sample</code>, <code>fit</code> (parameter-shift + Adam, com OpenMP), <code>accuracy</code> e <code>predict</code>:
+    </p>
+
+    <div class="code-block">
+        <div class="code-header"><span class="code-filename">exemplos/classificador_qml.g</span><span>GhostLang Source</span></div>
+        <pre>
+<span class="kw">function</span> <span class="type">void</span> <span class="fn">main</span>() {
+    <span class="cm">// Classificador de 2 qubits: codificação RY(x) + 2 camadas de rotações treináveis</span>
+    <span class="type">qcircuit</span> <span class="fn">clf</span>(<span class="num">2</span>);
+    clf.<span class="fn">seed</span>(<span class="num">5</span>);
+    clf.<span class="fn">encode_all</span>();
+    clf.<span class="fn">ansatz</span>(<span class="num">2</span>);
+
+    <span class="cm">// Amostras de treino: classe 1 quando a + b &gt; pi</span>
+    <span class="kw">for</span> (<span class="type">int</span> i = <span class="num">0</span>; i &lt; <span class="num">6</span>; i++) {
+        <span class="kw">for</span> (<span class="type">int</span> j = <span class="num">0</span>; j &lt; <span class="num">6</span>; j++) {
+            <span class="type">double</span> a = i / <span class="num">5.0</span> * PI;
+            <span class="type">double</span> b = j / <span class="num">5.0</span> * PI;
+            clf.<span class="fn">add_sample</span>(a + b &gt; PI ? <span class="num">1</span> : <span class="num">0</span>, a, b);
+        }
+    }
+
+    <span class="type">double</span> perda = clf.<span class="fn">fit</span>(<span class="num">60</span>, <span class="num">0.1</span>);   <span class="cm">// 60 épocas, taxa 0.1 (parameter-shift + Adam)</span>
+    <span class="fn">println</span>(<span class="str">f"Acuracia de treino: {clf.accuracy() * 100.0}%  (perda {perda})"</span>);
+    <span class="fn">println</span>(<span class="str">f"Predicao para (2.8, 2.6): classe {clf.predict(2.8, 2.6)}"</span>);
+}
+        </pre>
+    </div>
+
+    <h2>9.4 Algoritmos Variacionais: VQE Molecular e QAOA Combinatório</h2>
+    <p>
+        O GhostLang resolve problemas de química quântica (VQE) e otimização combinatória (QAOA) com bibliotecas nativas:
+    </p>
+
+    <div class="code-block">
+        <div class="code-header"><span class="code-filename">exemplos/vqe_qaoa.g</span><span>GhostLang Source</span></div>
+        <pre>
+<span class="kw">import</span> <span class="str">"libs/quantum.g"</span>;
+
+<span class="kw">function</span> <span class="type">void</span> <span class="fn">main</span>() {
+    <span class="cm">// 1. VQE: estado fundamental da molécula de H2 (Hamiltoniano de 2 qubits da libs/quantum.g)</span>
+    <span class="type">qcircuit</span> <span class="fn">h2</span>(<span class="num">2</span>);
+    h2.<span class="fn">seed</span>(<span class="num">3</span>);
+    h2.<span class="fn">ansatz</span>(<span class="num">2</span>);
+    <span class="fn">hamiltoniano_h2</span>(h2);
+    <span class="type">double</span> energia = h2.<span class="fn">minimize</span>(<span class="num">300</span>, <span class="num">0.05</span>);
+    <span class="fn">println</span>(<span class="str">f"Energia VQE do H2: {energia} Ha (referencia exata: -1.857275 Ha)"</span>);
+
+    <span class="cm">// 2. QAOA com p = 3 camadas para MaxCut num grafo de 4 vértices</span>
+    <span class="type">qcircuit</span> <span class="fn">grafo</span>(<span class="num">4</span>);
+    grafo.<span class="fn">seed</span>(<span class="num">4</span>);
+    grafo.<span class="fn">edge</span>(<span class="num">0</span>, <span class="num">1</span>); grafo.<span class="fn">edge</span>(<span class="num">1</span>, <span class="num">2</span>); grafo.<span class="fn">edge</span>(<span class="num">2</span>, <span class="num">3</span>); grafo.<span class="fn">edge</span>(<span class="num">3</span>, <span class="num">0</span>);
+    grafo.<span class="fn">qaoa</span>(<span class="num">3</span>);
+    grafo.<span class="fn">minimize</span>(<span class="num">150</span>, <span class="num">0.05</span>);
+    <span class="type">string</span> solucao = grafo.<span class="fn">maxcut_solution</span>(<span class="num">2000</span>);
+    <span class="fn">println</span>(<span class="str">f"Melhor corte amostrado: {solucao} -&gt; {grafo.cut_of(solucao)} (otimo exato: {grafo.maxcut_exact()})"</span>);
+}
+        </pre>
+    </div>
+
+    <h2>9.5 O TransformerG: Atenção Quântica com <code>GhostQubit</code></h2>
+    <p>
+        A joia da coroa da inteligência artificial no GhostLang é o <strong>TransformerG</strong>: os pesos da rede não são simples números reais, mas números complexos e amplitudes quânticas (<code>GhostQubit</code>). As cabeças de atenção realizam o produto escalar complexo e preservam a incerteza de fase (<span class="math">θ²</span>) durante todo o treinamento, permitindo capturar dependências semânticas e relações de interferência que modelos clássicos ignoram.
+    </p>
+
+    <!-- SEÇÃO DE ATIVIDADES PRÁTICAS DO CAPÍTULO -->
+    <div class="exercises-section">
+        <div class="exercises-title">
+            <span>✏️</span> Laboratório Prático: Exercícios do Capítulo 9
+        </div>
+
+        <div class="exercise-item">
+            <div class="exercise-header">
+                <span class="exercise-name">Exercício 6.1: Verificador da Regra de Parameter-Shift</span>
+                <span class="exercise-badge badge-easy">Aquecimento</span>
+            </div>
+            <div class="exercise-desc">
+                Crie um circuito simples de 1 qubit com uma porta de rotação <span class="math">R<sub>y</sub>(θ)</span> seguida pela medição do observável <span class="math">Z</span>, onde o valor esperado teórico é <span class="math">⟨Z⟩ = cos(θ)</span>. Calcule o gradiente de <span class="math">⟨Z⟩</span> em relação a <span class="math">θ = π/4</span> usando a regra de Parameter-Shift e compare com a derivada analítica <span class="math">-sin(π/4)</span>.
+            </div>
+            <div class="exercise-hint">Dica: Calcule <span class="math">⟨Z⟩</span> em <span class="math">θ + π/2</span> e <span class="math">θ - π/2</span> e divida a diferença por 2.</div>
+        </div>
+
+        <div class="exercise-item">
+            <div class="exercise-header">
+                <span class="exercise-name">Exercício 6.2: Kernel Quântico ZZ para Separação de Dados</span>
+                <span class="exercise-badge badge-medium">Aplicação</span>
+            </div>
+            <div class="exercise-desc">
+                Instancie o feature map quântico ZZ para dois pontos bidimensionais <span class="math">x</span> = [0.2, 0.4] e <span class="math">y</span> = [0.8, 0.9]. Calcule o produto interno em espaço de Hilbert <span class="math">|⟨ϕ(x) | ϕ(y)⟩|²</span> e mostre que pontos próximos resultam em fidelidade próxima a 1.0 e pontos distantes têm fidelidade próxima a 0.0.
+            </div>
+            <div class="exercise-hint">Dica: Utilize a função <code>quantum_kernel_zz(x, y)</code> de <code>include/GhostQML.hpp</code>.</div>
+        </div>
+
+        <div class="exercise-item">
+            <div class="exercise-header">
+                <span class="exercise-name">Exercício 6.3: Otimizador Multiverso Quantum-Inspired</span>
+                <span class="exercise-badge badge-hard">Desafio</span>
+            </div>
+            <div class="exercise-desc">
+                Implemente uma rotina que explore simultaneamente 4 universos de hiperparâmetros com o comando <code>hypothesis</code>. Em cada universo, treine uma rede neural híbrida variando a taxa de aprendizado e colapse ao final para o universo com o menor erro utilizando <code>collapse_min()</code>.
+            </div>
+            <div class="exercise-hint">Dica: Avalie a função de custo ao final de cada ramo do bloco hypothesis.</div>
+        </div>
+    </div>
+</div>
+
+
+<!-- CAPÍTULO 10 -->
+<div class="chapter">
+    <span class="chapter-badge">Capítulo 10</span>
+    <h1 class="chapter-title">Biblioteca Padrão, Rede HTTP RESTful, SQLite e GUI</h1>
+    <div class="chapter-intro">
+        Conheça as baterias inclusas do GhostLang: I/O de disco ultra-rápido, banco de dados relacional SQLite nativo, servidor HTTP puro em C++ e cliente HTTP para microsserviços.
+    </div>
+
+    <h2>10.1 I/O de Arquivos e Serialização JSON</h2>
+    <p>
+        Operações de sistema de arquivos e parsing de payloads JSON são executadas diretamente sem dependências externas:
+    </p>
+
+    <div class="code-block">
+        <div class="code-header"><span class="code-filename">exemplos/io_json.g</span><span>GhostLang Source</span></div>
+        <pre>
+<span class="kw">import</span> <span class="str">"libs/fs.g"</span>;
+
+<span class="kw">function</span> <span class="type">void</span> <span class="fn">main</span>() {
+    <span class="type">string</span> caminho = <span class="str">"config.json"</span>;
+    <span class="type">string</span> payload = <span class="str">"{\"modelo\": \"VQC-4\", \"qubits\": 4, \"shots\": 1024}"</span>;
+
+    <span class="cm">// Escrita direta no disco</span>
+    <span class="fn">writefile</span>(caminho, payload);
+    <span class="fn">println</span>(<span class="str">"Arquivo de configuracao salvo com sucesso."</span>);
+
+    <span class="cm">// Leitura e interpretação do JSON (json_get devolve o valor como texto)</span>
+    <span class="type">string</span> conteudo = <span class="fn">readfile</span>(caminho);
+    <span class="type">var</span> cfg = <span class="fn">json_parse</span>(conteudo);
+    <span class="type">string</span> modelo = <span class="fn">json_get</span>(cfg, <span class="str">"modelo"</span>);
+    <span class="type">string</span> qubits = <span class="fn">json_get</span>(cfg, <span class="str">"qubits"</span>);
+    <span class="fn">println</span>(<span class="str">f"Modelo: {modelo}"</span>);
+    <span class="fn">println</span>(<span class="str">f"Qubits alocados: {qubits}"</span>);
+}
+        </pre>
+    </div>
+
+    <h2>10.2 Banco de Dados SQLite Relacional Embutido (GhostDB)</h2>
+    <p>
+        O GhostLang traz o motor SQLite embutido diretamente no runtime C++, permitindo criar bancos em memória (<code>:memory:</code>) ou em arquivo local com suporte a transações ACID completas:
+    </p>
+
+    <div class="code-block">
+        <div class="code-header"><span class="code-filename">exemplos/sqlite_db.g</span><span>GhostLang Source</span></div>
+        <pre>
+<span class="kw">import</span> <span class="str">"libs/db.g"</span>;
+
+<span class="kw">function</span> <span class="type">void</span> <span class="fn">main</span>() {
+    <span class="type">int</span> db = <span class="fn">db_open</span>(<span class="str">"telemetria.db"</span>);      <span class="cm">// ":memory:" cria um banco só em memória</span>
+
+    <span class="fn">db_exec</span>(db, <span class="str">"CREATE TABLE IF NOT EXISTS execucoes (id INTEGER PRIMARY KEY, circuito TEXT, fidelidade REAL);"</span>);
+    <span class="fn">db_exec</span>(db, <span class="str">"INSERT INTO execucoes (circuito, fidelidade) VALUES ('Bell-State', 0.998);"</span>);
+    <span class="fn">db_exec</span>(db, <span class="str">"INSERT INTO execucoes (circuito, fidelidade) VALUES ('Grover-3Q', 0.965);"</span>);
+    <span class="fn">println</span>(<span class="str">f"Ultimo id inserido: {db_last_id(db)}"</span>);
+
+    <span class="cm">// db_query devolve o resultado como texto</span>
+    <span class="type">string</span> linhas = <span class="fn">db_query</span>(db, <span class="str">"SELECT circuito, fidelidade FROM execucoes WHERE fidelidade &gt; 0.98;"</span>);
+    <span class="fn">println</span>(linhas);
+    <span class="fn">db_close</span>(db);
+}
+        </pre>
+    </div>
+
+    <h2>10.3 Servidor HTTP Nativo e APIs de Produção</h2>
+    <p>
+        O GhostLang não precisa de Python, Flask ou NodeJS para disponibilizar modelos na web: um servidor HTTP multithreaded de alta performance faz parte do núcleo:
+    </p>
+
+    <div class="code-block">
+        <div class="code-header"><span class="code-filename">exemplos/servidor_http.g</span><span>GhostLang Source</span></div>
+        <pre>
+<span class="cm">// 1. Instancia o servidor TCP na porta 8080</span>
+<span class="type">server</span> app = <span class="num">8080</span>;
+
+<span class="cm">// 2. Handler de endpoint REST</span>
+<span class="kw">function</span> <span class="type">string</span> <span class="fn">get_status</span>(<span class="type">string</span> req) {
+    <span class="kw">return</span> <span class="str">"{\"status\": \"online\", \"engine\": \"GhostLang HTTP Native Engine\", \"versao\": \"0.9\"}"</span>;
+}
+
+<span class="kw">function</span> <span class="type">string</span> <span class="fn">post_inferencia</span>(<span class="type">string</span> req) {
+    <span class="cm">// Executa predição quântica instantânea e retorna JSON</span>
+    <span class="kw">return</span> <span class="str">"{\"predicao\": 0.994, \"classe\": 1}"</span>;
+}
+
+<span class="cm">// 3. Roteamento de rotas e escuta de requisições</span>
+app.route(<span class="str">"/status"</span>, get_status);
+app.route(<span class="str">"/inferir"</span>, post_inferencia);
+
+<span class="fn">println</span>(<span class="str">"Servidor GhostLang ouvindo na porta 8080..."</span>);
+app.listen();
+        </pre>
+    </div>
+</div>
+
+<!-- CAPÍTULO 11 -->
+<div class="chapter">
+    <span class="chapter-badge">Capítulo 11</span>
+    <h1 class="chapter-title">A Toolchain Oficial (CLI ghost, REPL, Debugger e CTest)</h1>
+    <div class="chapter-intro">
+        Maximize sua produtividade como desenvolvedor GhostLang: comandos unificados de compilação, o REPL dinâmico para experimentação rápida, depuração com símbolos DWARF e testes automatizados.
+    </div>
+
+    <h2>11.1 O Guia de Comandos da CLI <code>ghost</code></h2>
+    <p>
+        O binário único <code>ghost</code> gerencia todo o ciclo de vida do seu software:
+    </p>
+
+    <table>
+        <thead>
+            <tr>
+                <th>Comando</th>
+                <th>Ação Executada</th>
+                <th>Exemplo de Uso</th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr>
+                <td><code>ghost build</code></td>
+                <td>Compila arquivo <code>.g</code> para C++17 e gera executável.</td>
+                <td><code>ghost build main.g -o app.exe</code></td>
+            </tr>
+            <tr>
+                <td><code>ghost run</code></td>
+                <td>Compila em memória temporária e executa imediatamente.</td>
+                <td><code>ghost run algoritmo.g</code></td>
+            </tr>
+            <tr>
+                <td><code>ghost test</code></td>
+                <td>Executa suíte de testes com asserções automatizadas.</td>
+                <td><code>ghost test tests/</code></td>
+            </tr>
+            <tr>
+                <td><code>ghost fmt</code></td>
+                <td>Formata canonicamente o código-fonte (estilo padrão).</td>
+                <td><code>ghost fmt -w src/*.g</code></td>
+            </tr>
+            <tr>
+                <td><code>ghost check</code></td>
+                <td>Executa verificação estática de tipos sem gerar binário.</td>
+                <td><code>ghost check codigo.g</code></td>
+            </tr>
+            <tr>
+                <td><code>ghost ast</code></td>
+                <td>Exibe a Árvore Sintática Abstrata do programa (um nó por linha, com a linha do código).</td>
+                <td><code>ghost ast circuito.g</code></td>
+            </tr>
+            <tr>
+                <td><code>ghost debug</code></td>
+                <td>Compila com símbolos de depuração (<code>-g -O0</code>) e mostra o mapa de linhas <code>.g</code>; use com o gdb. O modo <code>--dap</code> ainda não está implementado.</td>
+                <td><code>ghost debug main.g</code></td>
+            </tr>
+            <tr>
+                <td><code>ghost lsp</code></td>
+                <td>Inicia o Language Server Protocol sobre stdio para IDEs.</td>
+                <td><code>ghost lsp</code></td>
+            </tr>
+            <tr>
+                <td><code>ghost pm</code></td>
+                <td>Gerenciador de pacotes GhostPM: <code>init</code>, <code>add</code>, <code>remove</code> e <code>list</code> mantêm o <code>ghost.toml</code> e o <code>ghost.lock</code>; <code>install</code> ainda não baixa pacotes.</td>
+                <td><code>ghost pm add quantum_algorithms</code></td>
+            </tr>
+        </tbody>
+    </table>
+
+    <h2>11.2 O Console Interativo REPL (Read-Eval-Print Loop)</h2>
+    <p>
+        Executando <code>ghost</code> sem nenhum argumento na linha de comando, você abre instantaneamente o terminal interativo:
+    </p>
+
+    <div class="code-block">
+        <div class="code-header"><span class="code-filename">Sessão Interativa REPL</span><span>Terminal</span></div>
+        <pre>
+GhostLang REPL v1.0 (Interactive Mode)
+Digite 'exit' para sair.
+
+ghost&gt; qreg q(1);
+ghost&gt; q.h(0);
+ghost&gt; q.show();
+0.7071|0&gt; + 0.7071|1&gt;
+ghost&gt; print(q.measure(0));
+1
+ghost&gt; exit
+        </pre>
+    </div>
+
+    <!-- SEÇÃO DE ATIVIDADES PRÁTICAS DO CAPÍTULO -->
+    <div class="exercises-section">
+        <div class="exercises-title">
+            <span>✏️</span> Laboratório Prático: Exercícios dos Capítulos 10 & 11
+        </div>
+
+        <div class="exercise-item">
+            <div class="exercise-header">
+                <span class="exercise-name">Exercício 7.1: Servidor de Micro-Serviço de Hashes Criptográficos</span>
+                <span class="exercise-badge badge-easy">Aquecimento</span>
+            </div>
+            <div class="exercise-desc">
+                Crie um servidor HTTP escutando na porta 8085 que receba uma string no caminho <code>/encode</code>, codifique-a em Base64 usando a biblioteca <code>crypto_base64_encode</code> e retorne um payload JSON <code>{"original": "...", "base64": "..."}</code>.
+            </div>
+            <div class="exercise-hint">Dica: Use <code>import "libs/crypto.g"</code> e <code>app.route()</code>.</div>
+        </div>
+
+        <div class="exercise-item">
+            <div class="exercise-header">
+                <span class="exercise-name">Exercício 7.2: Histórico de Telemetria Quântica com SQLite</span>
+                <span class="exercise-badge badge-medium">Aplicação</span>
+            </div>
+            <div class="exercise-desc">
+                Escreva um script que execute 10 circuitos quânticos com ângulos de rotação aleatórios, registre a fidelidade de cada circuito em um banco de dados SQLite local <code>experimentos.db</code> e, em seguida, calcule e exiba a média e o desvio padrão das fidelidades gravadas através de uma consulta SQL agregada.
+            </div>
+            <div class="exercise-hint">Dica: Utilize <code>SELECT AVG(fidelidade) FROM experimentos;</code>.</div>
+        </div>
+
+        <div class="exercise-item">
+            <div class="exercise-header">
+                <span class="exercise-name">Exercício 7.3: Pipeline de CI Automatizado com ghost test</span>
+                <span class="exercise-badge badge-hard">Desafio</span>
+            </div>
+            <div class="exercise-desc">
+                Crie uma pasta de testes contendo 3 arquivos: um teste matemático com <code>assert_eq</code>, um teste quântico verificando a normalização <span class="math">∑ |α|² = 1.0</span> e um teste de rede neural verificando a convergência. Execute todos os testes em lote com <code>ghost test</code> e exiba o sumário de aprovação.
+            </div>
+            <div class="exercise-hint">Dica: Use a biblioteca <code>libs/test.g</code> com <code>assert_true()</code>.</div>
+        </div>
+    </div>
+</div>
+
+
+<!-- APÊNDICE A: GABARITO E RESOLUÇÕES -->
+<div class="chapter">
+    <span class="chapter-badge">Apêndice A</span>
+    <h1 class="chapter-title">Laboratório Prático: Soluções e Códigos Comentados</h1>
+    <div class="chapter-intro">
+        Confira as resoluções comentadas de todos os exercícios práticos propostos nos capítulos deste livro para validar o seu aprendizado em GhostLang.
+    </div>
+
+    <h2>A.1 Resolução do Exercício 1.1: Calculadora de Impedância Complexa</h2>
+    <div class="code-block">
+        <div class="code-header"><span class="code-filename">solucoes/ex1_1_impedancia.g</span><span>GhostLang Source</span></div>
+        <pre>
+<span class="kw">function</span> <span class="type">void</span> <span class="fn">main</span>() {
+    <span class="type">float</span> R = <span class="num">50.0</span>;
+    <span class="type">float</span> XL = <span class="num">30.0</span>;
+    <span class="type">complex</span> Z = R + XL * <span class="num">1.0i</span>;
+    
+    <span class="type">float</span> modulo = sqrt(R * R + XL * XL);
+    <span class="fn">println</span>(<span class="str">f"Impedancia Complexa Z: {Z} ohms"</span>);
+    <span class="fn">println</span>(<span class="str">f"Modulo da Impedancia |Z|: {modulo} ohms"</span>);
+}
+        </pre>
+    </div>
+
+    <h2>A.2 Resolução do Exercício 4.1: Gerador Quântico QRNG</h2>
+    <div class="code-block">
+        <div class="code-header"><span class="code-filename">solucoes/ex4_1_qrng.g</span><span>GhostLang Source</span></div>
+        <pre>
+<span class="kw">import</span> <span class="str">"libs/quantum.g"</span>;
+
+<span class="kw">function</span> <span class="type">void</span> <span class="fn">main</span>() {
+    <span class="type">qreg</span> <span class="fn">q</span>(<span class="num">8</span>);    <span class="cm">// 8 qubits para compor 1 byte</span>
+    q.<span class="fn">h_all</span>();    <span class="cm">// todos em superposição equiprovável</span>
+
+    <span class="type">int</span> byte_aleatorio = <span class="num">0</span>;
+    <span class="kw">for</span> (<span class="type">int</span> i = <span class="num">0</span>; i &lt; <span class="num">8</span>; i++) {
+        <span class="type">int</span> bit = q.<span class="fn">measure</span>(i);
+        byte_aleatorio = byte_aleatorio * <span class="num">2</span> + bit;
+    }
+    <span class="fn">println</span>(<span class="str">f"Numero quantico aleatorio gerado (0-255): {byte_aleatorio}"</span>);
+}
+        </pre>
+    </div>
+
+    <h2>A.3 Resolução do Exercício 4.2: Teletransporte Quântico Completo</h2>
+    <div class="code-block">
+        <div class="code-header"><span class="code-filename">solucoes/ex4_2_teletransporte.g</span><span>GhostLang Source</span></div>
+        <pre>
+<span class="kw">import</span> <span class="str">"libs/quantum.g"</span>;
+
+<span class="kw">function</span> <span class="type">void</span> <span class="fn">main</span>() {
+    <span class="type">qreg</span> q(<span class="num">3</span>); <span class="cm">// q0: estado de Alice, q1-q2: par entrelaçado EPR</span>
+
+    <span class="cm">// 1. Alice prepara seu qubit secreto com rotação</span>
+    q.ry(<span class="num">0</span>, <span class="num">3.14159265</span> / <span class="num">3.0</span>);
+
+    <span class="cm">// 2. Cria par EPR entre Bob (q2) e Alice (q1)</span>
+    q.h(<span class="num">1</span>);
+    q.cx(<span class="num">1</span>, <span class="num">2</span>);
+
+    <span class="cm">// 3. Alice mede em base de Bell</span>
+    q.cx(<span class="num">0</span>, <span class="num">1</span>);
+    q.h(<span class="num">0</span>);
+    <span class="type">int</span> m0 = q.measure(<span class="num">0</span>);
+    <span class="type">int</span> m1 = q.measure(<span class="num">1</span>);
+
+    <span class="cm">// 4. Bob aplica correções unitárias clássicas</span>
+    <span class="kw">if</span> (m1 == <span class="num">1</span>) { q.x(<span class="num">2</span>); }
+    <span class="kw">if</span> (m0 == <span class="num">1</span>) { q.z(<span class="num">2</span>); }
+
+    <span class="fn">println</span>(<span class="str">"Teletransporte concluído com sucesso! Estado reconstruído em Bob (q2):"</span>);
+    q.show();
+}
+        </pre>
+    </div>
+
+    <h2>A.4 Resolução do Exercício 5.1: Classificador de Porta XOR com Rede Neural</h2>
+    <div class="code-block">
+        <div class="code-header"><span class="code-filename">solucoes/ex5_1_xor.g</span><span>GhostLang Source</span></div>
+        <pre>
+<span class="kw">function</span> <span class="type">void</span> <span class="fn">main</span>() {
+    <span class="cm">// Tabela da verdade do XOR: uma amostra por coluna (2 entradas x 4 amostras)</span>
+    <span class="type">gate</span> <span class="fn">X</span>(<span class="num">2</span>, <span class="num">4</span>);
+    <span class="type">gate</span> <span class="fn">Y</span>(<span class="num">1</span>, <span class="num">4</span>);
+    <span class="fn">X</span>(<span class="num">0</span>, <span class="num">0</span>) = <span class="num">0.0</span>; <span class="fn">X</span>(<span class="num">1</span>, <span class="num">0</span>) = <span class="num">0.0</span>; <span class="fn">Y</span>(<span class="num">0</span>, <span class="num">0</span>) = <span class="num">0.0</span>;
+    <span class="fn">X</span>(<span class="num">0</span>, <span class="num">1</span>) = <span class="num">0.0</span>; <span class="fn">X</span>(<span class="num">1</span>, <span class="num">1</span>) = <span class="num">1.0</span>; <span class="fn">Y</span>(<span class="num">0</span>, <span class="num">1</span>) = <span class="num">1.0</span>;
+    <span class="fn">X</span>(<span class="num">0</span>, <span class="num">2</span>) = <span class="num">1.0</span>; <span class="fn">X</span>(<span class="num">1</span>, <span class="num">2</span>) = <span class="num">0.0</span>; <span class="fn">Y</span>(<span class="num">0</span>, <span class="num">2</span>) = <span class="num">1.0</span>;
+    <span class="fn">X</span>(<span class="num">0</span>, <span class="num">3</span>) = <span class="num">1.0</span>; <span class="fn">X</span>(<span class="num">1</span>, <span class="num">3</span>) = <span class="num">1.0</span>; <span class="fn">Y</span>(<span class="num">0</span>, <span class="num">3</span>) = <span class="num">0.0</span>;
+
+    <span class="cm">// Rede híbrida: densa 2 -&gt; 2, camada quântica de 2 qubits, densa 2 -&gt; 1</span>
+    <span class="type">gate</span> <span class="fn">W1</span>(<span class="num">2</span>, <span class="num">2</span>);
+    <span class="type">qlayer</span> <span class="fn">Q</span>(<span class="num">2</span>, <span class="num">2</span>);
+    <span class="type">gate</span> <span class="fn">W2</span>(<span class="num">1</span>, <span class="num">2</span>);
+    Q.<span class="fn">seed</span>(<span class="num">7</span>);
+    <span class="kw">network</span> rede_xor = W1 &gt;&gt; Q &gt;&gt; W2;
+
+    rede_xor =&gt; <span class="fn">optimize</span>(X, Y, epochs=<span class="num">200</span>, lr=<span class="num">0.05</span>, opt=<span class="str">"adam"</span>);
+    <span class="fn">println</span>(<span class="str">f"Perda final: {rede_xor.loss(X, Y)}  acuracia: {rede_xor.accuracy(X, Y) * 100.0}%"</span>);
+}
+        </pre>
+    </div>
+</div>
+
+<!-- APÊNDICE B: TABELA PERIÓDICA DE PORTAS QUÂNTICAS -->
+<div class="chapter">
+    <span class="chapter-badge">Apêndice B</span>
+    <h1 class="chapter-title">Tabela Periódica Completa das Portas Quânticas</h1>
+    <div class="chapter-intro">
+        Guia de consulta rápida contendo todas as portas lógicas quânticas, matrizes unitárias correspondentes e assinaturas de método em GhostLang.
+    </div>
+
+    <table>
+        <thead>
+            <tr>
+                <th>Porta</th>
+                <th>Sintaxe</th>
+                <th>Matriz Unitária / Definição</th>
+                <th>Descrição</th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr>
+                <td><strong>Hadamard (H)</strong></td>
+                <td><code>q.h(i)</code></td>
+                <td>1/√2 [[1, 1], [1, -1]]</td>
+                <td>Cria superposição simétrica de base computacional.</td>
+            </tr>
+            <tr>
+                <td><strong>Pauli-X</strong></td>
+                <td><code>q.x(i)</code></td>
+                <td>[[0, 1], [1, 0]]</td>
+                <td>Inversão de bit quântico (NOT Quântico).</td>
+            </tr>
+            <tr>
+                <td><strong>Pauli-Y</strong></td>
+                <td><code>q.y(i)</code></td>
+                <td>[[0, -i], [i, 0]]</td>
+                <td>Inversão simultânea de bit e fase.</td>
+            </tr>
+            <tr>
+                <td><strong>Pauli-Z</strong></td>
+                <td><code>q.z(i)</code></td>
+                <td>[[1, 0], [0, -1]]</td>
+                <td>Inversão de fase (|1⟩ → -|1⟩).</td>
+            </tr>
+            <tr>
+                <td><strong>Porta S</strong></td>
+                <td><code>q.s(i)</code></td>
+                <td>[[1, 0], [0, i]]</td>
+                <td>Porta de fase π/2 (raiz quadrada de Z).</td>
+            </tr>
+            <tr>
+                <td><strong>Porta T</strong></td>
+                <td><code>q.t(i)</code></td>
+                <td>[[1, 0], [0, e^(iπ/4)]]</td>
+                <td>Porta de fase π/4 (essencial para universalidade).</td>
+            </tr>
+            <tr>
+                <td><strong>Rotação X</strong></td>
+                <td><code>q.rx(i, θ)</code></td>
+                <td>exp(-i θ/2 X)</td>
+                <td>Rotação contínua em torno do eixo X na Esfera de Bloch.</td>
+            </tr>
+            <tr>
+                <td><strong>Rotação Y</strong></td>
+                <td><code>q.ry(i, θ)</code></td>
+                <td>exp(-i θ/2 Y)</td>
+                <td>Rotação em torno do eixo Y (coeficientes reais).</td>
+            </tr>
+            <tr>
+                <td><strong>Rotação Z</strong></td>
+                <td><code>q.rz(i, θ)</code></td>
+                <td>exp(-i θ/2 Z)</td>
+                <td>Rotação de fase em torno do eixo Z.</td>
+            </tr>
+            <tr>
+                <td><strong>CNOT / CX</strong></td>
+                <td><code>q.cx(c, t)</code></td>
+                <td>Matriz 4x4 controlada</td>
+                <td>Aplica X no alvo se o controle estiver em |1⟩.</td>
+            </tr>
+            <tr>
+                <td><strong>CZ</strong></td>
+                <td><code>q.cz(c, t)</code></td>
+                <td>diag(1, 1, 1, -1)</td>
+                <td>Fase condicional simétrica de 2 qubits.</td>
+            </tr>
+            <tr>
+                <td><strong>SWAP</strong></td>
+                <td><code>q.swap(a, b)</code></td>
+                <td>Troca de estados</td>
+                <td>Permuta amplitudes dos qubits a e b.</td>
+            </tr>
+            <tr>
+                <td><strong>Toffoli (CCX)</strong></td>
+                <td><code>q.ccx(c1, c2, t)</code></td>
+                <td>Matriz 8x8 controlada</td>
+                <td>Porta AND clássica reversível de 3 qubits.</td>
+            </tr>
+            <tr>
+                <td><strong>Fredkin (CSWAP)</strong></td>
+                <td><code>q.cswap(c, a, b)</code></td>
+                <td>Troca controlada</td>
+                <td>Troca a e b se o controle estiver em |1⟩.</td>
+            </tr>
+        </tbody>
+    </table>
+</div>
+
+<!-- APÊNDICE C: CHEAT SHEET RÁPIDO -->
+<div class="chapter">
+    <span class="chapter-badge">Apêndice C</span>
+    <h1 class="chapter-title">Cheat Sheet de Sintaxe Rápida e Comandos da CLI</h1>
+    <div class="chapter-intro">
+        Folha de consulta rápida para programadores experientes.
+    </div>
+
+    <div class="code-block">
+        <div class="code-header"><span>Sintaxe Expressa GhostLang</span><span>Cheat Sheet</span></div>
+        <pre>
+<span class="cm">// Variáveis e Tipos</span>
+<span class="type">int</span> a = <span class="num">10</span>;  <span class="type">float</span> b = <span class="num">3.14</span>;  <span class="type">string</span> s = <span class="str">f"valor={a}"</span>;  <span class="type">complex</span> z = <span class="num">1.0</span> + <span class="num">2.0i</span>;
+<span class="type">ghost</span> g = ghost(<span class="num">1.0</span>, <span class="num">0.5</span>, <span class="num">2.0</span>, <span class="num">0.0</span>); <span class="cm">// Álgebra G 4D</span>
+
+<span class="cm">// Entrada e Saída Interativa</span>
+<span class="fn">println</span>(<span class="str">f"Saída com f-string: {s}"</span>);
+<span class="type">string</span> nome = <span class="fn">input</span>(<span class="str">"Digite o nome: "</span>);
+<span class="type">int</span> idade; <span class="fn">inputln</span>(<span class="str">f"Digite a idade: {idade}"</span>);
+
+<span class="cm">// Condicionais e Laços</span>
+<span class="kw">if</span> (a &gt; <span class="num">0</span>) { ... } <span class="kw">else</span> { ... }
+<span class="kw">switch</span> (s) { <span class="kw">case</span> <span class="str">"X"</span>: ... <span class="kw">break</span>; <span class="kw">default</span>: ... }
+<span class="kw">foreach</span> (<span class="type">string</span> item <span class="kw">in</span> lista) { ... }
+
+<span class="cm">// Computação Quântica</span>
+<span class="type">qreg</span> q(<span class="num">2</span>); q.h(<span class="num">0</span>); q.cx(<span class="num">0</span>, <span class="num">1</span>); q.measure_all();
+<span class="kw">circuit</span> bell(a, b) { h(a); cx(a, b); }
+
+<span class="cm">// Deep Learning</span>
+<span class="kw">network</span> modelo = W1 &gt;&gt; W2;
+modelo =&gt; <span class="fn">optimize</span>(X, Y, epochs=<span class="num">100</span>, lr=<span class="num">0.01</span>, opt=<span class="str">"adam"</span>);
+<span class="type">qcircuit</span> clf(<span class="num">2</span>); clf.<span class="fn">encode_all</span>(); clf.<span class="fn">ansatz</span>(<span class="num">2</span>); <span class="cm">// classificador QML</span>
+
+<span class="cm">// Comandos CLI</span>
+ghost build main.g           <span class="cm">// Compila para C++17</span>
+ghost run main.g             <span class="cm">// Executa direto</span>
+ghost test                   <span class="cm">// Roda testes CTest</span>
+ghost fmt -w src/            <span class="cm">// Formata código</span>
+        </pre>
+    </div>
+</div>
+
+<!-- CONTRACAPA DO LIVRO -->
+<div class="cover-page" style="background: linear-gradient(135deg, #1e1b4b 0%, #0f172a 50%, #090d16 100%);">
+    <div>
+        <div class="cover-badge-container">
+            <span class="cover-badge">GhostLang 2026</span>
+            <span class="cover-badge gold">Referência Definitiva</span>
+        </div>
+        <h2 style="font-size: 26pt; font-weight: 800; color: #f8fafc; margin-bottom: 20px;">
+            A Linguagem da Próxima Era da Computação
+        </h2>
+        <p style="font-size: 11pt; color: #cbd5e1; line-height: 1.7; max-width: 600px; margin-bottom: 25px;">
+            O <strong>GhostLang</strong> redefine os limites do desenvolvimento de software ao unificar a performance implacável do <strong>C++17 ISO</strong>, a abstração declarativa da <strong>Inteligência Artificial moderna</strong> e o modelo de estados probabilísticos da <strong>Computação Quântica</strong> em uma única ferramenta coesa, elegante e autônoma.
+        </p>
+
+        <p style="font-size: 10.5pt; color: #94a3b8; line-height: 1.6; max-width: 600px;">
+            Seja você um pesquisador de física quântica desenvolvendo novos algoritmos variacionais, um engenheiro de aprendizado de máquina treinando redes neurais profundas com aceleração CUDA, ou um desenvolvedor de backend construindo microsserviços ultrarrápidos, este livro é o seu mapa definitivo.
+        </p>
+    </div>
+
+    <div style="border-top: 1px solid rgba(255, 255, 255, 0.15); padding-top: 20px; display: flex; justify-content: space-between; align-items: center;">
+        <div>
+            <div style="font-weight: bold; color: #f8fafc; font-size: 12pt;">GHOSTLANG PRESS</div>
+            <div style="color: #64748b; font-size: 9pt;">Engenharia de Compiladores e Sistemas Inteligentes</div>
+            <div style="color: #38bdf8; font-size: 8.5pt; margin-top: 3px;">Versão 0.9 • repositório ainda não publicado</div>
+        </div>
+        <div style="background: rgba(255,255,255,0.06); border: 1px solid rgba(255,255,255,0.2); padding: 8px 16px; border-radius: 6px; font-family: monospace; font-size: 9pt; color: #38bdf8;">
+            Edição local • sem ISBN
+        </div>
+    </div>
+</div>
+
+</body>
+</html>

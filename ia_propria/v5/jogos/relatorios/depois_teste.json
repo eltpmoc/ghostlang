@@ -1,0 +1,1560 @@
+{
+  "data_utc": "2026-09-26T19:33:21.555672+00:00",
+  "checkpoint": "/home/eltonalvesp/PROJETOS/ghost-linux/ia_propria/checkpoints/v4/jogos_piloto_20260926/selecionado.bin",
+  "sha256": "3d355564c1d32317e8b4ff11a917a4a33564a8b35a3679044f045a1b058be85c",
+  "device": "cuda",
+  "particao": "teste",
+  "fonte_dados_sha256": "10fcda1813c8180f109f42938dce3b35c5b1886030bdbef41b2fe6f9a4f56e4e",
+  "metodo": "Geracao bruta pelos pesos; greedy, 32 bytes; sem chat, filtro, ferramentas ou internet; igualdade exata apos strip.",
+  "acertos": 8,
+  "casos": 54,
+  "resumo": {
+    "copia/nivel1": {
+      "acertos": 1,
+      "casos": 3,
+      "falhas_execucao": 0,
+      "acertos_resposta_frequente": 0
+    },
+    "copia/nivel2": {
+      "acertos": 0,
+      "casos": 3,
+      "falhas_execucao": 0,
+      "acertos_resposta_frequente": 0
+    },
+    "copia/nivel3": {
+      "acertos": 0,
+      "casos": 3,
+      "falhas_execucao": 0,
+      "acertos_resposta_frequente": 0
+    },
+    "memoria/nivel1": {
+      "acertos": 0,
+      "casos": 3,
+      "falhas_execucao": 0,
+      "acertos_resposta_frequente": 0
+    },
+    "memoria/nivel2": {
+      "acertos": 0,
+      "casos": 3,
+      "falhas_execucao": 0,
+      "acertos_resposta_frequente": 0
+    },
+    "memoria/nivel3": {
+      "acertos": 0,
+      "casos": 3,
+      "falhas_execucao": 0,
+      "acertos_resposta_frequente": 0
+    },
+    "regras/nivel1": {
+      "acertos": 1,
+      "casos": 3,
+      "falhas_execucao": 0,
+      "acertos_resposta_frequente": 0
+    },
+    "regras/nivel2": {
+      "acertos": 0,
+      "casos": 3,
+      "falhas_execucao": 0,
+      "acertos_resposta_frequente": 0
+    },
+    "regras/nivel3": {
+      "acertos": 1,
+      "casos": 3,
+      "falhas_execucao": 0,
+      "acertos_resposta_frequente": 1
+    },
+    "caminho/nivel1": {
+      "acertos": 0,
+      "casos": 3,
+      "falhas_execucao": 0,
+      "acertos_resposta_frequente": 0
+    },
+    "caminho/nivel2": {
+      "acertos": 0,
+      "casos": 3,
+      "falhas_execucao": 0,
+      "acertos_resposta_frequente": 2
+    },
+    "caminho/nivel3": {
+      "acertos": 2,
+      "casos": 3,
+      "falhas_execucao": 0,
+      "acertos_resposta_frequente": 2
+    },
+    "ordem/nivel1": {
+      "acertos": 3,
+      "casos": 3,
+      "falhas_execucao": 0,
+      "acertos_resposta_frequente": 0
+    },
+    "ordem/nivel2": {
+      "acertos": 0,
+      "casos": 3,
+      "falhas_execucao": 0,
+      "acertos_resposta_frequente": 0
+    },
+    "ordem/nivel3": {
+      "acertos": 0,
+      "casos": 3,
+      "falhas_execucao": 0,
+      "acertos_resposta_frequente": 0
+    },
+    "contagem/nivel1": {
+      "acertos": 0,
+      "casos": 3,
+      "falhas_execucao": 0,
+      "acertos_resposta_frequente": 0
+    },
+    "contagem/nivel2": {
+      "acertos": 0,
+      "casos": 3,
+      "falhas_execucao": 0,
+      "acertos_resposta_frequente": 0
+    },
+    "contagem/nivel3": {
+      "acertos": 0,
+      "casos": 3,
+      "falhas_execucao": 0,
+      "acertos_resposta_frequente": 0
+    }
+  },
+  "respostas": [
+    {
+      "estado": {
+        "inicio": "B",
+        "passos": 1,
+        "portas": [
+          [
+            "A",
+            "B"
+          ],
+          [
+            "B",
+            "E"
+          ],
+          [
+            "C",
+            "F"
+          ],
+          [
+            "D",
+            "D"
+          ],
+          [
+            "E",
+            "C"
+          ],
+          [
+            "F",
+            "A"
+          ]
+        ]
+      },
+      "formulario": 2,
+      "id": "2d12bafc4397d504c7c5b17561fff91adc1a1f898c6f08cdeb50daf7ef6a905d",
+      "jogo": "caminho",
+      "nivel": 1,
+      "prompt": "Usuário: Jogo caminho. Portas: A>B; B>E; C>F; D>D; E>C; F>A. Inicio: B. Passos: 1. Percorra as portas. Responda somente a letra final.\nAssistente:",
+      "resposta": "F",
+      "avisos": "",
+      "correta": false,
+      "referencia_frequente": "F",
+      "acerto_frequente": false
+    },
+    {
+      "estado": {
+        "inicio": "E",
+        "passos": 1,
+        "portas": [
+          [
+            "A",
+            "A"
+          ],
+          [
+            "B",
+            "F"
+          ],
+          [
+            "C",
+            "D"
+          ],
+          [
+            "D",
+            "E"
+          ],
+          [
+            "E",
+            "C"
+          ],
+          [
+            "F",
+            "B"
+          ]
+        ]
+      },
+      "formulario": 0,
+      "id": "2eea9aca5f64c89a10f9e77f9b5ffdece4efbd8bd4abc1cd50f13a36e31215dc",
+      "jogo": "caminho",
+      "nivel": 1,
+      "prompt": "Usuário: Jogo caminho. Portas: A>A; B>F; C>D; D>E; E>C; F>B. Inicio: E. Passos: 1. Siga uma porta por passo. Apenas a sala final.\nAssistente:",
+      "resposta": "F",
+      "avisos": "",
+      "correta": false,
+      "referencia_frequente": "F",
+      "acerto_frequente": false
+    },
+    {
+      "estado": {
+        "inicio": "A",
+        "passos": 1,
+        "portas": [
+          [
+            "A",
+            "E"
+          ],
+          [
+            "B",
+            "F"
+          ],
+          [
+            "C",
+            "A"
+          ],
+          [
+            "D",
+            "C"
+          ],
+          [
+            "E",
+            "B"
+          ],
+          [
+            "F",
+            "D"
+          ]
+        ]
+      },
+      "formulario": 1,
+      "id": "3bd2b0ba3b3254b760124d9298f7bbe68f5567795cc3905c371016b83d233efb",
+      "jogo": "caminho",
+      "nivel": 1,
+      "prompt": "Usuário: Jogo caminho. Portas: A>E; B>F; C>A; D>C; E>B; F>D. Inicio: A. Passos: 1. Avance o numero de passos. Diga so a sala final.\nAssistente:",
+      "resposta": "F",
+      "avisos": "",
+      "correta": false,
+      "referencia_frequente": "F",
+      "acerto_frequente": false
+    },
+    {
+      "estado": {
+        "inicio": "B",
+        "passos": 2,
+        "portas": [
+          [
+            "A",
+            "F"
+          ],
+          [
+            "B",
+            "B"
+          ],
+          [
+            "C",
+            "C"
+          ],
+          [
+            "D",
+            "D"
+          ],
+          [
+            "E",
+            "E"
+          ],
+          [
+            "F",
+            "A"
+          ]
+        ]
+      },
+      "formulario": 2,
+      "id": "0086cb8195d0c2bb05f25ba9d1deea7b52b1e2997dc2f83a3b7431be41f91337",
+      "jogo": "caminho",
+      "nivel": 2,
+      "prompt": "Usuário: Jogo caminho. Portas: A>F; B>B; C>C; D>D; E>E; F>A. Inicio: B. Passos: 2. Percorra as portas. Responda somente a letra final.\nAssistente:",
+      "resposta": "F",
+      "avisos": "",
+      "correta": false,
+      "referencia_frequente": "B",
+      "acerto_frequente": true
+    },
+    {
+      "estado": {
+        "inicio": "F",
+        "passos": 2,
+        "portas": [
+          [
+            "A",
+            "C"
+          ],
+          [
+            "B",
+            "E"
+          ],
+          [
+            "C",
+            "F"
+          ],
+          [
+            "D",
+            "B"
+          ],
+          [
+            "E",
+            "A"
+          ],
+          [
+            "F",
+            "D"
+          ]
+        ]
+      },
+      "formulario": 0,
+      "id": "2f06e6c24b55352873a5d3c3899e482af30cf52a1c24fa08d1287617e4259b59",
+      "jogo": "caminho",
+      "nivel": 2,
+      "prompt": "Usuário: Jogo caminho. Portas: A>C; B>E; C>F; D>B; E>A; F>D. Inicio: F. Passos: 2. Siga uma porta por passo. Apenas a sala final.\nAssistente:",
+      "resposta": "F",
+      "avisos": "",
+      "correta": false,
+      "referencia_frequente": "B",
+      "acerto_frequente": true
+    },
+    {
+      "estado": {
+        "inicio": "C",
+        "passos": 2,
+        "portas": [
+          [
+            "A",
+            "F"
+          ],
+          [
+            "B",
+            "E"
+          ],
+          [
+            "C",
+            "D"
+          ],
+          [
+            "D",
+            "C"
+          ],
+          [
+            "E",
+            "B"
+          ],
+          [
+            "F",
+            "A"
+          ]
+        ]
+      },
+      "formulario": 2,
+      "id": "4c0f92799eb5adf15937e60a641c694fe2c3b8c2ee3515738ad893aba9f1b87d",
+      "jogo": "caminho",
+      "nivel": 2,
+      "prompt": "Usuário: Jogo caminho. Portas: A>F; B>E; C>D; D>C; E>B; F>A. Inicio: C. Passos: 2. Percorra as portas. Responda somente a letra final.\nAssistente:",
+      "resposta": "F",
+      "avisos": "",
+      "correta": false,
+      "referencia_frequente": "B",
+      "acerto_frequente": false
+    },
+    {
+      "estado": {
+        "inicio": "B",
+        "passos": 3,
+        "portas": [
+          [
+            "A",
+            "B"
+          ],
+          [
+            "B",
+            "D"
+          ],
+          [
+            "C",
+            "C"
+          ],
+          [
+            "D",
+            "E"
+          ],
+          [
+            "E",
+            "F"
+          ],
+          [
+            "F",
+            "A"
+          ]
+        ]
+      },
+      "formulario": 2,
+      "id": "0276ffe0ca5a646e3d6aeb628c92b8c1437d0169df8d79b75dad2b85ebca5582",
+      "jogo": "caminho",
+      "nivel": 3,
+      "prompt": "Usuário: Jogo caminho. Portas: A>B; B>D; C>C; D>E; E>F; F>A. Inicio: B. Passos: 3. Percorra as portas. Responda somente a letra final.\nAssistente:",
+      "resposta": "F",
+      "avisos": "",
+      "correta": true,
+      "referencia_frequente": "F",
+      "acerto_frequente": true
+    },
+    {
+      "estado": {
+        "inicio": "C",
+        "passos": 3,
+        "portas": [
+          [
+            "A",
+            "B"
+          ],
+          [
+            "B",
+            "E"
+          ],
+          [
+            "C",
+            "F"
+          ],
+          [
+            "D",
+            "A"
+          ],
+          [
+            "E",
+            "D"
+          ],
+          [
+            "F",
+            "C"
+          ]
+        ]
+      },
+      "formulario": 2,
+      "id": "157224eda4ce105c2d107b0d965dc129a3a2cb0e8a77b331b51fc23d955d7f93",
+      "jogo": "caminho",
+      "nivel": 3,
+      "prompt": "Usuário: Jogo caminho. Portas: A>B; B>E; C>F; D>A; E>D; F>C. Inicio: C. Passos: 3. Percorra as portas. Responda somente a letra final.\nAssistente:",
+      "resposta": "F",
+      "avisos": "",
+      "correta": true,
+      "referencia_frequente": "F",
+      "acerto_frequente": true
+    },
+    {
+      "estado": {
+        "inicio": "B",
+        "passos": 3,
+        "portas": [
+          [
+            "A",
+            "B"
+          ],
+          [
+            "B",
+            "D"
+          ],
+          [
+            "C",
+            "A"
+          ],
+          [
+            "D",
+            "F"
+          ],
+          [
+            "E",
+            "E"
+          ],
+          [
+            "F",
+            "C"
+          ]
+        ]
+      },
+      "formulario": 1,
+      "id": "2d24ba050e3141b3a79c3049132fd0a99a6973db4567e16b4b17749c4e61e1d5",
+      "jogo": "caminho",
+      "nivel": 3,
+      "prompt": "Usuário: Jogo caminho. Portas: A>B; B>D; C>A; D>F; E>E; F>C. Inicio: B. Passos: 3. Avance o numero de passos. Diga so a sala final.\nAssistente:",
+      "resposta": "B",
+      "avisos": "",
+      "correta": false,
+      "referencia_frequente": "F",
+      "acerto_frequente": false
+    },
+    {
+      "estado": {
+        "inicio": 33,
+        "mudancas": [
+          1
+        ]
+      },
+      "formulario": 2,
+      "id": "10d59e4e9d3cf3bad074bc207286f24490d9d10506223cce51f3a852491c07f6",
+      "jogo": "contagem",
+      "nivel": 1,
+      "prompt": "Usuário: Jogo contagem. Estoque inicial: 33. Movimentos: +1. Informe so o total apos os movimentos.\nAssistente:",
+      "resposta": "31",
+      "avisos": "",
+      "correta": false,
+      "referencia_frequente": "35",
+      "acerto_frequente": false
+    },
+    {
+      "estado": {
+        "inicio": 21,
+        "mudancas": [
+          2
+        ]
+      },
+      "formulario": 0,
+      "id": "17b393b48458184c0c3d26cbf6a2e60dbd588f6e4addcfd2b5263221cbb2ca48",
+      "jogo": "contagem",
+      "nivel": 1,
+      "prompt": "Usuário: Jogo contagem. Estoque inicial: 21. Movimentos: +2. Qual o estoque final? Apenas o inteiro.\nAssistente:",
+      "resposta": "21",
+      "avisos": "",
+      "correta": false,
+      "referencia_frequente": "35",
+      "acerto_frequente": false
+    },
+    {
+      "estado": {
+        "inicio": 35,
+        "mudancas": [
+          3
+        ]
+      },
+      "formulario": 2,
+      "id": "2ad71d77ecfb85559b91c8b7a0d03ce9ee7e85fb5bb63407385efe8952b2497f",
+      "jogo": "contagem",
+      "nivel": 1,
+      "prompt": "Usuário: Jogo contagem. Estoque inicial: 35. Movimentos: +3. Informe so o total apos os movimentos.\nAssistente:",
+      "resposta": "40",
+      "avisos": "",
+      "correta": false,
+      "referencia_frequente": "35",
+      "acerto_frequente": false
+    },
+    {
+      "estado": {
+        "inicio": 33,
+        "mudancas": [
+          3,
+          1
+        ]
+      },
+      "formulario": 0,
+      "id": "2d94ab7c9840bdb46bf97cc0e1157978f1a4de1d2f601aa1dd572d2e085b2b49",
+      "jogo": "contagem",
+      "nivel": 2,
+      "prompt": "Usuário: Jogo contagem. Estoque inicial: 33. Movimentos: +3, +1. Qual o estoque final? Apenas o inteiro.\nAssistente:",
+      "resposta": "35",
+      "avisos": "",
+      "correta": false,
+      "referencia_frequente": "13",
+      "acerto_frequente": false
+    },
+    {
+      "estado": {
+        "inicio": 36,
+        "mudancas": [
+          -1,
+          4
+        ]
+      },
+      "formulario": 0,
+      "id": "2de76a01986e426e132350b179c3981b4d463ab4466314758bc873a36f15b123",
+      "jogo": "contagem",
+      "nivel": 2,
+      "prompt": "Usuário: Jogo contagem. Estoque inicial: 36. Movimentos: -1, +4. Qual o estoque final? Apenas o inteiro.\nAssistente:",
+      "resposta": "31",
+      "avisos": "",
+      "correta": false,
+      "referencia_frequente": "13",
+      "acerto_frequente": false
+    },
+    {
+      "estado": {
+        "inicio": 34,
+        "mudancas": [
+          -1,
+          5
+        ]
+      },
+      "formulario": 1,
+      "id": "30eb11ad2562e3de0143cb97315aebb93a35c1a1048258460551182d947bd2e2",
+      "jogo": "contagem",
+      "nivel": 2,
+      "prompt": "Usuário: Jogo contagem. Estoque inicial: 34. Movimentos: -1, +5. Aplique os movimentos e diga somente o saldo.\nAssistente:",
+      "resposta": "33",
+      "avisos": "",
+      "correta": false,
+      "referencia_frequente": "13",
+      "acerto_frequente": false
+    },
+    {
+      "estado": {
+        "inicio": 42,
+        "mudancas": [
+          -4,
+          -5,
+          5
+        ]
+      },
+      "formulario": 2,
+      "id": "2d32c0de86004a01c24e14fc959e96889bffb6d40ff687b8782462c59e81a72b",
+      "jogo": "contagem",
+      "nivel": 3,
+      "prompt": "Usuário: Jogo contagem. Estoque inicial: 42. Movimentos: -4, -5, +5. Informe so o total apos os movimentos.\nAssistente:",
+      "resposta": "40",
+      "avisos": "",
+      "correta": false,
+      "referencia_frequente": "11",
+      "acerto_frequente": false
+    },
+    {
+      "estado": {
+        "inicio": 20,
+        "mudancas": [
+          5,
+          -4,
+          3
+        ]
+      },
+      "formulario": 0,
+      "id": "2e53be0981e68cb31748f803aee563fafce40cdb5fb1898aa92cd14f87d91102",
+      "jogo": "contagem",
+      "nivel": 3,
+      "prompt": "Usuário: Jogo contagem. Estoque inicial: 20. Movimentos: +5, -4, +3. Qual o estoque final? Apenas o inteiro.\nAssistente:",
+      "resposta": "29",
+      "avisos": "",
+      "correta": false,
+      "referencia_frequente": "11",
+      "acerto_frequente": false
+    },
+    {
+      "estado": {
+        "inicio": 46,
+        "mudancas": [
+          1,
+          -4,
+          -3
+        ]
+      },
+      "formulario": 1,
+      "id": "3f1b6047ce12ed8e7698b765f6155973375451e187acdea77a8aa7b493934e11",
+      "jogo": "contagem",
+      "nivel": 3,
+      "prompt": "Usuário: Jogo contagem. Estoque inicial: 46. Movimentos: +1, -4, -3. Aplique os movimentos e diga somente o saldo.\nAssistente:",
+      "resposta": "45",
+      "avisos": "",
+      "correta": false,
+      "referencia_frequente": "11",
+      "acerto_frequente": false
+    },
+    {
+      "estado": {
+        "fita": "RL"
+      },
+      "formulario": 0,
+      "id": "015d5d92cea29a2146eba0373b826c55ab1103207b76d953a1b6b2e0eef00adb",
+      "jogo": "copia",
+      "nivel": 1,
+      "prompt": "Usuário: Jogo copia. Fita: RL. Copie a fita. Apenas o codigo.\nAssistente:",
+      "resposta": "RQ",
+      "avisos": "",
+      "correta": false,
+      "referencia_frequente": "AB",
+      "acerto_frequente": false
+    },
+    {
+      "estado": {
+        "fita": "XJ"
+      },
+      "formulario": 2,
+      "id": "199b9d67affd8b380121f75bbfedcd6b0ba026c7970831564c98a7bc4ed6d987",
+      "jogo": "copia",
+      "nivel": 1,
+      "prompt": "Usuário: Jogo copia. Fita: XJ. Escreva a fita sem comentarios.\nAssistente:",
+      "resposta": "WE",
+      "avisos": "",
+      "correta": false,
+      "referencia_frequente": "AB",
+      "acerto_frequente": false
+    },
+    {
+      "estado": {
+        "fita": "MO"
+      },
+      "formulario": 1,
+      "id": "377b1b20d0bb691bc90f019986b0568a3d1387881c6627b9a62820dc50ff02cf",
+      "jogo": "copia",
+      "nivel": 1,
+      "prompt": "Usuário: Jogo copia. Fita: MO. Repita somente o codigo da fita.\nAssistente:",
+      "resposta": "MO",
+      "avisos": "",
+      "correta": true,
+      "referencia_frequente": "AB",
+      "acerto_frequente": false
+    },
+    {
+      "estado": {
+        "fita": "EJLT"
+      },
+      "formulario": 1,
+      "id": "04e0049e5d6bae376c171d1bc3a9fc5b5eb970745de9dc5ca4084d85b8d66b85",
+      "jogo": "copia",
+      "nivel": 2,
+      "prompt": "Usuário: Jogo copia. Fita: EJLT. Repita somente o codigo da fita.\nAssistente:",
+      "resposta": "EJBY",
+      "avisos": "",
+      "correta": false,
+      "referencia_frequente": "AAKQ",
+      "acerto_frequente": false
+    },
+    {
+      "estado": {
+        "fita": "GGPM"
+      },
+      "formulario": 2,
+      "id": "2a00349b0cb61989441309ef5920be9997c67078e7f44eea00b2eba49c89871a",
+      "jogo": "copia",
+      "nivel": 2,
+      "prompt": "Usuário: Jogo copia. Fita: GGPM. Escreva a fita sem comentarios.\nAssistente:",
+      "resposta": "GIG",
+      "avisos": "",
+      "correta": false,
+      "referencia_frequente": "AAKQ",
+      "acerto_frequente": false
+    },
+    {
+      "estado": {
+        "fita": "ICYC"
+      },
+      "formulario": 1,
+      "id": "4995a4c958187d293193bac57252e4284711baca6ff4aff752030e61107ec6c0",
+      "jogo": "copia",
+      "nivel": 2,
+      "prompt": "Usuário: Jogo copia. Fita: ICYC. Repita somente o codigo da fita.\nAssistente:",
+      "resposta": "ICCY",
+      "avisos": "",
+      "correta": false,
+      "referencia_frequente": "AAKQ",
+      "acerto_frequente": false
+    },
+    {
+      "estado": {
+        "fita": "POFSFS"
+      },
+      "formulario": 2,
+      "id": "05b0a5d82f8d7f299ca107c888b0af8e864af72ff210ab37918df0389831eaa5",
+      "jogo": "copia",
+      "nivel": 3,
+      "prompt": "Usuário: Jogo copia. Fita: POFSFS. Escreva a fita sem comentarios.\nAssistente:",
+      "resposta": "OKFQK",
+      "avisos": "",
+      "correta": false,
+      "referencia_frequente": "AXDGUO",
+      "acerto_frequente": false
+    },
+    {
+      "estado": {
+        "fita": "ESVPGD"
+      },
+      "formulario": 0,
+      "id": "10f0594b05fd21560e296b3704c18b120b04ae360e963e5d09e54c601c10441b",
+      "jogo": "copia",
+      "nivel": 3,
+      "prompt": "Usuário: Jogo copia. Fita: ESVPGD. Copie a fita. Apenas o codigo.\nAssistente:",
+      "resposta": "EVCVED",
+      "avisos": "",
+      "correta": false,
+      "referencia_frequente": "AXDGUO",
+      "acerto_frequente": false
+    },
+    {
+      "estado": {
+        "fita": "MUCWEW"
+      },
+      "formulario": 1,
+      "id": "11b9996f1fae4324cf042fe665e941ee9ddb4016c5e367590476b7903a65e7d8",
+      "jogo": "copia",
+      "nivel": 3,
+      "prompt": "Usuário: Jogo copia. Fita: MUCWEW. Repita somente o codigo da fita.\nAssistente:",
+      "resposta": "MV",
+      "avisos": "",
+      "correta": false,
+      "referencia_frequente": "AXDGUO",
+      "acerto_frequente": false
+    },
+    {
+      "estado": {
+        "alvo": "H",
+        "atualizacoes": [],
+        "caixas": [
+          [
+            "H",
+            "BT"
+          ]
+        ]
+      },
+      "formulario": 0,
+      "id": "07cdcf9efc0fa13eed175303ba5c38945cf4221e38386c6b9157477ae2a0e997",
+      "jogo": "memoria",
+      "nivel": 1,
+      "prompt": "Usuário: Jogo memoria. Caixas: H=BT.\nAssistente: OK\nUsuário: Qual o codigo atual da caixa H? Apenas o codigo.\nAssistente:",
+      "resposta": "BF",
+      "avisos": "",
+      "correta": false,
+      "referencia_frequente": "UE",
+      "acerto_frequente": false
+    },
+    {
+      "estado": {
+        "alvo": "C",
+        "atualizacoes": [],
+        "caixas": [
+          [
+            "C",
+            "EV"
+          ]
+        ]
+      },
+      "formulario": 1,
+      "id": "2947f8aaf3d0ec9b28a6666e69a7ebeab90ac9d89317b78949673f7b89e32ea5",
+      "jogo": "memoria",
+      "nivel": 1,
+      "prompt": "Usuário: Jogo memoria. Caixas: C=EV.\nAssistente: OK\nUsuário: Leia a caixa C. Responda so o codigo atual.\nAssistente:",
+      "resposta": "EG",
+      "avisos": "",
+      "correta": false,
+      "referencia_frequente": "UE",
+      "acerto_frequente": false
+    },
+    {
+      "estado": {
+        "alvo": "G",
+        "atualizacoes": [],
+        "caixas": [
+          [
+            "G",
+            "OZ"
+          ]
+        ]
+      },
+      "formulario": 0,
+      "id": "2c11c87f9d9b6fedef24a692b5d083bbcee6828fc5eacf122d6462bbfb530fcd",
+      "jogo": "memoria",
+      "nivel": 1,
+      "prompt": "Usuário: Jogo memoria. Caixas: G=OZ.\nAssistente: OK\nUsuário: Qual o codigo atual da caixa G? Apenas o codigo.\nAssistente:",
+      "resposta": "OG",
+      "avisos": "",
+      "correta": false,
+      "referencia_frequente": "UE",
+      "acerto_frequente": false
+    },
+    {
+      "estado": {
+        "alvo": "C",
+        "atualizacoes": [],
+        "caixas": [
+          [
+            "H",
+            "NH"
+          ],
+          [
+            "A",
+            "KD"
+          ],
+          [
+            "C",
+            "EC"
+          ]
+        ]
+      },
+      "formulario": 0,
+      "id": "10382dba4a6f713aa2539509cb119219c2bc6dc921c023cd536221a60dfdf1b9",
+      "jogo": "memoria",
+      "nivel": 2,
+      "prompt": "Usuário: Jogo memoria. Caixas: H=NH; A=KD; C=EC.\nAssistente: OK\nUsuário: Qual o codigo atual da caixa C? Apenas o codigo.\nAssistente:",
+      "resposta": "DC",
+      "avisos": "",
+      "correta": false,
+      "referencia_frequente": "YW",
+      "acerto_frequente": false
+    },
+    {
+      "estado": {
+        "alvo": "C",
+        "atualizacoes": [],
+        "caixas": [
+          [
+            "E",
+            "SQ"
+          ],
+          [
+            "F",
+            "DL"
+          ],
+          [
+            "C",
+            "JR"
+          ]
+        ]
+      },
+      "formulario": 0,
+      "id": "472fd3907426820dd938e542e419f6ed85e68fd5889691ccdd979a793bd2c5f6",
+      "jogo": "memoria",
+      "nivel": 2,
+      "prompt": "Usuário: Jogo memoria. Caixas: E=SQ; F=DL; C=JR.\nAssistente: OK\nUsuário: Qual o codigo atual da caixa C? Apenas o codigo.\nAssistente:",
+      "resposta": "DC",
+      "avisos": "",
+      "correta": false,
+      "referencia_frequente": "YW",
+      "acerto_frequente": false
+    },
+    {
+      "estado": {
+        "alvo": "H",
+        "atualizacoes": [],
+        "caixas": [
+          [
+            "H",
+            "OF"
+          ],
+          [
+            "D",
+            "LZ"
+          ],
+          [
+            "E",
+            "PC"
+          ]
+        ]
+      },
+      "formulario": 0,
+      "id": "49b555ee863e6d8de5dbf59a7288e0929c0ab4246ed3a371c9df783471afa566",
+      "jogo": "memoria",
+      "nivel": 2,
+      "prompt": "Usuário: Jogo memoria. Caixas: H=OF; D=LZ; E=PC.\nAssistente: OK\nUsuário: Qual o codigo atual da caixa H? Apenas o codigo.\nAssistente:",
+      "resposta": "KK",
+      "avisos": "",
+      "correta": false,
+      "referencia_frequente": "YW",
+      "acerto_frequente": false
+    },
+    {
+      "estado": {
+        "alvo": "D",
+        "atualizacoes": [
+          [
+            "C",
+            "RJ"
+          ]
+        ],
+        "caixas": [
+          [
+            "D",
+            "JF"
+          ],
+          [
+            "C",
+            "RD"
+          ],
+          [
+            "E",
+            "HV"
+          ]
+        ]
+      },
+      "formulario": 1,
+      "id": "29674b03ba7c7636ae06a14c8f1c944117d7fcea26ef47ef2a3d682f21bd87ac",
+      "jogo": "memoria",
+      "nivel": 3,
+      "prompt": "Usuário: Jogo memoria. Caixas: D=JF; C=RD; E=HV. Atualize: C=RJ.\nAssistente: OK\nUsuário: Leia a caixa D. Responda so o codigo atual.\nAssistente:",
+      "resposta": "DF",
+      "avisos": "",
+      "correta": false,
+      "referencia_frequente": "DZ",
+      "acerto_frequente": false
+    },
+    {
+      "estado": {
+        "alvo": "F",
+        "atualizacoes": [
+          [
+            "B",
+            "ZH"
+          ]
+        ],
+        "caixas": [
+          [
+            "B",
+            "OX"
+          ],
+          [
+            "C",
+            "PS"
+          ],
+          [
+            "F",
+            "HL"
+          ]
+        ]
+      },
+      "formulario": 2,
+      "id": "3f360e715da0d505797b54a601ef81a196ddad2b0c506d5d23f6617e9430c17b",
+      "jogo": "memoria",
+      "nivel": 3,
+      "prompt": "Usuário: Jogo memoria. Caixas: B=OX; C=PS; F=HL. Atualize: B=ZH.\nAssistente: OK\nUsuário: Diga somente o ultimo codigo da caixa F.\nAssistente:",
+      "resposta": "KY",
+      "avisos": "",
+      "correta": false,
+      "referencia_frequente": "DZ",
+      "acerto_frequente": false
+    },
+    {
+      "estado": {
+        "alvo": "E",
+        "atualizacoes": [
+          [
+            "A",
+            "XJ"
+          ]
+        ],
+        "caixas": [
+          [
+            "A",
+            "HW"
+          ],
+          [
+            "E",
+            "QA"
+          ],
+          [
+            "F",
+            "RL"
+          ]
+        ]
+      },
+      "formulario": 0,
+      "id": "542fbbfeed67cc3e33e18f66d8f749ce4d7b95f632c567421616a7cf44f50f85",
+      "jogo": "memoria",
+      "nivel": 3,
+      "prompt": "Usuário: Jogo memoria. Caixas: A=HW; E=QA; F=RL. Atualize: A=XJ.\nAssistente: OK\nUsuário: Qual o codigo atual da caixa E? Apenas o codigo.\nAssistente:",
+      "resposta": "FE",
+      "avisos": "",
+      "correta": false,
+      "referencia_frequente": "DZ",
+      "acerto_frequente": false
+    },
+    {
+      "estado": {
+        "inverter": false,
+        "lista": [
+          "O",
+          "K",
+          "L"
+        ],
+        "posicao": 1
+      },
+      "formulario": 0,
+      "id": "110b2ceef5b36ae363601d1d6029a7471ea06433c41367b2f36ec007e1a9defb",
+      "jogo": "ordem",
+      "nivel": 1,
+      "prompt": "Usuário: Jogo ordem. Lista: O,K,L. Posicao: 1 (a primeira e 1). Diga apenas a letra nessa posicao.\nAssistente:",
+      "resposta": "O",
+      "avisos": "",
+      "correta": true,
+      "referencia_frequente": "V",
+      "acerto_frequente": false
+    },
+    {
+      "estado": {
+        "inverter": false,
+        "lista": [
+          "G",
+          "R",
+          "M"
+        ],
+        "posicao": 1
+      },
+      "formulario": 2,
+      "id": "38ff85545fb3ed0e1f41a13cfaaa0b81928c7156243681a5d2195c29a2fe19ca",
+      "jogo": "ordem",
+      "nivel": 1,
+      "prompt": "Usuário: Jogo ordem. Lista: G,R,M. Posicao: 1 (a primeira e 1). Retorne somente a letra da posicao indicada.\nAssistente:",
+      "resposta": "G",
+      "avisos": "",
+      "correta": true,
+      "referencia_frequente": "V",
+      "acerto_frequente": false
+    },
+    {
+      "estado": {
+        "inverter": false,
+        "lista": [
+          "B",
+          "U",
+          "X"
+        ],
+        "posicao": 1
+      },
+      "formulario": 1,
+      "id": "5d1f543292b655e8d88e1ccd7f475d3ba49ba0cf9e55e3e86a5c837994e79c02",
+      "jogo": "ordem",
+      "nivel": 1,
+      "prompt": "Usuário: Jogo ordem. Lista: B,U,X. Posicao: 1 (a primeira e 1). Qual letra ocupa a posicao pedida? Apenas ela.\nAssistente:",
+      "resposta": "B",
+      "avisos": "",
+      "correta": true,
+      "referencia_frequente": "V",
+      "acerto_frequente": false
+    },
+    {
+      "estado": {
+        "inverter": false,
+        "lista": [
+          "J",
+          "A",
+          "B",
+          "N",
+          "F"
+        ],
+        "posicao": 5
+      },
+      "formulario": 1,
+      "id": "2231c70663a0a49ec1de2ac6f36a8baf425bfdc95a99834af048d3472ae73c49",
+      "jogo": "ordem",
+      "nivel": 2,
+      "prompt": "Usuário: Jogo ordem. Lista: J,A,B,N,F. Posicao: 5 (a primeira e 1). Qual letra ocupa a posicao pedida? Apenas ela.\nAssistente:",
+      "resposta": "K",
+      "avisos": "",
+      "correta": false,
+      "referencia_frequente": "A",
+      "acerto_frequente": false
+    },
+    {
+      "estado": {
+        "inverter": false,
+        "lista": [
+          "C",
+          "E",
+          "M",
+          "D",
+          "G"
+        ],
+        "posicao": 1
+      },
+      "formulario": 2,
+      "id": "2706f72ad826629a7ed3825bf53bcc530502630d73369459b5ec63da73e62334",
+      "jogo": "ordem",
+      "nivel": 2,
+      "prompt": "Usuário: Jogo ordem. Lista: C,E,M,D,G. Posicao: 1 (a primeira e 1). Retorne somente a letra da posicao indicada.\nAssistente:",
+      "resposta": "M",
+      "avisos": "",
+      "correta": false,
+      "referencia_frequente": "A",
+      "acerto_frequente": false
+    },
+    {
+      "estado": {
+        "inverter": false,
+        "lista": [
+          "O",
+          "P",
+          "T",
+          "E",
+          "Y"
+        ],
+        "posicao": 4
+      },
+      "formulario": 2,
+      "id": "332cca7e21a015707f1f658936709ddcf72072b5b23559a48622b4acda7c2921",
+      "jogo": "ordem",
+      "nivel": 2,
+      "prompt": "Usuário: Jogo ordem. Lista: O,P,T,E,Y. Posicao: 4 (a primeira e 1). Retorne somente a letra da posicao indicada.\nAssistente:",
+      "resposta": "O",
+      "avisos": "",
+      "correta": false,
+      "referencia_frequente": "A",
+      "acerto_frequente": false
+    },
+    {
+      "estado": {
+        "inverter": true,
+        "lista": [
+          "N",
+          "G",
+          "U",
+          "V",
+          "B",
+          "S",
+          "E"
+        ],
+        "posicao": 4
+      },
+      "formulario": 0,
+      "id": "0a064dca2dfa5658a5951cf39b66771fc5e2a08c8eaa2e28c2df71484839ee2d",
+      "jogo": "ordem",
+      "nivel": 3,
+      "prompt": "Usuário: Jogo ordem. Lista: N,G,U,V,B,S,E. Inverta a lista. Posicao: 4 (a primeira e 1). Diga apenas a letra nessa posicao.\nAssistente:",
+      "resposta": "G",
+      "avisos": "",
+      "correta": false,
+      "referencia_frequente": "B",
+      "acerto_frequente": false
+    },
+    {
+      "estado": {
+        "inverter": true,
+        "lista": [
+          "F",
+          "J",
+          "U",
+          "D",
+          "S",
+          "Z",
+          "Y"
+        ],
+        "posicao": 5
+      },
+      "formulario": 0,
+      "id": "1155f599388fabca934dc1708ce53eb77294e1f7c8cd00330199cc1b6d28925c",
+      "jogo": "ordem",
+      "nivel": 3,
+      "prompt": "Usuário: Jogo ordem. Lista: F,J,U,D,S,Z,Y. Inverta a lista. Posicao: 5 (a primeira e 1). Diga apenas a letra nessa posicao.\nAssistente:",
+      "resposta": "Y",
+      "avisos": "",
+      "correta": false,
+      "referencia_frequente": "B",
+      "acerto_frequente": false
+    },
+    {
+      "estado": {
+        "inverter": true,
+        "lista": [
+          "J",
+          "L",
+          "U",
+          "T",
+          "W",
+          "K",
+          "N"
+        ],
+        "posicao": 7
+      },
+      "formulario": 0,
+      "id": "2b60c207cb1b7013344c8e93207b421bdbbddd6adc4c18167c01044f4bec6bba",
+      "jogo": "ordem",
+      "nivel": 3,
+      "prompt": "Usuário: Jogo ordem. Lista: J,L,U,T,W,K,N. Inverta a lista. Posicao: 7 (a primeira e 1). Diga apenas a letra nessa posicao.\nAssistente:",
+      "resposta": "K",
+      "avisos": "",
+      "correta": false,
+      "referencia_frequente": "B",
+      "acerto_frequente": false
+    },
+    {
+      "estado": {
+        "cor": "amarela",
+        "regras": [
+          [
+            "amarela",
+            "P"
+          ]
+        ],
+        "segunda_regra": []
+      },
+      "formulario": 0,
+      "id": "0a8b18a508d335bca369141cadf4d9258c872d7989a91758ea577a284ae9dce6",
+      "jogo": "regras",
+      "nivel": 1,
+      "prompt": "Usuário: Jogo regras. Cor->grupo: amarela->P. Peca de cor amarela. Siga as regras. Diga apenas a letra final.\nAssistente:",
+      "resposta": "A",
+      "avisos": "",
+      "correta": false,
+      "referencia_frequente": "H",
+      "acerto_frequente": false
+    },
+    {
+      "estado": {
+        "cor": "rosa",
+        "regras": [
+          [
+            "rosa",
+            "A"
+          ]
+        ],
+        "segunda_regra": []
+      },
+      "formulario": 1,
+      "id": "120838dd6dbd78940edfc6f80ef88c5772735a488d08e7bb81252eb820379a43",
+      "jogo": "regras",
+      "nivel": 1,
+      "prompt": "Usuário: Jogo regras. Cor->grupo: rosa->A. Peca de cor rosa. Qual a letra ao fim das regras? So a letra.\nAssistente:",
+      "resposta": "A",
+      "avisos": "",
+      "correta": true,
+      "referencia_frequente": "H",
+      "acerto_frequente": false
+    },
+    {
+      "estado": {
+        "cor": "violeta",
+        "regras": [
+          [
+            "violeta",
+            "S"
+          ]
+        ],
+        "segunda_regra": []
+      },
+      "formulario": 1,
+      "id": "2d3a60bf2233713f94b1a5290fcf95d7411ff71c6fc361aca19d07ea83a5c7c8",
+      "jogo": "regras",
+      "nivel": 1,
+      "prompt": "Usuário: Jogo regras. Cor->grupo: violeta->S. Peca de cor violeta. Qual a letra ao fim das regras? So a letra.\nAssistente:",
+      "resposta": "Q",
+      "avisos": "",
+      "correta": false,
+      "referencia_frequente": "H",
+      "acerto_frequente": false
+    },
+    {
+      "estado": {
+        "cor": "rosa",
+        "regras": [
+          [
+            "verde",
+            "U"
+          ],
+          [
+            "rosa",
+            "A"
+          ],
+          [
+            "cinza",
+            "L"
+          ]
+        ],
+        "segunda_regra": []
+      },
+      "formulario": 1,
+      "id": "1928257b1e531ca197f81088bb82f90dc7dae937a60f4fcb2c9ae8ed25ed0c78",
+      "jogo": "regras",
+      "nivel": 2,
+      "prompt": "Usuário: Jogo regras. Cor->grupo: verde->U; rosa->A; cinza->L. Peca de cor rosa. Qual a letra ao fim das regras? So a letra.\nAssistente:",
+      "resposta": "K",
+      "avisos": "",
+      "correta": false,
+      "referencia_frequente": "O",
+      "acerto_frequente": false
+    },
+    {
+      "estado": {
+        "cor": "prateada",
+        "regras": [
+          [
+            "bege",
+            "U"
+          ],
+          [
+            "azul",
+            "Q"
+          ],
+          [
+            "prateada",
+            "L"
+          ]
+        ],
+        "segunda_regra": []
+      },
+      "formulario": 0,
+      "id": "22eb4c53d187517929813d15b10892075fe429ad04be4031508617003129ea30",
+      "jogo": "regras",
+      "nivel": 2,
+      "prompt": "Usuário: Jogo regras. Cor->grupo: bege->U; azul->Q; prateada->L. Peca de cor prateada. Siga as regras. Diga apenas a letra final.\nAssistente:",
+      "resposta": "D",
+      "avisos": "",
+      "correta": false,
+      "referencia_frequente": "O",
+      "acerto_frequente": false
+    },
+    {
+      "estado": {
+        "cor": "azul",
+        "regras": [
+          [
+            "prateada",
+            "H"
+          ],
+          [
+            "azul",
+            "P"
+          ],
+          [
+            "cinza",
+            "X"
+          ]
+        ],
+        "segunda_regra": []
+      },
+      "formulario": 0,
+      "id": "29e5c59570fe09f5358676858a9bfd587102b729e1086b58442f4c453ac62077",
+      "jogo": "regras",
+      "nivel": 2,
+      "prompt": "Usuário: Jogo regras. Cor->grupo: prateada->H; azul->P; cinza->X. Peca de cor azul. Siga as regras. Diga apenas a letra final.\nAssistente:",
+      "resposta": "K",
+      "avisos": "",
+      "correta": false,
+      "referencia_frequente": "O",
+      "acerto_frequente": false
+    },
+    {
+      "estado": {
+        "cor": "cinza",
+        "regras": [
+          [
+            "cinza",
+            "B"
+          ],
+          [
+            "dourada",
+            "R"
+          ],
+          [
+            "verde",
+            "H"
+          ]
+        ],
+        "segunda_regra": [
+          [
+            "B",
+            "L"
+          ],
+          [
+            "R",
+            "P"
+          ],
+          [
+            "H",
+            "O"
+          ]
+        ]
+      },
+      "formulario": 1,
+      "id": "3aa699e40226f412cbf00142fca95160c13e61e03a89d50d272547713ef3d55c",
+      "jogo": "regras",
+      "nivel": 3,
+      "prompt": "Usuário: Jogo regras. Cor->grupo: cinza->B; dourada->R; verde->H. Grupo->destino: B->L; R->P; H->O. Peca de cor cinza. Qual a letra ao fim das regras? So a letra.\nAssistente:",
+      "resposta": "K",
+      "avisos": "",
+      "correta": false,
+      "referencia_frequente": "K",
+      "acerto_frequente": false
+    },
+    {
+      "estado": {
+        "cor": "rosa",
+        "regras": [
+          [
+            "rosa",
+            "W"
+          ],
+          [
+            "verde",
+            "M"
+          ],
+          [
+            "ciano",
+            "D"
+          ]
+        ],
+        "segunda_regra": [
+          [
+            "W",
+            "J"
+          ],
+          [
+            "M",
+            "I"
+          ],
+          [
+            "D",
+            "N"
+          ]
+        ]
+      },
+      "formulario": 1,
+      "id": "3db2eaafc4c05021ba996b6cd5484b23d1f3da7d3c2c3881b052265529efa886",
+      "jogo": "regras",
+      "nivel": 3,
+      "prompt": "Usuário: Jogo regras. Cor->grupo: rosa->W; verde->M; ciano->D. Grupo->destino: W->J; M->I; D->N. Peca de cor rosa. Qual a letra ao fim das regras? So a letra.\nAssistente:",
+      "resposta": "W",
+      "avisos": "",
+      "correta": false,
+      "referencia_frequente": "K",
+      "acerto_frequente": false
+    },
+    {
+      "estado": {
+        "cor": "amarela",
+        "regras": [
+          [
+            "amarela",
+            "U"
+          ],
+          [
+            "ciano",
+            "N"
+          ],
+          [
+            "vermelha",
+            "Z"
+          ]
+        ],
+        "segunda_regra": [
+          [
+            "U",
+            "K"
+          ],
+          [
+            "N",
+            "O"
+          ],
+          [
+            "Z",
+            "M"
+          ]
+        ]
+      },
+      "formulario": 0,
+      "id": "47b94c03468fc36d3ed0e275502a2d940869b6e988dc641584a4689312dd4836",
+      "jogo": "regras",
+      "nivel": 3,
+      "prompt": "Usuário: Jogo regras. Cor->grupo: amarela->U; ciano->N; vermelha->Z. Grupo->destino: U->K; N->O; Z->M. Peca de cor amarela. Siga as regras. Diga apenas a letra final.\nAssistente:",
+      "resposta": "K",
+      "avisos": "",
+      "correta": true,
+      "referencia_frequente": "K",
+      "acerto_frequente": true
+    }
+  ]
+}

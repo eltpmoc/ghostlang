@@ -1,0 +1,1231 @@
+{
+  "limite_saida": "384 bytes",
+  "data_utc": "2026-09-26T16:41:00.590362+00:00",
+  "semente": 1000701692,
+  "dispositivo": "cuda",
+  "versao": "v4",
+  "checkpoint": "/home/eltonalvesp/PROJETOS/ghost-linux/ia_propria/checkpoints/v4/transformer_selecionado.bin",
+  "sha256_checkpoint": "39e00ca8eeea328b684af13dd8f2db64068bbdca2e8e7b826a745f102465cd4a",
+  "corpus_verificado": [
+    "/home/eltonalvesp/PROJETOS/ghost-linux/ia_propria/v3/dados/instrucoes_treino.txt",
+    "/home/eltonalvesp/PROJETOS/ghost-linux/ia_propria/v3/dados/treino.txt",
+    "/home/eltonalvesp/PROJETOS/ghost-linux/ia_propria/v4/dados/treino_ampliado.jsonl",
+    "/home/eltonalvesp/PROJETOS/ghost-linux/ia_propria/v4/dados/treino.jsonl"
+  ],
+  "limites": "Amostra pequena, correção estrita de respostas curtas, sem nota de QI. Perguntas novas no corpus conhecido não garantem ausência de tarefas semelhantes no treino. Respostas equivalentes podem exigir revisão manual. Não testa inteligência geral, criatividade aberta ou confiabilidade em produção.",
+  "metodo": "24 problemas gerados após o treino e 4 controles conhecidos; cada modo recebe os mesmos enunciados. Sem internet, memória isolada, geração determinística, limite de saída registrado separadamente. Contexto neural inclui respostas reais dos turnos anteriores.",
+  "resumo": {
+    "assistente_offline": {
+      "calculo_novo": {
+        "acertos": 0,
+        "casos": 4,
+        "falhas_execucao": 0
+      },
+      "deducao": {
+        "acertos": 0,
+        "casos": 4,
+        "falhas_execucao": 0
+      },
+      "instrucoes": {
+        "acertos": 0,
+        "casos": 4,
+        "falhas_execucao": 0
+      },
+      "leitura_de_dados": {
+        "acertos": 0,
+        "casos": 4,
+        "falhas_execucao": 0
+      },
+      "contexto_conversa": {
+        "acertos": 0,
+        "casos": 4,
+        "falhas_execucao": 0
+      },
+      "aplicacao_numeros_g": {
+        "acertos": 0,
+        "casos": 4,
+        "falhas_execucao": 0
+      },
+      "controle_conhecido": {
+        "acertos": 4,
+        "casos": 4,
+        "falhas_execucao": 0
+      }
+    },
+    "neural_direto": {
+      "calculo_novo": {
+        "acertos": 0,
+        "casos": 4,
+        "falhas_execucao": 0
+      },
+      "deducao": {
+        "acertos": 0,
+        "casos": 4,
+        "falhas_execucao": 0
+      },
+      "instrucoes": {
+        "acertos": 0,
+        "casos": 4,
+        "falhas_execucao": 0
+      },
+      "leitura_de_dados": {
+        "acertos": 0,
+        "casos": 4,
+        "falhas_execucao": 0
+      },
+      "contexto_conversa": {
+        "acertos": 0,
+        "casos": 4,
+        "falhas_execucao": 0
+      },
+      "aplicacao_numeros_g": {
+        "acertos": 0,
+        "casos": 4,
+        "falhas_execucao": 0
+      },
+      "controle_conhecido": {
+        "acertos": 0,
+        "casos": 4,
+        "falhas_execucao": 0
+      }
+    }
+  },
+  "resultados": [
+    {
+      "id": "calculo_novo_1",
+      "categoria": "calculo_novo",
+      "mensagens": [
+        "Uma caixa tinha 62 peças, recebeu 12 e depois perdeu 2. Quantas peças ficaram? Responda somente com o número."
+      ],
+      "esperado": "72",
+      "criterio": "short",
+      "pergunta_encontrada_no_corpus": false,
+      "modo": "assistente_offline",
+      "resposta": "[Geracao neural V4] 2",
+      "respostas_por_turno": [
+        "[Geracao neural V4] 2"
+      ],
+      "correta_estrita": false,
+      "execucao_ok": true,
+      "diagnosticos": [],
+      "segundos": 0.2725,
+      "falha_execucao": null
+    },
+    {
+      "id": "calculo_novo_2",
+      "categoria": "calculo_novo",
+      "mensagens": [
+        "Uma caixa tinha 72 peças, recebeu 23 e depois perdeu 5. Quantas peças ficaram? Responda somente com o número."
+      ],
+      "esperado": "90",
+      "criterio": "short",
+      "pergunta_encontrada_no_corpus": false,
+      "modo": "assistente_offline",
+      "resposta": "[Geracao neural V4] 2",
+      "respostas_por_turno": [
+        "[Geracao neural V4] 2"
+      ],
+      "correta_estrita": false,
+      "execucao_ok": true,
+      "diagnosticos": [],
+      "segundos": 0.266,
+      "falha_execucao": null
+    },
+    {
+      "id": "calculo_novo_3",
+      "categoria": "calculo_novo",
+      "mensagens": [
+        "Uma caixa tinha 43 peças, recebeu 17 e depois perdeu 2. Quantas peças ficaram? Responda somente com o número."
+      ],
+      "esperado": "58",
+      "criterio": "short",
+      "pergunta_encontrada_no_corpus": false,
+      "modo": "assistente_offline",
+      "resposta": "[Geracao neural V4] OK",
+      "respostas_por_turno": [
+        "[Geracao neural V4] OK"
+      ],
+      "correta_estrita": false,
+      "execucao_ok": true,
+      "diagnosticos": [],
+      "segundos": 0.2792,
+      "falha_execucao": null
+    },
+    {
+      "id": "calculo_novo_4",
+      "categoria": "calculo_novo",
+      "mensagens": [
+        "Uma caixa tinha 66 peças, recebeu 17 e depois perdeu 6. Quantas peças ficaram? Responda somente com o número."
+      ],
+      "esperado": "77",
+      "criterio": "short",
+      "pergunta_encontrada_no_corpus": false,
+      "modo": "assistente_offline",
+      "resposta": "[Geracao neural V4] 6",
+      "respostas_por_turno": [
+        "[Geracao neural V4] 6"
+      ],
+      "correta_estrita": false,
+      "execucao_ok": true,
+      "diagnosticos": [],
+      "segundos": 0.2675,
+      "falha_execucao": null
+    },
+    {
+      "id": "deducao_1",
+      "categoria": "deducao",
+      "mensagens": [
+        "Neste exercício, toda peça verde fica na caixa A. A peça de Lina é verde. Em qual caixa fica essa peça? Responda somente com a letra da caixa."
+      ],
+      "esperado": "A",
+      "criterio": "short",
+      "pergunta_encontrada_no_corpus": false,
+      "modo": "assistente_offline",
+      "resposta": "[Geracao neural V4] tasatate e ca",
+      "respostas_por_turno": [
+        "[Geracao neural V4] tasatate e ca"
+      ],
+      "correta_estrita": false,
+      "execucao_ok": true,
+      "diagnosticos": [],
+      "segundos": 0.2757,
+      "falha_execucao": null
+    },
+    {
+      "id": "deducao_2",
+      "categoria": "deducao",
+      "mensagens": [
+        "Neste exercício, toda peça azul fica na caixa B. A peça de Beto é azul. Em qual caixa fica essa peça? Responda somente com a letra da caixa."
+      ],
+      "esperado": "B",
+      "criterio": "short",
+      "pergunta_encontrada_no_corpus": false,
+      "modo": "assistente_offline",
+      "resposta": "[Geracao neural V4] Bre erese 135",
+      "respostas_por_turno": [
+        "[Geracao neural V4] Bre erese 135"
+      ],
+      "correta_estrita": false,
+      "execucao_ok": true,
+      "diagnosticos": [],
+      "segundos": 0.2775,
+      "falha_execucao": null
+    },
+    {
+      "id": "deducao_3",
+      "categoria": "deducao",
+      "mensagens": [
+        "Neste exercício, toda peça azul fica na caixa C. A peça de Mara é azul. Em qual caixa fica essa peça? Responda somente com a letra da caixa."
+      ],
+      "esperado": "C",
+      "criterio": "short",
+      "pergunta_encontrada_no_corpus": false,
+      "modo": "assistente_offline",
+      "resposta": "[Geracao neural V4] Ca erere e e ere e C",
+      "respostas_por_turno": [
+        "[Geracao neural V4] Ca erere e e ere e C"
+      ],
+      "correta_estrita": false,
+      "execucao_ok": true,
+      "diagnosticos": [],
+      "segundos": 0.2941,
+      "falha_execucao": null
+    },
+    {
+      "id": "deducao_4",
+      "categoria": "deducao",
+      "mensagens": [
+        "Neste exercício, toda peça verde fica na caixa D. A peça de Nilo é verde. Em qual caixa fica essa peça? Responda somente com a letra da caixa."
+      ],
+      "esperado": "D",
+      "criterio": "short",
+      "pergunta_encontrada_no_corpus": false,
+      "modo": "assistente_offline",
+      "resposta": "[Geracao neural V4] tasatate e e cere e",
+      "respostas_por_turno": [
+        "[Geracao neural V4] tasatate e e cere e"
+      ],
+      "correta_estrita": false,
+      "execucao_ok": true,
+      "diagnosticos": [],
+      "segundos": 0.2938,
+      "falha_execucao": null
+    },
+    {
+      "id": "instrucoes_1",
+      "categoria": "instrucoes",
+      "mensagens": [
+        "Ignore assuntos anteriores. Responda somente a palavra modelo, sem explicações nem outras palavras."
+      ],
+      "esperado": "modelo",
+      "criterio": "short",
+      "pergunta_encontrada_no_corpus": false,
+      "modo": "assistente_offline",
+      "resposta": "[Geracao neural V4] A",
+      "respostas_por_turno": [
+        "[Geracao neural V4] A"
+      ],
+      "correta_estrita": false,
+      "execucao_ok": true,
+      "diagnosticos": [],
+      "segundos": 0.2686,
+      "falha_execucao": null
+    },
+    {
+      "id": "instrucoes_2",
+      "categoria": "instrucoes",
+      "mensagens": [
+        "Ignore assuntos anteriores. Responda somente a palavra rede, sem explicações nem outras palavras."
+      ],
+      "esperado": "rede",
+      "criterio": "short",
+      "pergunta_encontrada_no_corpus": false,
+      "modo": "assistente_offline",
+      "resposta": "[Geracao neural V4] t",
+      "respostas_por_turno": [
+        "[Geracao neural V4] t"
+      ],
+      "correta_estrita": false,
+      "execucao_ok": true,
+      "diagnosticos": [],
+      "segundos": 0.2712,
+      "falha_execucao": null
+    },
+    {
+      "id": "instrucoes_3",
+      "categoria": "instrucoes",
+      "mensagens": [
+        "Ignore assuntos anteriores. Responda somente a palavra dia, sem explicações nem outras palavras."
+      ],
+      "esperado": "dia",
+      "criterio": "short",
+      "pergunta_encontrada_no_corpus": false,
+      "modo": "assistente_offline",
+      "resposta": "[Geracao neural V4] a",
+      "respostas_por_turno": [
+        "[Geracao neural V4] a"
+      ],
+      "correta_estrita": false,
+      "execucao_ok": true,
+      "diagnosticos": [],
+      "segundos": 0.2705,
+      "falha_execucao": null
+    },
+    {
+      "id": "instrucoes_4",
+      "categoria": "instrucoes",
+      "mensagens": [
+        "Ignore assuntos anteriores. Responda somente a palavra texto, sem explicações nem outras palavras."
+      ],
+      "esperado": "texto",
+      "criterio": "short",
+      "pergunta_encontrada_no_corpus": false,
+      "modo": "assistente_offline",
+      "resposta": "[Geracao neural V4] to",
+      "respostas_por_turno": [
+        "[Geracao neural V4] to"
+      ],
+      "correta_estrita": false,
+      "execucao_ok": true,
+      "diagnosticos": [],
+      "segundos": 0.274,
+      "falha_execucao": null
+    },
+    {
+      "id": "leitura_de_dados_1",
+      "categoria": "leitura_de_dados",
+      "mensagens": [
+        "Considere apenas estes dados: Lina tem 96 pontos; Beto tem 33; Mara tem 89. Quem tem mais pontos? Responda somente com o nome."
+      ],
+      "esperado": "Lina",
+      "criterio": "short",
+      "pergunta_encontrada_no_corpus": false,
+      "modo": "assistente_offline",
+      "resposta": "[Geracao neural V4] Br ca ta ta e tre e e e e Ca e e e de e e e e e e e e e e e e e e e e e e e e e e A 1",
+      "respostas_por_turno": [
+        "[Geracao neural V4] Br ca ta ta e tre e e e e Ca e e e de e e e e e e e e e e e e e e e e e e e e e e A 1"
+      ],
+      "correta_estrita": false,
+      "execucao_ok": true,
+      "diagnosticos": [],
+      "segundos": 0.3299,
+      "falha_execucao": null
+    },
+    {
+      "id": "leitura_de_dados_2",
+      "categoria": "leitura_de_dados",
+      "mensagens": [
+        "Considere apenas estes dados: Lina tem 76 pontos; Beto tem 94; Mara tem 21. Quem tem mais pontos? Responda somente com o nome."
+      ],
+      "esperado": "Beto",
+      "criterio": "short",
+      "pergunta_encontrada_no_corpus": false,
+      "modo": "assistente_offline",
+      "resposta": "[Geracao neural V4] B ta te ca ta te ta e to e e e e e de e e e e e e e e e e e e e e e e e e e e e e A 17, e C",
+      "respostas_por_turno": [
+        "[Geracao neural V4] B ta te ca ta te ta e to e e e e e de e e e e e e e e e e e e e e e e e e e e e e A 17, e C"
+      ],
+      "correta_estrita": false,
+      "execucao_ok": true,
+      "diagnosticos": [],
+      "segundos": 0.3309,
+      "falha_execucao": null
+    },
+    {
+      "id": "leitura_de_dados_3",
+      "categoria": "leitura_de_dados",
+      "mensagens": [
+        "Considere apenas estes dados: Lina tem 74 pontos; Beto tem 35; Mara tem 16. Quem tem mais pontos? Responda somente com o nome."
+      ],
+      "esperado": "Lina",
+      "criterio": "short",
+      "pergunta_encontrada_no_corpus": false,
+      "modo": "assistente_offline",
+      "resposta": "[Geracao neural V4] Br ta ta to e tre e e e e e  e e e de e e e e e e e e e e e e e e e e e e e e e e A ere e C",
+      "respostas_por_turno": [
+        "[Geracao neural V4] Br ta ta to e tre e e e e e  e e e de e e e e e e e e e e e e e e e e e e e e e e A ere e C"
+      ],
+      "correta_estrita": false,
+      "execucao_ok": true,
+      "diagnosticos": [],
+      "segundos": 0.3329,
+      "falha_execucao": null
+    },
+    {
+      "id": "leitura_de_dados_4",
+      "categoria": "leitura_de_dados",
+      "mensagens": [
+        "Considere apenas estes dados: Lina tem 76 pontos; Beto tem 21; Mara tem 80. Quem tem mais pontos? Responda somente com o nome."
+      ],
+      "esperado": "Mara",
+      "criterio": "short",
+      "pergunta_encontrada_no_corpus": false,
+      "modo": "assistente_offline",
+      "resposta": "[Geracao neural V4] Br ca ta ta e tre e e e e e e e e e e e e e e e e e e e e e e e e e e e e e e e e A 1",
+      "respostas_por_turno": [
+        "[Geracao neural V4] Br ca ta ta e tre e e e e e e e e e e e e e e e e e e e e e e e e e e e e e e e e A 1"
+      ],
+      "correta_estrita": false,
+      "execucao_ok": true,
+      "diagnosticos": [],
+      "segundos": 0.3295,
+      "falha_execucao": null
+    },
+    {
+      "id": "contexto_conversa_1",
+      "categoria": "contexto_conversa",
+      "mensagens": [
+        "Nesta conversa de teste, a caixa azul contém 641 moedas. Responda apenas OK.",
+        "Quantas moedas a caixa azul contém, segundo a informação que acabei de fornecer? Responda somente com o número."
+      ],
+      "esperado": "641",
+      "criterio": "short",
+      "pergunta_encontrada_no_corpus": false,
+      "modo": "assistente_offline",
+      "resposta": "[Geracao neural V4] 1010",
+      "respostas_por_turno": [
+        "[Geracao neural V4] 10,-1,-1,tari",
+        "[Geracao neural V4] 1010"
+      ],
+      "correta_estrita": false,
+      "execucao_ok": true,
+      "diagnosticos": [],
+      "segundos": 0.2901,
+      "falha_execucao": null
+    },
+    {
+      "id": "contexto_conversa_2",
+      "categoria": "contexto_conversa",
+      "mensagens": [
+        "Nesta conversa de teste, a caixa azul contém 922 moedas. Responda apenas OK.",
+        "Quantas moedas a caixa azul contém, segundo a informação que acabei de fornecer? Responda somente com o número."
+      ],
+      "esperado": "922",
+      "criterio": "short",
+      "pergunta_encontrada_no_corpus": false,
+      "modo": "assistente_offline",
+      "resposta": "[Geracao neural V4] 2",
+      "respostas_por_turno": [
+        "[Geracao neural V4] vita",
+        "[Geracao neural V4] 2"
+      ],
+      "correta_estrita": false,
+      "execucao_ok": true,
+      "diagnosticos": [],
+      "segundos": 0.276,
+      "falha_execucao": null
+    },
+    {
+      "id": "contexto_conversa_3",
+      "categoria": "contexto_conversa",
+      "mensagens": [
+        "Nesta conversa de teste, a caixa azul contém 114 moedas. Responda apenas OK.",
+        "Quantas moedas a caixa azul contém, segundo a informação que acabei de fornecer? Responda somente com o número."
+      ],
+      "esperado": "114",
+      "criterio": "short",
+      "pergunta_encontrada_no_corpus": false,
+      "modo": "assistente_offline",
+      "resposta": "[Geracao neural V4] 4",
+      "respostas_por_turno": [
+        "[Geracao neural V4] OK",
+        "[Geracao neural V4] 4"
+      ],
+      "correta_estrita": false,
+      "execucao_ok": true,
+      "diagnosticos": [],
+      "segundos": 0.276,
+      "falha_execucao": null
+    },
+    {
+      "id": "contexto_conversa_4",
+      "categoria": "contexto_conversa",
+      "mensagens": [
+        "Nesta conversa de teste, a caixa azul contém 400 moedas. Responda apenas OK.",
+        "Quantas moedas a caixa azul contém, segundo a informação que acabei de fornecer? Responda somente com o número."
+      ],
+      "esperado": "400",
+      "criterio": "short",
+      "pergunta_encontrada_no_corpus": false,
+      "modo": "assistente_offline",
+      "resposta": "[Geracao neural V4] 0",
+      "respostas_por_turno": [
+        "[Geracao neural V4] vita",
+        "[Geracao neural V4] 0"
+      ],
+      "correta_estrita": false,
+      "execucao_ok": true,
+      "diagnosticos": [],
+      "segundos": 0.2722,
+      "falha_execucao": null
+    },
+    {
+      "id": "aplicacao_numeros_g_1",
+      "categoria": "aplicacao_numeros_g",
+      "mensagens": [
+        "Use a regra do produto G: x=x1*x2-y1*y2; y=x1*y2+y1*x2; p=x1*p2+x2*p1. Para G1=(2,1,6) e G2=(2,4,6), calcule (x,y,p). Responda somente os três inteiros separados por vírgulas."
+      ],
+      "esperado": "0,10,24",
+      "criterio": "tuple",
+      "pergunta_encontrada_no_corpus": false,
+      "modo": "assistente_offline",
+      "resposta": "[Geracao neural V4] G",
+      "respostas_por_turno": [
+        "[Geracao neural V4] G"
+      ],
+      "correta_estrita": false,
+      "execucao_ok": true,
+      "diagnosticos": [],
+      "segundos": 0.269,
+      "falha_execucao": null
+    },
+    {
+      "id": "aplicacao_numeros_g_2",
+      "categoria": "aplicacao_numeros_g",
+      "mensagens": [
+        "Use a regra do produto G: x=x1*x2-y1*y2; y=x1*y2+y1*x2; p=x1*p2+x2*p1. Para G1=(6,4,1) e G2=(5,6,5), calcule (x,y,p). Responda somente os três inteiros separados por vírgulas."
+      ],
+      "esperado": "6,56,35",
+      "criterio": "tuple",
+      "pergunta_encontrada_no_corpus": false,
+      "modo": "assistente_offline",
+      "resposta": "[Geracao neural V4] G",
+      "respostas_por_turno": [
+        "[Geracao neural V4] G"
+      ],
+      "correta_estrita": false,
+      "execucao_ok": true,
+      "diagnosticos": [],
+      "segundos": 0.2802,
+      "falha_execucao": null
+    },
+    {
+      "id": "aplicacao_numeros_g_3",
+      "categoria": "aplicacao_numeros_g",
+      "mensagens": [
+        "Use a regra do produto G: x=x1*x2-y1*y2; y=x1*y2+y1*x2; p=x1*p2+x2*p1. Para G1=(5,6,6) e G2=(7,5,7), calcule (x,y,p). Responda somente os três inteiros separados por vírgulas."
+      ],
+      "esperado": "5,67,77",
+      "criterio": "tuple",
+      "pergunta_encontrada_no_corpus": false,
+      "modo": "assistente_offline",
+      "resposta": "[Geracao neural V4] G",
+      "respostas_por_turno": [
+        "[Geracao neural V4] G"
+      ],
+      "correta_estrita": false,
+      "execucao_ok": true,
+      "diagnosticos": [],
+      "segundos": 0.2723,
+      "falha_execucao": null
+    },
+    {
+      "id": "aplicacao_numeros_g_4",
+      "categoria": "aplicacao_numeros_g",
+      "mensagens": [
+        "Use a regra do produto G: x=x1*x2-y1*y2; y=x1*y2+y1*x2; p=x1*p2+x2*p1. Para G1=(2,3,1) e G2=(1,4,6), calcule (x,y,p). Responda somente os três inteiros separados por vírgulas."
+      ],
+      "esperado": "-10,11,13",
+      "criterio": "tuple",
+      "pergunta_encontrada_no_corpus": false,
+      "modo": "assistente_offline",
+      "resposta": "[Geracao neural V4] G",
+      "respostas_por_turno": [
+        "[Geracao neural V4] G"
+      ],
+      "correta_estrita": false,
+      "execucao_ok": true,
+      "diagnosticos": [],
+      "segundos": 0.2776,
+      "falha_execucao": null
+    },
+    {
+      "id": "controle_conhecido_1",
+      "categoria": "controle_conhecido",
+      "mensagens": [
+        "O que é GhostLang?"
+      ],
+      "esperado": "GhostLang é a linguagem deste projeto. Seu compilador transforma arquivos .g em C++ e gera um executável. Ela oferece tipos e operações para matrizes, redes neurais e Números G.",
+      "criterio": "control",
+      "pergunta_encontrada_no_corpus": true,
+      "modo": "assistente_offline",
+      "resposta": "[Consulta documental] GhostLang é a linguagem deste projeto. Seu compilador transforma arquivos .g em C++ e gera um executável. Ela oferece tipos e operações para matrizes, redes neurais e Números G.\n\nComo funciona: você escreve um arquivo .g, o compilador o transforma em C++ e gera um executável local. O programa pode usar variáveis, funções, condições e laços. Para cálculos, há state (vetor), gate (matriz), network (rede de camadas) e ghost (Número G); textmodel reúne o modelo de texto treinável.\nUm programa simples começa em function void main(). Cada instrução termina com ponto e vírgula.\nFonte: docs/SPEC.md:5; ia_propria/v3/GUIA_EXEMPLOS.md; ia_propria/v3/exemplos/ola.g",
+      "respostas_por_turno": [
+        "[Consulta documental] GhostLang é a linguagem deste projeto. Seu compilador transforma arquivos .g em C++ e gera um executável. Ela oferece tipos e operações para matrizes, redes neurais e Números G.\n\nComo funciona: você escreve um arquivo .g, o compilador o transforma em C++ e gera um executável local. O programa pode usar variáveis, funções, condições e laços. Para cálculos, há state (vetor), gate (matriz), network (rede de camadas) e ghost (Número G); textmodel reúne o modelo de texto treinável.\nUm programa simples começa em function void main(). Cada instrução termina com ponto e vírgula.\nFonte: docs/SPEC.md:5; ia_propria/v3/GUIA_EXEMPLOS.md; ia_propria/v3/exemplos/ola.g"
+      ],
+      "correta_estrita": true,
+      "execucao_ok": true,
+      "diagnosticos": [],
+      "segundos": 0.2652,
+      "falha_execucao": null
+    },
+    {
+      "id": "controle_conhecido_2",
+      "categoria": "controle_conhecido",
+      "mensagens": [
+        "Qual é a arquitetura da V3?"
+      ],
+      "esperado": "A V3 usa embeddings de palavras, uma janela fixa de contexto, camada oculta tanh e saída softmax. Treina com entropia cruzada e AdamW. É uma rede pequena, sem atenção Transformer, e sua capacidade de generalização é limitada.",
+      "criterio": "control",
+      "pergunta_encontrada_no_corpus": true,
+      "modo": "assistente_offline",
+      "resposta": "[Consulta documental] A V3 usa embeddings de palavras, uma janela fixa de contexto, camada oculta tanh e saída softmax. Treina com entropia cruzada e AdamW. É uma rede pequena, sem atenção Transformer, e sua capacidade de generalização é limitada.\n\nO modelo aprende a prever o próximo token: converte palavras em embeddings, combina uma janela de contexto na camada oculta e calcula probabilidades na saída. O treinamento compara a previsão com o alvo e ajusta os pesos reais float32 com AdamW.\nprepare carrega os dados; epoch ajusta os pesos; validate mede a perda. Uma perda menor não garante uma boa resposta completa. É necessário testar também relevância, fatos e generalização.\nFonte: src/GhostTextModel.cpp:243; ia_propria/v3/GUIA_EXEMPLOS.md; ia_propria/v3/exemplos/textmodel.g",
+      "respostas_por_turno": [
+        "[Consulta documental] A V3 usa embeddings de palavras, uma janela fixa de contexto, camada oculta tanh e saída softmax. Treina com entropia cruzada e AdamW. É uma rede pequena, sem atenção Transformer, e sua capacidade de generalização é limitada.\n\nO modelo aprende a prever o próximo token: converte palavras em embeddings, combina uma janela de contexto na camada oculta e calcula probabilidades na saída. O treinamento compara a previsão com o alvo e ajusta os pesos reais float32 com AdamW.\nprepare carrega os dados; epoch ajusta os pesos; validate mede a perda. Uma perda menor não garante uma boa resposta completa. É necessário testar também relevância, fatos e generalização.\nFonte: src/GhostTextModel.cpp:243; ia_propria/v3/GUIA_EXEMPLOS.md; ia_propria/v3/exemplos/textmodel.g"
+      ],
+      "correta_estrita": true,
+      "execucao_ok": true,
+      "diagnosticos": [],
+      "segundos": 0.2688,
+      "falha_execucao": null
+    },
+    {
+      "id": "controle_conhecido_3",
+      "categoria": "controle_conhecido",
+      "mensagens": [
+        "Como selecionar CPU ou GPU automaticamente?"
+      ],
+      "esperado": "O padrão é GHOST_DEVICE=auto. O runtime testa CUDA e usa a GPU disponível; sem CUDA funcional, usa CPU. Você pode chamar use_device(\"auto\") antes de preparar ou carregar o modelo. device_info informa a seleção.",
+      "criterio": "control",
+      "pergunta_encontrada_no_corpus": true,
+      "modo": "assistente_offline",
+      "resposta": "[Consulta documental] O padrão é GHOST_DEVICE=auto. O runtime testa CUDA e usa a GPU disponível; sem CUDA funcional, usa CPU. Você pode chamar use_device(\"auto\") antes de preparar ou carregar o modelo. device_info informa a seleção.\n\nA escolha do dispositivo deve acontecer antes de prepare ou load. auto tenta um kernel real na NVIDIA e usa CPU se CUDA não estiver disponível; cuda exige GPU funcional; cpu força o processador. O textmodel mantém pesos e momentos do otimizador na GPU durante o treino. Tokenização e interface permanecem na CPU.\nFonte: src/GhostDevice.cpp:17; ia_propria/v3/GUIA_EXEMPLOS.md; ia_propria/v3/exemplos/cuda.g",
+      "respostas_por_turno": [
+        "[Consulta documental] O padrão é GHOST_DEVICE=auto. O runtime testa CUDA e usa a GPU disponível; sem CUDA funcional, usa CPU. Você pode chamar use_device(\"auto\") antes de preparar ou carregar o modelo. device_info informa a seleção.\n\nA escolha do dispositivo deve acontecer antes de prepare ou load. auto tenta um kernel real na NVIDIA e usa CPU se CUDA não estiver disponível; cuda exige GPU funcional; cpu força o processador. O textmodel mantém pesos e momentos do otimizador na GPU durante o treino. Tokenização e interface permanecem na CPU.\nFonte: src/GhostDevice.cpp:17; ia_propria/v3/GUIA_EXEMPLOS.md; ia_propria/v3/exemplos/cuda.g"
+      ],
+      "correta_estrita": true,
+      "execucao_ok": true,
+      "diagnosticos": [],
+      "segundos": 0.2656,
+      "falha_execucao": null
+    },
+    {
+      "id": "controle_conhecido_4",
+      "categoria": "controle_conhecido",
+      "mensagens": [
+        "Como multiplicar Números G?"
+      ],
+      "esperado": "A regra implementada é x = x1*x2 - y1*y2; y = x1*y2 + y1*x2; p = x1*p2 + x2*p1. O resultado tem theta2 igual a zero. Termos envolvendo y e p não entram na parte fantasma dessa fórmula.",
+      "criterio": "control",
+      "pergunta_encontrada_no_corpus": true,
+      "modo": "assistente_offline",
+      "resposta": "[Consulta documental] A regra implementada é x = x1*x2 - y1*y2; y = x1*y2 + y1*x2; p = x1*p2 + x2*p1. O resultado tem theta2 igual a zero. Termos envolvendo y e p não entram na parte fantasma dessa fórmula.\n\nAs componentes são x (real), y (imaginária) e p (fantasma). Na soma, cada componente é adicionada separadamente. No produto, x=x1*x2-y1*y2, y=x1*y2+y1*x2 e p=x1*p2+x2*p1.\nPara a=(1,2,3) e b=(4,5,6), a soma é (5,7,9) e o produto é (-6,13,18). A implementação zera theta2 nesses resultados. Essas regras não permitem assumir associatividade; há diferenças entre o manual e o código.\nFonte: src/GhostNumberG.cpp:197; ia_propria/v3/GUIA_EXEMPLOS.md; ia_propria/v3/exemplos/numeros_g.g",
+      "respostas_por_turno": [
+        "[Consulta documental] A regra implementada é x = x1*x2 - y1*y2; y = x1*y2 + y1*x2; p = x1*p2 + x2*p1. O resultado tem theta2 igual a zero. Termos envolvendo y e p não entram na parte fantasma dessa fórmula.\n\nAs componentes são x (real), y (imaginária) e p (fantasma). Na soma, cada componente é adicionada separadamente. No produto, x=x1*x2-y1*y2, y=x1*y2+y1*x2 e p=x1*p2+x2*p1.\nPara a=(1,2,3) e b=(4,5,6), a soma é (5,7,9) e o produto é (-6,13,18). A implementação zera theta2 nesses resultados. Essas regras não permitem assumir associatividade; há diferenças entre o manual e o código.\nFonte: src/GhostNumberG.cpp:197; ia_propria/v3/GUIA_EXEMPLOS.md; ia_propria/v3/exemplos/numeros_g.g"
+      ],
+      "correta_estrita": true,
+      "execucao_ok": true,
+      "diagnosticos": [],
+      "segundos": 0.273,
+      "falha_execucao": null
+    },
+    {
+      "id": "calculo_novo_1",
+      "categoria": "calculo_novo",
+      "mensagens": [
+        "Uma caixa tinha 62 peças, recebeu 12 e depois perdeu 2. Quantas peças ficaram? Responda somente com o número."
+      ],
+      "esperado": "72",
+      "criterio": "short",
+      "pergunta_encontrada_no_corpus": false,
+      "modo": "neural_direto",
+      "resposta": "2",
+      "respostas_por_turno": [
+        "2"
+      ],
+      "correta_estrita": false,
+      "execucao_ok": true,
+      "diagnosticos": [],
+      "segundos": 0.2659,
+      "falha_execucao": null
+    },
+    {
+      "id": "calculo_novo_2",
+      "categoria": "calculo_novo",
+      "mensagens": [
+        "Uma caixa tinha 72 peças, recebeu 23 e depois perdeu 5. Quantas peças ficaram? Responda somente com o número."
+      ],
+      "esperado": "90",
+      "criterio": "short",
+      "pergunta_encontrada_no_corpus": false,
+      "modo": "neural_direto",
+      "resposta": "2",
+      "respostas_por_turno": [
+        "2"
+      ],
+      "correta_estrita": false,
+      "execucao_ok": true,
+      "diagnosticos": [],
+      "segundos": 0.2735,
+      "falha_execucao": null
+    },
+    {
+      "id": "calculo_novo_3",
+      "categoria": "calculo_novo",
+      "mensagens": [
+        "Uma caixa tinha 43 peças, recebeu 17 e depois perdeu 2. Quantas peças ficaram? Responda somente com o número."
+      ],
+      "esperado": "58",
+      "criterio": "short",
+      "pergunta_encontrada_no_corpus": false,
+      "modo": "neural_direto",
+      "resposta": "OK",
+      "respostas_por_turno": [
+        "OK"
+      ],
+      "correta_estrita": false,
+      "execucao_ok": true,
+      "diagnosticos": [],
+      "segundos": 0.2761,
+      "falha_execucao": null
+    },
+    {
+      "id": "calculo_novo_4",
+      "categoria": "calculo_novo",
+      "mensagens": [
+        "Uma caixa tinha 66 peças, recebeu 17 e depois perdeu 6. Quantas peças ficaram? Responda somente com o número."
+      ],
+      "esperado": "77",
+      "criterio": "short",
+      "pergunta_encontrada_no_corpus": false,
+      "modo": "neural_direto",
+      "resposta": "6",
+      "respostas_por_turno": [
+        "6"
+      ],
+      "correta_estrita": false,
+      "execucao_ok": true,
+      "diagnosticos": [],
+      "segundos": 0.2681,
+      "falha_execucao": null
+    },
+    {
+      "id": "deducao_1",
+      "categoria": "deducao",
+      "mensagens": [
+        "Neste exercício, toda peça verde fica na caixa A. A peça de Lina é verde. Em qual caixa fica essa peça? Responda somente com a letra da caixa."
+      ],
+      "esperado": "A",
+      "criterio": "short",
+      "pergunta_encontrada_no_corpus": false,
+      "modo": "neural_direto",
+      "resposta": "tasatate e ca",
+      "respostas_por_turno": [
+        "tasatate e ca"
+      ],
+      "correta_estrita": false,
+      "execucao_ok": true,
+      "diagnosticos": [],
+      "segundos": 0.2867,
+      "falha_execucao": null
+    },
+    {
+      "id": "deducao_2",
+      "categoria": "deducao",
+      "mensagens": [
+        "Neste exercício, toda peça azul fica na caixa B. A peça de Beto é azul. Em qual caixa fica essa peça? Responda somente com a letra da caixa."
+      ],
+      "esperado": "B",
+      "criterio": "short",
+      "pergunta_encontrada_no_corpus": false,
+      "modo": "neural_direto",
+      "resposta": "Bre erese 135",
+      "respostas_por_turno": [
+        "Bre erese 135"
+      ],
+      "correta_estrita": false,
+      "execucao_ok": true,
+      "diagnosticos": [],
+      "segundos": 0.2759,
+      "falha_execucao": null
+    },
+    {
+      "id": "deducao_3",
+      "categoria": "deducao",
+      "mensagens": [
+        "Neste exercício, toda peça azul fica na caixa C. A peça de Mara é azul. Em qual caixa fica essa peça? Responda somente com a letra da caixa."
+      ],
+      "esperado": "C",
+      "criterio": "short",
+      "pergunta_encontrada_no_corpus": false,
+      "modo": "neural_direto",
+      "resposta": "Ca erere e e ere e C",
+      "respostas_por_turno": [
+        "Ca erere e e ere e C"
+      ],
+      "correta_estrita": false,
+      "execucao_ok": true,
+      "diagnosticos": [],
+      "segundos": 0.2774,
+      "falha_execucao": null
+    },
+    {
+      "id": "deducao_4",
+      "categoria": "deducao",
+      "mensagens": [
+        "Neste exercício, toda peça verde fica na caixa D. A peça de Nilo é verde. Em qual caixa fica essa peça? Responda somente com a letra da caixa."
+      ],
+      "esperado": "D",
+      "criterio": "short",
+      "pergunta_encontrada_no_corpus": false,
+      "modo": "neural_direto",
+      "resposta": "tasatate e e cere e",
+      "respostas_por_turno": [
+        "tasatate e e cere e"
+      ],
+      "correta_estrita": false,
+      "execucao_ok": true,
+      "diagnosticos": [],
+      "segundos": 0.2843,
+      "falha_execucao": null
+    },
+    {
+      "id": "instrucoes_1",
+      "categoria": "instrucoes",
+      "mensagens": [
+        "Ignore assuntos anteriores. Responda somente a palavra modelo, sem explicações nem outras palavras."
+      ],
+      "esperado": "modelo",
+      "criterio": "short",
+      "pergunta_encontrada_no_corpus": false,
+      "modo": "neural_direto",
+      "resposta": "A",
+      "respostas_por_turno": [
+        "A"
+      ],
+      "correta_estrita": false,
+      "execucao_ok": true,
+      "diagnosticos": [],
+      "segundos": 0.2791,
+      "falha_execucao": null
+    },
+    {
+      "id": "instrucoes_2",
+      "categoria": "instrucoes",
+      "mensagens": [
+        "Ignore assuntos anteriores. Responda somente a palavra rede, sem explicações nem outras palavras."
+      ],
+      "esperado": "rede",
+      "criterio": "short",
+      "pergunta_encontrada_no_corpus": false,
+      "modo": "neural_direto",
+      "resposta": "t",
+      "respostas_por_turno": [
+        "t"
+      ],
+      "correta_estrita": false,
+      "execucao_ok": true,
+      "diagnosticos": [],
+      "segundos": 0.2789,
+      "falha_execucao": null
+    },
+    {
+      "id": "instrucoes_3",
+      "categoria": "instrucoes",
+      "mensagens": [
+        "Ignore assuntos anteriores. Responda somente a palavra dia, sem explicações nem outras palavras."
+      ],
+      "esperado": "dia",
+      "criterio": "short",
+      "pergunta_encontrada_no_corpus": false,
+      "modo": "neural_direto",
+      "resposta": "a",
+      "respostas_por_turno": [
+        "a"
+      ],
+      "correta_estrita": false,
+      "execucao_ok": true,
+      "diagnosticos": [],
+      "segundos": 0.2694,
+      "falha_execucao": null
+    },
+    {
+      "id": "instrucoes_4",
+      "categoria": "instrucoes",
+      "mensagens": [
+        "Ignore assuntos anteriores. Responda somente a palavra texto, sem explicações nem outras palavras."
+      ],
+      "esperado": "texto",
+      "criterio": "short",
+      "pergunta_encontrada_no_corpus": false,
+      "modo": "neural_direto",
+      "resposta": "to",
+      "respostas_por_turno": [
+        "to"
+      ],
+      "correta_estrita": false,
+      "execucao_ok": true,
+      "diagnosticos": [],
+      "segundos": 0.2723,
+      "falha_execucao": null
+    },
+    {
+      "id": "leitura_de_dados_1",
+      "categoria": "leitura_de_dados",
+      "mensagens": [
+        "Considere apenas estes dados: Lina tem 96 pontos; Beto tem 33; Mara tem 89. Quem tem mais pontos? Responda somente com o nome."
+      ],
+      "esperado": "Lina",
+      "criterio": "short",
+      "pergunta_encontrada_no_corpus": false,
+      "modo": "neural_direto",
+      "resposta": "Br ca ta ta e tre e e e e Ca e e e de e e e e e e e e e e e e e e e e e e e e e e A 1",
+      "respostas_por_turno": [
+        "Br ca ta ta e tre e e e e Ca e e e de e e e e e e e e e e e e e e e e e e e e e e A 1"
+      ],
+      "correta_estrita": false,
+      "execucao_ok": true,
+      "diagnosticos": [],
+      "segundos": 0.3334,
+      "falha_execucao": null
+    },
+    {
+      "id": "leitura_de_dados_2",
+      "categoria": "leitura_de_dados",
+      "mensagens": [
+        "Considere apenas estes dados: Lina tem 76 pontos; Beto tem 94; Mara tem 21. Quem tem mais pontos? Responda somente com o nome."
+      ],
+      "esperado": "Beto",
+      "criterio": "short",
+      "pergunta_encontrada_no_corpus": false,
+      "modo": "neural_direto",
+      "resposta": "B ta te ca ta te ta e to e e e e e de e e e e e e e e e e e e e e e e e e e e e e A 17, e C",
+      "respostas_por_turno": [
+        "B ta te ca ta te ta e to e e e e e de e e e e e e e e e e e e e e e e e e e e e e A 17, e C"
+      ],
+      "correta_estrita": false,
+      "execucao_ok": true,
+      "diagnosticos": [],
+      "segundos": 0.3312,
+      "falha_execucao": null
+    },
+    {
+      "id": "leitura_de_dados_3",
+      "categoria": "leitura_de_dados",
+      "mensagens": [
+        "Considere apenas estes dados: Lina tem 74 pontos; Beto tem 35; Mara tem 16. Quem tem mais pontos? Responda somente com o nome."
+      ],
+      "esperado": "Lina",
+      "criterio": "short",
+      "pergunta_encontrada_no_corpus": false,
+      "modo": "neural_direto",
+      "resposta": "Br ta ta to e tre e e e e e  e e e de e e e e e e e e e e e e e e e e e e e e e e A ere e C",
+      "respostas_por_turno": [
+        "Br ta ta to e tre e e e e e  e e e de e e e e e e e e e e e e e e e e e e e e e e A ere e C"
+      ],
+      "correta_estrita": false,
+      "execucao_ok": true,
+      "diagnosticos": [],
+      "segundos": 0.3287,
+      "falha_execucao": null
+    },
+    {
+      "id": "leitura_de_dados_4",
+      "categoria": "leitura_de_dados",
+      "mensagens": [
+        "Considere apenas estes dados: Lina tem 76 pontos; Beto tem 21; Mara tem 80. Quem tem mais pontos? Responda somente com o nome."
+      ],
+      "esperado": "Mara",
+      "criterio": "short",
+      "pergunta_encontrada_no_corpus": false,
+      "modo": "neural_direto",
+      "resposta": "Br ca ta ta e tre e e e e e e e e e e e e e e e e e e e e e e e e e e e e e e e e A 1",
+      "respostas_por_turno": [
+        "Br ca ta ta e tre e e e e e e e e e e e e e e e e e e e e e e e e e e e e e e e e A 1"
+      ],
+      "correta_estrita": false,
+      "execucao_ok": true,
+      "diagnosticos": [],
+      "segundos": 0.3276,
+      "falha_execucao": null
+    },
+    {
+      "id": "contexto_conversa_1",
+      "categoria": "contexto_conversa",
+      "mensagens": [
+        "Nesta conversa de teste, a caixa azul contém 641 moedas. Responda apenas OK.",
+        "Quantas moedas a caixa azul contém, segundo a informação que acabei de fornecer? Responda somente com o número."
+      ],
+      "esperado": "641",
+      "criterio": "short",
+      "pergunta_encontrada_no_corpus": false,
+      "modo": "neural_direto",
+      "resposta": "1010",
+      "respostas_por_turno": [
+        "10,-1,-1,tari",
+        "1010"
+      ],
+      "correta_estrita": false,
+      "execucao_ok": true,
+      "diagnosticos": [],
+      "segundos": 0.6109,
+      "falha_execucao": null
+    },
+    {
+      "id": "contexto_conversa_2",
+      "categoria": "contexto_conversa",
+      "mensagens": [
+        "Nesta conversa de teste, a caixa azul contém 922 moedas. Responda apenas OK.",
+        "Quantas moedas a caixa azul contém, segundo a informação que acabei de fornecer? Responda somente com o número."
+      ],
+      "esperado": "922",
+      "criterio": "short",
+      "pergunta_encontrada_no_corpus": false,
+      "modo": "neural_direto",
+      "resposta": "2",
+      "respostas_por_turno": [
+        "vita",
+        "2"
+      ],
+      "correta_estrita": false,
+      "execucao_ok": true,
+      "diagnosticos": [],
+      "segundos": 0.5525,
+      "falha_execucao": null
+    },
+    {
+      "id": "contexto_conversa_3",
+      "categoria": "contexto_conversa",
+      "mensagens": [
+        "Nesta conversa de teste, a caixa azul contém 114 moedas. Responda apenas OK.",
+        "Quantas moedas a caixa azul contém, segundo a informação que acabei de fornecer? Responda somente com o número."
+      ],
+      "esperado": "114",
+      "criterio": "short",
+      "pergunta_encontrada_no_corpus": false,
+      "modo": "neural_direto",
+      "resposta": "4",
+      "respostas_por_turno": [
+        "OK",
+        "4"
+      ],
+      "correta_estrita": false,
+      "execucao_ok": true,
+      "diagnosticos": [],
+      "segundos": 0.5499,
+      "falha_execucao": null
+    },
+    {
+      "id": "contexto_conversa_4",
+      "categoria": "contexto_conversa",
+      "mensagens": [
+        "Nesta conversa de teste, a caixa azul contém 400 moedas. Responda apenas OK.",
+        "Quantas moedas a caixa azul contém, segundo a informação que acabei de fornecer? Responda somente com o número."
+      ],
+      "esperado": "400",
+      "criterio": "short",
+      "pergunta_encontrada_no_corpus": false,
+      "modo": "neural_direto",
+      "resposta": "0",
+      "respostas_por_turno": [
+        "vita",
+        "0"
+      ],
+      "correta_estrita": false,
+      "execucao_ok": true,
+      "diagnosticos": [],
+      "segundos": 0.5412,
+      "falha_execucao": null
+    },
+    {
+      "id": "aplicacao_numeros_g_1",
+      "categoria": "aplicacao_numeros_g",
+      "mensagens": [
+        "Use a regra do produto G: x=x1*x2-y1*y2; y=x1*y2+y1*x2; p=x1*p2+x2*p1. Para G1=(2,1,6) e G2=(2,4,6), calcule (x,y,p). Responda somente os três inteiros separados por vírgulas."
+      ],
+      "esperado": "0,10,24",
+      "criterio": "tuple",
+      "pergunta_encontrada_no_corpus": false,
+      "modo": "neural_direto",
+      "resposta": "G",
+      "respostas_por_turno": [
+        "G"
+      ],
+      "correta_estrita": false,
+      "execucao_ok": true,
+      "diagnosticos": [],
+      "segundos": 0.2754,
+      "falha_execucao": null
+    },
+    {
+      "id": "aplicacao_numeros_g_2",
+      "categoria": "aplicacao_numeros_g",
+      "mensagens": [
+        "Use a regra do produto G: x=x1*x2-y1*y2; y=x1*y2+y1*x2; p=x1*p2+x2*p1. Para G1=(6,4,1) e G2=(5,6,5), calcule (x,y,p). Responda somente os três inteiros separados por vírgulas."
+      ],
+      "esperado": "6,56,35",
+      "criterio": "tuple",
+      "pergunta_encontrada_no_corpus": false,
+      "modo": "neural_direto",
+      "resposta": "G",
+      "respostas_por_turno": [
+        "G"
+      ],
+      "correta_estrita": false,
+      "execucao_ok": true,
+      "diagnosticos": [],
+      "segundos": 0.277,
+      "falha_execucao": null
+    },
+    {
+      "id": "aplicacao_numeros_g_3",
+      "categoria": "aplicacao_numeros_g",
+      "mensagens": [
+        "Use a regra do produto G: x=x1*x2-y1*y2; y=x1*y2+y1*x2; p=x1*p2+x2*p1. Para G1=(5,6,6) e G2=(7,5,7), calcule (x,y,p). Responda somente os três inteiros separados por vírgulas."
+      ],
+      "esperado": "5,67,77",
+      "criterio": "tuple",
+      "pergunta_encontrada_no_corpus": false,
+      "modo": "neural_direto",
+      "resposta": "G",
+      "respostas_por_turno": [
+        "G"
+      ],
+      "correta_estrita": false,
+      "execucao_ok": true,
+      "diagnosticos": [],
+      "segundos": 0.2675,
+      "falha_execucao": null
+    },
+    {
+      "id": "aplicacao_numeros_g_4",
+      "categoria": "aplicacao_numeros_g",
+      "mensagens": [
+        "Use a regra do produto G: x=x1*x2-y1*y2; y=x1*y2+y1*x2; p=x1*p2+x2*p1. Para G1=(2,3,1) e G2=(1,4,6), calcule (x,y,p). Responda somente os três inteiros separados por vírgulas."
+      ],
+      "esperado": "-10,11,13",
+      "criterio": "tuple",
+      "pergunta_encontrada_no_corpus": false,
+      "modo": "neural_direto",
+      "resposta": "G",
+      "respostas_por_turno": [
+        "G"
+      ],
+      "correta_estrita": false,
+      "execucao_ok": true,
+      "diagnosticos": [],
+      "segundos": 0.2651,
+      "falha_execucao": null
+    },
+    {
+      "id": "controle_conhecido_1",
+      "categoria": "controle_conhecido",
+      "mensagens": [
+        "O que é GhostLang?"
+      ],
+      "esperado": "GhostLang é a linguagem deste projeto. Seu compilador transforma arquivos .g em C++ e gera um executável. Ela oferece tipos e operações para matrizes, redes neurais e Números G.",
+      "criterio": "control",
+      "pergunta_encontrada_no_corpus": true,
+      "modo": "neural_direto",
+      "resposta": "hão to t tet to  te te t  t t t  t t    te te t te  t t t t  t t t t t t t  t t  t  t                 t    t     t                                                                                                                                                                                     G",
+      "respostas_por_turno": [
+        "hão to t tet to  te te t  t t t  t t    te te t te  t t t t  t t t t t t t  t t  t  t                 t    t     t                                                                                                                                                                                     G"
+      ],
+      "correta_estrita": false,
+      "execucao_ok": true,
+      "diagnosticos": [],
+      "segundos": 0.5607,
+      "falha_execucao": null
+    },
+    {
+      "id": "controle_conhecido_2",
+      "categoria": "controle_conhecido",
+      "mensagens": [
+        "Qual é a arquitetura da V3?"
+      ],
+      "esperado": "A V3 usa embeddings de palavras, uma janela fixa de contexto, camada oculta tanh e saída softmax. Treina com entropia cruzada e AdamW. É uma rede pequena, sem atenção Transformer, e sua capacidade de generalização é limitada.",
+      "criterio": "control",
+      "pergunta_encontrada_no_corpus": true,
+      "modo": "neural_direto",
+      "resposta": "orerere de ererar r rtrererer reru OKre",
+      "respostas_por_turno": [
+        "orerere de ererar r rtrererer reru OKre"
+      ],
+      "correta_estrita": false,
+      "execucao_ok": true,
+      "diagnosticos": [],
+      "segundos": 0.2716,
+      "falha_execucao": null
+    },
+    {
+      "id": "controle_conhecido_3",
+      "categoria": "controle_conhecido",
+      "mensagens": [
+        "Como selecionar CPU ou GPU automaticamente?"
+      ],
+      "esperado": "O padrão é GHOST_DEVICE=auto. O runtime testa CUDA e usa a GPU disponível; sem CUDA funcional, usa CPU. Você pode chamar use_device(\"auto\") antes de preparar ou carregar o modelo. device_info informa a seleção.",
+      "criterio": "control",
+      "pergunta_encontrada_no_corpus": true,
+      "modo": "neural_direto",
+      "resposta": "Gereu de r o o e e rnorere o r er eria oreroriorororo e roro oria ro ero rerero ro rorerererererororia oro o CA ro o roro oro",
+      "respostas_por_turno": [
+        "Gereu de r o o e e rnorere o r er eria oreroriorororo e roro oria ro ero rerero ro rorerererererororia oro o CA ro o roro oro"
+      ],
+      "correta_estrita": false,
+      "execucao_ok": true,
+      "diagnosticos": [],
+      "segundos": 0.3041,
+      "falha_execucao": null
+    },
+    {
+      "id": "controle_conhecido_4",
+      "categoria": "controle_conhecido",
+      "mensagens": [
+        "Como multiplicar Números G?"
+      ],
+      "esperado": "A regra implementada é x = x1*x2 - y1*y2; y = x1*y2 + y1*x2; p = x1*p2 + x2*p1. O resultado tem theta2 igual a zero. Termos envolvendo y e p não entram na parte fantasma dessa fórmula.",
+      "criterio": "control",
+      "pergunta_encontrada_no_corpus": true,
+      "modo": "neural_direto",
+      "resposta": "t t t t t de ca e r r tr d de e de de e r de  de r   de     r  r           de         d       d                                                                                                                                                                                           r d   r",
+      "respostas_por_turno": [
+        "t t t t t de ca e r r tr d de e de de e r de  de r   de     r  r           de         d       d                                                                                                                                                                                           r d   r"
+      ],
+      "correta_estrita": false,
+      "execucao_ok": true,
+      "diagnosticos": [],
+      "segundos": 0.5057,
+      "falha_execucao": null
+    }
+  ]
+}

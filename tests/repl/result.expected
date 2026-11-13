@@ -1,0 +1,54 @@
+== ok e err ==
+ok(2.5) err("divisao por zero")
+true false false true
+2.5 -1 erro: divisao por zero erro de ok: []
+valor 2.5 | falha: divisao por zero
+== value() de um erro lanca ==
+capturado: divisao por zero
+== conversao para o tipo declarado ==
+ok(3) ok(5) ok("pronto") ok(true) err("result sem valor")
+value_or trunca: 2
+err de numero: err("7") ok(4)
+== reatribuicao e condicoes ==
+r2 agora ok(3)
+if (r2): ok
+if (!vazio): vazio e erro
+ternario: sim
+== encadeamento ==
+ok(4) err("raizDaDivisao: divisao por zero") err("raiz de negativo: -4")
+== texto ==
+r1 = ok(2.5) | ok(3) | r1 vale ok(2.5)
+== result de lista e de objeto ==
+ok([0, 2, 4, 6]) tamanho 4 err("n negativo")
+ponto 3, 4 coordenada negativa
+== lista de results ==
+[ok(5), err("3"), ok(2)] soma 7 falhas 1
+== campo result em classe ==
+backup falhou (result sem valor) | err("result sem valor")
+backup ok 200 | deploy falhou (deploy: sem rede) | true
+== operador ? ==
+ok(3) err("divisao por zero") err("divisao por zero")
+ok(3) err("raiz de negativo: -9") err("divisao por zero")
+ok(6) err("5")
+ok("metade*10=40 / 21") err("7") ok("metade*10=30 / 16")
+ok(3) err("n negativo")
+ok(3) ok(-1) err("divisao por zero")
+finally de comFinally(6)
+ok(3)
+finally de comFinally(3)
+err("3")
+ok(400) err("deploy: sem rede")
+ternario continua valendo: 1 2
+== so no REPL ==
+ok(2) ok("a") err("404") result<double> result
+solto ok([1, 2]) 2
+[Erro de Execucao] errado: esperado result<int> (use ok(valor) ou err("mensagem")), recebido 5
+[Erro de Execucao] rd: result<int> nao e result<double>
+[Erro de Execucao] result nao tem o metodo .tamanho (use is_ok, is_err, value, value_or ou error)
+[Erro de Execucao] r (valor de result<double>): esperado numero, recebido texto "texto"
+[Erro de Execucao] nada aqui
+depois dos erros ok(1)
+[Erro de Execucao] o operador ? so vale dentro de function result<T> (ex.: function result<double> f() { double v = g()?; ... })
+[Erro de Execucao] o operador ? so vale dentro de function result<T> (ex.: function result<double> f() { double v = g()?; ... })
+[Erro de Execucao] o operador ? precisa de um result<T>, recebido 5
+fim do roteiro de result

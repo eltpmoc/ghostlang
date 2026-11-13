@@ -1,0 +1,37 @@
+// Modulos no REPL: mesmos resultados do programa compilado tests/ghost/modulos.g (caminhos a partir da raiz da GhostLang)
+import "tests/ghost/modulos/geometria.g" as geo;
+import "tests/ghost/modulos/geometria.g" as g2;
+import "tests/ghost/modulos/rotulos.g" as rot;
+import "tests/ghost/modulos/ciclo_a.g";
+
+function double distancia(double a, double b) {
+    return b - a;
+}
+
+print("== import ... as ==");
+geo.Ponto p = geo.Ponto(3, 4);
+geo.Ponto q = geo.Ponto();
+print("distancia ", geo.distancia(p, q), " | funcao local com o mesmo nome ", distancia(1, 5));
+print(geo.descrever(p), " | maior ", geo.maior(3, 9), " ", geo.maior<double>(2, 2.5));
+print("criados ", geo.criados, " | globais ", geo.ESCALA, " ", geo.escala(4), " | campo com o nome de funcao do modulo ", p.escala, " ", p.escalaDoModulo());
+geo.ESCALA = 5;
+g2.ESCALA = 7;
+print("dois apelidos, duas copias: ", geo.ESCALA, " ", g2.ESCALA, " ", g2.criados);
+geo.Medivel m = geo.Ponto(6, 8);
+print(m.medida(), " ", f"${geo.distancia(p, geo.Ponto(0, 0))}", " ", [geo.escala(k) for k in range(3)]);
+map<string, int> geoInfo = {"a": 1};
+print("variavel comum: ", geoInfo.keys());
+
+print("== modulo que importa modulo ==");
+print(rot.rotulo(3, 4), " ", rot.PREFIXO);
+
+print("== import sem apelido (com ciclo) ==");
+print(deA(), " ", deB());
+
+// ---- só no REPL: erros de uso ----
+print("== erros ==");
+print(geo.naoExiste(1));
+import "tests/ghost/modulos/nao_existe.g" as x;
+import "tests/ghost/modulos/geometria.g" as geo;
+print("import repetido com o mesmo apelido nao recria o modulo: ", geo.ESCALA);
+print("fim do roteiro de modulos");

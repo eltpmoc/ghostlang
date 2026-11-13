@@ -1,0 +1,331 @@
+#line 16 "tests/ghost/restricoes.g"
+#line 20 "tests/ghost/restricoes.g"
+#line 30 "tests/ghost/restricoes.g"
+#line 38 "tests/ghost/restricoes.g"
+#line 42 "tests/ghost/restricoes.g"
+#line 46 "tests/ghost/restricoes.g"
+#line 54 "tests/ghost/restricoes.g"
+#line 58 "tests/ghost/restricoes.g"
+#line 96 "tests/ghost/restricoes.g"
+#line 100 "tests/ghost/restricoes.g"
+#line 101 "tests/ghost/restricoes.g"
+#line 102 "tests/ghost/restricoes.g"
+#line 104 "tests/ghost/restricoes.g"
+#line 108 "tests/ghost/restricoes.g"
+#line 116 "tests/ghost/restricoes.g"
+#line 120 "tests/ghost/restricoes.g"
+#line 126 "tests/ghost/restricoes.g"
+#line 130 "tests/ghost/restricoes.g"
+#line 63 "tests/ghost/restricoes.g"
+#line 64 "tests/ghost/restricoes.g"
+#line 65 "tests/ghost/restricoes.g"
+#line 66 "tests/ghost/restricoes.g"
+#line 69 "tests/ghost/restricoes.g"
+#line 73 "tests/ghost/restricoes.g"
+#line 77 "tests/ghost/restricoes.g"
+#line 81 "tests/ghost/restricoes.g"
+#line 82 "tests/ghost/restricoes.g"
+#line 83 "tests/ghost/restricoes.g"
+#line 85 "tests/ghost/restricoes.g"
+#line 89 "tests/ghost/restricoes.g"
+#line 135 "tests/ghost/restricoes.g"
+#line 136 "tests/ghost/restricoes.g"
+#line 137 "tests/ghost/restricoes.g"
+#line 138 "tests/ghost/restricoes.g"
+#line 140 "tests/ghost/restricoes.g"
+#line 141 "tests/ghost/restricoes.g"
+#line 142 "tests/ghost/restricoes.g"
+#line 143 "tests/ghost/restricoes.g"
+#line 144 "tests/ghost/restricoes.g"
+#line 145 "tests/ghost/restricoes.g"
+#line 146 "tests/ghost/restricoes.g"
+#line 147 "tests/ghost/restricoes.g"
+#line 148 "tests/ghost/restricoes.g"
+#line 149 "tests/ghost/restricoes.g"
+#line 150 "tests/ghost/restricoes.g"
+#line 151 "tests/ghost/restricoes.g"
+#line 153 "tests/ghost/restricoes.g"
+#line 154 "tests/ghost/restricoes.g"
+#line 155 "tests/ghost/restricoes.g"
+#line 4 "tests/ghost/restricoes.g"
+#line 8 "tests/ghost/restricoes.g"
+#line 12 "tests/ghost/restricoes.g"
+#line 24 "tests/ghost/restricoes.g"
+#line 34 "tests/ghost/restricoes.g"
+#line 50 "tests/ghost/restricoes.g"
+#line 62 "tests/ghost/restricoes.g"
+#line 72 "tests/ghost/restricoes.g"
+#line 76 "tests/ghost/restricoes.g"
+#line 80 "tests/ghost/restricoes.g"
+#line 88 "tests/ghost/restricoes.g"
+#line 92 "tests/ghost/restricoes.g"
+#line 112 "tests/ghost/restricoes.g"
+#line 124 "tests/ghost/restricoes.g"
+#line 134 "tests/ghost/restricoes.g"
+----
+/*TranspiladopeloGhostCompilerv1.0*/#include<iostream>#include<cstdio>#include<cstdlib>#include<string>#include<complex>#include<type_traits>#include<fstream>#include<sstream>#include<thread>#include<chrono>#include<mutex>#include"include/GhostNumberG.hpp"#include"include/GhostMatrix.hpp"#include"include/GhostLLM.hpp"#include"include/GhostLib.hpp"#include"include/GhostDevice.hpp"#include"include/GhostTextModel.hpp"#include"include/GhostWeb.hpp"#include"include/GhostKnowledge.hpp"#include"include/GhostTemporal.hpp"#include"include/GhostTransformer.hpp"#include"include/GhostTransformerG.hpp"#include"include/GhostMatrixG.hpp"#include"include/GhostQuantum.hpp"#include"include/GhostQML.hpp"#include"include/GhostHybrid.hpp"#include"include/GhostQTape.hpp"#include"include/GhostCore.hpp"#ifdef_WIN32#include<windows.h>#endiftemplate<classT>classAbrigo;
+classAnimal;
+classCaixa;
+classGato;
+template<classT>classRanking;
+classRegua;
+classUtil;
+classMedivel;
+classNomeado;
+template<classT>TmaiorMedida(GhostList<T>xs);
+template<classT>std::stringdescrever(Tx);
+template<classT>std::stringfalar(Ta);
+template<classT>Tsoma(GhostList<T>xs);
+template<classK,classV>std::stringpar(Kchave,Vvalor);
+voidghost_main();
+classMedivel;
+classghost_iface_Medivel{
+public:virtual~ghost_iface_Medivel()=default;
+virtualdoublemedida()=0;
+}
+;
+classMedivel:publicvirtualghost_iface_Medivel{
+std::shared_ptr<ghost_iface_Medivel>ghost_p_;
+std::shared_ptr<ghost_iface_Medivel>(*ghost_clone_)(constghost_iface_Medivel&)=nullptr;
+ghost_iface_Medivel&ghost_obj()const{
+if(!ghost_p_)throwstd::runtime_error("Medivel sem objeto: guarde um objeto antes de chamar um metodo");
+return*ghost_p_;
+}
+public:Medivel()=default;
+template<classT,class=std::enable_if_t<std::is_base_of_v<ghost_iface_Medivel,T>&&!std::is_same_v<T,Medivel>>>Medivel(constT&v):ghost_p_(std::make_shared<T>(v)),ghost_clone_([](constghost_iface_Medivel&x)->std::shared_ptr<ghost_iface_Medivel>{
+returnstd::make_shared<T>(dynamic_cast<constT&>(x));
+}
+){
+}
+Medivel(constMedivel&o):ghost_iface_Medivel(),ghost_p_(o.ghost_p_?o.ghost_clone_(*o.ghost_p_):nullptr),ghost_clone_(o.ghost_clone_){
+}
+Medivel&operator=(constMedivel&o){
+if(this!=&o){
+ghost_p_=o.ghost_p_?o.ghost_clone_(*o.ghost_p_):nullptr;
+ghost_clone_=o.ghost_clone_;
+}
+return*this;
+}
+doublemedida()override{
+returnghost_obj().medida();
+}
+}
+;
+classNomeado;
+classghost_iface_Nomeado{
+public:virtual~ghost_iface_Nomeado()=default;
+virtualstd::stringnome()=0;
+}
+;
+classNomeado:publicvirtualghost_iface_Nomeado{
+std::shared_ptr<ghost_iface_Nomeado>ghost_p_;
+std::shared_ptr<ghost_iface_Nomeado>(*ghost_clone_)(constghost_iface_Nomeado&)=nullptr;
+ghost_iface_Nomeado&ghost_obj()const{
+if(!ghost_p_)throwstd::runtime_error("Nomeado sem objeto: guarde um objeto antes de chamar um metodo");
+return*ghost_p_;
+}
+public:Nomeado()=default;
+template<classT,class=std::enable_if_t<std::is_base_of_v<ghost_iface_Nomeado,T>&&!std::is_same_v<T,Nomeado>>>Nomeado(constT&v):ghost_p_(std::make_shared<T>(v)),ghost_clone_([](constghost_iface_Nomeado&x)->std::shared_ptr<ghost_iface_Nomeado>{
+returnstd::make_shared<T>(dynamic_cast<constT&>(x));
+}
+){
+}
+Nomeado(constNomeado&o):ghost_iface_Nomeado(),ghost_p_(o.ghost_p_?o.ghost_clone_(*o.ghost_p_):nullptr),ghost_clone_(o.ghost_clone_){
+}
+Nomeado&operator=(constNomeado&o){
+if(this!=&o){
+ghost_p_=o.ghost_p_?o.ghost_clone_(*o.ghost_p_):nullptr;
+ghost_clone_=o.ghost_clone_;
+}
+return*this;
+}
+std::stringnome()override{
+returnghost_obj().nome();
+}
+}
+;
+classAnimal{
+public:std::stringespecie{
+}
+;
+Animal(std::stringe=std::string("?")){
+especie=e;
+}
+virtualstd::stringsom(){
+returnstd::string("...");
+}
+}
+;
+classGato:publicAnimal{
+public:Gato():Animal(std::string("gato")){
+}
+virtualstd::stringsom(){
+returnstd::string("miau");
+}
+}
+;
+classCaixa:publicvirtualghost_iface_Medivel,publicvirtualghost_iface_Nomeado{
+public:doublev{
+}
+;
+Caixa(doublev=0){
+(*this).v=v;
+}
+virtualdoublemedida(){
+returnv;
+}
+virtualstd::stringnome(){
+returnstd::string("caixa");
+}
+}
+;
+classRegua:publicvirtualghost_iface_Medivel{
+public:doublecm{
+}
+;
+Regua(doublec=0){
+cm=c;
+}
+virtualdoublemedida(){
+returncm/100;
+}
+}
+;
+template<classT>classRanking{
+public:static_assert(std::is_base_of_v<ghost_iface_Medivel,T>,"T precisa implementar Medivel: restricao de class Ranking");
+GhostList<T>itens=GhostList<T>{
+}
+;
+virtualvoidadicionar(Tx){
+itens.push(x);
+}
+virtualdoubletotal(){
+doublet=0;
+for(auto&x:itens){
+t+=x.medida();
+}
+returnt;
+}
+virtualTmelhor(){
+returnmaiorMedida(itens);
+}
+}
+;
+template<classT>classAbrigo{
+public:static_assert(std::is_base_of_v<Animal,T>,"T precisa ser Animal ou subclasse: restricao de class Abrigo");
+GhostList<T>bichos=GhostList<T>{
+}
+;
+virtualvoidacolher(Ta){
+bichos.push(a);
+}
+virtualstd::stringcoro(){
+return([&](){
+auto&&ghost_src_1=ghost_iter(bichos);
+autoghost_fx_1=[&](autob){
+returnb.som();
+}
+;
+GhostList<std::decay_t<decltype(ghost_fx_1(*std::begin(ghost_src_1)))>>ghost_out_1;
+for(constauto&b:ghost_src_1){
+ghost_collect(ghost_out_1,ghost_fx_1(b));
+}
+returnghost_out_1;
+}
+()).join(std::string(" "));
+}
+}
+;
+classUtil{
+public:template<classT>staticTdobro(Tx){
+static_assert(std::is_arithmetic_v<T>&&!std::is_same_v<T,bool>,"T precisa ser numero (int, double ou float): restricao de function dobro");
+returnx*2;
+}
+template<classA>std::stringouvir(Aa){
+static_assert(std::is_base_of_v<Animal,A>,"A precisa ser Animal ou subclasse: restricao de function ouvir");
+returna.som();
+}
+}
+;
+template<classT>TmaiorMedida(GhostList<T>xs){
+static_assert(std::is_base_of_v<ghost_iface_Medivel,T>,"T precisa implementar Medivel: restricao de function maiorMedida");
+Tm=xs[0];
+for(auto&x:xs){
+if(x.medida()>m.medida()){
+m=x;
+}
+}
+returnm;
+}
+template<classT>std::stringdescrever(Tx){
+static_assert(std::is_base_of_v<ghost_iface_Medivel,T>,"T precisa implementar Medivel: restricao de function descrever");
+static_assert(std::is_base_of_v<ghost_iface_Nomeado,T>,"T precisa implementar Nomeado: restricao de function descrever");
+returnx.nome()+std::string(":")+x.medida();
+}
+template<classT>std::stringfalar(Ta){
+static_assert(std::is_base_of_v<Animal,T>,"T precisa ser Animal ou subclasse: restricao de function falar");
+returna.especie+std::string(" faz ")+a.som();
+}
+template<classT>Tsoma(GhostList<T>xs){
+static_assert(std::is_arithmetic_v<T>&&!std::is_same_v<T,bool>,"T precisa ser numero (int, double ou float): restricao de function soma");
+Ts=0;
+for(auto&x:xs){
+s+=x;
+}
+returns;
+}
+template<classK,classV>std::stringpar(Kchave,Vvalor){
+static_assert(std::is_arithmetic_v<K>&&!std::is_same_v<K,bool>,"K precisa ser numero (int, double ou float): restricao de function par");
+returnchave+std::string("=")+valor;
+}
+voidghost_main(){
+std::cout<<ghost_show(std::string("== funcoes com restricao =="))<<std::endl;
+std::cout<<ghost_show(maiorMedida(ghost_list(Caixa(1),Caixa(3),Caixa(2))).medida())<<ghost_show(std::string(" "))<<ghost_show(maiorMedida(ghost_list(Regua(50),Regua(120))).medida())<<std::endl;
+std::cout<<ghost_show(descrever(Caixa(4)))<<ghost_show(std::string(" "))<<ghost_show(falar(Gato()))<<ghost_show(std::string(" "))<<ghost_show(falar(Animal(std::string("peixe"))))<<std::endl;
+std::cout<<ghost_show(soma(ghost_list(1,2,3)))<<ghost_show(std::string(" "))<<ghost_show(soma(ghost_list(1.5,2)))<<ghost_show(std::string(" "))<<ghost_show(par(1,std::string("um")))<<ghost_show(std::string(" "))<<ghost_show(par<double,bool>(2,true))<<std::endl;
+std::cout<<ghost_show(std::string("== classes com restricao =="))<<std::endl;
+Ranking<Caixa>rk{
+}
+;
+rk.adicionar(Caixa(2));
+rk.adicionar(Caixa(5));
+std::cout<<ghost_show(std::string("total "))<<ghost_show(rk.total())<<ghost_show(std::string(" melhor "))<<ghost_show(rk.melhor().medida())<<std::endl;
+Abrigo<Gato>abrigo{
+}
+;
+abrigo.acolher(Gato());
+abrigo.acolher(Gato());
+Abrigo<Animal>misto{
+}
+;
+misto.acolher(Animal(std::string("pato")));
+misto.acolher(Gato());
+std::cout<<ghost_show(abrigo.coro())<<ghost_show(std::string(" | "))<<ghost_show(misto.coro())<<std::endl;
+std::cout<<ghost_show(std::string("== metodos com restricao =="))<<std::endl;
+Utilu{
+}
+;
+std::cout<<ghost_show(Util::dobro(21))<<ghost_show(std::string(" "))<<ghost_show(Util::dobro(1.25))<<ghost_show(std::string(" "))<<ghost_show(u.ouvir(Gato()))<<ghost_show(std::string(" "))<<ghost_show(u.templateouvir<Animal>(Gato()))<<std::endl;
+}
+intmain(intargc,char**argv){
+try{
+#ifdef_WIN32SetConsoleOutputCP(CP_UTF8);
+SetConsoleCP(CP_UTF8);
+#endifstd::cout<<std::boolalpha;
+std::stringghost_args="";
+std::vector<std::string>ghost_args_vec;
+for(inti=1;
+i<argc;
+++i){
+ghost_args+=argv[i];
+ghost_args_vec.push_back(argv[i]);
+if(i<argc-1)ghost_args+=" ";
+}
+ghost_main();
+return0;
+}
+catch(conststd::exception&e){
+std::cerr<<e.what()<<std::endl;
+return1;
+}
+}

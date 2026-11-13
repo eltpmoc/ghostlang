@@ -1,0 +1,76 @@
+#line 5 "tests/ghost/qml_classificador.g"
+#line 6 "tests/ghost/qml_classificador.g"
+#line 7 "tests/ghost/qml_classificador.g"
+#line 8 "tests/ghost/qml_classificador.g"
+#line 11 "tests/ghost/qml_classificador.g"
+#line 12 "tests/ghost/qml_classificador.g"
+#line 13 "tests/ghost/qml_classificador.g"
+#line 14 "tests/ghost/qml_classificador.g"
+#line 15 "tests/ghost/qml_classificador.g"
+#line 16 "tests/ghost/qml_classificador.g"
+#line 17 "tests/ghost/qml_classificador.g"
+#line 19 "tests/ghost/qml_classificador.g"
+#line 23 "tests/ghost/qml_classificador.g"
+#line 24 "tests/ghost/qml_classificador.g"
+#line 25 "tests/ghost/qml_classificador.g"
+#line 27 "tests/ghost/qml_classificador.g"
+#line 28 "tests/ghost/qml_classificador.g"
+#line 29 "tests/ghost/qml_classificador.g"
+#line 31 "tests/ghost/qml_classificador.g"
+#line 32 "tests/ghost/qml_classificador.g"
+#line 33 "tests/ghost/qml_classificador.g"
+#line 4 "tests/ghost/qml_classificador.g"
+----
+/*TranspiladopeloGhostCompilerv1.0*/#include<iostream>#include<cstdio>#include<cstdlib>#include<string>#include<complex>#include<type_traits>#include<fstream>#include<sstream>#include<thread>#include<chrono>#include<mutex>#include"include/GhostNumberG.hpp"#include"include/GhostMatrix.hpp"#include"include/GhostLLM.hpp"#include"include/GhostLib.hpp"#include"include/GhostDevice.hpp"#include"include/GhostTextModel.hpp"#include"include/GhostWeb.hpp"#include"include/GhostKnowledge.hpp"#include"include/GhostTemporal.hpp"#include"include/GhostTransformer.hpp"#include"include/GhostTransformerG.hpp"#include"include/GhostMatrixG.hpp"#include"include/GhostQuantum.hpp"#include"include/GhostQML.hpp"#include"include/GhostHybrid.hpp"#include"include/GhostQTape.hpp"#include"include/GhostCore.hpp"#ifdef_WIN32#include<windows.h>#endifvoidghost_main();
+voidghost_main(){
+GhostQCircuitmodelo=GhostQCircuit(2);
+modelo.seed(5);
+modelo.encode_all();
+modelo.ansatz(2);
+for(autoi=0;
+i<8;
+i=i+1){
+for(autoj=0;
+j<8;
+j=j+1){
+doublea=i/7.0*PI;
+doubleb=j/7.0*PI;
+intclasse=0;
+if(a+b>PI){
+classe=1;
+}
+modelo.add_sample(classe,a,b);
+}
+}
+std::cout<<ghost_show(modelo)<<std::endl;
+std::cout<<ghost_show(modelo.draw())<<std::endl;
+std::cout<<ghost_show(ghost_fstr(std::string("Antes do treino: acuracia "),(modelo.accuracy()*100.0),std::string("%  perda "),(modelo.loss())))<<std::endl;
+modelo.set_verbose(20);
+doubleperda=modelo.fit(60,0.1);
+std::cout<<ghost_show(ghost_fstr(std::string("Depois do treino: acuracia "),(modelo.accuracy()*100.0),std::string("%  perda "),(perda)))<<std::endl;
+std::cout<<ghost_show(ghost_fstr(std::string("Ponto (0.3, 0.5) -> classe "),(modelo.predict(0.3,0.5))))<<std::endl;
+std::cout<<ghost_show(ghost_fstr(std::string("Ponto (2.8, 2.6) -> classe "),(modelo.predict(2.8,2.6))))<<std::endl;
+std::cout<<ghost_show(ghost_fstr(std::string("Parametros: "),(modelo.params())))<<std::endl;
+}
+intmain(intargc,char**argv){
+try{
+#ifdef_WIN32SetConsoleOutputCP(CP_UTF8);
+SetConsoleCP(CP_UTF8);
+#endifstd::cout<<std::boolalpha;
+std::stringghost_args="";
+std::vector<std::string>ghost_args_vec;
+for(inti=1;
+i<argc;
+++i){
+ghost_args+=argv[i];
+ghost_args_vec.push_back(argv[i]);
+if(i<argc-1)ghost_args+=" ";
+}
+ghost_main();
+return0;
+}
+catch(conststd::exception&e){
+std::cerr<<e.what()<<std::endl;
+return1;
+}
+}

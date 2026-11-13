@@ -1,0 +1,26 @@
+// tests/ghost/complex_std.g - testes com tipo complex, constante i, abs, arg, conj
+import "libs/test.g";
+
+function void test_complex() {
+    complex z = 3.0 + 4.0i;
+    assert_eq_double(complex_real(z), 3.0, 0.0001, "real(3 + 4i)");
+    assert_eq_double(complex_imag(z), 4.0, 0.0001, "imag(3 + 4i)");
+
+    double mod = complex_abs(z);
+    assert_eq_double(mod, 5.0, 0.0001, "modulo de 3 + 4i deve ser 5");
+
+    complex c = complex_conj(z);
+    assert_eq_double(complex_real(c), 3.0, 0.0001, "real do conjugado");
+    assert_eq_double(complex_imag(c), -4.0, 0.0001, "imag do conjugado");
+
+    complex w = 2.5 * i;
+    assert_eq_double(complex_real(w), 0.0, 0.0001, "real de 2.5 * i");
+    assert_eq_double(complex_imag(w), 2.5, 0.0001, "imag de 2.5 * i");
+
+    print("test_complex: OK");
+}
+
+function void main() {
+    test_complex();
+    print("todos os testes de complex_std passaram com sucesso!");
+}

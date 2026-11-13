@@ -1,0 +1,15 @@
+{
+  "registro_utc": "2026-09-26T10:39:58.361088+00:00",
+  "parametros": 650808,
+  "vocabulario": 1144,
+  "epocas_executadas": 16,
+  "melhor_epoca": 8,
+  "dispositivo": "NVIDIA GeForce RTX 4050 Laptop GPU / CUDA",
+  "taxa": 0.001,
+  "sha256": {
+    "ia_propria/v3/dados/instrucoes_treino.txt": "3c3b15fb30691a1cd2afc16a73c197d8702ad6c54db9e6cfe4654e60814aa670",
+    "ia_propria/v3/dados/instrucoes_validacao.txt": "ca394ced0e83b4ed2fb570fb624a5277ba517b5b9d66d6f7ad254286fbc0dded",
+    "ia_propria/checkpoints/v3/ghost_g_v31.bin": "a6a5f30faca60839c7d00243040ab08f31acb90465c2594fe40f17e92d899b0e",
+    "ia_propria/checkpoints/v3/ghost_g_v31.bin.ultimo": "733d35ebdbf7484a6840719388232d1c494ab2254323be09e0d80f343168983e"
+  }
+}

@@ -1,0 +1,275 @@
+#line 22 "tests/ghost/revisao_paridade.g"
+#line 28 "tests/ghost/revisao_paridade.g"
+#line 36 "tests/ghost/revisao_paridade.g"
+#line 37 "tests/ghost/revisao_paridade.g"
+#line 11 "tests/ghost/revisao_paridade.g"
+#line 12 "tests/ghost/revisao_paridade.g"
+#line 14 "tests/ghost/revisao_paridade.g"
+#line 42 "tests/ghost/revisao_paridade.g"
+#line 46 "tests/ghost/revisao_paridade.g"
+#line 50 "tests/ghost/revisao_paridade.g"
+#line 54 "tests/ghost/revisao_paridade.g"
+#line 58 "tests/ghost/revisao_paridade.g"
+#line 59 "tests/ghost/revisao_paridade.g"
+#line 60 "tests/ghost/revisao_paridade.g"
+#line 61 "tests/ghost/revisao_paridade.g"
+#line 62 "tests/ghost/revisao_paridade.g"
+#line 63 "tests/ghost/revisao_paridade.g"
+#line 64 "tests/ghost/revisao_paridade.g"
+#line 65 "tests/ghost/revisao_paridade.g"
+#line 66 "tests/ghost/revisao_paridade.g"
+#line 74 "tests/ghost/revisao_paridade.g"
+#line 75 "tests/ghost/revisao_paridade.g"
+#line 76 "tests/ghost/revisao_paridade.g"
+#line 77 "tests/ghost/revisao_paridade.g"
+#line 78 "tests/ghost/revisao_paridade.g"
+#line 82 "tests/ghost/revisao_paridade.g"
+#line 83 "tests/ghost/revisao_paridade.g"
+#line 84 "tests/ghost/revisao_paridade.g"
+#line 85 "tests/ghost/revisao_paridade.g"
+#line 86 "tests/ghost/revisao_paridade.g"
+#line 87 "tests/ghost/revisao_paridade.g"
+#line 88 "tests/ghost/revisao_paridade.g"
+#line 89 "tests/ghost/revisao_paridade.g"
+#line 90 "tests/ghost/revisao_paridade.g"
+#line 91 "tests/ghost/revisao_paridade.g"
+#line 92 "tests/ghost/revisao_paridade.g"
+#line 93 "tests/ghost/revisao_paridade.g"
+#line 94 "tests/ghost/revisao_paridade.g"
+#line 95 "tests/ghost/revisao_paridade.g"
+#line 96 "tests/ghost/revisao_paridade.g"
+#line 97 "tests/ghost/revisao_paridade.g"
+#line 98 "tests/ghost/revisao_paridade.g"
+#line 99 "tests/ghost/revisao_paridade.g"
+#line 100 "tests/ghost/revisao_paridade.g"
+#line 104 "tests/ghost/revisao_paridade.g"
+#line 105 "tests/ghost/revisao_paridade.g"
+#line 106 "tests/ghost/revisao_paridade.g"
+#line 107 "tests/ghost/revisao_paridade.g"
+#line 108 "tests/ghost/revisao_paridade.g"
+#line 109 "tests/ghost/revisao_paridade.g"
+#line 110 "tests/ghost/revisao_paridade.g"
+#line 111 "tests/ghost/revisao_paridade.g"
+#line 112 "tests/ghost/revisao_paridade.g"
+#line 6 "tests/ghost/revisao_paridade.g"
+#line 10 "tests/ghost/revisao_paridade.g"
+#line 17 "tests/ghost/revisao_paridade.g"
+#line 26 "tests/ghost/revisao_paridade.g"
+#line 32 "tests/ghost/revisao_paridade.g"
+#line 41 "tests/ghost/revisao_paridade.g"
+#line 45 "tests/ghost/revisao_paridade.g"
+#line 49 "tests/ghost/revisao_paridade.g"
+#line 53 "tests/ghost/revisao_paridade.g"
+#line 57 "tests/ghost/revisao_paridade.g"
+#line 73 "tests/ghost/revisao_paridade.g"
+#line 81 "tests/ghost/revisao_paridade.g"
+#line 103 "tests/ghost/revisao_paridade.g"
+----
+/*TranspiladopeloGhostCompilerv1.0*/#include<iostream>#include<cstdio>#include<cstdlib>#include<string>#include<complex>#include<type_traits>#include<fstream>#include<sstream>#include<thread>#include<chrono>#include<mutex>#include"include/GhostNumberG.hpp"#include"include/GhostMatrix.hpp"#include"include/GhostLLM.hpp"#include"include/GhostLib.hpp"#include"include/GhostDevice.hpp"#include"include/GhostTextModel.hpp"#include"include/GhostWeb.hpp"#include"include/GhostKnowledge.hpp"#include"include/GhostTemporal.hpp"#include"include/GhostTransformer.hpp"#include"include/GhostTransformerG.hpp"#include"include/GhostMatrixG.hpp"#include"include/GhostQuantum.hpp"#include"include/GhostQML.hpp"#include"include/GhostHybrid.hpp"#include"include/GhostQTape.hpp"#include"include/GhostCore.hpp"#ifdef_WIN32#include<windows.h>#endifclassBase;
+template<classT>classCaixa;
+classContador;
+classFilha;
+template<classT>Tmaior(Ta,Tb);
+std::stringtipo(intx);
+std::stringtipo(doublex);
+std::stringtipo(std::stringx);
+std::stringtipo(inta,intb);
+voidpotencias();
+voidfstrings();
+voiddiversos();
+voidghost_main();
+classContador{
+public:staticinlineinttotal=7;
+}
+;
+classBase{
+public:protected:intsegredo=7;
+public:virtualintver(){
+returnsegredo;
+}
+}
+;
+classFilha:publicBase{
+public:virtualintdobro(){
+returnsegredo*2;
+}
+}
+;
+template<classT>classCaixa{
+public:staticinlineintcriadas=0;
+Tv{
+}
+;
+Caixa(Tx){
+v=x;
+criadas++;
+}
+}
+;
+template<classT>Tmaior(Ta,Tb){
+if(a>b){
+returna;
+}
+returnb;
+}
+std::stringtipo(intx){
+returnstd::string("int");
+}
+std::stringtipo(doublex){
+returnstd::string("double");
+}
+std::stringtipo(std::stringx){
+returnstd::string("string");
+}
+std::stringtipo(inta,intb){
+returnstd::string("dois ints");
+}
+voidpotencias(){
+intx=3;
+doubley=2;
+std::cout<<ghost_show(-ghost_pow(x,2))<<ghost_show(std::string(" "))<<ghost_show(2*-ghost_pow(x,2))<<ghost_show(std::string(" "))<<ghost_show(-ghost_pow(2,2))<<ghost_show(std::string(" "))<<ghost_show(ghost_pow((-2),2))<<ghost_show(std::string(" "))<<ghost_show(5-ghost_pow(2,2))<<ghost_show(std::string(" "))<<ghost_show(ghost_pow(2,-1))<<ghost_show(std::string(" "))<<ghost_show(ghost_pow(2.0,-2))<<ghost_show(std::string(" "))<<ghost_show(-ghost_pow(2,-1))<<std::endl;
+std::cout<<ghost_show(ghost_pow(y,0.5))<<ghost_show(std::string(" "))<<ghost_show(ghost_pow(x,2)%4)<<ghost_show(std::string(" "))<<ghost_show(ghost_pow(x,y))<<ghost_show(std::string(" "))<<ghost_show(ghost_pow(2,10))<<ghost_show(std::string(" "))<<ghost_show(ghost_pow(2,ghost_pow(3,2)))<<ghost_show(std::string(" "))<<ghost_show(-ghost_pow(2,ghost_pow(3,2)))<<ghost_show(std::string(" "))<<ghost_show(~ghost_pow(1,2))<<ghost_show(std::string(" "))<<ghost_show(!ghost_pow(0,2))<<std::endl;
+std::cout<<ghost_show(ghost_pow(1,-5))<<ghost_show(std::string(" "))<<ghost_show(ghost_pow((-1),-3))<<ghost_show(std::string(" "))<<ghost_show(ghost_pow(10,0))<<ghost_show(std::string(" "))<<ghost_show(ghost_pow(0,0))<<ghost_show(std::string(" "))<<ghost_show(ghost_pow(1.5,2))<<ghost_show(std::string(" "))<<ghost_show(3*ghost_pow(2,3)+1)<<ghost_show(std::string(" "))<<ghost_show(-x)<<ghost_show(std::string(" "))<<ghost_show(--x)<<ghost_show(std::string(" "))<<ghost_show(4--ghost_pow(x,2))<<std::endl;
+intr=ghost_pow(3,4);
+autov=ghost_pow(5,2);
+std::cout<<ghost_show(r)<<ghost_show(std::string(" "))<<ghost_show(v)<<ghost_show(std::string(" "))<<ghost_show(v%7)<<ghost_show(std::string(" "))<<ghost_show(ghost_fstr(ghost_fmt((ghost_pow(2,8)),",")))<<ghost_show(std::string(" "))<<ghost_show(([&](){
+auto&&ghost_src_1=ghost_iter(range(4));
+autoghost_fx_1=[&](autok){
+returnghost_pow(k,2);
+}
+;
+GhostList<std::decay_t<decltype(ghost_fx_1(*std::begin(ghost_src_1)))>>ghost_out_1;
+for(constauto&k:ghost_src_1){
+ghost_collect(ghost_out_1,ghost_fx_1(k));
+}
+returnghost_out_1;
+}
+()))<<std::endl;
+{
+try{
+std::cout<<ghost_show(ghost_pow(0,-1))<<std::endl;
+}
+catch(...){
+std::stringe=ghost_exception_message(std::current_exception());
+(void)e;
+std::cout<<ghost_show(std::string("erro: "))<<ghost_show(e)<<std::endl;
+}
+}
+}
+voidfstrings(){
+GhostList<int>xs=GhostList<int>{
+1,2,3}
+;
+std::stringnome=std::string("ana");
+autodobro=ghost_make_fn<int>([=](intx)mutable{
+returnx*2;
+}
+);
+std::cout<<ghost_show(ghost_fstr(std::string("lista "),(ghost_list(1,2,3)),std::string(" | comp "),(([&](){
+auto&&ghost_src_3=ghost_iter(xs);
+autoghost_fx_3=[&](autox){
+returnx*x;
+}
+;
+GhostList<std::decay_t<decltype(ghost_fx_3(*std::begin(ghost_src_3)))>>ghost_out_3;
+for(constauto&x:ghost_src_3){
+ghost_collect(ghost_out_3,ghost_fx_3(x));
+}
+returnghost_out_3;
+}
+())),std::string(" | pot "),ghost_fmt((ghost_pow(2,8)),","),std::string(" | gen "),(maior<double>(2,3.5)),std::string(" | "),(maior(4,9))))<<std::endl;
+std::cout<<ghost_show(ghost_fstr(std::string("static "),(Contador::total),std::string(" | lambda "),(dobro(21)),std::string(" | aninhada "),(ghost_fstr(std::string("["),ghost_fmt((nome),">5"),std::string("]"))),std::string(" | set "),(ghost_to_set(ghost_list(3,1,3))),std::string(" | "),(std::string("chaves {ok}"))))<<std::endl;
+}
+voiddiversos(){
+std::cout<<ghost_show(tipo(1))<<ghost_show(std::string(" "))<<ghost_show(tipo(2.5))<<ghost_show(std::string(" "))<<ghost_show(tipo(std::string("a")))<<ghost_show(std::string(" "))<<ghost_show(tipo(1,2))<<ghost_show(std::string(" "))<<ghost_show(tipo(true?1:2))<<std::endl;
+Filhaf{
+}
+;
+std::cout<<ghost_show(f.ver())<<ghost_show(std::string(" "))<<ghost_show(f.dobro())<<std::endl;
+Caixa<int>a=Caixa<int>(1);
+Caixa<int>b=Caixa<int>(2);
+Caixa<std::string>c=Caixa<std::string>(std::string("x"));
+std::cout<<ghost_show(Caixa<int>::criadas)<<ghost_show(std::string(" "))<<ghost_show(Caixa<std::string>::criadas)<<std::endl;
+GhostList<int>xs=GhostList<int>{
+0,1,2,3,4,5}
+;
+std::cout<<ghost_show(ghost_slice(xs,GhostSliceArg{
+true,static_cast<longlong>(1),true,static_cast<longlong>(4),false,1}
+))<<ghost_show(std::string(" "))<<ghost_show(ghost_slice(xs,GhostSliceArg{
+false,0,false,0,true,static_cast<longlong>(-2)}
+))<<ghost_show(std::string(" "))<<ghost_show(ghost_slice(xs,GhostSliceArg{
+true,static_cast<longlong>(-2),false,0,false,1}
+))<<ghost_show(std::string(" "))<<ghost_show(ghost_slice(xs,GhostSliceArg{
+false,0,true,static_cast<longlong>(2),false,1}
+))<<ghost_show(std::string(" "))<<ghost_show(ghost_slice(std::string("abcdef"),GhostSliceArg{
+true,static_cast<longlong>(1),true,static_cast<longlong>(5),true,static_cast<longlong>(2)}
+))<<ghost_show(std::string(" "))<<ghost_show(ghost_slice(xs,GhostSliceArg{
+true,static_cast<longlong>(10),true,static_cast<longlong>(20),false,1}
+))<<ghost_show(std::string(" "))<<ghost_show(ghost_slice(xs,GhostSliceArg{
+true,static_cast<longlong>(4),true,static_cast<longlong>(1),false,1}
+))<<std::endl;
+std::cout<<ghost_show(vec_add(ghost_list(1,2),ghost_list(3,4)))<<ghost_show(std::string(" "))<<ghost_show(dot(ghost_list(1.5,2),ghost_list(2,2)))<<ghost_show(std::string(" "))<<ghost_show(vec_add(ghost_list(1,2),ghost_list(0.5,0.5)))<<ghost_show(std::string(" "))<<ghost_show(ghost_list(3.0,4.0).norm())<<ghost_show(std::string(" "))<<ghost_show(mat_transpose(ghost_list(1,2,3,4,5,6),2,3))<<std::endl;
+autosoma=ghost_make_poly_fn([=](autoa,autob)mutable{
+returna+b;
+}
+);
+std::cout<<ghost_show(soma(1,2))<<ghost_show(std::string(" "))<<ghost_show(soma(1.5,2))<<ghost_show(std::string(" "))<<ghost_show(soma(std::string("a"),std::string("b")))<<std::endl;
+intn=5;
+autoaddN=ghost_make_fn<int>([=](intx)mutable{
+returnx+n;
+}
+);
+n=100;
+std::cout<<ghost_show(addN(1))<<std::endl;
+autoporRef=ghost_make_fn<int>([&](intx)mutable{
+returnx+n;
+}
+);
+n=1000;
+std::cout<<ghost_show(porRef(1))<<std::endl;
+}
+voidghost_main(){
+std::cout<<ghost_show(std::string("== potencia =="))<<std::endl;
+potencias();
+std::cout<<ghost_show(std::string("== f-strings =="))<<std::endl;
+fstrings();
+std::cout<<ghost_show(std::string("== diversos =="))<<std::endl;
+diversos();
+GhostList<int>xs=GhostList<int>{
+0,1,2,3,4,5}
+;
+autok=-2;
+std::cout<<ghost_show(ghost_slice(xs,GhostSliceArg{
+false,0,false,0,true,static_cast<longlong>(-1)}
+))<<ghost_show(std::string(" "))<<ghost_show(ghost_slice(xs,GhostSliceArg{
+false,0,false,0,true,static_cast<longlong>(k)}
+))<<ghost_show(std::string(" "))<<ghost_show(ghost_slice(std::string("abcdef"),GhostSliceArg{
+false,0,false,0,true,static_cast<longlong>(-1)}
+))<<ghost_show(std::string(" "))<<ghost_show(ghost_slice(std::string("abcdef"),GhostSliceArg{
+false,0,false,0,true,static_cast<longlong>(-2)}
+))<<ghost_show(std::string(" "))<<ghost_show(ghost_slice(xs,GhostSliceArg{
+true,static_cast<longlong>(-1),true,static_cast<longlong>(-4),true,static_cast<longlong>(-1)}
+))<<std::endl;
+}
+intmain(intargc,char**argv){
+try{
+#ifdef_WIN32SetConsoleOutputCP(CP_UTF8);
+SetConsoleCP(CP_UTF8);
+#endifstd::cout<<std::boolalpha;
+std::stringghost_args="";
+std::vector<std::string>ghost_args_vec;
+for(inti=1;
+i<argc;
+++i){
+ghost_args+=argv[i];
+ghost_args_vec.push_back(argv[i]);
+if(i<argc-1)ghost_args+=" ";
+}
+ghost_main();
+return0;
+}
+catch(conststd::exception&e){
+std::cerr<<e.what()<<std::endl;
+return1;
+}
+}

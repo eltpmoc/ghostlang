@@ -1,0 +1,14 @@
+=== Testando Declaracoes Algebricas de Variaveis Ghost ===
+1. Sintaxe com Sufixos
+
+Estado da estrutura 'G1':
+(x, yi, p, θ²) = (1.0000, 2.0000, 3.0000, 0.0000)
+2. Sintaxe com Operadores (*)
+
+Estado da estrutura 'G2':
+(x, yi, p, θ²) = (1.5000, -2.5000, 3.5000, 0.0000)
+3. Soma Algebrica Complexa
+
+Estado da estrutura 'G3':
+(x, yi, p, θ²) = (10.0000, 3.0000, -5.0000, 0.0000)
+=== Concluido ===

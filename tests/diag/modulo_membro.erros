@@ -1,0 +1,2 @@
+modulo_membro.g:5:11: erro GHOST-E1001: o modulo mat nao tem 'triplo'
+ 5 |     print(mat.triplo(2));

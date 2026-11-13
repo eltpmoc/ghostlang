@@ -1,0 +1,425 @@
+#line 15 "tests/ghost/modulos/geometria.g"
+#line 16 "tests/ghost/modulos/geometria.g"
+#line 17 "tests/ghost/modulos/geometria.g"
+#line 21 "tests/ghost/modulos/geometria.g"
+#line 25 "tests/ghost/modulos/geometria.g"
+#line 15 "tests/ghost/modulos/geometria.g"
+#line 16 "tests/ghost/modulos/geometria.g"
+#line 17 "tests/ghost/modulos/geometria.g"
+#line 21 "tests/ghost/modulos/geometria.g"
+#line 25 "tests/ghost/modulos/geometria.g"
+#line 15 "tests/ghost/modulos/geometria.g"
+#line 16 "tests/ghost/modulos/geometria.g"
+#line 17 "tests/ghost/modulos/geometria.g"
+#line 21 "tests/ghost/modulos/geometria.g"
+#line 25 "tests/ghost/modulos/geometria.g"
+#line 30 "tests/ghost/modulos/geometria.g"
+#line 31 "tests/ghost/modulos/geometria.g"
+#line 32 "tests/ghost/modulos/geometria.g"
+#line 36 "tests/ghost/modulos/geometria.g"
+#line 37 "tests/ghost/modulos/geometria.g"
+#line 39 "tests/ghost/modulos/geometria.g"
+#line 43 "tests/ghost/modulos/geometria.g"
+#line 47 "tests/ghost/modulos/geometria.g"
+#line 30 "tests/ghost/modulos/geometria.g"
+#line 31 "tests/ghost/modulos/geometria.g"
+#line 32 "tests/ghost/modulos/geometria.g"
+#line 36 "tests/ghost/modulos/geometria.g"
+#line 37 "tests/ghost/modulos/geometria.g"
+#line 39 "tests/ghost/modulos/geometria.g"
+#line 43 "tests/ghost/modulos/geometria.g"
+#line 47 "tests/ghost/modulos/geometria.g"
+#line 30 "tests/ghost/modulos/geometria.g"
+#line 31 "tests/ghost/modulos/geometria.g"
+#line 32 "tests/ghost/modulos/geometria.g"
+#line 36 "tests/ghost/modulos/geometria.g"
+#line 37 "tests/ghost/modulos/geometria.g"
+#line 39 "tests/ghost/modulos/geometria.g"
+#line 43 "tests/ghost/modulos/geometria.g"
+#line 47 "tests/ghost/modulos/geometria.g"
+#line 7 "tests/ghost/modulos/rotulos.g"
+#line 8 "tests/ghost/modulos/rotulos.g"
+#line 12 "tests/ghost/modulos/rotulos.g"
+#line 4 "tests/ghost/modulos/ciclo_b.g"
+#line 5 "tests/ghost/modulos/ciclo_a.g"
+#line 8 "tests/ghost/modulos.g"
+#line 12 "tests/ghost/modulos.g"
+#line 13 "tests/ghost/modulos.g"
+#line 14 "tests/ghost/modulos.g"
+#line 15 "tests/ghost/modulos.g"
+#line 16 "tests/ghost/modulos.g"
+#line 17 "tests/ghost/modulos.g"
+#line 18 "tests/ghost/modulos.g"
+#line 19 "tests/ghost/modulos.g"
+#line 20 "tests/ghost/modulos.g"
+#line 21 "tests/ghost/modulos.g"
+#line 22 "tests/ghost/modulos.g"
+#line 23 "tests/ghost/modulos.g"
+#line 24 "tests/ghost/modulos.g"
+#line 26 "tests/ghost/modulos.g"
+#line 27 "tests/ghost/modulos.g"
+#line 29 "tests/ghost/modulos.g"
+#line 30 "tests/ghost/modulos.g"
+#line 2 "tests/ghost/modulos/geometria.g"
+#line 3 "tests/ghost/modulos/geometria.g"
+#line 5 "tests/ghost/modulos/geometria.g"
+#line 9 "tests/ghost/modulos/geometria.g"
+#line 29 "tests/ghost/modulos/geometria.g"
+#line 35 "tests/ghost/modulos/geometria.g"
+#line 42 "tests/ghost/modulos/geometria.g"
+#line 46 "tests/ghost/modulos/geometria.g"
+#line 2 "tests/ghost/modulos/geometria.g"
+#line 3 "tests/ghost/modulos/geometria.g"
+#line 5 "tests/ghost/modulos/geometria.g"
+#line 9 "tests/ghost/modulos/geometria.g"
+#line 29 "tests/ghost/modulos/geometria.g"
+#line 35 "tests/ghost/modulos/geometria.g"
+#line 42 "tests/ghost/modulos/geometria.g"
+#line 46 "tests/ghost/modulos/geometria.g"
+#line 2 "tests/ghost/modulos/geometria.g"
+#line 3 "tests/ghost/modulos/geometria.g"
+#line 5 "tests/ghost/modulos/geometria.g"
+#line 9 "tests/ghost/modulos/geometria.g"
+#line 29 "tests/ghost/modulos/geometria.g"
+#line 35 "tests/ghost/modulos/geometria.g"
+#line 42 "tests/ghost/modulos/geometria.g"
+#line 46 "tests/ghost/modulos/geometria.g"
+#line 4 "tests/ghost/modulos/rotulos.g"
+#line 6 "tests/ghost/modulos/rotulos.g"
+#line 11 "tests/ghost/modulos/rotulos.g"
+#line 3 "tests/ghost/modulos/ciclo_b.g"
+#line 4 "tests/ghost/modulos/ciclo_a.g"
+#line 7 "tests/ghost/modulos.g"
+#line 11 "tests/ghost/modulos.g"
+----
+/*TranspiladopeloGhostCompilerv1.0*/#include<iostream>#include<cstdio>#include<cstdlib>#include<string>#include<complex>#include<type_traits>#include<fstream>#include<sstream>#include<thread>#include<chrono>#include<mutex>#include"include/GhostNumberG.hpp"#include"include/GhostMatrix.hpp"#include"include/GhostLLM.hpp"#include"include/GhostLib.hpp"#include"include/GhostDevice.hpp"#include"include/GhostTextModel.hpp"#include"include/GhostWeb.hpp"#include"include/GhostKnowledge.hpp"#include"include/GhostTemporal.hpp"#include"include/GhostTransformer.hpp"#include"include/GhostTransformerG.hpp"#include"include/GhostMatrixG.hpp"#include"include/GhostQuantum.hpp"#include"include/GhostQML.hpp"#include"include/GhostHybrid.hpp"#include"include/GhostQTape.hpp"#include"include/GhostCore.hpp"#ifdef_WIN32#include<windows.h>#endifclassg2__Ponto;
+classgeo__Ponto;
+classgeom__Ponto;
+classg2__Medivel;
+classgeo__Medivel;
+classgeom__Medivel;
+doublegeo__distancia(geo__Pontoa,geo__Pontob);
+template<classT>Tgeo__maior(Ta,Tb);
+std::stringgeo__descrever(geo__Medivelm);
+intgeo__escala(intk);
+doubleg2__distancia(g2__Pontoa,g2__Pontob);
+template<classT>Tg2__maior(Ta,Tb);
+std::stringg2__descrever(g2__Medivelm);
+intg2__escala(intk);
+doublegeom__distancia(geom__Pontoa,geom__Pontob);
+template<classT>Tgeom__maior(Ta,Tb);
+std::stringgeom__descrever(geom__Medivelm);
+intgeom__escala(intk);
+std::stringrot__rotulo(doublex,doubley);
+voidrot__main();
+intdeB();
+intdeA();
+doubledistancia(doublea,doubleb);
+voidghost_main();
+externdoublegeo__ESCALA;
+externintgeo__criados;
+externdoubleg2__ESCALA;
+externintg2__criados;
+externdoublegeom__ESCALA;
+externintgeom__criados;
+externstd::stringrot__PREFIXO;
+classgeo__Medivel;
+classghost_iface_geo__Medivel{
+public:virtual~ghost_iface_geo__Medivel()=default;
+virtualdoublemedida()=0;
+}
+;
+classgeo__Medivel:publicvirtualghost_iface_geo__Medivel{
+std::shared_ptr<ghost_iface_geo__Medivel>ghost_p_;
+std::shared_ptr<ghost_iface_geo__Medivel>(*ghost_clone_)(constghost_iface_geo__Medivel&)=nullptr;
+ghost_iface_geo__Medivel&ghost_obj()const{
+if(!ghost_p_)throwstd::runtime_error("geo__Medivel sem objeto: guarde um objeto antes de chamar um metodo");
+return*ghost_p_;
+}
+public:geo__Medivel()=default;
+template<classT,class=std::enable_if_t<std::is_base_of_v<ghost_iface_geo__Medivel,T>&&!std::is_same_v<T,geo__Medivel>>>geo__Medivel(constT&v):ghost_p_(std::make_shared<T>(v)),ghost_clone_([](constghost_iface_geo__Medivel&x)->std::shared_ptr<ghost_iface_geo__Medivel>{
+returnstd::make_shared<T>(dynamic_cast<constT&>(x));
+}
+){
+}
+geo__Medivel(constgeo__Medivel&o):ghost_iface_geo__Medivel(),ghost_p_(o.ghost_p_?o.ghost_clone_(*o.ghost_p_):nullptr),ghost_clone_(o.ghost_clone_){
+}
+geo__Medivel&operator=(constgeo__Medivel&o){
+if(this!=&o){
+ghost_p_=o.ghost_p_?o.ghost_clone_(*o.ghost_p_):nullptr;
+ghost_clone_=o.ghost_clone_;
+}
+return*this;
+}
+doublemedida()override{
+returnghost_obj().medida();
+}
+}
+;
+classgeo__Ponto:publicvirtualghost_iface_geo__Medivel{
+public:doublex{
+}
+;
+doubley{
+}
+;
+intescala=1;
+geo__Ponto(doublex=0,doubley=0){
+(*this).x=x;
+(*this).y=y;
+geo__criados++;
+}
+virtualdoublemedida(){
+returngeo__distancia((*this),geo__Ponto(0,0));
+}
+virtualdoubleescalaDoModulo(){
+returngeo__ESCALA*escala;
+}
+}
+;
+classg2__Medivel;
+classghost_iface_g2__Medivel{
+public:virtual~ghost_iface_g2__Medivel()=default;
+virtualdoublemedida()=0;
+}
+;
+classg2__Medivel:publicvirtualghost_iface_g2__Medivel{
+std::shared_ptr<ghost_iface_g2__Medivel>ghost_p_;
+std::shared_ptr<ghost_iface_g2__Medivel>(*ghost_clone_)(constghost_iface_g2__Medivel&)=nullptr;
+ghost_iface_g2__Medivel&ghost_obj()const{
+if(!ghost_p_)throwstd::runtime_error("g2__Medivel sem objeto: guarde um objeto antes de chamar um metodo");
+return*ghost_p_;
+}
+public:g2__Medivel()=default;
+template<classT,class=std::enable_if_t<std::is_base_of_v<ghost_iface_g2__Medivel,T>&&!std::is_same_v<T,g2__Medivel>>>g2__Medivel(constT&v):ghost_p_(std::make_shared<T>(v)),ghost_clone_([](constghost_iface_g2__Medivel&x)->std::shared_ptr<ghost_iface_g2__Medivel>{
+returnstd::make_shared<T>(dynamic_cast<constT&>(x));
+}
+){
+}
+g2__Medivel(constg2__Medivel&o):ghost_iface_g2__Medivel(),ghost_p_(o.ghost_p_?o.ghost_clone_(*o.ghost_p_):nullptr),ghost_clone_(o.ghost_clone_){
+}
+g2__Medivel&operator=(constg2__Medivel&o){
+if(this!=&o){
+ghost_p_=o.ghost_p_?o.ghost_clone_(*o.ghost_p_):nullptr;
+ghost_clone_=o.ghost_clone_;
+}
+return*this;
+}
+doublemedida()override{
+returnghost_obj().medida();
+}
+}
+;
+classg2__Ponto:publicvirtualghost_iface_g2__Medivel{
+public:doublex{
+}
+;
+doubley{
+}
+;
+intescala=1;
+g2__Ponto(doublex=0,doubley=0){
+(*this).x=x;
+(*this).y=y;
+g2__criados++;
+}
+virtualdoublemedida(){
+returng2__distancia((*this),g2__Ponto(0,0));
+}
+virtualdoubleescalaDoModulo(){
+returng2__ESCALA*escala;
+}
+}
+;
+classgeom__Medivel;
+classghost_iface_geom__Medivel{
+public:virtual~ghost_iface_geom__Medivel()=default;
+virtualdoublemedida()=0;
+}
+;
+classgeom__Medivel:publicvirtualghost_iface_geom__Medivel{
+std::shared_ptr<ghost_iface_geom__Medivel>ghost_p_;
+std::shared_ptr<ghost_iface_geom__Medivel>(*ghost_clone_)(constghost_iface_geom__Medivel&)=nullptr;
+ghost_iface_geom__Medivel&ghost_obj()const{
+if(!ghost_p_)throwstd::runtime_error("geom__Medivel sem objeto: guarde um objeto antes de chamar um metodo");
+return*ghost_p_;
+}
+public:geom__Medivel()=default;
+template<classT,class=std::enable_if_t<std::is_base_of_v<ghost_iface_geom__Medivel,T>&&!std::is_same_v<T,geom__Medivel>>>geom__Medivel(constT&v):ghost_p_(std::make_shared<T>(v)),ghost_clone_([](constghost_iface_geom__Medivel&x)->std::shared_ptr<ghost_iface_geom__Medivel>{
+returnstd::make_shared<T>(dynamic_cast<constT&>(x));
+}
+){
+}
+geom__Medivel(constgeom__Medivel&o):ghost_iface_geom__Medivel(),ghost_p_(o.ghost_p_?o.ghost_clone_(*o.ghost_p_):nullptr),ghost_clone_(o.ghost_clone_){
+}
+geom__Medivel&operator=(constgeom__Medivel&o){
+if(this!=&o){
+ghost_p_=o.ghost_p_?o.ghost_clone_(*o.ghost_p_):nullptr;
+ghost_clone_=o.ghost_clone_;
+}
+return*this;
+}
+doublemedida()override{
+returnghost_obj().medida();
+}
+}
+;
+classgeom__Ponto:publicvirtualghost_iface_geom__Medivel{
+public:doublex{
+}
+;
+doubley{
+}
+;
+intescala=1;
+geom__Ponto(doublex=0,doubley=0){
+(*this).x=x;
+(*this).y=y;
+geom__criados++;
+}
+virtualdoublemedida(){
+returngeom__distancia((*this),geom__Ponto(0,0));
+}
+virtualdoubleescalaDoModulo(){
+returngeom__ESCALA*escala;
+}
+}
+;
+doublegeo__ESCALA;
+intgeo__criados;
+doubleg2__ESCALA;
+intg2__criados;
+doublegeom__ESCALA;
+intgeom__criados;
+std::stringrot__PREFIXO;
+doublegeo__distancia(geo__Pontoa,geo__Pontob){
+doubledx=a.x-b.x;
+doubledy=a.y-b.y;
+returnsqrt(dx*dx+dy*dy);
+}
+template<classT>Tgeo__maior(Ta,Tb){
+if(a>b){
+returna;
+}
+returnb;
+}
+std::stringgeo__descrever(geo__Medivelm){
+returnghost_fstr(std::string("medida "),ghost_fmt((m.medida()),".2f"),std::string(" (escala "),(geo__ESCALA),std::string(")"));
+}
+intgeo__escala(intk){
+returnk*10;
+}
+doubleg2__distancia(g2__Pontoa,g2__Pontob){
+doubledx=a.x-b.x;
+doubledy=a.y-b.y;
+returnsqrt(dx*dx+dy*dy);
+}
+template<classT>Tg2__maior(Ta,Tb){
+if(a>b){
+returna;
+}
+returnb;
+}
+std::stringg2__descrever(g2__Medivelm){
+returnghost_fstr(std::string("medida "),ghost_fmt((m.medida()),".2f"),std::string(" (escala "),(g2__ESCALA),std::string(")"));
+}
+intg2__escala(intk){
+returnk*10;
+}
+doublegeom__distancia(geom__Pontoa,geom__Pontob){
+doubledx=a.x-b.x;
+doubledy=a.y-b.y;
+returnsqrt(dx*dx+dy*dy);
+}
+template<classT>Tgeom__maior(Ta,Tb){
+if(a>b){
+returna;
+}
+returnb;
+}
+std::stringgeom__descrever(geom__Medivelm){
+returnghost_fstr(std::string("medida "),ghost_fmt((m.medida()),".2f"),std::string(" (escala "),(geom__ESCALA),std::string(")"));
+}
+intgeom__escala(intk){
+returnk*10;
+}
+std::stringrot__rotulo(doublex,doubley){
+geom__Pontop=geom__Ponto(x,y);
+returnrot__PREFIXO+ghost_fstr(std::string("("),(p.x),std::string(", "),(p.y),std::string(") a "),ghost_fmt((geom__distancia(p,geom__Ponto(0,0))),".1f"));
+}
+voidrot__main(){
+std::cout<<ghost_show(std::string("o main do modulo nao roda quando ele e importado"))<<std::endl;
+}
+intdeB(){
+return41;
+}
+intdeA(){
+returndeB()+1;
+}
+doubledistancia(doublea,doubleb){
+returnb-a;
+}
+voidghost_main(){
+std::cout<<ghost_show(std::string("== import ... as =="))<<std::endl;
+geo__Pontop=geo__Ponto(3,4);
+geo__Pontoq=geo__Ponto();
+std::cout<<ghost_show(std::string("distancia "))<<ghost_show(geo__distancia(p,q))<<ghost_show(std::string(" | funcao local com o mesmo nome "))<<ghost_show(distancia(1,5))<<std::endl;
+std::cout<<ghost_show(geo__descrever(p))<<ghost_show(std::string(" | maior "))<<ghost_show(geo__maior(3,9))<<ghost_show(std::string(" "))<<ghost_show(geo__maior<double>(2,2.5))<<std::endl;
+std::cout<<ghost_show(std::string("criados "))<<ghost_show(geo__criados)<<ghost_show(std::string(" | globais "))<<ghost_show(geo__ESCALA)<<ghost_show(std::string(" "))<<ghost_show(geo__escala(4))<<ghost_show(std::string(" | campo com o nome de funcao do modulo "))<<ghost_show(p.escala)<<ghost_show(std::string(" "))<<ghost_show(p.escalaDoModulo())<<std::endl;
+geo__ESCALA=5;
+g2__ESCALA=7;
+std::cout<<ghost_show(std::string("dois apelidos, duas copias: "))<<ghost_show(geo__ESCALA)<<ghost_show(std::string(" "))<<ghost_show(g2__ESCALA)<<ghost_show(std::string(" "))<<ghost_show(g2__criados)<<std::endl;
+geo__Medivelm=geo__Ponto(6,8);
+std::cout<<ghost_show(m.medida())<<ghost_show(std::string(" "))<<ghost_show(ghost_fstr((geo__distancia(p,geo__Ponto(0,0)))))<<ghost_show(std::string(" "))<<ghost_show(([&](){
+auto&&ghost_src_1=ghost_iter(range(3));
+autoghost_fx_1=[&](autok){
+returngeo__escala(k);
+}
+;
+GhostList<std::decay_t<decltype(ghost_fx_1(*std::begin(ghost_src_1)))>>ghost_out_1;
+for(constauto&k:ghost_src_1){
+ghost_collect(ghost_out_1,ghost_fx_1(k));
+}
+returnghost_out_1;
+}
+()))<<std::endl;
+GhostMap<std::string,int>geoInfo=GhostMap<std::string,int>{
+{
+std::string("a"),1}
+}
+;
+std::cout<<ghost_show(std::string("variavel comum: "))<<ghost_show(geoInfo.keys())<<std::endl;
+std::cout<<ghost_show(std::string("== modulo que importa modulo =="))<<std::endl;
+std::cout<<ghost_show(rot__rotulo(3,4))<<ghost_show(std::string(" "))<<ghost_show(rot__PREFIXO)<<std::endl;
+std::cout<<ghost_show(std::string("== import sem apelido (com ciclo) =="))<<std::endl;
+std::cout<<ghost_show(deA())<<ghost_show(std::string(" "))<<ghost_show(deB())<<std::endl;
+}
+intmain(intargc,char**argv){
+try{
+#ifdef_WIN32SetConsoleOutputCP(CP_UTF8);
+SetConsoleCP(CP_UTF8);
+#endifstd::cout<<std::boolalpha;
+std::stringghost_args="";
+std::vector<std::string>ghost_args_vec;
+for(inti=1;
+i<argc;
+++i){
+ghost_args+=argv[i];
+ghost_args_vec.push_back(argv[i]);
+if(i<argc-1)ghost_args+=" ";
+}
+geo__ESCALA=2;
+geo__criados=0;
+g2__ESCALA=2;
+g2__criados=0;
+geom__ESCALA=2;
+geom__criados=0;
+rot__PREFIXO=std::string("#");
+ghost_main();
+return0;
+}
+catch(conststd::exception&e){
+std::cerr<<e.what()<<std::endl;
+return1;
+}
+}

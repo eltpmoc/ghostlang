@@ -1,0 +1,268 @@
+#line 25 "tests/ghost/interfaces_genericas.g"
+#line 29 "tests/ghost/interfaces_genericas.g"
+#line 33 "tests/ghost/interfaces_genericas.g"
+#line 37 "tests/ghost/interfaces_genericas.g"
+#line 38 "tests/ghost/interfaces_genericas.g"
+#line 39 "tests/ghost/interfaces_genericas.g"
+#line 41 "tests/ghost/interfaces_genericas.g"
+#line 51 "tests/ghost/interfaces_genericas.g"
+#line 55 "tests/ghost/interfaces_genericas.g"
+#line 59 "tests/ghost/interfaces_genericas.g"
+#line 69 "tests/ghost/interfaces_genericas.g"
+#line 73 "tests/ghost/interfaces_genericas.g"
+#line 77 "tests/ghost/interfaces_genericas.g"
+#line 82 "tests/ghost/interfaces_genericas.g"
+#line 86 "tests/ghost/interfaces_genericas.g"
+#line 87 "tests/ghost/interfaces_genericas.g"
+#line 88 "tests/ghost/interfaces_genericas.g"
+#line 89 "tests/ghost/interfaces_genericas.g"
+#line 90 "tests/ghost/interfaces_genericas.g"
+#line 91 "tests/ghost/interfaces_genericas.g"
+#line 92 "tests/ghost/interfaces_genericas.g"
+#line 94 "tests/ghost/interfaces_genericas.g"
+#line 95 "tests/ghost/interfaces_genericas.g"
+#line 96 "tests/ghost/interfaces_genericas.g"
+#line 98 "tests/ghost/interfaces_genericas.g"
+#line 99 "tests/ghost/interfaces_genericas.g"
+#line 100 "tests/ghost/interfaces_genericas.g"
+#line 101 "tests/ghost/interfaces_genericas.g"
+#line 103 "tests/ghost/interfaces_genericas.g"
+#line 105 "tests/ghost/interfaces_genericas.g"
+#line 106 "tests/ghost/interfaces_genericas.g"
+#line 107 "tests/ghost/interfaces_genericas.g"
+#line 108 "tests/ghost/interfaces_genericas.g"
+#line 111 "tests/ghost/interfaces_genericas.g"
+#line 112 "tests/ghost/interfaces_genericas.g"
+#line 113 "tests/ghost/interfaces_genericas.g"
+#line 114 "tests/ghost/interfaces_genericas.g"
+#line 115 "tests/ghost/interfaces_genericas.g"
+#line 116 "tests/ghost/interfaces_genericas.g"
+#line 118 "tests/ghost/interfaces_genericas.g"
+#line 119 "tests/ghost/interfaces_genericas.g"
+#line 120 "tests/ghost/interfaces_genericas.g"
+#line 4 "tests/ghost/interfaces_genericas.g"
+#line 15 "tests/ghost/interfaces_genericas.g"
+#line 19 "tests/ghost/interfaces_genericas.g"
+#line 45 "tests/ghost/interfaces_genericas.g"
+#line 63 "tests/ghost/interfaces_genericas.g"
+#line 81 "tests/ghost/interfaces_genericas.g"
+#line 85 "tests/ghost/interfaces_genericas.g"
+----
+/*TranspiladopeloGhostCompilerv1.0*/#include<iostream>#include<cstdio>#include<cstdlib>#include<string>#include<complex>#include<type_traits>#include<fstream>#include<sstream>#include<thread>#include<chrono>#include<mutex>#include"include/GhostNumberG.hpp"#include"include/GhostMatrix.hpp"#include"include/GhostLLM.hpp"#include"include/GhostLib.hpp"#include"include/GhostDevice.hpp"#include"include/GhostTextModel.hpp"#include"include/GhostWeb.hpp"#include"include/GhostKnowledge.hpp"#include"include/GhostTemporal.hpp"#include"include/GhostTransformer.hpp"#include"include/GhostTransformerG.hpp"#include"include/GhostMatrixG.hpp"#include"include/GhostQuantum.hpp"#include"include/GhostQML.hpp"#include"include/GhostHybrid.hpp"#include"include/GhostQTape.hpp"#include"include/GhostCore.hpp"#ifdef_WIN32#include<windows.h>#endiftemplate<classT>classListaNumerica;
+template<classT>classPilhaGenerica;
+classTextoColecao;
+template<classT>classColecao;
+template<classT>classSomavel;
+voidinspecionarColecao(Colecao<std::string>c,std::stringrotulo);
+voidghost_main();
+template<classT>classColecao;
+template<classT>classghost_iface_Colecao{
+public:virtual~ghost_iface_Colecao()=default;
+virtualinttamanho()=0;
+virtualvoidadicionar(T)=0;
+virtualTprimeiro()=0;
+virtualboolvazia(){
+returnthis->tamanho()==0;
+}
+}
+;
+template<classT>classColecao:publicvirtualghost_iface_Colecao<T>{
+std::shared_ptr<ghost_iface_Colecao<T>>ghost_p_;
+std::shared_ptr<ghost_iface_Colecao<T>>(*ghost_clone_)(constghost_iface_Colecao<T>&)=nullptr;
+ghost_iface_Colecao<T>&ghost_obj()const{
+if(!ghost_p_)throwstd::runtime_error("Colecao sem objeto: guarde um objeto antes de chamar um metodo");
+return*ghost_p_;
+}
+public:Colecao()=default;
+template<classGhostObj_,class=std::enable_if_t<std::is_base_of_v<ghost_iface_Colecao<T>,GhostObj_>&&!std::is_same_v<GhostObj_,Colecao<T>>>>Colecao(constGhostObj_&v):ghost_p_(std::make_shared<GhostObj_>(v)),ghost_clone_([](constghost_iface_Colecao<T>&x)->std::shared_ptr<ghost_iface_Colecao<T>>{
+returnstd::make_shared<GhostObj_>(dynamic_cast<constGhostObj_&>(x));
+}
+){
+}
+Colecao(constColecao&o):ghost_iface_Colecao<T>(),ghost_p_(o.ghost_p_?o.ghost_clone_(*o.ghost_p_):nullptr),ghost_clone_(o.ghost_clone_){
+}
+Colecao&operator=(constColecao&o){
+if(this!=&o){
+ghost_p_=o.ghost_p_?o.ghost_clone_(*o.ghost_p_):nullptr;
+ghost_clone_=o.ghost_clone_;
+}
+return*this;
+}
+inttamanho()override{
+returnghost_obj().tamanho();
+}
+voidadicionar(Ta0)override{
+returnghost_obj().adicionar(a0);
+}
+Tprimeiro()override{
+returnghost_obj().primeiro();
+}
+boolvazia()override{
+returnghost_obj().vazia();
+}
+}
+;
+template<classT>classSomavel;
+template<classT>classghost_iface_Somavel:publicvirtualghost_iface_Colecao<T>{
+public:static_assert(std::is_arithmetic_v<T>&&!std::is_same_v<T,bool>,"T precisa ser numero (int, double ou float): restricao de interface Somavel");
+virtual~ghost_iface_Somavel()=default;
+virtualTsomar()=0;
+}
+;
+template<classT>classSomavel:publicvirtualghost_iface_Somavel<T>{
+static_assert(std::is_arithmetic_v<T>&&!std::is_same_v<T,bool>,"T precisa ser numero (int, double ou float): restricao de interface Somavel");
+std::shared_ptr<ghost_iface_Somavel<T>>ghost_p_;
+std::shared_ptr<ghost_iface_Somavel<T>>(*ghost_clone_)(constghost_iface_Somavel<T>&)=nullptr;
+ghost_iface_Somavel<T>&ghost_obj()const{
+if(!ghost_p_)throwstd::runtime_error("Somavel sem objeto: guarde um objeto antes de chamar um metodo");
+return*ghost_p_;
+}
+public:Somavel()=default;
+template<classGhostObj_,class=std::enable_if_t<std::is_base_of_v<ghost_iface_Somavel<T>,GhostObj_>&&!std::is_same_v<GhostObj_,Somavel<T>>>>Somavel(constGhostObj_&v):ghost_p_(std::make_shared<GhostObj_>(v)),ghost_clone_([](constghost_iface_Somavel<T>&x)->std::shared_ptr<ghost_iface_Somavel<T>>{
+returnstd::make_shared<GhostObj_>(dynamic_cast<constGhostObj_&>(x));
+}
+){
+}
+Somavel(constSomavel&o):ghost_iface_Somavel<T>(),ghost_p_(o.ghost_p_?o.ghost_clone_(*o.ghost_p_):nullptr),ghost_clone_(o.ghost_clone_){
+}
+Somavel&operator=(constSomavel&o){
+if(this!=&o){
+ghost_p_=o.ghost_p_?o.ghost_clone_(*o.ghost_p_):nullptr;
+ghost_clone_=o.ghost_clone_;
+}
+return*this;
+}
+inttamanho()override{
+returnghost_obj().tamanho();
+}
+voidadicionar(Ta0)override{
+returnghost_obj().adicionar(a0);
+}
+Tprimeiro()override{
+returnghost_obj().primeiro();
+}
+boolvazia()override{
+returnghost_obj().vazia();
+}
+Tsomar()override{
+returnghost_obj().somar();
+}
+}
+;
+template<classT>classListaNumerica:publicvirtualghost_iface_Somavel<T>{
+public:static_assert(std::is_arithmetic_v<T>&&!std::is_same_v<T,bool>,"T precisa ser numero (int, double ou float): restricao de class ListaNumerica");
+GhostList<T>dados=GhostList<T>{
+}
+;
+ListaNumerica(){
+}
+virtualinttamanho(){
+returndados.length();
+}
+virtualvoidadicionar(Titem){
+dados.push(item);
+}
+virtualTprimeiro(){
+returndados[0];
+}
+virtualTsomar(){
+Ttotal=0;
+for(auto&x:dados){
+total+=x;
+}
+returntotal;
+}
+}
+;
+template<classT>classPilhaGenerica:publicvirtualghost_iface_Colecao<T>{
+public:GhostList<T>elementos=GhostList<T>{
+}
+;
+PilhaGenerica(){
+}
+virtualinttamanho(){
+returnelementos.length();
+}
+virtualvoidadicionar(Titem){
+elementos.push(item);
+}
+virtualTprimeiro(){
+returnelementos[0];
+}
+}
+;
+classTextoColecao:publicvirtualghost_iface_Colecao<std::string>{
+public:GhostList<std::string>itens=GhostList<std::string>{
+}
+;
+TextoColecao(){
+}
+virtualinttamanho(){
+returnitens.length();
+}
+virtualvoidadicionar(std::stringitem){
+itens.push(item);
+}
+virtualstd::stringprimeiro(){
+returnitens[0];
+}
+}
+;
+voidinspecionarColecao(Colecao<std::string>c,std::stringrotulo){
+std::cout<<ghost_show(rotulo)<<ghost_show(std::string(": tamanho="))<<ghost_show(c.tamanho())<<ghost_show(std::string(" vazia="))<<ghost_show(c.vazia())<<ghost_show(std::string(" primeiro="))<<ghost_show(c.primeiro())<<std::endl;
+}
+voidghost_main(){
+std::cout<<ghost_show(std::string("== metodos padrao em interfaces =="))<<std::endl;
+PilhaGenerica<std::string>pStr=PilhaGenerica<std::string>();
+std::cout<<ghost_show(std::string("pStr inicialmente vazia? "))<<ghost_show(pStr.vazia())<<std::endl;
+pStr.adicionar(std::string("primeiro"));
+pStr.adicionar(std::string("segundo"));
+std::cout<<ghost_show(std::string("pStr apos adicionar vazia? "))<<ghost_show(pStr.vazia())<<std::endl;
+inspecionarColecao(pStr,std::string("pStr"));
+std::cout<<ghost_show(std::string("== interfaces genericas e polimorfismo =="))<<std::endl;
+Colecao<std::string>c1=pStr;
+std::cout<<ghost_show(std::string("via interface: "))<<ghost_show(c1.primeiro())<<ghost_show(std::string(" tamanho="))<<ghost_show(c1.tamanho())<<ghost_show(std::string(" vazia="))<<ghost_show(c1.vazia())<<std::endl;
+TextoColecaotc=TextoColecao();
+tc.adicionar(std::string("alfa"));
+Colecao<std::string>c2=tc;
+std::cout<<ghost_show(std::string("via interface texto: "))<<ghost_show(c2.primeiro())<<ghost_show(std::string(" tamanho="))<<ghost_show(c2.tamanho())<<std::endl;
+std::cout<<ghost_show(std::string("== list<Interface> =="))<<std::endl;
+GhostList<Colecao<std::string>>colecoes=GhostList<Colecao<std::string>>{
+c1,c2}
+;
+std::cout<<ghost_show(std::string("colecoes na lista: "))<<ghost_show(colecoes.length())<<std::endl;
+for(auto&c:colecoes){
+std::cout<<ghost_show(std::string("item da lista: "))<<ghost_show(c.primeiro())<<std::endl;
+}
+std::cout<<ghost_show(std::string("== restricoes em interfaces genericas =="))<<std::endl;
+ListaNumerica<int>numList=ListaNumerica<int>();
+numList.adicionar(10);
+numList.adicionar(20);
+numList.adicionar(30);
+std::cout<<ghost_show(std::string("soma numList = "))<<ghost_show(numList.somar())<<ghost_show(std::string(" vazia? "))<<ghost_show(numList.vazia())<<std::endl;
+Somavel<int>somador=numList;
+std::cout<<ghost_show(std::string("via Somavel<int>: soma="))<<ghost_show(somador.somar())<<ghost_show(std::string(" primeiro="))<<ghost_show(somador.primeiro())<<std::endl;
+std::cout<<ghost_show(std::string("fim interfaces genericas"))<<std::endl;
+}
+intmain(intargc,char**argv){
+try{
+#ifdef_WIN32SetConsoleOutputCP(CP_UTF8);
+SetConsoleCP(CP_UTF8);
+#endifstd::cout<<std::boolalpha;
+std::stringghost_args="";
+std::vector<std::string>ghost_args_vec;
+for(inti=1;
+i<argc;
+++i){
+ghost_args+=argv[i];
+ghost_args_vec.push_back(argv[i]);
+if(i<argc-1)ghost_args+=" ";
+}
+ghost_main();
+return0;
+}
+catch(conststd::exception&e){
+std::cerr<<e.what()<<std::endl;
+return1;
+}
+}

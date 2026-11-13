@@ -1,0 +1,153 @@
+{
+  "Function Definition": {
+    "prefix": ["fn", "function"],
+    "body": [
+      "function ${1|string,int,double,void,ghost|} ${2:nome_funcao}(${3:string req}) {",
+      "\t${0:// seu código aqui}",
+      "}"
+    ],
+    "description": "Define uma nova função GhostLang com tipo de retorno"
+  },
+
+  "HTTP GET Route": {
+    "prefix": ["get", "route-get"],
+    "body": [
+      "function string ${1:get_handler}(string req) {",
+      "\treturn http_ok(\"{\\\\\"${2:chave}\\\\\": \\\\\"${3:valor}\\\\\"}\");",
+      "}"
+    ],
+    "description": "Função handler para rota GET retornando JSON"
+  },
+
+  "HTTP POST Route": {
+    "prefix": ["post", "route-post"],
+    "body": [
+      "function string ${1:post_handler}(string req) {",
+      "\treturn http_created(\"{\\\\\"info\\\\\": \\\\\"${2:Recurso criado}\\\\\"}\"  );",
+      "}"
+    ],
+    "description": "Função handler para rota POST retornando 201 Created"
+  },
+
+  "Server Setup": {
+    "prefix": ["server", "ghost-server"],
+    "body": [
+      "import \"lib/http.g\";",
+      "",
+      "server ${1:app} = ${2:8080};",
+      "",
+      "function string get_home(string req) {",
+      "\treturn http_html_file(\"index.html\");",
+      "}",
+      "",
+      "function string get_status(string req) {",
+      "\treturn http_ok(\"{\\\\\"status\\\\\": \\\\\"Online\\\\\"}\");",
+      "}",
+      "",
+      "${1}.get(\"/\",       get_home);",
+      "${1}.get(\"/status\", get_status);",
+      "${1}.serve(\"/public\", \"public\");",
+      "",
+      "${1}.listen();"
+    ],
+    "description": "Scaffold completo de servidor HTTP GhostLang"
+  },
+
+  "Gate (Neural Network Matrix)": {
+    "prefix": "gate",
+    "body": "gate ${1:W}(${2:2}, ${3:2});",
+    "description": "Declara uma matriz de pesos (gate)"
+  },
+
+  "State (Quantum Vector)": {
+    "prefix": "state",
+    "body": "state ${1:entrada} = [${2:0.8}, ${3:0.2}];",
+    "description": "Declara um vetor de estado quântico"
+  },
+
+  "Print": {
+    "prefix": "print",
+    "body": "print(\"${1:mensagem}\");",
+    "description": "Imprime uma mensagem no console"
+  },
+
+  "Import Library": {
+    "prefix": ["import", "load"],
+    "body": "import \"${1:lib/http.g}\";",
+    "description": "Importa uma biblioteca GhostLang"
+  },
+
+  "Variable Declaration": {
+    "prefix": "var",
+    "body": "${1|string,int,double,ghost,json|} ${2:variavel} = ${3:valor};",
+    "description": "Declara uma variável tipada"
+  },
+
+  "For Loop": {
+    "prefix": "for",
+    "body": [
+      "for (var ${1:i} = 0; ${1:i} < ${2:10}; ${1:i} = ${1:i} + 1) {",
+      "\t${0}",
+      "}"
+    ],
+    "description": "Loop for em GhostLang"
+  },
+
+  "If Statement": {
+    "prefix": "if",
+    "body": [
+      "if (${1:condicao}) {",
+      "\t${0}",
+      "}"
+    ],
+    "description": "Condicional if"
+  },
+
+  "http_ok Response": {
+    "prefix": "http_ok",
+    "body": "http_ok(\"{\\\\\"${1:chave}\\\\\": \\\\\"${2:valor}\\\\\"}\");",
+    "description": "Retorna resposta HTTP 200 OK com JSON"
+  },
+
+  "http_html_file Response": {
+    "prefix": "http_html_file",
+    "body": "http_html_file(\"${1:index.html}\");",
+    "description": "Serve um arquivo HTML do disco"
+  },
+
+  "api.serve Static": {
+    "prefix": "serve",
+    "body": "${1:api}.serve(\"/${2:public}\", \"${2:public}\");",
+    "description": "Registra uma pasta de arquivos estáticos"
+  },
+
+  "Quantum Layer": {
+    "prefix": "qlayer",
+    "body": [
+      "qlayer ${1:Q}(${2:2}, ${3:2});",
+      "${1:Q}.seed(${4:42});"
+    ],
+    "description": "Declara uma camada quântica variacional com n qubits e m camadas"
+  },
+
+  "Hybrid Neural Network": {
+    "prefix": ["network", "hybrid"],
+    "body": [
+      "gate ${1:W1}(${2:2}, ${2:2});",
+      "qlayer ${3:Q}(${2:2}, 2);",
+      "gate ${4:W2}(1, ${2:2});",
+      "network ${5:rede} = ${1:W1} >> ${3:Q} >> ${4:W2};",
+      "${5:rede} => optimize(X, Y, epochs=${6:100}, lr=${7:0.05}, opt=\"adam\");"
+    ],
+    "description": "Define e treina uma rede neural híbrida clássica-quântica"
+  },
+
+  "TextModel / LLM": {
+    "prefix": ["textmodel", "llm"],
+    "body": [
+      "textmodel ${1:modelo} = load_gguf(\"${2:model.gguf}\");",
+      "string ${3:resposta} = ${1:modelo}.generate(\"${4:prompt}\");"
+    ],
+    "description": "Carrega modelo LLM GGUF nativo e gera texto"
+  }
+}

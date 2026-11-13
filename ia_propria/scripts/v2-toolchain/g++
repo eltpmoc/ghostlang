@@ -1,0 +1,10 @@
+#!/usr/bin/env bash
+set -euo pipefail
+ROOT=$(cd -- "$(dirname -- "${BASH_SOURCE[0]}")/../../.." && pwd)
+EXTRA=()
+if [[ ${IA_LINK_CUDA:-0} == 1 ]]; then
+    EXTRA+=(-DV2_CUDA "${IA_CUDA_OBJECT:?}" "${IA_CUDA_HOME:?}/lib64/libcudart_static.a" -ldl -lrt -pthread)
+fi
+exec "${GHOST_CXX:?}" "$@" -std=c++17 -ffp-contract=off \
+    -I"$ROOT" -I"$ROOT/include" -include "$ROOT/ia_propria/v2/backend/api.hpp" \
+    "$ROOT/ia_propria/v2/backend/modelo.cpp" "$ROOT/src/GhostNumberG.cpp" "${EXTRA[@]}"

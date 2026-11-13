@@ -1,0 +1,34 @@
+=== Bell com circuit ===
+estado: 0.7071|00> + 0.7071|11>
+<ZZ> = 1
+emaranhar(b2, 1, 2) depois de preparar: 0.5|000> + 0.5|001> + 0.5|110> - 0.5|111>
+=== GHZ(5) com laco ===
+estado: 0.7071|00000> + 0.7071|11111>
+q0: --H---*--------------
+          |
+q1: ------X---*----------
+              |
+q2: ----------X---*------
+                  |
+q3: --------------X---*--
+                      |
+q4: ------------------X--
+
+=== Rotacao parametrizada ===
+P(1) = 0.25
+=== Grover com circuit (alvo |1011>) ===
+P(|1011>) = 0.961319
+=== VQE do H2 com ansatz feito de circuits ===
+parametros treinaveis: 4
+Energia VQE: -1.85728 Ha (exata: -1.857275)
+=== Inverso automatico: nome_dg ===
+emaranhar + emaranhar_dg: 1|00>
+5 + 3 = 1|1000>
+8 - 6 = 1|0010>
+girar + girar_dg: P(1) = 0
+fase_conjugada (inverso dentro de circuit): 0.7071|00> + 0.7071|01>
+qcircuit camada + camada_dg: 4 parametros, 6 portas
+=== Circuit controlado: nome_ctrl(controle, ...) ===
+emaranhar_ctrl com controle em superposicao: 0.7071|000> + 0.5|100> + 0.5|111>
+desfeito com emaranhar_dg_ctrl: 1|000>
+QPE: 1|1011>  (contagem 011 = 3 -> fase 3/8 = 0.375)

@@ -1,0 +1,22 @@
+{
+  "teste": {
+    "antes": 7,
+    "depois": 33,
+    "casos": 216,
+    "acertos_novos": 29,
+    "regressoes": 3,
+    "erros_persistentes": 180,
+    "referencia_frequente": 15,
+    "falhas_execucao": 0
+  },
+  "formulacao": {
+    "antes": 3,
+    "depois": 30,
+    "casos": 216,
+    "acertos_novos": 27,
+    "regressoes": 0,
+    "erros_persistentes": 186,
+    "referencia_frequente": 11,
+    "falhas_execucao": 0
+  }
+}

@@ -1,0 +1,119 @@
+{
+  "name": "ghostlang",
+  "displayName": "GhostLang",
+  "description": "Suporte completo para GhostLang — syntax highlight, tema dark, snippets e ícone de arquivo.",
+  "version": "1.0.0",
+  "publisher": "ghostlang-dev",
+  "main": "./client/extension.js",
+  "activationEvents": [
+    "onLanguage:ghostlang"
+  ],
+  "engines": {
+    "vscode": "^1.75.0"
+  },
+  "categories": [
+    "Programming Languages",
+    "Themes",
+    "Snippets"
+  ],
+  "icon": "images/ghost-icon.png",
+  "keywords": [
+    "ghostlang",
+    "ghost",
+    "AI",
+    "quantum",
+    "neural network"
+  ],
+  "contributes": {
+    "languages": [
+      {
+        "id": "ghostlang",
+        "aliases": [
+          "GhostLang",
+          "ghost"
+        ],
+        "extensions": [
+          ".g",
+          ".ghost"
+        ],
+        "configuration": "./language-configuration.json",
+        "icon": {
+          "light": "./images/ghost-icon.png",
+          "dark": "./images/ghost-icon.png"
+        }
+      }
+    ],
+    "grammars": [
+      {
+        "language": "ghostlang",
+        "scopeName": "source.ghost",
+        "path": "./syntaxes/ghostlang.tmLanguage.json"
+      }
+    ],
+    "snippets": [
+      {
+        "language": "ghostlang",
+        "path": "./snippets/ghostlang.json"
+      }
+    ],
+    "themes": [
+      {
+        "label": "GhostLang Dark",
+        "uiTheme": "vs-dark",
+        "path": "./themes/ghostlang-dark-color-theme.json"
+      }
+    ],
+    "debuggers": [
+      {
+        "type": "ghost",
+        "label": "GhostLang Debugger (GDB)",
+        "program": "",
+        "runtime": "ghost",
+        "configurationAttributes": {
+          "launch": {
+            "required": [
+              "program"
+            ],
+            "properties": {
+              "program": {
+                "type": "string",
+                "description": "Arquivo de entrada GhostLang (.g) para depurar",
+                "default": ""
+              },
+              "args": {
+                "type": "array",
+                "description": "Argumentos para o programa",
+                "default": []
+              },
+              "stopOnEntry": {
+                "type": "boolean",
+                "description": "Pausa imediatamente no inicio da funcao main",
+                "default": true
+              }
+            }
+          }
+        },
+        "initialConfigurations": [
+          {
+            "type": "ghost",
+            "request": "launch",
+            "name": "Depurar Arquivo GhostLang Atual",
+            "program": "",
+            "stopOnEntry": true
+          }
+        ]
+      }
+    ],
+    "configuration": {
+      "type": "object",
+      "title": "GhostLang",
+      "properties": {
+        "ghostlang.executablePath": {
+          "type": "string",
+          "default": "ghost",
+          "description": "Caminho absoluto para o binario ghost (compilador/LSP)"
+        }
+      }
+    }
+  }
+}

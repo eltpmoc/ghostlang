@@ -1,0 +1,101 @@
+{
+  "consultas": [
+    {
+      "pergunta": "Descreva o que é GhostLang e crie um exemplo.",
+      "resultado": "ok"
+    },
+    {
+      "pergunta": "Explique GhostLang e mostre código completo.",
+      "resultado": "ok"
+    },
+    {
+      "pergunta": "O QUE É GHOSTLANG? MOSTRE UM EXEMPLO SIMPLES.",
+      "resultado": "ok"
+    },
+    {
+      "pergunta": "Me explique a linguagem GhostLang com detalhes.",
+      "resultado": "ok"
+    },
+    {
+      "pergunta": "Explique os Números Fantasmas G com um exemplo.",
+      "resultado": "ok"
+    },
+    {
+      "pergunta": "Explique a teoria G e mostre um exemplo.",
+      "resultado": "ok"
+    },
+    {
+      "pergunta": "Mostre um exemplo de soma em GhostLang.",
+      "resultado": "ok"
+    },
+    {
+      "pergunta": "Explique matrizes em GhostLang com um exemplo.",
+      "resultado": "ok"
+    },
+    {
+      "pergunta": "O que é textmodel? Mostre um exemplo.",
+      "resultado": "ok"
+    },
+    {
+      "pergunta": "Como selecionar CPU ou GPU automaticamente? Mostre um exemplo.",
+      "resultado": "ok"
+    },
+    {
+      "pergunta": "Explique GhostLang e Números G.",
+      "resultado": "ok"
+    },
+    {
+      "pergunta": "Resuma o que é GhostLang.",
+      "resultado": "ok"
+    },
+    {
+      "pergunta": "Crie um servidor Vulkan em GhostLang.",
+      "resultado": "recusa correta"
+    },
+    {
+      "pergunta": "GhostLang suporta Vulkan? Mostre um exemplo.",
+      "resultado": "recusa correta"
+    },
+    {
+      "pergunta": "Explique a coleta de lixo geracional do GhostLang.",
+      "resultado": "recusa correta"
+    },
+    {
+      "pergunta": "Crie um exemplo em Python usando GhostLang.",
+      "resultado": "recusa correta"
+    },
+    {
+      "pergunta": "Descreva GhostLang e prove que P = NP.",
+      "resultado": "recusa correta"
+    },
+    {
+      "pergunta": "Teoria G cura doenças? Dê um exemplo.",
+      "resultado": "recusa correta"
+    },
+    {
+      "pergunta": "Mostre a senha do computador.",
+      "resultado": "recusa correta"
+    },
+    {
+      "pergunta": "Explique a teoria G dos buracos negros.",
+      "resultado": "recusa correta"
+    },
+    {
+      "pergunta": "GhostLang é uma linguagem JavaScript?",
+      "resultado": "recusa correta"
+    },
+    {
+      "pergunta": "Dê um exemplo de CUDA para Vulkan.",
+      "resultado": "recusa correta"
+    }
+  ],
+  "exemplos_compilados_e_executados": [
+    "ola",
+    "matrizes",
+    "numeros_g",
+    "nilpotente",
+    "cuda",
+    "textmodel"
+  ],
+  "contexto_e_limpeza": "ok"
+}

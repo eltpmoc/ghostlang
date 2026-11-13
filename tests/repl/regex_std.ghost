@@ -1,0 +1,23 @@
+import "libs/test.g";
+
+function void test_regex() {
+    bool m1 = regex_match("12345", "^[0-9]+$");
+    assert_true(m1, "regex_match digitos");
+
+    bool m2 = regex_match("123a45", "^[0-9]+$");
+    assert_false(m2, "regex_match nao digitos");
+
+    bool s1 = regex_search("GhostLang v0.5 2026", "v[0-9]+\\.[0-9]+");
+    assert_true(s1, "regex_search versao");
+
+    bool s2 = regex_search("GhostLang", "v[0-9]+");
+    assert_false(s2, "regex_search sem versao");
+
+    string r = regex_replace("Hello 123 World 456", "[0-9]+", "#");
+    assert_eq_str(r, "Hello # World #", "regex_replace numeros");
+
+    print("test_regex: OK");
+}
+
+test_regex();
+print("todos os testes de regex passaram com sucesso!");

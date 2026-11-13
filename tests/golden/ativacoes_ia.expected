@@ -1,0 +1,6 @@
+[Ghost OS] Colapso Quântico/Matemático (tanh) aplicado em 't1'.
+[Ghost OS] Colapso Quântico/Matemático (leaky_relu) aplicado em 't2'.
+[Ghost OS] Colapso Quântico/Matemático (gelu) aplicado em 't3'.
+[Ghost OS] Colapso Quântico/Matemático (softmax) aplicado em 't4'.
+test_ativacoes_ia: OK
+todos os testes de ativacoes_ia passaram com sucesso!

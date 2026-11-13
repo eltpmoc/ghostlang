@@ -1,0 +1,325 @@
+#line 13 "tests/ghost/genericos.g"
+#line 14 "tests/ghost/genericos.g"
+#line 22 "tests/ghost/genericos.g"
+#line 26 "tests/ghost/genericos.g"
+#line 27 "tests/ghost/genericos.g"
+#line 29 "tests/ghost/genericos.g"
+#line 33 "tests/ghost/genericos.g"
+#line 37 "tests/ghost/genericos.g"
+#line 41 "tests/ghost/genericos.g"
+#line 45 "tests/ghost/genericos.g"
+#line 46 "tests/ghost/genericos.g"
+#line 47 "tests/ghost/genericos.g"
+#line 48 "tests/ghost/genericos.g"
+#line 50 "tests/ghost/genericos.g"
+#line 59 "tests/ghost/genericos.g"
+#line 60 "tests/ghost/genericos.g"
+#line 64 "tests/ghost/genericos.g"
+#line 68 "tests/ghost/genericos.g"
+#line 77 "tests/ghost/genericos.g"
+#line 81 "tests/ghost/genericos.g"
+#line 85 "tests/ghost/genericos.g"
+#line 86 "tests/ghost/genericos.g"
+#line 96 "tests/ghost/genericos.g"
+#line 97 "tests/ghost/genericos.g"
+#line 98 "tests/ghost/genericos.g"
+#line 100 "tests/ghost/genericos.g"
+#line 105 "tests/ghost/genericos.g"
+#line 106 "tests/ghost/genericos.g"
+#line 107 "tests/ghost/genericos.g"
+#line 109 "tests/ghost/genericos.g"
+#line 113 "tests/ghost/genericos.g"
+#line 114 "tests/ghost/genericos.g"
+#line 115 "tests/ghost/genericos.g"
+#line 116 "tests/ghost/genericos.g"
+#line 117 "tests/ghost/genericos.g"
+#line 121 "tests/ghost/genericos.g"
+#line 122 "tests/ghost/genericos.g"
+#line 123 "tests/ghost/genericos.g"
+#line 124 "tests/ghost/genericos.g"
+#line 126 "tests/ghost/genericos.g"
+#line 127 "tests/ghost/genericos.g"
+#line 128 "tests/ghost/genericos.g"
+#line 129 "tests/ghost/genericos.g"
+#line 130 "tests/ghost/genericos.g"
+#line 131 "tests/ghost/genericos.g"
+#line 138 "tests/ghost/genericos.g"
+#line 139 "tests/ghost/genericos.g"
+#line 140 "tests/ghost/genericos.g"
+#line 141 "tests/ghost/genericos.g"
+#line 142 "tests/ghost/genericos.g"
+#line 143 "tests/ghost/genericos.g"
+#line 144 "tests/ghost/genericos.g"
+#line 145 "tests/ghost/genericos.g"
+#line 147 "tests/ghost/genericos.g"
+#line 148 "tests/ghost/genericos.g"
+#line 149 "tests/ghost/genericos.g"
+#line 150 "tests/ghost/genericos.g"
+#line 151 "tests/ghost/genericos.g"
+#line 152 "tests/ghost/genericos.g"
+#line 153 "tests/ghost/genericos.g"
+#line 154 "tests/ghost/genericos.g"
+#line 155 "tests/ghost/genericos.g"
+#line 156 "tests/ghost/genericos.g"
+#line 157 "tests/ghost/genericos.g"
+#line 158 "tests/ghost/genericos.g"
+#line 159 "tests/ghost/genericos.g"
+#line 161 "tests/ghost/genericos.g"
+#line 162 "tests/ghost/genericos.g"
+#line 163 "tests/ghost/genericos.g"
+#line 164 "tests/ghost/genericos.g"
+#line 165 "tests/ghost/genericos.g"
+#line 4 "tests/ghost/genericos.g"
+#line 8 "tests/ghost/genericos.g"
+#line 18 "tests/ghost/genericos.g"
+#line 54 "tests/ghost/genericos.g"
+#line 72 "tests/ghost/genericos.g"
+#line 90 "tests/ghost/genericos.g"
+#line 104 "tests/ghost/genericos.g"
+#line 112 "tests/ghost/genericos.g"
+#line 120 "tests/ghost/genericos.g"
+----
+/*TranspiladopeloGhostCompilerv1.0*/#include<iostream>#include<cstdio>#include<cstdlib>#include<string>#include<complex>#include<type_traits>#include<fstream>#include<sstream>#include<thread>#include<chrono>#include<mutex>#include"include/GhostNumberG.hpp"#include"include/GhostMatrix.hpp"#include"include/GhostLLM.hpp"#include"include/GhostLib.hpp"#include"include/GhostDevice.hpp"#include"include/GhostTextModel.hpp"#include"include/GhostWeb.hpp"#include"include/GhostKnowledge.hpp"#include"include/GhostTemporal.hpp"#include"include/GhostTransformer.hpp"#include"include/GhostTransformerG.hpp"#include"include/GhostMatrixG.hpp"#include"include/GhostQuantum.hpp"#include"include/GhostQML.hpp"#include"include/GhostHybrid.hpp"#include"include/GhostQTape.hpp"#include"include/GhostCore.hpp"#ifdef_WIN32#include<windows.h>#endiftemplate<classT>classCaixa;
+template<classA,classB>classPar;
+template<classT>classPilha;
+classPilhaDeInteiros;
+classPonto;
+classDescritivel;
+intsomaPilha(Pilha<int>p);
+Pilha<std::string>palavras(std::stringa,std::stringb,std::stringc);
+voidghost_main();
+classDescritivel;
+classghost_iface_Descritivel{
+public:virtual~ghost_iface_Descritivel()=default;
+virtualstd::stringdescrever()=0;
+}
+;
+classDescritivel:publicvirtualghost_iface_Descritivel{
+std::shared_ptr<ghost_iface_Descritivel>ghost_p_;
+std::shared_ptr<ghost_iface_Descritivel>(*ghost_clone_)(constghost_iface_Descritivel&)=nullptr;
+ghost_iface_Descritivel&ghost_obj()const{
+if(!ghost_p_)throwstd::runtime_error("Descritivel sem objeto: guarde um objeto antes de chamar um metodo");
+return*ghost_p_;
+}
+public:Descritivel()=default;
+template<classT,class=std::enable_if_t<std::is_base_of_v<ghost_iface_Descritivel,T>&&!std::is_same_v<T,Descritivel>>>Descritivel(constT&v):ghost_p_(std::make_shared<T>(v)),ghost_clone_([](constghost_iface_Descritivel&x)->std::shared_ptr<ghost_iface_Descritivel>{
+returnstd::make_shared<T>(dynamic_cast<constT&>(x));
+}
+){
+}
+Descritivel(constDescritivel&o):ghost_iface_Descritivel(),ghost_p_(o.ghost_p_?o.ghost_clone_(*o.ghost_p_):nullptr),ghost_clone_(o.ghost_clone_){
+}
+Descritivel&operator=(constDescritivel&o){
+if(this!=&o){
+ghost_p_=o.ghost_p_?o.ghost_clone_(*o.ghost_p_):nullptr;
+ghost_clone_=o.ghost_clone_;
+}
+return*this;
+}
+std::stringdescrever()override{
+returnghost_obj().descrever();
+}
+}
+;
+classPonto{
+public:doublex{
+}
+;
+doubley{
+}
+;
+Ponto(doublex=0,doubley=0){
+(*this).x=x;
+(*this).y=y;
+}
+}
+;
+template<classT>classPilha{
+public:GhostList<T>itens=GhostList<T>{
+}
+;
+virtualvoidempilhar(Tvalor){
+itens.push(valor);
+}
+virtualTdesempilhar(){
+if(itens.length()==0){
+throwghost_error(std::string("pilha vazia"));
+}
+returnitens.pop();
+}
+virtualTtopo(){
+returnitens.last();
+}
+virtualinttamanho(){
+returnitens.length();
+}
+virtualboolvazia(){
+returnitens.length()==0;
+}
+virtualPilha<T>copiaInvertida(){
+Pilha<T>r{
+}
+;
+for(intk=itens.length()-1;
+k>=0;
+k--){
+Tv=itens[k];
+r.empilhar(v);
+}
+returnr;
+}
+}
+;
+template<classA,classB>classPar:publicvirtualghost_iface_Descritivel{
+public:Aprimeiro{
+}
+;
+Bsegundo{
+}
+;
+Par(Aa,Bb){
+primeiro=a;
+segundo=b;
+}
+virtualPar<B,A>trocado(){
+returnPar<B,A>(segundo,primeiro);
+}
+virtualstd::stringdescrever(){
+returnstd::string("(")+primeiro+std::string(", ")+segundo+std::string(")");
+}
+}
+;
+template<classT>classCaixa{
+public:Tvalor{
+}
+;
+inttrocas=0;
+Caixa(Tv){
+valor=v;
+}
+virtualTpegar(){
+returnvalor;
+}
+virtualvoidtrocar(Tnovo){
+valor=novo;
+trocas++;
+}
+}
+;
+classPilhaDeInteiros:publicPilha<int>{
+public:PilhaDeInteiros():Pilha<int>(){
+}
+virtualintsoma(){
+ints=0;
+for(auto&v:itens){
+s+=v;
+}
+returns;
+}
+}
+;
+intsomaPilha(Pilha<int>p){
+ints=0;
+while(!p.vazia()){
+s+=p.desempilhar();
+}
+returns;
+}
+Pilha<std::string>palavras(std::stringa,std::stringb,std::stringc){
+Pilha<std::string>p{
+}
+;
+p.empilhar(a);
+p.empilhar(b);
+p.empilhar(c);
+returnp;
+}
+voidghost_main(){
+std::cout<<ghost_show(std::string("== Pilha<T> =="))<<std::endl;
+Pilha<int>numeros{
+}
+;
+for(inti=1;
+i<=4;
+i++){
+numeros.empilhar(i*10);
+}
+std::cout<<ghost_show(std::string("topo "))<<ghost_show(numeros.topo())<<ghost_show(std::string(" tamanho "))<<ghost_show(numeros.tamanho())<<ghost_show(std::string(" soma "))<<ghost_show(somaPilha(numeros))<<ghost_show(std::string(" (a original continua com "))<<ghost_show(numeros.tamanho())<<ghost_show(std::string(")"))<<std::endl;
+Pilha<std::string>ps=palavras(std::string("a"),std::string("b"),std::string("c"));
+std::cout<<ghost_show(std::string("desempilha "))<<ghost_show(ps.desempilhar())<<ghost_show(std::string(" "))<<ghost_show(ps.desempilhar())<<ghost_show(std::string(" restam "))<<ghost_show(ps.tamanho())<<std::endl;
+Pilha<std::string>inv=palavras(std::string("x"),std::string("y"),std::string("z")).copiaInvertida();
+std::cout<<ghost_show(std::string("invertida: topo "))<<ghost_show(inv.topo())<<ghost_show(std::string(" "))<<ghost_show(inv.itens)<<std::endl;
+{
+try{
+Pilha<double>vazia=Pilha<double>();
+vazia.desempilhar();
+}
+catch(...){
+std::stringe=ghost_exception_message(std::current_exception());
+(void)e;
+std::cout<<ghost_show(std::string("erro: "))<<ghost_show(e)<<std::endl;
+}
+}
+std::cout<<ghost_show(std::string("== Par<A, B> =="))<<std::endl;
+Par<std::string,int>idade=Par<std::string,int>(std::string("ana"),30);
+Par<int,std::string>invertido=idade.trocado();
+std::cout<<ghost_show(idade.descrever())<<ghost_show(std::string(" "))<<ghost_show(invertido.descrever())<<ghost_show(std::string(" "))<<ghost_show(idade.primeiro)<<ghost_show(std::string(" "))<<ghost_show(invertido.primeiro+1)<<std::endl;
+Descritiveld=Par<double,bool>(2.5,true);
+std::cout<<ghost_show(std::string("como interface: "))<<ghost_show(d.descrever())<<std::endl;
+GhostList<Par<std::string,double>>notas=GhostList<Par<std::string,double>>{
+Par<std::string,double>(std::string("bia"),9.5),Par<std::string,double>(std::string("caio"),7)}
+;
+std::cout<<ghost_show(([&](){
+auto&&ghost_src_2=ghost_iter(notas);
+autoghost_fx_2=[&](auton){
+returnn.primeiro+std::string("=")+n.segundo;
+}
+;
+GhostList<std::decay_t<decltype(ghost_fx_2(*std::begin(ghost_src_2)))>>ghost_out_2;
+for(constauto&n:ghost_src_2){
+ghost_collect(ghost_out_2,ghost_fx_2(n));
+}
+returnghost_out_2;
+}
+()))<<std::endl;
+std::cout<<ghost_show(std::string("== Caixa<T> com varios tipos =="))<<std::endl;
+Caixa<int>ci=Caixa<int>(7);
+Caixa<Ponto>cp=Caixa<Ponto>(Ponto(1,2));
+Caixa<GhostList<int>>cl=Caixa<GhostList<int>>(ghost_list(1,2,3));
+Caixa<Pilha<int>>cc=Caixa<Pilha<int>>(numeros);
+ci.trocar(8);
+ci.trocar(9);
+cp.valor.x=5;
+cl.valor.push(4);
+std::cout<<ghost_show(ci.pegar())<<ghost_show(std::string(" trocas "))<<ghost_show(ci.trocas)<<ghost_show(std::string(" | ponto "))<<ghost_show(cp.pegar().x)<<ghost_show(std::string(","))<<ghost_show(cp.pegar().y)<<ghost_show(std::string(" | lista "))<<ghost_show(cl.pegar())<<ghost_show(std::string(" | dentro "))<<ghost_show(cc.pegar().topo())<<ghost_show(std::string(" de "))<<ghost_show(cc.pegar().tamanho())<<std::endl;
+Caixa<int>copia=ci;
+copia.trocar(100);
+std::cout<<ghost_show(std::string("copia por valor: "))<<ghost_show(ci.pegar())<<ghost_show(std::string(" "))<<ghost_show(copia.pegar())<<std::endl;
+std::cout<<ghost_show(std::string("== heranca de Pilha<int> =="))<<std::endl;
+PilhaDeInteirospi=PilhaDeInteiros();
+pi.empilhar(5);
+pi.empilhar(6);
+std::cout<<ghost_show(std::string("soma "))<<ghost_show(pi.soma())<<ghost_show(std::string(" topo "))<<ghost_show(pi.topo())<<ghost_show(std::string(" como Pilha<int>: "))<<ghost_show(somaPilha(pi))<<std::endl;
+}
+intmain(intargc,char**argv){
+try{
+#ifdef_WIN32SetConsoleOutputCP(CP_UTF8);
+SetConsoleCP(CP_UTF8);
+#endifstd::cout<<std::boolalpha;
+std::stringghost_args="";
+std::vector<std::string>ghost_args_vec;
+for(inti=1;
+i<argc;
+++i){
+ghost_args+=argv[i];
+ghost_args_vec.push_back(argv[i]);
+if(i<argc-1)ghost_args+=" ";
+}
+ghost_main();
+return0;
+}
+catch(conststd::exception&e){
+std::cerr<<e.what()<<std::endl;
+return1;
+}
+}

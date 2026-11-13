@@ -1,0 +1,223 @@
+#line 24 "tests/ghost/lambdas_avancado.g"
+#line 29 "tests/ghost/lambdas_avancado.g"
+#line 37 "tests/ghost/lambdas_avancado.g"
+#line 5 "tests/ghost/lambdas_avancado.g"
+#line 9 "tests/ghost/lambdas_avancado.g"
+#line 13 "tests/ghost/lambdas_avancado.g"
+#line 14 "tests/ghost/lambdas_avancado.g"
+#line 15 "tests/ghost/lambdas_avancado.g"
+#line 17 "tests/ghost/lambdas_avancado.g"
+#line 45 "tests/ghost/lambdas_avancado.g"
+#line 47 "tests/ghost/lambdas_avancado.g"
+#line 48 "tests/ghost/lambdas_avancado.g"
+#line 49 "tests/ghost/lambdas_avancado.g"
+#line 52 "tests/ghost/lambdas_avancado.g"
+#line 53 "tests/ghost/lambdas_avancado.g"
+#line 54 "tests/ghost/lambdas_avancado.g"
+#line 57 "tests/ghost/lambdas_avancado.g"
+#line 58 "tests/ghost/lambdas_avancado.g"
+#line 59 "tests/ghost/lambdas_avancado.g"
+#line 61 "tests/ghost/lambdas_avancado.g"
+#line 62 "tests/ghost/lambdas_avancado.g"
+#line 63 "tests/ghost/lambdas_avancado.g"
+#line 66 "tests/ghost/lambdas_avancado.g"
+#line 67 "tests/ghost/lambdas_avancado.g"
+#line 70 "tests/ghost/lambdas_avancado.g"
+#line 74 "tests/ghost/lambdas_avancado.g"
+#line 77 "tests/ghost/lambdas_avancado.g"
+#line 81 "tests/ghost/lambdas_avancado.g"
+#line 84 "tests/ghost/lambdas_avancado.g"
+#line 85 "tests/ghost/lambdas_avancado.g"
+#line 89 "tests/ghost/lambdas_avancado.g"
+#line 92 "tests/ghost/lambdas_avancado.g"
+#line 93 "tests/ghost/lambdas_avancado.g"
+#line 95 "tests/ghost/lambdas_avancado.g"
+#line 96 "tests/ghost/lambdas_avancado.g"
+#line 97 "tests/ghost/lambdas_avancado.g"
+#line 98 "tests/ghost/lambdas_avancado.g"
+#line 99 "tests/ghost/lambdas_avancado.g"
+#line 100 "tests/ghost/lambdas_avancado.g"
+#line 102 "tests/ghost/lambdas_avancado.g"
+#line 103 "tests/ghost/lambdas_avancado.g"
+#line 104 "tests/ghost/lambdas_avancado.g"
+#line 105 "tests/ghost/lambdas_avancado.g"
+#line 107 "tests/ghost/lambdas_avancado.g"
+#line 109 "tests/ghost/lambdas_avancado.g"
+#line 110 "tests/ghost/lambdas_avancado.g"
+#line 112 "tests/ghost/lambdas_avancado.g"
+#line 113 "tests/ghost/lambdas_avancado.g"
+#line 116 "tests/ghost/lambdas_avancado.g"
+#line 117 "tests/ghost/lambdas_avancado.g"
+#line 120 "tests/ghost/lambdas_avancado.g"
+#line 121 "tests/ghost/lambdas_avancado.g"
+#line 122 "tests/ghost/lambdas_avancado.g"
+#line 123 "tests/ghost/lambdas_avancado.g"
+#line 4 "tests/ghost/lambdas_avancado.g"
+#line 8 "tests/ghost/lambdas_avancado.g"
+#line 12 "tests/ghost/lambdas_avancado.g"
+#line 20 "tests/ghost/lambdas_avancado.g"
+#line 44 "tests/ghost/lambdas_avancado.g"
+----
+/*TranspiladopeloGhostCompilerv1.0*/#include<iostream>#include<cstdio>#include<cstdlib>#include<string>#include<complex>#include<type_traits>#include<fstream>#include<sstream>#include<thread>#include<chrono>#include<mutex>#include"include/GhostNumberG.hpp"#include"include/GhostMatrix.hpp"#include"include/GhostLLM.hpp"#include"include/GhostLib.hpp"#include"include/GhostDevice.hpp"#include"include/GhostTextModel.hpp"#include"include/GhostWeb.hpp"#include"include/GhostKnowledge.hpp"#include"include/GhostTemporal.hpp"#include"include/GhostTransformer.hpp"#include"include/GhostTransformerG.hpp"#include"include/GhostMatrixG.hpp"#include"include/GhostQuantum.hpp"#include"include/GhostQML.hpp"#include"include/GhostHybrid.hpp"#include"include/GhostQTape.hpp"#include"include/GhostCore.hpp"#ifdef_WIN32#include<windows.h>#endifclassContador;
+template<classT>Tid(Tx);
+template<classT,classU>Uaplicar(Tval,GhostFn<U(T)>f);
+template<classT,classGhostCallable_1,classU=std::decay_t<std::invoke_result_t<std::decay_t<GhostCallable_1>&,T>>,classGhostEn_=std::enable_if_t<(!ghost_detail::is_ghost_fn<std::decay_t<GhostCallable_1>>::value)>>Uaplicar(Tval,GhostCallable_1&&f);
+template<classT,classU>GhostList<U>mapearLista(GhostList<T>xs,GhostFn<U(T)>f);
+template<classT,classGhostCallable_1,classU=std::decay_t<std::invoke_result_t<std::decay_t<GhostCallable_1>&,T>>,classGhostEn_=std::enable_if_t<(!ghost_detail::is_ghost_fn<std::decay_t<GhostCallable_1>>::value)>>GhostList<U>mapearLista(GhostList<T>xs,GhostCallable_1&&f);
+voidghost_main();
+classContador{
+public:intvalor{
+}
+;
+Contador(intv){
+valor=v;
+}
+virtualGhostFn<int()>getIncrementadorPorValor(){
+returnghost_make_fn([*this]()mutable{
+valor+=10;
+returnvalor;
+}
+);
+}
+virtualGhostFn<int()>getIncrementadorPorRef(){
+returnghost_make_fn([this]()mutable{
+valor+=1;
+returnvalor;
+}
+);
+}
+}
+;
+template<classT>Tid(Tx){
+returnx;
+}
+template<classT,classU>Uaplicar(Tval,GhostFn<U(T)>f){
+returnf(val);
+}
+template<classT,classGhostCallable_1,classU,classGhostEn_>Uaplicar(Tval,GhostCallable_1&&f){
+returnaplicar<T,U>(val,GhostFn<U(T)>(std::forward<GhostCallable_1>(f)));
+}
+template<classT,classU>GhostList<U>mapearLista(GhostList<T>xs,GhostFn<U(T)>f){
+GhostList<U>res=GhostList<U>{
+}
+;
+for(auto&x:xs){
+res.push(f(x));
+}
+returnres;
+}
+template<classT,classGhostCallable_1,classU,classGhostEn_>GhostList<U>mapearLista(GhostList<T>xs,GhostCallable_1&&f){
+returnmapearLista<T,U>(xs,GhostFn<U(T)>(std::forward<GhostCallable_1>(f)));
+}
+voidghost_main(){
+std::cout<<ghost_show(std::string("== inferencia de tipos em parametros =="))<<std::endl;
+autoinc=ghost_make_poly_fn([=](autox)mutable{
+returnx+1;
+}
+);
+std::cout<<ghost_show(std::string("inc(10) = "))<<ghost_show(inc(10))<<std::endl;
+std::cout<<ghost_show(std::string("inc(2.5) = "))<<ghost_show(inc(2.5))<<std::endl;
+intr1=aplicar(5,ghost_make_poly_fn([=](auton)mutable{
+returnn*3;
+}
+));
+std::stringr2=aplicar(std::string("Ghost"),ghost_make_poly_fn([=](autos)mutable{
+returns+std::string("Lang");
+}
+));
+std::cout<<ghost_show(std::string("aplicar: "))<<ghost_show(r1)<<ghost_show(std::string(" | "))<<ghost_show(r2)<<std::endl;
+GhostList<int>nums=GhostList<int>{
+1,2,3,4}
+;
+GhostList<int>dobros=mapearLista(nums,ghost_make_poly_fn([=](autox)mutable{
+returnx*2;
+}
+));
+std::cout<<ghost_show(std::string("dobros: "))<<ghost_show(dobros)<<std::endl;
+std::cout<<ghost_show(std::string("== capturas explicitas =="))<<std::endl;
+inta=10;
+intb=20;
+autofVal=ghost_make_poly_fn([a=a](autox)mutable{
+returnx+a;
+}
+);
+std::cout<<ghost_show(std::string("fVal(5) = "))<<ghost_show(fVal(5))<<std::endl;
+autofRef=ghost_make_poly_fn([&a=a](autox)mutable{
+a+=x;
+returna;
+}
+);
+std::cout<<ghost_show(std::string("fRef(5) = "))<<ghost_show(fRef(5))<<ghost_show(std::string(" a apos = "))<<ghost_show(a)<<std::endl;
+autofMisto=ghost_make_poly_fn([=,&b=b](autox)mutable{
+b+=a+x;
+returnb;
+}
+);
+std::cout<<ghost_show(std::string("fMisto(1) = "))<<ghost_show(fMisto(1))<<ghost_show(std::string(" b apos = "))<<ghost_show(b)<<std::endl;
+intc=100;
+autofMisto2=ghost_make_poly_fn([&,a=a](autox)mutable{
+c+=a+x;
+returnc;
+}
+);
+std::cout<<ghost_show(std::string("fMisto2(2) = "))<<ghost_show(fMisto2(2))<<ghost_show(std::string(" c apos = "))<<ghost_show(c)<<std::endl;
+autofPura=ghost_make_fn<int,int>([](intx,inty)mutable{
+returnx+y;
+}
+);
+std::cout<<ghost_show(std::string("fPura(3, 4) = "))<<ghost_show(fPura(3,4))<<std::endl;
+std::cout<<ghost_show(std::string("== capturas de this =="))<<std::endl;
+Contadorcont=Contador(50);
+autofnVal=cont.getIncrementadorPorValor();
+std::cout<<ghost_show(std::string("fnVal 1: "))<<ghost_show(fnVal())<<std::endl;
+std::cout<<ghost_show(std::string("fnVal 2: "))<<ghost_show(fnVal())<<std::endl;
+std::cout<<ghost_show(std::string("cont.valor apos fnVal = "))<<ghost_show(cont.valor)<<std::endl;
+autofnRef=cont.getIncrementadorPorRef();
+std::cout<<ghost_show(std::string("fnRef 1: "))<<ghost_show(fnRef())<<std::endl;
+std::cout<<ghost_show(std::string("fnRef 2: "))<<ghost_show(fnRef())<<std::endl;
+std::cout<<ghost_show(std::string("cont.valor apos fnRef = "))<<ghost_show(cont.valor)<<std::endl;
+std::cout<<ghost_show(std::string("== nome direto de funcao generica =="))<<std::endl;
+GhostFn<int(int)>fIdInt=ghost_make_poly_fn([](auto&&...ghost_a_)->decltype(id(std::forward<decltype(ghost_a_)>(ghost_a_)...)){
+returnid(std::forward<decltype(ghost_a_)>(ghost_a_)...);
+}
+);
+std::cout<<ghost_show(std::string("fIdInt(42) = "))<<ghost_show(fIdInt(42))<<std::endl;
+GhostFn<std::string(std::string)>fIdStr=ghost_make_poly_fn([](auto&&...ghost_a_)->decltype(id(std::forward<decltype(ghost_a_)>(ghost_a_)...)){
+returnid(std::forward<decltype(ghost_a_)>(ghost_a_)...);
+}
+);
+std::cout<<ghost_show(std::string("fIdStr(oi) = "))<<ghost_show(fIdStr(std::string("oi")))<<std::endl;
+autofIdDouble=ghost_fn_val(&id<double>);
+std::cout<<ghost_show(std::string("fIdDouble(3.14) = "))<<ghost_show(fIdDouble(3.14))<<std::endl;
+GhostList<std::string>palavras=GhostList<std::string>{
+std::string("ola"),std::string("mundo")}
+;
+GhostList<std::string>eco=mapearLista(palavras,ghost_make_poly_fn([](auto&&...ghost_a_)->decltype(id(std::forward<decltype(ghost_a_)>(ghost_a_)...)){
+returnid(std::forward<decltype(ghost_a_)>(ghost_a_)...);
+}
+));
+std::cout<<ghost_show(std::string("eco: "))<<ghost_show(eco)<<std::endl;
+std::cout<<ghost_show(std::string("fim lambdas avancadas"))<<std::endl;
+}
+intmain(intargc,char**argv){
+try{
+#ifdef_WIN32SetConsoleOutputCP(CP_UTF8);
+SetConsoleCP(CP_UTF8);
+#endifstd::cout<<std::boolalpha;
+std::stringghost_args="";
+std::vector<std::string>ghost_args_vec;
+for(inti=1;
+i<argc;
+++i){
+ghost_args+=argv[i];
+ghost_args_vec.push_back(argv[i]);
+if(i<argc-1)ghost_args+=" ";
+}
+ghost_main();
+return0;
+}
+catch(conststd::exception&e){
+std::cerr<<e.what()<<std::endl;
+return1;
+}
+}

@@ -1,0 +1,129 @@
+#line 7 "libs/collections.g"
+#line 11 "libs/collections.g"
+#line 15 "libs/collections.g"
+#line 16 "libs/collections.g"
+#line 18 "libs/collections.g"
+#line 22 "libs/collections.g"
+#line 23 "libs/collections.g"
+#line 25 "libs/collections.g"
+#line 29 "libs/collections.g"
+#line 33 "libs/collections.g"
+#line 37 "libs/collections.g"
+#line 45 "libs/collections.g"
+#line 49 "libs/collections.g"
+#line 53 "libs/collections.g"
+#line 54 "libs/collections.g"
+#line 56 "libs/collections.g"
+#line 57 "libs/collections.g"
+#line 58 "libs/collections.g"
+#line 59 "libs/collections.g"
+#line 61 "libs/collections.g"
+#line 62 "libs/collections.g"
+#line 66 "libs/collections.g"
+#line 67 "libs/collections.g"
+#line 69 "libs/collections.g"
+#line 73 "libs/collections.g"
+#line 77 "libs/collections.g"
+#line 81 "libs/collections.g"
+#line 3 "libs/collections.g"
+#line 41 "libs/collections.g"
+----
+/*TranspiladopeloGhostCompilerv1.0*/#include<iostream>#include<cstdio>#include<cstdlib>#include<string>#include<complex>#include<type_traits>#include<fstream>#include<sstream>#include<thread>#include<chrono>#include<mutex>#include"include/GhostNumberG.hpp"#include"include/GhostMatrix.hpp"#include"include/GhostLLM.hpp"#include"include/GhostLib.hpp"#include"include/GhostDevice.hpp"#include"include/GhostTextModel.hpp"#include"include/GhostWeb.hpp"#include"include/GhostKnowledge.hpp"#include"include/GhostTemporal.hpp"#include"include/GhostTransformer.hpp"#include"include/GhostTransformerG.hpp"#include"include/GhostMatrixG.hpp"#include"include/GhostQuantum.hpp"#include"include/GhostQML.hpp"#include"include/GhostHybrid.hpp"#include"include/GhostQTape.hpp"#include"include/GhostCore.hpp"#ifdef_WIN32#include<windows.h>#endiftemplate<classT>classQueue;
+template<classT>classStack;
+template<classT>classStack{
+public:GhostList<T>itens{
+}
+;
+Stack(){
+(*this).itens.clear();
+}
+virtualvoidpush(Tval){
+(*this).itens.push(val);
+}
+virtualTpop(){
+if((*this).itens.length()==0){
+throwghost_error(std::string("Stack vazia no pop"));
+}
+return(*this).itens.pop();
+}
+virtualTpeek(){
+if((*this).itens.length()==0){
+throwghost_error(std::string("Stack vazia no peek"));
+}
+return(*this).itens[(*this).itens.length()-1];
+}
+virtualboolis_empty(){
+return(*this).itens.length()==0;
+}
+virtualintsize(){
+return(*this).itens.length();
+}
+virtualvoidclear(){
+(*this).itens.clear();
+}
+}
+;
+template<classT>classQueue{
+public:GhostList<T>itens{
+}
+;
+Queue(){
+(*this).itens.clear();
+}
+virtualvoidenqueue(Tval){
+(*this).itens.push(val);
+}
+virtualTdequeue(){
+if((*this).itens.length()==0){
+throwghost_error(std::string("Queue vazia no dequeue"));
+}
+Tprimeiro=(*this).itens[0];
+GhostList<T>resto{
+}
+;
+for(inti=1;
+i<(*this).itens.length();
+++i){
+resto.push((*this).itens[i]);
+}
+(*this).itens=resto;
+returnprimeiro;
+}
+virtualTpeek(){
+if((*this).itens.length()==0){
+throwghost_error(std::string("Queue vazia no peek"));
+}
+return(*this).itens[0];
+}
+virtualboolis_empty(){
+return(*this).itens.length()==0;
+}
+virtualintsize(){
+return(*this).itens.length();
+}
+virtualvoidclear(){
+(*this).itens.clear();
+}
+}
+;
+intmain(intargc,char**argv){
+try{
+#ifdef_WIN32SetConsoleOutputCP(CP_UTF8);
+SetConsoleCP(CP_UTF8);
+#endifstd::cout<<std::boolalpha;
+std::stringghost_args="";
+std::vector<std::string>ghost_args_vec;
+for(inti=1;
+i<argc;
+++i){
+ghost_args+=argv[i];
+ghost_args_vec.push_back(argv[i]);
+if(i<argc-1)ghost_args+=" ";
+}
+return0;
+}
+catch(conststd::exception&e){
+std::cerr<<e.what()<<std::endl;
+return1;
+}
+}

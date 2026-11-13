@@ -1,0 +1,15 @@
+tipos.g:9:21: erro GHOST-E0603: a funcao avisar nao devolve valor (e void), mas este return tem um valor
+tipos.g:10:30: erro GHOST-E0603: a funcao metade devolve int: o return precisa de um valor
+tipos.g:13:5: erro GHOST-E0202: tipo incompativel: a variavel 'n' e int, mas o valor e string
+tipos.g:14:5: erro GHOST-E0202: tipo incompativel: a variavel 's' e string, mas o valor e int
+tipos.g:15:15: erro GHOST-E0602: a funcao soma espera 2 argumentos, mas recebeu 1
+tipos.g:16:16: erro GHOST-E0202: tipo incompativel: o argumento 1 da funcao soma e int, mas recebeu string
+tipos.g:17:20: erro GHOST-E0602: o construtor de Ponto espera 1 argumento, mas recebeu 2
+tipos.g:18:13: erro GHOST-E0302: a classe Ponto nao tem o campo 'y'
+tipos.g:19:7: erro GHOST-E0302: a classe Ponto nao tem o metodo 'voar'
+tipos.g:20:5: erro GHOST-E0203: variavel 'total' nao foi declarada (use int total = ...; ou var total = ...;)
+tipos.g:21:11: erro GHOST-E0203: funcao 'naoExiste' nao foi declarada
+tipos.g:22:11: erro GHOST-E0202: tipo incompativel: nao da para comparar string com int usando == (converta antes, ex.: str(x) ou int(texto))
+tipos.g:23:5: erro GHOST-E0204: 'n' ja foi declarado neste bloco (linha 13)
+tipos.g:24:5: erro GHOST-E0202: tipo incompativel: a variavel 'xs' e list<int>, mas o valor e list<string>
+[Ghost] 14 erros encontrados.

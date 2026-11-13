@@ -1,0 +1,23 @@
+== compreensao de lista com varios for e ifs ==
+produtos: [40, 60]
+pares: ["a:1", "a:2", "b:1", "b:2"]
+== compreensao de conjunto ==
+numsSet: {0, 1, 2}
+tags: {"ghost", "ia", "quantica"}
+setMulti: {21, 22}
+== compreensao de mapa ==
+tamanhos: 4 6 3
+pos 1,2: 12 pos 2,1: 21
+== for chave, valor in mapa ==
+destacados caneta: 10 caderno: 24
+resumo estoque baixo: 2
+== listas e colecoes ==
+inteiros: [1, 2, 3]
+textos: ["10", "true", "3.14"]
+fim compreensoes avancadas
+== conversao no REPL ==
+convInt: [1, 2, 3]
+convStr: ["10", "true", "3.14"]
+== erros de uso ==
+[Erro de Execucao] errElem (elemento de list<int>): esperado numero, recebido texto "texto"
+[Erro de Execucao] errSet (elemento de set<int>): esperado numero, recebido texto "oi"

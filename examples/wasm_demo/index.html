@@ -1,0 +1,166 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>GhostLang WebAssembly Demo</title>
+  <style>
+    body {
+      font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Helvetica, Arial, sans-serif;
+      background: #0f172a;
+      color: #f8fafc;
+      margin: 0;
+      padding: 40px 20px;
+      display: flex;
+      justify-content: center;
+    }
+    .container {
+      max-width: 650px;
+      width: 100%;
+      background: #1e293b;
+      border-radius: 12px;
+      padding: 30px;
+      box-shadow: 0 10px 25px -5px rgba(0, 0, 0, 0.3);
+      border: 1px solid #334155;
+    }
+    h1 {
+      color: #38bdf8;
+      margin-top: 0;
+      font-size: 26px;
+      display: flex;
+      align-items: center;
+      gap: 10px;
+    }
+    p {
+      color: #94a3b8;
+      line-height: 1.6;
+    }
+    .box {
+      background: #0f172a;
+      border: 1px solid #334155;
+      border-radius: 8px;
+      padding: 18px;
+      margin-bottom: 20px;
+    }
+    .box h2 {
+      font-size: 16px;
+      color: #e2e8f0;
+      margin-top: 0;
+      margin-bottom: 12px;
+    }
+    .row {
+      display: flex;
+      gap: 10px;
+      align-items: center;
+      margin-bottom: 10px;
+    }
+    input[type="number"] {
+      background: #1e293b;
+      border: 1px solid #475569;
+      color: #f8fafc;
+      padding: 8px 12px;
+      border-radius: 6px;
+      width: 80px;
+      font-size: 14px;
+    }
+    button {
+      background: #2563eb;
+      color: white;
+      border: none;
+      padding: 8px 16px;
+      border-radius: 6px;
+      cursor: pointer;
+      font-weight: 600;
+      transition: background 0.2s;
+    }
+    button:hover {
+      background: #1d4ed8;
+    }
+    .result {
+      font-family: monospace;
+      font-size: 15px;
+      color: #4ade80;
+      margin-left: 10px;
+    }
+    #log {
+      font-family: monospace;
+      font-size: 13px;
+      background: #020617;
+      color: #38bdf8;
+      padding: 12px;
+      border-radius: 6px;
+      min-height: 60px;
+      white-space: pre-wrap;
+    }
+  </style>
+</head>
+<body>
+  <div class="container">
+    <h1><span>👻</span> GhostLang WebAssembly (WASM)</h1>
+    <p>Execução direta no navegador de lógica transpilada do GhostLang para WebAssembly via Emscripten.</p>
+
+    <div class="box">
+      <h2>Soma Nativa (GhostLang -> WASM)</h2>
+      <div class="row">
+        <input type="number" id="somaA" value="15">
+        <span>+</span>
+        <input type="number" id="somaB" value="27">
+        <button onclick="execSoma()">Calcular</button>
+        <span class="result" id="resSoma">= ?</span>
+      </div>
+    </div>
+
+    <div class="box">
+      <h2>Multiplicação Nativa (GhostLang -> WASM)</h2>
+      <div class="row">
+        <input type="number" id="mulA" value="7">
+        <span>×</span>
+        <input type="number" id="mulB" value="8">
+        <button onclick="execMul()">Calcular</button>
+        <span class="result" id="resMul">= ?</span>
+      </div>
+    </div>
+
+    <div class="box">
+      <h2>Log do Módulo GhostLang</h2>
+      <div id="log">Carregando runtime WASM...</div>
+    </div>
+  </div>
+
+  <script>
+    var Module = {
+      print: function(text) {
+        var el = document.getElementById('log');
+        if (el) el.innerText += text + '\n';
+      },
+      onRuntimeInitialized: function() {
+        var el = document.getElementById('log');
+        if (el) el.innerText = 'Runtime GhostLang WebAssembly pronto!\n';
+      }
+    };
+
+    function execSoma() {
+      var a = parseInt(document.getElementById('somaA').value, 10);
+      var b = parseInt(document.getElementById('somaB').value, 10);
+      try {
+        var res = Module._somar ? Module._somar(a, b) : Module.ccall('somar', 'number', ['number', 'number'], [a, b]);
+        document.getElementById('resSoma').innerText = '= ' + res;
+      } catch (err) {
+        document.getElementById('resSoma').innerText = '= ' + (a + b) + ' (simulado)';
+      }
+    }
+
+    function execMul() {
+      var a = parseInt(document.getElementById('mulA').value, 10);
+      var b = parseInt(document.getElementById('mulB').value, 10);
+      try {
+        var res = Module._multiplicar ? Module._multiplicar(a, b) : Module.ccall('multiplicar', 'number', ['number', 'number'], [a, b]);
+        document.getElementById('resMul').innerText = '= ' + res;
+      } catch (err) {
+        document.getElementById('resMul').innerText = '= ' + (a * b) + ' (simulado)';
+      }
+    }
+  </script>
+  <script async src="calculo.js"></script>
+</body>
+</html>

@@ -1,0 +1,492 @@
+[
+  {
+    "id": "ghostlang",
+    "perguntas": [
+      "O que é GhostLang?",
+      "Explique a linguagem GhostLang.",
+      "Para que serve GhostLang?"
+    ],
+    "resposta": "GhostLang é a linguagem deste projeto. Seu compilador transforma arquivos .g em C++ e gera um executável. Ela oferece tipos e operações para matrizes, redes neurais e Números G.",
+    "arquivo": "docs/SPEC.md",
+    "ancora": "## 1. Introdução",
+    "detalhes": "Como funciona: você escreve um arquivo .g, o compilador o transforma em C++ e gera um executável local. O programa pode usar variáveis, funções, condições e laços. Para cálculos, há state (vetor), gate (matriz), network (rede de camadas) e ghost (Número G); textmodel reúne o modelo de texto treinável.\nUm programa simples começa em function void main(). Cada instrução termina com ponto e vírgula.",
+    "fontes_adicionais": [
+      "ia_propria/v3/GUIA_EXEMPLOS.md"
+    ],
+    "exemplo": "ia_propria/v3/exemplos/ola.g",
+    "saida_exemplo": "Ola, GhostLang!\nO dobro de 5 e 10",
+    "explicacao_exemplo": "string nome guarda um texto; int dobro calcula 2 * 5; print mostra os dois resultados. Esse exemplo não depende de CUDA.",
+    "consultas": [
+      "Defina GhostLang",
+      "Quero conhecer GhostLang",
+      "linguagem GhostLang"
+    ]
+  },
+  {
+    "id": "compilar",
+    "perguntas": [
+      "Como compilar um programa GhostLang?",
+      "Qual comando compila um arquivo .g?",
+      "Como gerar um executável GhostLang?"
+    ],
+    "resposta": "Na raiz do projeto, use build_native/ghost programa.g -o programa. Depois execute ./programa. O compilador nativo liga automaticamente a biblioteca ghost_runtime.",
+    "arquivo": "src/ghost_compiler.cpp",
+    "ancora": "// Compiladores antigos",
+    "detalhes": "Salve o código em um arquivo .g. Na raiz do projeto, compile com build_native/ghost arquivo.g -o programa e execute ./programa. Para construir o compilador, use bash ia_propria/scripts/compilar_v3.sh. Os exemplos abaixo já existem no projeto.",
+    "fontes_adicionais": [
+      "ia_propria/v3/GUIA_EXEMPLOS.md"
+    ],
+    "exemplo": "ia_propria/v3/exemplos/ola.g",
+    "saida_exemplo": "Ola, GhostLang!\nO dobro de 5 e 10",
+    "explicacao_exemplo": "O compilador liga automaticamente o runtime nativo. O exemplo funciona em CPU."
+  },
+  {
+    "id": "criada",
+    "perguntas": [
+      "Você foi criada em GhostLang?",
+      "Estamos usando GhostLang para criar a IA e o modelo?",
+      "A V3 usa realmente GhostLang?"
+    ],
+    "resposta": "Sim. A V3 declara seu textmodel e controla treino e execução em GhostLang. O compilador traduz o programa para C++; o runtime nativo implementa os cálculos em C++ e CUDA. Isso não significa que os kernels CUDA sejam escritos em sintaxe GhostLang.",
+    "arquivo": "ia_propria/v3/src/main.g",
+    "ancora": "textmodel modelo"
+  },
+  {
+    "id": "textmodel",
+    "perguntas": [
+      "O que é textmodel?",
+      "Como declarar um modelo de texto?",
+      "Qual tipo nativo cria o modelo de linguagem?"
+    ],
+    "resposta": "textmodel é o tipo nativo para um modelo de linguagem treinável localmente. Exemplo: textmodel ia = text_model(64, 32, 192, 32, 4096, 42); Os argumentos são contexto, embedding, camada oculta, lote, limite de vocabulário e semente.",
+    "arquivo": "include/GhostTextModel.hpp",
+    "ancora": "inline GhostTextModel text_model",
+    "detalhes": "O modelo aprende a prever o próximo token: converte palavras em embeddings, combina uma janela de contexto na camada oculta e calcula probabilidades na saída. O treinamento compara a previsão com o alvo e ajusta os pesos reais float32 com AdamW.\nprepare carrega os dados; epoch ajusta os pesos; validate mede a perda. Uma perda menor não garante uma boa resposta completa. É necessário testar também relevância, fatos e generalização.",
+    "fontes_adicionais": [
+      "ia_propria/v3/GUIA_EXEMPLOS.md"
+    ],
+    "exemplo": "ia_propria/v3/exemplos/textmodel.g",
+    "saida_exemplo": "As perdas numéricas variam conforme os dados e o dispositivo. Ao final: Uma epoca demonstra a API; ainda nao cria um bom conversador.",
+    "explicacao_exemplo": "Execute na raiz do projeto para que os caminhos dos corpus sejam encontrados. Este exemplo usa uma rede pequena e não salva checkpoint."
+  },
+  {
+    "id": "arquitetura",
+    "perguntas": [
+      "Qual é a arquitetura da V3?",
+      "A V3 é um Transformer?",
+      "Como funciona a rede de texto da V3?"
+    ],
+    "resposta": "A V3 usa embeddings de palavras, uma janela fixa de contexto, camada oculta tanh e saída softmax. Treina com entropia cruzada e AdamW. É uma rede pequena, sem atenção Transformer, e sua capacidade de generalização é limitada.",
+    "arquivo": "src/GhostTextModel.cpp",
+    "ancora": "float cpu_batch",
+    "detalhes": "O modelo aprende a prever o próximo token: converte palavras em embeddings, combina uma janela de contexto na camada oculta e calcula probabilidades na saída. O treinamento compara a previsão com o alvo e ajusta os pesos reais float32 com AdamW.\nprepare carrega os dados; epoch ajusta os pesos; validate mede a perda. Uma perda menor não garante uma boa resposta completa. É necessário testar também relevância, fatos e generalização.",
+    "fontes_adicionais": [
+      "ia_propria/v3/GUIA_EXEMPLOS.md"
+    ],
+    "exemplo": "ia_propria/v3/exemplos/textmodel.g",
+    "saida_exemplo": "As perdas numéricas variam conforme os dados e o dispositivo. Ao final: Uma epoca demonstra a API; ainda nao cria um bom conversador.",
+    "explicacao_exemplo": "Execute na raiz do projeto para que os caminhos dos corpus sejam encontrados. Este exemplo usa uma rede pequena e não salva checkpoint."
+  },
+  {
+    "id": "treinar",
+    "perguntas": [
+      "Como treinar o textmodel?",
+      "Quais métodos treinam o modelo nativo?",
+      "Como ajustar os pesos da IA em GhostLang?"
+    ],
+    "resposta": "Declare o textmodel, chame prepare com arquivos de treino e validação, execute epoch com uma taxa de aprendizado, avalie com validate e grave com save. O script V3 oferece o comando treinar e preserva o melhor checkpoint de validação.",
+    "arquivo": "include/GhostTextModel.hpp",
+    "ancora": "void prepare",
+    "detalhes": "O modelo aprende a prever o próximo token: converte palavras em embeddings, combina uma janela de contexto na camada oculta e calcula probabilidades na saída. O treinamento compara a previsão com o alvo e ajusta os pesos reais float32 com AdamW.\nprepare carrega os dados; epoch ajusta os pesos; validate mede a perda. Uma perda menor não garante uma boa resposta completa. É necessário testar também relevância, fatos e generalização.",
+    "fontes_adicionais": [
+      "ia_propria/v3/GUIA_EXEMPLOS.md"
+    ],
+    "exemplo": "ia_propria/v3/exemplos/textmodel.g",
+    "saida_exemplo": "As perdas numéricas variam conforme os dados e o dispositivo. Ao final: Uma epoca demonstra a API; ainda nao cria um bom conversador.",
+    "explicacao_exemplo": "Execute na raiz do projeto para que os caminhos dos corpus sejam encontrados. Este exemplo usa uma rede pequena e não salva checkpoint."
+  },
+  {
+    "id": "checkpoint",
+    "perguntas": [
+      "Como salvar e carregar o modelo?",
+      "O que guarda o checkpoint da V3?",
+      "Como retomar um treinamento?"
+    ],
+    "resposta": "save grava pesos, momentos do AdamW, vocabulário, arquitetura, épocas e estado aleatório. load restaura o modelo. Para retomar com os textos, passe o checkpoint como terceiro argumento de prepare. O comando continuar faz isso na V3.",
+    "arquivo": "src/GhostTextModel.cpp",
+    "ancora": "void save("
+  },
+  {
+    "id": "auto",
+    "perguntas": [
+      "Como selecionar CPU ou GPU automaticamente?",
+      "Como ativar o reconhecimento automático de hardware?",
+      "A IA detecta a RTX automaticamente?"
+    ],
+    "resposta": "O padrão é GHOST_DEVICE=auto. O runtime testa CUDA e usa a GPU disponível; sem CUDA funcional, usa CPU. Você pode chamar use_device(\"auto\") antes de preparar ou carregar o modelo. device_info informa a seleção.",
+    "arquivo": "src/GhostDevice.cpp",
+    "ancora": "void initialize()",
+    "detalhes": "A escolha do dispositivo deve acontecer antes de prepare ou load. auto tenta um kernel real na NVIDIA e usa CPU se CUDA não estiver disponível; cuda exige GPU funcional; cpu força o processador. O textmodel mantém pesos e momentos do otimizador na GPU durante o treino. Tokenização e interface permanecem na CPU.",
+    "fontes_adicionais": [
+      "ia_propria/v3/GUIA_EXEMPLOS.md"
+    ],
+    "exemplo": "ia_propria/v3/exemplos/cuda.g",
+    "saida_exemplo": "Informações do dispositivo e mensagem OK do autoteste. A identificação varia conforme CPU/GPU.",
+    "explicacao_exemplo": "Troque pragma auto por pragma cpu para forçar CPU ou por pragma gpu para exigir CUDA."
+  },
+  {
+    "id": "cpu",
+    "perguntas": [
+      "Como forçar a execução em CPU?",
+      "Quero rodar a IA sem GPU.",
+      "Como escolher somente o processador?"
+    ],
+    "resposta": "Use bash scripts/ia_v3.sh --device cpu chat, dentro de ia_propria. Em GhostLang, use use_device(\"cpu\") antes de prepare ou load. A versão CPU também pode ser compilada com GHOST_CUDA=OFF.",
+    "arquivo": "ia_propria/scripts/ia_v3.sh",
+    "ancora": "GHOST_DEVICE",
+    "detalhes": "A escolha do dispositivo deve acontecer antes de prepare ou load. auto tenta um kernel real na NVIDIA e usa CPU se CUDA não estiver disponível; cuda exige GPU funcional; cpu força o processador. O textmodel mantém pesos e momentos do otimizador na GPU durante o treino. Tokenização e interface permanecem na CPU.",
+    "fontes_adicionais": [
+      "ia_propria/v3/GUIA_EXEMPLOS.md"
+    ],
+    "exemplo": "ia_propria/v3/exemplos/cuda.g",
+    "saida_exemplo": "Informações do dispositivo e mensagem OK do autoteste. A identificação varia conforme CPU/GPU.",
+    "explicacao_exemplo": "Troque pragma auto por pragma cpu para forçar CPU ou por pragma gpu para exigir CUDA."
+  },
+  {
+    "id": "cuda",
+    "perguntas": [
+      "Como forçar CUDA na V3?",
+      "Quero executar a IA na GPU NVIDIA.",
+      "Como usar pragma gpu?"
+    ],
+    "resposta": "Use bash scripts/ia_v3.sh --device cuda chat. Em GhostLang, use pragma gpu ou use_device(\"cuda\") antes de preparar o modelo. Esse modo exige CUDA funcional e informa erro se ela não estiver disponível.",
+    "arquivo": "src/Parser.cpp",
+    "ancora": "void Parser::parsePragma()",
+    "detalhes": "A escolha do dispositivo deve acontecer antes de prepare ou load. auto tenta um kernel real na NVIDIA e usa CPU se CUDA não estiver disponível; cuda exige GPU funcional; cpu força o processador. O textmodel mantém pesos e momentos do otimizador na GPU durante o treino. Tokenização e interface permanecem na CPU.",
+    "fontes_adicionais": [
+      "ia_propria/v3/GUIA_EXEMPLOS.md"
+    ],
+    "exemplo": "ia_propria/v3/exemplos/cuda.g",
+    "saida_exemplo": "Informações do dispositivo e mensagem OK do autoteste. A identificação varia conforme CPU/GPU.",
+    "explicacao_exemplo": "Troque pragma auto por pragma cpu para forçar CPU ou por pragma gpu para exigir CUDA."
+  },
+  {
+    "id": "intel",
+    "perguntas": [
+      "A GPU Intel UHD executa CUDA?",
+      "Posso usar CUDA na placa integrada Intel?",
+      "Qual placa deste computador roda o backend CUDA?"
+    ],
+    "resposta": "Este backend procura dispositivos pelo runtime CUDA. A RTX NVIDIA é a placa usada neste projeto. Não foi implementado um backend para a Intel UHD; a alternativa disponível aqui é CPU.",
+    "arquivo": "src/GhostCuda.cu",
+    "ancora": "ghost_cuda_probe"
+  },
+  {
+    "id": "gpu_escopo",
+    "perguntas": [
+      "Tudo no GhostLang roda na GPU?",
+      "Quais operações usam CUDA nativa?",
+      "O que a GPU acelera nesta versão?"
+    ],
+    "resposta": "O textmodel executa passagem direta, gradientes e atualização AdamW na GPU. Produtos de GhostMatrix também têm kernel CUDA para x, y e p. Tokenização e interface ficam na CPU. Isso não torna automaticamente todos os recursos da linguagem operações de GPU.",
+    "arquivo": "src/GhostTextCuda.cu",
+    "ancora": "ghost_text_cuda_step",
+    "detalhes": "A escolha do dispositivo deve acontecer antes de prepare ou load. auto tenta um kernel real na NVIDIA e usa CPU se CUDA não estiver disponível; cuda exige GPU funcional; cpu força o processador. O textmodel mantém pesos e momentos do otimizador na GPU durante o treino. Tokenização e interface permanecem na CPU.",
+    "fontes_adicionais": [
+      "ia_propria/v3/GUIA_EXEMPLOS.md"
+    ],
+    "exemplo": "ia_propria/v3/exemplos/cuda.g",
+    "saida_exemplo": "Informações do dispositivo e mensagem OK do autoteste. A identificação varia conforme CPU/GPU.",
+    "explicacao_exemplo": "Troque pragma auto por pragma cpu para forçar CPU ou por pragma gpu para exigir CUDA."
+  },
+  {
+    "id": "state",
+    "perguntas": [
+      "O que é state no GhostLang?",
+      "Como representar um vetor de estado?",
+      "Para que serve o tipo state?"
+    ],
+    "resposta": "state representa um vetor coluna de valores. Por exemplo: state entrada = [1.0, 0.0]; Ele pode ser usado como entrada de operações matriciais e redes neurais.",
+    "arquivo": "src/Parser.cpp",
+    "ancora": "void Parser::parseState()",
+    "detalhes": "Para multiplicar uma matriz por um vetor, o número de colunas da matriz deve ser igual ao número de entradas do vetor. No exemplo, uma matriz 2x2 multiplica um vetor 2x1. Preenchemos todos os pesos explicitamente para obter um resultado reproduzível.",
+    "fontes_adicionais": [
+      "ia_propria/v3/GUIA_EXEMPLOS.md"
+    ],
+    "exemplo": "ia_propria/v3/exemplos/matrizes.g",
+    "saida_exemplo": "1\n4",
+    "explicacao_exemplo": "A primeira linha calcula 1*1 + 0*2 = 1. A segunda calcula 0*1 + 2*2 = 4. O modo auto pode manter esse produto pequeno na CPU."
+  },
+  {
+    "id": "gate",
+    "perguntas": [
+      "O que é gate no GhostLang?",
+      "Como declarar uma matriz de pesos?",
+      "Para que serve o tipo gate?"
+    ],
+    "resposta": "gate representa uma matriz. Por exemplo: gate camada(3, 2); cria três linhas e duas colunas. A sintaxe também permite portas predefinidas como hadamard.",
+    "arquivo": "src/Parser.cpp",
+    "ancora": "void Parser::parseGate()",
+    "detalhes": "Para multiplicar uma matriz por um vetor, o número de colunas da matriz deve ser igual ao número de entradas do vetor. No exemplo, uma matriz 2x2 multiplica um vetor 2x1. Preenchemos todos os pesos explicitamente para obter um resultado reproduzível.",
+    "fontes_adicionais": [
+      "ia_propria/v3/GUIA_EXEMPLOS.md"
+    ],
+    "exemplo": "ia_propria/v3/exemplos/matrizes.g",
+    "saida_exemplo": "1\n4",
+    "explicacao_exemplo": "A primeira linha calcula 1*1 + 0*2 = 1. A segunda calcula 0*1 + 2*2 = 4. O modo auto pode manter esse produto pequeno na CPU.",
+    "consultas": [
+      "matriz GhostLang",
+      "matrizes GhostLang",
+      "multiplicação matricial GhostLang"
+    ]
+  },
+  {
+    "id": "network",
+    "perguntas": [
+      "Como montar uma network?",
+      "O que faz o operador de encadeamento >>?",
+      "Como conectar camadas em GhostLang?"
+    ],
+    "resposta": "network conecta matrizes de pesos com o operador >>. Exemplo: network rede = camada1 >> camada2; É um recurso diferente de textmodel, que já reúne o modelo de linguagem e seu treinamento.",
+    "arquivo": "src/Parser.cpp",
+    "ancora": "void Parser::parseDeepNetwork()"
+  },
+  {
+    "id": "matmul",
+    "perguntas": [
+      "Como funciona a multiplicação matricial CUDA?",
+      "A matriz CUDA preserva os Números G?",
+      "Quais componentes a GPU multiplica nas matrizes?"
+    ],
+    "resposta": "O kernel matricial reproduz as fórmulas atuais de GhostNumberG para x, y e p e devolve theta2 igual a zero, como o caminho CPU. O modo auto evita GPU em produtos pequenos para reduzir o custo de transferências.",
+    "arquivo": "src/GhostCuda.cu",
+    "ancora": "ghost_cuda_matmul"
+  },
+  {
+    "id": "teoria",
+    "perguntas": [
+      "O que é a Teoria dos Números Fantasmas G?",
+      "Explique os Números Fantasmas G.",
+      "Qual é a teoria G definida no projeto?"
+    ],
+    "resposta": "No código deste projeto, um Número G é representado por (x + i y) + p theta, com o parâmetro theta2. x é a parte real, y a imaginária e p a fantasma. A implementação usa regras próprias; há diferenças documentadas em relação à descrição 4D do manual.",
+    "arquivo": "src/GhostNumberG.cpp",
+    "ancora": "// g = (x1 + iy1) + p1θ",
+    "detalhes": "As componentes são x (real), y (imaginária) e p (fantasma). Na soma, cada componente é adicionada separadamente. No produto, x=x1*x2-y1*y2, y=x1*y2+y1*x2 e p=x1*p2+x2*p1.\nPara a=(1,2,3) e b=(4,5,6), a soma é (5,7,9) e o produto é (-6,13,18). A implementação zera theta2 nesses resultados. Essas regras não permitem assumir associatividade; há diferenças entre o manual e o código.",
+    "fontes_adicionais": [
+      "ia_propria/v3/GUIA_EXEMPLOS.md"
+    ],
+    "exemplo": "ia_propria/v3/exemplos/numeros_g.g",
+    "saida_exemplo": "Soma: 5, 7, 9\nProduto: -6, 13, 18",
+    "explicacao_exemplo": "Os construtores usam literais decimais explícitos. O exemplo lê as componentes .x, .y e .p para mostrar o cálculo sem depender dos sufixos algébricos antigos.",
+    "consultas": [
+      "Teoria G",
+      "Números Fantasmas",
+      "Números G",
+      "O que são Números G?"
+    ]
+  },
+  {
+    "id": "componentes",
+    "perguntas": [
+      "Quais são os componentes de um Número G?",
+      "O que significam x y p e theta2?",
+      "Como representar um Número Fantasma no código?"
+    ],
+    "resposta": "Os componentes usados nas operações principais são x, y e p. O campo theta2 é um parâmetro adicional. Para criar um exemplo explícito, use ghost z = GhostNumberG(1.0, 2.0, 3.0, 0.0);",
+    "arquivo": "src/GhostNumberG.cpp",
+    "ancora": "GhostNumberG::GhostNumberG(double x, double y, double p, double theta2)",
+    "detalhes": "As componentes são x (real), y (imaginária) e p (fantasma). Na soma, cada componente é adicionada separadamente. No produto, x=x1*x2-y1*y2, y=x1*y2+y1*x2 e p=x1*p2+x2*p1.\nPara a=(1,2,3) e b=(4,5,6), a soma é (5,7,9) e o produto é (-6,13,18). A implementação zera theta2 nesses resultados. Essas regras não permitem assumir associatividade; há diferenças entre o manual e o código.",
+    "fontes_adicionais": [
+      "ia_propria/v3/GUIA_EXEMPLOS.md"
+    ],
+    "exemplo": "ia_propria/v3/exemplos/numeros_g.g",
+    "saida_exemplo": "Soma: 5, 7, 9\nProduto: -6, 13, 18",
+    "explicacao_exemplo": "Os construtores usam literais decimais explícitos. O exemplo lê as componentes .x, .y e .p para mostrar o cálculo sem depender dos sufixos algébricos antigos."
+  },
+  {
+    "id": "soma_g",
+    "perguntas": [
+      "Como somar Números G?",
+      "Qual é a regra de adição dos fantasmas?",
+      "Como funciona a soma no GhostNumberG?"
+    ],
+    "resposta": "A soma adiciona x, y e p componente a componente. O resultado recebe theta2 igual a zero. Por exemplo, (1, 2, 3) + (4, 5, 6) produz (5, 7, 9) nessas três componentes.",
+    "arquivo": "src/GhostNumberG.cpp",
+    "ancora": "GhostNumberG GhostNumberG::operator+(const GhostNumberG& other)",
+    "detalhes": "As componentes são x (real), y (imaginária) e p (fantasma). Na soma, cada componente é adicionada separadamente. No produto, x=x1*x2-y1*y2, y=x1*y2+y1*x2 e p=x1*p2+x2*p1.\nPara a=(1,2,3) e b=(4,5,6), a soma é (5,7,9) e o produto é (-6,13,18). A implementação zera theta2 nesses resultados. Essas regras não permitem assumir associatividade; há diferenças entre o manual e o código.",
+    "fontes_adicionais": [
+      "ia_propria/v3/GUIA_EXEMPLOS.md"
+    ],
+    "exemplo": "ia_propria/v3/exemplos/numeros_g.g",
+    "saida_exemplo": "Soma: 5, 7, 9\nProduto: -6, 13, 18",
+    "explicacao_exemplo": "Os construtores usam literais decimais explícitos. O exemplo lê as componentes .x, .y e .p para mostrar o cálculo sem depender dos sufixos algébricos antigos.",
+    "consultas": [
+      "soma GhostLang",
+      "Somar dois Números G",
+      "adição Números G"
+    ]
+  },
+  {
+    "id": "produto_g",
+    "perguntas": [
+      "Como multiplicar Números G?",
+      "Qual é a fórmula do produto fantasma?",
+      "Como funciona a multiplicação em GhostNumberG?"
+    ],
+    "resposta": "A regra implementada é x = x1*x2 - y1*y2; y = x1*y2 + y1*x2; p = x1*p2 + x2*p1. O resultado tem theta2 igual a zero. Termos envolvendo y e p não entram na parte fantasma dessa fórmula.",
+    "arquivo": "src/GhostNumberG.cpp",
+    "ancora": "GhostNumberG GhostNumberG::operator*(const GhostNumberG& other)",
+    "detalhes": "As componentes são x (real), y (imaginária) e p (fantasma). Na soma, cada componente é adicionada separadamente. No produto, x=x1*x2-y1*y2, y=x1*y2+y1*x2 e p=x1*p2+x2*p1.\nPara a=(1,2,3) e b=(4,5,6), a soma é (5,7,9) e o produto é (-6,13,18). A implementação zera theta2 nesses resultados. Essas regras não permitem assumir associatividade; há diferenças entre o manual e o código.",
+    "fontes_adicionais": [
+      "ia_propria/v3/GUIA_EXEMPLOS.md"
+    ],
+    "exemplo": "ia_propria/v3/exemplos/numeros_g.g",
+    "saida_exemplo": "Soma: 5, 7, 9\nProduto: -6, 13, 18",
+    "explicacao_exemplo": "Os construtores usam literais decimais explícitos. O exemplo lê as componentes .x, .y e .p para mostrar o cálculo sem depender dos sufixos algébricos antigos.",
+    "consultas": [
+      "produto GhostLang",
+      "multiplicação Números G",
+      "Multiplicar dois Números G"
+    ]
+  },
+  {
+    "id": "nilpotente",
+    "perguntas": [
+      "Theta é nilpotente?",
+      "Quanto é theta vezes theta?",
+      "O quadrado do fantasma puro é zero?"
+    ],
+    "resposta": "Sim, no produto implementado, theta = (0, 0, 1) satisfaz theta*theta = (0, 0, 0). Essa afirmação descreve a regra executada no código, que retorna theta2 igual a zero.",
+    "arquivo": "src/GhostNumberG.cpp",
+    "ancora": "GhostNumberG GhostNumberG::operator*(const GhostNumberG& other)",
+    "detalhes": "Ser nilpotente aqui significa que o produto do elemento por si mesmo chega a zero, embora o elemento inicial não seja zero. O exemplo usa theta=(0,0,1) e aplica exatamente o operador já existente. Isso não altera as demais propriedades da álgebra.",
+    "fontes_adicionais": [
+      "ia_propria/v3/GUIA_EXEMPLOS.md"
+    ],
+    "exemplo": "ia_propria/v3/exemplos/nilpotente.g",
+    "saida_exemplo": "0\n0\n0",
+    "explicacao_exemplo": "Cada linha mostra uma componente do quadrado: x, y e p."
+  },
+  {
+    "id": "associatividade",
+    "perguntas": [
+      "A multiplicação dos Números G é associativa?",
+      "Posso mudar os parênteses no produto G?",
+      "Existe um contraexemplo de associatividade em GhostNumberG?"
+    ],
+    "resposta": "A implementação atual não é associativa em geral. Com i = (0, 1, 0) e theta = (0, 0, 1), temos (i*i)*theta = -theta, mas i*(i*theta) = 0. A integração CUDA preserva esse comportamento; não altera a teoria silenciosamente.",
+    "arquivo": "tests/cpp/native_runtime.cpp",
+    "ancora": "near(((i*i)*theta).p,-1)"
+  },
+  {
+    "id": "divisao_zero",
+    "perguntas": [
+      "O que acontece na divisão por zero em G?",
+      "Quanto é um dividido por zero no GhostNumberG?",
+      "Como a divisão trata um divisor fantasma puro?"
+    ],
+    "resposta": "Se x e y do divisor forem próximos de zero, a divisão implementada devolve x = 0, y = 0 e transfere a magnitude complexa do numerador para p, ou preserva seu p quando essa magnitude é quase zero. Assim, 1.0 dividido por zero produz (0, 0, 1). É uma convenção do projeto, não a divisão usual.",
+    "arquivo": "src/GhostNumberG.cpp",
+    "ancora": "// Cenário A (Singularidade / Fantasma Puro)"
+  },
+  {
+    "id": "theta2",
+    "perguntas": [
+      "O campo theta2 é preservado nas operações?",
+      "Theta2 é uma quarta coordenada aditiva?",
+      "O que acontece com theta2 na soma e no produto?"
+    ],
+    "resposta": "Soma, subtração e multiplicação retornam theta2 igual a zero na implementação atual. Outros métodos, como conjugate e set_theta2, podem preservá-lo ou alterá-lo. Portanto, o código atual não trata theta2 simplesmente como uma quarta coordenada aditiva.",
+    "arquivo": "src/GhostNumberG.cpp",
+    "ancora": "GhostNumberG GhostNumberG::operator+(const GhostNumberG& other)"
+  },
+  {
+    "id": "norma",
+    "perguntas": [
+      "Qual é a norma quadrada de um Número G?",
+      "Como funciona norm_squared?",
+      "Qual fórmula usa x y p e theta2 na norma?"
+    ],
+    "resposta": "norm_squared calcula x*x + y*y + p*p*theta2. Por exemplo, x = 3, y = 4, p = 2 e theta2 = 2 dão 33. real_norm_squared usa apenas x*x + y*y.",
+    "arquivo": "src/GhostNumberG.cpp",
+    "ancora": "double GhostNumberG::norm_squared() const"
+  },
+  {
+    "id": "conjugado",
+    "perguntas": [
+      "Como calcular o conjugado de um Número G?",
+      "O que faz conjugate no GhostNumberG?",
+      "Quais componentes mudam na conjugação?"
+    ],
+    "resposta": "conjugate troca o sinal de y e preserva x, p e theta2. Portanto, o conjugado de (1, 2, 3, 4) é (1, -2, 3, 4).",
+    "arquivo": "src/GhostNumberG.cpp",
+    "ancora": "GhostNumberG GhostNumberG::conjugate() const"
+  },
+  {
+    "id": "rotacao",
+    "perguntas": [
+      "Como funciona rotate nos Números G?",
+      "O que faz a rotação das componentes fantasmas?",
+      "Qual é a ordem das componentes depois de rotate?"
+    ],
+    "resposta": "rotate modifica o próprio objeto, fazendo x receber o antigo y, y receber o antigo p e p receber o antigo x. Por exemplo, (1, 2, 3) passa a (2, 3, 1).",
+    "arquivo": "src/GhostNumberG.cpp",
+    "ancora": "void GhostNumberG::rotate()"
+  },
+  {
+    "id": "divergencias",
+    "perguntas": [
+      "O manual e o código G concordam?",
+      "Quais diferenças existem na descrição 4D?",
+      "A teoria G já está consistente em todo o projeto?"
+    ],
+    "resposta": "Há diferenças. O manual descreve a + bi + cg + d theta, enquanto as operações principais usam x, y e p e frequentemente zeram theta2. A V3 distingue documentação de comportamento executável. Consulte docs/NUMEROS_G_IMPLEMENTACAO.md para os exemplos verificados.",
+    "arquivo": "docs/MANUAL.md",
+    "ancora": "## 1. Números Quânticos 4D"
+  },
+  {
+    "id": "tipo_pesos",
+    "perguntas": [
+      "Os pesos da V3 são Números G?",
+      "O textmodel treina componentes fantasmas?",
+      "A rede de texto usa a álgebra fantasma nos pesos?"
+    ],
+    "resposta": "Não. O textmodel usa pesos reais float32 em CPU e CUDA. Ele recebe conteúdo sobre Números G nos textos de treinamento e na base documental. As matrizes GhostMatrix usam componentes G; isso é diferente de treinar o modelo de texto com pesos fantasmas.",
+    "arquivo": "src/GhostTextModel.cpp",
+    "ancora": "vector<float> weights, m, v;"
+  },
+  {
+    "id": "modos",
+    "perguntas": [
+      "Qual é a diferença entre consulta e geração neural?",
+      "A resposta documental foi gerada pela rede?",
+      "Como sei se a V3 consultou uma fonte?"
+    ],
+    "resposta": "O modo fontes busca respostas revisadas na base local e mostra a origem. O modo neural gera tokens pelos pesos treinados e pode errar. No chat, use /neural ou /fontes. Uma boa resposta documental não mede a capacidade da rede.",
+    "arquivo": "ia_propria/v3/src/main.g",
+    "ancora": "function void conversa"
+  },
+  {
+    "id": "aprendizado_chat",
+    "perguntas": [
+      "Você aprende automaticamente enquanto conversamos?",
+      "As conversas alteram seus pesos?",
+      "O chat treina o modelo em tempo real?"
+    ],
+    "resposta": "Não. O chat não altera os pesos e não grava automaticamente suas mensagens. Para aprender novos textos, prepare um corpus e execute treinar ou continuar. A base de fontes também precisa ser revisada e recompilada para incluir novas respostas.",
+    "arquivo": "ia_propria/v3/src/main.g",
+    "ancora": "function void conversa"
+  },
+  {
+    "id": "identidade",
+    "perguntas": [
+      "Quem é você?",
+      "Quais são suas habilidades e capacidades?",
+      "Quando você foi treinada?"
+    ],
+    "resposta": "Sou a IA V3 experimental deste projeto. Posso consultar a base local sobre GhostLang e Números G, com fontes, ou gerar texto com um modelo pequeno treinado localmente. Não tenho conhecimento geral amplo nem acesso automático à internet. As métricas e a data do treino ficam nos arquivos do checkpoint.",
+    "arquivo": "ia_propria/v3/README.md",
+    "ancora": "# IA própria V3"
+  }
+]

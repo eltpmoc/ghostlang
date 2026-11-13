@@ -1,0 +1,157 @@
+#line 3 "tests/ghost/matriz_std.g"
+#line 4 "tests/ghost/matriz_std.g"
+#line 5 "tests/ghost/matriz_std.g"
+#line 6 "tests/ghost/matriz_std.g"
+#line 8 "tests/ghost/matriz_std.g"
+#line 9 "tests/ghost/matriz_std.g"
+#line 10 "tests/ghost/matriz_std.g"
+#line 12 "tests/ghost/matriz_std.g"
+#line 13 "tests/ghost/matriz_std.g"
+#line 14 "tests/ghost/matriz_std.g"
+#line 15 "tests/ghost/matriz_std.g"
+#line 16 "tests/ghost/matriz_std.g"
+#line 17 "tests/ghost/matriz_std.g"
+#line 18 "tests/ghost/matriz_std.g"
+#line 19 "tests/ghost/matriz_std.g"
+#line 21 "tests/ghost/matriz_std.g"
+#line 22 "tests/ghost/matriz_std.g"
+#line 23 "tests/ghost/matriz_std.g"
+#line 24 "tests/ghost/matriz_std.g"
+#line 26 "tests/ghost/matriz_std.g"
+#line 27 "tests/ghost/matriz_std.g"
+#line 28 "tests/ghost/matriz_std.g"
+#line 29 "tests/ghost/matriz_std.g"
+#line 30 "tests/ghost/matriz_std.g"
+#line 32 "tests/ghost/matriz_std.g"
+#line 33 "tests/ghost/matriz_std.g"
+#line 34 "tests/ghost/matriz_std.g"
+#line 36 "tests/ghost/matriz_std.g"
+#line 37 "tests/ghost/matriz_std.g"
+#line 38 "tests/ghost/matriz_std.g"
+#line 39 "tests/ghost/matriz_std.g"
+#line 40 "tests/ghost/matriz_std.g"
+#line 41 "tests/ghost/matriz_std.g"
+#line 43 "tests/ghost/matriz_std.g"
+#line 2 "tests/ghost/matriz_std.g"
+----
+/*TranspiladopeloGhostCompilerv1.0*/#include<iostream>#include<cstdio>#include<cstdlib>#include<string>#include<complex>#include<type_traits>#include<fstream>#include<sstream>#include<thread>#include<chrono>#include<mutex>#include"include/GhostNumberG.hpp"#include"include/GhostMatrix.hpp"#include"include/GhostLLM.hpp"#include"include/GhostLib.hpp"#include"include/GhostDevice.hpp"#include"include/GhostTextModel.hpp"#include"include/GhostWeb.hpp"#include"include/GhostKnowledge.hpp"#include"include/GhostTemporal.hpp"#include"include/GhostTransformer.hpp"#include"include/GhostTransformerG.hpp"#include"include/GhostMatrixG.hpp"#include"include/GhostQuantum.hpp"#include"include/GhostQML.hpp"#include"include/GhostHybrid.hpp"#include"include/GhostQTape.hpp"#include"include/GhostCore.hpp"#ifdef_WIN32#include<windows.h>#endifvoidghost_main();
+voidghost_main(){
+std::cout<<ghost_show(std::string("=== Operacoes Matriciais GhostMatrix (F1) ==="))<<std::endl;
+GhostMatrixh_gate=GhostMatrix::Hadamard();
+std::cout<<ghost_show(std::string("Hadamard:"))<<std::endl;
+std::cout<<"\nEstado da estrutura '"<<"h_gate"<<"':"<<std::endl;
+h_gate.display();
+GhostMatrixpy_gate=GhostMatrix::PauliY();
+std::cout<<ghost_show(std::string("Pauli-Y:"))<<std::endl;
+std::cout<<"\nEstado da estrutura '"<<"py_gate"<<"':"<<std::endl;
+py_gate.display();
+GhostMatrixm1(2,2);
+doublelimit_m1=std::sqrt(6.0/(2+2));
+for(size_tghost_r=0;
+ghost_r<m1.getRows();
+++ghost_r){
+for(size_tghost_c=0;
+ghost_c<m1.getCols();
+++ghost_c){
+doubleghost_val=(((double)rand()/RAND_MAX)*2.0-1.0)*limit_m1;
+m1(ghost_r,ghost_c)=GhostNumberG(ghost_val,0.0,0.0);
+}
+}
+GhostMatrixm2(2,2);
+doublelimit_m2=std::sqrt(6.0/(2+2));
+for(size_tghost_r=0;
+ghost_r<m2.getRows();
+++ghost_r){
+for(size_tghost_c=0;
+ghost_c<m2.getCols();
+++ghost_c){
+doubleghost_val=(((double)rand()/RAND_MAX)*2.0-1.0)*limit_m2;
+m2(ghost_r,ghost_c)=GhostNumberG(ghost_val,0.0,0.0);
+}
+}
+GhostMatrixm3(2,2);
+doublelimit_m3=std::sqrt(6.0/(2+2));
+for(size_tghost_r=0;
+ghost_r<m3.getRows();
+++ghost_r){
+for(size_tghost_c=0;
+ghost_c<m3.getCols();
+++ghost_c){
+doubleghost_val=(((double)rand()/RAND_MAX)*2.0-1.0)*limit_m3;
+m3(ghost_r,ghost_c)=GhostNumberG(ghost_val,0.0,0.0);
+}
+}
+m3=m1+m2;
+m3=m1-m2;
+m3=m1*m2;
+m3=m1*2.0;
+m3=m1/2.0;
+GhostMatrixt(2,2);
+doublelimit_t=std::sqrt(6.0/(2+2));
+for(size_tghost_r=0;
+ghost_r<t.getRows();
+++ghost_r){
+for(size_tghost_c=0;
+ghost_c<t.getCols();
+++ghost_c){
+doubleghost_val=(((double)rand()/RAND_MAX)*2.0-1.0)*limit_t;
+t(ghost_r,ghost_c)=GhostNumberG(ghost_val,0.0,0.0);
+}
+}
+t=m1.transpose();
+std::cout<<ghost_show(std::string("Transposicao:"))<<std::endl;
+std::cout<<"\nEstado da estrutura '"<<"t"<<"':"<<std::endl;
+t.display();
+std::cout<<ghost_show(std::string("=== Operacoes Vetoriais em Lote (Core) ==="))<<std::endl;
+automA=ghost_list(1,2,3,4);
+automB=ghost_list(5,6,7,8);
+std::cout<<ghost_show(std::string("mat_mul: "))<<ghost_show(mat_mul(mA,mB,2,2,2))<<std::endl;
+std::cout<<ghost_show(std::string("mat_transpose: "))<<ghost_show(mat_transpose(mA,2,2))<<std::endl;
+autoA2D=ghost_list(ghost_list(1,2),ghost_list(3,4));
+autoB2D=ghost_list(ghost_list(2,0),ghost_list(1,2));
+std::cout<<ghost_show(std::string("mat2d_mul: "))<<ghost_show(mat2d_mul(A2D,B2D))<<std::endl;
+std::cout<<ghost_show(std::string("=== Ativacoes Vetoriais em Lote ==="))<<std::endl;
+GhostMatrixact(2,2);
+doublelimit_act=std::sqrt(6.0/(2+2));
+for(size_tghost_r=0;
+ghost_r<act.getRows();
+++ghost_r){
+for(size_tghost_c=0;
+ghost_c<act.getCols();
+++ghost_c){
+doubleghost_val=(((double)rand()/RAND_MAX)*2.0-1.0)*limit_act;
+act(ghost_r,ghost_c)=GhostNumberG(ghost_val,0.0,0.0);
+}
+}
+act.activateTanh();
+std::cout<<"[Ghost OS] Colapso Quântico/Matemático (tanh) aplicado em 'act'."<<std::endl;
+act.activateLeakyReLU();
+std::cout<<"[Ghost OS] Colapso Quântico/Matemático (leaky_relu) aplicado em 'act'."<<std::endl;
+act.activateGELU();
+std::cout<<"[Ghost OS] Colapso Quântico/Matemático (gelu) aplicado em 'act'."<<std::endl;
+act.activateSoftmax();
+std::cout<<"[Ghost OS] Colapso Quântico/Matemático (softmax) aplicado em 'act'."<<std::endl;
+std::cout<<ghost_show(std::string("matriz_std: OK"))<<std::endl;
+}
+intmain(intargc,char**argv){
+try{
+#ifdef_WIN32SetConsoleOutputCP(CP_UTF8);
+SetConsoleCP(CP_UTF8);
+#endifstd::cout<<std::boolalpha;
+std::stringghost_args="";
+std::vector<std::string>ghost_args_vec;
+for(inti=1;
+i<argc;
+++i){
+ghost_args+=argv[i];
+ghost_args_vec.push_back(argv[i]);
+if(i<argc-1)ghost_args+=" ";
+}
+ghost_main();
+return0;
+}
+catch(conststd::exception&e){
+std::cerr<<e.what()<<std::endl;
+return1;
+}
+}

@@ -1,0 +1,1003 @@
+{
+  "data_utc": "2026-09-26T16:35:04.356967+00:00",
+  "dispositivo": "cuda",
+  "checkpoint": "/home/eltonalvesp/PROJETOS/ghost-linux/ia_propria/checkpoints/v4/transformer_selecionado.bin",
+  "sha256": "39e00ca8eeea328b684af13dd8f2db64068bbdca2e8e7b826a745f102465cd4a",
+  "configuracao": "greedy; limite 384 bytes; sem ferramentas, internet ou respostas prontas",
+  "conjunto": "teste",
+  "limite": "Amostra pequena; tarefas sintéticas. Respostas curtas com correção estrita. Controles conhecidos não demonstram generalização.",
+  "resumo": {
+    "calculo": {
+      "acertos": 0,
+      "total": 10,
+      "prompts_no_treino": 0
+    },
+    "contexto": {
+      "acertos": 0,
+      "total": 10,
+      "prompts_no_treino": 0
+    },
+    "deducao": {
+      "acertos": 8,
+      "total": 10,
+      "prompts_no_treino": 0
+    },
+    "instrucoes": {
+      "acertos": 0,
+      "total": 10,
+      "prompts_no_treino": 0
+    },
+    "leitura": {
+      "acertos": 1,
+      "total": 10,
+      "prompts_no_treino": 0
+    },
+    "numeros_g": {
+      "acertos": 0,
+      "total": 10,
+      "prompts_no_treino": 0
+    }
+  },
+  "respostas": [
+    {
+      "id": "calculo_0",
+      "categoria": "calculo",
+      "prompt": "Usuário: Um depósito tinha 53 itens. Ganhou 10, perdeu 2. Escreva apenas a quantidade final.\nAssistente:",
+      "esperado": "61",
+      "criterio": "short",
+      "resposta": "Drns",
+      "respostas": [
+        "Drns"
+      ],
+      "correta": false,
+      "avisos": [
+        ""
+      ],
+      "prompt_no_treino": false
+    },
+    {
+      "id": "calculo_1",
+      "categoria": "calculo",
+      "prompt": "Usuário: Um depósito tinha 36 itens. Ganhou 28, perdeu 9. Escreva apenas a quantidade final.\nAssistente:",
+      "esperado": "55",
+      "criterio": "short",
+      "resposta": "Gus",
+      "respostas": [
+        "Gus"
+      ],
+      "correta": false,
+      "avisos": [
+        ""
+      ],
+      "prompt_no_treino": false
+    },
+    {
+      "id": "calculo_2",
+      "categoria": "calculo",
+      "prompt": "Usuário: Um depósito tinha 49 itens. Ganhou 19, perdeu 2. Escreva apenas a quantidade final.\nAssistente:",
+      "esperado": "66",
+      "criterio": "short",
+      "resposta": "Gus",
+      "respostas": [
+        "Gus"
+      ],
+      "correta": false,
+      "avisos": [
+        ""
+      ],
+      "prompt_no_treino": false
+    },
+    {
+      "id": "calculo_3",
+      "categoria": "calculo",
+      "prompt": "Usuário: Um depósito tinha 62 itens. Ganhou 19, perdeu 1. Escreva apenas a quantidade final.\nAssistente:",
+      "esperado": "80",
+      "criterio": "short",
+      "resposta": "Antu",
+      "respostas": [
+        "Antu"
+      ],
+      "correta": false,
+      "avisos": [
+        ""
+      ],
+      "prompt_no_treino": false
+    },
+    {
+      "id": "calculo_4",
+      "categoria": "calculo",
+      "prompt": "Usuário: Um depósito tinha 17 itens. Ganhou 10, perdeu 8. Escreva apenas a quantidade final.\nAssistente:",
+      "esperado": "19",
+      "criterio": "short",
+      "resposta": "Drns",
+      "respostas": [
+        "Drns"
+      ],
+      "correta": false,
+      "avisos": [
+        ""
+      ],
+      "prompt_no_treino": false
+    },
+    {
+      "id": "calculo_5",
+      "categoria": "calculo",
+      "prompt": "Usuário: Um depósito tinha 45 itens. Ganhou 23, perdeu 5. Escreva apenas a quantidade final.\nAssistente:",
+      "esperado": "63",
+      "criterio": "short",
+      "resposta": "OK",
+      "respostas": [
+        "OK"
+      ],
+      "correta": false,
+      "avisos": [
+        ""
+      ],
+      "prompt_no_treino": false
+    },
+    {
+      "id": "calculo_6",
+      "categoria": "calculo",
+      "prompt": "Usuário: Um depósito tinha 7 itens. Ganhou 12, perdeu 2. Escreva apenas a quantidade final.\nAssistente:",
+      "esperado": "17",
+      "criterio": "short",
+      "resposta": "h",
+      "respostas": [
+        "h"
+      ],
+      "correta": false,
+      "avisos": [
+        ""
+      ],
+      "prompt_no_treino": false
+    },
+    {
+      "id": "calculo_7",
+      "categoria": "calculo",
+      "prompt": "Usuário: Um depósito tinha 89 itens. Ganhou 14, perdeu 6. Escreva apenas a quantidade final.\nAssistente:",
+      "esperado": "97",
+      "criterio": "short",
+      "resposta": "Gus",
+      "respostas": [
+        "Gus"
+      ],
+      "correta": false,
+      "avisos": [
+        ""
+      ],
+      "prompt_no_treino": false
+    },
+    {
+      "id": "calculo_8",
+      "categoria": "calculo",
+      "prompt": "Usuário: Um depósito tinha 93 itens. Ganhou 17, perdeu 3. Escreva apenas a quantidade final.\nAssistente:",
+      "esperado": "107",
+      "criterio": "short",
+      "resposta": "Antu",
+      "respostas": [
+        "Antu"
+      ],
+      "correta": false,
+      "avisos": [
+        ""
+      ],
+      "prompt_no_treino": false
+    },
+    {
+      "id": "calculo_9",
+      "categoria": "calculo",
+      "prompt": "Usuário: Um depósito tinha 35 itens. Ganhou 24, perdeu 1. Escreva apenas a quantidade final.\nAssistente:",
+      "esperado": "58",
+      "criterio": "short",
+      "resposta": "Gus",
+      "respostas": [
+        "Gus"
+      ],
+      "correta": false,
+      "avisos": [
+        ""
+      ],
+      "prompt_no_treino": false
+    },
+    {
+      "id": "contexto_0",
+      "categoria": "contexto",
+      "prompt": "Usuário: Guarde a informação deste exercício: a caixa azul tem 809 moedas.\nAssistente: OK.\nUsuário: Retome o dado sobre a caixa azul: qual era a quantidade? Só o número.\nAssistente:",
+      "esperado": "809",
+      "criterio": "short",
+      "resposta": "80",
+      "respostas": [
+        "80"
+      ],
+      "correta": false,
+      "avisos": [
+        ""
+      ],
+      "prompt_no_treino": false
+    },
+    {
+      "id": "contexto_1",
+      "categoria": "contexto",
+      "prompt": "Usuário: Guarde a informação deste exercício: a caixa vermelha tem 44 moedas.\nAssistente: OK.\nUsuário: Retome o dado sobre a caixa vermelha: qual era a quantidade? Só o número.\nAssistente:",
+      "esperado": "44",
+      "criterio": "short",
+      "resposta": "444",
+      "respostas": [
+        "444"
+      ],
+      "correta": false,
+      "avisos": [
+        ""
+      ],
+      "prompt_no_treino": false
+    },
+    {
+      "id": "contexto_2",
+      "categoria": "contexto",
+      "prompt": "Usuário: Guarde a informação deste exercício: a caixa vermelha tem 603 moedas.\nAssistente: OK.\nUsuário: Retome o dado sobre a caixa vermelha: qual era a quantidade? Só o número.\nAssistente:",
+      "esperado": "603",
+      "criterio": "short",
+      "resposta": "606",
+      "respostas": [
+        "606"
+      ],
+      "correta": false,
+      "avisos": [
+        ""
+      ],
+      "prompt_no_treino": false
+    },
+    {
+      "id": "contexto_3",
+      "categoria": "contexto",
+      "prompt": "Usuário: Guarde a informação deste exercício: a caixa verde tem 582 moedas.\nAssistente: OK.\nUsuário: Retome o dado sobre a caixa verde: qual era a quantidade? Só o número.\nAssistente:",
+      "esperado": "582",
+      "criterio": "short",
+      "resposta": "28",
+      "respostas": [
+        "28"
+      ],
+      "correta": false,
+      "avisos": [
+        ""
+      ],
+      "prompt_no_treino": false
+    },
+    {
+      "id": "contexto_4",
+      "categoria": "contexto",
+      "prompt": "Usuário: Guarde a informação deste exercício: a caixa amarela tem 896 moedas.\nAssistente: OK.\nUsuário: Retome o dado sobre a caixa amarela: qual era a quantidade? Só o número.\nAssistente:",
+      "esperado": "896",
+      "criterio": "short",
+      "resposta": "89",
+      "respostas": [
+        "89"
+      ],
+      "correta": false,
+      "avisos": [
+        ""
+      ],
+      "prompt_no_treino": false
+    },
+    {
+      "id": "contexto_5",
+      "categoria": "contexto",
+      "prompt": "Usuário: Guarde a informação deste exercício: a caixa verde tem 493 moedas.\nAssistente: OK.\nUsuário: Retome o dado sobre a caixa verde: qual era a quantidade? Só o número.\nAssistente:",
+      "esperado": "493",
+      "criterio": "short",
+      "resposta": "33",
+      "respostas": [
+        "33"
+      ],
+      "correta": false,
+      "avisos": [
+        ""
+      ],
+      "prompt_no_treino": false
+    },
+    {
+      "id": "contexto_6",
+      "categoria": "contexto",
+      "prompt": "Usuário: Guarde a informação deste exercício: a caixa amarela tem 499 moedas.\nAssistente: OK.\nUsuário: Retome o dado sobre a caixa amarela: qual era a quantidade? Só o número.\nAssistente:",
+      "esperado": "499",
+      "criterio": "short",
+      "resposta": "49",
+      "respostas": [
+        "49"
+      ],
+      "correta": false,
+      "avisos": [
+        ""
+      ],
+      "prompt_no_treino": false
+    },
+    {
+      "id": "contexto_7",
+      "categoria": "contexto",
+      "prompt": "Usuário: Guarde a informação deste exercício: a caixa amarela tem 849 moedas.\nAssistente: OK.\nUsuário: Retome o dado sobre a caixa amarela: qual era a quantidade? Só o número.\nAssistente:",
+      "esperado": "849",
+      "criterio": "short",
+      "resposta": "44",
+      "respostas": [
+        "44"
+      ],
+      "correta": false,
+      "avisos": [
+        ""
+      ],
+      "prompt_no_treino": false
+    },
+    {
+      "id": "contexto_8",
+      "categoria": "contexto",
+      "prompt": "Usuário: Guarde a informação deste exercício: a caixa azul tem 590 moedas.\nAssistente: OK.\nUsuário: Retome o dado sobre a caixa azul: qual era a quantidade? Só o número.\nAssistente:",
+      "esperado": "590",
+      "criterio": "short",
+      "resposta": "50",
+      "respostas": [
+        "50"
+      ],
+      "correta": false,
+      "avisos": [
+        ""
+      ],
+      "prompt_no_treino": false
+    },
+    {
+      "id": "contexto_9",
+      "categoria": "contexto",
+      "prompt": "Usuário: Guarde a informação deste exercício: a caixa amarela tem 411 moedas.\nAssistente: OK.\nUsuário: Retome o dado sobre a caixa amarela: qual era a quantidade? Só o número.\nAssistente:",
+      "esperado": "411",
+      "criterio": "short",
+      "resposta": "41",
+      "respostas": [
+        "41"
+      ],
+      "correta": false,
+      "avisos": [
+        ""
+      ],
+      "prompt_no_treino": false
+    },
+    {
+      "id": "deducao_0",
+      "categoria": "deducao",
+      "prompt": "Usuário: Considere a regra: tudo de cor azul fica em F. Uma peça de Nara é dessa cor. Diga a letra correta.\nAssistente:",
+      "esperado": "F",
+      "criterio": "short",
+      "resposta": "F",
+      "respostas": [
+        "F"
+      ],
+      "correta": true,
+      "avisos": [
+        ""
+      ],
+      "prompt_no_treino": false
+    },
+    {
+      "id": "deducao_1",
+      "categoria": "deducao",
+      "prompt": "Usuário: Considere a regra: tudo de cor vermelha fica em G. Uma peça de Paulo é dessa cor. Diga a letra correta.\nAssistente:",
+      "esperado": "G",
+      "criterio": "short",
+      "resposta": "G",
+      "respostas": [
+        "G"
+      ],
+      "correta": true,
+      "avisos": [
+        ""
+      ],
+      "prompt_no_treino": false
+    },
+    {
+      "id": "deducao_2",
+      "categoria": "deducao",
+      "prompt": "Usuário: Considere a regra: tudo de cor verde fica em D. Uma peça de Gabi é dessa cor. Diga a letra correta.\nAssistente:",
+      "esperado": "D",
+      "criterio": "short",
+      "resposta": "D",
+      "respostas": [
+        "D"
+      ],
+      "correta": true,
+      "avisos": [
+        ""
+      ],
+      "prompt_no_treino": false
+    },
+    {
+      "id": "deducao_3",
+      "categoria": "deducao",
+      "prompt": "Usuário: Considere a regra: tudo de cor vermelha fica em D. Uma peça de Mario é dessa cor. Diga a letra correta.\nAssistente:",
+      "esperado": "D",
+      "criterio": "short",
+      "resposta": "D",
+      "respostas": [
+        "D"
+      ],
+      "correta": true,
+      "avisos": [
+        ""
+      ],
+      "prompt_no_treino": false
+    },
+    {
+      "id": "deducao_4",
+      "categoria": "deducao",
+      "prompt": "Usuário: Considere a regra: tudo de cor azul fica em C. Uma peça de Carla é dessa cor. Diga a letra correta.\nAssistente:",
+      "esperado": "C",
+      "criterio": "short",
+      "resposta": "C",
+      "respostas": [
+        "C"
+      ],
+      "correta": true,
+      "avisos": [
+        ""
+      ],
+      "prompt_no_treino": false
+    },
+    {
+      "id": "deducao_5",
+      "categoria": "deducao",
+      "prompt": "Usuário: Considere a regra: tudo de cor vermelha fica em A. Uma peça de Carla é dessa cor. Diga a letra correta.\nAssistente:",
+      "esperado": "A",
+      "criterio": "short",
+      "resposta": "C",
+      "respostas": [
+        "C"
+      ],
+      "correta": false,
+      "avisos": [
+        ""
+      ],
+      "prompt_no_treino": false
+    },
+    {
+      "id": "deducao_6",
+      "categoria": "deducao",
+      "prompt": "Usuário: Considere a regra: tudo de cor verde fica em B. Uma peça de Paulo é dessa cor. Diga a letra correta.\nAssistente:",
+      "esperado": "B",
+      "criterio": "short",
+      "resposta": "B",
+      "respostas": [
+        "B"
+      ],
+      "correta": true,
+      "avisos": [
+        ""
+      ],
+      "prompt_no_treino": false
+    },
+    {
+      "id": "deducao_7",
+      "categoria": "deducao",
+      "prompt": "Usuário: Considere a regra: tudo de cor vermelha fica em F. Uma peça de Rita é dessa cor. Diga a letra correta.\nAssistente:",
+      "esperado": "F",
+      "criterio": "short",
+      "resposta": "F",
+      "respostas": [
+        "F"
+      ],
+      "correta": true,
+      "avisos": [
+        ""
+      ],
+      "prompt_no_treino": false
+    },
+    {
+      "id": "deducao_8",
+      "categoria": "deducao",
+      "prompt": "Usuário: Considere a regra: tudo de cor azul fica em E. Uma peça de Iara é dessa cor. Diga a letra correta.\nAssistente:",
+      "esperado": "E",
+      "criterio": "short",
+      "resposta": "9",
+      "respostas": [
+        "9"
+      ],
+      "correta": false,
+      "avisos": [
+        ""
+      ],
+      "prompt_no_treino": false
+    },
+    {
+      "id": "deducao_9",
+      "categoria": "deducao",
+      "prompt": "Usuário: Considere a regra: tudo de cor amarela fica em B. Uma peça de Bruno é dessa cor. Diga a letra correta.\nAssistente:",
+      "esperado": "B",
+      "criterio": "short",
+      "resposta": "B",
+      "respostas": [
+        "B"
+      ],
+      "correta": true,
+      "avisos": [
+        ""
+      ],
+      "prompt_no_treino": false
+    },
+    {
+      "id": "instrucoes_0",
+      "categoria": "instrucoes",
+      "prompt": "Usuário: Responda com lkxxt e nada além disso.\nAssistente:",
+      "esperado": "lkxxt",
+      "criterio": "short",
+      "resposta": "Olneeenenndadal",
+      "respostas": [
+        "Olneeenenndadal"
+      ],
+      "correta": false,
+      "avisos": [
+        ""
+      ],
+      "prompt_no_treino": false
+    },
+    {
+      "id": "instrucoes_1",
+      "categoria": "instrucoes",
+      "prompt": "Usuário: Responda com ofkthtux e nada além disso.\nAssistente:",
+      "esperado": "ofkthtux",
+      "criterio": "short",
+      "resposta": "tuxuxuxtenmo",
+      "respostas": [
+        "tuxuxuxtenmo"
+      ],
+      "correta": false,
+      "avisos": [
+        ""
+      ],
+      "prompt_no_treino": false
+    },
+    {
+      "id": "instrucoes_2",
+      "categoria": "instrucoes",
+      "prompt": "Usuário: Responda com coração e nada além disso.\nAssistente:",
+      "esperado": "coração",
+      "criterio": "short",
+      "resposta": "totocoteenm",
+      "respostas": [
+        "totocoteenm"
+      ],
+      "correta": false,
+      "avisos": [
+        ""
+      ],
+      "prompt_no_treino": false
+    },
+    {
+      "id": "instrucoes_3",
+      "categoria": "instrucoes",
+      "prompt": "Usuário: Responda com vermelho e nada além disso.\nAssistente:",
+      "esperado": "vermelho",
+      "criterio": "short",
+      "resposta": "lhohohoeennm",
+      "respostas": [
+        "lhohohoeennm"
+      ],
+      "correta": false,
+      "avisos": [
+        ""
+      ],
+      "prompt_no_treino": false
+    },
+    {
+      "id": "instrucoes_4",
+      "categoria": "instrucoes",
+      "prompt": "Usuário: Responda com dia e nada além disso.\nAssistente:",
+      "esperado": "dia",
+      "criterio": "short",
+      "resposta": "ammomonondadaocal",
+      "respostas": [
+        "ammomonondadaocal"
+      ],
+      "correta": false,
+      "avisos": [
+        ""
+      ],
+      "prompt_no_treino": false
+    },
+    {
+      "id": "instrucoes_5",
+      "categoria": "instrucoes",
+      "prompt": "Usuário: Responda com ttbn e nada além disso.\nAssistente:",
+      "esperado": "ttbn",
+      "criterio": "short",
+      "resposta": "tmtment",
+      "respostas": [
+        "tmtment"
+      ],
+      "correta": false,
+      "avisos": [
+        ""
+      ],
+      "prompt_no_treino": false
+    },
+    {
+      "id": "instrucoes_6",
+      "categoria": "instrucoes",
+      "prompt": "Usuário: Responda com qduna e nada além disso.\nAssistente:",
+      "esperado": "qduna",
+      "criterio": "short",
+      "resposta": "Olneeenennmadal",
+      "respostas": [
+        "Olneeenennmadal"
+      ],
+      "correta": false,
+      "avisos": [
+        ""
+      ],
+      "prompt_no_treino": false
+    },
+    {
+      "id": "instrucoes_7",
+      "categoria": "instrucoes",
+      "prompt": "Usuário: Responda com eaiwvaxr e nada além disso.\nAssistente:",
+      "esperado": "eaiwvaxr",
+      "criterio": "short",
+      "resposta": "axuxrxreenma",
+      "respostas": [
+        "axuxrxreenma"
+      ],
+      "correta": false,
+      "avisos": [
+        ""
+      ],
+      "prompt_no_treino": false
+    },
+    {
+      "id": "instrucoes_8",
+      "categoria": "instrucoes",
+      "prompt": "Usuário: Responda com dqygi e nada além disso.\nAssistente:",
+      "esperado": "dqygi",
+      "criterio": "short",
+      "resposta": "Oloeeenenngadal",
+      "respostas": [
+        "Oloeeenenngadal"
+      ],
+      "correta": false,
+      "avisos": [
+        ""
+      ],
+      "prompt_no_treino": false
+    },
+    {
+      "id": "instrucoes_9",
+      "categoria": "instrucoes",
+      "prompt": "Usuário: Responda com fbmwdjd e nada além disso.\nAssistente:",
+      "esperado": "fbmwdjd",
+      "criterio": "short",
+      "resposta": "jdd",
+      "respostas": [
+        "jdd"
+      ],
+      "correta": false,
+      "avisos": [
+        ""
+      ],
+      "prompt_no_treino": false
+    },
+    {
+      "id": "leitura_0",
+      "categoria": "leitura",
+      "prompt": "Usuário: Use esta tabela: Joao=26; Hugo=88; Nara=16. Escreva o nome do maior valor.\nAssistente:",
+      "esperado": "Hugo",
+      "criterio": "short",
+      "resposta": "Hugoao",
+      "respostas": [
+        "Hugoao"
+      ],
+      "correta": false,
+      "avisos": [
+        ""
+      ],
+      "prompt_no_treino": false
+    },
+    {
+      "id": "leitura_1",
+      "categoria": "leitura",
+      "prompt": "Usuário: Use esta tabela: Davi=61; Eva=8; Olga=76. Escreva o nome do maior valor.\nAssistente:",
+      "esperado": "Olga",
+      "criterio": "short",
+      "resposta": "Davava",
+      "respostas": [
+        "Davava"
+      ],
+      "correta": false,
+      "avisos": [
+        ""
+      ],
+      "prompt_no_treino": false
+    },
+    {
+      "id": "leitura_2",
+      "categoria": "leitura",
+      "prompt": "Usuário: Use esta tabela: Mario=46; Carla=13; Fabio=50. Escreva o nome do maior valor.\nAssistente:",
+      "esperado": "Fabio",
+      "criterio": "short",
+      "resposta": "Carla",
+      "respostas": [
+        "Carla"
+      ],
+      "correta": false,
+      "avisos": [
+        ""
+      ],
+      "prompt_no_treino": false
+    },
+    {
+      "id": "leitura_3",
+      "categoria": "leitura",
+      "prompt": "Usuário: Use esta tabela: Ana=73; Eva=59; Paulo=52. Escreva o nome do maior valor.\nAssistente:",
+      "esperado": "Ana",
+      "criterio": "short",
+      "resposta": "Eva",
+      "respostas": [
+        "Eva"
+      ],
+      "correta": false,
+      "avisos": [
+        ""
+      ],
+      "prompt_no_treino": false
+    },
+    {
+      "id": "leitura_4",
+      "categoria": "leitura",
+      "prompt": "Usuário: Use esta tabela: Rita=13; Lia=22; Joao=79. Escreva o nome do maior valor.\nAssistente:",
+      "esperado": "Joao",
+      "criterio": "short",
+      "resposta": "Davi",
+      "respostas": [
+        "Davi"
+      ],
+      "correta": false,
+      "avisos": [
+        ""
+      ],
+      "prompt_no_treino": false
+    },
+    {
+      "id": "leitura_5",
+      "categoria": "leitura",
+      "prompt": "Usuário: Use esta tabela: Mario=79; Paulo=56; Eva=23. Escreva o nome do maior valor.\nAssistente:",
+      "esperado": "Mario",
+      "criterio": "short",
+      "resposta": "Ritabi",
+      "respostas": [
+        "Ritabi"
+      ],
+      "correta": false,
+      "avisos": [
+        ""
+      ],
+      "prompt_no_treino": false
+    },
+    {
+      "id": "leitura_6",
+      "categoria": "leitura",
+      "prompt": "Usuário: Use esta tabela: Carla=70; Joao=97; Fabio=25. Escreva o nome do maior valor.\nAssistente:",
+      "esperado": "Joao",
+      "criterio": "short",
+      "resposta": "Carla",
+      "respostas": [
+        "Carla"
+      ],
+      "correta": false,
+      "avisos": [
+        ""
+      ],
+      "prompt_no_treino": false
+    },
+    {
+      "id": "leitura_7",
+      "categoria": "leitura",
+      "prompt": "Usuário: Use esta tabela: Rita=65; Olga=10; Gabi=64. Escreva o nome do maior valor.\nAssistente:",
+      "esperado": "Rita",
+      "criterio": "short",
+      "resposta": "Ana",
+      "respostas": [
+        "Ana"
+      ],
+      "correta": false,
+      "avisos": [
+        ""
+      ],
+      "prompt_no_treino": false
+    },
+    {
+      "id": "leitura_8",
+      "categoria": "leitura",
+      "prompt": "Usuário: Use esta tabela: Joao=81; Eva=99; Nara=96. Escreva o nome do maior valor.\nAssistente:",
+      "esperado": "Eva",
+      "criterio": "short",
+      "resposta": "Eva",
+      "respostas": [
+        "Eva"
+      ],
+      "correta": true,
+      "avisos": [
+        ""
+      ],
+      "prompt_no_treino": false
+    },
+    {
+      "id": "leitura_9",
+      "categoria": "leitura",
+      "prompt": "Usuário: Use esta tabela: Mario=41; Joao=81; Paulo=97. Escreva o nome do maior valor.\nAssistente:",
+      "esperado": "Paulo",
+      "criterio": "short",
+      "resposta": "Davi",
+      "respostas": [
+        "Davi"
+      ],
+      "correta": false,
+      "avisos": [
+        ""
+      ],
+      "prompt_no_treino": false
+    },
+    {
+      "id": "numeros_g_0",
+      "categoria": "numeros_g",
+      "prompt": "Usuário: No produto G, (x,y,p)*(u,v,q)=(x*u-y*v,x*v+y*u,x*q+u*p). Obtenha as três coordenadas ao multiplicar (3,6,-1) e (0,3,6). Responda só os três inteiros separados por vírgulas.\nAssistente:",
+      "esperado": "-18,9,18",
+      "criterio": "short",
+      "resposta": "-1",
+      "respostas": [
+        "-1"
+      ],
+      "correta": false,
+      "avisos": [
+        ""
+      ],
+      "prompt_no_treino": false
+    },
+    {
+      "id": "numeros_g_1",
+      "categoria": "numeros_g",
+      "prompt": "Usuário: No produto G, (x,y,p)*(u,v,q)=(x*u-y*v,x*v+y*u,x*q+u*p). Obtenha as três coordenadas ao multiplicar (2,1,1) e (1,2,-1). Responda só os três inteiros separados por vírgulas.\nAssistente:",
+      "esperado": "0,5,-1",
+      "criterio": "short",
+      "resposta": "-1",
+      "respostas": [
+        "-1"
+      ],
+      "correta": false,
+      "avisos": [
+        ""
+      ],
+      "prompt_no_treino": false
+    },
+    {
+      "id": "numeros_g_2",
+      "categoria": "numeros_g",
+      "prompt": "Usuário: No produto G, (x,y,p)*(u,v,q)=(x*u-y*v,x*v+y*u,x*q+u*p). Obtenha as três coordenadas ao multiplicar (-1,-1,3) e (1,5,-1). Responda só os três inteiros separados por vírgulas.\nAssistente:",
+      "esperado": "4,-6,4",
+      "criterio": "short",
+      "resposta": "-1,-1,-10",
+      "respostas": [
+        "-1,-1,-10"
+      ],
+      "correta": false,
+      "avisos": [
+        ""
+      ],
+      "prompt_no_treino": false
+    },
+    {
+      "id": "numeros_g_3",
+      "categoria": "numeros_g",
+      "prompt": "Usuário: No produto G, (x,y,p)*(u,v,q)=(x*u-y*v,x*v+y*u,x*q+u*p). Obtenha as três coordenadas ao multiplicar (-2,-2,2) e (-2,-1,6). Responda só os três inteiros separados por vírgulas.\nAssistente:",
+      "esperado": "2,6,-16",
+      "criterio": "short",
+      "resposta": "-1,-10,-1",
+      "respostas": [
+        "-1,-10,-1"
+      ],
+      "correta": false,
+      "avisos": [
+        ""
+      ],
+      "prompt_no_treino": false
+    },
+    {
+      "id": "numeros_g_4",
+      "categoria": "numeros_g",
+      "prompt": "Usuário: No produto G, (x,y,p)*(u,v,q)=(x*u-y*v,x*v+y*u,x*q+u*p). Obtenha as três coordenadas ao multiplicar (0,0,6) e (6,-2,4). Responda só os três inteiros separados por vírgulas.\nAssistente:",
+      "esperado": "0,0,36",
+      "criterio": "short",
+      "resposta": "-1",
+      "respostas": [
+        "-1"
+      ],
+      "correta": false,
+      "avisos": [
+        ""
+      ],
+      "prompt_no_treino": false
+    },
+    {
+      "id": "numeros_g_5",
+      "categoria": "numeros_g",
+      "prompt": "Usuário: No produto G, (x,y,p)*(u,v,q)=(x*u-y*v,x*v+y*u,x*q+u*p). Obtenha as três coordenadas ao multiplicar (-2,3,3) e (1,6,1). Responda só os três inteiros separados por vírgulas.\nAssistente:",
+      "esperado": "-20,-9,1",
+      "criterio": "short",
+      "resposta": "-1",
+      "respostas": [
+        "-1"
+      ],
+      "correta": false,
+      "avisos": [
+        ""
+      ],
+      "prompt_no_treino": false
+    },
+    {
+      "id": "numeros_g_6",
+      "categoria": "numeros_g",
+      "prompt": "Usuário: No produto G, (x,y,p)*(u,v,q)=(x*u-y*v,x*v+y*u,x*q+u*p). Obtenha as três coordenadas ao multiplicar (4,5,2) e (3,5,-2). Responda só os três inteiros separados por vírgulas.\nAssistente:",
+      "esperado": "-13,35,-2",
+      "criterio": "short",
+      "resposta": "-1",
+      "respostas": [
+        "-1"
+      ],
+      "correta": false,
+      "avisos": [
+        ""
+      ],
+      "prompt_no_treino": false
+    },
+    {
+      "id": "numeros_g_7",
+      "categoria": "numeros_g",
+      "prompt": "Usuário: No produto G, (x,y,p)*(u,v,q)=(x*u-y*v,x*v+y*u,x*q+u*p). Obtenha as três coordenadas ao multiplicar (4,-2,-3) e (3,6,-1). Responda só os três inteiros separados por vírgulas.\nAssistente:",
+      "esperado": "24,18,-13",
+      "criterio": "short",
+      "resposta": "-12,-1",
+      "respostas": [
+        "-12,-1"
+      ],
+      "correta": false,
+      "avisos": [
+        ""
+      ],
+      "prompt_no_treino": false
+    },
+    {
+      "id": "numeros_g_8",
+      "categoria": "numeros_g",
+      "prompt": "Usuário: No produto G, (x,y,p)*(u,v,q)=(x*u-y*v,x*v+y*u,x*q+u*p). Obtenha as três coordenadas ao multiplicar (-1,3,4) e (6,6,3). Responda só os três inteiros separados por vírgulas.\nAssistente:",
+      "esperado": "-24,12,21",
+      "criterio": "short",
+      "resposta": "-16",
+      "respostas": [
+        "-16"
+      ],
+      "correta": false,
+      "avisos": [
+        ""
+      ],
+      "prompt_no_treino": false
+    },
+    {
+      "id": "numeros_g_9",
+      "categoria": "numeros_g",
+      "prompt": "Usuário: No produto G, (x,y,p)*(u,v,q)=(x*u-y*v,x*v+y*u,x*q+u*p). Obtenha as três coordenadas ao multiplicar (-1,3,0) e (3,6,2). Responda só os três inteiros separados por vírgulas.\nAssistente:",
+      "esperado": "-21,3,-2",
+      "criterio": "short",
+      "resposta": "-12",
+      "respostas": [
+        "-12"
+      ],
+      "correta": false,
+      "avisos": [
+        ""
+      ],
+      "prompt_no_treino": false
+    }
+  ]
+}

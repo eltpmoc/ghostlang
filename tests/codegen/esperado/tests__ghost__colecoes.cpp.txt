@@ -1,0 +1,694 @@
+#line 8 "tests/ghost/colecoes.g"
+#line 37 "tests/ghost/colecoes.g"
+#line 38 "tests/ghost/colecoes.g"
+#line 14 "tests/ghost/colecoes.g"
+#line 15 "tests/ghost/colecoes.g"
+#line 16 "tests/ghost/colecoes.g"
+#line 17 "tests/ghost/colecoes.g"
+#line 20 "tests/ghost/colecoes.g"
+#line 25 "tests/ghost/colecoes.g"
+#line 26 "tests/ghost/colecoes.g"
+#line 27 "tests/ghost/colecoes.g"
+#line 29 "tests/ghost/colecoes.g"
+#line 44 "tests/ghost/colecoes.g"
+#line 49 "tests/ghost/colecoes.g"
+#line 50 "tests/ghost/colecoes.g"
+#line 51 "tests/ghost/colecoes.g"
+#line 52 "tests/ghost/colecoes.g"
+#line 53 "tests/ghost/colecoes.g"
+#line 54 "tests/ghost/colecoes.g"
+#line 55 "tests/ghost/colecoes.g"
+#line 56 "tests/ghost/colecoes.g"
+#line 57 "tests/ghost/colecoes.g"
+#line 58 "tests/ghost/colecoes.g"
+#line 59 "tests/ghost/colecoes.g"
+#line 60 "tests/ghost/colecoes.g"
+#line 61 "tests/ghost/colecoes.g"
+#line 66 "tests/ghost/colecoes.g"
+#line 67 "tests/ghost/colecoes.g"
+#line 68 "tests/ghost/colecoes.g"
+#line 69 "tests/ghost/colecoes.g"
+#line 70 "tests/ghost/colecoes.g"
+#line 71 "tests/ghost/colecoes.g"
+#line 72 "tests/ghost/colecoes.g"
+#line 73 "tests/ghost/colecoes.g"
+#line 74 "tests/ghost/colecoes.g"
+#line 75 "tests/ghost/colecoes.g"
+#line 76 "tests/ghost/colecoes.g"
+#line 77 "tests/ghost/colecoes.g"
+#line 78 "tests/ghost/colecoes.g"
+#line 79 "tests/ghost/colecoes.g"
+#line 80 "tests/ghost/colecoes.g"
+#line 81 "tests/ghost/colecoes.g"
+#line 82 "tests/ghost/colecoes.g"
+#line 83 "tests/ghost/colecoes.g"
+#line 84 "tests/ghost/colecoes.g"
+#line 85 "tests/ghost/colecoes.g"
+#line 86 "tests/ghost/colecoes.g"
+#line 87 "tests/ghost/colecoes.g"
+#line 88 "tests/ghost/colecoes.g"
+#line 89 "tests/ghost/colecoes.g"
+#line 94 "tests/ghost/colecoes.g"
+#line 95 "tests/ghost/colecoes.g"
+#line 96 "tests/ghost/colecoes.g"
+#line 97 "tests/ghost/colecoes.g"
+#line 98 "tests/ghost/colecoes.g"
+#line 99 "tests/ghost/colecoes.g"
+#line 100 "tests/ghost/colecoes.g"
+#line 101 "tests/ghost/colecoes.g"
+#line 102 "tests/ghost/colecoes.g"
+#line 103 "tests/ghost/colecoes.g"
+#line 104 "tests/ghost/colecoes.g"
+#line 105 "tests/ghost/colecoes.g"
+#line 106 "tests/ghost/colecoes.g"
+#line 107 "tests/ghost/colecoes.g"
+#line 108 "tests/ghost/colecoes.g"
+#line 109 "tests/ghost/colecoes.g"
+#line 110 "tests/ghost/colecoes.g"
+#line 111 "tests/ghost/colecoes.g"
+#line 112 "tests/ghost/colecoes.g"
+#line 113 "tests/ghost/colecoes.g"
+#line 114 "tests/ghost/colecoes.g"
+#line 115 "tests/ghost/colecoes.g"
+#line 116 "tests/ghost/colecoes.g"
+#line 117 "tests/ghost/colecoes.g"
+#line 118 "tests/ghost/colecoes.g"
+#line 119 "tests/ghost/colecoes.g"
+#line 121 "tests/ghost/colecoes.g"
+#line 122 "tests/ghost/colecoes.g"
+#line 127 "tests/ghost/colecoes.g"
+#line 132 "tests/ghost/colecoes.g"
+#line 133 "tests/ghost/colecoes.g"
+#line 134 "tests/ghost/colecoes.g"
+#line 135 "tests/ghost/colecoes.g"
+#line 136 "tests/ghost/colecoes.g"
+#line 137 "tests/ghost/colecoes.g"
+#line 138 "tests/ghost/colecoes.g"
+#line 140 "tests/ghost/colecoes.g"
+#line 141 "tests/ghost/colecoes.g"
+#line 142 "tests/ghost/colecoes.g"
+#line 4 "tests/ghost/colecoes.g"
+#line 13 "tests/ghost/colecoes.g"
+#line 24 "tests/ghost/colecoes.g"
+#line 33 "tests/ghost/colecoes.g"
+#line 43 "tests/ghost/colecoes.g"
+#line 48 "tests/ghost/colecoes.g"
+#line 65 "tests/ghost/colecoes.g"
+#line 93 "tests/ghost/colecoes.g"
+#line 126 "tests/ghost/colecoes.g"
+#line 131 "tests/ghost/colecoes.g"
+----
+/*TranspiladopeloGhostCompilerv1.0*/#include<iostream>#include<cstdio>#include<cstdlib>#include<string>#include<complex>#include<type_traits>#include<fstream>#include<sstream>#include<thread>#include<chrono>#include<mutex>#include"include/GhostNumberG.hpp"#include"include/GhostMatrix.hpp"#include"include/GhostLLM.hpp"#include"include/GhostLib.hpp"#include"include/GhostDevice.hpp"#include"include/GhostTextModel.hpp"#include"include/GhostWeb.hpp"#include"include/GhostKnowledge.hpp"#include"include/GhostTemporal.hpp"#include"include/GhostTransformer.hpp"#include"include/GhostTransformerG.hpp"#include"include/GhostMatrixG.hpp"#include"include/GhostQuantum.hpp"#include"include/GhostQML.hpp"#include"include/GhostHybrid.hpp"#include"include/GhostQTape.hpp"#include"include/GhostCore.hpp"#ifdef_WIN32#include<windows.h>#endifclassPonto;
+classTurma;
+GhostSet<int>divisores(intn);
+intsomaDe(GhostSet<int>s);
+GhostList<int>quadradosPares(intn);
+voidformatos();
+voidconjuntos();
+voidcompreensoes();
+GhostList<int>quadradosPares2(intn);
+voidghost_main();
+classTurma{
+public:GhostSet<std::string>alunos{
+}
+;
+virtualboolmatricular(std::stringnome){
+returnalunos.add(nome);
+}
+}
+;
+classPonto{
+public:doublex{
+}
+;
+doubley{
+}
+;
+Ponto(doublex=0,doubley=0){
+(*this).x=x;
+(*this).y=y;
+}
+}
+;
+GhostSet<int>divisores(intn){
+GhostSet<int>r{
+}
+;
+for(intd=1;
+d<=n;
+d++){
+if(n%d==0){
+r.add(d);
+}
+}
+returnr;
+}
+intsomaDe(GhostSet<int>s){
+intt=0;
+for(auto&x:s){
+t+=x;
+}
+returnt;
+}
+GhostList<int>quadradosPares(intn){
+return([&](){
+auto&&ghost_src_1=ghost_iter(range(n));
+autoghost_fx_1=[&](autok){
+returnk*k;
+}
+;
+autoghost_fc_1=[&](autok){
+returnstatic_cast<bool>(k%2==0);
+}
+;
+GhostList<std::decay_t<decltype(ghost_fx_1(*std::begin(ghost_src_1)))>>ghost_out_1;
+for(constauto&k:ghost_src_1){
+if(ghost_fc_1(k))ghost_collect(ghost_out_1,ghost_fx_1(k));
+}
+returnghost_out_1;
+}
+());
+}
+voidformatos(){
+doublepi=3.14159265;
+intn=1234567;
+std::stringnome=std::string("Ana");
+boolok=true;
+GhostList<int>xs=GhostList<int>{
+1,2,3}
+;
+std::cout<<ghost_show(ghost_fstr(std::string("["),ghost_fmt((pi),".2f"),std::string("] ["),ghost_fmt((pi),"10.3f"),std::string("] ["),ghost_fmt((pi),"<10.1f"),std::string("] ["),ghost_fmt((pi),"^10.2f"),std::string("] ["),ghost_fmt((pi),"*>9.1f"),std::string("]")))<<std::endl;
+std::cout<<ghost_show(ghost_fstr(std::string("["),ghost_fmt((n),","),std::string("] ["),ghost_fmt((n),",d"),std::string("] ["),ghost_fmt((n),"12,"),std::string("] ["),ghost_fmt((-n),"+,"),std::string("] ["),ghost_fmt((n),"+d"),std::string("] ["),ghost_fmt((42),"05d"),std::string("] ["),ghost_fmt((-42),"06d"),std::string("]")))<<std::endl;
+std::cout<<ghost_show(ghost_fstr(std::string("["),ghost_fmt((pi),"e"),std::string("] ["),ghost_fmt((pi),".3e"),std::string("] ["),ghost_fmt((pi*1000000),".2E"),std::string("] ["),ghost_fmt((pi),"g"),std::string("] ["),ghost_fmt((pi),".3"),std::string("] ["),ghost_fmt((0.000012345),".3g"),std::string("]")))<<std::endl;
+std::cout<<ghost_show(ghost_fstr(std::string("["),ghost_fmt((255),"x"),std::string("] ["),ghost_fmt((255),"X"),std::string("] ["),ghost_fmt((8),"o"),std::string("] ["),ghost_fmt((5),"b"),std::string("] ["),ghost_fmt((-10),"x"),std::string("] ["),ghost_fmt((0.256),".1%"),std::string("] ["),ghost_fmt((1),"%"),std::string("]")))<<std::endl;
+std::cout<<ghost_show(ghost_fstr(std::string("["),ghost_fmt((nome),">6"),std::string("] ["),ghost_fmt((nome),"<6"),std::string("] ["),ghost_fmt((nome),"^7"),std::string("] ["),ghost_fmt((nome),".2"),std::string("] ["),ghost_fmt((nome),"-^9"),std::string("] ["),ghost_fmt((std::string("ação")),">6"),std::string("] ["),ghost_fmt((std::string("coração")),".3"),std::string("]")))<<std::endl;
+std::cout<<ghost_show(ghost_fstr(std::string("["),(ok),std::string("] ["),ghost_fmt((ok),">6"),std::string("] ["),ghost_fmt((ok),"d"),std::string("] ["),(xs),std::string("] ["),ghost_fmt((xs),">12"),std::string("] ["),(n%2==0?std::string("par"):std::string("impar")),std::string("] ["),ghost_fmt((n>0?pi:0.0),".1f"),std::string("]")))<<std::endl;
+std::cout<<ghost_show(ghost_fstr(std::string("["),ghost_fmt((pi*2),".4f"),std::string("] ["),ghost_fmt((n/1000),"d"),std::string("] ["),ghost_fmt((7/2.0),".0f"),std::string("] ["),ghost_fmt((2.5),".0f"),std::string("] ["),ghost_fmt((-0.001),".2f"),std::string("] ["),ghost_fmt((1e20),",.0f"),std::string("]")))<<std::endl;
+std::cout<<ghost_show(ghost_fstr(std::string("preco: R$ "),ghost_fmt((19.9),".2f"),std::string(" | "),ghost_fmt((12),"3d"),std::string("% | "),(3.0),std::string(" | "),ghost_fmt((3),".1f")))<<std::endl;
+}
+voidconjuntos(){
+GhostSet<int>a=GhostSet<int>{
+5,1,3,3,1}
+;
+GhostSet<int>b=GhostSet<int>{
+3,4,5,6}
+;
+GhostSet<std::string>cores=GhostSet<std::string>{
+std::string("verde"),std::string("azul"),std::string("verde"),std::string("amarelo")}
+;
+GhostSet<double>d=GhostSet<double>{
+2.5,1,2.5}
+;
+GhostSet<int>vazio{
+}
+;
+std::cout<<ghost_show(a)<<ghost_show(std::string(" "))<<ghost_show(b)<<ghost_show(std::string(" "))<<ghost_show(cores)<<ghost_show(std::string(" "))<<ghost_show(d)<<ghost_show(std::string(" "))<<ghost_show(vazio)<<ghost_show(std::string(" "))<<ghost_show(a.length())<<ghost_show(std::string(" "))<<ghost_show(len(cores))<<std::endl;
+std::cout<<ghost_show(a.union_(b))<<ghost_show(std::string(" "))<<ghost_show(a.intersection(b))<<ghost_show(std::string(" "))<<ghost_show(a.difference(b))<<ghost_show(std::string(" "))<<ghost_show(b.difference(a))<<std::endl;
+std::cout<<ghost_show(a.contains(3))<<ghost_show(std::string(" "))<<ghost_show(a.contains(4))<<ghost_show(std::string(" "))<<ghost_show(cores.has(std::string("azul")))<<ghost_show(std::string(" "))<<ghost_show(vazio.empty())<<std::endl;
+std::cout<<ghost_show(a.add(7))<<ghost_show(std::string(" "))<<ghost_show(a.add(7))<<ghost_show(std::string(" "))<<ghost_show(a.remove(1))<<ghost_show(std::string(" "))<<ghost_show(a.remove(100))<<ghost_show(std::string(" "))<<ghost_show(a)<<std::endl;
+GhostSet<int>pequeno=GhostSet<int>{
+3,5}
+;
+std::cout<<ghost_show(pequeno.is_subset(a))<<ghost_show(std::string(" "))<<ghost_show(a.is_superset(pequeno))<<ghost_show(std::string(" "))<<ghost_show(b.is_subset(a))<<ghost_show(std::string(" "))<<ghost_show(a.min())<<ghost_show(std::string(" "))<<ghost_show(a.max())<<std::endl;
+GhostList<int>lista=a.to_list();
+lista.push(0);
+std::cout<<ghost_show(lista)<<ghost_show(std::string(" "))<<ghost_show(divisores(12))<<ghost_show(std::string(" "))<<ghost_show(somaDe(divisores(12)))<<ghost_show(std::string(" "))<<ghost_show(divisores(13))<<std::endl;
+GhostSet<int>semRepetir=ghost_to_set(GhostSet<int>{
+4,4,2,9,2}
+);
+std::cout<<ghost_show(semRepetir)<<ghost_show(std::string(" "))<<ghost_show(std::string("texto ")+cores)<<ghost_show(std::string(" "))<<ghost_show(str(b))<<ghost_show(std::string(" "))<<ghost_show(ghost_fstr((a)))<<std::endl;
+Turmat{
+}
+;
+std::cout<<ghost_show(t.matricular(std::string("Bia")))<<ghost_show(std::string(" "))<<ghost_show(t.matricular(std::string("Ana")))<<ghost_show(std::string(" "))<<ghost_show(t.matricular(std::string("Bia")))<<ghost_show(std::string(" "))<<ghost_show(t.alunos)<<std::endl;
+GhostSet<int>copia=a;
+copia.add(99);
+std::cout<<ghost_show(a.contains(99))<<ghost_show(std::string(" "))<<ghost_show(copia.contains(99))<<ghost_show(std::string(" "))<<ghost_show(a==copia)<<ghost_show(std::string(" "))<<ghost_show(a==a)<<std::endl;
+vazio.add(2);
+vazio.clear();
+std::cout<<ghost_show(vazio)<<ghost_show(std::string(" "))<<ghost_show(vazio.length())<<std::endl;
+}
+voidcompreensoes(){
+GhostList<int>xs=GhostList<int>{
+1,2,3,4,5,6}
+;
+std::cout<<ghost_show(([&](){
+auto&&ghost_src_2=ghost_iter(xs);
+autoghost_fx_2=[&](autox){
+returnx*2;
+}
+;
+GhostList<std::decay_t<decltype(ghost_fx_2(*std::begin(ghost_src_2)))>>ghost_out_2;
+for(constauto&x:ghost_src_2){
+ghost_collect(ghost_out_2,ghost_fx_2(x));
+}
+returnghost_out_2;
+}
+()))<<std::endl;
+std::cout<<ghost_show(([&](){
+auto&&ghost_src_3=ghost_iter(xs);
+autoghost_fx_3=[&](autox){
+returnx;
+}
+;
+autoghost_fc_3=[&](autox){
+returnstatic_cast<bool>(x%2==1);
+}
+;
+GhostList<std::decay_t<decltype(ghost_fx_3(*std::begin(ghost_src_3)))>>ghost_out_3;
+for(constauto&x:ghost_src_3){
+if(ghost_fc_3(x))ghost_collect(ghost_out_3,ghost_fx_3(x));
+}
+returnghost_out_3;
+}
+()))<<ghost_show(std::string(" "))<<ghost_show(quadradosPares(7))<<std::endl;
+GhostList<double>metades=([&](){
+auto&&ghost_src_4=ghost_iter(xs);
+autoghost_fx_4=[&](autox){
+returnx/2.0;
+}
+;
+GhostList<double>ghost_out_4;
+for(constauto&x:ghost_src_4){
+ghost_collect(ghost_out_4,ghost_fx_4(x));
+}
+returnghost_out_4;
+}
+());
+std::cout<<ghost_show(metades)<<ghost_show(std::string(" "))<<ghost_show(([&](){
+auto&&ghost_src_5=ghost_iter(xs);
+autoghost_fx_5=[&](autox){
+returnx>3;
+}
+;
+GhostList<std::decay_t<decltype(ghost_fx_5(*std::begin(ghost_src_5)))>>ghost_out_5;
+for(constauto&x:ghost_src_5){
+ghost_collect(ghost_out_5,ghost_fx_5(x));
+}
+returnghost_out_5;
+}
+()))<<std::endl;
+GhostList<std::string>nomes=GhostList<std::string>{
+std::string("ana"),std::string("bruno"),std::string("carla")}
+;
+std::cout<<ghost_show(([&](){
+auto&&ghost_src_6=ghost_iter(nomes);
+autoghost_fx_6=[&](auton){
+returnn+std::string("!");
+}
+;
+GhostList<std::decay_t<decltype(ghost_fx_6(*std::begin(ghost_src_6)))>>ghost_out_6;
+for(constauto&n:ghost_src_6){
+ghost_collect(ghost_out_6,ghost_fx_6(n));
+}
+returnghost_out_6;
+}
+()))<<ghost_show(std::string(" "))<<ghost_show(([&](){
+auto&&ghost_src_7=ghost_iter(nomes);
+autoghost_fx_7=[&](auton){
+returnlen(n);
+}
+;
+autoghost_fc_7=[&](auton){
+returnstatic_cast<bool>(n!=std::string("bruno"));
+}
+;
+GhostList<std::decay_t<decltype(ghost_fx_7(*std::begin(ghost_src_7)))>>ghost_out_7;
+for(constauto&n:ghost_src_7){
+if(ghost_fc_7(n))ghost_collect(ghost_out_7,ghost_fx_7(n));
+}
+returnghost_out_7;
+}
+()))<<std::endl;
+std::cout<<ghost_show(([&](){
+auto&&ghost_src_8=ghost_iter(nomes);
+autoghost_fx_8=[&](auton){
+returnstd::string("${n}!");
+}
+;
+GhostList<std::decay_t<decltype(ghost_fx_8(*std::begin(ghost_src_8)))>>ghost_out_8;
+for(constauto&n:ghost_src_8){
+ghost_collect(ghost_out_8,ghost_fx_8(n));
+}
+returnghost_out_8;
+}
+()))<<ghost_show(std::string(" "))<<ghost_show(([&](){
+auto&&ghost_src_9=ghost_iter(nomes);
+autoghost_fx_9=[&](auton){
+returnghost_fstr((n),std::string("="),(len(n)));
+}
+;
+GhostList<std::decay_t<decltype(ghost_fx_9(*std::begin(ghost_src_9)))>>ghost_out_9;
+for(constauto&n:ghost_src_9){
+ghost_collect(ghost_out_9,ghost_fx_9(n));
+}
+returnghost_out_9;
+}
+()))<<std::endl;
+GhostSet<int>restos=([&](){
+auto&&ghost_src_10=ghost_iter(xs);
+autoghost_fx_10=[&](autox){
+returnx%3;
+}
+;
+GhostSet<int>ghost_out_10;
+for(constauto&x:ghost_src_10){
+ghost_collect(ghost_out_10,ghost_fx_10(x));
+}
+returnghost_out_10;
+}
+());
+std::cout<<ghost_show(restos)<<ghost_show(std::string(" "))<<ghost_show(([&](){
+auto&&ghost_src_11=ghost_iter(restos);
+autoghost_fx_11=[&](autor){
+returnr*10;
+}
+;
+GhostList<std::decay_t<decltype(ghost_fx_11(*std::begin(ghost_src_11)))>>ghost_out_11;
+for(constauto&r:ghost_src_11){
+ghost_collect(ghost_out_11,ghost_fx_11(r));
+}
+returnghost_out_11;
+}
+()))<<std::endl;
+GhostMap<std::string,int>idades=GhostMap<std::string,int>{
+{
+std::string("ana"),30}
+,{
+std::string("bia"),25}
+,{
+std::string("caio"),41}
+}
+;
+std::cout<<ghost_show(([&](){
+auto&&ghost_src_12=ghost_iter(idades);
+autoghost_fx_12=[&](autok){
+returnk;
+}
+;
+autoghost_fc_12=[&](autok){
+returnstatic_cast<bool>(idades[k]>28);
+}
+;
+GhostList<std::decay_t<decltype(ghost_fx_12(*std::begin(ghost_src_12)))>>ghost_out_12;
+for(constauto&k:ghost_src_12){
+if(ghost_fc_12(k))ghost_collect(ghost_out_12,ghost_fx_12(k));
+}
+returnghost_out_12;
+}
+()))<<ghost_show(std::string(" "))<<ghost_show(([&](){
+auto&&ghost_src_13=ghost_iter(idades);
+autoghost_fx_13=[&](autok){
+returnidades[k];
+}
+;
+GhostList<std::decay_t<decltype(ghost_fx_13(*std::begin(ghost_src_13)))>>ghost_out_13;
+for(constauto&k:ghost_src_13){
+ghost_collect(ghost_out_13,ghost_fx_13(k));
+}
+returnghost_out_13;
+}
+()))<<std::endl;
+std::cout<<ghost_show(([&](){
+auto&&ghost_src_14=ghost_iter(std::string("ghost"));
+autoghost_fx_14=[&](autoc){
+returnc;
+}
+;
+autoghost_fc_14=[&](autoc){
+returnstatic_cast<bool>(c!=std::string("h"));
+}
+;
+GhostList<std::decay_t<decltype(ghost_fx_14(*std::begin(ghost_src_14)))>>ghost_out_14;
+for(constauto&c:ghost_src_14){
+if(ghost_fc_14(c))ghost_collect(ghost_out_14,ghost_fx_14(c));
+}
+returnghost_out_14;
+}
+()))<<std::endl;
+GhostList<GhostList<int>>tabela=([&](){
+auto&&ghost_src_16=ghost_iter(range(1,4));
+autoghost_fx_16=[&](autoi){
+return([&](){
+auto&&ghost_src_15=ghost_iter(range(1,4));
+autoghost_fx_15=[&](autoj){
+returni*j;
+}
+;
+GhostList<std::decay_t<decltype(ghost_fx_15(*std::begin(ghost_src_15)))>>ghost_out_15;
+for(constauto&j:ghost_src_15){
+ghost_collect(ghost_out_15,ghost_fx_15(j));
+}
+returnghost_out_15;
+}
+());
+}
+;
+GhostList<GhostList<int>>ghost_out_16;
+for(constauto&i:ghost_src_16){
+ghost_collect(ghost_out_16,ghost_fx_16(i));
+}
+returnghost_out_16;
+}
+());
+std::cout<<ghost_show(tabela)<<ghost_show(std::string(" "))<<ghost_show(([&](){
+auto&&ghost_src_17=ghost_iter(tabela);
+autoghost_fx_17=[&](autolinha){
+returnlinha.sum();
+}
+;
+GhostList<std::decay_t<decltype(ghost_fx_17(*std::begin(ghost_src_17)))>>ghost_out_17;
+for(constauto&linha:ghost_src_17){
+ghost_collect(ghost_out_17,ghost_fx_17(linha));
+}
+returnghost_out_17;
+}
+()))<<std::endl;
+GhostList<Ponto>pts=([&](){
+auto&&ghost_src_18=ghost_iter(range(4));
+autoghost_fx_18=[&](autoi){
+returnPonto(i,i*i);
+}
+;
+GhostList<Ponto>ghost_out_18;
+for(constauto&i:ghost_src_18){
+ghost_collect(ghost_out_18,ghost_fx_18(i));
+}
+returnghost_out_18;
+}
+());
+std::cout<<ghost_show(([&](){
+auto&&ghost_src_19=ghost_iter(pts);
+autoghost_fx_19=[&](autop){
+returnp.y;
+}
+;
+autoghost_fc_19=[&](autop){
+returnstatic_cast<bool>(p.x>0);
+}
+;
+GhostList<std::decay_t<decltype(ghost_fx_19(*std::begin(ghost_src_19)))>>ghost_out_19;
+for(constauto&p:ghost_src_19){
+if(ghost_fc_19(p))ghost_collect(ghost_out_19,ghost_fx_19(p));
+}
+returnghost_out_19;
+}
+()))<<std::endl;
+intlimite=4;
+std::cout<<ghost_show(([&](){
+auto&&ghost_src_20=ghost_iter(xs);
+autoghost_fx_20=[&](autox){
+returnx;
+}
+;
+autoghost_fc_20=[&](autox){
+returnstatic_cast<bool>(x<limite&&x!=2);
+}
+;
+GhostList<std::decay_t<decltype(ghost_fx_20(*std::begin(ghost_src_20)))>>ghost_out_20;
+for(constauto&x:ghost_src_20){
+if(ghost_fc_20(x))ghost_collect(ghost_out_20,ghost_fx_20(x));
+}
+returnghost_out_20;
+}
+()))<<ghost_show(std::string(" "))<<ghost_show(([&](){
+auto&&ghost_src_21=ghost_iter(ghost_list(10,20));
+autoghost_fx_21=[&](autox){
+returnx+limite;
+}
+;
+GhostList<std::decay_t<decltype(ghost_fx_21(*std::begin(ghost_src_21)))>>ghost_out_21;
+for(constauto&x:ghost_src_21){
+ghost_collect(ghost_out_21,ghost_fx_21(x));
+}
+returnghost_out_21;
+}
+()))<<std::endl;
+std::cout<<ghost_show(len(([&](){
+auto&&ghost_src_22=ghost_iter(xs);
+autoghost_fx_22=[&](autox){
+returnx;
+}
+;
+autoghost_fc_22=[&](autox){
+returnstatic_cast<bool>(x>100);
+}
+;
+GhostList<std::decay_t<decltype(ghost_fx_22(*std::begin(ghost_src_22)))>>ghost_out_22;
+for(constauto&x:ghost_src_22){
+if(ghost_fc_22(x))ghost_collect(ghost_out_22,ghost_fx_22(x));
+}
+returnghost_out_22;
+}
+())))<<ghost_show(std::string(" "))<<ghost_show(([&](){
+auto&&ghost_src_23=ghost_iter(xs);
+autoghost_fx_23=[&](autox){
+returnx;
+}
+;
+GhostList<std::decay_t<decltype(ghost_fx_23(*std::begin(ghost_src_23)))>>ghost_out_23;
+for(constauto&x:ghost_src_23){
+ghost_collect(ghost_out_23,ghost_fx_23(x));
+}
+returnghost_out_23;
+}
+()).length())<<std::endl;
+intx=99;
+GhostList<int>ys=([&](){
+auto&&ghost_src_24=ghost_iter(xs);
+autoghost_fx_24=[&](autox){
+returnx+1;
+}
+;
+GhostList<int>ghost_out_24;
+for(constauto&x:ghost_src_24){
+ghost_collect(ghost_out_24,ghost_fx_24(x));
+}
+returnghost_out_24;
+}
+());
+std::cout<<ghost_show(ys)<<ghost_show(std::string(" x continua "))<<ghost_show(x)<<std::endl;
+doubletotal=0;
+for(auto&v:([&](){
+auto&&ghost_src_25=ghost_iter(xs);
+autoghost_fx_25=[&](autox){
+returnx*1.5;
+}
+;
+autoghost_fc_25=[&](autox){
+returnstatic_cast<bool>(x>4);
+}
+;
+GhostList<std::decay_t<decltype(ghost_fx_25(*std::begin(ghost_src_25)))>>ghost_out_25;
+for(constauto&x:ghost_src_25){
+if(ghost_fc_25(x))ghost_collect(ghost_out_25,ghost_fx_25(x));
+}
+returnghost_out_25;
+}
+())){
+total+=v;
+}
+GhostList<int>qs=([&](){
+auto&&ghost_src_26=ghost_iter(range(3));
+autoghost_fx_26=[&](autox){
+returnx*x;
+}
+;
+GhostList<int>ghost_out_26;
+for(constauto&x:ghost_src_26){
+ghost_collect(ghost_out_26,ghost_fx_26(x));
+}
+returnghost_out_26;
+}
+());
+std::cout<<ghost_show(std::string("total "))<<ghost_show(total)<<ghost_show(std::string(" "))<<ghost_show(ghost_fstr((qs)))<<std::endl;
+}
+GhostList<int>quadradosPares2(intn){
+return([&](){
+auto&&ghost_src_27=ghost_iter(range(n));
+autoghost_fx_27=[&](autox){
+returnx*x;
+}
+;
+autoghost_fc_27=[&](autox){
+returnstatic_cast<bool>(x%2==0);
+}
+;
+GhostList<std::decay_t<decltype(ghost_fx_27(*std::begin(ghost_src_27)))>>ghost_out_27;
+for(constauto&x:ghost_src_27){
+if(ghost_fc_27(x))ghost_collect(ghost_out_27,ghost_fx_27(x));
+}
+returnghost_out_27;
+}
+());
+}
+voidghost_main(){
+std::cout<<ghost_show(std::string("== formatacao em f-strings =="))<<std::endl;
+formatos();
+std::cout<<ghost_show(std::string("== set<T> =="))<<std::endl;
+conjuntos();
+std::cout<<ghost_show(std::string("== compreensoes de lista =="))<<std::endl;
+compreensoes();
+std::cout<<ghost_show(std::string("== compreensao de lista com classe =="))<<std::endl;
+GhostList<int>quadrados=quadradosPares2(5);
+GhostList<Ponto>pontos=([&](){
+auto&&ghost_src_28=ghost_iter(quadrados);
+autoghost_fx_28=[&](autoq){
+returnPonto(q,q*q);
+}
+;
+GhostList<Ponto>ghost_out_28;
+for(constauto&q:ghost_src_28){
+ghost_collect(ghost_out_28,ghost_fx_28(q));
+}
+returnghost_out_28;
+}
+());
+std::cout<<ghost_show(quadrados)<<ghost_show(std::string(" "))<<ghost_show(pontos.length())<<ghost_show(std::string(" "))<<ghost_show(([&](){
+auto&&ghost_src_29=ghost_iter(pontos);
+autoghost_fx_29=[&](autop){
+returnp.x;
+}
+;
+GhostList<std::decay_t<decltype(ghost_fx_29(*std::begin(ghost_src_29)))>>ghost_out_29;
+for(constauto&p:ghost_src_29){
+ghost_collect(ghost_out_29,ghost_fx_29(p));
+}
+returnghost_out_29;
+}
+()))<<ghost_show(std::string(" "))<<ghost_show(([&](){
+auto&&ghost_src_30=ghost_iter(pontos);
+autoghost_fx_30=[&](autop){
+returnp.y;
+}
+;
+GhostList<std::decay_t<decltype(ghost_fx_30(*std::begin(ghost_src_30)))>>ghost_out_30;
+for(constauto&p:ghost_src_30){
+ghost_collect(ghost_out_30,ghost_fx_30(p));
+}
+returnghost_out_30;
+}
+()))<<std::endl;
+}
+intmain(intargc,char**argv){
+try{
+#ifdef_WIN32SetConsoleOutputCP(CP_UTF8);
+SetConsoleCP(CP_UTF8);
+#endifstd::cout<<std::boolalpha;
+std::stringghost_args="";
+std::vector<std::string>ghost_args_vec;
+for(inti=1;
+i<argc;
+++i){
+ghost_args+=argv[i];
+ghost_args_vec.push_back(argv[i]);
+if(i<argc-1)ghost_args+=" ";
+}
+ghost_main();
+return0;
+}
+catch(conststd::exception&e){
+std::cerr<<e.what()<<std::endl;
+return1;
+}
+}

@@ -1,0 +1,6 @@
+int r1 = ghost_gui_message_box("Teste", "Ola GhostGUI", -1);
+int win = ghost_gui_window_create("Janela Ghost", 640, 480);
+ghost_gui_window_show(win);
+ghost_gui_window_close(win);
+print("gui_repl: OK");
+exit

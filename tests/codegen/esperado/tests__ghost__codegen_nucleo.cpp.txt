@@ -1,0 +1,170 @@
+#line 6 "tests/ghost/codegen_nucleo.g"
+#line 7 "tests/ghost/codegen_nucleo.g"
+#line 9 "tests/ghost/codegen_nucleo.g"
+#line 10 "tests/ghost/codegen_nucleo.g"
+#line 10 "tests/ghost/codegen_nucleo.g"
+#line 11 "tests/ghost/codegen_nucleo.g"
+#line 14 "tests/ghost/codegen_nucleo.g"
+#line 15 "tests/ghost/codegen_nucleo.g"
+#line 17 "tests/ghost/codegen_nucleo.g"
+#line 19 "tests/ghost/codegen_nucleo.g"
+#line 21 "tests/ghost/codegen_nucleo.g"
+#line 29 "tests/ghost/codegen_nucleo.g"
+#line 30 "tests/ghost/codegen_nucleo.g"
+#line 31 "tests/ghost/codegen_nucleo.g"
+#line 32 "tests/ghost/codegen_nucleo.g"
+#line 33 "tests/ghost/codegen_nucleo.g"
+#line 34 "tests/ghost/codegen_nucleo.g"
+#line 35 "tests/ghost/codegen_nucleo.g"
+#line 36 "tests/ghost/codegen_nucleo.g"
+#line 37 "tests/ghost/codegen_nucleo.g"
+#line 38 "tests/ghost/codegen_nucleo.g"
+#line 39 "tests/ghost/codegen_nucleo.g"
+#line 40 "tests/ghost/codegen_nucleo.g"
+#line 41 "tests/ghost/codegen_nucleo.g"
+#line 41 "tests/ghost/codegen_nucleo.g"
+#line 42 "tests/ghost/codegen_nucleo.g"
+#line 43 "tests/ghost/codegen_nucleo.g"
+#line 44 "tests/ghost/codegen_nucleo.g"
+#line 44 "tests/ghost/codegen_nucleo.g"
+#line 45 "tests/ghost/codegen_nucleo.g"
+#line 45 "tests/ghost/codegen_nucleo.g"
+#line 47 "tests/ghost/codegen_nucleo.g"
+#line 48 "tests/ghost/codegen_nucleo.g"
+#line 49 "tests/ghost/codegen_nucleo.g"
+#line 50 "tests/ghost/codegen_nucleo.g"
+#line 50 "tests/ghost/codegen_nucleo.g"
+#line 51 "tests/ghost/codegen_nucleo.g"
+#line 52 "tests/ghost/codegen_nucleo.g"
+#line 53 "tests/ghost/codegen_nucleo.g"
+#line 2 "tests/ghost/codegen_nucleo.g"
+#line 3 "tests/ghost/codegen_nucleo.g"
+#line 4 "tests/ghost/codegen_nucleo.g"
+#line 6 "tests/ghost/codegen_nucleo.g"
+#line 7 "tests/ghost/codegen_nucleo.g"
+#line 8 "tests/ghost/codegen_nucleo.g"
+#line 13 "tests/ghost/codegen_nucleo.g"
+#line 25 "tests/ghost/codegen_nucleo.g"
+#line 25 "tests/ghost/codegen_nucleo.g"
+#line 25 "tests/ghost/codegen_nucleo.g"
+#line 26 "tests/ghost/codegen_nucleo.g"
+#line 26 "tests/ghost/codegen_nucleo.g"
+#line 26 "tests/ghost/codegen_nucleo.g"
+#line 26 "tests/ghost/codegen_nucleo.g"
+#line 26 "tests/ghost/codegen_nucleo.g"
+#line 28 "tests/ghost/codegen_nucleo.g"
+----
+/*TranspiladopeloGhostCompilerv1.0*/#include<iostream>#include<cstdio>#include<cstdlib>#include<string>#include<complex>#include<type_traits>#include<fstream>#include<sstream>#include<thread>#include<chrono>#include<mutex>#include"include/GhostNumberG.hpp"#include"include/GhostMatrix.hpp"#include"include/GhostLLM.hpp"#include"include/GhostLib.hpp"#include"include/GhostDevice.hpp"#include"include/GhostTextModel.hpp"#include"include/GhostWeb.hpp"#include"include/GhostKnowledge.hpp"#include"include/GhostTemporal.hpp"#include"include/GhostTransformer.hpp"#include"include/GhostTransformerG.hpp"#include"include/GhostMatrixG.hpp"#include"include/GhostQuantum.hpp"#include"include/GhostQML.hpp"#include"include/GhostHybrid.hpp"#include"include/GhostQTape.hpp"#include"include/GhostCore.hpp"#ifdef_WIN32#include<windows.h>#endifintdobro(intx);
+intaplicar(GhostFn<int(int)>f,intv);
+doublemedia(GhostList<int>xs,doublepeso=1.0);
+std::stringclassificar(intn);
+voidghost_main();
+externinttotal;
+externstd::stringrotulo;
+inttotal;
+std::stringrotulo;
+intdobro(intx){
+returnx*2;
+}
+intaplicar(GhostFn<int(int)>f,intv){
+returnf(v);
+}
+doublemedia(GhostList<int>xs,doublepeso){
+intsoma=0;
+for(auto&x:xs){
+soma+=x;
+}
+returnsoma*peso/len(xs);
+}
+std::stringclassificar(intn){
+if(n<0){
+returnstd::string("negativo");
+}
+elseif(n==0){
+returnstd::string("zero");
+}
+elseif(n<10){
+returnstd::string("pequeno");
+}
+else{
+returnstd::string("grande");
+}
+}
+voidghost_main(){
+std::cout<<ghost_show(rotulo)<<ghost_show(std::string(" "))<<ghost_show(total)<<ghost_show(std::string(" "))<<ghost_show(dobro(21))<<ghost_show(std::string(" "))<<ghost_show(aplicar(ghost_fn_val(dobro),5))<<std::endl;
+GhostList<int>xs=GhostList<int>{
+4,8,15,16,23,42}
+;
+std::cout<<ghost_show(media(xs))<<ghost_show(std::string(" "))<<ghost_show(media(ghost_list(1,2),2.0))<<ghost_show(std::string(" "))<<ghost_show(ghost_slice(xs,GhostSliceArg{
+true,static_cast<longlong>(1),true,static_cast<longlong>(3),false,1}
+))<<ghost_show(std::string(" "))<<ghost_show(ghost_slice(xs,GhostSliceArg{
+false,0,false,0,true,static_cast<longlong>(-2)}
+))<<ghost_show(std::string(" "))<<ghost_show(len(xs))<<std::endl;
+std::cout<<ghost_show(classificar(-3))<<ghost_show(std::string(" "))<<ghost_show(classificar(0))<<ghost_show(std::string(" "))<<ghost_show(classificar(7))<<ghost_show(std::string(" "))<<ghost_show(classificar(99))<<std::endl;
+inta=-ghost_pow(2,2);
+doubleb=ghost_pow(2.0,-1);
+intc=(3+4)*2%5;
+std::cout<<ghost_show(a)<<ghost_show(std::string(" "))<<ghost_show(b)<<ghost_show(std::string(" "))<<ghost_show(c)<<ghost_show(std::string(" "))<<ghost_show(7/2)<<ghost_show(std::string(" "))<<ghost_show((double)7/2)<<ghost_show(std::string(" "))<<ghost_show(a>0?std::string("pos"):std::string("neg"))<<std::endl;
+std::cout<<ghost_show(ghost_fstr(std::string("lista "),(xs),std::string(" | soma "),(dobro(3)+1),std::string(" | media "),ghost_fmt((media(xs)),".2f"),std::string(" | "),(classificar(5))))<<std::endl;
+autounicos=ghost_to_set(ghost_list(3,1,3,2));
+std::cout<<ghost_show(unicos)<<ghost_show(std::string(" "))<<ghost_show(ghost_bool(0))<<ghost_show(std::string(" "))<<ghost_show(ghost_bool(5))<<ghost_show(std::string(" "))<<ghost_show(ghost_to_set(ghost_list(1,1)))<<std::endl;
+intk=0;
+do{
+k++;
+}
+while(k<4);
+while(true){
+k--;
+if(k==2){
+continue;
+}
+if(k<1){
+break;
+}
+}
+GhostMap<std::string,int>m=GhostMap<std::string,int>();
+m[std::string("um")]=1;
+m[std::string("dois")]=2;
+for(auto&[chave,valor]:m){
+std::cout<<ghost_show(chave)<<ghost_show(std::string("="))<<ghost_show(valor)<<std::endl;
+}
+GhostNumberGG=1.5-2.5*ghost_i(1.0)+3.5*ghost_g(1.0);
+std::complex<double>z=2.0+ghost_i(3.0);
+std::cout<<ghost_show(G)<<ghost_show(std::string(" "))<<ghost_show(z)<<ghost_show(std::string(" "))<<ghost_show(k)<<std::endl;
+}
+intmain(intargc,char**argv){
+try{
+#ifdef_WIN32SetConsoleOutputCP(CP_UTF8);
+SetConsoleCP(CP_UTF8);
+#endifstd::cout<<std::boolalpha;
+std::stringghost_args="";
+std::vector<std::string>ghost_args_vec;
+for(inti=1;
+i<argc;
+++i){
+ghost_args+=argv[i];
+ghost_args_vec.push_back(argv[i]);
+if(i<argc-1)ghost_args+=" ";
+}
+total=0;
+rotulo=std::string("inicio");
+autopasso=2;
+for(inti=0;
+i<3;
+i++){
+total+=i*passo;
+}
+if(total>2){
+std::cout<<ghost_show(std::string("total > 2: "))<<ghost_show(total)<<std::endl;
+}
+else{
+std::cout<<ghost_show(std::string("total pequeno"))<<std::endl;
+}
+ghost_main();
+return0;
+}
+catch(conststd::exception&e){
+std::cerr<<e.what()<<std::endl;
+return1;
+}
+}

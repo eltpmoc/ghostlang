@@ -1,0 +1,6 @@
+Hamiltoniano: -1.05237*II + 0.397937*IZ - 0.397937*ZI - 0.0112801*ZZ + 0.180931*XX
+Energia VQE:      -1.85727 Ha
+Referencia exata: -1.857275 Ha
+Otimo exato (forca bruta): 8
+Melhor solucao amostrada:  010101 -> corte 8
+qml_vqe_qaoa: OK

@@ -1,0 +1,62 @@
+# GhostLang - o que NÃO vai para o git (gerado, binário, pesado ou temporário).
+# Fica no repositório: src/, include/, libs/, tests/ (só fontes e saídas esperadas), docs/, dashboard/,
+# scripts/, vscode-ghostlang/, ia_propria/ (código e scripts), CMakeLists.txt.
+
+# ---- builds e binários ----
+/build/
+/build_*/
+/bin/
+*.exe
+*.dll
+*.a
+*.lib
+*.o
+*.obj
+*.pdb
+*.ilk
+*.exp
+*.so
+*.dylib
+*.vsix
+
+# ---- C++ gerado pelo compilador da GhostLang (ghost arquivo.g -o app) ----
+*_temp.cpp
+*.exe_temp.cpp
+
+# ---- cópias de segurança e experimentos locais ----
+backups/
+TestesRealizados/
+scratch/
+temps_phathon/
+logs/
+parse_error.txt
+
+# ---- modelos, pesos e dados grandes ----
+modelo_ia/
+*.gguf
+compiler/
+ia_propria/checkpoints/
+ia_propria/build/
+ia_propria/backups/
+ia_propria/logs/
+ia_propria/v4/dados/
+ia_propria/v5/dados/
+*.bin
+*.bin.ultimo
+
+# ---- editor / sistema ----
+.vs/
+.vscode/*
+!.vscode/extensions.json
+node_modules/
+Thumbs.db
+desktop.ini
+.DS_Store
+
+# ---- caches de ferramentas (clangd etc.) ----
+.cache/
+third_party/openblas/lib/
+
+# ---- pacote portatil gerado e temporarios ----
+dist/
+*.tmp

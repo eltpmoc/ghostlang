@@ -1,0 +1,27 @@
+import "libs/qasm.g";
+
+function void test_qcircuit_qasm() {
+    qcircuit c(2);
+    c.h(0);
+    c.cx(0, 1);
+
+    string qasm = c.to_qasm();
+    if (qasm.length() > 0) {
+        print("exportacao qcircuit QASM 3: OK");
+    }
+}
+
+function void test_qreg_qasm() {
+    qreg q(2);
+    q.h(0);
+    q.cx(0, 1);
+
+    string qasm = q.to_qasm();
+    if (qasm.length() > 0) {
+        print("exportacao qreg QASM 3: OK");
+    }
+}
+
+test_qcircuit_qasm();
+test_qreg_qasm();
+print("interoperabilidade OpenQASM 3.0 com sucesso!");

@@ -1,0 +1,12 @@
+ola mundo. eu sou uma ia escrita em ghostlang.
+eu aprendo com textos. cada texto ensina uma sequencia.
+o modelo aprende a prever o proximo caractere.
+ghostlang possui matrizes e redes neurais.
+uma rede neural aprende ajustando seus pesos.
+os dados de treino ensinam padroes ao modelo.
+o computador executa o treinamento local.
+eu sou uma pequena ia. eu aprendo com exemplos.
+ola mundo. aprender exige dados e avaliacao.
+o texto vira numeros. os numeros viram previsoes.
+treinar uma ia exige paciencia e bons exemplos.
+eu sou uma ia escrita em ghostlang. ola mundo.

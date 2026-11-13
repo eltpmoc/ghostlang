@@ -1,0 +1,17 @@
+Isso significa que agora o nosso ecossistema GhostLang não é só um compilador e servidor web rápido em C++, mas também oferece uma experiência premium de desenvolvimento nas principais IDEs do mercado (VSCode e Antigravity).
+
+Já temos:
+
+Compilador/Interpretador nativo: com inferência de tipos, parser customizado, e biblioteca HTTP.
+Servidor HTTP nativo de altíssima performance: servindo HTML, JSON e pastas públicas inteiras com cache dinâmico!
+Extensão Oficial: com syntax highlight e um tema escuro customizado.
+
+Qual o próximo passo do projeto?
+Gostaria de:
+🧠 Melhorar o motor de IA / Deep Learning: Adicionar otimizadores reais (como o Adam ou SGD) 
+e novas redes neurais nativas para que comandos como optimize façam treinamento de verdade.
+🔌 WebSockets em C++: Implementar a capacidade do servidor HTTP nativo segurar conexões em 
+tempo real para chats e jogos.
+📦 Gerenciador de Pacotes (GhostPM): Para que um programa possa fazer algo como ghost install sqlite 
+e a biblioteca ser instalada automaticamente.
+🧱 Classes (OOP) completas: Criar suporte no compilador para herança e atributos privados/públicos reais.

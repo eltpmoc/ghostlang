@@ -1,0 +1,95 @@
+#line 6 "tests/ghost/qml_kernel.g"
+#line 7 "tests/ghost/qml_kernel.g"
+#line 8 "tests/ghost/qml_kernel.g"
+#line 10 "tests/ghost/qml_kernel.g"
+#line 11 "tests/ghost/qml_kernel.g"
+#line 12 "tests/ghost/qml_kernel.g"
+#line 13 "tests/ghost/qml_kernel.g"
+#line 14 "tests/ghost/qml_kernel.g"
+#line 15 "tests/ghost/qml_kernel.g"
+#line 16 "tests/ghost/qml_kernel.g"
+#line 18 "tests/ghost/qml_kernel.g"
+#line 21 "tests/ghost/qml_kernel.g"
+#line 22 "tests/ghost/qml_kernel.g"
+#line 23 "tests/ghost/qml_kernel.g"
+#line 24 "tests/ghost/qml_kernel.g"
+#line 25 "tests/ghost/qml_kernel.g"
+#line 26 "tests/ghost/qml_kernel.g"
+#line 27 "tests/ghost/qml_kernel.g"
+#line 29 "tests/ghost/qml_kernel.g"
+#line 33 "tests/ghost/qml_kernel.g"
+#line 34 "tests/ghost/qml_kernel.g"
+#line 35 "tests/ghost/qml_kernel.g"
+#line 37 "tests/ghost/qml_kernel.g"
+#line 38 "tests/ghost/qml_kernel.g"
+#line 39 "tests/ghost/qml_kernel.g"
+#line 40 "tests/ghost/qml_kernel.g"
+#line 41 "tests/ghost/qml_kernel.g"
+#line 5 "tests/ghost/qml_kernel.g"
+----
+/*TranspiladopeloGhostCompilerv1.0*/#include<iostream>#include<cstdio>#include<cstdlib>#include<string>#include<complex>#include<type_traits>#include<fstream>#include<sstream>#include<thread>#include<chrono>#include<mutex>#include"include/GhostNumberG.hpp"#include"include/GhostMatrix.hpp"#include"include/GhostLLM.hpp"#include"include/GhostLib.hpp"#include"include/GhostDevice.hpp"#include"include/GhostTextModel.hpp"#include"include/GhostWeb.hpp"#include"include/GhostKnowledge.hpp"#include"include/GhostTemporal.hpp"#include"include/GhostTransformer.hpp"#include"include/GhostTransformerG.hpp"#include"include/GhostMatrixG.hpp"#include"include/GhostQuantum.hpp"#include"include/GhostQML.hpp"#include"include/GhostHybrid.hpp"#include"include/GhostQTape.hpp"#include"include/GhostCore.hpp"#ifdef_WIN32#include<windows.h>#endifvoidghost_main();
+voidghost_main(){
+GhostQCircuitkernel=GhostQCircuit(2);
+kernel.zz_feature_map(1,1.0);
+std::cout<<ghost_show(kernel.draw())<<std::endl;
+for(autoi=0;
+i<6;
+i=i+1){
+for(autoj=0;
+j<6;
+j=j+1){
+doublea=-0.9+0.36*i;
+doubleb=-0.9+0.36*j;
+intclasse=0;
+if(a*b>0){
+classe=1;
+}
+kernel.add_sample(classe,a,b);
+}
+}
+for(autoi=0;
+i<5;
+i=i+1){
+for(autoj=0;
+j<5;
+j=j+1){
+doublea=-0.74+0.375*i;
+doubleb=-0.73+0.375*j;
+intclasse=0;
+if(a*b>0){
+classe=1;
+}
+kernel.add_test(classe,a,b);
+}
+}
+std::cout<<ghost_show(std::string("Matriz de kernel (4 primeiras amostras):"))<<std::endl;
+std::cout<<ghost_show(kernel.kernel_matrix(4))<<std::endl;
+std::cout<<ghost_show(ghost_fstr(std::string("k(x, x) = "),(kernel.kernel(0.3,-0.2,0.3,-0.2)),std::string("   k(x, y) = "),(kernel.kernel(0.3,-0.2,-0.6,0.8))))<<std::endl;
+doubletreino=kernel.kernel_fit(0.001);
+std::cout<<ghost_show(ghost_fstr(std::string("Amostras: "),(kernel.samples()),std::string(" treino, "),(kernel.test_samples()),std::string(" teste")))<<std::endl;
+std::cout<<ghost_show(ghost_fstr(std::string("Acuracia de treino: "),(treino*100.0),std::string("%")))<<std::endl;
+std::cout<<ghost_show(ghost_fstr(std::string("Acuracia de teste:  "),(kernel.kernel_test_accuracy()*100.0),std::string("%")))<<std::endl;
+std::cout<<ghost_show(ghost_fstr(std::string("(0.5, 0.5) -> "),(kernel.kernel_predict(0.5,0.5)),std::string("   (-0.5, 0.5) -> "),(kernel.kernel_predict(-0.5,0.5))))<<std::endl;
+}
+intmain(intargc,char**argv){
+try{
+#ifdef_WIN32SetConsoleOutputCP(CP_UTF8);
+SetConsoleCP(CP_UTF8);
+#endifstd::cout<<std::boolalpha;
+std::stringghost_args="";
+std::vector<std::string>ghost_args_vec;
+for(inti=1;
+i<argc;
+++i){
+ghost_args+=argv[i];
+ghost_args_vec.push_back(argv[i]);
+if(i<argc-1)ghost_args+=" ";
+}
+ghost_main();
+return0;
+}
+catch(conststd::exception&e){
+std::cerr<<e.what()<<std::endl;
+return1;
+}
+}

@@ -1,0 +1,607 @@
+[
+  {
+    "id": "ghostlang",
+    "fonte": "docs/SPEC.md:5",
+    "sha256": "ff63c309d1095840c04186b498715888b2f4ff5cd0f7f3489d6fee1cf6686d1e"
+  },
+  {
+    "id": "ghostlang",
+    "fonte": "ia_propria/v3/GUIA_EXEMPLOS.md:1",
+    "sha256": "06cc446b97eb52b4d1e8450b472ef74b1f3faea5b41b7384ef62b5dbb1007e80"
+  },
+  {
+    "id": "ghostlang",
+    "fonte": "ia_propria/v3/exemplos/ola.g:1",
+    "sha256": "d846b0d9d89dcf2a9bb2d7195546c8e6c3ec15aefde8e64009889820bfbacebd"
+  },
+  {
+    "id": "compilar",
+    "fonte": "src/ghost_compiler.cpp:175",
+    "sha256": "61b0ab5b880ca9422606aefce039e39e5a86250571896e6d2815d08507548717"
+  },
+  {
+    "id": "compilar",
+    "fonte": "ia_propria/v3/GUIA_EXEMPLOS.md:1",
+    "sha256": "06cc446b97eb52b4d1e8450b472ef74b1f3faea5b41b7384ef62b5dbb1007e80"
+  },
+  {
+    "id": "compilar",
+    "fonte": "ia_propria/v3/exemplos/ola.g:1",
+    "sha256": "d846b0d9d89dcf2a9bb2d7195546c8e6c3ec15aefde8e64009889820bfbacebd"
+  },
+  {
+    "id": "criada",
+    "fonte": "ia_propria/v3/src/main.g:13",
+    "sha256": "c3295064e65ec2e67b3a7755daaeb74ef9a12fe5f5b8078a1169cb238c3e5a8d"
+  },
+  {
+    "id": "textmodel",
+    "fonte": "include/GhostTextModel.hpp:32",
+    "sha256": "724c7b8519a2fe6a9d6a7cbe72c959a6a1fab08129f8184fda197cfa26ad0e26"
+  },
+  {
+    "id": "textmodel",
+    "fonte": "ia_propria/v3/GUIA_EXEMPLOS.md:1",
+    "sha256": "06cc446b97eb52b4d1e8450b472ef74b1f3faea5b41b7384ef62b5dbb1007e80"
+  },
+  {
+    "id": "textmodel",
+    "fonte": "ia_propria/v3/exemplos/textmodel.g:1",
+    "sha256": "516750e2ab335a77430a5f27fdaa088d3de06d206134fd4f9903ad6c047fcb93"
+  },
+  {
+    "id": "arquitetura",
+    "fonte": "src/GhostTextModel.cpp:243",
+    "sha256": "9a87814fea9dcaf5901c22e0212f481a948ed794a0408772beafc69524e36b47"
+  },
+  {
+    "id": "arquitetura",
+    "fonte": "ia_propria/v3/GUIA_EXEMPLOS.md:1",
+    "sha256": "06cc446b97eb52b4d1e8450b472ef74b1f3faea5b41b7384ef62b5dbb1007e80"
+  },
+  {
+    "id": "arquitetura",
+    "fonte": "ia_propria/v3/exemplos/textmodel.g:1",
+    "sha256": "516750e2ab335a77430a5f27fdaa088d3de06d206134fd4f9903ad6c047fcb93"
+  },
+  {
+    "id": "treinar",
+    "fonte": "include/GhostTextModel.hpp:16",
+    "sha256": "724c7b8519a2fe6a9d6a7cbe72c959a6a1fab08129f8184fda197cfa26ad0e26"
+  },
+  {
+    "id": "treinar",
+    "fonte": "ia_propria/v3/GUIA_EXEMPLOS.md:1",
+    "sha256": "06cc446b97eb52b4d1e8450b472ef74b1f3faea5b41b7384ef62b5dbb1007e80"
+  },
+  {
+    "id": "treinar",
+    "fonte": "ia_propria/v3/exemplos/textmodel.g:1",
+    "sha256": "516750e2ab335a77430a5f27fdaa088d3de06d206134fd4f9903ad6c047fcb93"
+  },
+  {
+    "id": "checkpoint",
+    "fonte": "src/GhostTextModel.cpp:446",
+    "sha256": "9a87814fea9dcaf5901c22e0212f481a948ed794a0408772beafc69524e36b47"
+  },
+  {
+    "id": "auto",
+    "fonte": "src/GhostDevice.cpp:17",
+    "sha256": "6c66cb74f2590ff45a8d0357a28ebd9381b9adb2ee1d3bfc09cedc07918084e0"
+  },
+  {
+    "id": "auto",
+    "fonte": "ia_propria/v3/GUIA_EXEMPLOS.md:1",
+    "sha256": "06cc446b97eb52b4d1e8450b472ef74b1f3faea5b41b7384ef62b5dbb1007e80"
+  },
+  {
+    "id": "auto",
+    "fonte": "ia_propria/v3/exemplos/cuda.g:1",
+    "sha256": "388f7be58b2bf9affcadc23d4c90131bfb7f3c3a35573960e50b776d2736807a"
+  },
+  {
+    "id": "cpu",
+    "fonte": "ia_propria/scripts/ia_v3.sh:5",
+    "sha256": "c66c11f249e0d1a9416436b940b1aad884d941657e810319fb5a31de27d43958"
+  },
+  {
+    "id": "cpu",
+    "fonte": "ia_propria/v3/GUIA_EXEMPLOS.md:1",
+    "sha256": "06cc446b97eb52b4d1e8450b472ef74b1f3faea5b41b7384ef62b5dbb1007e80"
+  },
+  {
+    "id": "cpu",
+    "fonte": "ia_propria/v3/exemplos/cuda.g:1",
+    "sha256": "388f7be58b2bf9affcadc23d4c90131bfb7f3c3a35573960e50b776d2736807a"
+  },
+  {
+    "id": "cuda",
+    "fonte": "src/Parser.cpp:667",
+    "sha256": "acc589da25761ac15ada6e8195c4fcadddf1d87400f9176615d027176e1be1be"
+  },
+  {
+    "id": "cuda",
+    "fonte": "ia_propria/v3/GUIA_EXEMPLOS.md:1",
+    "sha256": "06cc446b97eb52b4d1e8450b472ef74b1f3faea5b41b7384ef62b5dbb1007e80"
+  },
+  {
+    "id": "cuda",
+    "fonte": "ia_propria/v3/exemplos/cuda.g:1",
+    "sha256": "388f7be58b2bf9affcadc23d4c90131bfb7f3c3a35573960e50b776d2736807a"
+  },
+  {
+    "id": "intel",
+    "fonte": "src/GhostCuda.cu:40",
+    "sha256": "1efec944fae551f13520f27e09e9baa8b6399a4bf94d9f016b7794fd08948075"
+  },
+  {
+    "id": "gpu_escopo",
+    "fonte": "src/GhostTextCuda.cu:136",
+    "sha256": "cfd8f3891593f2067448db5bf74f0f97cf6a2562cc3bc882d55ff6ee967e5d6a"
+  },
+  {
+    "id": "gpu_escopo",
+    "fonte": "ia_propria/v3/GUIA_EXEMPLOS.md:1",
+    "sha256": "06cc446b97eb52b4d1e8450b472ef74b1f3faea5b41b7384ef62b5dbb1007e80"
+  },
+  {
+    "id": "gpu_escopo",
+    "fonte": "ia_propria/v3/exemplos/cuda.g:1",
+    "sha256": "388f7be58b2bf9affcadc23d4c90131bfb7f3c3a35573960e50b776d2736807a"
+  },
+  {
+    "id": "state",
+    "fonte": "src/Parser.cpp:33",
+    "sha256": "acc589da25761ac15ada6e8195c4fcadddf1d87400f9176615d027176e1be1be"
+  },
+  {
+    "id": "state",
+    "fonte": "ia_propria/v3/GUIA_EXEMPLOS.md:1",
+    "sha256": "06cc446b97eb52b4d1e8450b472ef74b1f3faea5b41b7384ef62b5dbb1007e80"
+  },
+  {
+    "id": "state",
+    "fonte": "ia_propria/v3/exemplos/matrizes.g:1",
+    "sha256": "c318f8396f610ceaa9be13fe1bdc6d09fd360550fc5a5b24b43cdaedd085d45b"
+  },
+  {
+    "id": "gate",
+    "fonte": "src/Parser.cpp:87",
+    "sha256": "acc589da25761ac15ada6e8195c4fcadddf1d87400f9176615d027176e1be1be"
+  },
+  {
+    "id": "gate",
+    "fonte": "ia_propria/v3/GUIA_EXEMPLOS.md:1",
+    "sha256": "06cc446b97eb52b4d1e8450b472ef74b1f3faea5b41b7384ef62b5dbb1007e80"
+  },
+  {
+    "id": "gate",
+    "fonte": "ia_propria/v3/exemplos/matrizes.g:1",
+    "sha256": "c318f8396f610ceaa9be13fe1bdc6d09fd360550fc5a5b24b43cdaedd085d45b"
+  },
+  {
+    "id": "network",
+    "fonte": "src/Parser.cpp:461",
+    "sha256": "acc589da25761ac15ada6e8195c4fcadddf1d87400f9176615d027176e1be1be"
+  },
+  {
+    "id": "matmul",
+    "fonte": "src/GhostCuda.cu:58",
+    "sha256": "1efec944fae551f13520f27e09e9baa8b6399a4bf94d9f016b7794fd08948075"
+  },
+  {
+    "id": "teoria",
+    "fonte": "src/GhostNumberG.cpp:198",
+    "sha256": "d33ccfe16983a557828f578667d38554a7796781fb2cf62e746f9b9e45246baf"
+  },
+  {
+    "id": "teoria",
+    "fonte": "ia_propria/v3/GUIA_EXEMPLOS.md:1",
+    "sha256": "06cc446b97eb52b4d1e8450b472ef74b1f3faea5b41b7384ef62b5dbb1007e80"
+  },
+  {
+    "id": "teoria",
+    "fonte": "ia_propria/v3/exemplos/numeros_g.g:1",
+    "sha256": "d1332a168df76891a2d2f1b0fb086d08367f9bf9dbb1299e9f07daf2056c5c24"
+  },
+  {
+    "id": "componentes",
+    "fonte": "src/GhostNumberG.cpp:36",
+    "sha256": "d33ccfe16983a557828f578667d38554a7796781fb2cf62e746f9b9e45246baf"
+  },
+  {
+    "id": "componentes",
+    "fonte": "ia_propria/v3/GUIA_EXEMPLOS.md:1",
+    "sha256": "06cc446b97eb52b4d1e8450b472ef74b1f3faea5b41b7384ef62b5dbb1007e80"
+  },
+  {
+    "id": "componentes",
+    "fonte": "ia_propria/v3/exemplos/numeros_g.g:1",
+    "sha256": "d1332a168df76891a2d2f1b0fb086d08367f9bf9dbb1299e9f07daf2056c5c24"
+  },
+  {
+    "id": "soma_g",
+    "fonte": "src/GhostNumberG.cpp:249",
+    "sha256": "d33ccfe16983a557828f578667d38554a7796781fb2cf62e746f9b9e45246baf"
+  },
+  {
+    "id": "soma_g",
+    "fonte": "ia_propria/v3/GUIA_EXEMPLOS.md:1",
+    "sha256": "06cc446b97eb52b4d1e8450b472ef74b1f3faea5b41b7384ef62b5dbb1007e80"
+  },
+  {
+    "id": "soma_g",
+    "fonte": "ia_propria/v3/exemplos/numeros_g.g:1",
+    "sha256": "d1332a168df76891a2d2f1b0fb086d08367f9bf9dbb1299e9f07daf2056c5c24"
+  },
+  {
+    "id": "produto_g",
+    "fonte": "src/GhostNumberG.cpp:197",
+    "sha256": "d33ccfe16983a557828f578667d38554a7796781fb2cf62e746f9b9e45246baf"
+  },
+  {
+    "id": "produto_g",
+    "fonte": "ia_propria/v3/GUIA_EXEMPLOS.md:1",
+    "sha256": "06cc446b97eb52b4d1e8450b472ef74b1f3faea5b41b7384ef62b5dbb1007e80"
+  },
+  {
+    "id": "produto_g",
+    "fonte": "ia_propria/v3/exemplos/numeros_g.g:1",
+    "sha256": "d1332a168df76891a2d2f1b0fb086d08367f9bf9dbb1299e9f07daf2056c5c24"
+  },
+  {
+    "id": "nilpotente",
+    "fonte": "src/GhostNumberG.cpp:197",
+    "sha256": "d33ccfe16983a557828f578667d38554a7796781fb2cf62e746f9b9e45246baf"
+  },
+  {
+    "id": "nilpotente",
+    "fonte": "ia_propria/v3/GUIA_EXEMPLOS.md:1",
+    "sha256": "06cc446b97eb52b4d1e8450b472ef74b1f3faea5b41b7384ef62b5dbb1007e80"
+  },
+  {
+    "id": "nilpotente",
+    "fonte": "ia_propria/v3/exemplos/nilpotente.g:1",
+    "sha256": "e1d084002c0b819ae2227fbc365e4e14b28233bcbeb2977a9059739af5b8cdbf"
+  },
+  {
+    "id": "associatividade",
+    "fonte": "tests/cpp/native_runtime.cpp:22",
+    "sha256": "0713b30dbc265e4630f03af9db5fae7d4f107fdc22bfa36e805f8d518f6aa397"
+  },
+  {
+    "id": "divisao_zero",
+    "fonte": "src/GhostNumberG.cpp:229",
+    "sha256": "d33ccfe16983a557828f578667d38554a7796781fb2cf62e746f9b9e45246baf"
+  },
+  {
+    "id": "theta2",
+    "fonte": "src/GhostNumberG.cpp:249",
+    "sha256": "d33ccfe16983a557828f578667d38554a7796781fb2cf62e746f9b9e45246baf"
+  },
+  {
+    "id": "norma",
+    "fonte": "src/GhostNumberG.cpp:109",
+    "sha256": "d33ccfe16983a557828f578667d38554a7796781fb2cf62e746f9b9e45246baf"
+  },
+  {
+    "id": "conjugado",
+    "fonte": "src/GhostNumberG.cpp:96",
+    "sha256": "d33ccfe16983a557828f578667d38554a7796781fb2cf62e746f9b9e45246baf"
+  },
+  {
+    "id": "rotacao",
+    "fonte": "src/GhostNumberG.cpp:275",
+    "sha256": "d33ccfe16983a557828f578667d38554a7796781fb2cf62e746f9b9e45246baf"
+  },
+  {
+    "id": "divergencias",
+    "fonte": "docs/MANUAL.md:889",
+    "sha256": "efc2e4413ab368fa77bb51883eb49edad30c7b3564e1d1fd90b63617b9d20c7a"
+  },
+  {
+    "id": "tipo_pesos",
+    "fonte": "src/GhostTextModel.cpp:113",
+    "sha256": "9a87814fea9dcaf5901c22e0212f481a948ed794a0408772beafc69524e36b47"
+  },
+  {
+    "id": "modos",
+    "fonte": "ia_propria/v3/src/main.g:12",
+    "sha256": "c3295064e65ec2e67b3a7755daaeb74ef9a12fe5f5b8078a1169cb238c3e5a8d"
+  },
+  {
+    "id": "aprendizado_chat",
+    "fonte": "ia_propria/v3/src/main.g:12",
+    "sha256": "c3295064e65ec2e67b3a7755daaeb74ef9a12fe5f5b8078a1169cb238c3e5a8d"
+  },
+  {
+    "id": "identidade",
+    "fonte": "ia_propria/v3/README.md:1",
+    "sha256": "2627fbd9cb3afc4adc16401a1eb1cd41bf8d87cdf5709f4aceb88d035c99fd5e"
+  },
+  {
+    "id": "conversa_0",
+    "fonte": "ia_propria/v2/dados/conversas.json:2",
+    "sha256": "c0854b57d51f15e8fa52b42b05b216a48a4abbe01ab70a5c565e399e4982b55d"
+  },
+  {
+    "id": "conversa_1",
+    "fonte": "ia_propria/v2/dados/conversas.json:3",
+    "sha256": "c0854b57d51f15e8fa52b42b05b216a48a4abbe01ab70a5c565e399e4982b55d"
+  },
+  {
+    "id": "conversa_2",
+    "fonte": "ia_propria/v2/dados/conversas.json:4",
+    "sha256": "c0854b57d51f15e8fa52b42b05b216a48a4abbe01ab70a5c565e399e4982b55d"
+  },
+  {
+    "id": "conversa_3",
+    "fonte": "ia_propria/v2/dados/conversas.json:5",
+    "sha256": "c0854b57d51f15e8fa52b42b05b216a48a4abbe01ab70a5c565e399e4982b55d"
+  },
+  {
+    "id": "conversa_6",
+    "fonte": "ia_propria/v2/dados/conversas.json:8",
+    "sha256": "c0854b57d51f15e8fa52b42b05b216a48a4abbe01ab70a5c565e399e4982b55d"
+  },
+  {
+    "id": "conversa_7",
+    "fonte": "ia_propria/v2/dados/conversas.json:9",
+    "sha256": "c0854b57d51f15e8fa52b42b05b216a48a4abbe01ab70a5c565e399e4982b55d"
+  },
+  {
+    "id": "conversa_9",
+    "fonte": "ia_propria/v2/dados/conversas.json:11",
+    "sha256": "c0854b57d51f15e8fa52b42b05b216a48a4abbe01ab70a5c565e399e4982b55d"
+  },
+  {
+    "id": "conversa_10",
+    "fonte": "ia_propria/v2/dados/conversas.json:12",
+    "sha256": "c0854b57d51f15e8fa52b42b05b216a48a4abbe01ab70a5c565e399e4982b55d"
+  },
+  {
+    "id": "conversa_11",
+    "fonte": "ia_propria/v2/dados/conversas.json:13",
+    "sha256": "c0854b57d51f15e8fa52b42b05b216a48a4abbe01ab70a5c565e399e4982b55d"
+  },
+  {
+    "id": "conversa_12",
+    "fonte": "ia_propria/v2/dados/conversas.json:14",
+    "sha256": "c0854b57d51f15e8fa52b42b05b216a48a4abbe01ab70a5c565e399e4982b55d"
+  },
+  {
+    "id": "conversa_13",
+    "fonte": "ia_propria/v2/dados/conversas.json:15",
+    "sha256": "c0854b57d51f15e8fa52b42b05b216a48a4abbe01ab70a5c565e399e4982b55d"
+  },
+  {
+    "id": "conversa_14",
+    "fonte": "ia_propria/v2/dados/conversas.json:16",
+    "sha256": "c0854b57d51f15e8fa52b42b05b216a48a4abbe01ab70a5c565e399e4982b55d"
+  },
+  {
+    "id": "conversa_15",
+    "fonte": "ia_propria/v2/dados/conversas.json:17",
+    "sha256": "c0854b57d51f15e8fa52b42b05b216a48a4abbe01ab70a5c565e399e4982b55d"
+  },
+  {
+    "id": "conversa_16",
+    "fonte": "ia_propria/v2/dados/conversas.json:18",
+    "sha256": "c0854b57d51f15e8fa52b42b05b216a48a4abbe01ab70a5c565e399e4982b55d"
+  },
+  {
+    "id": "conversa_17",
+    "fonte": "ia_propria/v2/dados/conversas.json:19",
+    "sha256": "c0854b57d51f15e8fa52b42b05b216a48a4abbe01ab70a5c565e399e4982b55d"
+  },
+  {
+    "id": "conversa_18",
+    "fonte": "ia_propria/v2/dados/conversas.json:20",
+    "sha256": "c0854b57d51f15e8fa52b42b05b216a48a4abbe01ab70a5c565e399e4982b55d"
+  },
+  {
+    "id": "conversa_19",
+    "fonte": "ia_propria/v2/dados/conversas.json:21",
+    "sha256": "c0854b57d51f15e8fa52b42b05b216a48a4abbe01ab70a5c565e399e4982b55d"
+  },
+  {
+    "id": "conversa_20",
+    "fonte": "ia_propria/v2/dados/conversas.json:22",
+    "sha256": "c0854b57d51f15e8fa52b42b05b216a48a4abbe01ab70a5c565e399e4982b55d"
+  },
+  {
+    "id": "conversa_21",
+    "fonte": "ia_propria/v2/dados/conversas.json:23",
+    "sha256": "c0854b57d51f15e8fa52b42b05b216a48a4abbe01ab70a5c565e399e4982b55d"
+  },
+  {
+    "id": "conversa_22",
+    "fonte": "ia_propria/v2/dados/conversas.json:24",
+    "sha256": "c0854b57d51f15e8fa52b42b05b216a48a4abbe01ab70a5c565e399e4982b55d"
+  },
+  {
+    "id": "conversa_23",
+    "fonte": "ia_propria/v2/dados/conversas.json:25",
+    "sha256": "c0854b57d51f15e8fa52b42b05b216a48a4abbe01ab70a5c565e399e4982b55d"
+  },
+  {
+    "id": "conversa_24",
+    "fonte": "ia_propria/v2/dados/conversas.json:26",
+    "sha256": "c0854b57d51f15e8fa52b42b05b216a48a4abbe01ab70a5c565e399e4982b55d"
+  },
+  {
+    "id": "conversa_25",
+    "fonte": "ia_propria/v2/dados/conversas.json:27",
+    "sha256": "c0854b57d51f15e8fa52b42b05b216a48a4abbe01ab70a5c565e399e4982b55d"
+  },
+  {
+    "id": "conversa_26",
+    "fonte": "ia_propria/v2/dados/conversas.json:28",
+    "sha256": "c0854b57d51f15e8fa52b42b05b216a48a4abbe01ab70a5c565e399e4982b55d"
+  },
+  {
+    "id": "conversa_27",
+    "fonte": "ia_propria/v2/dados/conversas.json:29",
+    "sha256": "c0854b57d51f15e8fa52b42b05b216a48a4abbe01ab70a5c565e399e4982b55d"
+  },
+  {
+    "id": "conversa_28",
+    "fonte": "ia_propria/v2/dados/conversas.json:30",
+    "sha256": "c0854b57d51f15e8fa52b42b05b216a48a4abbe01ab70a5c565e399e4982b55d"
+  },
+  {
+    "id": "conversa_29",
+    "fonte": "ia_propria/v2/dados/conversas.json:31",
+    "sha256": "c0854b57d51f15e8fa52b42b05b216a48a4abbe01ab70a5c565e399e4982b55d"
+  },
+  {
+    "id": "conversa_30",
+    "fonte": "ia_propria/v2/dados/conversas.json:32",
+    "sha256": "c0854b57d51f15e8fa52b42b05b216a48a4abbe01ab70a5c565e399e4982b55d"
+  },
+  {
+    "id": "conversa_31",
+    "fonte": "ia_propria/v2/dados/conversas.json:33",
+    "sha256": "c0854b57d51f15e8fa52b42b05b216a48a4abbe01ab70a5c565e399e4982b55d"
+  },
+  {
+    "id": "conversa_32",
+    "fonte": "ia_propria/v2/dados/conversas.json:34",
+    "sha256": "c0854b57d51f15e8fa52b42b05b216a48a4abbe01ab70a5c565e399e4982b55d"
+  },
+  {
+    "id": "conversa_33",
+    "fonte": "ia_propria/v2/dados/conversas.json:35",
+    "sha256": "c0854b57d51f15e8fa52b42b05b216a48a4abbe01ab70a5c565e399e4982b55d"
+  },
+  {
+    "id": "conversa_34",
+    "fonte": "ia_propria/v2/dados/conversas.json:36",
+    "sha256": "c0854b57d51f15e8fa52b42b05b216a48a4abbe01ab70a5c565e399e4982b55d"
+  },
+  {
+    "id": "conversa_35",
+    "fonte": "ia_propria/v2/dados/conversas.json:37",
+    "sha256": "c0854b57d51f15e8fa52b42b05b216a48a4abbe01ab70a5c565e399e4982b55d"
+  },
+  {
+    "id": "conversa_36",
+    "fonte": "ia_propria/v2/dados/conversas.json:38",
+    "sha256": "c0854b57d51f15e8fa52b42b05b216a48a4abbe01ab70a5c565e399e4982b55d"
+  },
+  {
+    "id": "conversa_37",
+    "fonte": "ia_propria/v2/dados/conversas.json:39",
+    "sha256": "c0854b57d51f15e8fa52b42b05b216a48a4abbe01ab70a5c565e399e4982b55d"
+  },
+  {
+    "id": "conversa_38",
+    "fonte": "ia_propria/v2/dados/conversas.json:40",
+    "sha256": "c0854b57d51f15e8fa52b42b05b216a48a4abbe01ab70a5c565e399e4982b55d"
+  },
+  {
+    "id": "conversa_39",
+    "fonte": "ia_propria/v2/dados/conversas.json:41",
+    "sha256": "c0854b57d51f15e8fa52b42b05b216a48a4abbe01ab70a5c565e399e4982b55d"
+  },
+  {
+    "id": "conversa_40",
+    "fonte": "ia_propria/v2/dados/conversas.json:42",
+    "sha256": "c0854b57d51f15e8fa52b42b05b216a48a4abbe01ab70a5c565e399e4982b55d"
+  },
+  {
+    "id": "conversa_41",
+    "fonte": "ia_propria/v2/dados/conversas.json:43",
+    "sha256": "c0854b57d51f15e8fa52b42b05b216a48a4abbe01ab70a5c565e399e4982b55d"
+  },
+  {
+    "id": "conversa_42",
+    "fonte": "ia_propria/v2/dados/conversas.json:44",
+    "sha256": "c0854b57d51f15e8fa52b42b05b216a48a4abbe01ab70a5c565e399e4982b55d"
+  },
+  {
+    "id": "conversa_43",
+    "fonte": "ia_propria/v2/dados/conversas.json:45",
+    "sha256": "c0854b57d51f15e8fa52b42b05b216a48a4abbe01ab70a5c565e399e4982b55d"
+  },
+  {
+    "id": "conversa_44",
+    "fonte": "ia_propria/v2/dados/conversas.json:46",
+    "sha256": "c0854b57d51f15e8fa52b42b05b216a48a4abbe01ab70a5c565e399e4982b55d"
+  },
+  {
+    "id": "conversa_45",
+    "fonte": "ia_propria/v2/dados/conversas.json:47",
+    "sha256": "c0854b57d51f15e8fa52b42b05b216a48a4abbe01ab70a5c565e399e4982b55d"
+  },
+  {
+    "id": "conversa_46",
+    "fonte": "ia_propria/v2/dados/conversas.json:48",
+    "sha256": "c0854b57d51f15e8fa52b42b05b216a48a4abbe01ab70a5c565e399e4982b55d"
+  },
+  {
+    "id": "conversa_47",
+    "fonte": "ia_propria/v2/dados/conversas.json:49",
+    "sha256": "c0854b57d51f15e8fa52b42b05b216a48a4abbe01ab70a5c565e399e4982b55d"
+  },
+  {
+    "id": "conversa_48",
+    "fonte": "ia_propria/v2/dados/conversas.json:50",
+    "sha256": "c0854b57d51f15e8fa52b42b05b216a48a4abbe01ab70a5c565e399e4982b55d"
+  },
+  {
+    "id": "conversa_49",
+    "fonte": "ia_propria/v2/dados/conversas.json:51",
+    "sha256": "c0854b57d51f15e8fa52b42b05b216a48a4abbe01ab70a5c565e399e4982b55d"
+  },
+  {
+    "id": "conversa_50",
+    "fonte": "ia_propria/v2/dados/conversas.json:52",
+    "sha256": "c0854b57d51f15e8fa52b42b05b216a48a4abbe01ab70a5c565e399e4982b55d"
+  },
+  {
+    "id": "conversa_51",
+    "fonte": "ia_propria/v2/dados/conversas.json:53",
+    "sha256": "c0854b57d51f15e8fa52b42b05b216a48a4abbe01ab70a5c565e399e4982b55d"
+  },
+  {
+    "id": "conversa_52",
+    "fonte": "ia_propria/v2/dados/conversas.json:54",
+    "sha256": "c0854b57d51f15e8fa52b42b05b216a48a4abbe01ab70a5c565e399e4982b55d"
+  },
+  {
+    "id": "conversa_53",
+    "fonte": "ia_propria/v2/dados/conversas.json:55",
+    "sha256": "c0854b57d51f15e8fa52b42b05b216a48a4abbe01ab70a5c565e399e4982b55d"
+  },
+  {
+    "id": "conversa_54",
+    "fonte": "ia_propria/v2/dados/conversas.json:56",
+    "sha256": "c0854b57d51f15e8fa52b42b05b216a48a4abbe01ab70a5c565e399e4982b55d"
+  },
+  {
+    "id": "conversa_55",
+    "fonte": "ia_propria/v2/dados/conversas.json:57",
+    "sha256": "c0854b57d51f15e8fa52b42b05b216a48a4abbe01ab70a5c565e399e4982b55d"
+  },
+  {
+    "id": "conversa_56",
+    "fonte": "ia_propria/v2/dados/conversas.json:58",
+    "sha256": "c0854b57d51f15e8fa52b42b05b216a48a4abbe01ab70a5c565e399e4982b55d"
+  },
+  {
+    "id": "conversa_57",
+    "fonte": "ia_propria/v2/dados/conversas.json:59",
+    "sha256": "c0854b57d51f15e8fa52b42b05b216a48a4abbe01ab70a5c565e399e4982b55d"
+  },
+  {
+    "id": "conversa_58",
+    "fonte": "ia_propria/v2/dados/conversas.json:60",
+    "sha256": "c0854b57d51f15e8fa52b42b05b216a48a4abbe01ab70a5c565e399e4982b55d"
+  },
+  {
+    "id": "conversa_59",
+    "fonte": "ia_propria/v2/dados/conversas.json:61",
+    "sha256": "c0854b57d51f15e8fa52b42b05b216a48a4abbe01ab70a5c565e399e4982b55d"
+  }
+]

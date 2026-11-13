@@ -1,0 +1,160 @@
+Program  @2
+  ClassDecl Caixa  @2
+    TypeParam T  @2
+    VarDecl valor : T  @3
+    FuncDecl Caixa : void [ctor]  @4
+      Param v : T  @4
+      Block  @4
+        ExprStmt  @4
+          Assign =  @4
+            Ident valor  @4
+            Ident v  @4
+    FuncDecl pegar : T  @5
+      Block  @5
+        Return  @5
+          Ident valor  @5
+  FuncDecl trocar : U  @8
+    TypeParam U  @8
+    Param a : U  @8
+    Block  @8
+      Return  @8
+        Ident a  @8
+  FuncDecl main : void  @10
+    Block  @10
+      VarDecl a : int  @11
+        Binary +  @11
+          Unary -  @11
+            Binary **  @11
+              Number 2  @11
+              Number 2  @11
+          Binary %  @11
+            Binary *  @11
+              Number 3  @11
+              Number 4  @11
+            Number 5  @11
+      VarDecl b : int  @12
+        Binary -  @12
+          Ident a  @12
+          Number 1  @12
+      VarDecl c : bool  @13
+        Binary ||  @13
+          Binary &&  @13
+            Binary >  @13
+              Ident a  @13
+              Number 1  @13
+            Unary !  @13
+              Binary <  @13
+                Ident b  @13
+                Number 2  @13
+          Ident false  @13
+      VarDecl d : var  @14
+        Ternary  @14
+          Ident c  @14
+          Binary **  @14
+            Number 2  @14
+            Binary **  @14
+              Number 3  @14
+              Number 2  @14
+          Number 0  @14
+      VarDecl k : Caixa<int>  @15
+        Call  @15
+          GenericRef  @15
+            Ident Caixa  @15
+            Type int  @15
+          Number 7  @15
+      VarDecl e : double  @16
+        Call  @16
+          GenericRef  @16
+            Ident trocar  @16
+            Type double  @16
+          Number 2.5  @16
+      VarDecl f : fn<int(int)>  @17
+        Lambda  @17
+          Param x : int  @17
+          Type int [ret]  @17
+          Binary *  @17
+            Ident x  @17
+            Number 2  @17
+      VarDecl xs : list<int>  @18
+        Comprehension [list]  @18
+          Binary *  @18
+            Ident x  @18
+            Ident x  @18
+          CompFor x  @18
+            Call  @18
+              Ident range  @18
+              Number 5  @18
+          CompIf  @18
+            Binary ==  @18
+              Binary %  @18
+                Ident x  @18
+                Number 2  @18
+              Number 0  @18
+      VarDecl m : map<string, int>  @19
+        MapLit  @19
+          MapEntry  @19
+            String "um"  @19
+            Number 1  @19
+          MapEntry  @19
+            String "dois"  @19
+            Number 2  @19
+      Print  @20
+        FString f"total ${xs.size():03d} e ${m["um"]}"  @20
+          Call [fmt=03d]  @20
+            Member size  @20
+              Ident xs  @20
+          Index  @20
+            Ident m  @20
+            String "um"  @20
+        Slice  @20
+          Ident xs  @20
+          Number 1  @20
+          Number 3  @20
+          Empty  @20
+        Call  @20
+          Member pegar  @20
+            Ident k  @20
+      For  @21
+        VarDecl i : int  @21
+          Number 0  @21
+        Binary <  @21
+          Ident i  @21
+          Number 3  @21
+        Postfix ++  @21
+          Ident i  @21
+        Block  @21
+          ExprStmt  @21
+            Assign +=  @21
+              Ident a  @21
+              Ident i  @21
+      Foreach chave, valor : var  @22
+        Ident m  @22
+        Block  @22
+          Print  @22
+            Ident chave  @22
+            Ident valor  @22
+      Switch  @23
+        Ident a  @23
+        Case  @23
+          Number 1  @23
+          Number 2  @23
+          Block  @23
+            Print  @23
+              String "pouco"  @23
+            Break  @23
+        Case [default]  @23
+          Block  @23
+            Print  @23
+              String "muito"  @23
+      Try  @24
+        Block  @24
+          Throw  @24
+            String "falha"  @24
+        Catch err  @24
+          Block  @24
+            Print  @24
+              Ident err  @24
+        Finally  @24
+          Block  @24
+            Print  @24
+              String "fim"  @24

@@ -1,0 +1,2 @@
+pv_antes_comando.g:3:14: erro GHOST-E0102: faltou ';' no fim da linha (depois de '5')
+ 3 |     int x = 5
