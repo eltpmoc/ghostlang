@@ -1,0 +1,1055 @@
+<!doctype html>
+<html lang="pt-BR">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>GhostLang Status</title>
+<meta name="description" content="Painel de status, maturidade e roadmap da linguagem GhostLang.">
+<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'%3E%3Cpath d='M16 3C9.9 3 5 7.9 5 14v14l3.5-2.5L12 28l4-2.5 4 2.5 3.5-2.5L27 28V14C27 7.9 22.1 3 16 3z' fill='%232a78d6'/%3E%3Ccircle cx='12' cy='14' r='2.2' fill='%23fff'/%3E%3Ccircle cx='20' cy='14' r='2.2' fill='%23fff'/%3E%3C/svg%3E">
+<style>
+:root {
+  color-scheme: light;
+  --page: #f9f9f7;
+  --surface: #fcfcfb;
+  --surface-2: #f2f1ed;
+  --ink: #0b0b0b;
+  --ink-2: #52514e;
+  --muted: #6f6e69;
+  --line: rgba(11,11,11,0.10);
+  --grid: #e1e0d9;
+  --axis: #c3c2b7;
+  --accent: #2a78d6;
+  --accent-ink: #1c5cab;
+  --accent-wash: rgba(42,120,214,0.10);
+  --lv0: #e1e0d9;
+  --lv1: #86b6ef; --lv2: #5598e7; --lv3: #2a78d6; --lv4: #1c5cab; --lv5: #104281;
+  --lv-ink-1: #0b0b0b; --lv-ink-2: #ffffff; --lv-ink-3: #ffffff; --lv-ink-4: #ffffff; --lv-ink-5: #ffffff;
+  --seq-0: #f2f1ed; --seq-1: #cde2fb; --seq-2: #9ec5f4; --seq-3: #6da7ec; --seq-4: #3987e5; --seq-5: #256abf; --seq-6: #184f95;
+  --good: #0ca30c; --warning: #fab219; --serious: #ec835a; --critical: #d03b3b;
+  --good-ink: #006300;
+  --shadow: 0 1px 2px rgba(11,11,11,0.05), 0 4px 16px rgba(11,11,11,0.05);
+  --radius: 12px;
+  --sidebar: 268px;
+  font-family: system-ui, -apple-system, "Segoe UI", sans-serif;
+}
+@media (prefers-color-scheme: dark) {
+  :root:not([data-theme="light"]) {
+    color-scheme: dark;
+    --page: #0d0d0d; --surface: #1a1a19; --surface-2: #232321;
+    --ink: #f0efec; --ink-2: #c3c2b7; --muted: #9a9890;
+    --line: rgba(255,255,255,0.10); --grid: #2c2c2a; --axis: #383835;
+    --accent: #3987e5; --accent-ink: #86b6ef; --accent-wash: rgba(57,135,229,0.16);
+    --lv0: #383835;
+    --lv1: #184f95; --lv2: #256abf; --lv3: #3987e5; --lv4: #6da7ec; --lv5: #9ec5f4;
+    --lv-ink-1: #ffffff; --lv-ink-2: #ffffff; --lv-ink-3: #ffffff; --lv-ink-4: #0b0b0b; --lv-ink-5: #0b0b0b;
+    --seq-0: #232321; --seq-1: #0d366b; --seq-2: #184f95; --seq-3: #256abf; --seq-4: #3987e5; --seq-5: #6da7ec; --seq-6: #9ec5f4;
+    --good-ink: #0ca30c;
+    --shadow: 0 1px 2px rgba(0,0,0,0.4), 0 4px 16px rgba(0,0,0,0.25);
+  }
+}
+:root[data-theme="dark"] {
+  color-scheme: dark;
+  --page: #0d0d0d; --surface: #1a1a19; --surface-2: #232321;
+  --ink: #f0efec; --ink-2: #c3c2b7; --muted: #9a9890;
+  --line: rgba(255,255,255,0.10); --grid: #2c2c2a; --axis: #383835;
+  --accent: #3987e5; --accent-ink: #86b6ef; --accent-wash: rgba(57,135,229,0.16);
+  --lv0: #383835;
+  --lv1: #184f95; --lv2: #256abf; --lv3: #3987e5; --lv4: #6da7ec; --lv5: #9ec5f4;
+  --lv-ink-1: #ffffff; --lv-ink-2: #ffffff; --lv-ink-3: #ffffff; --lv-ink-4: #0b0b0b; --lv-ink-5: #0b0b0b;
+  --seq-0: #232321; --seq-1: #0d366b; --seq-2: #184f95; --seq-3: #256abf; --seq-4: #3987e5; --seq-5: #6da7ec; --seq-6: #9ec5f4;
+  --good-ink: #0ca30c;
+  --shadow: 0 1px 2px rgba(0,0,0,0.4), 0 4px 16px rgba(0,0,0,0.25);
+}
+
+* { box-sizing: border-box; }
+html, body { margin: 0; }
+body { background: var(--page); color: var(--ink); font-size: 14px; line-height: 1.5; -webkit-font-smoothing: antialiased; }
+button, input, select { font: inherit; color: inherit; }
+a { color: var(--accent-ink); }
+h1, h2, h3, h4 { margin: 0; line-height: 1.25; text-wrap: balance; }
+p { margin: 0; }
+.muted { color: var(--muted); }
+.ink2 { color: var(--ink-2); }
+.num { font-variant-numeric: tabular-nums; }
+
+/* ---------- Layout ---------- */
+.app { display: grid; grid-template-columns: var(--sidebar) minmax(0, 1fr); min-height: 100vh; }
+.sidebar { position: sticky; top: 0; height: 100vh; overflow-y: auto; background: var(--surface); border-right: 1px solid var(--line); display: flex; flex-direction: column; }
+.brand { display: flex; align-items: center; gap: 10px; padding: 20px 20px 14px; }
+.brand svg { width: 32px; height: 32px; flex: none; }
+.brand b { font-size: 17px; letter-spacing: -0.01em; display: block; }
+.brand small { color: var(--muted); font-size: 12px; }
+.side-progress { margin: 0 20px 14px; padding: 12px; border-radius: 10px; background: var(--surface-2); }
+.side-progress .row { display: flex; justify-content: space-between; font-size: 12px; color: var(--ink-2); margin-bottom: 6px; }
+.side-progress .row b { color: var(--ink); font-size: 13px; }
+.nav { padding: 4px 10px; display: flex; flex-direction: column; gap: 2px; }
+.nav a { display: flex; align-items: center; gap: 10px; padding: 8px 10px; border-radius: 8px; color: var(--ink-2); text-decoration: none; font-weight: 500; }
+.nav a svg { width: 18px; height: 18px; flex: none; stroke: currentColor; fill: none; stroke-width: 1.8; stroke-linecap: round; stroke-linejoin: round; }
+.nav a:hover { background: var(--surface-2); color: var(--ink); }
+.nav a.active { background: var(--accent-wash); color: var(--accent-ink); }
+.nav a .count { margin-left: auto; font-size: 12px; color: var(--muted); font-weight: 400; }
+.nav-sub { display: flex; flex-direction: column; gap: 1px; margin: 2px 0 6px 18px; padding-left: 10px; border-left: 1px solid var(--line); }
+.nav-sub a { font-weight: 400; font-size: 13px; padding: 5px 8px; }
+.nav-sub a .pct { margin-left: auto; font-size: 12px; color: var(--muted); font-variant-numeric: tabular-nums; }
+.nav-label { font-size: 11px; text-transform: uppercase; letter-spacing: 0.06em; color: var(--muted); padding: 14px 20px 4px; }
+.side-foot { margin-top: auto; padding: 14px 16px 18px; border-top: 1px solid var(--line); display: flex; flex-direction: column; gap: 8px; }
+.source { font-size: 12px; color: var(--muted); display: flex; align-items: center; gap: 6px; }
+.source i { width: 8px; height: 8px; border-radius: 50%; background: var(--good); display: inline-block; flex: none; }
+.source.cache i { background: var(--warning); }
+.btn-row { display: flex; gap: 6px; flex-wrap: wrap; }
+
+.main { min-width: 0; padding: 28px 32px 64px; }
+.topbar { display: none; }
+.view-head { display: flex; align-items: flex-end; justify-content: space-between; gap: 16px; flex-wrap: wrap; margin-bottom: 20px; }
+.view-head h1 { font-size: 24px; letter-spacing: -0.015em; }
+.view-head p { color: var(--ink-2); margin-top: 4px; max-width: 72ch; }
+
+.btn { display: inline-flex; align-items: center; gap: 6px; padding: 7px 12px; border-radius: 8px; border: 1px solid var(--line); background: var(--surface); cursor: pointer; font-size: 13px; font-weight: 500; white-space: nowrap; }
+.btn:hover { background: var(--surface-2); }
+.btn.primary { background: var(--accent); border-color: var(--accent); color: #fff; }
+.btn.primary:hover { filter: brightness(1.08); }
+.btn svg { width: 15px; height: 15px; stroke: currentColor; fill: none; stroke-width: 2; stroke-linecap: round; stroke-linejoin: round; }
+.btn.icon { padding: 7px; }
+.btn:focus-visible, .nav a:focus-visible, input:focus-visible, select:focus-visible, .row-btn:focus-visible { outline: 2px solid var(--accent); outline-offset: 2px; }
+
+.grid { display: grid; gap: 16px; }
+.g-kpi { grid-template-columns: repeat(auto-fit, minmax(160px, 1fr)); }
+.g-2 { grid-template-columns: repeat(2, minmax(0, 1fr)); }
+.g-3 { grid-template-columns: repeat(3, minmax(0, 1fr)); }
+.span-2 { grid-column: span 2; }
+.card { background: var(--surface); border: 1px solid var(--line); border-radius: var(--radius); padding: 18px 20px; box-shadow: var(--shadow); min-width: 0; }
+.card h2 { font-size: 15px; font-weight: 600; }
+.card .sub { color: var(--muted); font-size: 12.5px; margin-top: 2px; }
+.card-head { display: flex; align-items: baseline; justify-content: space-between; gap: 12px; margin-bottom: 14px; flex-wrap: wrap; }
+.section { margin-top: 16px; }
+
+/* KPI */
+.kpi .label { font-size: 12.5px; color: var(--ink-2); }
+.kpi .value { font-size: 30px; font-weight: 650; letter-spacing: -0.02em; margin-top: 2px; line-height: 1.1; }
+.kpi .value small { font-size: 15px; font-weight: 500; color: var(--muted); margin-left: 2px; }
+.kpi .foot { font-size: 12px; color: var(--muted); margin-top: 6px; }
+.kpi.hero { background: linear-gradient(135deg, var(--accent-wash), transparent 70%), var(--surface); }
+.kpi.hero .value { font-size: 40px; }
+
+/* Bars */
+.bar { height: 8px; background: var(--surface-2); border-radius: 4px; overflow: hidden; position: relative; }
+.bar > span { display: block; height: 100%; background: var(--accent); border-radius: 4px; }
+.hbars { display: flex; flex-direction: column; gap: 4px; }
+.hbar { display: grid; grid-template-columns: minmax(120px, 190px) minmax(0, 1fr) 48px; align-items: center; gap: 12px; padding: 6px 8px; margin: 0 -8px; border-radius: 8px; cursor: pointer; text-decoration: none; color: inherit; }
+.hbar:hover { background: var(--surface-2); }
+.hbar .name { font-size: 13px; overflow: hidden; text-overflow: ellipsis; white-space: nowrap; }
+.hbar .track { height: 14px; background: var(--surface-2); border-radius: 4px; position: relative; }
+.hbar:hover .track { background: var(--grid); }
+.hbar .fill { position: absolute; left: 0; top: 0; bottom: 0; background: var(--accent); border-radius: 0 4px 4px 0; min-width: 2px; }
+.hbar .val { text-align: right; font-variant-numeric: tabular-nums; font-size: 13px; font-weight: 600; }
+
+/* Level meter */
+.meter { display: inline-flex; gap: 3px; vertical-align: middle; }
+.meter i { width: 14px; height: 8px; border-radius: 2px; background: var(--lv0); display: block; }
+.meter i.target { background: transparent; box-shadow: inset 0 0 0 1.5px var(--axis); }
+.lvl { display: inline-flex; align-items: center; gap: 8px; white-space: nowrap; }
+.lvl .t { font-size: 12.5px; color: var(--ink-2); }
+.chip { display: inline-flex; align-items: center; gap: 4px; padding: 1px 8px; border-radius: 999px; font-size: 11.5px; background: var(--surface-2); color: var(--ink-2); border: 1px solid var(--line); white-space: nowrap; }
+.chip.lv { border: 0; font-weight: 600; }
+.prio { display: inline-flex; align-items: center; gap: 5px; font-size: 12px; color: var(--ink-2); }
+.prio::before { content: ""; width: 7px; height: 7px; border-radius: 50%; background: var(--axis); }
+.prio.alta::before { background: var(--ink); }
+.prio.media::before { background: var(--muted); }
+
+/* Status */
+.status { display: inline-flex; align-items: center; gap: 6px; font-size: 12.5px; font-weight: 600; color: var(--ink); }
+.status svg { width: 16px; height: 16px; flex: none; }
+
+/* Filters */
+.filters { display: flex; gap: 8px; flex-wrap: wrap; align-items: center; margin-bottom: 16px; }
+.filters input[type=search], .filters select { padding: 7px 10px; border-radius: 8px; border: 1px solid var(--line); background: var(--surface); min-width: 0; }
+.filters input[type=search] { flex: 1 1 220px; }
+.seg { display: inline-flex; border: 1px solid var(--line); border-radius: 8px; overflow: hidden; background: var(--surface); }
+.seg button { border: 0; background: transparent; padding: 6px 12px; cursor: pointer; font-size: 13px; color: var(--ink-2); }
+.seg button.on { background: var(--accent-wash); color: var(--accent-ink); font-weight: 600; }
+
+/* Table */
+.table-wrap { overflow-x: auto; margin: 0 -20px; padding: 0 20px; }
+table { width: 100%; border-collapse: collapse; }
+th { text-align: left; font-size: 12px; font-weight: 600; color: var(--muted); padding: 8px 10px; border-bottom: 1px solid var(--line); white-space: nowrap; }
+td { padding: 10px; border-bottom: 1px solid var(--line); vertical-align: middle; }
+tr.row-btn { cursor: pointer; }
+tr.row-btn:hover td { background: var(--surface-2); }
+td .fname { font-weight: 550; }
+td .fdesc { font-size: 12.5px; color: var(--muted); margin-top: 1px; display: -webkit-box; -webkit-line-clamp: 1; -webkit-box-orient: vertical; overflow: hidden; }
+
+/* Heatmap */
+.heat { display: grid; grid-template-columns: minmax(130px, 200px) repeat(6, minmax(36px, 1fr)); gap: 3px; font-size: 12.5px; }
+.heat .hh { color: var(--muted); font-size: 11.5px; text-align: center; padding-bottom: 4px; }
+.heat .rl { padding: 6px 4px; white-space: nowrap; overflow: hidden; text-overflow: ellipsis; color: var(--ink-2); }
+.heat .cell { border-radius: 4px; display: flex; align-items: center; justify-content: center; font-variant-numeric: tabular-nums; font-weight: 600; min-height: 30px; cursor: pointer; border: 0; }
+.heat .cell.zero { color: transparent; cursor: default; }
+.heat .cell:not(.zero):hover { outline: 2px solid var(--ink); outline-offset: -2px; }
+
+/* Charts */
+.chart { width: 100%; display: block; overflow: visible; }
+.chart text { fill: var(--muted); font-size: 11px; font-family: inherit; }
+.chart .gridline { stroke: var(--grid); stroke-width: 1; }
+.chart .baseline { stroke: var(--axis); stroke-width: 1; }
+.legend { display: flex; gap: 14px; flex-wrap: wrap; font-size: 12px; color: var(--ink-2); margin-top: 10px; }
+.legend span { display: inline-flex; align-items: center; gap: 6px; }
+.legend i { width: 12px; height: 8px; border-radius: 2px; display: inline-block; }
+
+/* Tooltip */
+.tip { position: fixed; z-index: 50; pointer-events: none; background: var(--surface); color: var(--ink); border: 1px solid var(--line); box-shadow: 0 6px 24px rgba(0,0,0,0.18); border-radius: 8px; padding: 8px 10px; font-size: 12.5px; max-width: 280px; opacity: 0; transition: opacity .08s; }
+.tip.on { opacity: 1; }
+.tip b { display: block; margin-bottom: 2px; }
+.tip .r { display: flex; justify-content: space-between; gap: 14px; color: var(--ink-2); }
+.tip .r span:last-child { color: var(--ink); font-weight: 600; font-variant-numeric: tabular-nums; }
+
+/* Phases */
+.phases { display: flex; flex-direction: column; gap: 0; }
+.phase { display: grid; grid-template-columns: 34px minmax(0, 1fr); gap: 14px; position: relative; padding-bottom: 18px; }
+.phase:not(:last-child)::before { content: ""; position: absolute; left: 16px; top: 34px; bottom: 0; width: 2px; background: var(--grid); }
+.phase .dot { width: 34px; height: 34px; border-radius: 50%; display: grid; place-items: center; font-weight: 700; font-size: 12px; background: var(--surface-2); color: var(--ink-2); border: 2px solid var(--grid); z-index: 1; }
+.phase.concluida .dot { background: var(--accent); border-color: var(--accent); color: #fff; }
+.phase.em_andamento .dot { background: var(--surface); border-color: var(--accent); color: var(--accent-ink); box-shadow: 0 0 0 4px var(--accent-wash); }
+.phase h3 { font-size: 15px; display: flex; gap: 8px; align-items: center; flex-wrap: wrap; }
+.phase .obj { color: var(--ink-2); margin-top: 3px; font-size: 13.5px; }
+.phase .stats { display: flex; gap: 18px; flex-wrap: wrap; margin-top: 8px; font-size: 12.5px; color: var(--muted); align-items: center; }
+.phase .stats .bar { width: 160px; }
+.tag { font-size: 11px; font-weight: 600; padding: 1px 8px; border-radius: 999px; background: var(--surface-2); color: var(--ink-2); }
+.tag.now { background: var(--accent-wash); color: var(--accent-ink); }
+.tag.done { background: var(--accent); color: #fff; }
+
+/* Target */
+.target-hero { padding: 24px; border-radius: var(--radius); border: 1px solid var(--line); background: radial-gradient(120% 140% at 0% 0%, var(--accent-wash), transparent 60%), var(--surface); box-shadow: var(--shadow); }
+.target-hero .eyebrow { font-size: 12px; text-transform: uppercase; letter-spacing: 0.08em; color: var(--accent-ink); font-weight: 600; }
+.target-hero h2 { font-size: 26px; margin-top: 6px; letter-spacing: -0.015em; }
+.target-hero p { color: var(--ink-2); margin-top: 8px; max-width: 80ch; }
+.pillars { display: grid; grid-template-columns: repeat(auto-fit, minmax(220px, 1fr)); gap: 12px; margin-top: 18px; }
+.pillar { padding: 14px; border-radius: 10px; background: var(--surface); border: 1px solid var(--line); }
+.pillar b { display: block; font-size: 13.5px; }
+.pillar span { color: var(--ink-2); font-size: 13px; }
+.crit { list-style: none; padding: 0; margin: 0; display: flex; flex-direction: column; gap: 8px; }
+.crit li { display: flex; gap: 8px; align-items: flex-start; font-size: 13.5px; }
+.crit li::before { content: ""; width: 14px; height: 14px; border-radius: 4px; border: 1.5px solid var(--axis); flex: none; margin-top: 3px; }
+
+/* Checklist */
+.ck-group { margin-bottom: 14px; }
+.ck-head { display: flex; align-items: center; gap: 12px; flex-wrap: wrap; margin-bottom: 8px; }
+.ck-head h3 { font-size: 15px; }
+.ck-head .bar { flex: 1 1 140px; max-width: 260px; }
+.ck-list { display: flex; flex-direction: column; }
+.ck { display: flex; align-items: flex-start; gap: 12px; padding: 9px 4px; border-bottom: 1px solid var(--line); }
+.ck:last-child { border-bottom: 0; }
+.ck input { width: 18px; height: 18px; margin: 1px 0 0; accent-color: var(--accent); flex: none; cursor: pointer; }
+.ck label { flex: 1; cursor: pointer; }
+.ck.done label { color: var(--muted); text-decoration: line-through; text-decoration-color: var(--axis); }
+.ck .ref { font-size: 12px; color: var(--muted); text-decoration: none; white-space: nowrap; }
+.ck .ref:hover { color: var(--accent-ink); text-decoration: underline; }
+.ck .changed { font-size: 11px; color: var(--accent-ink); font-weight: 600; }
+.banner { display: flex; align-items: center; gap: 12px; flex-wrap: wrap; padding: 10px 14px; border-radius: 10px; background: var(--accent-wash); color: var(--ink); margin-bottom: 16px; font-size: 13.5px; }
+.banner .sp { flex: 1; }
+
+/* Diagnostic */
+.diag { display: grid; grid-template-columns: 120px minmax(0, 1fr); gap: 14px; padding: 14px 0; border-bottom: 1px solid var(--line); }
+.diag:last-child { border-bottom: 0; }
+.diag h3 { font-size: 14.5px; }
+.diag p { color: var(--ink-2); font-size: 13.5px; margin-top: 3px; }
+.diag .meta { font-size: 12px; color: var(--muted); margin-top: 6px; display: flex; gap: 12px; flex-wrap: wrap; }
+code, .mono { font-family: ui-monospace, "Cascadia Code", Consolas, monospace; font-size: 12px; }
+code { background: var(--surface-2); padding: 1px 5px; border-radius: 4px; }
+
+/* Timeline */
+.tl { position: relative; padding-left: 26px; }
+.tl::before { content: ""; position: absolute; left: 7px; top: 6px; bottom: 6px; width: 2px; background: var(--grid); }
+.tl-item { position: relative; padding-bottom: 18px; }
+.tl-item::before { content: ""; position: absolute; left: -24px; top: 5px; width: 12px; height: 12px; border-radius: 50%; background: var(--accent); box-shadow: 0 0 0 3px var(--surface); }
+.tl-item .d { font-size: 12px; color: var(--muted); font-variant-numeric: tabular-nums; }
+.tl-item h3 { font-size: 14.5px; margin-top: 1px; }
+.tl-item p { color: var(--ink-2); font-size: 13.5px; margin-top: 2px; }
+
+/* Drawer */
+.scrim { position: fixed; inset: 0; background: rgba(0,0,0,0.35); z-index: 40; opacity: 0; pointer-events: none; transition: opacity .15s; }
+.scrim.on { opacity: 1; pointer-events: auto; }
+.drawer { position: fixed; top: 0; right: 0; bottom: 0; width: min(460px, 100vw); background: var(--surface); z-index: 41; border-left: 1px solid var(--line); box-shadow: -10px 0 40px rgba(0,0,0,0.2); transform: translateX(105%); transition: transform .2s ease; display: flex; flex-direction: column; }
+.drawer.on { transform: none; }
+.drawer-head { padding: 18px 20px 14px; border-bottom: 1px solid var(--line); display: flex; gap: 12px; align-items: flex-start; }
+.drawer-head h2 { font-size: 18px; flex: 1; }
+.drawer-body { padding: 18px 20px 30px; overflow-y: auto; display: flex; flex-direction: column; gap: 18px; }
+.drawer-body h4 { font-size: 12px; text-transform: uppercase; letter-spacing: 0.06em; color: var(--muted); margin-bottom: 6px; }
+.kv { display: grid; grid-template-columns: 110px minmax(0, 1fr); gap: 8px 12px; font-size: 13.5px; }
+.kv dt { color: var(--muted); }
+.kv dd { margin: 0; }
+.drawer ul { margin: 0; padding-left: 18px; }
+.drawer ul li { margin: 3px 0; }
+.big-meter { display: flex; gap: 4px; margin: 4px 0 6px; }
+.big-meter i { flex: 1; height: 10px; border-radius: 3px; background: var(--lv0); }
+.big-meter i.target { background: transparent; box-shadow: inset 0 0 0 1.5px var(--axis); }
+.lvl-scale { display: flex; justify-content: space-between; font-size: 11px; color: var(--muted); }
+
+/* Loader */
+.loader { max-width: 620px; margin: 10vh auto; text-align: center; padding: 0 16px; }
+.drop { margin-top: 18px; border: 2px dashed var(--axis); border-radius: var(--radius); padding: 36px 20px; background: var(--surface); }
+.drop.over { border-color: var(--accent); background: var(--accent-wash); }
+.loader pre { text-align: left; background: var(--surface-2); padding: 12px; border-radius: 8px; overflow-x: auto; font-size: 12.5px; }
+
+.empty { color: var(--muted); padding: 24px 0; text-align: center; }
+.sr { position: absolute; width: 1px; height: 1px; overflow: hidden; clip: rect(0 0 0 0); }
+
+/* Responsive */
+@media (max-width: 1100px) {
+  .g-3 { grid-template-columns: repeat(2, minmax(0, 1fr)); }
+}
+@media (max-width: 900px) {
+  .app { grid-template-columns: minmax(0, 1fr); }
+  .sidebar { position: fixed; z-index: 45; left: 0; top: 0; width: min(300px, 86vw); transform: translateX(-105%); transition: transform .2s ease; box-shadow: 10px 0 40px rgba(0,0,0,0.25); }
+  .sidebar.on { transform: none; }
+  .topbar { display: flex; align-items: center; gap: 10px; position: sticky; top: 0; z-index: 30; background: var(--surface); border-bottom: 1px solid var(--line); padding: 10px 16px; }
+  .topbar b { font-size: 15px; }
+  .main { padding: 18px 16px 48px; }
+  .g-2, .g-3 { grid-template-columns: minmax(0, 1fr); }
+  .span-2 { grid-column: auto; }
+  .hbar { grid-template-columns: minmax(96px, 130px) minmax(0, 1fr) 42px; }
+  .diag { grid-template-columns: minmax(0, 1fr); gap: 6px; }
+  .heat { grid-template-columns: minmax(96px, 130px) repeat(6, minmax(28px, 1fr)); }
+  .hide-sm { display: none; }
+  .kpi .value { font-size: 26px; }
+  .kpi.hero .value { font-size: 32px; }
+}
+@media (forced-colors: active) {
+  .meter i, .big-meter i, .bar > span, .hbar .fill { forced-color-adjust: none; border: 1px solid CanvasText; }
+}
+</style>
+</head>
+<body>
+<div id="root"></div>
+<div class="tip" id="tip" role="tooltip"></div>
+<div class="scrim" id="scrim"></div>
+<aside class="drawer" id="drawer" aria-hidden="true"></aside>
+<input type="file" id="file" accept=".json,application/json" class="sr">
+
+<script>
+(() => {
+'use strict';
+
+/* ================= Estado ================= */
+const LS_DATA = 'ghostlang.dashboard.data.v1';
+const LS_CK = 'ghostlang.dashboard.checklist.v1';
+const LS_THEME = 'ghostlang.dashboard.theme';
+const store = {
+  get(k) { try { return localStorage.getItem(k); } catch (e) { return null; } },
+  set(k, v) { try { localStorage.setItem(k, v); } catch (e) {} },
+  del(k) { try { localStorage.removeItem(k); } catch (e) {} }
+};
+
+let DATA = null;
+let SOURCE = { kind: 'none', label: '' };
+let CK_OVR = {};
+try { CK_OVR = JSON.parse(store.get(LS_CK) || '{}') || {}; } catch (e) { CK_OVR = {}; }
+
+const $ = (s, el = document) => el.querySelector(s);
+const esc = (s) => String(s == null ? '' : s).replace(/[&<>"']/g, c => ({ '&': '&amp;', '<': '&lt;', '>': '&gt;', '"': '&quot;', "'": '&#39;' }[c]));
+const pct = (x) => Math.round(x * 100);
+
+/* ================= Ícones ================= */
+const I = {
+  grid: '<svg viewBox="0 0 24 24"><rect x="3" y="3" width="7" height="7" rx="1.5"/><rect x="14" y="3" width="7" height="7" rx="1.5"/><rect x="3" y="14" width="7" height="7" rx="1.5"/><rect x="14" y="14" width="7" height="7" rx="1.5"/></svg>',
+  target: '<svg viewBox="0 0 24 24"><circle cx="12" cy="12" r="9"/><circle cx="12" cy="12" r="5"/><circle cx="12" cy="12" r="1.2"/></svg>',
+  layers: '<svg viewBox="0 0 24 24"><path d="M12 3 2 8l10 5 10-5-10-5z"/><path d="m2 13 10 5 10-5"/><path d="m2 17.5 10 5 10-5" opacity=".5"/></svg>',
+  check: '<svg viewBox="0 0 24 24"><rect x="3" y="3" width="18" height="18" rx="3"/><path d="m8 12 3 3 5-6"/></svg>',
+  monitor: '<svg viewBox="0 0 24 24"><rect x="3" y="4" width="18" height="12" rx="2"/><path d="M8 20h8M12 16v4"/></svg>',
+  alert: '<svg viewBox="0 0 24 24"><path d="M12 3 2 20h20L12 3z"/><path d="M12 10v4M12 17v.5"/></svg>',
+  clock: '<svg viewBox="0 0 24 24"><circle cx="12" cy="12" r="9"/><path d="M12 7v5l3 2"/></svg>',
+  upload: '<svg viewBox="0 0 24 24"><path d="M12 16V4M7 9l5-5 5 5M4 20h16"/></svg>',
+  download: '<svg viewBox="0 0 24 24"><path d="M12 4v12M7 11l5 5 5-5M4 20h16"/></svg>',
+  sun: '<svg viewBox="0 0 24 24"><circle cx="12" cy="12" r="4"/><path d="M12 2v2M12 20v2M4.9 4.9l1.4 1.4M17.7 17.7l1.4 1.4M2 12h2M20 12h2M4.9 19.1l1.4-1.4M17.7 6.3l1.4-1.4"/></svg>',
+  menu: '<svg viewBox="0 0 24 24"><path d="M4 7h16M4 12h16M4 17h16"/></svg>',
+  close: '<svg viewBox="0 0 24 24"><path d="M6 6l12 12M18 6 6 18"/></svg>',
+  refresh: '<svg viewBox="0 0 24 24"><path d="M20 11a8 8 0 1 0-2.3 5.7"/><path d="M20 4v7h-7"/></svg>',
+  camera: '<svg viewBox="0 0 24 24"><path d="M4 8h3l2-3h6l2 3h3v11H4z"/><circle cx="12" cy="13" r="3.5"/></svg>'
+};
+const GHOST = '<svg viewBox="0 0 32 32" aria-hidden="true"><path d="M16 3C9.9 3 5 7.9 5 14v14l3.5-2.5L12 28l4-2.5 4 2.5 3.5-2.5L27 28V14C27 7.9 22.1 3 16 3z" fill="var(--accent)"/><circle cx="12" cy="14" r="2.2" fill="#fff"/><circle cx="20" cy="14" r="2.2" fill="#fff"/></svg>';
+const STATUS = {
+  critico: { nome: 'Crítico', cor: 'var(--critical)', svg: '<svg viewBox="0 0 16 16"><polygon points="5,1 11,1 15,5 15,11 11,15 5,15 1,11 1,5" fill="var(--critical)"/><path d="M8 4.5v4.2M8 11v.6" stroke="#fff" stroke-width="1.8" stroke-linecap="round"/></svg>' },
+  serio: { nome: 'Sério', cor: 'var(--serious)', svg: '<svg viewBox="0 0 16 16"><path d="M8 1.5 15 14H1z" fill="var(--serious)"/><path d="M8 6v3.6M8 11.6v.4" stroke="#fff" stroke-width="1.7" stroke-linecap="round"/></svg>' },
+  alerta: { nome: 'Alerta', cor: 'var(--warning)', svg: '<svg viewBox="0 0 16 16"><circle cx="8" cy="8" r="7" fill="var(--warning)"/><path d="M8 4.2v4.6M8 11.2v.4" stroke="#0b0b0b" stroke-width="1.7" stroke-linecap="round"/></svg>' },
+  ok: { nome: 'OK', cor: 'var(--good)', svg: '<svg viewBox="0 0 16 16"><circle cx="8" cy="8" r="7" fill="var(--good)"/><path d="m4.8 8.2 2.2 2.2 4.2-4.6" stroke="#fff" stroke-width="1.8" fill="none" stroke-linecap="round" stroke-linejoin="round"/></svg>' }
+};
+const FASE_STATUS = { concluida: 'Concluída', em_andamento: 'Em andamento', planejada: 'Planejada' };
+const ONDE = { compilador: 'Compilador', repl: 'REPL', runtime: 'Runtime', prototipo: 'Protótipo', build: 'Build', aplicacao: 'Aplicação', biblioteca: 'Lib .g', ide: 'IDE', docs: 'Docs', repo: 'Repositório' };
+
+/* ================= Cálculos ================= */
+const feats = () => DATA.recursos || [];
+const levelName = (n) => { const l = (DATA.niveis || []).find(x => x.nivel === n); return l ? l.nome : 'Nível ' + n; };
+const levelVar = (n) => 'var(--lv' + Math.max(0, Math.min(5, n)) + ')';
+const levelInk = (n) => n <= 0 ? 'var(--ink-2)' : 'var(--lv-ink-' + n + ')';
+const alvoOf = (f) => (typeof f.alvo === 'number' ? f.alvo : 5);
+function progress(list) {
+  let s = 0, t = 0;
+  list.forEach(f => { const a = alvoOf(f); s += Math.min(f.nivel || 0, a); t += a; });
+  return t ? s / t : 0;
+}
+const catById = (id) => (DATA.categorias || []).find(c => c.id === id) || { id, nome: id };
+const featById = (id) => feats().find(f => f.id === id);
+function ckDone(c) { return Object.prototype.hasOwnProperty.call(CK_OVR, c.id) ? !!CK_OVR[c.id] : !!c.feito; }
+function ckChanged() { return (DATA.checklist || []).filter(c => Object.prototype.hasOwnProperty.call(CK_OVR, c.id) && !!CK_OVR[c.id] !== !!c.feito); }
+const QUANTUM_CATS = ['quantico', 'ia_quantica', 'algebra'];
+const fmtDate = (s) => { if (!s) return '—'; const [y, m, d] = s.split('-'); return d + '/' + m + '/' + y; };
+const MESES = ['jan', 'fev', 'mar', 'abr', 'mai', 'jun', 'jul', 'ago', 'set', 'out', 'nov', 'dez'];
+
+/* ================= Componentes ================= */
+function meter(f) {
+  const a = alvoOf(f), n = f.nivel || 0;
+  let h = '<span class="meter" aria-hidden="true">';
+  for (let i = 1; i <= 5; i++) {
+    if (i <= n) h += '<i style="background:' + levelVar(n) + '"></i>';
+    else if (i <= a) h += '<i class="target"></i>';
+    else h += '<i style="opacity:.35"></i>';
+  }
+  return h + '</span>';
+}
+function lvl(f) {
+  return '<span class="lvl">' + meter(f) + '<span class="t"><span class="num">' + (f.nivel || 0) + '</span> · ' + esc(levelName(f.nivel || 0)) + '</span><span class="sr">, alvo ' + alvoOf(f) + '</span></span>';
+}
+function lvChip(n) {
+  return '<span class="chip lv" style="background:' + levelVar(n) + ';color:' + levelInk(n) + '">' + n + ' · ' + esc(levelName(n)) + '</span>';
+}
+function statusBadge(sev) {
+  const s = STATUS[sev] || STATUS.alerta;
+  return '<span class="status">' + s.svg + esc(s.nome) + '</span>';
+}
+
+/* ================= Tooltip ================= */
+const tip = $('#tip');
+function showTip(html, x, y) {
+  tip.innerHTML = html; tip.classList.add('on');
+  const r = tip.getBoundingClientRect();
+  let left = x + 14, top = y + 14;
+  if (left + r.width > innerWidth - 8) left = x - r.width - 14;
+  if (top + r.height > innerHeight - 8) top = y - r.height - 14;
+  tip.style.left = Math.max(8, left) + 'px'; tip.style.top = Math.max(8, top) + 'px';
+}
+function hideTip() { tip.classList.remove('on'); }
+document.addEventListener('mousemove', (e) => {
+  const el = e.target.closest('[data-tip]');
+  if (el) showTip(el.getAttribute('data-tip'), e.clientX, e.clientY);
+  else if (!e.target.closest('[data-tip-live]')) hideTip();
+});
+document.addEventListener('scroll', hideTip, true);
+
+/* ================= Shell ================= */
+const VIEWS = [
+  { id: 'overview', nome: 'Visão geral', icon: 'grid' },
+  { id: 'meta', nome: 'Meta e roadmap', icon: 'target' },
+  { id: 'recursos', nome: 'Recursos', icon: 'layers' },
+  { id: 'checklist', nome: 'Checklist', icon: 'check' },
+  { id: 'plataformas', nome: 'Plataformas', icon: 'monitor' },
+  { id: 'diagnostico', nome: 'Diagnóstico', icon: 'alert' },
+  { id: 'timeline', nome: 'Linha do tempo', icon: 'clock' }
+];
+
+function parseRoute() {
+  const h = location.hash.replace(/^#\/?/, '');
+  const [path, qs] = h.split('?');
+  const params = new URLSearchParams(qs || '');
+  const view = VIEWS.some(v => v.id === path) ? path : 'overview';
+  return { view, params };
+}
+function go(view, params) {
+  const qs = params ? new URLSearchParams(params).toString() : '';
+  location.hash = '#/' + view + (qs ? '?' + qs : '');
+}
+
+function shell() {
+  const r = parseRoute();
+  const all = feats();
+  const p = progress(all);
+  const catSel = r.view === 'recursos' ? (r.params.get('cat') || '') : null;
+  const ckAll = DATA.checklist || [];
+  const ckN = ckAll.filter(ckDone).length;
+  const diagN = (DATA.diagnostico || []).filter(d => d.severidade === 'critico' || d.severidade === 'serio').length;
+
+  let nav = '';
+  VIEWS.forEach(v => {
+    let count = '';
+    if (v.id === 'recursos') count = all.length;
+    if (v.id === 'checklist') count = ckN + '/' + ckAll.length;
+    if (v.id === 'diagnostico' && diagN) count = diagN;
+    nav += '<a href="#/' + v.id + '" class="' + (r.view === v.id && !(v.id === 'recursos' && catSel) ? 'active' : '') + '">' + I[v.icon] + '<span>' + v.nome + '</span>' + (count !== '' ? '<span class="count num">' + count + '</span>' : '') + '</a>';
+    if (v.id === 'recursos') {
+      nav += '<div class="nav-sub">';
+      (DATA.categorias || []).forEach(c => {
+        const fs = all.filter(f => f.categoria === c.id);
+        nav += '<a href="#/recursos?cat=' + encodeURIComponent(c.id) + '" class="' + (catSel === c.id ? 'active' : '') + '"><span>' + esc(c.nome) + '</span><span class="pct">' + pct(progress(fs)) + '%</span></a>';
+      });
+      nav += '</div>';
+    }
+  });
+
+  const srcCls = SOURCE.kind === 'server' ? '' : 'cache';
+  $('#root').innerHTML =
+    '<div class="app">' +
+      '<aside class="sidebar" id="sidebar">' +
+        '<div class="brand">' + GHOST + '<div><b>' + esc(DATA.projeto && DATA.projeto.nome || 'GhostLang') + '</b><small>v' + esc(DATA.projeto && DATA.projeto.versao_atual || '?') + ' · atualizado ' + fmtDate(DATA.projeto && DATA.projeto.atualizado_em) + '</small></div></div>' +
+        '<div class="side-progress"><div class="row"><span>Progresso geral</span><b class="num">' + pct(p) + '%</b></div><div class="bar"><span style="width:' + pct(p) + '%"></span></div></div>' +
+        '<nav class="nav" aria-label="Seções">' + nav + '</nav>' +
+        '<div class="side-foot">' +
+          '<div class="source ' + srcCls + '"><i></i><span>' + esc(SOURCE.label) + '</span></div>' +
+          '<div class="btn-row">' +
+            '<button class="btn" id="btnLoad" title="Carregar outro ghostlang-status.json">' + I.upload + 'Carregar</button>' +
+            '<button class="btn" id="btnExport" title="Baixar JSON com o checklist atualizado">' + I.download + 'Exportar</button>' +
+            (SOURCE.kind === 'server' ? '<button class="btn icon" id="btnReload" title="Recarregar JSON do disco" aria-label="Recarregar">' + I.refresh + '</button>' : '') +
+            '<button class="btn icon" id="btnTheme" title="Alternar tema claro/escuro" aria-label="Alternar tema">' + I.sun + '</button>' +
+          '</div>' +
+        '</div>' +
+      '</aside>' +
+      '<div class="main-col">' +
+        '<div class="topbar"><button class="btn icon" id="btnMenu" aria-label="Abrir menu">' + I.menu + '</button>' + GHOST.replace('viewBox', 'width="24" height="24" viewBox') + '<b>GhostLang Status</b></div>' +
+        '<main class="main" id="main"></main>' +
+      '</div>' +
+    '</div>';
+
+  $('#btnLoad').onclick = () => $('#file').click();
+  $('#btnExport').onclick = () => exportJSON(false);
+  $('#btnTheme').onclick = toggleTheme;
+  if ($('#btnReload')) $('#btnReload').onclick = () => boot(true);
+  $('#btnMenu').onclick = () => { $('#sidebar').classList.add('on'); $('#scrim').classList.add('on'); };
+  $('#sidebar').addEventListener('click', (e) => { if (e.target.closest('a')) closeSide(); });
+
+  const views = { overview: vOverview, meta: vMeta, recursos: vRecursos, checklist: vChecklist, plataformas: vPlataformas, diagnostico: vDiagnostico, timeline: vTimeline };
+  views[r.view](r.params);
+  $('#main').focus && window.scrollTo(0, 0);
+}
+function closeSide() { const s = $('#sidebar'); if (s) s.classList.remove('on'); if (!$('#drawer').classList.contains('on')) $('#scrim').classList.remove('on'); }
+$('#scrim').onclick = () => { closeSide(); closeDrawer(); };
+document.addEventListener('keydown', (e) => { if (e.key === 'Escape') { closeDrawer(); closeSide(); } });
+
+function head(title, sub, actions) {
+  return '<div class="view-head"><div><h1>' + title + '</h1>' + (sub ? '<p>' + sub + '</p>' : '') + '</div>' + (actions || '') + '</div>';
+}
+
+/* ================= Visão geral ================= */
+function vOverview() {
+  const all = feats();
+  const p = progress(all);
+  const qFeats = all.filter(f => QUANTUM_CATS.includes(f.categoria));
+  const stable = all.filter(f => f.nivel >= 4).length;
+  const func = all.filter(f => f.nivel === 3).length;
+  const build = all.filter(f => f.nivel === 1 || f.nivel === 2).length;
+  const plan = all.filter(f => !f.nivel).length;
+  const ck = DATA.checklist || [];
+  const ckN = ck.filter(ckDone).length;
+  const fases = DATA.fases || [];
+  const atual = fases.find(f => f.status === 'em_andamento');
+  const snaps = (DATA.snapshots || []).slice().sort((a, b) => a.data < b.data ? -1 : 1);
+  const lastSnap = snaps[snaps.length - 1];
+  // diferença em pontos com uma casa (sem arredondar antes: o snapshot guarda uma casa decimal)
+  const delta = lastSnap && typeof lastSnap.progresso === 'number' ? Math.round((p * 100 - lastSnap.progresso) * 10) / 10 : null;
+
+  const kpi = (label, value, foot, cls) => '<div class="card kpi ' + (cls || '') + '"><div class="label">' + label + '</div><div class="value num">' + value + '</div>' + (foot ? '<div class="foot">' + foot + '</div>' : '') + '</div>';
+
+  let h = head('Visão geral', esc(DATA.projeto && DATA.projeto.descricao || ''));
+  h += '<div class="grid g-kpi">' +
+    kpi('Progresso geral', pct(p) + '<small>%</small>', 'Soma dos níveis ÷ soma dos alvos' + (delta !== null ? ' · ' + (delta >= 0 ? '+' : '') + delta + ' pts desde ' + fmtDate(lastSnap.data) : ''), 'hero') +
+    kpi('Trilha Quantum-AI', pct(progress(qFeats)) + '<small>%</small>', qFeats.length + ' recursos: quântico, IA quântica e álgebra G') +
+    kpi('Recursos mapeados', all.length, (DATA.categorias || []).length + ' áreas') +
+    kpi('Estáveis ou funcionais', stable + func, stable + ' estáveis (nível 4–5) · ' + func + ' funcionais (nível 3)') +
+    kpi('Em construção', build, 'Conceito ou protótipo (nível 1–2)') +
+    kpi('Planejados', plan, 'Ainda não iniciados (nível 0)') +
+    kpi('Checklist', ckN + '<small>/' + ck.length + '</small>', pct(ck.length ? ckN / ck.length : 0) + '% concluído') +
+  '</div>';
+
+  if (atual) {
+    const ckF = ck.filter(c => c.fase === atual.id);
+    const done = ckF.filter(ckDone).length;
+    h += '<div class="card section" style="display:flex;gap:16px;align-items:center;flex-wrap:wrap"><span class="tag now">Fase atual · ' + esc(atual.id) + '</span><div style="flex:1 1 300px"><b>' + esc(atual.nome) + '</b><div class="ink2" style="font-size:13.5px">' + esc(atual.objetivo) + '</div></div><div style="min-width:200px"><div class="row" style="display:flex;justify-content:space-between;font-size:12.5px;color:var(--ink-2);margin-bottom:5px"><span>Checklist da fase</span><b class="num" style="color:var(--ink)">' + done + '/' + ckF.length + '</b></div><div class="bar"><span style="width:' + (ckF.length ? pct(done / ckF.length) : 0) + '%"></span></div></div><a class="btn" href="#/checklist">Ver checklist</a></div>';
+  }
+
+  // Progresso por área
+  const cats = (DATA.categorias || []).map(c => { const fs = all.filter(f => f.categoria === c.id); return { c, fs, p: progress(fs) }; }).sort((a, b) => b.p - a.p);
+  let bars = '<div class="hbars" role="list">';
+  cats.forEach(({ c, fs, p }) => {
+    const byLv = [0, 1, 2, 3, 4, 5].map(n => fs.filter(f => f.nivel === n).length);
+    const tipH = '<b>' + esc(c.nome) + '</b><div class="r"><span>Progresso</span><span>' + pct(p) + '%</span></div><div class="r"><span>Recursos</span><span>' + fs.length + '</span></div><div class="r"><span>Nível 3 ou mais</span><span>' + (byLv[3] + byLv[4] + byLv[5]) + '</span></div><div class="r"><span>Nível 0</span><span>' + byLv[0] + '</span></div>';
+    bars += '<a role="listitem" class="hbar" href="#/recursos?cat=' + encodeURIComponent(c.id) + '" data-tip="' + esc(tipH) + '"><span class="name">' + esc(c.nome) + '</span><span class="track"><span class="fill" style="width:' + pct(p) + '%"></span></span><span class="val">' + pct(p) + '%</span></a>';
+  });
+  bars += '</div>';
+
+  h += '<div class="grid g-2 section">' +
+    '<div class="card"><div class="card-head"><div><h2>Progresso por área</h2><div class="sub">Maturidade atual em relação ao alvo de cada recurso. Clique para abrir a área.</div></div></div>' + bars + '</div>' +
+    '<div class="card"><div class="card-head"><div><h2>Distribuição por nível</h2><div class="sub">Quantos recursos estão em cada nível de maturidade.</div></div></div><div id="lvChart"></div><div class="legend" id="lvLegend"></div></div>' +
+  '</div>';
+
+  h += '<div class="grid g-3 section">' +
+    '<div class="card span-2"><div class="card-head"><div><h2>Evolução da maturidade</h2><div class="sub">Progresso acumulado pela data de entrada de cada recurso (datas aproximadas pelos arquivos).</div></div></div><div id="evoChart"></div></div>' +
+    '<div class="card"><div class="card-head"><div><h2>Atenção agora</h2><div class="sub">Itens críticos e sérios do diagnóstico.</div></div><a class="btn" href="#/diagnostico">Todos</a></div>' +
+      (DATA.diagnostico || []).filter(d => d.severidade === 'critico' || d.severidade === 'serio').slice(0, 5).map(d => '<div style="padding:8px 0;border-bottom:1px solid var(--line)">' + statusBadge(d.severidade) + '<div style="font-size:13.5px;margin-top:2px">' + esc(d.titulo) + '</div></div>').join('') +
+    '</div>' +
+  '</div>';
+
+  $('#main').innerHTML = h;
+  drawLevelChart($('#lvChart'), all);
+  drawEvolution($('#evoChart'));
+}
+
+function drawLevelChart(el, all) {
+  const counts = [0, 1, 2, 3, 4, 5].map(n => all.filter(f => (f.nivel || 0) === n).length);
+  const W = 520, H = 230, padL = 32, padR = 8, padT = 22, padB = 40;
+  const max = Math.max(4, ...counts);
+  const step = max > 20 ? 10 : max > 10 ? 5 : 2;
+  const top = Math.ceil(max / step) * step;
+  const iw = W - padL - padR, ih = H - padT - padB;
+  const bw = iw / 6, barW = Math.min(52, bw * 0.62);
+  let s = '<svg class="chart" viewBox="0 0 ' + W + ' ' + H + '" role="img" aria-label="Recursos por nível de maturidade">';
+  for (let v = 0; v <= top; v += step) {
+    const y = padT + ih - (v / top) * ih;
+    s += '<line class="' + (v === 0 ? 'baseline' : 'gridline') + '" x1="' + padL + '" x2="' + (W - padR) + '" y1="' + y + '" y2="' + y + '"/>';
+    s += '<text x="' + (padL - 8) + '" y="' + (y + 4) + '" text-anchor="end" class="num">' + v + '</text>';
+  }
+  counts.forEach((c, i) => {
+    const x = padL + bw * i + (bw - barW) / 2;
+    const hgt = (c / top) * ih;
+    const y = padT + ih - hgt;
+    const r = Math.min(4, hgt);
+    const fill = i === 0 ? 'var(--axis)' : levelVar(i);
+    const names = all.filter(f => (f.nivel || 0) === i).slice(0, 8).map(f => '· ' + esc(f.nome)).join('<br>');
+    const tipH = '<b>Nível ' + i + ' · ' + esc(levelName(i)) + '</b><div class="r"><span>Recursos</span><span>' + c + '</span></div>' + (names ? '<div style="margin-top:4px;color:var(--ink-2);font-size:12px">' + names + (c > 8 ? '<br>· …' : '') + '</div>' : '');
+    if (c > 0) s += '<path d="M' + x + ',' + (padT + ih) + 'V' + (y + r) + 'Q' + x + ',' + y + ' ' + (x + r) + ',' + y + 'H' + (x + barW - r) + 'Q' + (x + barW) + ',' + y + ' ' + (x + barW) + ',' + (y + r) + 'V' + (padT + ih) + 'Z" fill="' + fill + '"/>';
+    s += '<text x="' + (x + barW / 2) + '" y="' + (y - 6) + '" text-anchor="middle" class="num" style="fill:var(--ink);font-weight:600;font-size:12px">' + c + '</text>';
+    s += '<text x="' + (x + barW / 2) + '" y="' + (H - padB + 16) + '" text-anchor="middle">' + i + '</text>';
+    s += '<text x="' + (x + barW / 2) + '" y="' + (H - padB + 30) + '" text-anchor="middle">' + esc(levelName(i)) + '</text>';
+    s += '<rect x="' + (padL + bw * i) + '" y="' + padT + '" width="' + bw + '" height="' + (ih + 34) + '" fill="transparent" style="cursor:pointer" data-lv="' + i + '" data-tip="' + esc(tipH) + '"/>';
+  });
+  s += '</svg>';
+  el.innerHTML = s;
+  el.querySelectorAll('[data-lv]').forEach(r => r.addEventListener('click', () => go('recursos', { nivel: r.getAttribute('data-lv') })));
+}
+
+function evolutionSeries() {
+  const all = feats();
+  const total = all.reduce((t, f) => t + alvoOf(f), 0) || 1;
+  const today = (DATA.projeto && DATA.projeto.atualizado_em) || new Date().toISOString().slice(0, 10);
+  const dates = new Set();
+  all.forEach(f => { if (f.nivel > 0) dates.add(f.desde || today); });
+  (DATA.linha_do_tempo || []).forEach(e => dates.add(e.data));
+  const sorted = [...dates].sort();
+  return sorted.map(d => {
+    let s = 0;
+    all.forEach(f => { if (f.nivel > 0 && (f.desde || today) <= d) s += Math.min(f.nivel, alvoOf(f)); });
+    const ev = (DATA.linha_do_tempo || []).filter(e => e.data === d);
+    const novos = all.filter(f => f.nivel > 0 && (f.desde || today) === d);
+    return { d, v: s / total, ev, novos };
+  });
+}
+function drawEvolution(el) {
+  const pts = evolutionSeries();
+  if (pts.length < 2) { el.innerHTML = '<div class="empty">Adicione o campo "desde" aos recursos para ver a evolução.</div>'; return; }
+  const W = 760, H = 260, padL = 40, padR = 16, padT = 14, padB = 30;
+  const t0 = Date.parse(pts[0].d), t1 = Date.parse(pts[pts.length - 1].d);
+  const span = Math.max(1, t1 - t0);
+  const iw = W - padL - padR, ih = H - padT - padB;
+  const X = (d) => padL + ((Date.parse(d) - t0) / span) * iw;
+  const Y = (v) => padT + ih - v * ih;
+  let s = '<svg class="chart" viewBox="0 0 ' + W + ' ' + H + '" role="img" aria-label="Evolução do progresso acumulado">';
+  [0, 0.25, 0.5, 0.75, 1].forEach(v => {
+    s += '<line class="' + (v === 0 ? 'baseline' : 'gridline') + '" x1="' + padL + '" x2="' + (W - padR) + '" y1="' + Y(v) + '" y2="' + Y(v) + '"/>';
+    s += '<text x="' + (padL - 8) + '" y="' + (Y(v) + 4) + '" text-anchor="end" class="num">' + Math.round(v * 100) + '%</text>';
+  });
+  // month ticks
+  const start = new Date(pts[0].d + 'T00:00:00'); start.setDate(1); start.setMonth(start.getMonth() + 1);
+  for (let m = new Date(start); m.getTime() <= t1; m.setMonth(m.getMonth() + 1)) {
+    const x = padL + ((m.getTime() - t0) / span) * iw;
+    s += '<line x1="' + x + '" x2="' + x + '" y1="' + (padT + ih) + '" y2="' + (padT + ih + 4) + '" stroke="var(--axis)"/>';
+    s += '<text x="' + x + '" y="' + (H - 8) + '" text-anchor="middle">' + MESES[m.getMonth()] + (m.getMonth() === 0 ? ' ' + m.getFullYear() : '') + '</text>';
+  }
+  // step line + area
+  let line = 'M' + X(pts[0].d) + ',' + Y(pts[0].v);
+  for (let i = 1; i < pts.length; i++) line += 'H' + X(pts[i].d) + 'V' + Y(pts[i].v);
+  const area = line + 'V' + Y(0) + 'H' + X(pts[0].d) + 'Z';
+  s += '<path d="' + area + '" fill="var(--accent)" opacity="0.10"/>';
+  s += '<path d="' + line + '" fill="none" stroke="var(--accent)" stroke-width="2" stroke-linejoin="round"/>';
+  pts.forEach(p => { if (p.ev.length) s += '<circle cx="' + X(p.d) + '" cy="' + Y(p.v) + '" r="4" fill="var(--accent)" stroke="var(--surface)" stroke-width="2"/>'; });
+  const last = pts[pts.length - 1];
+  s += '<text x="' + (X(last.d) - 6) + '" y="' + (Y(last.v) - 10) + '" text-anchor="end" style="fill:var(--ink);font-weight:600;font-size:12px" class="num">' + pct(last.v) + '%</text>';
+  s += '<line id="evoX" x1="0" x2="0" y1="' + padT + '" y2="' + (padT + ih) + '" stroke="var(--ink-2)" stroke-width="1" stroke-dasharray="3 3" opacity="0"/>';
+  s += '<circle id="evoDot" r="5" fill="var(--accent)" stroke="var(--surface)" stroke-width="2" opacity="0"/>';
+  s += '<rect x="' + padL + '" y="' + padT + '" width="' + iw + '" height="' + ih + '" fill="transparent" id="evoHit" data-tip-live="1"/>';
+  s += '</svg>';
+  el.innerHTML = s;
+  const svg = el.querySelector('svg'), hit = el.querySelector('#evoHit'), vx = el.querySelector('#evoX'), dot = el.querySelector('#evoDot');
+  hit.addEventListener('mousemove', (e) => {
+    const pt = svg.createSVGPoint(); pt.x = e.clientX; pt.y = e.clientY;
+    const loc = pt.matrixTransform(svg.getScreenCTM().inverse());
+    let best = pts[0], bd = Infinity;
+    pts.forEach(p => { const dd = Math.abs(X(p.d) - loc.x); if (dd < bd) { bd = dd; best = p; } });
+    vx.setAttribute('x1', X(best.d)); vx.setAttribute('x2', X(best.d)); vx.setAttribute('opacity', 1);
+    dot.setAttribute('cx', X(best.d)); dot.setAttribute('cy', Y(best.v)); dot.setAttribute('opacity', 1);
+    let h = '<b>' + fmtDate(best.d) + '</b><div class="r"><span>Progresso acumulado</span><span>' + pct(best.v) + '%</span></div>';
+    if (best.novos.length) h += '<div class="r"><span>Recursos nesta data</span><span>' + best.novos.length + '</span></div>';
+    best.ev.forEach(ev => { h += '<div style="margin-top:4px;color:var(--ink-2);font-size:12px">' + esc(ev.titulo) + '</div>'; });
+    showTip(h, e.clientX, e.clientY);
+  });
+  hit.addEventListener('mouseleave', () => { vx.setAttribute('opacity', 0); dot.setAttribute('opacity', 0); hideTip(); });
+}
+
+/* ================= Meta e roadmap ================= */
+function vMeta() {
+  const m = DATA.meta || {};
+  const all = feats();
+  const ck = DATA.checklist || [];
+  let h = head('Meta e roadmap', 'Onde queremos chegar e as fases para chegar lá.');
+  h += '<div class="target-hero"><div class="eyebrow">Meta mais avançada</div><h2>' + esc(m.nome || '') + '</h2><p>' + esc(m.descricao || '') + '</p>' +
+    '<div class="pillars">' + (m.pilares || []).map(p => '<div class="pillar"><b>' + esc(p.titulo) + '</b><span>' + esc(p.texto) + '</span></div>').join('') + '</div></div>';
+
+  h += '<div class="grid g-3 section"><div class="card span-2"><div class="card-head"><div><h2>Fases</h2><div class="sub">Checklist concluído e maturidade dos recursos de cada fase.</div></div></div><div class="phases">';
+  (DATA.fases || []).forEach(f => {
+    const ckF = ck.filter(c => c.fase === f.id), done = ckF.filter(ckDone).length;
+    const fsF = all.filter(r => r.fase === f.id);
+    const tag = f.status === 'concluida' ? '<span class="tag done">Concluída</span>' : f.status === 'em_andamento' ? '<span class="tag now">Em andamento</span>' : '<span class="tag">Planejada</span>';
+    h += '<div class="phase ' + esc(f.status) + '"><div class="dot">' + esc(f.id) + '</div><div><h3>' + esc(f.nome) + ' ' + tag + '</h3><div class="obj">' + esc(f.objetivo) + '</div><div class="stats">' +
+      (ckF.length ? '<span>Checklist <b class="num" style="color:var(--ink)">' + done + '/' + ckF.length + '</b></span><span class="bar"><span style="width:' + pct(done / ckF.length) + '%"></span></span>' : '') +
+      (fsF.length ? '<a href="#/recursos?fase=' + encodeURIComponent(f.id) + '" style="color:inherit">' + fsF.length + ' recursos · maturidade <b class="num" style="color:var(--ink)">' + pct(progress(fsF)) + '%</b></a>' : '') +
+    '</div></div></div>';
+  });
+  h += '</div></div>';
+  h += '<div class="grid" style="align-content:start">' +
+    '<div class="card"><h2>Critérios GhostLang 1.0</h2><div class="sub" style="margin-bottom:12px">Linguagem completa e distribuível.</div><ul class="crit">' + (m.criterios_1_0 || []).map(c => '<li>' + esc(c) + '</li>').join('') + '</ul></div>' +
+    '<div class="card"><h2>Critérios GhostLang 2.0</h2><div class="sub" style="margin-bottom:12px">Quantum-AI nativa.</div><ul class="crit">' + (m.criterios_2_0 || []).map(c => '<li>' + esc(c) + '</li>').join('') + '</ul></div>' +
+  '</div></div>';
+
+  // Lacunas para a meta: alta prioridade com maior distância
+  const gaps = all.filter(f => f.prioridade === 'alta' && (alvoOf(f) - (f.nivel || 0)) >= 2).sort((a, b) => (alvoOf(b) - b.nivel) - (alvoOf(a) - a.nivel) || (a.fase || '').localeCompare(b.fase || ''));
+  h += '<div class="card section"><div class="card-head"><div><h2>Maiores lacunas de alta prioridade</h2><div class="sub">Recursos de prioridade alta a 2 níveis ou mais do alvo.</div></div><span class="muted num">' + gaps.length + ' recursos</span></div>' + featTable(gaps.slice(0, 14)) + '</div>';
+  $('#main').innerHTML = h;
+  bindRows();
+}
+
+/* ================= Recursos ================= */
+function featTable(list) {
+  if (!list.length) return '<div class="empty">Nenhum recurso com esses filtros.</div>';
+  let h = '<div class="table-wrap"><table><thead><tr><th>Recurso</th><th>Nível</th><th class="hide-sm">Alvo</th><th class="hide-sm">Área</th><th class="hide-sm">Fase</th><th class="hide-sm">Prioridade</th></tr></thead><tbody>';
+  list.forEach(f => {
+    h += '<tr class="row-btn" tabindex="0" data-id="' + esc(f.id) + '"><td><div class="fname">' + esc(f.nome) + '</div><div class="fdesc">' + esc(f.descricao || '') + '</div></td><td>' + lvl(f) + '</td><td class="hide-sm num">' + alvoOf(f) + '</td><td class="hide-sm"><span class="chip">' + esc(catById(f.categoria).nome) + '</span></td><td class="hide-sm">' + esc(f.fase || '—') + '</td><td class="hide-sm"><span class="prio ' + esc(f.prioridade || '') + '">' + esc(f.prioridade || '—') + '</span></td></tr>';
+  });
+  return h + '</tbody></table></div>';
+}
+function bindRows() {
+  document.querySelectorAll('tr.row-btn').forEach(tr => {
+    tr.addEventListener('click', () => openDrawer(tr.getAttribute('data-id')));
+    tr.addEventListener('keydown', (e) => { if (e.key === 'Enter' || e.key === ' ') { e.preventDefault(); openDrawer(tr.getAttribute('data-id')); } });
+  });
+}
+
+function vRecursos(params) {
+  const cat = params.get('cat') || '';
+  const q = params.get('q') || '';
+  const nivel = params.get('nivel') || '';
+  const fase = params.get('fase') || '';
+  const ordem = params.get('ordem') || 'nivel';
+  const all = feats();
+  let list = all.filter(f =>
+    (!cat || f.categoria === cat) &&
+    (nivel === '' || String(f.nivel || 0) === nivel) &&
+    (!fase || f.fase === fase) &&
+    (!q || (f.nome + ' ' + (f.descricao || '') + ' ' + (f.evidencia || '') + ' ' + (f.arquivos || []).join(' ')).toLowerCase().includes(q.toLowerCase()))
+  );
+  const prioW = { alta: 0, media: 1, baixa: 2 };
+  const cmp = {
+    nivel: (a, b) => (b.nivel || 0) - (a.nivel || 0) || a.nome.localeCompare(b.nome),
+    lacuna: (a, b) => (alvoOf(b) - (b.nivel || 0)) - (alvoOf(a) - (a.nivel || 0)) || (prioW[a.prioridade] ?? 3) - (prioW[b.prioridade] ?? 3),
+    nome: (a, b) => a.nome.localeCompare(b.nome),
+    prioridade: (a, b) => (prioW[a.prioridade] ?? 3) - (prioW[b.prioridade] ?? 3) || (b.nivel || 0) - (a.nivel || 0)
+  };
+  list.sort(cmp[ordem] || cmp.nivel);
+  const c = cat ? catById(cat) : null;
+  const base = cat ? all.filter(f => f.categoria === cat) : all;
+
+  let h = head(c ? esc(c.nome) : 'Recursos', c ? esc(c.descricao || '') : 'Todos os recursos da GhostLang com o nível de maturidade atual e o alvo. Clique em um recurso para ver detalhes, evidências e próximos passos.');
+  const opt = (v, t, sel) => '<option value="' + esc(v) + '"' + (v === sel ? ' selected' : '') + '>' + esc(t) + '</option>';
+  h += '<div class="filters">' +
+    '<input type="search" id="fq" placeholder="Buscar recurso, arquivo ou evidência…" value="' + esc(q) + '" aria-label="Buscar">' +
+    '<select id="fcat" aria-label="Área">' + opt('', 'Todas as áreas', cat) + (DATA.categorias || []).map(x => opt(x.id, x.nome, cat)).join('') + '</select>' +
+    '<select id="fniv" aria-label="Nível">' + opt('', 'Todos os níveis', nivel) + [0, 1, 2, 3, 4, 5].map(n => opt(String(n), n + ' · ' + levelName(n), nivel)).join('') + '</select>' +
+    '<select id="ffase" aria-label="Fase">' + opt('', 'Todas as fases', fase) + (DATA.fases || []).map(x => opt(x.id, x.id + ' · ' + x.nome, fase)).join('') + '</select>' +
+    '<select id="ford" aria-label="Ordenar">' + opt('nivel', 'Ordenar: maior nível', ordem) + opt('lacuna', 'Ordenar: maior lacuna', ordem) + opt('prioridade', 'Ordenar: prioridade', ordem) + opt('nome', 'Ordenar: nome', ordem) + '</select>' +
+  '</div>';
+
+  if (c) {
+    const byLv = [0, 1, 2, 3, 4, 5].map(n => base.filter(f => (f.nivel || 0) === n).length);
+    h += '<div class="grid g-kpi" style="margin-bottom:16px">' +
+      '<div class="card kpi hero"><div class="label">Progresso da área</div><div class="value num">' + pct(progress(base)) + '<small>%</small></div></div>' +
+      '<div class="card kpi"><div class="label">Recursos</div><div class="value num">' + base.length + '</div></div>' +
+      '<div class="card kpi"><div class="label">Nível 3 ou mais</div><div class="value num">' + (byLv[3] + byLv[4] + byLv[5]) + '</div></div>' +
+      '<div class="card kpi"><div class="label">Em construção (1–2)</div><div class="value num">' + (byLv[1] + byLv[2]) + '</div></div>' +
+      '<div class="card kpi"><div class="label">Planejados (0)</div><div class="value num">' + byLv[0] + '</div></div>' +
+    '</div>';
+  } else if (!q && nivel === '' && !fase) {
+    h += '<div class="card" style="margin-bottom:16px"><div class="card-head"><div><h2>Mapa de maturidade</h2><div class="sub">Recursos por área e nível. Clique em uma célula para filtrar.</div></div></div>' + heatmap(all) + '</div>';
+  }
+
+  h += '<div class="card"><div class="card-head"><div><h2>' + list.length + ' recurso' + (list.length === 1 ? '' : 's') + '</h2></div><div class="legend" style="margin:0"><span>' + meter({ nivel: 3, alvo: 5 }) + ' nível atual · contorno = até o alvo</span></div></div>' + featTable(list) + '</div>';
+  $('#main').innerHTML = h;
+
+  const upd = () => {
+    const p = {};
+    const v = (id) => $(id).value;
+    if (v('#fq')) p.q = v('#fq');
+    if (v('#fcat')) p.cat = v('#fcat');
+    if (v('#fniv') !== '') p.nivel = v('#fniv');
+    if (v('#ffase')) p.fase = v('#ffase');
+    if (v('#ford') !== 'nivel') p.ordem = v('#ford');
+    go('recursos', p);
+  };
+  let t;
+  $('#fq').addEventListener('input', () => { clearTimeout(t); t = setTimeout(() => { upd(); }, 250); });
+  ['#fcat', '#fniv', '#ffase', '#ford'].forEach(id => $(id).addEventListener('change', upd));
+  if (q) { const el = $('#fq'); el.focus(); el.setSelectionRange(q.length, q.length); }
+  document.querySelectorAll('.heat .cell[data-cat]').forEach(b => b.addEventListener('click', () => go('recursos', { cat: b.getAttribute('data-cat'), nivel: b.getAttribute('data-lv') })));
+  bindRows();
+}
+function heatmap(all) {
+  const cats = DATA.categorias || [];
+  let max = 1;
+  const grid = cats.map(c => [0, 1, 2, 3, 4, 5].map(n => { const fs = all.filter(f => f.categoria === c.id && (f.nivel || 0) === n); max = Math.max(max, fs.length); return fs; }));
+  let h = '<div class="heat" role="table" aria-label="Recursos por área e nível"><div></div>' + [0, 1, 2, 3, 4, 5].map(n => '<div class="hh">' + n + '<br>' + esc(levelName(n)) + '</div>').join('');
+  cats.forEach((c, ci) => {
+    h += '<div class="rl" title="' + esc(c.nome) + '">' + esc(c.nome) + '</div>';
+    grid[ci].forEach((fs, n) => {
+      const k = fs.length;
+      const step = k === 0 ? 0 : Math.max(1, Math.min(6, Math.ceil((k / max) * 6)));
+      const ink = step >= 4 ? (document.documentElement.getAttribute('data-theme') === 'dark' || (matchMedia('(prefers-color-scheme: dark)').matches && document.documentElement.getAttribute('data-theme') !== 'light') ? (step >= 5 ? '#0b0b0b' : '#fff') : '#fff') : 'var(--ink)';
+      const tipH = '<b>' + esc(c.nome) + ' · nível ' + n + '</b>' + fs.slice(0, 10).map(f => '<div style="color:var(--ink-2);font-size:12px">· ' + esc(f.nome) + '</div>').join('');
+      h += k ? '<button class="cell num" style="background:var(--seq-' + step + ');color:' + ink + '" data-cat="' + esc(c.id) + '" data-lv="' + n + '" data-tip="' + esc(tipH) + '" aria-label="' + esc(c.nome) + ', nível ' + n + ': ' + k + ' recursos">' + k + '</button>' : '<div class="cell zero" style="background:var(--seq-0)">0</div>';
+    });
+  });
+  return h + '</div>';
+}
+
+/* ================= Drawer ================= */
+function openDrawer(id) {
+  const f = featById(id); if (!f) return;
+  const a = alvoOf(f), n = f.nivel || 0;
+  let bm = '<div class="big-meter" aria-hidden="true">';
+  for (let i = 1; i <= 5; i++) bm += i <= n ? '<i style="background:' + levelVar(n) + '"></i>' : i <= a ? '<i class="target"></i>' : '<i style="opacity:.35"></i>';
+  bm += '</div><div class="lvl-scale"><span>1 Conceito</span><span>2 Protótipo</span><span>3 Funcional</span><span>4 Estável</span><span>5 Avançado</span></div>';
+  const ckRel = (DATA.checklist || []).filter(c => c.recurso === f.id);
+  const diagRel = (DATA.diagnostico || []).filter(d => d.recurso === f.id);
+  const d = $('#drawer');
+  d.innerHTML = '<div class="drawer-head"><h2>' + esc(f.nome) + '</h2><button class="btn icon" id="dClose" aria-label="Fechar">' + I.close + '</button></div>' +
+    '<div class="drawer-body">' +
+      '<div><h4>Maturidade</h4>' + lvChip(n) + ' <span class="muted" style="font-size:12.5px">alvo ' + a + ' · ' + esc(levelName(a)) + ' · ' + pct(Math.min(n, a) / a) + '% do alvo</span>' + bm + '</div>' +
+      (f.descricao ? '<div><h4>Descrição</h4><p>' + esc(f.descricao) + '</p></div>' : '') +
+      (f.evidencia ? '<div><h4>Evidência / estado real</h4><p>' + esc(f.evidencia) + '</p></div>' : '') +
+      '<dl class="kv"><dt>Área</dt><dd><a href="#/recursos?cat=' + encodeURIComponent(f.categoria) + '">' + esc(catById(f.categoria).nome) + '</a></dd>' +
+        '<dt>Fase</dt><dd>' + esc(f.fase || '—') + ((DATA.fases || []).find(x => x.id === f.fase) ? ' · ' + esc((DATA.fases || []).find(x => x.id === f.fase).nome) : '') + '</dd>' +
+        '<dt>Prioridade</dt><dd><span class="prio ' + esc(f.prioridade || '') + '">' + esc(f.prioridade || '—') + '</span></dd>' +
+        '<dt>Desde</dt><dd class="num">' + fmtDate(f.desde) + '</dd>' +
+        '<dt>Onde existe</dt><dd>' + ((f.onde || []).length ? f.onde.map(o => '<span class="chip">' + esc(ONDE[o] || o) + '</span>').join(' ') : '—') + '</dd>' +
+        '<dt>ID</dt><dd><code>' + esc(f.id) + '</code></dd></dl>' +
+      ((f.arquivos || []).length ? '<div><h4>Arquivos</h4><ul>' + f.arquivos.map(x => '<li><code>' + esc(x) + '</code></li>').join('') + '</ul></div>' : '') +
+      ((f.proximos_passos || []).length ? '<div><h4>Próximos passos</h4><ul>' + f.proximos_passos.map(x => '<li>' + esc(x) + '</li>').join('') + '</ul></div>' : '') +
+      (ckRel.length ? '<div><h4>Checklist relacionado</h4><ul>' + ckRel.map(c => '<li>' + (ckDone(c) ? '✓ ' : '○ ') + esc(c.texto) + ' <span class="muted">(' + esc(c.fase) + ')</span></li>').join('') + '</ul></div>' : '') +
+      (diagRel.length ? '<div><h4>Diagnóstico</h4>' + diagRel.map(x => '<div style="margin-bottom:6px">' + statusBadge(x.severidade) + '<div style="font-size:13px">' + esc(x.titulo) + '</div></div>').join('') + '</div>' : '') +
+    '</div>';
+  d.classList.add('on'); d.setAttribute('aria-hidden', 'false');
+  $('#scrim').classList.add('on');
+  $('#dClose').onclick = closeDrawer;
+  $('#dClose').focus();
+  d.querySelectorAll('a').forEach(a => a.addEventListener('click', closeDrawer));
+}
+function closeDrawer() {
+  const d = $('#drawer'); d.classList.remove('on'); d.setAttribute('aria-hidden', 'true');
+  const s = $('#sidebar'); if (!s || !s.classList.contains('on')) $('#scrim').classList.remove('on');
+}
+
+/* ================= Checklist ================= */
+function vChecklist(params) {
+  const filtro = params.get('f') || 'todos';
+  const ck = DATA.checklist || [];
+  const changed = ckChanged();
+  let h = head('Checklist', 'Marque os itens concluídos. As alterações ficam salvas neste navegador; use “Exportar JSON” para gravá-las no arquivo.',
+    '<div class="seg" role="group" aria-label="Filtro">' + [['todos', 'Todos'], ['pendentes', 'Pendentes'], ['feitos', 'Concluídos']].map(([k, t]) => '<button data-f="' + k + '" class="' + (filtro === k ? 'on' : '') + '">' + t + '</button>').join('') + '</div>');
+  if (changed.length) h += '<div class="banner"><b class="num">' + changed.length + '</b> alteraç' + (changed.length === 1 ? 'ão' : 'ões') + ' ainda não gravada' + (changed.length === 1 ? '' : 's') + ' no JSON.<span class="sp"></span><button class="btn" id="ckReset">Descartar</button><button class="btn primary" id="ckExport">' + I.download + 'Exportar JSON</button></div>';
+  (DATA.fases || []).forEach(f => {
+    const items = ck.filter(c => c.fase === f.id);
+    if (!items.length) return;
+    const done = items.filter(ckDone).length;
+    const vis = items.filter(c => filtro === 'todos' || (filtro === 'feitos' ? ckDone(c) : !ckDone(c)));
+    h += '<div class="card ck-group"><div class="ck-head"><span class="tag ' + (f.status === 'em_andamento' ? 'now' : f.status === 'concluida' ? 'done' : '') + '">' + esc(f.id) + '</span><h3>' + esc(f.nome) + '</h3><span class="bar"><span style="width:' + pct(done / items.length) + '%"></span></span><span class="num ink2" style="font-size:13px">' + done + '/' + items.length + '</span></div><div class="ck-list">';
+    if (!vis.length) h += '<div class="muted" style="font-size:13px;padding:6px 4px">Nada aqui com este filtro.</div>';
+    vis.forEach(c => {
+      const dn = ckDone(c);
+      const ch = Object.prototype.hasOwnProperty.call(CK_OVR, c.id) && !!CK_OVR[c.id] !== !!c.feito;
+      const rf = c.recurso ? featById(c.recurso) : null;
+      h += '<div class="ck ' + (dn ? 'done' : '') + '"><input type="checkbox" id="ck-' + esc(c.id) + '" data-ck="' + esc(c.id) + '"' + (dn ? ' checked' : '') + '><label for="ck-' + esc(c.id) + '">' + esc(c.texto) + (ch ? ' <span class="changed">· alterado</span>' : '') + '</label>' + (rf ? '<a href="#" class="ref" data-open="' + esc(rf.id) + '">' + esc(rf.nome.length > 34 ? rf.nome.slice(0, 33) + '…' : rf.nome) + '</a>' : '') + '</div>';
+    });
+    h += '</div></div>';
+  });
+  $('#main').innerHTML = h;
+  document.querySelectorAll('[data-ck]').forEach(cb => cb.addEventListener('change', () => {
+    const id = cb.getAttribute('data-ck');
+    const orig = (DATA.checklist || []).find(c => c.id === id);
+    if (orig && !!orig.feito === cb.checked) delete CK_OVR[id]; else CK_OVR[id] = cb.checked;
+    store.set(LS_CK, JSON.stringify(CK_OVR));
+    shell();
+  }));
+  document.querySelectorAll('[data-f]').forEach(b => b.addEventListener('click', () => go('checklist', b.getAttribute('data-f') === 'todos' ? null : { f: b.getAttribute('data-f') })));
+  document.querySelectorAll('[data-open]').forEach(a => a.addEventListener('click', (e) => { e.preventDefault(); openDrawer(a.getAttribute('data-open')); }));
+  if ($('#ckExport')) $('#ckExport').onclick = () => exportJSON(false);
+  if ($('#ckReset')) $('#ckReset').onclick = () => { CK_OVR = {}; store.del(LS_CK); shell(); };
+}
+
+/* ================= Plataformas ================= */
+function vPlataformas() {
+  const pl = DATA.plataformas || [];
+  const keys = [];
+  pl.forEach(p => Object.keys(p.itens || {}).forEach(k => { if (!keys.includes(k)) keys.push(k); }));
+  let h = head('Plataformas', 'Maturidade de cada parte da GhostLang por sistema operacional. Foco atual: Windows, depois Linux e macOS.');
+  h += '<div class="grid g-3">' + pl.map(p => {
+    const vals = Object.values(p.itens || {});
+    const pr = vals.length ? vals.reduce((s, v) => s + v, 0) / (vals.length * 5) : 0;
+    return '<div class="card kpi ' + (p.foco ? 'hero' : '') + '"><div class="label">' + esc(p.nome) + (p.foco ? ' · foco atual' : '') + '</div><div class="value num">' + pct(pr) + '<small>%</small></div><div class="foot">' + esc(p.notas || '') + '</div></div>';
+  }).join('') + '</div>';
+  h += '<div class="card section"><div class="card-head"><div><h2>Matriz de suporte</h2><div class="sub">Nível de 0 a 5 por item e plataforma.</div></div></div><div class="table-wrap"><table><thead><tr><th>Item</th>' + pl.map(p => '<th>' + esc(p.nome) + '</th>').join('') + '</tr></thead><tbody>';
+  keys.forEach(k => {
+    h += '<tr><td>' + esc(k) + '</td>' + pl.map(p => { const n = (p.itens || {})[k]; return '<td>' + (typeof n === 'number' ? lvl({ nivel: n, alvo: 5 }) : '<span class="muted">—</span>') + '</td>'; }).join('') + '</tr>';
+  });
+  h += '</tbody></table></div></div>';
+  const platFeats = feats().filter(f => f.categoria === 'plataformas');
+  if (platFeats.length) h += '<div class="card section"><div class="card-head"><div><h2>Recursos de plataforma e distribuição</h2></div></div>' + featTable(platFeats) + '</div>';
+  $('#main').innerHTML = h;
+  bindRows();
+}
+
+/* ================= Diagnóstico ================= */
+function vDiagnostico() {
+  const order = { critico: 0, serio: 1, alerta: 2, ok: 3 };
+  const list = (DATA.diagnostico || []).slice().sort((a, b) => (order[a.severidade] ?? 9) - (order[b.severidade] ?? 9));
+  const cnt = (s) => list.filter(d => d.severidade === s).length;
+  let h = head('Diagnóstico', 'Problemas e constatações verificados no código e em testes reais de compilação.');
+  h += '<div class="grid g-kpi">' + ['critico', 'serio', 'alerta', 'ok'].map(s => '<div class="card kpi"><div class="label">' + statusBadge(s) + '</div><div class="value num">' + cnt(s) + '</div></div>').join('') + '</div>';
+  h += '<div class="card section">' + (list.length ? list.map(d => {
+    const f = d.recurso ? featById(d.recurso) : null;
+    return '<div class="diag"><div>' + statusBadge(d.severidade) + '</div><div><h3>' + esc(d.titulo) + '</h3><p>' + esc(d.detalhe) + '</p><div class="meta">' + (d.arquivo ? '<span><code>' + esc(d.arquivo) + '</code></span>' : '') + (f ? '<a href="#" data-open="' + esc(f.id) + '">' + esc(f.nome) + '</a>' : '') + '</div></div></div>';
+  }).join('') : '<div class="empty">Nenhum item.</div>') + '</div>';
+  $('#main').innerHTML = h;
+  document.querySelectorAll('[data-open]').forEach(a => a.addEventListener('click', (e) => { e.preventDefault(); openDrawer(a.getAttribute('data-open')); }));
+}
+
+/* ================= Linha do tempo ================= */
+function vTimeline() {
+  const ev = (DATA.linha_do_tempo || []).slice().sort((a, b) => a.data < b.data ? 1 : -1);
+  const snaps = (DATA.snapshots || []).slice().sort((a, b) => a.data < b.data ? 1 : -1);
+  const cur = pct(progress(feats()));
+  let h = head('Linha do tempo', 'Marcos do projeto e registros (snapshots) do progresso ao longo do tempo.',
+    '<button class="btn primary" id="snapBtn">' + I.camera + 'Registrar snapshot de hoje</button>');
+  h += '<div class="grid g-3"><div class="card span-2"><div class="card-head"><div><h2>Evolução da maturidade</h2><div class="sub">Progresso acumulado por data de entrada dos recursos.</div></div></div><div id="evoChart"></div></div>' +
+    '<div class="card"><div class="card-head"><div><h2>Snapshots</h2><div class="sub">Atual: <b class="num" style="color:var(--ink)">' + cur + '%</b></div></div></div>' +
+      (snaps.length ? '<table><thead><tr><th>Data</th><th>Progresso</th><th>Δ</th></tr></thead><tbody>' + snaps.map((s, i) => {
+        const prev = snaps[i + 1]; const dlt = prev && typeof prev.progresso === 'number' ? s.progresso - prev.progresso : null;
+        return '<tr><td class="num">' + fmtDate(s.data) + '<div class="muted" style="font-size:12px">' + esc(s.nota || '') + '</div></td><td class="num"><b>' + esc(s.progresso) + '%</b></td><td class="num" style="color:' + (dlt > 0 ? 'var(--good-ink)' : 'var(--muted)') + '">' + (dlt === null ? '—' : (dlt > 0 ? '▲ +' : dlt < 0 ? '▼ ' : '') + dlt) + '</td></tr>';
+      }).join('') + '</tbody></table>' : '<div class="empty">Nenhum snapshot ainda.</div>') +
+    '</div></div>';
+  h += '<div class="card section"><div class="card-head"><div><h2>Marcos</h2></div></div><div class="tl">' + ev.map(e => '<div class="tl-item"><div class="d">' + fmtDate(e.data) + '</div><h3>' + esc(e.titulo) + '</h3><p>' + esc(e.descricao || '') + '</p></div>').join('') + '</div></div>';
+  $('#main').innerHTML = h;
+  drawEvolution($('#evoChart'));
+  $('#snapBtn').onclick = () => {
+    const nota = prompt('Nota para este snapshot (opcional):', '') ;
+    if (nota === null) return;
+    exportJSON(true, nota);
+  };
+}
+
+/* ================= Exportar / carregar ================= */
+function buildExport(withSnap, nota) {
+  const out = JSON.parse(JSON.stringify(DATA));
+  (out.checklist || []).forEach(c => { if (Object.prototype.hasOwnProperty.call(CK_OVR, c.id)) c.feito = !!CK_OVR[c.id]; });
+  const today = new Date(); const iso = today.getFullYear() + '-' + String(today.getMonth() + 1).padStart(2, '0') + '-' + String(today.getDate()).padStart(2, '0');
+  out.projeto = out.projeto || {};
+  out.projeto.atualizado_em = iso;
+  if (withSnap) {
+    out.snapshots = (out.snapshots || []).filter(s => s.data !== iso);
+    out.snapshots.push({ data: iso, progresso: pct(progress(out.recursos || [])), recursos: (out.recursos || []).length, nota: nota || '' });
+  }
+  return out;
+}
+function exportJSON(withSnap, nota) {
+  const out = buildExport(withSnap, nota);
+  const blob = new Blob([JSON.stringify(out, null, 2) + '\n'], { type: 'application/json' });
+  const a = document.createElement('a');
+  a.href = URL.createObjectURL(blob); a.download = 'ghostlang-status.json';
+  document.body.appendChild(a); a.click(); a.remove();
+  setTimeout(() => URL.revokeObjectURL(a.href), 2000);
+  // aplica localmente: o arquivo baixado passa a ser a verdade
+  DATA = out; CK_OVR = {}; store.del(LS_CK);
+  if (SOURCE.kind !== 'server') { store.set(LS_DATA, JSON.stringify({ at: Date.now(), data: DATA })); }
+  shell();
+  setTimeout(() => alert('JSON exportado (ghostlang-status.json). Substitua o arquivo em dashboard/ para gravar as mudanças no projeto.'), 50);
+}
+function acceptFile(file) {
+  if (!file) return;
+  const r = new FileReader();
+  r.onload = () => {
+    try {
+      const d = JSON.parse(r.result);
+      if (!Array.isArray(d.recursos)) throw new Error('Campo "recursos" ausente.');
+      DATA = d; SOURCE = { kind: 'file', label: 'Arquivo: ' + file.name };
+      store.set(LS_DATA, JSON.stringify({ at: Date.now(), name: file.name, data: d }));
+      shell();
+    } catch (e) { alert('JSON inválido: ' + e.message); }
+  };
+  r.readAsText(file, 'utf-8');
+}
+$('#file').addEventListener('change', (e) => { acceptFile(e.target.files[0]); e.target.value = ''; });
+
+/* ================= Tema ================= */
+function applyTheme() { const t = store.get(LS_THEME); if (t === 'light' || t === 'dark') document.documentElement.setAttribute('data-theme', t); else document.documentElement.removeAttribute('data-theme'); }
+function toggleTheme() {
+  const cur = document.documentElement.getAttribute('data-theme') || (matchMedia('(prefers-color-scheme: dark)').matches ? 'dark' : 'light');
+  const next = cur === 'dark' ? 'light' : 'dark';
+  store.set(LS_THEME, next); applyTheme(); shell();
+}
+applyTheme();
+
+/* ================= Boot ================= */
+function loaderScreen(msg) {
+  $('#root').innerHTML = '<div class="loader">' + GHOST.replace('viewBox', 'width="56" height="56" viewBox') +
+    '<h1 style="margin-top:10px">GhostLang Status</h1><p class="ink2" style="margin-top:8px">' + msg + '</p>' +
+    '<div class="drop" id="drop"><p><b>Arraste o ghostlang-status.json aqui</b></p><p class="muted" style="margin:6px 0 14px">ou</p><button class="btn primary" id="pick">' + I.upload + 'Escolher arquivo</button></div>' +
+    '<p class="muted" style="margin-top:22px;font-size:13px">Para carregar o JSON automaticamente (sempre atualizado), abra pelo servidor local:</p>' +
+    '<pre>powershell -ExecutionPolicy Bypass -File dashboard\\abrir-dashboard.ps1</pre></div>';
+  $('#pick').onclick = () => $('#file').click();
+  const drop = $('#drop');
+  ['dragenter', 'dragover'].forEach(ev => drop.addEventListener(ev, (e) => { e.preventDefault(); drop.classList.add('over'); }));
+  ['dragleave', 'drop'].forEach(ev => drop.addEventListener(ev, (e) => { e.preventDefault(); drop.classList.remove('over'); }));
+  drop.addEventListener('drop', (e) => acceptFile(e.dataTransfer.files[0]));
+}
+
+async function boot(force) {
+  if (location.protocol.startsWith('http')) {
+    try {
+      const res = await fetch('ghostlang-status.json', { cache: 'no-store' });
+      if (!res.ok) throw new Error('HTTP ' + res.status);
+      DATA = await res.json();
+      SOURCE = { kind: 'server', label: 'ghostlang-status.json (ao vivo)' };
+      shell();
+      return;
+    } catch (e) { if (force) alert('Não foi possível recarregar: ' + e.message); }
+  }
+  const cached = store.get(LS_DATA);
+  if (cached) {
+    try {
+      const c = JSON.parse(cached);
+      DATA = c.data;
+      SOURCE = { kind: 'cache', label: 'Cópia salva em ' + new Date(c.at).toLocaleDateString('pt-BR') + (c.name ? ' (' + c.name + ')' : '') };
+      shell();
+      return;
+    } catch (e) {}
+  }
+  loaderScreen(location.protocol === 'file:' ? 'Aberto direto do disco, o navegador não deixa a página ler o JSON sozinha. Carregue o arquivo uma vez (fica salvo neste navegador) ou use o servidor local.' : 'Não encontrei o ghostlang-status.json ao lado desta página.');
+}
+window.addEventListener('hashchange', () => { if (DATA) { closeDrawer(); shell(); } });
+window.addEventListener('dragover', (e) => e.preventDefault());
+window.addEventListener('drop', (e) => { e.preventDefault(); if (e.dataTransfer.files[0]) acceptFile(e.dataTransfer.files[0]); });
+boot();
+})();
+</script>
+</body>
+</html>

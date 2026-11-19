@@ -5,7 +5,9 @@
 
 Linguagem de programação compilada (transpilada para C++17) voltada a **computação quântica**, **IA/deep learning** e à **álgebra hipercomplexa G** (os Números Fantasmas de 4 componentes). O mesmo programa roda compilado (`ghost run`) ou no REPL interativo (`ghost`), com a mesma saída.
 
-> **Estado:** versão 0.9, em desenvolvimento. Testada no **Windows x64** (MSYS2 UCRT64, GCC 16.2): 203 testes no CTest. **Linux e macOS ainda não funcionam** (o CI os roda como experimentais); são as próximas etapas. A maturidade de cada recurso, com a evidência, está em [`dashboard/ghostlang-status.json`](dashboard/ghostlang-status.json) (painel em `dashboard/index.html`).
+> **Estado:** versão 0.9, em desenvolvimento. Testada no **Windows x64** (MSYS2 UCRT64, GCC 16.2): 212 testes no CTest. **Linux e macOS ainda não funcionam** (o CI os roda como experimentais); são as próximas etapas. A maturidade de cada recurso, com a evidência, está em [`dashboard/ghostlang-status.json`](dashboard/ghostlang-status.json).
+
+**Site:** [eltpmoc.github.io/ghostlang](https://eltpmoc.github.io/ghostlang/), com o [dashboard de status](https://eltpmoc.github.io/ghostlang/dashboard/) e o [Guia do Programador](https://eltpmoc.github.io/ghostlang/GhostLang_Guia_Oficial_do_Programador.html).
 
 ## Um exemplo
 

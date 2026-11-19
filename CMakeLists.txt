@@ -464,6 +464,8 @@ if(BUILD_TESTING)
         set_tests_properties(docs_sincronizados PROPERTIES ENVIRONMENT "PYTHONIOENCODING=utf-8")
         add_test(NAME docs_exemplos COMMAND ${Python3_EXECUTABLE} ${CMAKE_SOURCE_DIR}/scripts/python/checar_docs.py $<TARGET_FILE:ghost>)
         set_tests_properties(docs_exemplos PROPERTIES ENVIRONMENT "PYTHONIOENCODING=utf-8")
+        # o site (GitHub Pages, pasta docs/) publica a copia em docs/dashboard/: tem de bater com dashboard/
+        add_test(NAME docs_dashboard_publicado COMMAND ${Python3_EXECUTABLE} ${CMAKE_SOURCE_DIR}/scripts/python/publicar_dashboard.py --conferir)
     endif()
     add_test(NAME cli_pm_test COMMAND ${CMAKE_COMMAND} -DGHOST=$<TARGET_FILE:ghost> -P ${CMAKE_SOURCE_DIR}/tests/cli/test_pm.cmake)
     # Diagnosticos sem o Parser antigo (c40 etapa D: comprova paridade e cobertura do verificador)

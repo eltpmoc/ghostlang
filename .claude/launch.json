@@ -6,6 +6,12 @@
       "runtimeExecutable": "powershell",
       "runtimeArgs": ["-ExecutionPolicy", "Bypass", "-File", "dashboard/abrir-dashboard.ps1", "-SemNavegador"],
       "port": 8777
+    },
+    {
+      "name": "site",
+      "runtimeExecutable": "python",
+      "runtimeArgs": ["-m", "http.server", "8778", "--bind", "127.0.0.1", "--directory", "docs"],
+      "port": 8778
     }
   ]
 }

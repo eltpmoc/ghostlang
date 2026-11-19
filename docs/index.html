@@ -1,0 +1,123 @@
+<!doctype html>
+<html lang="pt-BR">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>GhostLang</title>
+<meta name="description" content="GhostLang: linguagem compilada para C++17 com computação quântica, IA e álgebra hipercomplexa. Status, guia e documentação.">
+<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'%3E%3Cpath d='M16 3C9.9 3 5 7.9 5 14v14l3.5-2.5L12 28l4-2.5 4 2.5 3.5-2.5L27 28V14C27 7.9 22.1 3 16 3z' fill='%232a78d6'/%3E%3Ccircle cx='12' cy='14' r='2.2' fill='%23fff'/%3E%3Ccircle cx='20' cy='14' r='2.2' fill='%23fff'/%3E%3C/svg%3E">
+<style>
+:root {
+  color-scheme: light;
+  --page: #f9f9f7; --surface: #fcfcfb; --surface-2: #f2f1ed;
+  --ink: #0b0b0b; --ink-2: #52514e; --muted: #6f6e69;
+  --line: rgba(11,11,11,0.10);
+  --accent: #2a78d6; --accent-ink: #1c5cab; --accent-wash: rgba(42,120,214,0.10);
+  --track: #e1e0d9;
+  --shadow: 0 1px 2px rgba(11,11,11,0.05), 0 4px 16px rgba(11,11,11,0.05);
+  --radius: 12px;
+  font-family: system-ui, -apple-system, "Segoe UI", sans-serif;
+}
+@media (prefers-color-scheme: dark) {
+  :root:not([data-theme="light"]) {
+    color-scheme: dark;
+    --page: #0d0d0d; --surface: #1a1a19; --surface-2: #232321;
+    --ink: #f0efec; --ink-2: #c3c2b7; --muted: #9a9890;
+    --line: rgba(255,255,255,0.10);
+    --accent: #3987e5; --accent-ink: #86b6ef; --accent-wash: rgba(57,135,229,0.16);
+    --track: #2c2c2a;
+    --shadow: 0 1px 2px rgba(0,0,0,0.4), 0 4px 16px rgba(0,0,0,0.25);
+  }
+}
+:root[data-theme="dark"] {
+  color-scheme: dark;
+  --page: #0d0d0d; --surface: #1a1a19; --surface-2: #232321;
+  --ink: #f0efec; --ink-2: #c3c2b7; --muted: #9a9890;
+  --line: rgba(255,255,255,0.10);
+  --accent: #3987e5; --accent-ink: #86b6ef; --accent-wash: rgba(57,135,229,0.16);
+  --track: #2c2c2a;
+  --shadow: 0 1px 2px rgba(0,0,0,0.4), 0 4px 16px rgba(0,0,0,0.25);
+}
+* { box-sizing: border-box; }
+body { margin: 0; background: var(--page); color: var(--ink); line-height: 1.55; }
+a { color: var(--accent-ink); }
+main { max-width: 960px; margin: 0 auto; padding: 48px 16px 64px; }
+header { display: flex; align-items: center; gap: 14px; margin-bottom: 8px; }
+header svg { width: 44px; height: 44px; flex: none; }
+h1 { font-size: 30px; margin: 0; letter-spacing: -0.01em; }
+.lead { color: var(--ink-2); font-size: 17px; max-width: 680px; margin: 10px 0 32px; }
+.status { background: var(--surface); border: 1px solid var(--line); border-radius: var(--radius); box-shadow: var(--shadow); padding: 20px; margin-bottom: 28px; display: grid; grid-template-columns: auto 1fr; gap: 6px 24px; align-items: center; }
+.big { font-size: 40px; font-weight: 700; font-variant-numeric: tabular-nums; line-height: 1; }
+.bar { height: 10px; background: var(--track); border-radius: 5px; overflow: hidden; }
+.bar span { display: block; height: 100%; background: var(--accent); border-radius: 0 5px 5px 0; }
+.status .sub { grid-column: 1 / -1; color: var(--muted); font-size: 13.5px; }
+.grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(260px, 1fr)); gap: 14px; }
+.card { display: block; background: var(--surface); border: 1px solid var(--line); border-radius: var(--radius); padding: 18px; text-decoration: none; color: var(--ink); transition: border-color .15s, background .15s; }
+.card:hover, .card:focus-visible { border-color: var(--accent); background: var(--accent-wash); outline: none; }
+.card b { display: block; font-size: 16px; margin-bottom: 4px; }
+.card span { color: var(--ink-2); font-size: 14px; }
+.card.main { grid-column: 1 / -1; }
+h2 { font-size: 15px; text-transform: uppercase; letter-spacing: .06em; color: var(--muted); margin: 36px 0 12px; font-weight: 600; }
+pre { background: var(--surface-2); border: 1px solid var(--line); border-radius: 10px; padding: 14px 16px; overflow-x: auto; font-size: 13.5px; margin: 0; }
+footer { margin-top: 48px; color: var(--muted); font-size: 13px; }
+</style>
+</head>
+<body>
+<main>
+  <header>
+    <svg viewBox="0 0 32 32" aria-hidden="true"><path d="M16 3C9.9 3 5 7.9 5 14v14l3.5-2.5L12 28l4-2.5 4 2.5 3.5-2.5L27 28V14C27 7.9 22.1 3 16 3z" fill="#2a78d6"/><circle cx="12" cy="14" r="2.2" fill="#fff"/><circle cx="20" cy="14" r="2.2" fill="#fff"/></svg>
+    <h1>GhostLang</h1>
+  </header>
+  <p class="lead">Linguagem compilada (transpilada para C++17) com computação quântica, IA e deep learning, álgebra hipercomplexa G e um servidor HTTP e WebSocket nativos. Em desenvolvimento: Windows x64 testado; Linux e macOS são as próximas etapas.</p>
+
+  <section class="status" aria-live="polite">
+    <div class="big" id="pct">–</div>
+    <div><div class="bar" role="img" id="barra" aria-label="Progresso"><span id="fill" style="width:0"></span></div></div>
+    <div class="sub" id="sub">Carregando o status…</div>
+  </section>
+
+  <div class="grid">
+    <a class="card main" href="dashboard/"><b>Dashboard de status →</b><span>Maturidade de cada recurso, fases, checklist, plataformas, diagnóstico e linha do tempo.</span></a>
+    <a class="card" href="GhostLang_Guia_Oficial_do_Programador.html"><b>Guia do Programador</b><span>O livro da linguagem, com exemplos conferidos pelo compilador.</span></a>
+    <a class="card" href="GhostLang_Guia_Oficial_do_Programador.pdf"><b>Guia em PDF</b><span>A mesma versão do guia, para ler offline ou imprimir.</span></a>
+    <a class="card" href="https://github.com/eltpmoc/ghostlang/blob/main/docs/MANUAL.md"><b>Manual</b><span>Referência completa, com a maturidade de cada recurso.</span></a>
+    <a class="card" href="https://github.com/eltpmoc/ghostlang/blob/main/docs/SPEC.md"><b>Especificação</b><span>Gramática e semântica da linguagem.</span></a>
+    <a class="card" href="https://github.com/eltpmoc/ghostlang/blob/main/docs/NUCLEO.md"><b>Núcleo</b><span>Tipos, classes, genéricos, erros e o que muda entre compilador e REPL.</span></a>
+    <a class="card" href="https://github.com/eltpmoc/ghostlang"><b>Código no GitHub</b><span>Código-fonte, CI e licença MIT.</span></a>
+  </div>
+
+  <h2>Primeiro programa</h2>
+<pre><code>function main() {
+    print("Ola do GhostLang!");
+}</code></pre>
+  <p style="color:var(--ink-2);font-size:14px">Compile e rode com <code>ghost run ola.g</code>. Para instalar uma biblioteca, use <code>ghost install sqlite</code>.</p>
+
+  <footer>GhostLang · licença MIT · <span id="atualizado"></span></footer>
+</main>
+<script>
+(async () => {
+  const sub = document.getElementById('sub');
+  try {
+    const r = await fetch('dashboard/ghostlang-status.json', { cache: 'no-store' });
+    if (!r.ok) throw new Error(r.status);
+    const d = await r.json();
+    const rec = d.recursos || [];
+    const tot = rec.reduce((s, x) => s + x.alvo, 0);
+    const got = rec.reduce((s, x) => s + Math.min(x.nivel, x.alvo), 0);
+    const p = tot ? got / tot * 100 : 0;
+    const txt = p.toFixed(1).replace('.', ',') + '%';
+    document.getElementById('pct').textContent = txt;
+    document.getElementById('fill').style.width = p.toFixed(1) + '%';
+    document.getElementById('barra').setAttribute('aria-label', 'Progresso geral ' + txt);
+    const n4 = rec.filter(x => x.nivel >= 4).length;
+    const dt = (d.projeto && d.projeto.atualizado_em || '').split('-').reverse().join('/');
+    sub.textContent = 'Progresso geral da linguagem: ' + rec.length + ' recursos, ' + n4 + ' no nível 4 (estável no Windows). ' +
+      'O nível 5 exige CI e Linux/macOS comprovados. ' + (d.projeto && d.projeto.testes_ctest ? d.projeto.testes_ctest + ' testes do CTest passando.' : '');
+    document.getElementById('atualizado').textContent = dt ? 'status de ' + dt : '';
+  } catch (e) {
+    sub.textContent = 'Não foi possível ler o status agora. Abra o dashboard pelo link abaixo.';
+  }
+})();
+</script>
+</body>
+</html>

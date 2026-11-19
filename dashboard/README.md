@@ -11,6 +11,16 @@ dashboard\abrir-dashboard.bat
 O script sobe um servidor apenas em `http://localhost:8777` e abre o navegador. Assim, o JSON é relido a cada atualização da página (botão ⟳).
 Também é possível abrir o `index.html` direto do disco e carregar o JSON pelo botão **Carregar**. A cópia fica salva no navegador.
 
+## Site (GitHub Pages)
+
+O GitHub Pages publica a pasta `docs/`, e o dashboard aparece em https://eltpmoc.github.io/ghostlang/dashboard/. A fonte continua sendo esta pasta. Depois de mudar o `index.html` ou o JSON, atualize a cópia publicada:
+
+```bash
+python scripts/python/publicar_dashboard.py
+```
+
+O teste `docs_dashboard_publicado` do CTest falha se a cópia em `docs/dashboard/` ficar diferente desta pasta.
+
 ## Como preencher o JSON
 
 | Bloco | Para que serve |

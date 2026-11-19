@@ -6,7 +6,7 @@
     "descricao": "Linguagem compilada (transpilada para C++17) focada em Computação Quântica, IA/Deep Learning, álgebra hiper-complexa G e backends nativos.",
     "repositorio_local": "H:\\PROJETOS\\PROJETOS\\ghost-linux",
     "plataforma_foco": "windows",
-    "testes_ctest": 211
+    "testes_ctest": 212
   },
   "niveis": [
     {
@@ -4413,6 +4413,11 @@
       "data": "2026-11-19",
       "titulo": "Melhorias futuras implementadas: OOP, otimizadores, WebSocket e ghost install",
       "descricao": "Os quatro itens de docs/Melhorias_Futuras.txt (o arquivo foi removido):\n- private e protected conferidos no compilador e no REPL (GHOST-E0303);\n- optimize com adam, sgd, momentum, rmsprop e gd, com o mesmo motor nos dois caminhos;\n- WebSocket no servidor nativo e cliente ws_*;\n- ghost install sqlite pelo índice pacotes/indice.json.\nNovo recurso net-websocket no nível 4."
+    },
+    {
+      "data": "2026-11-19",
+      "titulo": "Site no GitHub Pages",
+      "descricao": "A pasta docs/ virou o site eltpmoc.github.io/ghostlang: página inicial com o progresso ao vivo, o dashboard (cópia em docs/dashboard/, conferida pelo CTest docs_dashboard_publicado) e o Guia em HTML e PDF."
     }
   ],
   "snapshots": [
