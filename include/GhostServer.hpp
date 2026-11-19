@@ -6,6 +6,7 @@
 #include <map>
 #include <vector>
 #include <functional>
+#include <cctype>
 #include <sstream>
 #include <fstream>
 
@@ -22,6 +23,9 @@ public:
     void put(const std::string& path, std::function<std::string(std::string)> handler) {}
     void del(const std::string& path, std::function<std::string(std::string)> handler) {}
     void listen() {}
+    void websocket(const std::string&, std::function<std::string(std::string)>) {}
+    void websocket_broadcast(const std::string&, std::function<std::string(std::string)>) {}
+    int ws_clients() const { return 0; }
 };
 
 #else
@@ -45,6 +49,7 @@ public:
     #define SOCKADDR struct sockaddr
     #define SD_SEND SHUT_WR
 #endif
+#include "GhostWebSocket.hpp"
 
 
 class GhostServer {
@@ -56,6 +61,50 @@ private:
     
     SOCKET ListenSocket;
     bool is_initialized;
+
+    // WebSocket: rota -> (funcao, broadcast?) e as conexoes abertas
+    struct WsRoute { std::function<std::string(std::string)> handler; bool broadcast = false; };
+    std::map<std::string, WsRoute> wsRoutes;
+    struct WsConn { SOCKET s; std::string path; };
+    std::vector<WsConn> wsConns;
+
+    static std::string header_value(const std::string& req, const std::string& name) {
+        std::string lower = req, key = name;
+        for (auto& c : lower) c = static_cast<char>(std::tolower(static_cast<unsigned char>(c)));
+        for (auto& c : key) c = static_cast<char>(std::tolower(static_cast<unsigned char>(c)));
+        const size_t p = lower.find("\r\n" + key + ":");
+        if (p == std::string::npos) return "";
+        size_t a = p + 2 + key.size() + 1;
+        size_t b = req.find("\r\n", a);
+        std::string v = req.substr(a, b == std::string::npos ? std::string::npos : b - a);
+        while (!v.empty() && (v.front() == ' ' || v.front() == '\t')) v.erase(0, 1);
+        while (!v.empty() && (v.back() == ' ' || v.back() == '\r')) v.pop_back();
+        return v;
+    }
+
+    // Mensagem recebida numa conexao WebSocket: chama a funcao da rota e responde ao remetente
+    // (websocket) ou a todos da mesma rota (websocket_broadcast). false: fechar a conexao.
+    bool ws_on_ready(size_t idx) {
+        using namespace ghost_ws;
+        WsConn conn = wsConns[idx];
+        int op = 0;
+        std::string payload;
+        if (!read_frame(conn.s, op, payload)) return false;
+        if (op == OP_CLOSE) { send_all(conn.s, encode_frame(OP_CLOSE, "", false)); return false; }
+        if (op == OP_PING) { send_all(conn.s, encode_frame(OP_PONG, payload, false)); return true; }
+        if (op != OP_TEXT && op != OP_BIN) return true;
+        auto it = wsRoutes.find(conn.path);
+        if (it == wsRoutes.end()) return true;
+        const std::string reply = it->second.handler(payload);
+        if (reply.empty()) return true;
+        const std::string frame = encode_frame(OP_TEXT, reply, false);
+        if (it->second.broadcast) {
+            for (const auto& c : wsConns) if (c.path == conn.path) send_all(c.s, frame);
+        } else {
+            send_all(conn.s, frame);
+        }
+        return true;
+    }
 
     std::string mimeType(const std::string& path) {
         auto ends = [&](const std::string& ext) {
@@ -182,6 +231,17 @@ public:
     }
     // Registra um prefixo de URL para servir arquivos de um diretorio local
     // Exemplo: serve("/public", "public") faz /public/style.css ler de public/style.css
+    // app.websocket("/eco", funcao): cada mensagem chama funcao(texto); a resposta (se nao vazia)
+    // volta para quem mandou. app.websocket_broadcast("/sala", funcao): a resposta vai para todos
+    // os conectados na rota (chat, jogo). As conexoes ficam abertas entre os listen_step.
+    void websocket(const std::string& path, std::function<std::string(std::string)> handler) {
+        wsRoutes[path] = WsRoute{handler, false};
+    }
+    void websocket_broadcast(const std::string& path, std::function<std::string(std::string)> handler) {
+        wsRoutes[path] = WsRoute{handler, true};
+    }
+    int ws_clients() const { return static_cast<int>(wsConns.size()); }
+
     void serve(const std::string& urlPrefix, const std::string& localDir) {
         staticPaths.push_back({urlPrefix, localDir});
         std::cout << "[GhostServer] Pasta estatica: " << urlPrefix << " -> " << localDir << std::endl;
@@ -261,6 +321,22 @@ public:
                 
                 std::string response;
                 
+
+                // 0. Pedido de WebSocket numa rota registrada: handshake e a conexao fica aberta
+                if (method == "GET" && wsRoutes.count(path)) {
+                    std::string upgrade = header_value(requestStr, "Upgrade");
+                    for (auto& c : upgrade) c = static_cast<char>(std::tolower(static_cast<unsigned char>(c)));
+                    const std::string key = header_value(requestStr, "Sec-WebSocket-Key");
+                    if (upgrade == "websocket" && !key.empty()) {
+                        const std::string hs = "HTTP/1.1 101 Switching Protocols\r\nUpgrade: websocket\r\nConnection: Upgrade\r\n"
+                                               "Sec-WebSocket-Accept: " + ghost_ws::accept_key(key) + "\r\n\r\n";
+                        ghost_ws::send_all(ClientSocket, hs);
+                        wsConns.push_back(WsConn{ClientSocket, path});
+                        std::cout << "[GhostServer] WebSocket " << path << " conectado (" << wsConns.size() << " aberto(s))" << std::endl;
+                        return; // nao fecha o socket
+                    }
+                }
+
                 // 1. Checar rotas dinamicas registradas
                 if (routes.find(method) != routes.end() && routes[method].find(path) != routes[method].end()) {
                     std::cout << "[GhostServer] " << method << " " << path << std::endl;
@@ -332,21 +408,35 @@ public:
     void listen_step(int timeout_ms) {
         init_socket();
         if (!is_initialized) return;
-        
+
         fd_set readfds;
         FD_ZERO(&readfds);
         FD_SET(ListenSocket, &readfds);
-        
+        SOCKET maior = ListenSocket;
+        for (const auto& c : wsConns) {
+            FD_SET(c.s, &readfds);
+            if (c.s > maior) maior = c.s;
+        }
+
         timeval timeout;
         timeout.tv_sec = timeout_ms / 1000;
         timeout.tv_usec = (timeout_ms % 1000) * 1000;
-        
-        // ListenSocket + 1 é necessário em POSIX, ignorado no Windows
-        int activity = select(ListenSocket + 1, &readfds, NULL, NULL, &timeout);
-        if (activity == SOCKET_ERROR) {
+
+        // maior + 1 é necessário em POSIX, ignorado no Windows
+        int activity = select(static_cast<int>(maior) + 1, &readfds, NULL, NULL, &timeout);
+        if (activity == SOCKET_ERROR || activity <= 0) {
             return;
         }
-        if (activity > 0) {
+        // mensagens das conexoes WebSocket abertas (de tras para frente: pode remover)
+        for (size_t i = wsConns.size(); i-- > 0;) {
+            if (!FD_ISSET(wsConns[i].s, &readfds)) continue;
+            if (!ws_on_ready(i)) {
+                closesocket(wsConns[i].s);
+                std::cout << "[GhostServer] WebSocket " << wsConns[i].path << " fechado" << std::endl;
+                wsConns.erase(wsConns.begin() + static_cast<long long>(i));
+            }
+        }
+        if (FD_ISSET(ListenSocket, &readfds)) {
             SOCKET ClientSocket = accept(ListenSocket, NULL, NULL);
             if (ClientSocket != INVALID_SOCKET) {
                 process_client(ClientSocket);

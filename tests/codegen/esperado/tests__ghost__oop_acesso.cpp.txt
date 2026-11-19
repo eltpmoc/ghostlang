@@ -1,0 +1,108 @@
+#line 10 "tests/ghost/oop_acesso.g"
+#line 11 "tests/ghost/oop_acesso.g"
+#line 12 "tests/ghost/oop_acesso.g"
+#line 14 "tests/ghost/oop_acesso.g"
+#line 16 "tests/ghost/oop_acesso.g"
+#line 16 "tests/ghost/oop_acesso.g"
+#line 18 "tests/ghost/oop_acesso.g"
+#line 19 "tests/ghost/oop_acesso.g"
+#line 26 "tests/ghost/oop_acesso.g"
+#line 28 "tests/ghost/oop_acesso.g"
+#line 29 "tests/ghost/oop_acesso.g"
+#line 33 "tests/ghost/oop_acesso.g"
+#line 34 "tests/ghost/oop_acesso.g"
+#line 35 "tests/ghost/oop_acesso.g"
+#line 36 "tests/ghost/oop_acesso.g"
+#line 38 "tests/ghost/oop_acesso.g"
+#line 39 "tests/ghost/oop_acesso.g"
+#line 40 "tests/ghost/oop_acesso.g"
+#line 41 "tests/ghost/oop_acesso.g"
+#line 42 "tests/ghost/oop_acesso.g"
+#line 43 "tests/ghost/oop_acesso.g"
+#line 4 "tests/ghost/oop_acesso.g"
+#line 22 "tests/ghost/oop_acesso.g"
+#line 32 "tests/ghost/oop_acesso.g"
+----
+/*TranspiladopeloGhostCompilerv1.0*/#include<iostream>#include<cstdio>#include<cstdlib>#include<string>#include<complex>#include<type_traits>#include<fstream>#include<sstream>#include<thread>#include<chrono>#include<mutex>#include"include/GhostNumberG.hpp"#include"include/GhostMatrix.hpp"#include"include/GhostLLM.hpp"#include"include/GhostLib.hpp"#include"include/GhostDevice.hpp"#include"include/GhostTextModel.hpp"#include"include/GhostWeb.hpp"#include"include/GhostKnowledge.hpp"#include"include/GhostTemporal.hpp"#include"include/GhostTransformer.hpp"#include"include/GhostTransformerG.hpp"#include"include/GhostMatrixG.hpp"#include"include/GhostQuantum.hpp"#include"include/GhostQML.hpp"#include"include/GhostHybrid.hpp"#include"include/GhostQTape.hpp"#include"include/GhostCore.hpp"#ifdef_WIN32#include<windows.h>#endifclassConta;
+classPoupanca;
+voidghost_main();
+classConta{
+public:doublesaldo{
+}
+;
+std::stringdono{
+}
+;
+intnumero{
+}
+;
+Conta(std::stringd,intn){
+(*this).dono=d;
+(*this).numero=n;
+(*this).saldo=0;
+}
+virtualboolvalido(doublev){
+returnv>0;
+}
+virtualvoiddepositar(doublev){
+if(valido(v)){
+saldo+=v;
+}
+}
+virtualdoublever(){
+returnsaldo;
+}
+virtualstd::stringdescricao(){
+returnstd::string("Conta ")+numero+std::string(" de ")+dono;
+}
+}
+;
+classPoupanca:publicConta{
+public:doubletaxa{
+}
+;
+Poupanca(std::stringd,intn,doublet):Conta(d,n){
+(*this).taxa=t;
+}
+virtualvoidrender(){
+depositar(ver()*taxa);
+}
+virtualstd::stringdescricao(){
+returnstd::string("Poupanca ")+numero+std::string(" de ")+dono+std::string(" (taxa ")+taxa+std::string(")");
+}
+}
+;
+voidghost_main(){
+Contac=Conta(std::string("ana"),1);
+c.depositar(100);
+c.depositar(-5);
+std::cout<<ghost_show(c.descricao())<<ghost_show(std::string(": "))<<ghost_show(c.ver())<<std::endl;
+Poupancap=Poupanca(std::string("bia"),2,0.5);
+p.depositar(40);
+p.render();
+std::cout<<ghost_show(p.descricao())<<ghost_show(std::string(": "))<<ghost_show(p.ver())<<std::endl;
+p.numero=20;
+std::cout<<ghost_show(std::string("numero publico alterado: "))<<ghost_show(p.numero)<<std::endl;
+}
+intmain(intargc,char**argv){
+try{
+#ifdef_WIN32SetConsoleOutputCP(CP_UTF8);
+SetConsoleCP(CP_UTF8);
+#endifstd::cout<<std::boolalpha;
+std::stringghost_args="";
+std::vector<std::string>ghost_args_vec;
+for(inti=1;
+i<argc;
+++i){
+ghost_args+=argv[i];
+ghost_args_vec.push_back(argv[i]);
+if(i<argc-1)ghost_args+=" ";
+}
+ghost_main();
+return0;
+}
+catch(conststd::exception&e){
+std::cerr<<e.what()<<std::endl;
+return1;
+}
+}

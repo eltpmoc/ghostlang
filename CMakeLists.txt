@@ -40,7 +40,7 @@ if(NOT GHOST_CUDA STREQUAL "OFF")
         message(FATAL_ERROR "CUDA solicitado, mas nvcc nao foi encontrado")
     endif()
 endif()
-add_library(ghost_runtime STATIC src/GhostNumberG.cpp src/GhostDevice.cpp src/GhostTextModel.cpp src/GhostWeb.cpp src/GhostKnowledge.cpp src/GhostTemporal.cpp src/GhostTransformer.cpp src/GhostTransformerOps.cpp src/GhostTransformerG.cpp src/GhostMatrixG.cpp src/GhostQuantum.cpp src/GhostQML.cpp src/GhostHybrid.cpp src/GhostQTape.cpp src/sqlite3.c src/GhostDB.cpp src/GhostGUI.cpp src/GhostAutograd.cpp src/GhostDataset.cpp src/GhostDensityMatrix.cpp src/GhostNDTensor.cpp src/GhostTransformerFallback.cpp src/GhostQHardware.cpp src/GhostBLAS.cpp)
+add_library(ghost_runtime STATIC src/GhostNumberG.cpp src/GhostDevice.cpp src/GhostTextModel.cpp src/GhostWeb.cpp src/GhostKnowledge.cpp src/GhostTemporal.cpp src/GhostTransformer.cpp src/GhostTransformerOps.cpp src/GhostTransformerG.cpp src/GhostMatrixG.cpp src/GhostQuantum.cpp src/GhostQML.cpp src/GhostHybrid.cpp src/GhostQTape.cpp src/sqlite3.c src/GhostDB.cpp src/GhostGUI.cpp src/GhostAutograd.cpp src/GhostDataset.cpp src/GhostDensityMatrix.cpp src/GhostNDTensor.cpp src/GhostTransformerFallback.cpp src/GhostQHardware.cpp src/GhostBLAS.cpp src/GhostNetwork.cpp)
 target_include_directories(ghost_runtime PUBLIC "${CMAKE_SOURCE_DIR}/include")
 target_compile_definitions(ghost_runtime PUBLIC GHOST_NATIVE_RUNTIME=1)
 # dlopen do backend CUDA do simulador quantico (Linux)
@@ -358,6 +358,19 @@ if(BUILD_TESTING)
     # for no estilo do Python: for (x in ...) / for x in ... { } com range, texto, lista, mapa e matriz
     add_test(NAME golden_for_range COMMAND ${CMAKE_COMMAND} -DGHOST=$<TARGET_FILE:ghost> -DSOURCE=${CMAKE_SOURCE_DIR}/tests/ghost/for_range.g -DEXPECT=${CMAKE_SOURCE_DIR}/tests/golden/for_range.expected -DWORK=${CMAKE_BINARY_DIR}/golden -P ${CMAKE_SOURCE_DIR}/tests/golden/run_golden.cmake)
     add_test(NAME repl_for_range COMMAND ${CMAKE_COMMAND} -DGHOST=$<TARGET_FILE:ghost> -DINPUT=${CMAKE_SOURCE_DIR}/tests/repl/for_range.ghost -DEXPECT=${CMAKE_SOURCE_DIR}/tests/repl/for_range.expected -P ${CMAKE_SOURCE_DIR}/tests/repl/run_repl_test.cmake)
+    # OOP: heranca, super, sobrescrita e private/protected/public junto ao membro (compilador = REPL);
+    # acessos proibidos: tests/diag/acesso_membros (compilador) e repl_acesso_membros (REPL)
+    add_test(NAME golden_oop_acesso COMMAND ${CMAKE_COMMAND} -DGHOST=$<TARGET_FILE:ghost> -DSOURCE=${CMAKE_SOURCE_DIR}/tests/ghost/oop_acesso.g -DEXPECT=${CMAKE_SOURCE_DIR}/tests/golden/oop_acesso.expected -DWORK=${CMAKE_BINARY_DIR}/golden -P ${CMAKE_SOURCE_DIR}/tests/golden/run_golden.cmake)
+    add_test(NAME repl_oop_acesso COMMAND ${CMAKE_COMMAND} -DGHOST=$<TARGET_FILE:ghost> -DINPUT=${CMAKE_SOURCE_DIR}/tests/repl/oop_acesso.ghost -DEXPECT=${CMAKE_SOURCE_DIR}/tests/repl/oop_acesso.expected -P ${CMAKE_SOURCE_DIR}/tests/repl/run_repl_test.cmake)
+    add_test(NAME repl_acesso_membros COMMAND ${CMAKE_COMMAND} -DGHOST=$<TARGET_FILE:ghost> -DINPUT=${CMAKE_SOURCE_DIR}/tests/repl/acesso_membros.ghost -DEXPECT=${CMAKE_SOURCE_DIR}/tests/repl/acesso_membros.expected -P ${CMAKE_SOURCE_DIR}/tests/repl/run_repl_test.cmake)
+    # ia-optimize / ia-network: rede classica gate >> gate treinada com adam, sgd, momentum, rmsprop e gd
+    # (XOR), com loss/accuracy/classify/show; mesma saida no compilador e no REPL
+    add_test(NAME golden_redes_otimizadores COMMAND ${CMAKE_COMMAND} -DGHOST=$<TARGET_FILE:ghost> -DSOURCE=${CMAKE_SOURCE_DIR}/tests/ghost/redes_otimizadores.g -DEXPECT=${CMAKE_SOURCE_DIR}/tests/golden/redes_otimizadores.expected -DWORK=${CMAKE_BINARY_DIR}/golden -P ${CMAKE_SOURCE_DIR}/tests/golden/run_golden.cmake)
+    add_test(NAME repl_redes_otimizadores COMMAND ${CMAKE_COMMAND} -DGHOST=$<TARGET_FILE:ghost> -DINPUT=${CMAKE_SOURCE_DIR}/tests/repl/redes_otimizadores.ghost -DEXPECT=${CMAKE_SOURCE_DIR}/tests/repl/redes_otimizadores.expected -P ${CMAKE_SOURCE_DIR}/tests/repl/run_repl_test.cmake)
+    set_tests_properties(golden_redes_otimizadores repl_redes_otimizadores PROPERTIES ENVIRONMENT "OMP_NUM_THREADS=1")
+    # net-websocket: servidor nativo com app.websocket / app.websocket_broadcast e cliente ws_* (RFC 6455)
+    add_test(NAME golden_websocket COMMAND ${CMAKE_COMMAND} -DGHOST=$<TARGET_FILE:ghost> -DSOURCE=${CMAKE_SOURCE_DIR}/tests/ghost/websocket.g -DEXPECT=${CMAKE_SOURCE_DIR}/tests/golden/websocket.expected -DWORK=${CMAKE_BINARY_DIR}/golden "-DFILTER=^[[](GhostServer|Ghost OS)[]]" -P ${CMAKE_SOURCE_DIR}/tests/golden/run_golden.cmake)
+    add_test(NAME repl_websocket COMMAND ${CMAKE_COMMAND} -DGHOST=$<TARGET_FILE:ghost> -DINPUT=${CMAKE_SOURCE_DIR}/tests/repl/websocket.ghost -DEXPECT=${CMAKE_SOURCE_DIR}/tests/repl/websocket.expected -P ${CMAKE_SOURCE_DIR}/tests/repl/run_repl_test.cmake)
     add_test(NAME golden_blas_matmul COMMAND ${CMAKE_COMMAND} -DGHOST=$<TARGET_FILE:ghost> -DSOURCE=${CMAKE_SOURCE_DIR}/tests/ghost/blas_matmul.g -DEXPECT=${CMAKE_SOURCE_DIR}/tests/golden/blas_matmul.expected -DWORK=${CMAKE_BINARY_DIR}/golden -P ${CMAKE_SOURCE_DIR}/tests/golden/run_golden.cmake)
     # REPL: Dispositivos Heterogêneos GPU (gpu-outros: Vulkan, Metal, ROCm)
     add_test(NAME repl_device_hetero_std COMMAND ${CMAKE_COMMAND} -DGHOST=$<TARGET_FILE:ghost> -DINPUT=${CMAKE_SOURCE_DIR}/tests/repl/device_hetero_std.ghost -DEXPECT=${CMAKE_SOURCE_DIR}/tests/repl/device_hetero_std.expected -P ${CMAKE_SOURCE_DIR}/tests/repl/run_repl_test.cmake)
@@ -371,7 +384,7 @@ if(BUILD_TESTING)
     # Modulos de aprendizado federado ghost_node e ghost_swarm
     add_test(NAME ghost_swarm_federated COMMAND ${CMAKE_COMMAND} -DNODE_BIN=$<TARGET_FILE:ghost_node> -DSWARM_BIN=$<TARGET_FILE:ghost_swarm> -DWORK=${CMAKE_BINARY_DIR} -P ${CMAKE_SOURCE_DIR}/tests/test_ghost_swarm.cmake)
     # Diagnosticos do compilador (c42): programas com erro e a mensagem esperada (arquivo:linha:coluna, GHOST-Exxxx)
-    foreach(diag ponto_e_virgula parentese tipo_cpp template_cpp import modulo_membro varios_erros pv_antes_comando tipos conv_expressao)
+    foreach(diag ponto_e_virgula parentese tipo_cpp template_cpp import modulo_membro varios_erros pv_antes_comando tipos conv_expressao acesso_membros)
         add_test(NAME diag_${diag} COMMAND ${CMAKE_COMMAND} -DGHOST=$<TARGET_FILE:ghost>
                  -DSOURCE=${CMAKE_SOURCE_DIR}/tests/diag/${diag}.g -DEXPECT=${CMAKE_SOURCE_DIR}/tests/diag/${diag}.erros
                  -DWORK=${CMAKE_BINARY_DIR}/diag -P ${CMAKE_SOURCE_DIR}/tests/diag/run_diag_test.cmake)

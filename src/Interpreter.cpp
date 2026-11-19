@@ -656,6 +656,9 @@ void GhostInterpreter::parseShow(Lexer& lex) {
         qreg_memory.at(nameToken.value).display();
     } else if (qcircuit_memory.count(nameToken.value)) {
         qcircuit_memory.at(nameToken.value).display();
+    } else if (hybrid_memory.count(nameToken.value)) { // show(rede): o mesmo resumo do compilador
+        cout << "\nEstado da estrutura '" << nameToken.value << "':\n";
+        hybrid_memory.at(nameToken.value)->display();
     } else {
         throw runtime_error("Variavel '" + nameToken.value + "' nao encontrada na memoria.");
     }
@@ -878,7 +881,10 @@ void GhostInterpreter::parseNetwork(Lexer& lex) {
     if (!layerRefs.empty()) {
         auto hnet = std::make_shared<GhostHybridNetwork>(netToken.value, layerRefs);
         hybrid_memory[netToken.value] = hnet;
-        cout << "[Ghost OS] Rede hibrida '" << netToken.value << "' montada: " << hnet->summary() << endl;
+        bool temQuantica = false;
+        for (const auto& l : layerRefs) if (l.quantum) temQuantica = true;
+        if (temQuantica) cout << "[Ghost OS] Rede hibrida '" << netToken.value << "' montada: " << hnet->summary() << endl;
+        else cout << "[Ghost OS] Rede Profunda '" << netToken.value << "' montada com " << layerRefs.size() << " camadas." << endl; // como no compilador
     } else {
         cout << "[Memoria] Rede Profunda '" << netToken.value << "' estruturada com " << layers.size() << " camadas no REPL." << endl;
     }
@@ -2354,7 +2360,8 @@ bool GhostInterpreter::tryServerMethod(const std::string& objName, const Token& 
     auto args = splitArgs(callTokens, idx);
     auto srv = server_memory[objName];
     
-    if (method == "route" || method == "get" || method == "post" || method == "put" || method == "del") {
+    if (method == "route" || method == "get" || method == "post" || method == "put" || method == "del" ||
+        method == "websocket" || method == "websocket_broadcast") {
         if (args.size() != 2) {
             throw std::runtime_error(objName + "." + method + " espera 2 argumentos: (rota, funcao_callback)");
         }
@@ -2391,6 +2398,8 @@ bool GhostInterpreter::tryServerMethod(const std::string& objName, const Token& 
         else if (method == "post") srv->post(path, handler);
         else if (method == "put") srv->put(path, handler);
         else if (method == "del") srv->del(path, handler);
+        else if (method == "websocket") srv->websocket(path, handler);
+        else if (method == "websocket_broadcast") srv->websocket_broadcast(path, handler);
     } else if (method == "serve") {
         if (args.size() != 2) {
             throw std::runtime_error(objName + ".serve espera 2 argumentos: (prefixo_url, diretorio_local)");

@@ -32,14 +32,14 @@ function main() {
 
 ## O que a linguagem tem
 
-- **Núcleo:** tipos com inferência, classes, interfaces, genéricos com restrições, lambdas e closures, `result<T>` com `?`, `try/catch`, `switch`, `for ... in` com `range`, compreensões, `set`/`map`, f-strings, módulos (`import`), threads (`spawn`, `mutex`).
+- **Núcleo:** tipos com inferência, classes com herança e `private`/`protected` conferidos, interfaces, genéricos com restrições, lambdas e closures, `result<T>` com `?`, `try/catch`, `switch`, `for ... in` com `range`, compreensões, `set`/`map`, f-strings, módulos (`import`), threads (`spawn`, `mutex`).
 - **Quântico:** registradores `qreg` com portas, medição e observáveis; `circuit` com inverso e controlado automáticos; algoritmos (Grover, QFT, GHZ); ruído e matriz densidade; OpenQASM 2/3; simulação na GPU com CUDA (quando disponível).
-- **IA:** `network`, autograd, otimizadores, convolução, `qcircuit`/`qlayer` (QML: VQC, QNN, kernels, VQE/QAOA), redes híbridas, modelo de texto e Transformers nativos.
+- **IA:** `network` treinada com `optimize` (Adam, SGD, momentum, RMSProp, GD), autograd, convolução, `qcircuit`/`qlayer` (QML: VQC, QNN, kernels, VQE/QAOA), redes híbridas, modelo de texto e Transformers nativos.
 - **Álgebra G:** Números Fantasmas 4D, matrizes `gate`/`matrix` e tensores N-dimensionais (com OpenBLAS quando ligado).
-- **Biblioteca padrão (`libs/`):** arquivos, strings, JSON, regex, tempo, SQLite, HTTP (cliente e servidor), GUI Win32, estatística, testes.
-- **Ferramentas:** `ghost check` (verificador de tipos), `ghost fmt`, `ghost lsp` (Language Server), `ghost debug` e `ghost debug --dap` (depurador com o gdb, ligado à extensão VS Code), `ghost pm` (pacotes de pasta ou git, com semver).
+- **Biblioteca padrão (`libs/`):** arquivos, strings, JSON, regex, tempo, SQLite, HTTP (cliente e servidor) e WebSocket (chat e jogos em tempo real), GUI Win32, estatística, testes.
+- **Ferramentas:** `ghost check` (verificador de tipos), `ghost fmt`, `ghost lsp` (Language Server), `ghost debug` e `ghost debug --dap` (depurador com o gdb, ligado à extensão VS Code), `ghost install sqlite` (pacotes pelo índice `pacotes/indice.json`) e `ghost pm` (pacotes de pasta ou git, com semver).
 
-Ainda **não** implementados: backends Vulkan, Metal e ROCm; envio de circuitos a QPUs reais (o `qhw_submit` simula localmente e diz isso); registro remoto de pacotes.
+Ainda **não** implementados: backends Vulkan, Metal e ROCm; envio de circuitos a QPUs reais (o `qhw_submit` simula localmente e diz isso); registro remoto de pacotes (com publicação; o índice é um arquivo); WebSocket seguro (`wss://`).
 
 ## Compilar a partir do código (Windows)
 

@@ -189,7 +189,7 @@ GhostValue* GhostInterpreter::resolvePath(const LPath& p, bool createKey, bool q
             auto it = cur->map.find(name);
             if (!fd || it == cur->map.end()) return fail("a classe " + cur->str + " nao tem o campo " + name);
             try {
-                checkAccess(decl, fd->priv, "campo " + name);
+                checkAccess(decl, fd->priv, fd->prot, "campo " + name); // escrita: protected tambem
             } catch (...) {
                 if (quiet) return nullptr;
                 throw;
@@ -1137,7 +1137,7 @@ std::vector<std::string> GhostInterpreter::deduceGenericTypes(const GhostGeneric
 GhostValue GhostInterpreter::callGenericMember(GhostValue* self, const std::string& owner, const std::string& name,
                                                const std::vector<std::string>& explicitArgs, std::vector<std::vector<Token>>& raw) {
     const GhostClassDef::GenericMethod gm = class_memory.at(owner).genericMethods.at(name);
-    checkAccess(owner, gm.priv, "metodo " + name + "()");
+    checkAccess(owner, gm.priv, gm.prot, "metodo " + name + "()");
     if (!gm.isStatic && !self) throw std::runtime_error(owner + "." + name + "() nao e static: chame em um objeto");
     std::vector<GhostValue> vals;
     for (auto& r : raw) vals.push_back(evalValue(r));
@@ -1214,6 +1214,7 @@ void GhostInterpreter::ensureInstance(const std::string& spec) {
 
 void GhostInterpreter::defineClass(GhostClassDef def, const std::string& body, const std::string& ctorName) {
     Lexer bl(body);
+    bool secPriv = false, secProt = false; // seção atual (private: / protected: / public:)
     bool priv = false;
     bool prot = false;
     const bool isInstance = def.name != ctorName; // Pilha<int> (de uma classe genérica)
@@ -1221,11 +1222,21 @@ void GhostInterpreter::defineClass(GhostClassDef def, const std::string& body, c
         Token c = bl.getNextToken();
         if (c.type == GTokenType::EndOfFile) break;
         if (c.type == GTokenType::Semicolon) continue;
+        priv = secPriv;
+        prot = secProt;
         if (c.type == GTokenType::KwPublic || c.type == GTokenType::KwPrivate || (c.type == GTokenType::Identifier && c.value == "protected")) {
-            priv = c.type == GTokenType::KwPrivate;
-            prot = (c.type == GTokenType::Identifier && c.value == "protected");
-            if (bl.getNextToken().type != GTokenType::Colon) throw std::runtime_error("use " + c.value + ": (com dois-pontos) dentro da classe " + def.name);
-            continue;
+            const bool p1 = c.type == GTokenType::KwPrivate;
+            const bool p2 = (c.type == GTokenType::Identifier && c.value == "protected");
+            if (bl.peekNextToken().type == GTokenType::Colon) { // seção: vale até a próxima
+                bl.getNextToken();
+                secPriv = p1;
+                secProt = p2;
+                continue;
+            }
+            // modificador do membro: private double saldo; / private function void f() { }
+            priv = p1;
+            prot = p2;
+            c = bl.getNextToken();
         }
         bool isStatic = false; // static function f() { }   static int total = 0;
         if (c.type == GTokenType::Identifier && c.value == "static" && bl.peekNextToken().type != GTokenType::Semicolon) {
@@ -1242,6 +1253,7 @@ void GhostInterpreter::defineClass(GhostClassDef def, const std::string& body, c
                 gm.fn = g;
                 gm.isStatic = isStatic;
                 gm.priv = priv;
+                gm.prot = prot;
                 def.genericMethods[g.name] = gm;
                 generic_method_names.insert(g.name);
                 continue;

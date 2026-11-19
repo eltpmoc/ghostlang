@@ -259,7 +259,7 @@ private:
         std::map<std::string, bool> protectedStatic;
         std::map<std::string, std::vector<GhostFunction>> static_method_overloads;
         // métodos genéricos: modelo; cada combinação de tipos vira methods["m<int>"] (ou staticMethods)
-        struct GenericMethod { GhostGenericFn fn; bool isStatic = false; bool priv = false; };
+        struct GenericMethod { GhostGenericFn fn; bool isStatic = false; bool priv = false; bool prot = false; };
         std::map<std::string, GenericMethod> genericMethods;
     };
     // interface Nome [extends A, B] { function tipo metodo(params); }

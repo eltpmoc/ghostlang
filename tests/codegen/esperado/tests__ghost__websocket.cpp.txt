@@ -1,0 +1,98 @@
+#line 6 "tests/ghost/websocket.g"
+#line 10 "tests/ghost/websocket.g"
+#line 14 "tests/ghost/websocket.g"
+#line 15 "tests/ghost/websocket.g"
+#line 16 "tests/ghost/websocket.g"
+#line 17 "tests/ghost/websocket.g"
+#line 18 "tests/ghost/websocket.g"
+#line 19 "tests/ghost/websocket.g"
+#line 22 "tests/ghost/websocket.g"
+#line 25 "tests/ghost/websocket.g"
+#line 26 "tests/ghost/websocket.g"
+#line 27 "tests/ghost/websocket.g"
+#line 28 "tests/ghost/websocket.g"
+#line 29 "tests/ghost/websocket.g"
+#line 30 "tests/ghost/websocket.g"
+#line 33 "tests/ghost/websocket.g"
+#line 34 "tests/ghost/websocket.g"
+#line 35 "tests/ghost/websocket.g"
+#line 36 "tests/ghost/websocket.g"
+#line 37 "tests/ghost/websocket.g"
+#line 38 "tests/ghost/websocket.g"
+#line 39 "tests/ghost/websocket.g"
+#line 40 "tests/ghost/websocket.g"
+#line 43 "tests/ghost/websocket.g"
+#line 5 "tests/ghost/websocket.g"
+#line 9 "tests/ghost/websocket.g"
+#line 13 "tests/ghost/websocket.g"
+----
+/*TranspiladopeloGhostCompilerv1.0*/#include<iostream>#include<cstdio>#include<cstdlib>#include<string>#include<complex>#include<type_traits>#include<fstream>#include<sstream>#include<thread>#include<chrono>#include<mutex>#include"include/GhostNumberG.hpp"#include"include/GhostMatrix.hpp"#include"include/GhostLLM.hpp"#include"include/GhostLib.hpp"#include"include/GhostDevice.hpp"#include"include/GhostTextModel.hpp"#include"include/GhostWeb.hpp"#include"include/GhostKnowledge.hpp"#include"include/GhostTemporal.hpp"#include"include/GhostTransformer.hpp"#include"include/GhostTransformerG.hpp"#include"include/GhostMatrixG.hpp"#include"include/GhostQuantum.hpp"#include"include/GhostQML.hpp"#include"include/GhostHybrid.hpp"#include"include/GhostQTape.hpp"#include"include/GhostCore.hpp"#ifdef_WIN32#include<windows.h>#endifstd::stringeco(std::stringmsg);
+std::stringsala(std::stringmsg);
+voidghost_main();
+std::stringeco(std::stringmsg){
+returnstd::string("eco: ")+msg;
+}
+std::stringsala(std::stringmsg){
+returnstd::string("[sala] ")+msg;
+}
+voidghost_main(){
+GhostServerapp(18788);
+app.websocket(std::string("/eco"),ghost_fn_val(eco));
+app.websocket_broadcast(std::string("/sala"),ghost_fn_val(sala));
+std::thread([&](){
+for(inti=0;
+i<60;
+i++){
+app.listen_step(50);
+}
+}
+).detach();
+std::this_thread::sleep_for(std::chrono::milliseconds(static_cast<longlong>(200)));
+inta=ws_connect(std::string("ws://127.0.0.1:18788/eco"));
+ws_send(a,std::string("ola"));
+std::cout<<ghost_show(ws_recv(a,3000))<<std::endl;
+ws_send(a,std::string("segunda mensagem"));
+std::cout<<ghost_show(ws_recv(a,3000))<<std::endl;
+ws_close(a);
+intb=ws_connect(std::string("ws://127.0.0.1:18788/sala"));
+intc=ws_connect(std::string("ws://127.0.0.1:18788/sala"));
+std::this_thread::sleep_for(std::chrono::milliseconds(static_cast<longlong>(200)));
+ws_send(b,std::string("bia entrou"));
+std::cout<<ghost_show(std::string("b recebeu: "))<<ghost_show(ws_recv(b,3000))<<std::endl;
+std::cout<<ghost_show(std::string("c recebeu: "))<<ghost_show(ws_recv(c,3000))<<std::endl;
+ws_close(b);
+ws_close(c);
+{
+try{
+intd=ws_connect(std::string("ws://127.0.0.1:18788/nada"));
+std::cout<<ghost_show(std::string("nao devia conectar: "))<<ghost_show(d)<<std::endl;
+}
+catch(...){
+std::stringe=ghost_exception_message(std::current_exception());
+(void)e;
+std::cout<<ghost_show(std::string("erro: "))<<ghost_show(e)<<std::endl;
+}
+}
+}
+intmain(intargc,char**argv){
+try{
+#ifdef_WIN32SetConsoleOutputCP(CP_UTF8);
+SetConsoleCP(CP_UTF8);
+#endifstd::cout<<std::boolalpha;
+std::stringghost_args="";
+std::vector<std::string>ghost_args_vec;
+for(inti=1;
+i<argc;
+++i){
+ghost_args+=argv[i];
+ghost_args_vec.push_back(argv[i]);
+if(i<argc-1)ghost_args+=" ";
+}
+ghost_main();
+return0;
+}
+catch(conststd::exception&e){
+std::cerr<<e.what()<<std::endl;
+return1;
+}
+}

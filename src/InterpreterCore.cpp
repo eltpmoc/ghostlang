@@ -3983,6 +3983,24 @@ GhostValue GhostInterpreter::callBuiltin(const std::string &name,
     need(2, 2);
     return GV::text(http_post(textOf(a[0], false), textOf(a[1], false)));
   }
+  // WebSocket (cliente): ws_connect(url) -> conexao, ws_send, ws_recv(timeout_ms), ws_close
+  if (name == "ws_connect" || name == "ghost_ws_connect") {
+    need(1, 1);
+    return GV::number(ghost_ws_connect(textOf(a[0], false)), true);
+  }
+  if (name == "ws_send" || name == "ghost_ws_send") {
+    need(2, 2);
+    return GV::boolean(ghost_ws_send(static_cast<int>(numOf(a[0], name)), textOf(a[1], false)));
+  }
+  if (name == "ws_recv" || name == "ghost_ws_recv") {
+    need(1, 2);
+    return GV::text(ghost_ws_recv(static_cast<int>(numOf(a[0], name)), a.size() > 1 ? static_cast<int>(numOf(a[1], name)) : 1000));
+  }
+  if (name == "ws_close" || name == "ghost_ws_close") {
+    need(1, 1);
+    ghost_ws_close(static_cast<int>(numOf(a[0], name)));
+    return GV::number(0, true);
+  }
   if (name == "json_extract") {
     need(2, 2);
     return GV::text(json_extract(textOf(a[0], false), textOf(a[1], false)));

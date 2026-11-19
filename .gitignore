@@ -29,7 +29,11 @@ TestesRealizados/
 scratch/
 temps_phathon/
 logs/
+ia_propria/
 parse_error.txt
+
+# -- Arquivo de melhorias futuras
+docs/melhorias_futuras.txt
 
 # ---- modelos, pesos e dados grandes ----
 modelo_ia/

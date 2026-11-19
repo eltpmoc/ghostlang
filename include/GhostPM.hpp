@@ -17,6 +17,13 @@ struct PackageInfo {
     std::map<std::string, std::string> dependencies;
 };
 
+// Entrada do indice de pacotes (pacotes/indice.json): biblioteca embutida (libs/x.g)
+// ou repositorio git de terceiros
+struct IndexEntry {
+    std::string name, embutido, git, ref, versao, descricao;
+    std::string spec() const;  // "embutido:libs/db.g" ou "git:<url>[#ref]"
+};
+
 // Resultado da instalação de uma dependência (vai para o ghost.lock)
 struct ResolvedDep {
     std::string name, spec, source, version, commit;
@@ -29,7 +36,15 @@ public:
     static int cmdRemove(const std::string& pkgName);
     static int cmdInstall();
     static int cmdList();
+    static int cmdSearch(const std::string& termo = "");
+    // ghost install <nome>...: cria o ghost.toml se faltar, resolve cada nome pelo indice e instala
+    static int cmdInstallNames(const std::vector<std::string>& names);
     static int dispatch(int argc, char* argv[]);
+
+    // Raiz da GhostLang (onde ficam libs/ e pacotes/); o indice vem de GHOST_PM_INDICE ou
+    // de <raiz>/pacotes/indice.json
+    static void setRoot(const std::string& root);
+    static std::map<std::string, IndexEntry> loadIndex(std::string* origem = nullptr, std::string* erro = nullptr);
 
     static bool loadToml(const std::string& path, PackageInfo& info);
     static bool saveToml(const std::string& path, const PackageInfo& info);

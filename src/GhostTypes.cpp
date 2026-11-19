@@ -49,6 +49,7 @@ struct ClassInfo {
     std::set<std::string> typeParams;
     std::map<std::string, Ty> fields;
     std::multimap<std::string, Sig> methods;
+    std::map<std::string, char> access; // membro -> 'v' private, 'p' protected (ausente: public)
     std::vector<Sig> ctors;
     bool generic = false;
 };
@@ -255,6 +256,36 @@ private:
             c = ci.base;
         }
         return found;
+    }
+    // private: so dentro da classe dona; protected: na dona e nas derivadas (como em C++/Java)
+    void checkAccess(const AstNode& at, const std::string& cls, const std::string& name) {
+        std::string owner, c = cls;
+        char acc = 0;
+        for (int guard = 0; guard < 64 && !c.empty(); ++guard) {
+            auto it = classes.find(c);
+            if (it == classes.end()) return;
+            const ClassInfo& ci = it->second;
+            if (ci.fields.count(name) || ci.methods.count(name)) {
+                owner = c;
+                auto a = ci.access.find(name);
+                acc = a == ci.access.end() ? 0 : a->second;
+                break;
+            }
+            c = ci.base;
+        }
+        if (!acc) return;
+        if (curClass == owner) return;
+        if (acc == 'p') {
+            std::string d = curClass;
+            for (int guard = 0; guard < 64 && !d.empty(); ++guard) {
+                if (d == owner) return;
+                auto it = classes.find(d);
+                if (it == classes.end()) break;
+                d = it->second.base;
+            }
+        }
+        error(at, "GHOST-E0303", "'" + name + "' e " + (acc == 'v' ? "private" : "protected") + " na classe " + owner +
+              (acc == 'v' ? " (so a propria classe acessa)" : " (so a classe e as derivadas acessam)"));
     }
     bool ifaceMember(const std::string& iface, const std::string& name, std::vector<const Sig*>* methods) const {
         auto it = ifaces.find(iface);
@@ -601,10 +632,16 @@ private:
                 }
                 fieldLine[c->name] = c->line;
                 ci.fields[c->name] = c->kind == AstKind::VarDecl ? fromType(*c->kids[0]) : domainType(*c);
+                if (c->has("private")) ci.access[c->name] = 'v';
+                else if (c->has("protected")) ci.access[c->name] = 'p';
             } else if (c->kind == AstKind::FuncDecl) {
                 Sig s = signature(*c);
                 s.isStatic = c->has("static");
                 s.isPrivate = c->has("private");
+                if (c->name != k.name) {
+                    if (c->has("private")) ci.access[c->name] = 'v';
+                    else if (c->has("protected")) ci.access[c->name] = 'p';
+                }
                 s.hasBody = !c->kids.empty() && c->kids.back()->kind == AstKind::Block;
                 if (c->has("ctor")) {
                     if (s.generic) error(*c, "GHOST-E0301", "o construtor de " + k.name + " nao pode ser generico");
@@ -1029,6 +1066,7 @@ private:
                 std::vector<const Sig*> ms;
                 const Ty* ft = nullptr;
                 if (classMember(curClass, n, unknownBase, &ft, &ms)) {
+                    checkAccess(callee, curClass, n); // metodo private da base chamado pela derivada
                     if (!ft && !unknownBase) checkArgs(c, "o metodo " + n, ms, args);
                     return ft ? Ty{} : uniqueRet(ms);
                 }
@@ -1106,6 +1144,7 @@ private:
                 if (!unknownBase) error(callee, "GHOST-E0302", "a classe " + cls + " nao tem o metodo '" + m + "'");
                 return Ty{};
             }
+            checkAccess(callee, cls, m);
             if (ft) return (ft->n == "fn" && !ft->a.empty()) ? ft->a[0] : Ty{}; // campo fn<...> chamado
             if (!unknownBase) checkArgs(c, "o metodo " + cls + "." + m, ms, args);
             return classes[cls].generic ? Ty{} : uniqueRet(ms);
@@ -1156,6 +1195,7 @@ private:
             if (!unknownBase) error(e, "GHOST-E0302", "a classe " + cls + " nao tem o campo '" + e.text + "'");
             return Ty{};
         }
+        checkAccess(e, cls, e.text);
         return ft ? *ft : Ty{};
     }
 
@@ -1176,6 +1216,10 @@ private:
         }
         if (n == "true" || n == "false") return named("bool");
         if (lookupLocal(n)) return varType(n);
+        if (!curClass.empty()) { // campo usado pelo nome (this implicito): private da base nao vale na derivada
+            bool unknownBase = false;
+            if (classMember(curClass, n, unknownBase, nullptr, nullptr)) checkAccess(e, curClass, n);
+        }
         if (!knownName(n)) {
             error(e, "GHOST-E0203", "'" + n + "' nao foi declarado (declare antes de usar, ex.: int " + n + " = 0; ou var " + n + " = ...;)");
             return Ty{};

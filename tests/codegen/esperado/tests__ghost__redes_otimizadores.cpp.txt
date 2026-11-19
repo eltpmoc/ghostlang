@@ -1,0 +1,365 @@
+#line 6 "tests/ghost/redes_otimizadores.g"
+#line 7 "tests/ghost/redes_otimizadores.g"
+#line 8 "tests/ghost/redes_otimizadores.g"
+#line 8 "tests/ghost/redes_otimizadores.g"
+#line 8 "tests/ghost/redes_otimizadores.g"
+#line 9 "tests/ghost/redes_otimizadores.g"
+#line 9 "tests/ghost/redes_otimizadores.g"
+#line 9 "tests/ghost/redes_otimizadores.g"
+#line 10 "tests/ghost/redes_otimizadores.g"
+#line 10 "tests/ghost/redes_otimizadores.g"
+#line 10 "tests/ghost/redes_otimizadores.g"
+#line 11 "tests/ghost/redes_otimizadores.g"
+#line 11 "tests/ghost/redes_otimizadores.g"
+#line 11 "tests/ghost/redes_otimizadores.g"
+#line 14 "tests/ghost/redes_otimizadores.g"
+#line 15 "tests/ghost/redes_otimizadores.g"
+#line 16 "tests/ghost/redes_otimizadores.g"
+#line 16 "tests/ghost/redes_otimizadores.g"
+#line 16 "tests/ghost/redes_otimizadores.g"
+#line 17 "tests/ghost/redes_otimizadores.g"
+#line 17 "tests/ghost/redes_otimizadores.g"
+#line 18 "tests/ghost/redes_otimizadores.g"
+#line 19 "tests/ghost/redes_otimizadores.g"
+#line 20 "tests/ghost/redes_otimizadores.g"
+#line 21 "tests/ghost/redes_otimizadores.g"
+#line 24 "tests/ghost/redes_otimizadores.g"
+#line 25 "tests/ghost/redes_otimizadores.g"
+#line 26 "tests/ghost/redes_otimizadores.g"
+#line 26 "tests/ghost/redes_otimizadores.g"
+#line 26 "tests/ghost/redes_otimizadores.g"
+#line 27 "tests/ghost/redes_otimizadores.g"
+#line 27 "tests/ghost/redes_otimizadores.g"
+#line 28 "tests/ghost/redes_otimizadores.g"
+#line 29 "tests/ghost/redes_otimizadores.g"
+#line 30 "tests/ghost/redes_otimizadores.g"
+#line 33 "tests/ghost/redes_otimizadores.g"
+#line 34 "tests/ghost/redes_otimizadores.g"
+#line 35 "tests/ghost/redes_otimizadores.g"
+#line 35 "tests/ghost/redes_otimizadores.g"
+#line 35 "tests/ghost/redes_otimizadores.g"
+#line 36 "tests/ghost/redes_otimizadores.g"
+#line 36 "tests/ghost/redes_otimizadores.g"
+#line 37 "tests/ghost/redes_otimizadores.g"
+#line 38 "tests/ghost/redes_otimizadores.g"
+#line 39 "tests/ghost/redes_otimizadores.g"
+#line 42 "tests/ghost/redes_otimizadores.g"
+#line 43 "tests/ghost/redes_otimizadores.g"
+#line 44 "tests/ghost/redes_otimizadores.g"
+#line 44 "tests/ghost/redes_otimizadores.g"
+#line 44 "tests/ghost/redes_otimizadores.g"
+#line 45 "tests/ghost/redes_otimizadores.g"
+#line 45 "tests/ghost/redes_otimizadores.g"
+#line 46 "tests/ghost/redes_otimizadores.g"
+#line 47 "tests/ghost/redes_otimizadores.g"
+#line 48 "tests/ghost/redes_otimizadores.g"
+#line 51 "tests/ghost/redes_otimizadores.g"
+#line 52 "tests/ghost/redes_otimizadores.g"
+#line 53 "tests/ghost/redes_otimizadores.g"
+#line 53 "tests/ghost/redes_otimizadores.g"
+#line 53 "tests/ghost/redes_otimizadores.g"
+#line 54 "tests/ghost/redes_otimizadores.g"
+#line 54 "tests/ghost/redes_otimizadores.g"
+#line 55 "tests/ghost/redes_otimizadores.g"
+#line 56 "tests/ghost/redes_otimizadores.g"
+#line 57 "tests/ghost/redes_otimizadores.g"
+#line 60 "tests/ghost/redes_otimizadores.g"
+#line 61 "tests/ghost/redes_otimizadores.g"
+#line 64 "tests/ghost/redes_otimizadores.g"
+#line 5 "tests/ghost/redes_otimizadores.g"
+----
+/*TranspiladopeloGhostCompilerv1.0*/#include<iostream>#include<cstdio>#include<cstdlib>#include<string>#include<complex>#include<type_traits>#include<fstream>#include<sstream>#include<thread>#include<chrono>#include<mutex>#include"include/GhostNumberG.hpp"#include"include/GhostMatrix.hpp"#include"include/GhostLLM.hpp"#include"include/GhostLib.hpp"#include"include/GhostDevice.hpp"#include"include/GhostTextModel.hpp"#include"include/GhostWeb.hpp"#include"include/GhostKnowledge.hpp"#include"include/GhostTemporal.hpp"#include"include/GhostTransformer.hpp"#include"include/GhostTransformerG.hpp"#include"include/GhostMatrixG.hpp"#include"include/GhostQuantum.hpp"#include"include/GhostQML.hpp"#include"include/GhostHybrid.hpp"#include"include/GhostQTape.hpp"#include"include/GhostCore.hpp"#ifdef_WIN32#include<windows.h>#endifvoidghost_main();
+voidghost_main(){
+GhostMatrixX(2,4);
+doublelimit_X=std::sqrt(6.0/(2+4));
+for(size_tghost_r=0;
+ghost_r<X.getRows();
+++ghost_r){
+for(size_tghost_c=0;
+ghost_c<X.getCols();
+++ghost_c){
+doubleghost_val=(((double)rand()/RAND_MAX)*2.0-1.0)*limit_X;
+X(ghost_r,ghost_c)=GhostNumberG(ghost_val,0.0,0.0);
+}
+}
+GhostMatrixY(1,4);
+doublelimit_Y=std::sqrt(6.0/(1+4));
+for(size_tghost_r=0;
+ghost_r<Y.getRows();
+++ghost_r){
+for(size_tghost_c=0;
+ghost_c<Y.getCols();
+++ghost_c){
+doubleghost_val=(((double)rand()/RAND_MAX)*2.0-1.0)*limit_Y;
+Y(ghost_r,ghost_c)=GhostNumberG(ghost_val,0.0,0.0);
+}
+}
+X(0,0)=0.0;
+X(1,0)=0.0;
+Y(0,0)=0.0;
+X(0,1)=0.0;
+X(1,1)=1.0;
+Y(0,1)=1.0;
+X(0,2)=1.0;
+X(1,2)=0.0;
+Y(0,2)=1.0;
+X(0,3)=1.0;
+X(1,3)=1.0;
+Y(0,3)=0.0;
+GhostMatrixA1(6,2);
+doublelimit_A1=std::sqrt(6.0/(6+2));
+for(size_tghost_r=0;
+ghost_r<A1.getRows();
+++ghost_r){
+for(size_tghost_c=0;
+ghost_c<A1.getCols();
+++ghost_c){
+doubleghost_val=(((double)rand()/RAND_MAX)*2.0-1.0)*limit_A1;
+A1(ghost_r,ghost_c)=GhostNumberG(ghost_val,0.0,0.0);
+}
+}
+GhostMatrixA2(1,6);
+doublelimit_A2=std::sqrt(6.0/(1+6));
+for(size_tghost_r=0;
+ghost_r<A2.getRows();
+++ghost_r){
+for(size_tghost_c=0;
+ghost_c<A2.getCols();
+++ghost_c){
+doubleghost_val=(((double)rand()/RAND_MAX)*2.0-1.0)*limit_A2;
+A2(ghost_r,ghost_c)=GhostNumberG(ghost_val,0.0,0.0);
+}
+}
+for(intr=0;
+r<6;
+r++){
+for(intc=0;
+c<2;
+c++){
+A1(r,c)=((r*7+c*3)%11)/10.0-0.5;
+}
+}
+for(intc=0;
+c<6;
+c++){
+A2(0,c)=((c*5)%7)/7.0-0.4;
+}
+//EstruturaDeepGhost:raGhostNetwork*ra=newGhostNetwork("ra",{
+&A1,&A2}
+);
+std::cout<<"[Ghost OS] Rede Profunda 'ra' montada com 2 camadas."<<std::endl;
+std::cout<<ghost_show(std::string("adam     antes: "))<<ghost_show(ra->loss(X,Y))<<std::endl;
+//ChamandootimizadorBackpropagationnaRedeProfundara->optimize(X,Y,800,0.02,"adam");
+std::cout<<ghost_show(std::string("adam     depois: "))<<ghost_show(ra->loss(X,Y)<0.01)<<ghost_show(std::string(" acuracia "))<<ghost_show(ra->accuracy(X,Y))<<std::endl;
+GhostMatrixS1(6,2);
+doublelimit_S1=std::sqrt(6.0/(6+2));
+for(size_tghost_r=0;
+ghost_r<S1.getRows();
+++ghost_r){
+for(size_tghost_c=0;
+ghost_c<S1.getCols();
+++ghost_c){
+doubleghost_val=(((double)rand()/RAND_MAX)*2.0-1.0)*limit_S1;
+S1(ghost_r,ghost_c)=GhostNumberG(ghost_val,0.0,0.0);
+}
+}
+GhostMatrixS2(1,6);
+doublelimit_S2=std::sqrt(6.0/(1+6));
+for(size_tghost_r=0;
+ghost_r<S2.getRows();
+++ghost_r){
+for(size_tghost_c=0;
+ghost_c<S2.getCols();
+++ghost_c){
+doubleghost_val=(((double)rand()/RAND_MAX)*2.0-1.0)*limit_S2;
+S2(ghost_r,ghost_c)=GhostNumberG(ghost_val,0.0,0.0);
+}
+}
+for(intr=0;
+r<6;
+r++){
+for(intc=0;
+c<2;
+c++){
+S1(r,c)=((r*7+c*3)%11)/10.0-0.5;
+}
+}
+for(intc=0;
+c<6;
+c++){
+S2(0,c)=((c*5)%7)/7.0-0.4;
+}
+//EstruturaDeepGhost:rsGhostNetwork*rs=newGhostNetwork("rs",{
+&S1,&S2}
+);
+std::cout<<"[Ghost OS] Rede Profunda 'rs' montada com 2 camadas."<<std::endl;
+//ChamandootimizadorBackpropagationnaRedeProfundars->optimize(X,Y,1500,0.05,"sgd");
+std::cout<<ghost_show(std::string("sgd      depois: "))<<ghost_show(rs->loss(X,Y)<0.01)<<ghost_show(std::string(" acuracia "))<<ghost_show(rs->accuracy(X,Y))<<std::endl;
+GhostMatrixM1(6,2);
+doublelimit_M1=std::sqrt(6.0/(6+2));
+for(size_tghost_r=0;
+ghost_r<M1.getRows();
+++ghost_r){
+for(size_tghost_c=0;
+ghost_c<M1.getCols();
+++ghost_c){
+doubleghost_val=(((double)rand()/RAND_MAX)*2.0-1.0)*limit_M1;
+M1(ghost_r,ghost_c)=GhostNumberG(ghost_val,0.0,0.0);
+}
+}
+GhostMatrixM2(1,6);
+doublelimit_M2=std::sqrt(6.0/(1+6));
+for(size_tghost_r=0;
+ghost_r<M2.getRows();
+++ghost_r){
+for(size_tghost_c=0;
+ghost_c<M2.getCols();
+++ghost_c){
+doubleghost_val=(((double)rand()/RAND_MAX)*2.0-1.0)*limit_M2;
+M2(ghost_r,ghost_c)=GhostNumberG(ghost_val,0.0,0.0);
+}
+}
+for(intr=0;
+r<6;
+r++){
+for(intc=0;
+c<2;
+c++){
+M1(r,c)=((r*7+c*3)%11)/10.0-0.5;
+}
+}
+for(intc=0;
+c<6;
+c++){
+M2(0,c)=((c*5)%7)/7.0-0.4;
+}
+//EstruturaDeepGhost:rmGhostNetwork*rm=newGhostNetwork("rm",{
+&M1,&M2}
+);
+std::cout<<"[Ghost OS] Rede Profunda 'rm' montada com 2 camadas."<<std::endl;
+//ChamandootimizadorBackpropagationnaRedeProfundarm->optimize(X,Y,1500,0.02,"momentum");
+std::cout<<ghost_show(std::string("momentum depois: "))<<ghost_show(rm->loss(X,Y)<0.01)<<ghost_show(std::string(" acuracia "))<<ghost_show(rm->accuracy(X,Y))<<std::endl;
+GhostMatrixP1(6,2);
+doublelimit_P1=std::sqrt(6.0/(6+2));
+for(size_tghost_r=0;
+ghost_r<P1.getRows();
+++ghost_r){
+for(size_tghost_c=0;
+ghost_c<P1.getCols();
+++ghost_c){
+doubleghost_val=(((double)rand()/RAND_MAX)*2.0-1.0)*limit_P1;
+P1(ghost_r,ghost_c)=GhostNumberG(ghost_val,0.0,0.0);
+}
+}
+GhostMatrixP2(1,6);
+doublelimit_P2=std::sqrt(6.0/(1+6));
+for(size_tghost_r=0;
+ghost_r<P2.getRows();
+++ghost_r){
+for(size_tghost_c=0;
+ghost_c<P2.getCols();
+++ghost_c){
+doubleghost_val=(((double)rand()/RAND_MAX)*2.0-1.0)*limit_P2;
+P2(ghost_r,ghost_c)=GhostNumberG(ghost_val,0.0,0.0);
+}
+}
+for(intr=0;
+r<6;
+r++){
+for(intc=0;
+c<2;
+c++){
+P1(r,c)=((r*7+c*3)%11)/10.0-0.5;
+}
+}
+for(intc=0;
+c<6;
+c++){
+P2(0,c)=((c*5)%7)/7.0-0.4;
+}
+//EstruturaDeepGhost:rpGhostNetwork*rp=newGhostNetwork("rp",{
+&P1,&P2}
+);
+std::cout<<"[Ghost OS] Rede Profunda 'rp' montada com 2 camadas."<<std::endl;
+//ChamandootimizadorBackpropagationnaRedeProfundarp->optimize(X,Y,800,0.01,"rmsprop");
+std::cout<<ghost_show(std::string("rmsprop  depois: "))<<ghost_show(rp->loss(X,Y)<0.01)<<ghost_show(std::string(" acuracia "))<<ghost_show(rp->accuracy(X,Y))<<std::endl;
+GhostMatrixG1(6,2);
+doublelimit_G1=std::sqrt(6.0/(6+2));
+for(size_tghost_r=0;
+ghost_r<G1.getRows();
+++ghost_r){
+for(size_tghost_c=0;
+ghost_c<G1.getCols();
+++ghost_c){
+doubleghost_val=(((double)rand()/RAND_MAX)*2.0-1.0)*limit_G1;
+G1(ghost_r,ghost_c)=GhostNumberG(ghost_val,0.0,0.0);
+}
+}
+GhostMatrixG2(1,6);
+doublelimit_G2=std::sqrt(6.0/(1+6));
+for(size_tghost_r=0;
+ghost_r<G2.getRows();
+++ghost_r){
+for(size_tghost_c=0;
+ghost_c<G2.getCols();
+++ghost_c){
+doubleghost_val=(((double)rand()/RAND_MAX)*2.0-1.0)*limit_G2;
+G2(ghost_r,ghost_c)=GhostNumberG(ghost_val,0.0,0.0);
+}
+}
+for(intr=0;
+r<6;
+r++){
+for(intc=0;
+c<2;
+c++){
+G1(r,c)=((r*7+c*3)%11)/10.0-0.5;
+}
+}
+for(intc=0;
+c<6;
+c++){
+G2(0,c)=((c*5)%7)/7.0-0.4;
+}
+//EstruturaDeepGhost:rgGhostNetwork*rg=newGhostNetwork("rg",{
+&G1,&G2}
+);
+std::cout<<"[Ghost OS] Rede Profunda 'rg' montada com 2 camadas."<<std::endl;
+//ChamandootimizadorBackpropagationnaRedeProfundarg->optimize(X,Y,4000,0.05,"gd");
+std::cout<<ghost_show(std::string("gd       depois: "))<<ghost_show(rg->loss(X,Y)<0.05)<<ghost_show(std::string(" acuracia "))<<ghost_show(rg->accuracy(X,Y))<<std::endl;
+std::cout<<ghost_show(std::string("xor(0,0)="))<<ghost_show(ra->classify(0.0,0.0))<<ghost_show(std::string(" xor(0,1)="))<<ghost_show(ra->classify(0.0,1.0))<<ghost_show(std::string(" xor(1,0)="))<<ghost_show(ra->classify(1.0,0.0))<<ghost_show(std::string(" xor(1,1)="))<<ghost_show(ra->classify(1.0,1.0))<<std::endl;
+std::cout<<"\nEstado da estrutura '"<<"ra"<<"':"<<std::endl;
+ra->display();
+{
+try{
+//ChamandootimizadorBackpropagationnaRedeProfundara->optimize(X,Y,1,0.1,"newton");
+}
+catch(...){
+std::stringe=ghost_exception_message(std::current_exception());
+(void)e;
+std::cout<<ghost_show(std::string("erro: "))<<ghost_show(e)<<std::endl;
+}
+}
+}
+intmain(intargc,char**argv){
+try{
+#ifdef_WIN32SetConsoleOutputCP(CP_UTF8);
+SetConsoleCP(CP_UTF8);
+#endifstd::cout<<std::boolalpha;
+std::stringghost_args="";
+std::vector<std::string>ghost_args_vec;
+for(inti=1;
+i<argc;
+++i){
+ghost_args+=argv[i];
+ghost_args_vec.push_back(argv[i]);
+if(i<argc-1)ghost_args+=" ";
+}
+ghost_main();
+return0;
+}
+catch(conststd::exception&e){
+std::cerr<<e.what()<<std::endl;
+return1;
+}
+}

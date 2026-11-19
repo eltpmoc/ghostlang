@@ -111,7 +111,7 @@ switch (comando) {
 ## 5. Orientação a Objetos e Abstrações
 
 ### 5.1 Classes e Herança
-- Modificadores de visibilidade: `public:`, `private:` e `protected:`.
+- Modificadores de visibilidade: `public:`, `private:` e `protected:` (como seção) ou junto do membro (`private double x;`). O acesso é conferido na verificação de tipos: `private` só na própria classe e `protected` também nas filhas. A violação dá o erro `GHOST-E0303`.
 - Subclasses herdam membros públicos e protegidos via `extends`. Chamada do construtor ancestral via `super(...)`.
 - Membros estáticos (`static int contagem`) com escopo da classe e especializações parametrizadas em genéricos (`Classe<T>.staticCampo`).
 
@@ -164,7 +164,7 @@ Suporte nativo a versões inversas automáticas (`bell_dg`) e controladas (`bell
 ### 8.1 Redes Híbridas e Topologias
 - Operador de encadeamento sequencial: `network rede = W1 >> Q >> W2;`.
 - Camadas quânticas variacionais: `qlayer Q(n_qubits, depth);`.
-- Otimização automática de gradientes: `rede => optimize(X, Y, epochs, lr, opt);`.
+- Otimização automática de gradientes: `rede => optimize(X, Y, epochs=N, lr=T, opt="adam");`, com `opt` em `adam` (o padrão), `sgd`, `momentum`, `rmsprop` ou `gd`. Um otimizador desconhecido é erro. Métodos da rede treinada: `loss`, `accuracy`, `predict` e `classify`.
 
 ### 8.2 Funções de Ativação (`activate`)
 Suporte a colapso e funções de ativação em matrizes e tensores:
@@ -230,5 +230,6 @@ O GhostLang implementa tensores multidimensionais com regras de alinhamento de f
 
 ### 12.2 Depuração (DAP) e Gerenciamento de Pacotes
 - Compilação para depuração (`ghost debug`) com injeção de diretivas `#line` mapeando o código transpilado para o arquivo de origem `.g`.
-- Gerenciador de pacotes GhostPM (`ghost pm`) com manifesto `ghost.toml` e travamento de versões determinístico via `ghost.lock`.
+- Gerenciador de pacotes GhostPM (`ghost pm`) com manifesto `ghost.toml` e travamento de versões determinístico via `ghost.lock`. `ghost install <nome>` resolve o nome pelo índice `pacotes/indice.json` (ou pelo arquivo em `GHOST_PM_INDICE`). Uma entrada pode ser `embutido` (uma biblioteca `libs/x.g` que vem com a linguagem) ou `git` (url, ref e versão).
+- WebSocket (RFC 6455) no servidor nativo: `app.websocket(rota, f)` responde ao remetente e `app.websocket_broadcast(rota, f)` responde a todos na rota. No cliente: `ws_connect(url) -> int`, `ws_send(id, texto)`, `ws_recv(id, timeout_ms) -> string` e `ws_close(id)`.
 

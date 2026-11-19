@@ -189,37 +189,82 @@ double GhostHybridNetwork::accuracy(const GhostMatrix& X, const GhostMatrix& Y) 
     return double(hits) / X.getCols();
 }
 
+bool GhostHybridNetwork::optimizer_exists(const std::string& opt) {
+    return opt == "adam" || opt == "sgd" || opt == "momentum" || opt == "rmsprop" || opt == "gd";
+}
+
 void GhostHybridNetwork::optimize(const GhostMatrix& X, const GhostMatrix& Y, int epochs, double lr, const std::string& opt) {
     check_data(X, Y);
+    if (!optimizer_exists(opt))
+        throw std::invalid_argument("optimize: otimizador '" + opt + "' nao existe (use adam, sgd, momentum, rmsprop ou gd)");
+    if (epochs < 1) throw std::invalid_argument("optimize: epochs precisa ser >= 1");
+    if (!(lr > 0)) throw std::invalid_argument("optimize: lr precisa ser > 0");
     zero_one_ = true;
     for (std::size_t c = 0; c < Y.getCols(); ++c) for (std::size_t r = 0; r < Y.getRows(); ++r) if (Y(r, c).x < 0) zero_one_ = false;
     std::vector<double*> ptrs = parameters();
-    if (adam_m_.size() != ptrs.size()) { adam_m_.assign(ptrs.size(), 0.0); adam_v_.assign(ptrs.size(), 0.0); adam_t_ = 0; }
-    const bool adam = opt != "gd" && opt != "sgd";
-    for (int epoch = 1; epoch <= epochs; ++epoch) {
-        std::vector<double> g;
-        const double l = loss_and_grad(X, Y, &g);
-        if (verbose_ > 0 && (epoch == 1 || epoch % verbose_ == 0 || epoch == epochs)) {
-            std::cout << "  epoca " << epoch << "/" << epochs << "  perda=" << fixed(l, 4) << "  acuracia=" << fixed(100.0 * accuracy(X, Y), 1) << "%" << std::endl;
-        }
-        if (adam) {
+    const std::size_t P = ptrs.size();
+    if (adam_m_.size() != P || opt != last_opt_) { adam_m_.assign(P, 0.0); adam_v_.assign(P, 0.0); adam_t_ = 0; last_opt_ = opt; }
+
+    auto passo = [&](const std::vector<double>& g) {
+        if (opt == "adam") {
             ++adam_t_;
             const double b1 = 0.9, b2 = 0.999, eps = 1e-8;
             const double c1 = 1 - std::pow(b1, adam_t_), c2 = 1 - std::pow(b2, adam_t_);
-            for (std::size_t p = 0; p < ptrs.size(); ++p) {
+            for (std::size_t p = 0; p < P; ++p) {
                 adam_m_[p] = b1 * adam_m_[p] + (1 - b1) * g[p];
                 adam_v_[p] = b2 * adam_v_[p] + (1 - b2) * g[p] * g[p];
                 *ptrs[p] -= lr * (adam_m_[p] / c1) / (std::sqrt(adam_v_[p] / c2) + eps);
             }
+        } else if (opt == "momentum") {
+            for (std::size_t p = 0; p < P; ++p) {
+                adam_m_[p] = 0.9 * adam_m_[p] + g[p];
+                *ptrs[p] -= lr * adam_m_[p];
+            }
+        } else if (opt == "rmsprop") {
+            for (std::size_t p = 0; p < P; ++p) {
+                adam_v_[p] = 0.9 * adam_v_[p] + 0.1 * g[p] * g[p];
+                *ptrs[p] -= lr * g[p] / (std::sqrt(adam_v_[p]) + 1e-8);
+            }
+        } else { // gd e sgd
+            for (std::size_t p = 0; p < P; ++p) *ptrs[p] -= lr * g[p];
+        }
+    };
+
+    const std::size_t N = X.getCols();
+    std::vector<std::size_t> ordem(N);
+    for (std::size_t i = 0; i < N; ++i) ordem[i] = i;
+    for (int epoch = 1; epoch <= epochs; ++epoch) {
+        const bool mostrar = verbose_ > 0 && (epoch == 1 || epoch % verbose_ == 0 || epoch == epochs);
+        double l = 0.0;
+        if (opt == "sgd") {
+            // Fisher-Yates com xorshift64: mesma ordem em qualquer compilador e no REPL
+            for (std::size_t i = N; i > 1; --i) {
+                rng_ ^= rng_ << 13; rng_ ^= rng_ >> 7; rng_ ^= rng_ << 17;
+                std::swap(ordem[i - 1], ordem[static_cast<std::size_t>(rng_ % i)]);
+            }
+            if (mostrar) l = loss(X, Y);
+            std::vector<double> g(P);
+            for (std::size_t s : ordem) {
+                std::fill(g.begin(), g.end(), 0.0);
+                sample_backward(column(X, s), column(Y, s), g, 1.0);
+                passo(g);
+            }
         } else {
-            for (std::size_t p = 0; p < ptrs.size(); ++p) *ptrs[p] -= lr * g[p];
+            std::vector<double> g;
+            l = loss_and_grad(X, Y, &g);
+            passo(g);
+        }
+        if (mostrar) {
+            std::cout << "  epoca " << epoch << "/" << epochs << "  perda=" << fixed(l, 4) << "  acuracia=" << fixed(100.0 * accuracy(X, Y), 1) << "%" << std::endl;
         }
     }
 }
 
 std::string GhostHybridNetwork::summary() const {
     std::ostringstream os;
-    os << "network " << name_ << " (hibrida): " << inputs();
+    bool temQuantica = false;
+    for (const auto& l : layers_) if (l.quantum) temQuantica = true;
+    os << "network " << name_ << (temQuantica ? " (hibrida): " : " (classica): ") << inputs();
     for (const auto& l : layers_) {
         if (l.dense) os << " -> [densa " << l.out() << "x" << l.in() << "]";
         else os << " -> [qlayer " << l.quantum->inputs() << " qubits, " << l.quantum->num_params() << " parametros]";

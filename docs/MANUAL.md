@@ -176,14 +176,45 @@ network nome_da_rede = camada_1 >> camada_2 >> camada_3;
 ```
 
 ### 3.3. Otimizador Variacional (`optimize`)
-Executa um laço de treinamento altamente otimizado (Otimização Quântica / Gradient Descent) para ajustar os pesos de um `gate` de forma que, ao ser aplicado no estado inicial, o resultado se aproxime ao máximo do estado alvo.
+Treina a rede de verdade: retropropagação (backpropagation) pelas camadas e atualização dos pesos com o otimizador escolhido, até a saída da rede se aproximar do alvo. Com `X` (uma amostra por coluna) e `Y` (os alvos, uma coluna por amostra), o erro é o MSE.
 
 **Sintaxe:**
 ```text
-nome_da_rede => optimize(estado_inicial, estado_alvo, epochs=X, lr=Y);
+nome_da_rede => optimize(entradas, alvos, epochs=X, lr=Y, opt="adam");
 ```
-- `epochs`: Número de iterações/épocas de treinamento.
-- `lr`: Taxa de aprendizado (Learning Rate).
+- `epochs`: número de épocas de treinamento.
+- `lr`: taxa de aprendizado (learning rate).
+- `opt`: o otimizador (16/11/2026 em diante). O padrão é `adam`.
+
+| `opt` | O que faz |
+|---|---|
+| `adam` | Adam (médias móveis do gradiente e do quadrado, com correção de viés) |
+| `sgd` | descida estocástica: uma atualização por amostra, em ordem embaralhada (semente fixa: o mesmo treino dá o mesmo resultado) |
+| `momentum` | descida com momento (0,9) |
+| `rmsprop` | RMSProp (média móvel do quadrado do gradiente, 0,9) |
+| `gd` | descida de gradiente no lote inteiro |
+
+Um nome que não existe dá erro (`optimize: otimizador 'newton' nao existe (use adam, sgd, momentum, rmsprop ou gd)`); antes ele caía em silêncio no Adam. Trocar o otimizador da mesma rede zera o estado do anterior (os momentos do Adam, por exemplo).
+
+Depois do treino, a rede responde:
+- `rede.loss(X, Y)`: o erro MSE;
+- `rede.accuracy(X, Y)`: a fração de acertos, com limiar 0,5;
+- `rede.predict(a, b, ...)`: a saída;
+- `rede.classify(a, b, ...)`: 0 ou 1;
+- `show(rede)`: a arquitetura e o número de parâmetros.
+
+O compilador e o REPL treinam com o mesmo motor e dão o mesmo resultado (`tests/ghost/redes_otimizadores.g`):
+```ghost
+gate X(2, 4);  gate Y(1, 4);          // XOR: uma amostra por coluna
+// ... preencha X e Y ...
+gate A1(6, 2);
+gate A2(1, 6);                         // 2 entradas -> 6 ocultos -> 1 saida
+network ra = A1 >> A2;
+ra => optimize(X, Y, epochs=800, lr=0.02, opt="adam");
+print(ra.loss(X, Y) < 0.01, " ", ra.accuracy(X, Y));   // true 1
+print(ra.classify(0.0, 1.0));                            // 1
+show(ra);   // network ra (classica): 2 -> [densa 6x2] -> [densa 1x6] -> 1 saida(s); 25 parametros treinaveis
+```
 
 ---
 
@@ -702,14 +733,56 @@ function main() {
 }
 ```
 
+### 10.2. Herança e acesso aos membros (`extends`, `super`, `private`, `protected`, `public`)
+Uma classe herda de outra com `extends`. O construtor da filha chama o da mãe com `super(...)`, e um método com o mesmo nome substitui o da mãe.
+
+O acesso aos membros é conferido de verdade, no compilador (`ghost check`, `ghost build`) e no REPL (16/11/2026 em diante). O modificador pode vir como seção (`private:`) ou junto do membro (`private double saldo;`):
+
+| Modificador | Quem acessa |
+|---|---|
+| `public` (padrão) | qualquer código |
+| `protected` | a própria classe e as classes que herdam dela |
+| `private` | só a própria classe |
+
+```ghost
+class Conta {
+    private double saldo;
+    protected string dono;
+    public int numero;
+
+    function Conta(string d, int n) { this.dono = d; this.numero = n; this.saldo = 0; }
+    private function bool valido(double v) { return v > 0; }
+    function void depositar(double v) { if (valido(v)) { saldo += v; } }
+    function double ver() { return saldo; }
+}
+
+class Poupanca extends Conta {
+    protected double taxa;
+    function Poupanca(string d, int n, double t) { super(d, n); this.taxa = t; }
+    function void render() { depositar(ver() * taxa); }   // usa a mae pelos metodos publicos
+    function string descricao() { return "Poupanca de " + dono; }  // protected: a filha enxerga
+}
+
+function main() {
+    Poupanca p = new Poupanca("bia", 2, 0.5);
+    p.depositar(40);
+    p.render();
+    print(p.ver());       // 60
+    p.numero = 20;        // public: pode
+    // p.saldo = 1;       // erro GHOST-E0303: 'saldo' e private na classe Conta
+    // print(p.dono);     // erro GHOST-E0303: 'dono' e protected na classe Conta
+}
+```
+Ler, escrever ou chamar um membro proibido dá o erro `GHOST-E0303` com a linha e a coluna, antes de gerar o C++. No REPL, o mesmo acesso dá `[Erro]` na hora.
+
 ---
 
 ## 11. Roadmap do Futuro (Próximas Implementações)
 
 O GhostLang está em pleno crescimento e continuará a receber novas características que o consolidarão como a linguagem definitiva de próxima geração. Aqui estão as funcionalidades que exploraremos em breve:
 
-1. **Refinamento de Deep Learning (Fase 19)**
-   - Introduzir otimizadores matemáticos como Adam/RMSProp ou customizar Loss Functions nativas para tensores hiper-complexos.
+1. **Refinamento de Deep Learning (Fase 19)** (feito em 16/11/2026: Adam, SGD, momentum, RMSProp e GD no `optimize`; veja a seção 3.3)
+   - Ainda em aberto: funções de perda nativas para tensores hipercomplexos.
 2. **Integração Científica com Python**
    - Bindings nativos para invocar bibliotecas como `matplotlib` ou `numpy` por debaixo dos panos usando inter-processamento IPC, sem precisar sair da elegante sintaxe GhostLang.
 3. **Servidor HTTP Nativo de I.A.**
@@ -1073,6 +1146,37 @@ meu-projeto/
     └── http.g         ← Biblioteca GhostHTTP padrão
 ```
 
+## WebSocket: conexões em tempo real (chat, jogos)
+
+O servidor nativo também atende WebSocket (RFC 6455) desde 16/11/2026. O handshake responde `101 Switching Protocols`, e a conexão fica aberta entre as chamadas de `listen_step`. Ela não é fechada a cada pedido, como no HTTP.
+
+- `app.websocket("/eco", f)`: cada mensagem recebida chama `f(texto)`, e a resposta (se não for vazia) volta só para quem mandou.
+- `app.websocket_broadcast("/sala", f)`: a resposta vai para todos os conectados na rota. Serve para chat e jogo.
+- `app.ws_clients()`: quantas conexões estão abertas.
+
+Ping é respondido com pong, e o close é respondido e fecha a conexão. Uma mensagem é limitada a 16 MB.
+
+O cliente usa estas funções: `ws_connect("ws://host:porta/rota")` devolve um identificador, depois `ws_send(id, texto)`, `ws_recv(id, timeout_ms)` (que devolve `""` no tempo esgotado; o padrão é 1000) e `ws_close(id)`. Conectar a uma rota sem WebSocket dá erro.
+
+```ghost
+function string sala(string msg) { return "[sala] " + msg; }
+
+function main() {
+    server app = 8080;
+    app.websocket_broadcast("/sala", sala);
+    spawn {
+        for (int i = 0; i < 100; i++) { app.listen_step(50); }   // ~5 s atendendo
+    }
+    sleep(200);
+    int b = ws_connect("ws://127.0.0.1:8080/sala");
+    int c = ws_connect("ws://127.0.0.1:8080/sala");
+    sleep(100);
+    ws_send(b, "bia entrou");
+    print(ws_recv(c, 3000));   // [sala] bia entrou  (chegou ao outro cliente)
+}
+```
+No navegador, `new WebSocket("ws://localhost:8080/sala")` conversa com a mesma rota. O exemplo testado está em `tests/ghost/websocket.g`, e roda igual no compilador e no REPL. Não há `wss://` (TLS) ainda: para a internet, use um proxy reverso com TLS na frente.
+
 
 ## 9. Formatacao e Manipulacao de Datas e Numeros
 O GhostLang introduz tipagem forte e nativa para manipulacao agil de datas, horas e decimais atraves da GhostLib.
@@ -1256,7 +1360,28 @@ function main() {
 - `ghost lsp`: Servidor de linguagem nativo via JSON-RPC 2.0 (diagnósticos, hover, completion e definição).
 - `ghost debug arquivo.g`: compila com símbolos de depuração (`-g -O0`) e mapeamento `#line` e abre o gdb já nas linhas do `.g` (`break arquivo.g:3`, `bt`, `print x`). Sem terminal (CI, scripts), roda o programa no gdb em lote e mostra a pilha se ele quebrar. `--map` mostra o mapa de linhas; `--saida <exe>` só compila.
 - `ghost debug --dap`: adaptador do Debug Adapter Protocol. No VS Code, com a extensão GhostLang, abra um `.g`, marque um breakpoint e pressione F5 (configuração "Depurar arquivo GhostLang atual"): pilha, variáveis locais, passo a passo e avaliação de expressões aparecem nas linhas do `.g`. O gdb vem em `bin/gdb` no pacote portátil; no código-fonte, monte-o com `scripts\montar-gdb.ps1` (ou defina `GHOST_GDB`).
-- `ghost pm`: gerenciador de pacotes GhostPM. Não há registro remoto: cada dependência vem de uma pasta ou de um repositório git, e `ghost pm install` a coloca em `ghost_packages/<nome>/`.
+- `ghost install <nome>`: instala um pacote pelo **índice de pacotes** (`pacotes/indice.json`, que vem com a GhostLang; 19/11/2026 em diante). Se a pasta não tem `ghost.toml`, o projeto é criado antes. O índice tem dois tipos de pacote:
+  - **embutido**: uma biblioteca que já vem com a GhostLang. `sqlite` aponta para `libs/db.g`, e há também `http`, `json`, `crypto`, `tensor` e outras. O install registra a dependência no `ghost.toml` e no `ghost.lock` e mostra o `import` a usar.
+  - **git**: um repositório de terceiros, com `url`, `ref` e `versao`. É clonado para `ghost_packages/<nome>/`.
+
+  A variável `GHOST_PM_INDICE` aponta para outro índice, como o da sua empresa.
+  ```text
+  ghost install sqlite        # cria o ghost.toml se faltar; diz: use import "libs/db.g"
+  ghost install json http     # varios de uma vez
+  ghost pm search banco       # procura no nome e na descricao do indice
+  ghost pm add sqlite         # sem versao: usa o indice (depois ghost pm install)
+  ```
+  ```ghost
+  import "libs/db.g"
+  function main() {
+      int h = db_open(":memory:");
+      db_exec(h, "create table t(x int)");
+      db_exec(h, "insert into t values (42)");
+      print(db_query(h, "select x from t"));   // [{"x": 42}]
+  }
+  ```
+  Um nome fora do índice dá erro e não mexe no projeto. Formato de uma entrada do índice: `"sqlite": {"embutido": "libs/db.g", "versao": "3", "descricao": "..."}` ou `"cores": {"git": "https://...", "ref": "v0.3.0", "versao": "0.3.0", "descricao": "..."}`.
+- `ghost pm`: gerenciador de pacotes GhostPM. Fora do índice, cada dependência vem de uma pasta ou de um repositório git, e `ghost pm install` a coloca em `ghost_packages/<nome>/`. Não há registro remoto com upload de pacotes: o índice é um arquivo, que você pode versionar.
   ```text
   ghost pm init meu_app
   ghost pm add geometria --path ../libs_comuns/geometria     # copia a pasta
@@ -1478,6 +1603,7 @@ Nível de cada recurso pela evidência (recalibração de 12/11/2026, pelo códi
 | :--- | :---: | :--- | :--- |
 | **`net-http-server`** | **4** | `GhostServer` / `libs/http.g` | Servidor HTTP RESTful nativo não-bloqueante (`route`, `get`, `post`, `put`, `del`), roteamento estático (`serve`), timeout e pooling assíncrono com paridade 100% C++ e REPL. |
 | **`net-http-client`** | **4** | `libs/http_client.g` |  13/11/2026: teste dedicado golden_http_cliente e repl_http_cliente: o programa sobe o servidor nativo numa thread (spawn) e faz http_get, http_post e uma rota inexistente (404) contra 127.0.0.1; mesma saída no compilador e no REPL. Para isso o REPL ganhou json_extract e texto.find(...) (-1 quando não acha) e passou a aceitar app.route(...) ('route' é palavra-chave). Windows via WinINet; o caminho Linux usa curl por popen com a URL no shell (injeção possível): trocar antes do Fedora. |
+| **`net-websocket`** | **4** | `app.websocket` / `ws_connect` |  19/11/2026: o handshake (101, Sec-WebSocket-Accept conferido contra o exemplo da RFC 6455) mantém a conexão aberta entre os listen_step, que observa no select o socket de escuta e as conexões abertas. app.websocket(rota, f) responde a quem mandou, e app.websocket_broadcast(rota, f) responde a todos da rota. Ping recebe pong, e close é respondido. Uma mensagem é limitada a 16 MB. O cliente nativo tem ws_connect, ws_send, ws_recv (com timeout) e ws_close, e mascara os quadros como a RFC exige. golden_websocket e repl_websocket: o servidor numa thread, eco, sala com dois clientes recebendo a mesma mensagem, e rota sem WebSocket recusada; mesma saída no compilador e no REPL. Sem wss:// (TLS). Nível 5 exige Linux/macOS. |
 | **`net-swarm`** | **4** | `ghost_swarm` / `ghost_node` |  13/11/2026: o teste ghost_swarm_federated roda no CTest (196/196 no Windows). O nível 3 anterior era só por não haver Linux/macOS, que é o critério do nível 5; são executáveis próprios, sem caminho de REPL a comparar. |
 | **`net-api`** | **4** | `ghost_api` / `ghost_ask` |  13/11/2026: o teste ghost_api_ask roda no CTest (196/196 no Windows). O nível 3 anterior era só por não haver Linux/macOS, que é o critério do nível 5; são executáveis próprios, sem caminho de REPL a comparar. |
 | **`net-wasm`** | **3** | `--wasm` / Emscripten | Transpilação nativa para WebAssembly (`ghost build --wasm`), injeção automática de `EMSCRIPTEN_KEEPALIVE` e integração completa com aplicações web no navegador. |
@@ -1494,7 +1620,7 @@ Nível de cada recurso pela evidência (recalibração de 12/11/2026, pelo códi
 | **`tool-fmt`** | **4** | `ghost fmt` |  16/11/2026: ghost fmt tem testes de comportamento: cli_fmt, cli_fmt_check (arquivo com strings, for x in ... e fim de linha CRLF não precisa de formatação) e cli_fmt_check_ruim (arquivo mal formatado faz --check falhar). Corrigidos: depois de qualquer string o formatador comia o espaço seguinte ("x" + "y" virava "x"+ "y"), e --check acusava todo arquivo salvo com CRLF (padrão no Windows) mesmo sem nada a formatar. |
 | **`tool-testes`** | **4** | CTest / `ghost test` | Suíte com 167 testes automatizados passando 100% (runtime C++, programas golden e REPL) e 92 oráculos congelados da AST com detecção estrita de regressões. |
 | **`tool-debugger`** | **4** | `ghost debug` |  13/11/2026: ghost debug --dap é um adaptador DAP de verdade (src/GhostDAP.cpp): fala o Debug Adapter Protocol por stdin/stdout, compila o .g com -g e #line num processo filho e controla o gdb 18.1 pela interface MI. Suporta breakpoints por linha do .g, pilha com as linhas do .g, variáveis locais, next/stepIn/stepOut/continue/pause, evaluate e a saída do programa como evento output. O CTest cli_debug_dap (tests/cli/test_dap.py) faz uma sessão completa como o VS Code: breakpoint em dap_alvo.g:3, pilha soma:3 / main:9, a = 2 e b = 5, next até a linha 4, evaluate c = 7, continue até o fim com código 0 e 'y = 7' na saída. A extensão VS Code registra o depurador 'ghost' com ghost debug --dap. O gdb do MSYS2 exige a libstdc++ do GCC 16; para não trocar o compilador do projeto, scripts/montar-gdb.ps1 monta um gdb privado em third_party/gdb com as DLLs do GCC 16 (pacotes oficiais baixados pelo pacman -Sw), e o pacote portátil leva esse gdb em bin/gdb. Sem terminal, ghost debug roda o gdb em lote (run + bt). |
-| **`tool-pm`** | **4** | `ghost pm` |  13/11/2026: ghost pm install instala de verdade, sem registro remoto: 'ghost pm add nome --path <pasta>' copia a pasta e 'ghost pm add nome --git <url> [--ref tag]' clona o repositório (git clone --depth 1) para ghost_packages/<nome>/. Versões em semver de verdade (1.2.0, ^1.2, ~1.2.3, >=1.0, *), conferidas contra o ghost.toml do pacote. O ghost.lock (versão 2) grava spec, versão, fonte e o commit do git. URL e ref são validadas antes de chamar o git (uma URL com aspas ou & é recusada). cli_pm_test cobre: init, add, list, remove, install sem pacote (falha), semver aceita e recusa, install de pasta com um programa usando o pacote, install de git com tag e commit no lock, e a URL perigosa. |
+| **`tool-pm`** | **4** | `ghost pm` |  19/11/2026: ghost install sqlite funciona. Há um índice de pacotes (pacotes/indice.json, que vai no pacote portátil; a variável GHOST_PM_INDICE aponta outro). Cada entrada é embutida (uma biblioteca libs/x.g que já vem com a GhostLang: sqlite -> libs/db.g, http, json, tensor...) ou git (url, ref e versão). ghost install <nome>... cria o ghost.toml se faltar, resolve pelo índice, instala e grava o ghost.lock. ghost pm add <nome> sem versão usa o índice, e ghost pm search procura no índice. Um nome fora do índice dá erro e não mexe no projeto. O main.g gerado pelo init estava com sintaxe inválida (fun/escrevaln) e foi corrigido. cli_pm_test cobre, além do anterior: ghost install sqlite num diretório vazio, um programa usando o banco, o main.g gerado rodando, pacote fora do índice, search e um índice próprio com pacote git. Continua sem registro remoto com upload de pacotes. Nível 5 exige Linux/macOS. |
 
 ---
 
@@ -1512,7 +1638,7 @@ Nível de cada recurso pela evidência (recalibração de 12/11/2026, pelo códi
 | **`nuc-switch`** | **4** | `src/GhostAst.cpp`, `src/GhostCodegen.cpp` | `switch`/`case`/`default`, com vários valores por `case` (`case 1, 2:`), queda entre os `case` como em C e `break`. |
 | **`nuc-foreach`** | **4** | `src/GhostAst.cpp`, `src/GhostCodegen.cpp` |  16/11/2026: for no estilo do Python. 'for (x in colecao)' aceita tipo opcional (int, var, string...) e 'for x in colecao { }' dispensa os parênteses; range(fim), range(inicio, fim) e range(inicio, fim, passo) (passo negativo conta para baixo, o fim não entra, range(0) não roda); iteração sobre texto (caractere a caractere), lista, set, mapa (for chave, valor in mapa), matriz gate/matrix/GhostMatrix (Número G a Número G, linha por linha, por referência no C++: GhostMatrix ganhou begin/end) e qreg. golden_for_range e repl_for_range rodam o mesmo roteiro com a mesma saída. Achados e corrigidos: o REPL não aceitava 'for (var i in ...)' nem 'for (int x in ...)', não lia m(i, j) em expressões ('funcao nao encontrada'), não declarava 'ghost g = ghost(...)' e imprimia o ghost em outro formato. |
 | **`nuc-funcoes`** | **4** | `src/GhostAst.cpp`, `src/GhostCodegen.cpp` | Funções tipadas com parâmetros padrão e sobrecarga; lambdas `(x) => expr`, `\|x\| => expr` e `[captura](int x) -> tipo => { ... }`, com closures por valor e por referência; funções genéricas com restrições. |
-| **`nuc-oop`** | **4** | `src/GhostAst.cpp`, `src/GhostCodegen.cpp`, `src/InterpreterClass.cpp` | Classes com seções `public:`, `private:` e `protected:`, construtor `function NomeDaClasse(...)`, `this`, membros `static`, herança com `extends`/`super` e interfaces. Objetos têm semântica de valor: guardar um objeto derivado numa variável do tipo base copia só a parte da base. |
+| **`nuc-oop`** | **4** | `src/GhostAst.cpp`, `src/GhostCodegen.cpp`, `src/InterpreterClass.cpp` |  19/11/2026: acesso aos membros conferido de verdade. No compilador (GhostTypes), ler, escrever ou chamar um membro private fora da própria classe, ou protected fora da classe e das filhas, dá GHOST-E0303 com linha e coluna. No REPL, o mesmo dá [Erro]. O modificador vale como seção (private:) ou junto do membro (private double x;), em campos e métodos. Herança com extends e super(...), e sobrescrita de métodos. Testes: golden_oop_acesso e repl_oop_acesso (mesma saída), diag acesso_membros (4 erros esperados) e repl_acesso_membros. Os testes de classes, interfaces e genéricos continuam passando. Nível 5 exige Linux/macOS. |
 | **`nuc-colecoes`** | **4** | `include/GhostCore.hpp`, `src/InterpreterCore.cpp` | `list<T>`, `map<K, V>` e `set<T>` com literais, fatias `xs[a:b:passo]`, compreensões e métodos como `push`, `append` e `size`. |
 | **`nuc-erros`** | **4** | `src/GhostCodegen.cpp`, `src/InterpreterResult.cpp` | `try`/`catch`/`finally`, `throw` e `throw;`, e `result<T>` com o operador `?`; mensagens de erro com linha e coluna. |
 | **`nuc-operadores`** | **4** | `src/Lexer.cpp`, `src/GhostCodegen.cpp`, `docs/SPEC.md` | Tabela formal de precedência rigorosamente implementada e padronizada. Suporte completo a operador de exponenciação (`**` com associatividade à direita e suporte a inteiros e reais), operadores de tensores e redes (`>>`), multiplicação matricial, operadores bitwise (`<<`, `>>`, `&`, `|`, `^`), operadores lógicos com curto-circuito (`e`/`ou` e `&&`/`||`), unários e atribuições compostas (`+=`, `-=`, `*=`, `/=`, `**=`). |
@@ -1545,9 +1671,9 @@ Nível de cada recurso pela evidência (recalibração de 12/11/2026, pelo códi
 
 | Recurso | Nível | Componentes Principais | Capacidades |
 | :--- | :---: | :--- | :--- |
-| **`ia-network`** | **4** | `include/GhostHybrid.hpp`, `src/GhostCodegen.cpp` | Encadeamento declarativo de camadas com operador pipeline `>>` (`W1 >> Q >> W2`): redes clássicas, quânticas (VQC) e híbridas com retropropagação de gradientes e paridade total compilador/REPL. |
+| **`ia-network`** | **4** | `include/GhostHybrid.hpp`, `src/GhostCodegen.cpp` |  19/11/2026: no compilador, a rede clássica (gate >> gate) deixou de ter um optimize próprio e simplificado: agora usa o motor do REPL, com os mesmos métodos (loss, accuracy, predict, classify e show). show(rede) mostra a arquitetura e os parâmetros nos dois caminhos. Testes: golden e repl de redes_otimizadores (XOR, 2 -> 6 -> 1) e qml_rede_hibrida (rede híbrida). Nível 5 exige Linux/macOS. |
 | **`ia-ativacoes`** | **4** | `include/GhostMatrix.hpp`, `src/GhostNumberG.cpp` | Funções de ativação vetorizadas via `activate(matriz, func)`: `relu`, `sigmoid`, `sin`, `cos`, `tan`, `tanh`, `leaky_relu`, `gelu` e `softmax` com derivadas analíticas integradas ao Autograd. |
-| **`ia-optimize`** | **4** | `include/GhostMatrix.hpp`, `src/Interpreter.cpp` | Otimizadores estocásticos completos implementados nativamente em C++: SGD com momentum, Adam com correção de viés e RMSProp, suportando agendamento de taxa de aprendizado e clipping de gradiente. |
+| **`ia-optimize`** | **4** | `include/GhostMatrix.hpp`, `src/Interpreter.cpp` |  19/11/2026: optimize treina de verdade com opt = adam, sgd, momentum, rmsprop e gd. O sgd faz uma atualização por amostra, em ordem embaralhada com semente fixa. Um nome inexistente dá erro (antes caía em silêncio no Adam), e trocar de otimizador zera o estado do anterior. A rede clássica do compilador (GhostNetwork) passou a usar o mesmo motor do REPL (GhostHybridNetwork, src/GhostNetwork.cpp). golden_redes_otimizadores e repl_redes_otimizadores treinam o XOR com os 5 otimizadores, com acurácia 1 em todos e a mesma saída nos dois caminhos. A descrição anterior citava agendamento de lr e clipping de gradiente: isso não existe e foi retirado. Nível 5 exige Linux/macOS. |
 | **`ia-conv`** | **4** | `include/GhostMatrix.hpp`, `src/Interpreter.cpp` |  13/11/2026: paridade conferida entre compilador e REPL. O REPL passou a imprimir as mesmas mensagens do compilador em x = conv(...) / x = transpose(a) e deixou de imprimir eco '[Matematica]' nas atribuições por método; aceita var m = img.conv2d(k, 1) e m.getRows()/getCols(). Testes golden_conv_transpose e repl_conv_transpose (mesmo roteiro, mesma saída), repl_ia_conv e diag_conv_expressao. |
 | **`ia-textmodel`** | **4** | `src/GhostTextModel.cpp`, `src/GhostTextCuda.cu` |  13/11/2026: o REPL ganhou os objetos nativos da IA (src/InterpreterNative.cpp): text_model, transformer_model, transformer_model_v5, matrix_g, temporal_context, knowledge_consult, knowledge_info, web_search_public, text_perplexity, text_int e text_decimal, com os mesmos objetos C++ do runtime. golden_ia_nativa e repl_ia_nativa rodam o mesmo roteiro e dão a mesma saída (13 linhas). textmodel tm = text_model(...) funciona no REPL; tm.self_test() confere os gradientes por diferenças finitas nos dois caminhos; continuam runtime_cpu e golden_native_textmodel. |
 | **`ia-transformer`** | **4** | `src/GhostTransformer.cpp`, `src/GhostTransformerOps.cpp` |  13/11/2026: o REPL ganhou os objetos nativos da IA (src/InterpreterNative.cpp): text_model, transformer_model, transformer_model_v5, matrix_g, temporal_context, knowledge_consult, knowledge_info, web_search_public, text_perplexity, text_int e text_decimal, com os mesmos objetos C++ do runtime. golden_ia_nativa e repl_ia_nativa rodam o mesmo roteiro e dão a mesma saída (13 linhas). transformer_model(...) no REPL; self_test confere bytes UTF-8, gradientes (erro máximo 1,35e-4), máscara causal e aprendizado; continua transformer_cpu. |

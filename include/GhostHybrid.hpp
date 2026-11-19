@@ -42,7 +42,11 @@ public:
     template <typename... T> int classify(T... xs) const { return classify_vec({static_cast<double>(xs)...}); }
     int classify_vec(const std::vector<double>& x) const;
 
+    // Otimizadores: "adam" (padrão), "sgd" (uma atualização por amostra, ordem embaralhada com
+    // semente fixa), "momentum" (gradiente com momento 0,9), "rmsprop" e "gd" (lote inteiro).
+    // O estado (momentos do Adam etc.) continua entre chamadas com o mesmo otimizador.
     void optimize(const GhostMatrix& X, const GhostMatrix& Y, int epochs, double lr, const std::string& opt = "adam");
+    static bool optimizer_exists(const std::string& opt);
     double loss(const GhostMatrix& X, const GhostMatrix& Y) const;      // MSE médio por amostra
     double accuracy(const GhostMatrix& X, const GhostMatrix& Y) const;  // 1 saída: limiar 0,5 (0/1) ou 0 (±1); várias: argmax
     // Perda e gradiente achatado (mesma ordem de parameters()); usado pelos testes.
@@ -57,8 +61,10 @@ private:
     std::string name_;
     std::vector<GhostLayerRef> layers_;
     int verbose_ = 0;
-    std::vector<double> adam_m_, adam_v_;
+    std::vector<double> adam_m_, adam_v_;  // momentos (adam: m e v; momentum: m; rmsprop: v)
     int adam_t_ = 0;
+    std::string last_opt_;
+    unsigned long long rng_ = 0x9E3779B97F4A7C15ULL; // embaralha o SGD (xorshift, igual em toda plataforma)
     bool zero_one_ = true; // alvos 0/1 (limiar 0,5) - definido no optimize
 
     bool relu_after(std::size_t i) const;

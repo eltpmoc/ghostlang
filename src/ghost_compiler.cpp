@@ -77,7 +77,8 @@ void printHelp() {
     cout << "  ghost lsp                     Language Server Protocol (JSON-RPC para IDEs e editores)" << endl;
     cout << "  ghost debug arquivo.g [args]  compila com simbolos de depuracao (-g) e inicia depurador" << endl;
     cout << "  ghost init [nome]             inicializa um novo projeto GhostLang com ghost.toml" << endl;
-    cout << "  ghost pm <subcomando>         gerenciador de pacotes GhostPM (init, add, remove, list, install)" << endl;
+    cout << "  ghost install <pacote>...     instala pacotes do indice (ex.: ghost install sqlite)" << endl;
+    cout << "  ghost pm <subcomando>         gerenciador de pacotes GhostPM (init, add, remove, list, install, search)" << endl;
     cout << "  ghost arquivo.g -o saida      uso antigo, igual a ghost build" << endl;
     cout << "  ghost version | help" << endl;
     cout << "Opcoes de compilacao:" << endl;
@@ -1050,7 +1051,14 @@ int main(int argc, char* argv[]) {
     if (cmd == "fmt") return cmdFmt(argc, argv);
     if (cmd == "lsp") return cmdLsp(argc, argv);
     if (cmd == "debug") return cmdDebug(argc, argv);
-    if (cmd == "init") return GhostPM::PackageManager::cmdInit(argc >= 3 ? argv[2] : "");
-    if (cmd == "pm") return GhostPM::PackageManager::dispatch(argc, argv);
+    if (cmd == "init" || cmd == "pm" || cmd == "install") {
+        GhostPM::PackageManager::setRoot(findGhostRoot(fs::path(getExecutablePath()).parent_path()).string());
+        if (cmd == "init") return GhostPM::PackageManager::cmdInit(argc >= 3 ? argv[2] : "");
+        if (cmd == "install") {
+            if (argc < 3) return GhostPM::PackageManager::cmdInstall();
+            return GhostPM::PackageManager::cmdInstallNames(std::vector<std::string>(argv + 2, argv + argc));
+        }
+        return GhostPM::PackageManager::dispatch(argc, argv);
+    }
     return cmdBuild(argc, argv, 1); // uso antigo: ghost [-x|-d|--wasm] arquivo.g [-o saida]
 }

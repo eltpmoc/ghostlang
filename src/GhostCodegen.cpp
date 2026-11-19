@@ -850,6 +850,8 @@ private:
             if (currentBase_.empty()) no(e, "super sem extends");
             return currentBase_ + "::" + m;
         }
+        // rede classica (GhostNetwork*): rede.loss(X, Y), rede.predict(...), rede.set_verbose(n)
+        if (obj.parens == 0 && obj.kind == AstKind::Ident && deepNetworks_.count(obj.text)) return obj.text + "->" + m;
         return expr(obj, raw) + "." + m;
     }
 
@@ -1613,7 +1615,7 @@ private:
         if (k == "show") {
             const std::string& n = nameArg(d, 0);
             line("std::cout << \"\\nEstado da estrutura '\" << \"" + n + "\" << \"':\" << std::endl;");
-            line(n + ".display();");
+            line(n + (deepNetworks_.count(n) ? "->" : ".") + "display();"); // show(rede) de uma rede classica
             *buf_ += "\n";
             return;
         }

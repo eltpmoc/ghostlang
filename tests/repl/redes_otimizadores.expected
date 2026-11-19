@@ -1,0 +1,15 @@
+[Ghost OS] Rede Profunda 'ra' montada com 2 camadas.
+adam     antes: 0.40749
+adam     depois: true acuracia 1
+[Ghost OS] Rede Profunda 'rs' montada com 2 camadas.
+sgd      depois: true acuracia 1
+[Ghost OS] Rede Profunda 'rm' montada com 2 camadas.
+momentum depois: true acuracia 1
+[Ghost OS] Rede Profunda 'rp' montada com 2 camadas.
+rmsprop  depois: true acuracia 1
+[Ghost OS] Rede Profunda 'rg' montada com 2 camadas.
+gd       depois: true acuracia 1
+xor(0,0)=0 xor(0,1)=1 xor(1,0)=1 xor(1,1)=0
+Estado da estrutura 'ra':
+network ra (classica): 2 -> [densa 6x2] -> [densa 1x6] -> 1 saida(s); 25 parametros treinaveis
+erro: optimize: otimizador 'newton' nao existe (use adam, sgd, momentum, rmsprop ou gd)

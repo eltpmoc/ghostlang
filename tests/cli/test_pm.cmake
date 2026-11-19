@@ -169,6 +169,56 @@ if(GIT)
   endif()
 endif()
 
+# 11. indice de pacotes: ghost install sqlite num diretorio vazio cria o projeto, registra
+#     a biblioteca embutida e o programa usa o banco
+set(PROJ "${SANDBOX}/proj_sqlite")
+file(MAKE_DIRECTORY "${PROJ}")
+execute_process(COMMAND "${GHOST}" install sqlite WORKING_DIRECTORY "${PROJ}"
+                RESULT_VARIABLE rc14 OUTPUT_VARIABLE o14 ERROR_VARIABLE e14)
+if(NOT rc14 EQUAL 0 OR NOT EXISTS "${PROJ}/ghost.toml" OR NOT o14 MATCHES "import \"libs/db.g\"")
+  message(FATAL_ERROR "ghost install sqlite falhou:\n${o14}${e14}")
+endif()
+file(READ "${PROJ}/ghost.toml" toml14)
+file(READ "${PROJ}/ghost.lock" lock14)
+if(NOT toml14 MATCHES "sqlite = \"embutido:libs/db.g\"" OR NOT lock14 MATCHES "source = \"embutido:libs/db.g\"")
+  message(FATAL_ERROR "ghost.toml/ghost.lock sem a dependencia embutida:\n${toml14}\n${lock14}")
+endif()
+# o main.g gerado pelo init compila e roda
+execute_process(COMMAND "${GHOST}" run src/main.g WORKING_DIRECTORY "${PROJ}" RESULT_VARIABLE rc15 OUTPUT_VARIABLE o15 ERROR_VARIABLE e15)
+if(NOT rc15 EQUAL 0 OR NOT o15 MATCHES "Ola do projeto proj_sqlite")
+  message(FATAL_ERROR "src/main.g do ghost init nao rodou:\n${o15}${e15}")
+endif()
+file(WRITE "${PROJ}/banco.g" "import \"libs/db.g\"\nfunction main() {\n    int h = db_open(\":memory:\");\n    db_exec(h, \"create table t(x int)\");\n    db_exec(h, \"insert into t values (42)\");\n    print(db_query(h, \"select x from t\"));\n}\n")
+execute_process(COMMAND "${GHOST}" run banco.g WORKING_DIRECTORY "${PROJ}" RESULT_VARIABLE rc16 OUTPUT_VARIABLE o16 ERROR_VARIABLE e16)
+if(NOT rc16 EQUAL 0 OR NOT o16 MATCHES "42")
+  message(FATAL_ERROR "programa com o sqlite instalado nao rodou:\n${o16}${e16}")
+endif()
+# nome fora do indice: erro claro, nada criado
+execute_process(COMMAND "${GHOST}" install nao_existe_xyz WORKING_DIRECTORY "${PROJ}"
+                RESULT_VARIABLE rc17 OUTPUT_VARIABLE o17 ERROR_VARIABLE e17)
+if(rc17 EQUAL 0 OR NOT e17 MATCHES "nao esta no indice")
+  message(FATAL_ERROR "pacote fora do indice deveria falhar:\n${o17}${e17}")
+endif()
+# search
+execute_process(COMMAND "${GHOST}" pm search sql WORKING_DIRECTORY "${PROJ}"
+                RESULT_VARIABLE rc18 OUTPUT_VARIABLE o18 ERROR_VARIABLE e18)
+if(NOT rc18 EQUAL 0 OR NOT o18 MATCHES "sqlite")
+  message(FATAL_ERROR "ghost pm search sql nao achou o sqlite:\n${o18}${e18}")
+endif()
+# indice proprio (GHOST_PM_INDICE) com pacote git: ghost pm add sem versao usa o indice
+if(GIT)
+  set(PROJ2 "${SANDBOX}/proj_git")
+  file(MAKE_DIRECTORY "${PROJ2}")
+  file(WRITE "${SANDBOX}/meu_indice.json" "{\n  \"cores\": {\"git\": \"file:///${repo}\", \"ref\": \"v0.3.0\", \"versao\": \"0.3.0\", \"descricao\": \"Cores de teste\"}\n}\n")
+  set(ENV{GHOST_PM_INDICE} "${SANDBOX}/meu_indice.json")
+  execute_process(COMMAND "${GHOST}" install cores WORKING_DIRECTORY "${PROJ2}"
+                  RESULT_VARIABLE rc19 OUTPUT_VARIABLE o19 ERROR_VARIABLE e19)
+  unset(ENV{GHOST_PM_INDICE})
+  if(NOT rc19 EQUAL 0 OR NOT EXISTS "${PROJ2}/ghost_packages/cores/cores.g")
+    message(FATAL_ERROR "ghost install cores (indice git) falhou:\n${o19}${e19}")
+  endif()
+endif()
+
 # Limpeza
 file(REMOVE_RECURSE "${SANDBOX}")
-message(STATUS "GhostPM validado (init, add, list, remove, semver, install de pasta e de git).")
+message(STATUS "GhostPM validado (init, add, list, remove, semver, install de pasta e de git, indice e ghost install).")

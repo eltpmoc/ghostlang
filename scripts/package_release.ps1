@@ -24,7 +24,7 @@ foreach ($f in "ghost.exe", "libghost_runtime.a") {
     if (-not (Test-Path (Join-Path $binSrc $f))) { throw "Falta build/${f}: compile antes (ninja -C build)." }
 }
 if (Test-Path $distDir) { Remove-Item -Recurse -Force $distDir }
-foreach ($d in "bin", "include", "libs", "docs", "docs/licencas", "examples") {
+foreach ($d in "bin", "include", "libs", "pacotes", "docs", "docs/licencas", "examples") {
     New-Item -ItemType Directory -Force -Path (Join-Path $distDir $d) | Out-Null
 }
 
@@ -43,6 +43,7 @@ if (Test-Path (Join-Path $gdbPriv "bin/gdb.exe")) {
 Write-Host "[2/6] Cabecalhos C++ e bibliotecas .g" -ForegroundColor Green
 Copy-Item (Join-Path $rootDir "include/*") (Join-Path $distDir "include") -Recurse -Force
 Copy-Item (Join-Path $rootDir "libs/*.g") (Join-Path $distDir "libs") -Force
+Copy-Item (Join-Path $rootDir "pacotes/indice.json") (Join-Path $distDir "pacotes") -Force  # indice do GhostPM (ghost install)
 
 Write-Host "[3/6] Documentacao, exemplos e licencas" -ForegroundColor Green
 foreach ($doc in "MANUAL.md", "SPEC.md", "NUCLEO.md", "GhostLang_Guia_Oficial_do_Programador.pdf", "GhostLang_Guia_Oficial_do_Programador.html") {

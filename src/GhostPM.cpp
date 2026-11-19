@@ -137,8 +137,8 @@ int PackageManager::cmdInit(const std::string& projectName) {
         std::ofstream mainFile("src/main.g");
         if (mainFile.is_open()) {
             mainFile << "// Projeto GhostLang: " << name << "\n";
-            mainFile << "fun main() {\n";
-            mainFile << "    escrevaln(\"Ola do projeto " << name << " em GhostLang!\");\n";
+            mainFile << "function main() {\n";
+            mainFile << "    print(\"Ola do projeto " << name << " em GhostLang!\");\n";
             mainFile << "}\n";
         }
     }
@@ -289,6 +289,182 @@ std::string runCapture(const std::string& cmd) {
 }
 } // namespace
 
+// ---------------------------------------------------------------- indice de pacotes
+namespace {
+std::string g_root;
+
+// Leitor JSON minimo para o indice: objeto de objetos com valores texto (outros valores
+// sao lidos e ignorados).
+struct MiniJson {
+    const std::string& s;
+    size_t i = 0;
+    std::string erro;
+    explicit MiniJson(const std::string& t) : s(t) {}
+    void ws() { while (i < s.size() && std::isspace(static_cast<unsigned char>(s[i]))) ++i; }
+    bool falha(const std::string& m) { if (erro.empty()) erro = m + " (posicao " + std::to_string(i) + ")"; return false; }
+    bool str(std::string& out) {
+        ws();
+        if (i >= s.size() || s[i] != '"') return falha("esperava texto");
+        ++i;
+        out.clear();
+        while (i < s.size() && s[i] != '"') {
+            char c = s[i++];
+            if (c == '\\' && i < s.size()) {
+                char e = s[i++];
+                switch (e) {
+                    case 'n': out += '\n'; break;
+                    case 't': out += '\t'; break;
+                    case 'r': out += '\r'; break;
+                    case 'u': out += '?'; i = std::min(s.size(), i + 4); break;
+                    default: out += e;
+                }
+            } else {
+                out += c;
+            }
+        }
+        if (i >= s.size()) return falha("texto sem fim");
+        ++i;
+        return true;
+    }
+    bool skip() {  // pula um valor qualquer
+        ws();
+        if (i >= s.size()) return falha("fim inesperado");
+        if (s[i] == '"') { std::string t; return str(t); }
+        if (s[i] == '{' || s[i] == '[') {
+            const char fecha = s[i] == '{' ? '}' : ']';
+            const bool obj = s[i] == '{';
+            ++i; ws();
+            if (i < s.size() && s[i] == fecha) { ++i; return true; }
+            while (true) {
+                if (obj) { std::string k; if (!str(k)) return false; ws(); if (i >= s.size() || s[i] != ':') return falha("esperava ':'"); ++i; }
+                if (!skip()) return false;
+                ws();
+                if (i < s.size() && s[i] == ',') { ++i; continue; }
+                if (i < s.size() && s[i] == fecha) { ++i; return true; }
+                return falha("esperava ',' ou fechamento");
+            }
+        }
+        while (i < s.size() && (std::isalnum(static_cast<unsigned char>(s[i])) || s[i] == '.' || s[i] == '-' || s[i] == '+')) ++i;
+        return true;
+    }
+    // objeto de texto -> valor (texto, ou objeto de campos texto)
+    bool objeto(std::map<std::string, std::map<std::string, std::string>>& out) {
+        ws();
+        if (i >= s.size() || s[i] != '{') return falha("o indice deve ser um objeto JSON");
+        ++i; ws();
+        if (i < s.size() && s[i] == '}') { ++i; return true; }
+        while (true) {
+            std::string nome;
+            if (!str(nome)) return false;
+            ws();
+            if (i >= s.size() || s[i] != ':') return falha("esperava ':'");
+            ++i; ws();
+            if (i < s.size() && s[i] == '{') {
+                ++i; ws();
+                auto& campos = out[nome];
+                if (i < s.size() && s[i] == '}') { ++i; }
+                else while (true) {
+                    std::string k;
+                    if (!str(k)) return false;
+                    ws();
+                    if (i >= s.size() || s[i] != ':') return falha("esperava ':'");
+                    ++i; ws();
+                    if (i < s.size() && s[i] == '"') { std::string v; if (!str(v)) return false; campos[k] = v; }
+                    else if (!skip()) return false;
+                    ws();
+                    if (i < s.size() && s[i] == ',') { ++i; continue; }
+                    if (i < s.size() && s[i] == '}') { ++i; break; }
+                    return falha("esperava ',' ou '}'");
+                }
+            } else if (!skip()) {
+                return false;
+            }
+            ws();
+            if (i < s.size() && s[i] == ',') { ++i; continue; }
+            if (i < s.size() && s[i] == '}') { ++i; return true; }
+            return falha("esperava ',' ou '}'");
+        }
+    }
+};
+} // namespace
+
+std::string IndexEntry::spec() const {
+    if (!embutido.empty()) return "embutido:" + embutido;
+    return "git:" + git + (ref.empty() ? "" : "#" + ref);
+}
+
+void PackageManager::setRoot(const std::string& root) { g_root = root; }
+
+std::map<std::string, IndexEntry> PackageManager::loadIndex(std::string* origem, std::string* erro) {
+    std::map<std::string, IndexEntry> idx;
+    fs::path p;
+    if (const char* env = std::getenv("GHOST_PM_INDICE"); env && *env) p = env;
+    else p = fs::path(g_root.empty() ? "." : g_root) / "pacotes" / "indice.json";
+    if (origem) *origem = p.generic_string();
+    std::ifstream f(p, std::ios::binary);
+    if (!f) { if (erro) *erro = "indice " + p.generic_string() + " nao encontrado"; return idx; }
+    std::stringstream ss;
+    ss << f.rdbuf();
+    const std::string texto = ss.str();
+    MiniJson js(texto);
+    std::map<std::string, std::map<std::string, std::string>> bruto;
+    if (!js.objeto(bruto)) { if (erro) *erro = "indice " + p.generic_string() + " invalido: " + js.erro; return {}; }
+    for (auto& [nome, c] : bruto) {
+        if (nome.empty() || nome[0] == '_') continue;
+        IndexEntry e;
+        e.name = nome;
+        e.embutido = c["embutido"];
+        e.git = c["git"];
+        e.ref = c["ref"];
+        e.versao = c["versao"];
+        e.descricao = c["descricao"];
+        if (e.embutido.empty() && e.git.empty()) continue;
+        idx[nome] = e;
+    }
+    return idx;
+}
+
+int PackageManager::cmdSearch(const std::string& termoIn) {
+    std::string origem, erro;
+    const auto idx = loadIndex(&origem, &erro);
+    if (!erro.empty()) { std::cerr << "[GhostPM] " << erro << std::endl; return 1; }
+    auto baixa = [](std::string t) { for (auto& c : t) c = static_cast<char>(std::tolower(static_cast<unsigned char>(c))); return t; };
+    const std::string termo = baixa(termoIn);
+    size_t n = 0;
+    for (const auto& [nome, e] : idx) {
+        if (!termo.empty() && baixa(nome).find(termo) == std::string::npos && baixa(e.descricao).find(termo) == std::string::npos) continue;
+        std::string nomeCol = nome;
+        if (nomeCol.size() < 16) nomeCol.resize(16, ' ');
+        std::cout << "  " << nomeCol << " " << (e.embutido.empty() ? "git     " : "embutido") << "  " << e.descricao << std::endl;
+        ++n;
+    }
+    std::cout << "[GhostPM] " << n << " pacote(s)" << (termo.empty() ? "" : " para '" + termoIn + "'") << " no indice " << origem << std::endl;
+    return n ? 0 : 1;
+}
+
+int PackageManager::cmdInstallNames(const std::vector<std::string>& names) {
+    std::string erro;
+    const auto idx = loadIndex(nullptr, &erro);
+    // resolve tudo antes de mexer no projeto
+    std::vector<std::pair<std::string, std::string>> deps;
+    for (const auto& n : names) {
+        auto it = idx.find(n);
+        if (it == idx.end()) {
+            std::cerr << "[GhostPM] Pacote '" << n << "' nao esta no indice" << (erro.empty() ? "" : " (" + erro + ")")
+                      << ". Veja 'ghost pm search' ou use 'ghost pm add " << n << " --path <pasta>' / '--git <url>'." << std::endl;
+            return 1;
+        }
+        deps.emplace_back(n, it->second.spec());
+    }
+    if (!fs::exists("ghost.toml")) {
+        std::cout << "[GhostPM] Sem ghost.toml aqui: criando o projeto." << std::endl;
+        if (cmdInit() != 0) return 1;
+    }
+    for (const auto& [n, spec] : deps)
+        if (cmdAdd(n, spec) != 0) return 1;
+    return cmdInstall();
+}
+
 bool PackageManager::versionSatisfies(const std::string& version, const std::string& specIn) {
     std::string spec = trim(specIn);
     if (spec.empty() || spec == "*") return true;
@@ -362,16 +538,36 @@ int PackageManager::cmdInstall() {
             r.commit = runCapture("git -C \"" + dest.generic_string() + "\" rev-parse HEAD");
             fs::remove_all(dest / ".git", ec);
             r.source = "git:" + url + (ref.empty() ? "" : "#" + ref);
+        } else if (spec.rfind("embutido:", 0) == 0) {
+            // biblioteca que ja vem com a GhostLang: nada a copiar, o import acha <raiz>/libs/x.g
+            const std::string rel = spec.substr(9);
+            const fs::path arq = fs::path(g_root.empty() ? "." : g_root) / rel;
+            if (rel.find("..") != std::string::npos || !fs::is_regular_file(arq, ec)) {
+                falha("biblioteca embutida " + rel + " nao encontrada na instalacao da GhostLang");
+                continue;
+            }
+            const auto idx = loadIndex();
+            auto it = idx.find(name);
+            r.source = spec;
+            r.version = it != idx.end() ? it->second.versao : "";
+            std::cout << "  [ok] " << name << " " << (r.version.empty() ? "(sem versao)" : r.version)
+                      << " <- embutido (ja vem com a GhostLang); use: import \"" << rel << "\"" << std::endl;
+            resolved.push_back(r);
+            continue;
         } else {
             if (!fs::is_directory(dest, ec)) {
-                falha("nao ha registro remoto; use path:<pasta> ou git:<url>, ou copie o pacote para " + dest.generic_string() + "/");
+                const auto idx = loadIndex();
+                if (idx.count(name))
+                    falha("nao ha registro remoto da versao '" + spec + "'; '" + name + "' esta no indice: use 'ghost install " + name + "' (ou 'ghost pm add " + name + "' sem versao)");
+                else
+                    falha("nao ha registro remoto; use path:<pasta> ou git:<url>, ou copie o pacote para " + dest.generic_string() + "/");
                 continue;
             }
             r.source = "local";
         }
         r.version = readVersion(dest);
         // versao exigida: a da especificacao simples, ou "#versao" nao se aplica a path/git
-        const bool specIsVersion = spec.rfind("path:", 0) != 0 && spec.rfind("git:", 0) != 0;
+        const bool specIsVersion = spec.rfind("path:", 0) != 0 && spec.rfind("git:", 0) != 0 && spec.rfind("embutido:", 0) != 0;
         if (specIsVersion && !versionSatisfies(r.version, spec)) {
             falha("versao instalada '" + (r.version.empty() ? std::string("desconhecida") : r.version) + "' nao atende '" + spec + "'");
             continue;
@@ -392,11 +588,14 @@ int PackageManager::cmdInstall() {
 int PackageManager::dispatch(int argc, char* argv[]) {
     if (argc < 3) {
         std::cout << "GhostPM - Gerenciador de Pacotes GhostLang:" << std::endl;
+        std::cout << "  ghost install <pacote>...      Instala pelo indice (ex.: ghost install sqlite); cria o ghost.toml se faltar" << std::endl;
+        std::cout << "  ghost pm search [termo]        Lista os pacotes do indice (pacotes/indice.json ou GHOST_PM_INDICE)" << std::endl;
         std::cout << "  ghost pm init [nome]           Inicializa um novo pacote ghost.toml" << std::endl;
-        std::cout << "  ghost pm add <pacote> [versao]  Dependencia ja em ghost_packages/ (versao: 1.2.0, ^1.2, ~1.2.3, >=1.0)" << std::endl;
+        std::cout << "  ghost pm add <pacote>          Pacote do indice (embutido ou git)" << std::endl;
+        std::cout << "  ghost pm add <pacote> <versao>  Dependencia ja em ghost_packages/ (versao: 1.2.0, ^1.2, ~1.2.3, >=1.0)" << std::endl;
         std::cout << "  ghost pm add <pacote> --path <pasta> | --git <url> [--ref <tag>]" << std::endl;
         std::cout << "  ghost pm remove <pacote>       Remove uma dependencia do projeto" << std::endl;
-        std::cout << "  ghost pm install               Copia (path:) ou clona (git:) as dependencias para ghost_packages/" << std::endl;
+        std::cout << "  ghost pm install [pacote...]   Copia (path:) ou clona (git:) as dependencias; com nomes, igual a ghost install" << std::endl;
         std::cout << "  ghost pm list                  Exibe metadados do pacote e dependencias" << std::endl;
         return 0;
     }
@@ -411,7 +610,14 @@ int PackageManager::dispatch(int argc, char* argv[]) {
             return 1;
         }
         std::string pkg = argv[3];
-        std::string ver = (argc >= 5) ? argv[4] : "*";
+        std::string ver = "*";
+        if (argc >= 5) {
+            ver = argv[4];
+        } else {
+            const auto idx = loadIndex();
+            auto it = idx.find(pkg);
+            if (it != idx.end()) ver = it->second.spec();
+        }
         if (argc >= 6 && ver == "--path") ver = std::string("path:") + argv[5];
         else if (argc >= 6 && ver == "--git") ver = std::string("git:") + argv[5] + (argc >= 8 && std::string(argv[6]) == "--ref" ? std::string("#") + argv[7] : std::string());
         return cmdAdd(pkg, ver);
@@ -422,7 +628,10 @@ int PackageManager::dispatch(int argc, char* argv[]) {
         }
         return cmdRemove(argv[3]);
     } else if (sub == "install" || sub == "i") {
+        if (argc >= 4) return cmdInstallNames(std::vector<std::string>(argv + 3, argv + argc));
         return cmdInstall();
+    } else if (sub == "search" || sub == "s") {
+        return cmdSearch(argc >= 4 ? argv[3] : "");
     } else if (sub == "list" || sub == "ls") {
         return cmdList();
     } else {

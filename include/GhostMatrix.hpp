@@ -13,6 +13,7 @@
 #include <fstream>  // Adicionado para File I/O (legado, mantido se necessario)
 #include <sstream>  // Adicionado para parsing de strings
 #include <string>
+#include <memory>
 #include <cmath>    // Adicionado para sqrt (Quantum Gates)
 #include <cstdio>   // Adicionado nativo C-I/O para bypass de ABI
 
@@ -844,6 +845,8 @@ public:
 // -------------------------------------------------------------
 // MOTOR DE DEEP LEARNING (GhostNetwork)
 // -------------------------------------------------------------
+class GhostHybridNetwork; // GhostHybrid.hpp
+// -------------------------------------------------------------
 class GhostNetwork {
 public:
     std::string name;
@@ -871,65 +874,23 @@ public:
         return current;
     }
     
-    void optimize(const GhostMatrix& input, const GhostMatrix& target, int epochs, double lr, const std::string& opt) {
-        for(int epoch = 1; epoch <= epochs; ++epoch) {
-            std::vector<GhostMatrix> activations;
-            std::vector<GhostMatrix> z_values;
-            
-            // Forward Pass
-            GhostMatrix output = forward(input, activations, z_values);
-            
-            // Calculo do Erro (Backward Pass Inicial)
-            GhostMatrix delta = output - target;
-            
-            // Backpropagation pelas camadas
-            for (int i = layers.size() - 1; i >= 0; --i) {
-                GhostMatrix* layer = layers[i];
-                GhostMatrix a_prev = activations[i];
-                
-                // grad = delta * a_prev^T (Produto Externo via Multiplicação Matricial Padrão Nx1 * 1xM)
-                GhostMatrix grad = delta * a_prev.transpose();
-                
-                // Calcula o delta da próxima camada oculta ANTES de atualizar os pesos atuais
-                GhostMatrix next_delta;
-                if (i > 0) {
-                    next_delta = (layer->transpose() * delta).hadamard(z_values[i-1].relu_derivative());
-                }
-                
-                // Atualização dos Pesos (usando o estado Adam interno de cada layer)
-                if (opt == "adam") {
-                    layer->adam_t++;
-                    double beta1 = 0.9, beta2 = 0.999, epsilon = 1e-8;
-                    for (size_t r = 0; r < layer->rows; ++r) {
-                        double g_bias = delta(r, 0).x;
-                        layer->adam_bias_m[r] = beta1 * layer->adam_bias_m[r] + (1 - beta1) * g_bias;
-                        layer->adam_bias_v[r] = beta2 * layer->adam_bias_v[r] + (1 - beta2) * g_bias * g_bias;
-                        double m_hat_b = layer->adam_bias_m[r] / (1 - std::pow(beta1, layer->adam_t));
-                        double v_hat_b = layer->adam_bias_v[r] / (1 - std::pow(beta2, layer->adam_t));
-                        layer->bias[r].x -= lr * m_hat_b / (std::sqrt(v_hat_b) + epsilon);
-                        
-                        for (size_t c = 0; c < layer->cols; ++c) {
-                            double g = grad(r, c).x;
-                            layer->adam_m[r][c] = beta1 * layer->adam_m[r][c] + (1 - beta1) * g;
-                            layer->adam_v[r][c] = beta2 * layer->adam_v[r][c] + (1 - beta2) * g * g;
-                            double m_hat = layer->adam_m[r][c] / (1 - std::pow(beta1, layer->adam_t));
-                            double v_hat = layer->adam_v[r][c] / (1 - std::pow(beta2, layer->adam_t));
-                            layer->data[r][c].x -= lr * m_hat / (std::sqrt(v_hat) + epsilon);
-                        }
-                    }
-                } else {
-                    for (size_t r = 0; r < layer->rows; ++r) {
-                        layer->bias[r].x -= lr * delta(r, 0).x;
-                        for (size_t c = 0; c < layer->cols; ++c) {
-                            layer->data[r][c].x -= lr * grad(r, c).x;
-                        }
-                    }
-                }
-                
-                delta = next_delta;
-            }
-        }
-    }
+    // Treino e API iguais aos da rede hibrida (src/GhostNetwork.cpp): o motor GhostHybridNetwork
+    // treina estas mesmas camadas no lugar (pesos e bias), com Adam, SGD, momentum, RMSprop ou GD,
+    // e guarda o estado do otimizador entre as chamadas. Ate 13/11/2026 havia um laco proprio aqui,
+    // cujo gradiente do bias usava so a primeira amostra do lote.
+    void optimize(const GhostMatrix& input, const GhostMatrix& target, int epochs, double lr, const std::string& opt);
+    double loss(const GhostMatrix& X, const GhostMatrix& Y) const;
+    double accuracy(const GhostMatrix& X, const GhostMatrix& Y) const;
+    double predict_vec(const std::vector<double>& x) const;
+    int classify_vec(const std::vector<double>& x) const;
+    template <typename... T> double predict(T... xs) const { return predict_vec({static_cast<double>(xs)...}); }
+    template <typename... T> int classify(T... xs) const { return classify_vec({static_cast<double>(xs)...}); }
+    void set_verbose(int every_epochs);
+    std::string summary() const;
+    void display() const;
+private:
+    mutable std::shared_ptr<GhostHybridNetwork> motor_;
+    GhostHybridNetwork& motor() const;
 };
 
 // Sobrecargas globais para permitir o uso de 'rede * vetor' no GhostLang

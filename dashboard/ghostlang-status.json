@@ -6,7 +6,7 @@
     "descricao": "Linguagem compilada (transpilada para C++17) focada em Computação Quântica, IA/Deep Learning, álgebra hiper-complexa G e backends nativos.",
     "repositorio_local": "H:\\PROJETOS\\PROJETOS\\ghost-linux",
     "plataforma_foco": "windows",
-    "testes_ctest": 203
+    "testes_ctest": 211
   },
   "niveis": [
     {
@@ -445,7 +445,7 @@
     },
     {
       "id": "nuc-oop",
-      "nome": "Classes (class, public, private, this, new)",
+      "nome": "Classes (class, extends, super, public/protected/private, this, new)",
       "categoria": "nucleo",
       "nivel": 4,
       "alvo": 5,
@@ -474,15 +474,19 @@
         "tests/ghost/interfaces_genericas.g",
         "tests/repl/interfaces_genericas.ghost",
         "tests/ghost/nucleo_avancado.g",
-        "tests/repl/nucleo_avancado.ghost"
+        "tests/repl/nucleo_avancado.ghost",
+        "src/GhostTypes.cpp",
+        "tests/ghost/oop_acesso.g",
+        "tests/repl/oop_acesso.ghost",
+        "tests/diag/acesso_membros.g",
+        "tests/repl/acesso_membros.ghost"
       ],
-      "descricao": "OOP básica com métodos e atributos.",
-      "evidencia": "Recalibrado em 12/11/2026: Testado no CTest (Windows) com paridade compilador/REPL; nível 5 exige CI rodando e Linux/macOS comprovados (o CI nunca rodou: o repositório não tem commit nem remote). Descrição anterior: Classes completas com construtores, métodos de instância e estáticos, encapsulamento de atributos, herança e resolução polimórfica de métodos. Coberto por testes golden_classes e golden_classes_quantum.",
+      "descricao": "OOP com herança, construtores, sobrescrita e acesso aos membros conferido.",
+      "evidencia": "19/11/2026: acesso aos membros conferido de verdade. No compilador (GhostTypes), ler, escrever ou chamar um membro private fora da própria classe, ou protected fora da classe e das filhas, dá GHOST-E0303 com linha e coluna. No REPL, o mesmo dá [Erro]. O modificador vale como seção (private:) ou junto do membro (private double x;), em campos e métodos. Herança com extends e super(...), e sobrescrita de métodos. Testes: golden_oop_acesso e repl_oop_acesso (mesma saída), diag acesso_membros (4 erros esperados) e repl_acesso_membros. Os testes de classes, interfaces e genéricos continuam passando. Nível 5 exige Linux/macOS.",
       "proximos_passos": [
-        "Suporte a interfaces e traits/mixins",
-        "Reflexão em tempo de execução e meta-programação"
+        "Linux/macOS e CI para o nível 5"
       ],
-      "atualizado_em": "2026-11-09"
+      "atualizado_em": "2026-11-19"
     },
     {
       "id": "nuc-colecoes",
@@ -1519,16 +1523,19 @@
         "src/GhostHybrid.cpp",
         "tests/ghost/qml_rede_hibrida.g",
         "tests/repl/qml_rede_hibrida.ghost",
-        "tests/repl/qml_rede_hibrida.expected"
+        "tests/repl/qml_rede_hibrida.expected",
+        "src/GhostNetwork.cpp",
+        "tests/ghost/redes_otimizadores.g",
+        "tests/repl/redes_otimizadores.ghost"
       ],
       "descricao": "Encadeamento de camadas com ReLU implícita.",
-      "evidencia": "Recalibrado em 12/11/2026: Testado no CTest (Windows) com paridade compilador/REPL; nível 5 exige CI rodando e Linux/macOS comprovados (o CI nunca rodou: o repositório não tem commit nem remote). Descrição anterior: Encadeamento modular de camadas neurais (W1 >> Q >> W2) com suporte completo a redes clássicas, quânticas (VQC) e híbridas. Paridade total entre o compilador (golden_qml_rede_hibrida) e REPL (repl_qml_rede_hibrida), com cálculo automático de gradientes e retropropagação.",
+      "evidencia": "19/11/2026: no compilador, a rede clássica (gate >> gate) deixou de ter um optimize próprio e simplificado: agora usa o motor do REPL, com os mesmos métodos (loss, accuracy, predict, classify e show). show(rede) mostra a arquitetura e os parâmetros nos dois caminhos. Testes: golden e repl de redes_otimizadores (XOR, 2 -> 6 -> 1) e qml_rede_hibrida (rede híbrida). Nível 5 exige Linux/macOS.",
       "proximos_passos": [
         "show(rede) de uma network clássica não compila (a rede vira ponteiro no C++): usar -> no gerador ou recusar no verificador",
         "Camadas de normalização em lote (BatchNorm) e LayerNorm",
         "Encadeamento com blocos residuais (ResNet)"
       ],
-      "atualizado_em": "2026-11-09"
+      "atualizado_em": "2026-11-19"
     },
     {
       "id": "ia-ativacoes",
@@ -1561,7 +1568,7 @@
     },
     {
       "id": "ia-optimize",
-      "nome": "optimize com SGD, Adam e RMSProp",
+      "nome": "optimize com Adam, SGD, momentum, RMSProp e GD",
       "categoria": "ia",
       "nivel": 4,
       "alvo": 5,
@@ -1578,15 +1585,20 @@
         "src/Interpreter.cpp",
         "include/GhostHybrid.hpp",
         "tests/ghost/qml_rede_hibrida.g",
-        "tests/repl/qml_rede_hibrida.ghost"
+        "tests/repl/qml_rede_hibrida.ghost",
+        "src/GhostHybrid.cpp",
+        "src/GhostNetwork.cpp",
+        "tests/ghost/redes_otimizadores.g",
+        "tests/repl/redes_otimizadores.ghost"
       ],
-      "descricao": "W => optimize(entrada, alvo, epochs, lr, opt).",
-      "evidencia": "Recalibrado em 12/11/2026: Testado no CTest (Windows) com paridade compilador/REPL; nível 5 exige CI rodando e Linux/macOS comprovados (o CI nunca rodou: o repositório não tem commit nem remote). Descrição anterior: Otimizadores estocásticos completos implementados nativamente em C++ (SGD com momentum, Adam com momentos de 1ª/2ª ordem e bias-correction, RMSProp). Suporte a agendamento de taxa de aprendizado e clipping de gradiente, validado em redes profundas e híbridas.",
+      "descricao": "rede => optimize(X, Y, epochs, lr, opt): treino real por retropropagação.",
+      "evidencia": "19/11/2026: optimize treina de verdade com opt = adam, sgd, momentum, rmsprop e gd. O sgd faz uma atualização por amostra, em ordem embaralhada com semente fixa. Um nome inexistente dá erro (antes caía em silêncio no Adam), e trocar de otimizador zera o estado do anterior. A rede clássica do compilador (GhostNetwork) passou a usar o mesmo motor do REPL (GhostHybridNetwork, src/GhostNetwork.cpp). golden_redes_otimizadores e repl_redes_otimizadores treinam o XOR com os 5 otimizadores, com acurácia 1 em todos e a mesma saída nos dois caminhos. A descrição anterior citava agendamento de lr e clipping de gradiente: isso não existe e foi retirado. Nível 5 exige Linux/macOS.",
       "proximos_passos": [
-        "Suporte nativo ao otimizador AdamW com decaimento desacoplado de peso",
-        "Otimizadores de segunda ordem (L-BFGS)"
+        "Agendamento da taxa de aprendizado e clipping de gradiente",
+        "Funções de perda além do MSE (entropia cruzada)",
+        "Linux/macOS e CI para o nível 5"
       ],
-      "atualizado_em": "2026-11-09"
+      "atualizado_em": "2026-11-19"
     },
     {
       "id": "ia-conv",
@@ -2518,6 +2530,37 @@
       "atualizado_em": "2026-11-13"
     },
     {
+      "id": "net-websocket",
+      "nome": "WebSocket no servidor nativo e cliente (ws_connect, websocket, websocket_broadcast)",
+      "categoria": "rede",
+      "nivel": 4,
+      "alvo": 5,
+      "fase": "F2",
+      "prioridade": "media",
+      "desde": "2026-11-16",
+      "onde": [
+        "compilador",
+        "repl",
+        "runtime"
+      ],
+      "arquivos": [
+        "include/GhostWebSocket.hpp",
+        "include/GhostServer.hpp",
+        "src/Interpreter.cpp",
+        "src/InterpreterCore.cpp",
+        "tests/ghost/websocket.g",
+        "tests/repl/websocket.ghost"
+      ],
+      "descricao": "Conexões em tempo real (chat, jogos) no servidor HTTP nativo: RFC 6455 sem bibliotecas externas.",
+      "evidencia": "19/11/2026: o handshake (101, Sec-WebSocket-Accept conferido contra o exemplo da RFC 6455) mantém a conexão aberta entre os listen_step, que observa no select o socket de escuta e as conexões abertas. app.websocket(rota, f) responde a quem mandou, e app.websocket_broadcast(rota, f) responde a todos da rota. Ping recebe pong, e close é respondido. Uma mensagem é limitada a 16 MB. O cliente nativo tem ws_connect, ws_send, ws_recv (com timeout) e ws_close, e mascara os quadros como a RFC exige. golden_websocket e repl_websocket: o servidor numa thread, eco, sala com dois clientes recebendo a mesma mensagem, e rota sem WebSocket recusada; mesma saída no compilador e no REPL. Sem wss:// (TLS). Nível 5 exige Linux/macOS.",
+      "proximos_passos": [
+        "wss:// (TLS)",
+        "Teste com um navegador real no CI",
+        "Linux/macOS e CI para o nível 5"
+      ],
+      "atualizado_em": "2026-11-19"
+    },
+    {
       "id": "net-swarm",
       "nome": "Swarm federado (ghost_node, ghost_swarm)",
       "categoria": "rede",
@@ -2739,16 +2782,17 @@
         "include/GhostPM.hpp",
         "src/GhostPM.cpp",
         "src/ghost_compiler.cpp",
-        "tests/cli/test_pm.cmake"
+        "tests/cli/test_pm.cmake",
+        "pacotes/indice.json"
       ],
-      "descricao": "ghost add, ghost.toml, ghost.lock.",
-      "evidencia": "13/11/2026: ghost pm install instala de verdade, sem registro remoto: 'ghost pm add nome --path <pasta>' copia a pasta e 'ghost pm add nome --git <url> [--ref tag]' clona o repositório (git clone --depth 1) para ghost_packages/<nome>/. Versões em semver de verdade (1.2.0, ^1.2, ~1.2.3, >=1.0, *), conferidas contra o ghost.toml do pacote. O ghost.lock (versão 2) grava spec, versão, fonte e o commit do git. URL e ref são validadas antes de chamar o git (uma URL com aspas ou & é recusada). cli_pm_test cobre: init, add, list, remove, install sem pacote (falha), semver aceita e recusa, install de pasta com um programa usando o pacote, install de git com tag e commit no lock, e a URL perigosa.",
+      "descricao": "ghost install <nome> pelo índice, ghost pm add/install/search, ghost.toml, ghost.lock.",
+      "evidencia": "19/11/2026: ghost install sqlite funciona. Há um índice de pacotes (pacotes/indice.json, que vai no pacote portátil; a variável GHOST_PM_INDICE aponta outro). Cada entrada é embutida (uma biblioteca libs/x.g que já vem com a GhostLang: sqlite -> libs/db.g, http, json, tensor...) ou git (url, ref e versão). ghost install <nome>... cria o ghost.toml se faltar, resolve pelo índice, instala e grava o ghost.lock. ghost pm add <nome> sem versão usa o índice, e ghost pm search procura no índice. Um nome fora do índice dá erro e não mexe no projeto. O main.g gerado pelo init estava com sintaxe inválida (fun/escrevaln) e foi corrigido. cli_pm_test cobre, além do anterior: ghost install sqlite num diretório vazio, um programa usando o banco, o main.g gerado rodando, pacote fora do índice, search e um índice próprio com pacote git. Continua sem registro remoto com upload de pacotes. Nível 5 exige Linux/macOS.",
       "proximos_passos": [
-        "Registro remoto de pacotes (índice com versões publicadas)",
-        "import por nome de pacote (sem o caminho ghost_packages/)",
+        "Registro remoto (publicar pacotes)",
+        "Dependências transitivas",
         "Linux/macOS e CI para o nível 5"
       ],
-      "atualizado_em": "2026-11-13"
+      "atualizado_em": "2026-11-19"
     },
     {
       "id": "plat-windows",
@@ -4364,6 +4408,11 @@
       "data": "2026-11-19",
       "titulo": "Licença MIT",
       "descricao": "O repositório público passou a ter LICENSE (MIT), com as licenças de terceiros listadas no README."
+    },
+    {
+      "data": "2026-11-19",
+      "titulo": "Melhorias futuras implementadas: OOP, otimizadores, WebSocket e ghost install",
+      "descricao": "Os quatro itens de docs/Melhorias_Futuras.txt (o arquivo foi removido):\n- private e protected conferidos no compilador e no REPL (GHOST-E0303);\n- optimize com adam, sgd, momentum, rmsprop e gd, com o mesmo motor nos dois caminhos;\n- WebSocket no servidor nativo e cliente ws_*;\n- ghost install sqlite pelo índice pacotes/indice.json.\nNovo recurso net-websocket no nível 4."
     }
   ],
   "snapshots": [
@@ -4810,6 +4859,12 @@
       "progresso": 76.7,
       "recursos": 104,
       "nota": "Repositório público e CI: Windows verde; Linux/macOS experimentais."
+    },
+    {
+      "data": "2026-11-19",
+      "progresso": 76.7,
+      "recursos": 105,
+      "nota": "OOP com acesso conferido, otimizadores reais, WebSocket e ghost install."
     }
   ],
   "progressoGeral": 76.7,

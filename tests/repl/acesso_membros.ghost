@@ -1,0 +1,33 @@
+// Acessos proibidos no REPL: private so na propria classe, protected na classe e nas derivadas
+class Conta {
+    private double saldo;
+    protected string dono;
+    public int numero;
+
+    function Conta(string d) {
+        this.dono = d;
+        this.saldo = 0;
+        this.numero = 1;
+    }
+    private function void auditar() { print("ok"); }
+    function double ver() {
+        auditar();
+        return saldo;
+    }
+}
+
+class Poupanca extends Conta {
+    function Poupanca(string d) { super(d); }
+    function string quem() { return dono; }
+    function double espiar() { return saldo; }
+}
+
+Conta c = new Conta("ana");
+print(c.numero, " ", c.ver());
+print(c.saldo);
+c.dono = "bia";
+c.auditar();
+Poupanca p = new Poupanca("z");
+print(p.quem());
+print(p.espiar());
+exit

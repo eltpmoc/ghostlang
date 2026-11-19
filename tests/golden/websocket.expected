@@ -1,0 +1,5 @@
+eco: ola
+eco: segunda mensagem
+b recebeu: [sala] bia entrou
+c recebeu: [sala] bia entrou
+erro: ws_connect: o servidor recusou o WebSocket em /nada

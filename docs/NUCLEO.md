@@ -505,7 +505,8 @@ Contador c;                       // sem valor: construído sem argumentos
 
 - **Construção:** a base é construída primeiro, com `super(...)` ou sem argumentos. Depois vêm os valores iniciais dos campos desta classe e, por último, o corpo do construtor. Parâmetros do construtor podem ter valor padrão: `function Ponto(double x = 0, double y = 0)`.
 - **Nomes dentro de métodos:** um nome sem objeto procura primeiro variável local ou parâmetro, depois campo, depois variável global. `this.x` é sempre o campo, o que permite `this.x = x;`. Chamar `metodo(...)` sem objeto usa o método do próprio objeto antes de procurar uma função global.
-- **`private:`:** campos e métodos marcados só podem ser usados por métodos da própria classe. Nem as classes filhas acessam. `public:` libera de novo.
+- **`private:`:** campos e métodos marcados só podem ser usados por métodos da própria classe. Nem as classes filhas acessam. `public:` libera de novo. O modificador também pode vir junto do membro: `private double saldo;`, `protected string dono;`, `public int numero;`, `private function bool valido(double v) {...}`.
+- **Acesso conferido (19/11/2026):** o verificador de tipos (`ghost check`, `ghost build`, `ghost run`) recusa, antes de gerar o C++, ler, escrever ou chamar um membro `private` fora da classe dona, ou `protected` fora dela e das filhas. A mensagem é `erro GHOST-E0303: 'saldo' e private na classe Conta`. O REPL recusa o mesmo acesso com `[Erro]`. Testes: `tests/diag/acesso_membros.g` e `tests/*/oop_acesso.*`.
 - **Métodos virtuais:** vale a versão da classe real do objeto, inclusive quando chamada de um método da base. `super.metodo(...)` chama a versão da classe base.
 - **Semântica de valor:** `Ponto b = a;` copia, e alterar `b` não muda `a`. Em listas, `pts[0].mover(1, 1)` e `pts[0].x = 5` alteram o elemento; `Ponto p = pts[0];` é uma cópia.
 - **Fatiamento (como no C++):** guardar um objeto derivado numa variável, parâmetro, retorno ou campo do tipo base mantém só a parte da base, e os métodos passam a ser os da base. Por exemplo, `apresentar(Forma f)` chamada com um `Cubo` usa `Forma.area()`.
@@ -733,6 +734,8 @@ ghost debug programa.g         # compila com -g e #line e abre o gdb nas linhas 
 ghost debug --dap              # adaptador DAP (VS Code) sobre o gdb/MI: breakpoints, pilha, variaveis, step, evaluate
 ghost debug --saida x.exe a.g  # so compila com simbolos
 ghost lsp [--test]             # Language Server (palavras-chave do lexer + funcoes das libs); --test confere 16 respostas
+ghost install sqlite            # pacote do indice (pacotes/indice.json ou GHOST_PM_INDICE); cria o ghost.toml se faltar
+ghost pm search [termo]        # lista o indice
 ghost pm add n --path p | --git url [--ref tag]; ghost pm install   # pacotes de pasta ou git, semver, commit no ghost.lock
 ghost version | help
 ```
@@ -769,6 +772,7 @@ programa.g:3:13: erro GHOST-E0102: faltou ';' no fim da linha (depois de ')')
 | GHOST-E0204 | declaração repetida no mesmo bloco |
 | GHOST-E0301 | classes (campos, métodos, construtor, `static`, `private`/`protected`, herança) |
 | GHOST-E0302 | membro inexistente (a classe não tem o campo ou o método) |
+| GHOST-E0303 | acesso proibido a membro `private` ou `protected` |
 | GHOST-E0401 | interfaces |
 | GHOST-E0501 | genéricos e restrições |
 | GHOST-E0601 | funções e lambdas |
@@ -947,7 +951,7 @@ tipos.g:23:5: erro GHOST-E0204: 'n' ja foi declarado neste bloco (linha 13)
 | Tipo `ghost` (números hipercomplexos, `3.5g`, `2.5*i + 3.5*theta`) | sim | não |
 | Inteiros acima de 10¹⁵ (`2 ** 62`) | exatos (`long long`) | guardados como `double`, mostrados em notação científica |
 | `set<int> s = [1.5]`, `list<int> xs = [1.5]` | erro de compilação do C++ | converte para `int` |
-| Uso indevido (`private`, campo ou método inexistente) | erro de compilação do C++ | erro com mensagem na hora |
+| Uso indevido (`private`/`protected`, campo ou método inexistente) | erro do verificador (`GHOST-E0303`, `GHOST-E0302`) antes do C++ | erro com mensagem na hora |
 | `print(objeto)` | não compila | mostra `Ponto{x: 2, y: 3}` |
 | `result<T>`, `ok`, `err`, operador `?` | sim | sim, com a mesma saída (`tests/*/result.*`) |
 | `result<T> r = 5;`, `result<int>` em `result<double>` | erro de compilação do C++ | erro com mensagem na hora |

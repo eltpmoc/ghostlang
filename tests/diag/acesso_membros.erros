@@ -1,0 +1,4 @@
+acesso_membros.g:23:39: erro GHOST-E0303: 'saldo' e private na classe Conta
+acesso_membros.g:29:13: erro GHOST-E0303: 'saldo' e private na classe Conta
+acesso_membros.g:30:7: erro GHOST-E0303: 'dono' e protected na classe Conta
+acesso_membros.g:31:7: erro GHOST-E0303: 'auditar' e private na classe Conta
