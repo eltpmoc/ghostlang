@@ -33,7 +33,7 @@ def main() -> int:
         print(__doc__)
         return 2
     ghost = sys.argv[1]
-    docs = [pathlib.Path(a) for a in sys.argv[2:]] or [RAIZ / 'docs' / 'MANUAL.md', RAIZ / 'docs' / 'SPEC.md']
+    docs = [pathlib.Path(a) for a in sys.argv[2:]] or [RAIZ / 'docs' / 'MANUAL.md', RAIZ / 'docs' / 'SPEC.md', RAIZ / 'README.md']
     falhas = total = 0
     with tempfile.TemporaryDirectory() as tmp:
         for doc in docs:

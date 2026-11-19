@@ -3,8 +3,8 @@ name: GhostLang CI
 # Windows (MSYS2 UCRT64, o mesmo ambiente do desenvolvimento) é o alvo verificado.
 # Linux e macOS rodam como experimentais até as etapas Fedora 43 e macOS 26: falham
 # sem derrubar o resultado do Windows. Só ações oficiais/conhecidas (checkout e setup-msys2).
-# Em caso de falha, as primeiras linhas de erro viram anotações (::error::), que aparecem
-# no resumo do run e na API pública, sem precisar abrir o log.
+# Em caso de falha, um resumo de cada log vira anotação (::error::/::warning::), que aparece
+# no resumo do run sem login (os logs completos do Actions exigem login).
 
 on:
   push:
@@ -49,15 +49,7 @@ jobs:
 
       - name: Resumo dos erros (anotações)
         if: failure()
-        run: |
-          set +e +o pipefail
-          for f in configure.log build.log ctest.log; do
-            [ -f "$f" ] || continue
-            grep -E "FAILED|error:|Error:|undefined reference|No such file|\*\*\*Failed|Timeout" "$f" | head -12 > resumo.txt
-            [ -s resumo.txt ] || tail -n 25 "$f" > resumo.txt
-            while IFS= read -r l; do echo "::error title=$f::${l:0:900}"; done < resumo.txt
-          done
-          exit 0
+        run: bash .github/workflows/resumo_erros.sh error
 
   experimental:
     name: ${{ matrix.os }} (experimental)
@@ -92,12 +84,4 @@ jobs:
       - name: Resumo dos erros (anotações)
         if: failure()
         shell: bash
-        run: |
-          set +e +o pipefail
-          for f in configure.log build.log ctest.log; do
-            [ -f "$f" ] || continue
-            grep -E "FAILED|error:|Error:|undefined reference|No such file|\*\*\*Failed|Timeout" "$f" | head -12 > resumo.txt
-            [ -s resumo.txt ] || tail -n 25 "$f" > resumo.txt
-            while IFS= read -r l; do echo "::warning title=$f::${l:0:900}"; done < resumo.txt
-          done
-          exit 0
+        run: bash .github/workflows/resumo_erros.sh warning
