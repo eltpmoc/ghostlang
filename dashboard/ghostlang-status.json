@@ -2770,12 +2770,12 @@
         "src/ghost_compiler.cpp"
       ],
       "descricao": "Plataforma foco atual.",
-      "evidencia": "Recalibrado em 12/11/2026: Toda a suíte (167 testes) roda no Windows x64 com MSYS2 g++ 15.2; executáveis estáticos por padrão. Sem CI rodando. Descrição anterior: Suporte maduro a Windows x64 (MSYS2 MinGW-w64 15.2.0 + Ninja e MSVC). Compilação estática autônoma ativa por padrão (-static, -static-libgcc, -static-libstdc++, -fopenmp) permitindo execução sem dependências em qualquer máquina Windows. Suporte a CUDA em GPU NVIDIA e 167 testes CTest 100% aprovados.",
+      "evidencia": "Recalibrado em 12/11/2026: Toda a suíte (167 testes) roda no Windows x64 com MSYS2 g++ 15.2; executáveis estáticos por padrão. Sem CI rodando. Descrição anterior: Suporte maduro a Windows x64 (MSYS2 MinGW-w64 15.2.0 + Ninja e MSVC). Compilação estática autônoma ativa por padrão (-static, -static-libgcc, -static-libstdc++, -fopenmp) permitindo execução sem dependências em qualquer máquina Windows. Suporte a CUDA em GPU NVIDIA e 167 testes CTest 100% aprovados. 19/11/2026: verificado também no CI do GitHub (runner Windows limpo, MSYS2 UCRT64, GCC 16.2): build e CTest completos verdes.",
       "proximos_passos": [
         "Instalador Windows MSI / WiX Toolset",
         "Publicação oficial no winget e Chocolatey"
       ],
-      "atualizado_em": "2026-11-09"
+      "atualizado_em": "2026-11-19"
     },
     {
       "id": "plat-linux",
@@ -2886,7 +2886,7 @@
       "id": "plat-ci",
       "nome": "CI em matriz (Windows/Linux/macOS)",
       "categoria": "plataformas",
-      "nivel": 1,
+      "nivel": 3,
       "alvo": 5,
       "fase": "F5",
       "prioridade": "alta",
@@ -2897,12 +2897,13 @@
         ".github/workflows/ci.yml"
       ],
       "descricao": "Build e testes a cada commit.",
-      "evidencia": "Recalibrado em 12/11/2026: .github/workflows/ci.yml existe (Windows, Linux, macOS), mas nunca rodou: o repositório não tem commit nem remote no GitHub.",
+      "evidencia": "19/11/2026: repositório público https://github.com/eltpmoc/ghostlang com o CI (.github/workflows/ci.yml) rodando a cada push. Windows x64 (MSYS2 UCRT64, GCC 16.2) VERDE: compila do zero e passa o CTest inteiro num runner limpo (run 44554660521). Linux (Ubuntu, GCC 15.2) compila tudo e falha em alguns goldens de saída (quantum_circuit, test_4d, test_algebra, matriz_std, qml_rede_hibrida, gui_std, http_cliente); macOS falha na compilação (o Clang da Apple não aceita -fopenmp direto). Linux e macOS rodam como experimentais. No caminho, o CI achou: o C++ gerado da IA própria fora do git (configure falhava), o libgomp separado no GCC 16 e o git do MSYS2 sem caminhos Windows.",
       "proximos_passos": [
-        "Fazer o primeiro commit e criar o repositório no GitHub",
-        "Rodar o ci.yml e corrigir o que falhar em cada sistema"
+        "Etapa Fedora 43: corrigir os goldens que diferem no Linux",
+        "Etapa macOS 26: OpenMP pelo find_package(OpenMP) com libomp",
+        "Tirar o continue-on-error de Linux/macOS quando passarem"
       ],
-      "atualizado_em": "2026-11-09"
+      "atualizado_em": "2026-11-19"
     },
     {
       "id": "doc-spec",
@@ -3049,6 +3050,13 @@
     }
   ],
   "diagnostico": [
+    {
+      "severidade": "alerta",
+      "titulo": "Projeto sem licença",
+      "detalhe": "O repositório é público, mas não há arquivo LICENSE: sem licença, ninguém tem permissão legal de usar, copiar ou modificar o código. O OpenBLAS (BSD) e o SQLite (domínio público) embutidos têm as próprias licenças.",
+      "arquivo": "README.md",
+      "recurso": "doc-organizacao"
+    },
     {
       "severidade": "info",
       "titulo": "MSYS2 atualizado por inteiro para o GCC 16 (resolvido)",
@@ -3309,9 +3317,9 @@
       "recurso": "q-registrador"
     },
     {
-      "severidade": "alerta",
-      "titulo": "Repositório sem remote",
-      "detalhe": "Primeiro commit feito em 13/11/2026 (1df7284); ainda não há repositório no GitHub, então o CI não roda.",
+      "severidade": "info",
+      "titulo": "Repositório publicado e CI rodando",
+      "detalhe": "19/11/2026: https://github.com/eltpmoc/ghostlang (público). CI verde no Windows; Linux compila e falha em alguns goldens; macOS não compila (-fopenmp no Clang). README publicado; licença ainda não definida.",
       "arquivo": "",
       "recurso": "plat-ci"
     },
@@ -4346,6 +4354,11 @@
       "data": "2026-11-19",
       "titulo": "MSYS2 atualizado por inteiro; projeto no GCC 16.2",
       "descricao": "pacman -Syu completou a atualização parcial de 16/11 (crt/headers 14, binutils 2.47). Runtime, ghost e testes recompilados do zero com o GCC 16.2: CTest 203/203. Pacote portátil regenerado com o GCC 16.2 embutido."
+    },
+    {
+      "data": "2026-11-19",
+      "titulo": "Repositório publicado e CI verde no Windows",
+      "descricao": "github.com/eltpmoc/ghostlang publicado com README. O CI achou e corrigimos: C++ gerado da IA própria fora do git, libgomp separado no GCC 16, git do MSYS2 sem caminhos Windows. Windows verde (build + CTest num runner limpo); Linux compila e falha em 7 goldens; macOS não compila. plat-ci: 1 → 3."
     }
   ],
   "snapshots": [
@@ -4786,8 +4799,14 @@
       "progresso": 76.3,
       "recursos": 104,
       "nota": "for estilo Python + range; MSYS2 no GCC 16.2. CTest 203/203."
+    },
+    {
+      "data": "2026-11-19",
+      "progresso": 76.7,
+      "recursos": 104,
+      "nota": "Repositório público e CI: Windows verde; Linux/macOS experimentais."
     }
   ],
-  "progressoGeral": 76.3,
+  "progressoGeral": 76.7,
   "ultimaAtualizacao": "2026-11-19"
 }
