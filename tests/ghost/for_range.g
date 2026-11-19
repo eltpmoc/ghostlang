@@ -1,0 +1,58 @@
+// for no estilo do Python (16/11/2026): for (x in ...) e for x in ... { }, com range(fim),
+// range(inicio, fim) e range(inicio, fim, passo), e iteracao direta sobre texto, lista,
+// mapa e matriz (gate / matrix / GhostMatrix: elemento a elemento, linha por linha).
+function main() {
+    // range com 1, 2 e 3 argumentos (o fim nao entra, como no Python)
+    int soma = 0;
+    for (var i in range(5)) { soma = soma + i; }
+    print("range(5): soma = ", soma);
+
+    string pares = "";
+    for i in range(2, 10, 2) { pares = pares + i + " "; }
+    print("range(2, 10, 2): ", pares);
+
+    string desc = "";
+    for (int i in range(5, 0, -1)) { desc = desc + i + " "; }
+    print("range(5, 0, -1): ", desc);
+
+    int vazio = 0;
+    for i in range(0) { vazio = vazio + 1; }
+    print("range(0) roda ", vazio, " vezes");
+
+    // texto: um caractere por vez
+    string letras = "";
+    for c in "Ghost" { letras = letras + "[" + c + "]"; }
+    print("texto: ", letras);
+
+    // lista e mapa
+    list<string> nomes = ["Qubit-0", "Qubit-1", "Qubit-2"];
+    for (string nome in nomes) { print("lista: ", nome); }
+    map<string, int> idades = {"ana": 30, "bia": 25};
+    for chave, valor in idades { print("mapa: ", chave, " = ", valor); }
+
+    // matriz (gate e matrix sao GhostMatrix): Numeros G, linha por linha
+    gate w(2, 2);
+    w(0, 0) = 1.0; w(0, 1) = 2.0;
+    w(1, 0) = 3.0; w(1, 1) = 4.0;
+    int n = 0;
+    for x in w {
+        n = n + 1;
+        print("w[", n, "] = ", x);
+    }
+
+    // range com o tamanho de uma colecao
+    for (var k in range(nomes.size())) { print(k, ": ", nomes[k]); }
+
+    // break e continue
+    string pulos = "";
+    for i in range(10) {
+        if (i == 7) { break; }
+        if (i % 2 == 0) { continue; }
+        pulos = pulos + i + " ";
+    }
+    print("impares ate 7: ", pulos);
+
+    // Numero G declarado com ghost(x, y, p, theta2): mesmo texto no compilador e no REPL
+    ghost g = ghost(1.0, 2.0, 0.5, 0.25);
+    print("ghost: ", g);
+}

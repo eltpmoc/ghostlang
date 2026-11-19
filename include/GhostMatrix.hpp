@@ -196,6 +196,26 @@ public:
     }
 
     // Acesso aos elementos
+    // Iteração elemento a elemento, linha por linha: for (var x in m) / foreach (x in m).
+    // x é o Número G da posição (referência: alterar x altera a matriz).
+    template <typename Mat, typename Elem>
+    struct ElemIter {
+        Mat* m;
+        size_t r, c;
+        Elem& operator*() const { return (*m)(r, c); }
+        ElemIter& operator++() {
+            if (++c >= m->getCols()) { c = 0; ++r; }
+            return *this;
+        }
+        bool operator!=(const ElemIter& o) const { return r != o.r || c != o.c; }
+    };
+    using iterator = ElemIter<GhostMatrix, GhostNumberG>;
+    using const_iterator = ElemIter<const GhostMatrix, const GhostNumberG>;
+    iterator begin() { return getCols() == 0 ? end() : iterator{this, 0, 0}; }
+    iterator end() { return iterator{this, getRows(), 0}; }
+    const_iterator begin() const { return getCols() == 0 ? end() : const_iterator{this, 0, 0}; }
+    const_iterator end() const { return const_iterator{this, getRows(), 0}; }
+
     GhostNumberG& operator()(size_t r, size_t c) {
         return data[r][c];
     }

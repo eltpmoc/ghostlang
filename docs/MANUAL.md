@@ -4,6 +4,16 @@ Bem-vindo ao **GhostLang**, uma linguagem de programação esotérica e altament
 
 Este manual descreve a sintaxe completa da linguagem, suas palavras reservadas (keywords) e como utilizá-la na prática.
 
+### Instalação no Windows (pacote portátil)
+
+O pacote `GhostLang-Portable-x64.zip` traz tudo o que é preciso, inclusive o compilador C++ (GCC 16.2 em `bin/compiler`). Não é preciso instalar o MSYS2 nem mexer no PATH do sistema:
+
+1. Descompacte o zip numa pasta (por exemplo `C:\GhostLang`) e confira o SHA-256 no arquivo `GhostLang-Portable-x64.sha256`.
+2. Abra `iniciar_prompt.bat`: ele abre um prompt com o `ghost` no PATH.
+3. `ghost run examples\ola_mundo.g` compila e executa; `ghost` sozinho abre o REPL.
+
+Para gerar o pacote a partir do código: `ninja -C build` e depois `powershell -ExecutionPolicy Bypass -File scripts\package_release.ps1`. Linux e macOS ainda não têm pacote.
+
 ---
 
 ## 1. Fundamentos da Linguagem
@@ -392,6 +402,49 @@ state estado = [1.0, 0.0];
 
 for (var i = 0; i < 100; i = i + 1) {
     estado = gateX * estado;
+}
+```
+
+#### 4.3.1. `for ... in` no estilo do Python e `range`
+Além do `for` com contador, a GhostLang percorre diretamente uma coleção, como o Python. Os parênteses são opcionais: `for (x in colecao) { }` e `for x in colecao { }` são o mesmo laço (e o mesmo que `foreach`). O tipo da variável também é opcional (`for (int i in ...)`, `for (var i in ...)` ou só `for i in ...`).
+
+| Forma | Valores |
+|---|---|
+| `range(fim)` | 0, 1, ..., fim - 1 |
+| `range(inicio, fim)` | inicio, ..., fim - 1 |
+| `range(inicio, fim, passo)` | de `passo` em `passo`; com passo negativo, conta para baixo (`range(5, 0, -1)` dá 5, 4, 3, 2, 1) |
+| texto (`string`) | um caractere por vez |
+| lista, `set` | cada elemento |
+| mapa | `for chave, valor in mapa { }` |
+| matriz (`gate`, `matrix`, `GhostMatrix`) | cada elemento (Número G), linha por linha |
+| `qreg` | o índice de cada qubit (0 .. n - 1) |
+
+Como no Python, o `fim` do `range` não entra, e `range(0)` não roda nenhuma vez. `break` e `continue` funcionam normalmente. No programa compilado, o elemento de uma matriz é uma referência: alterar `x` dentro do laço altera a matriz.
+
+```ghost
+function main() {
+    for i in range(1, 6) {
+        print("i = ", i);                      // 1, 2, 3, 4, 5
+    }
+    for (int i in range(10, 0, -2)) {
+        print(i);                              // 10, 8, 6, 4, 2
+    }
+    for c in "Ghost" {
+        print(c);                              // G, h, o, s, t
+    }
+    list<string> nomes = ["Qubit-0", "Qubit-1"];
+    for (var k in range(nomes.size())) {
+        print(k, ": ", nomes[k]);
+    }
+    map<string, int> idades = {"ana": 30, "bia": 25};
+    for nome, idade in idades {
+        print(nome, " tem ", idade);
+    }
+    gate w(2, 2);
+    w(0, 0) = 1.0; w(0, 1) = 2.0; w(1, 0) = 3.0; w(1, 1) = 4.0;
+    for x in w {
+        print(x);                              // (x, yi, p, θ²) = (1.0000, ...), depois 2, 3 e 4
+    }
 }
 ```
 
@@ -1093,6 +1146,19 @@ println(f"G em Matemático: {G:math}");
 println("G em Matemático: " + G.to_math());
 ```
 
+### Sequências de escape e busca em textos
+
+Literais de string aceitam as sequências de escape do C: `\"`, `\\`, `\n`, `\t`, `\r`, `\0` e `\xHH`. O programa compilado e o REPL dão o mesmo resultado; até 13/11/2026 o REPL mostrava as barras ao pé da letra. `texto.find(trecho)` devolve a posição da primeira ocorrência, ou `-1` quando não acha:
+
+```ghost
+function main() {
+    print("aspas: \"ok\"\ttab");     // aspas: "ok"	tab
+    string r = "status=online";
+    print(r.find("online") != -1);   // true
+    print(r.find("erro") != -1);     // false
+}
+```
+
 ### Entrada de Dados com `input` e `inputln`
 
 Variáveis do tipo `ghost` aceitam entrada de dados interativa via `input()` e `inputln()` tanto no formato vetorial 4D quanto no formato matemático:
@@ -1109,7 +1175,7 @@ println(f"g1 4D: {g1:4d}");
 println(f"g2 Math: {g2:math}");
 ```
 
-Exemplo completo executável disponível em `exemplos/NumerosFantasmasG.g`.
+Exemplo completo executável disponível em `examples/NumerosFantasmasG.g`.
 
 ## 2. GhostLLM: Integração Nativa de I.A Generativa
 
@@ -1166,10 +1232,39 @@ Simulação de estados puros e mistos com canais realistas de ruído quântico:
 ### 12.3. Transformer Quântico V5 (`GhostTransformerG` e `GhostQubit`)
 Arquitetura neural transformer baseada em Qubits POD (`real`, `imag`, `theta`), integrando atenção quântica, GEMM com números complexos conjugados no backward e propagação de incerteza de Números G.
 
+### 12.3.1. Modelos de IA no programa e no REPL
+`text_model`, `transformer_model`, `transformer_model_v5`, `matrix_g`, `temporal_context` e `knowledge_consult` funcionam do mesmo jeito no programa compilado e no REPL (desde 13/11/2026). Os parâmetros são, em ordem: contexto, largura (ou embedding), cabeças, camadas, lote e semente.
+```ghost
+function main() {
+    textmodel tm = text_model(4, 4, 8, 2, 64, 19);   // contexto, embedding, oculta, lote, vocabulario, semente
+    print("backend: ", tm.backend());
+    tm.self_test();                                   // confere os gradientes por diferencas finitas
+
+    var tr = transformer_model(32, 16, 2, 1, 2, 7);
+    print("contexto: ", tr.context_size());           // metodos: prepare, steps, validate, generate, save, load
+
+    var mg = matrix_g(2, 2);
+    mg.set(0, 1, ghost(1.5, 2.0, 0.5, 0.25));
+    print(mg.get(0, 1));    // a componente p nao e guardada: (1.5000, 2.0000, 0.0000, 0.2500)
+
+    var k = knowledge_consult("GhostLang", false, false);   // tema, online, atualizar
+    print(k.found, " ", k.text);
+}
+```
+
 ### 12.4. Ferramentas e Depuração (`ghost debug`, `ghost lsp`, `ghost pm`)
 - `ghost lsp`: Servidor de linguagem nativo via JSON-RPC 2.0 (diagnósticos, hover, completion e definição).
-- `ghost debug arquivo.g`: compilação com símbolos de depuração (`-g -O0`) e mapeamento `#line`, para usar com o gdb. `--map` mostra o mapa de linhas; `--dap` (Debug Adapter Protocol) ainda não está implementado: sai com erro e indica o gdb (ou a extensão C/C++ do VS Code).
-- `ghost pm`: gerenciador de pacotes GhostPM. `init`, `add`, `remove` e `list` mantêm o `ghost.toml` e o `ghost.lock`; `install` não baixa nada (não há registro remoto): confere se cada dependência está em `ghost_packages/<nome>/`, avisa as que faltam e só então grava o `ghost.lock`.
+- `ghost debug arquivo.g`: compila com símbolos de depuração (`-g -O0`) e mapeamento `#line` e abre o gdb já nas linhas do `.g` (`break arquivo.g:3`, `bt`, `print x`). Sem terminal (CI, scripts), roda o programa no gdb em lote e mostra a pilha se ele quebrar. `--map` mostra o mapa de linhas; `--saida <exe>` só compila.
+- `ghost debug --dap`: adaptador do Debug Adapter Protocol. No VS Code, com a extensão GhostLang, abra um `.g`, marque um breakpoint e pressione F5 (configuração "Depurar arquivo GhostLang atual"): pilha, variáveis locais, passo a passo e avaliação de expressões aparecem nas linhas do `.g`. O gdb vem em `bin/gdb` no pacote portátil; no código-fonte, monte-o com `scripts\montar-gdb.ps1` (ou defina `GHOST_GDB`).
+- `ghost pm`: gerenciador de pacotes GhostPM. Não há registro remoto: cada dependência vem de uma pasta ou de um repositório git, e `ghost pm install` a coloca em `ghost_packages/<nome>/`.
+  ```text
+  ghost pm init meu_app
+  ghost pm add geometria --path ../libs_comuns/geometria     # copia a pasta
+  ghost pm add cores --git https://github.com/usuario/cores --ref v0.3.0   # clona a tag
+  ghost pm add quantum ^2.0          # já presente em ghost_packages/quantum (confere a versão)
+  ghost pm install                   # instala e grava ghost.lock (versão, fonte e commit)
+  ```
+  Versões: `1.2.0` (exata), `^1.2` (mesmo número maior), `~1.2.3` (mesmo menor), `>=1.0` e `*`, conferidas contra o `ghost.toml` do pacote. No programa: `import "ghost_packages/geometria/geometria.g"`.
 
 ### 12.5. Emulação de hardware quântico (`libs/hardware.g`)
 A `libs/hardware.g` tem a interface de submissão de circuitos OpenQASM no estilo dos provedores em nuvem (IBM Quantum, AWS Braket, IonQ), mas **hoje executa o circuito no simulador local** (vetor de estado, semente fixa por job). Nenhum job é enviado a uma QPU real, o token não é usado e `qhw_summary` diz `SIMULACAO LOCAL`. Portas aceitas: h, x, y, z, s, sdg, t, tdg, sx, rx, ry, rz, p, u, cx, cy, cz, ch, swap, cp, crx, cry, crz, rzz, ccx e cswap (ângulos como `pi/2`); uma instrução desconhecida dá erro:
@@ -1261,7 +1356,7 @@ Nível de cada recurso pela evidência (recalibração de 12/11/2026, pelo códi
 | **`q-circuitos`** | **4** | Blocos `circuit { }`, inversão hermitiana automática (`nome_dg`), versão controlada (`nome_ctrl`), exportação QASM e ASCII draw. |
 | **`q-algoritmos`** | **4** | Algoritmos canônicos integrados: QFT/IQFT, Busca de Grover, Deutsch-Jozsa, Bernstein-Vazirani e VQE molecular. |
 | **`q-ruido`** | **4** | Canais de ruído quântico de Kraus: despolarizante, bit-flip, phase-flip, amortecimento $T_1$ (amplitude) e $T_2$ (fase). |
-| **`q-statevector-gpu`** | **3** | Simulador statevector CUDA de alto desempenho com aceleração de até 6.45x e fallback transparente para OpenMP. |
+| **`q-statevector-gpu`** | **4** | 13/11/2026: CUDA real nesta máquina (GTX 1050 Ti, sm_61, CUDA 12.9): quantum_cuda confere CPU == GPU em portas, medição, Pauli, cópia, Grover/GHZ e qcircuit (6,2x a 6,7x mais rápido com 20 e 24 qubits). Paridade compilador/REPL: golden_quantum_gpu_resultado e repl_quantum_gpu_resultado (Grover com 20 qubits e GHZ com 22, resultado igual na GPU e na CPU); quantum_gpu_dispositivo exige que qreg(20) rode em 'cuda' quando o backend existe. |
 | **`q-density`** | **4** | Matrizes de densidade `GhostDensityMatrix` para estados puros e mistos, cálculo de traço $\text{Tr}(\rho)=1$ e pureza $\text{Tr}(\rho^2)$. |
 | **`q-sintaxe`** | **4** | Sintaxe nativa do núcleo (`qubit`, `qreg`, `circuit`, `measure`) com semântica unificada no compilador e REPL. |
 | **`q-qasm`** | **4** | Interoperabilidade bidirecional com OpenQASM 3.0 (`to_qasm` / `from_qasm`), compatível com Qiskit e AWS Braket. |
@@ -1277,9 +1372,9 @@ Nível de cada recurso pela evidência (recalibração de 12/11/2026, pelo códi
 | **`alg-numerog`** | **4** | Números Fantasmas $G = x + y\cdot i + p\cdot g + \theta^2$, comutadores quânticos, produto não-comutativo e propagação diferencial de incerteza. |
 | **`alg-tipo-ghost`** | **4** | Tipo nativo de primeira classe `ghost` na linguagem com literais 4D (`1.0 + 2.0i + 3.0g + 0.5theta`), coerções e visualização unificada `show()`. |
 | **`alg-matriz`** | **4** | Tipo nativo de primeira classe `matrix` / `GhostMatrix` $N \times M$ com $+$, $-$, $*$, inversão numérica exata via Gauss-Jordan com pivotamento parcial (`A.inverse()`), determinante (`A.det()`), `A.set(r, c, v)`, `A.get(r, c)`, `A.show()` tabular limpo e operadores vetorizados. |
-| **`alg-matrizg`** | **3** | Estruturas POD compactas `GhostMatrixG` e `GhostQubit` otimizadas para processamento vetorial em GPU CUDA e OpenMP multi-core. |
+| **`alg-matrizg`** | **4** | 13/11/2026: o REPL ganhou os objetos nativos da IA (src/InterpreterNative.cpp): text_model, transformer_model, transformer_model_v5, matrix_g, temporal_context, knowledge_consult, knowledge_info, web_search_public, text_perplexity, text_int e text_decimal, com os mesmos objetos C++ do runtime. golden_ia_nativa e repl_ia_nativa rodam o mesmo roteiro e dão a mesma saída (13 linhas). matrix_g(l, c) no REPL com set/get/size_bytes. Limitação documentada: GhostMatrixG guarda GhostQubit (real, imag, theta), então a componente p do Número G não é guardada (ghost(1.5, 2, 0.5, 0.25) volta com p = 0); o teste confere isso. |
 | **`alg-tensor-nd`** | **4** | Tensores N-dimensionais de dimensionalidade arbitrária (`libs/tensor.g`), broadcasting estilo NumPy, fatiamento (`slice`), `reshape` e permutações de eixos. |
-| **`alg-blas`** | **4** |Desde 13/11/2026 o `tensor_matmul` usa o OpenBLAS (compilado do fonte por `scripts/build-openblas.ps1` e embutido na `libghost_runtime.a`); sem ele, roda o laço nativo. `blas_backend()` diz qual está ativo. Testado no compilador e no REPL; 1024x1024 ficou 5,5x mais rápido. Sem MKL nem cuBLAS. |
+| **`alg-blas`** | **4** | 13/11/2026: OpenBLAS 0.3.30 compilado do fonte oficial (SHA-256 conferido) por scripts/build-openblas.ps1: só C, só precisão dupla, OpenMP do GCC, estático, DYNAMIC_ARCH para AVX/AVX2/Zen/AVX-512 (o pacote do MSYS2 exige GCC 16). O dgemm saiu do cabeçalho para src/GhostBLAS.cpp e o OpenBLAS é embutido na libghost_runtime.a (cmake/merge_blas.cmake), então programa compilado e REPL usam o mesmo caminho sem mudar a linha do g++. blas_backend() e has_blas_hardware() dizem qual está ativo. CTest golden_blas_matmul e repl_blas_matmul (70x50 por 50x40, resultado exato). Medido: 1024x1024 em 18 ms com OpenBLAS contra 100 ms no nativo (5,5x), diferença máxima 1,6e-13. Sem MKL nem cuBLAS; nível 5 exige CI e Linux/macOS. |
 
 ### 14.1 Álgebra Linear Numérica Clássica com `matrix`
 
@@ -1372,7 +1467,7 @@ Nível de cada recurso pela evidência (recalibração de 12/11/2026, pelo códi
 | **`std-math`** | **4** | `libs/math.g` / `libs/stats.g` | Motor matemático e estatístico especialista: potenciação nativa (`**`), raiz n-ésima universal (`raiz_n` / `nth_root` para qualquer índice natural $n \ge 1$), raízes de números negativos no corpo dos complexos (`csqrt`, `raiz_n_complexa`, sobrecarga `raiz_n(complex, n)`) retornando números complexos nativos (`complex`), raízes reais com índice ímpar, constantes fundamentais ($\pi, e, \tau, \phi, \sqrt{2}$), teoria dos números (MDC, MMC, primalidade, fatorial, combinações, permutações), trigonometria direta e inversa, hiperbólicas, funções especiais (gama, beta, erf, erfc), medidas descritivas completas (média, mediana, moda, quartis, IQR, assimetria, curtose), correlação de Pearson e regressão linear bivariada `[m, b, r2]`. |
 | **`std-colecoes`** | **4** | `libs/collections.g` / `test.g` | Estruturas de dados avançadas (`Stack<T>`, `Queue<T>`) e framework completo de asserções e testes unitários (`libs/test.g`). |
 | **`std-db`** | **4** | `libs/db.g` | Banco de dados relacional SQLite embutido (GhostDB): suporte em memória (`:memory:`) e arquivos locais, consultas JSON e transações ACID. |
-| **`std-desktop`** | **2** | `libs/gui.g` | Janelas Win32 (só Windows); os testes golden/repl_gui_std rodam em modo headless e não abrem janela. |
+| **`std-desktop`** | **4** | `libs/gui.g` |  13/11/2026: janela Win32 de verdade testada (golden_gui_janela_real e repl_gui_janela_real, sem modo headless): cria, mostra, confere no sistema que está visível e com o título pedido (gui_window_visible, gui_window_title, novas) e fecha; mesma saída no compilador e no REPL. O teste achou que, quando o programa é iniciado por outro com janela oculta (como o CTest), o primeiro ShowWindow era ignorado e a janela nunca aparecia; corrigido. Fora do Windows, gui_create_window só imprime 'Janela criada' (fachada a resolver no Linux/macOS). |
 
 ---
 
@@ -1382,9 +1477,9 @@ Nível de cada recurso pela evidência (recalibração de 12/11/2026, pelo códi
 | Recurso | Nível | Módulo / Binário | Capacidades |
 | :--- | :---: | :--- | :--- |
 | **`net-http-server`** | **4** | `GhostServer` / `libs/http.g` | Servidor HTTP RESTful nativo não-bloqueante (`route`, `get`, `post`, `put`, `del`), roteamento estático (`serve`), timeout e pooling assíncrono com paridade 100% C++ e REPL. |
-| **`net-http-client`** | **3** | `libs/http_client.g` | Cliente HTTP com suporte nativo a `http_get` e `http_post`, SSL/TLS seguro transparente, headers personalizados e payloads JSON. |
-| **`net-swarm`** | **3** | `ghost_swarm` / `ghost_node` | Aprendizado federado distribuído (Ghost Swarm): orquestração assíncrona sobre TCP, agregação federada de gradientes (FedAvg) e persistência de checkpoints (`cerebro.weights`). |
-| **`net-api`** | **3** | `ghost_api` / `ghost_ask` | Módulos de produção de inferência de borda: microsserviço de API HTTP/JSON e CLI de consulta ultrarrápida. |
+| **`net-http-client`** | **4** | `libs/http_client.g` |  13/11/2026: teste dedicado golden_http_cliente e repl_http_cliente: o programa sobe o servidor nativo numa thread (spawn) e faz http_get, http_post e uma rota inexistente (404) contra 127.0.0.1; mesma saída no compilador e no REPL. Para isso o REPL ganhou json_extract e texto.find(...) (-1 quando não acha) e passou a aceitar app.route(...) ('route' é palavra-chave). Windows via WinINet; o caminho Linux usa curl por popen com a URL no shell (injeção possível): trocar antes do Fedora. |
+| **`net-swarm`** | **4** | `ghost_swarm` / `ghost_node` |  13/11/2026: o teste ghost_swarm_federated roda no CTest (196/196 no Windows). O nível 3 anterior era só por não haver Linux/macOS, que é o critério do nível 5; são executáveis próprios, sem caminho de REPL a comparar. |
+| **`net-api`** | **4** | `ghost_api` / `ghost_ask` |  13/11/2026: o teste ghost_api_ask roda no CTest (196/196 no Windows). O nível 3 anterior era só por não haver Linux/macOS, que é o critério do nível 5; são executáveis próprios, sem caminho de REPL a comparar. |
 | **`net-wasm`** | **3** | `--wasm` / Emscripten | Transpilação nativa para WebAssembly (`ghost build --wasm`), injeção automática de `EMSCRIPTEN_KEEPALIVE` e integração completa com aplicações web no navegador. |
 
 ---
@@ -1394,12 +1489,12 @@ Nível de cada recurso pela evidência (recalibração de 12/11/2026, pelo códi
 
 | Recurso | Nível | Ferramenta / CLI | Capacidades |
 | :--- | :---: | :--- | :--- |
-| **`tool-vscode`** | **3** | Extensão VS Code | Pacote oficial com syntax highlighting TextMate, tema escuro nativo, snippets semânticos, ativação LSP e depurador DAP. |
-| **`tool-lsp`** | **3** | `ghost lsp` | Servidor de linguagem via JSON-RPC 2.0 sobre `stdio`: diagnósticos em tempo real, hover com assinaturas Markdown, autocompletion e navegação para definições. |
-| **`tool-fmt`** | **3** | `ghost fmt` | Formatador canônico de código com suporte a verificação (`--check`), formatação em lote e reescrita de arquivo (`-w`). |
+| **`tool-vscode`** | **4** | Extensão VS Code |  13/11/2026: teste automático vscode_extensao (vscode-ghostlang/test/validar.js, roda com Node): os 5 JSON da extensão são válidos, o 'main' existe, a gramática de cores tem exatamente as 97 palavras-chave do lexer (antes faltavam switch, try/catch, qreg, spawn, bool...) e cada um dos snippets, expandido como o VS Code faz, passa no ghost check. O teste achou o snippet 'Server Setup' importando lib/http.g (a pasta é libs/), corrigido. |
+| **`tool-lsp`** | **4** | `ghost lsp` |  13/11/2026: o vocabulário inventado saiu (fun, retorne, se/senao, enquanto, escreva, db_abrir...). O auto-completar usa as 97 palavras-chave reais do lexer (Lexer::keywordNames) e as funções declaradas em libs/*.g; o hover documenta a sintaxe real; 'ir para definição' acha function/class/interface/var (antes procurava 'fun'/'classe'). ghost lsp --test agora confere 16 respostas (capabilities, diagnósticos, hover, completion com e sem palavras falsas, definition) e falha se alguma divergir (CTest cli_lsp_test). |
+| **`tool-fmt`** | **4** | `ghost fmt` |  16/11/2026: ghost fmt tem testes de comportamento: cli_fmt, cli_fmt_check (arquivo com strings, for x in ... e fim de linha CRLF não precisa de formatação) e cli_fmt_check_ruim (arquivo mal formatado faz --check falhar). Corrigidos: depois de qualquer string o formatador comia o espaço seguinte ("x" + "y" virava "x"+ "y"), e --check acusava todo arquivo salvo com CRLF (padrão no Windows) mesmo sem nada a formatar. |
 | **`tool-testes`** | **4** | CTest / `ghost test` | Suíte com 167 testes automatizados passando 100% (runtime C++, programas golden e REPL) e 92 oráculos congelados da AST com detecção estrita de regressões. |
-| **`tool-debugger`** | **2** | `ghost debug` | ghost debug compila com -g -O0 e mostra o mapa de linhas .g (testes cli_debug_*); o modo --dap ainda não existe e, desde 12/11/2026, diz isso e sai com erro. |
-| **`tool-pm`** | **2** | `ghost pm` | ghost pm cria ghost.toml e ghost.lock (teste cli_pm_test), install não baixa nada (sem registro): desde 12/11/2026 confere ghost_packages/<nome>/ e falha quando falta alguma dependência. |
+| **`tool-debugger`** | **4** | `ghost debug` |  13/11/2026: ghost debug --dap é um adaptador DAP de verdade (src/GhostDAP.cpp): fala o Debug Adapter Protocol por stdin/stdout, compila o .g com -g e #line num processo filho e controla o gdb 18.1 pela interface MI. Suporta breakpoints por linha do .g, pilha com as linhas do .g, variáveis locais, next/stepIn/stepOut/continue/pause, evaluate e a saída do programa como evento output. O CTest cli_debug_dap (tests/cli/test_dap.py) faz uma sessão completa como o VS Code: breakpoint em dap_alvo.g:3, pilha soma:3 / main:9, a = 2 e b = 5, next até a linha 4, evaluate c = 7, continue até o fim com código 0 e 'y = 7' na saída. A extensão VS Code registra o depurador 'ghost' com ghost debug --dap. O gdb do MSYS2 exige a libstdc++ do GCC 16; para não trocar o compilador do projeto, scripts/montar-gdb.ps1 monta um gdb privado em third_party/gdb com as DLLs do GCC 16 (pacotes oficiais baixados pelo pacman -Sw), e o pacote portátil leva esse gdb em bin/gdb. Sem terminal, ghost debug roda o gdb em lote (run + bt). |
+| **`tool-pm`** | **4** | `ghost pm` |  13/11/2026: ghost pm install instala de verdade, sem registro remoto: 'ghost pm add nome --path <pasta>' copia a pasta e 'ghost pm add nome --git <url> [--ref tag]' clona o repositório (git clone --depth 1) para ghost_packages/<nome>/. Versões em semver de verdade (1.2.0, ^1.2, ~1.2.3, >=1.0, *), conferidas contra o ghost.toml do pacote. O ghost.lock (versão 2) grava spec, versão, fonte e o commit do git. URL e ref são validadas antes de chamar o git (uma URL com aspas ou & é recusada). cli_pm_test cobre: init, add, list, remove, install sem pacote (falha), semver aceita e recusa, install de pasta com um programa usando o pacote, install de git com tag e commit no lock, e a URL perigosa. |
 
 ---
 
@@ -1415,7 +1510,7 @@ Nível de cada recurso pela evidência (recalibração de 12/11/2026, pelo códi
 | **`nuc-complex`** | **4** | `src/InterpreterCore.cpp`, `include/GhostQuantum.hpp` | Números complexos de dupla precisão nativos com sufixo literal `i` (ex: `3.0 + 4.0i`), conjugado, módulo, fase e aritmética completa integrada com álgebra linear quântica. |
 | **`nuc-controle`** | **4** | `src/GhostAst.cpp`, `src/GhostCodegen.cpp` | `if`/`else if`/`else`, `while`, `do`/`while` e `for`, com `break` e `continue`; as variáveis declaradas num bloco ou no cabeçalho do laço valem só dentro dele. |
 | **`nuc-switch`** | **4** | `src/GhostAst.cpp`, `src/GhostCodegen.cpp` | `switch`/`case`/`default`, com vários valores por `case` (`case 1, 2:`), queda entre os `case` como em C e `break`. |
-| **`nuc-foreach`** | **4** | `src/GhostAst.cpp`, `src/GhostCodegen.cpp` | `foreach (x in colecao)` e `for (x in colecao)` sobre listas, conjuntos, `range()`, textos e `qreg`; `foreach (chave, valor in mapa)` para mapas. |
+| **`nuc-foreach`** | **4** | `src/GhostAst.cpp`, `src/GhostCodegen.cpp` |  16/11/2026: for no estilo do Python. 'for (x in colecao)' aceita tipo opcional (int, var, string...) e 'for x in colecao { }' dispensa os parênteses; range(fim), range(inicio, fim) e range(inicio, fim, passo) (passo negativo conta para baixo, o fim não entra, range(0) não roda); iteração sobre texto (caractere a caractere), lista, set, mapa (for chave, valor in mapa), matriz gate/matrix/GhostMatrix (Número G a Número G, linha por linha, por referência no C++: GhostMatrix ganhou begin/end) e qreg. golden_for_range e repl_for_range rodam o mesmo roteiro com a mesma saída. Achados e corrigidos: o REPL não aceitava 'for (var i in ...)' nem 'for (int x in ...)', não lia m(i, j) em expressões ('funcao nao encontrada'), não declarava 'ghost g = ghost(...)' e imprimia o ghost em outro formato. |
 | **`nuc-funcoes`** | **4** | `src/GhostAst.cpp`, `src/GhostCodegen.cpp` | Funções tipadas com parâmetros padrão e sobrecarga; lambdas `(x) => expr`, `\|x\| => expr` e `[captura](int x) -> tipo => { ... }`, com closures por valor e por referência; funções genéricas com restrições. |
 | **`nuc-oop`** | **4** | `src/GhostAst.cpp`, `src/GhostCodegen.cpp`, `src/InterpreterClass.cpp` | Classes com seções `public:`, `private:` e `protected:`, construtor `function NomeDaClasse(...)`, `this`, membros `static`, herança com `extends`/`super` e interfaces. Objetos têm semântica de valor: guardar um objeto derivado numa variável do tipo base copia só a parte da base. |
 | **`nuc-colecoes`** | **4** | `include/GhostCore.hpp`, `src/InterpreterCore.cpp` | `list<T>`, `map<K, V>` e `set<T>` com literais, fatias `xs[a:b:passo]`, compreensões e métodos como `push`, `append` e `size`. |
@@ -1438,10 +1533,10 @@ Nível de cada recurso pela evidência (recalibração de 12/11/2026, pelo códi
 | **`cmp-ast`** | **4** | `include/GhostAst.hpp`, `src/GhostAst.cpp`, `src/GhostCodegen.cpp` | Pipeline moderno e exclusivo de compilação baseado em AST unificada, análise semântica e gerador C++17. Isolamento limpo entre parsing, type checking e emissão de código. 92 oráculos congelados sem divergências. |
 | **`cmp-typecheck`** | **4** | `include/GhostTypes.hpp`, `src/GhostTypes.cpp` | Verificador de tipos estático completo com 102 regras semânticas ativas: verificação estrita de tipagem, classes, genéricos com restrições `extends`/`implements`, registradores quânticos e checagem de retorno. |
 | **`cmp-diagnosticos`** | **4** | `include/GhostDiag.hpp`, `src/GhostDiag.cpp` | Sistema profissional de mensagens de erro no padrão gcc/clang (`arquivo:linha:coluna`), catálogo de códigos canônicos `GHOST-Exxxx`, sublinhado visual colorido do trecho ofensivo e sugestões inteligentes de correção. |
-| **`cmp-estatico`** | **3** | `src/ghost_compiler.cpp` | Linkagem estática integral (`-x`) para binários nativos 100% autônomos (`-static -static-libgcc -static-libstdc++ -fopenmp`): executáveis portáteis funcionam diretamente sem dependência de DLLs externas. |
-| **`cmp-runtime-conf`** | **3** | `src/ghost_compiler.cpp`, `CMakeLists.txt` | Resolução e vinculação automática com o runtime nativo C++ (`libghost_runtime.a`): localização autônoma do runtime e headers em diretórios relativos ao compilador ou configuração de ambiente. |
-| **`cmp-cli`** | **3** | `src/ghost_compiler.cpp` | CLI profissional e unificada com comandos de ciclo de vida completo (`build`, `run`, `test`, `fmt`, `check`, `ast`, `lsp`, `debug`, `pm`), flags de otimização (`-O3`, `--release`, `-x`, `--wasm`) e cores ANSI. |
-| **`cmp-cmake`** | **3** | `CMakeLists.txt`, `scripts/build/buildWin.ps1` | Build robusto multiplataforma com CMake e Ninja: detecção inteligente de aceleração por hardware (CUDA AUTO/ON/OFF, OpenMP), geração automatizada de 167 testes CTest e empacotamento de releases. |
+| **`cmp-estatico`** | **4** | `src/ghost_compiler.cpp` |  13/11/2026: teste dedicado cli_build_estatico: ghost build gera o .exe, objdump confirma que ele só importa DLLs do Windows (UCRT/api-ms-win-*, sem libstdc++, libgcc, libgomp, libwinpthread) e o programa roda com o PATH reduzido a C:\Windows. No Windows o build é estático por padrão (-d gera dinâmico). |
+| **`cmp-runtime-conf`** | **4** | `src/ghost_compiler.cpp`, `CMakeLists.txt` |  13/11/2026: teste dedicado cli_runtime_sem_conf: o ghost.exe é copiado para raiz/bin com a libghost_runtime.a ao lado e os cabeçalhos em raiz/include, sem ghost-runtime.conf; ele acha o runtime sozinho e liga um programa com gate/transpose. O caminho com ghost-runtime.conf é exercitado por todos os goldens. |
+| **`cmp-cli`** | **4** | `src/ghost_compiler.cpp` |  13/11/2026: todos os subcomandos da CLI funcionam e têm teste: build/run (goldens), check, fmt, lsp (16 conferências), debug (--saida, lote e --dap com sessão completa), pm (pasta, git, semver), cpp/congelar e --wasm (gera o C++; o binário WebAssembly depende do Emscripten). ghost run usa executável temporário com nome único. As fachadas de 12/11 (--dap e pm install) foram substituídas por implementações reais. |
+| **`cmp-cmake`** | **4** | `CMakeLists.txt`, `scripts/build/buildWin.ps1` |  13/11/2026: build CMake + Ninja verificado no Windows com as opções novas: GHOST_USE_BLAS (OpenBLAS embutido na libghost_runtime.a por cmake/merge_blas.cmake), CUDA AUTO e testes condicionais (Node, dist/, backend quântico CUDA). O CTest completo (191 testes) roda a partir dele. Linux e macOS ficam para o nível 5. |
 
 ---
 
@@ -1453,13 +1548,13 @@ Nível de cada recurso pela evidência (recalibração de 12/11/2026, pelo códi
 | **`ia-network`** | **4** | `include/GhostHybrid.hpp`, `src/GhostCodegen.cpp` | Encadeamento declarativo de camadas com operador pipeline `>>` (`W1 >> Q >> W2`): redes clássicas, quânticas (VQC) e híbridas com retropropagação de gradientes e paridade total compilador/REPL. |
 | **`ia-ativacoes`** | **4** | `include/GhostMatrix.hpp`, `src/GhostNumberG.cpp` | Funções de ativação vetorizadas via `activate(matriz, func)`: `relu`, `sigmoid`, `sin`, `cos`, `tan`, `tanh`, `leaky_relu`, `gelu` e `softmax` com derivadas analíticas integradas ao Autograd. |
 | **`ia-optimize`** | **4** | `include/GhostMatrix.hpp`, `src/Interpreter.cpp` | Otimizadores estocásticos completos implementados nativamente em C++: SGD com momentum, Adam com correção de viés e RMSProp, suportando agendamento de taxa de aprendizado e clipping de gradiente. |
-| **`ia-conv`** | **3** | `include/GhostMatrix.hpp`, `src/Interpreter.cpp` | Convolução 2D (`conv2d`) para visão computacional: forward com stride e padding, pooling (`max_pool2d`, `avg_pool2d`) e backpropagation analítico exato dos kernels e entradas (`conv2d_grad_kernel`). |
-| **`ia-textmodel`** | **3** | `src/GhostTextModel.cpp`, `src/GhostTextCuda.cu` | Modelo de texto autorregressivo em nível de caractere e subword: forward, backward e amostragem em CPU (OpenMP) e GPU (CUDA), aprovado nos testes de runtime e oráculos congelados. |
-| **`ia-transformer`** | **3** | `src/GhostTransformer.cpp`, `src/GhostTransformerOps.cpp` | Arquitetura Transformer pura com auto-atenção multi-cabeça mascarada causal, codificação posicional senoidal, checkpoints exatos de pesos/momentos e geração determinística no Windows e Linux. |
-| **`ia-transformerg`** | **3** | `include/GhostTransformerG.hpp`, `tests/cpp/transformerg_runtime.cpp` | Transformer hiper-complexo com tensores $G$ e estados `GhostQubit`: atenção quântica, GEMM de amplitudes complexas e propagação analítica de incerteza ($\theta^2$). |
+| **`ia-conv`** | **4** | `include/GhostMatrix.hpp`, `src/Interpreter.cpp` |  13/11/2026: paridade conferida entre compilador e REPL. O REPL passou a imprimir as mesmas mensagens do compilador em x = conv(...) / x = transpose(a) e deixou de imprimir eco '[Matematica]' nas atribuições por método; aceita var m = img.conv2d(k, 1) e m.getRows()/getCols(). Testes golden_conv_transpose e repl_conv_transpose (mesmo roteiro, mesma saída), repl_ia_conv e diag_conv_expressao. |
+| **`ia-textmodel`** | **4** | `src/GhostTextModel.cpp`, `src/GhostTextCuda.cu` |  13/11/2026: o REPL ganhou os objetos nativos da IA (src/InterpreterNative.cpp): text_model, transformer_model, transformer_model_v5, matrix_g, temporal_context, knowledge_consult, knowledge_info, web_search_public, text_perplexity, text_int e text_decimal, com os mesmos objetos C++ do runtime. golden_ia_nativa e repl_ia_nativa rodam o mesmo roteiro e dão a mesma saída (13 linhas). textmodel tm = text_model(...) funciona no REPL; tm.self_test() confere os gradientes por diferenças finitas nos dois caminhos; continuam runtime_cpu e golden_native_textmodel. |
+| **`ia-transformer`** | **4** | `src/GhostTransformer.cpp`, `src/GhostTransformerOps.cpp` |  13/11/2026: o REPL ganhou os objetos nativos da IA (src/InterpreterNative.cpp): text_model, transformer_model, transformer_model_v5, matrix_g, temporal_context, knowledge_consult, knowledge_info, web_search_public, text_perplexity, text_int e text_decimal, com os mesmos objetos C++ do runtime. golden_ia_nativa e repl_ia_nativa rodam o mesmo roteiro e dão a mesma saída (13 linhas). transformer_model(...) no REPL; self_test confere bytes UTF-8, gradientes (erro máximo 1,35e-4), máscara causal e aprendizado; continua transformer_cpu. |
+| **`ia-transformerg`** | **4** | `include/GhostTransformerG.hpp`, `tests/cpp/transformerg_runtime.cpp` |  13/11/2026: o REPL ganhou os objetos nativos da IA (src/InterpreterNative.cpp): text_model, transformer_model, transformer_model_v5, matrix_g, temporal_context, knowledge_consult, knowledge_info, web_search_public, text_perplexity, text_int e text_decimal, com os mesmos objetos C++ do runtime. golden_ia_nativa e repl_ia_nativa rodam o mesmo roteiro e dão a mesma saída (13 linhas). transformer_model_v5(...) no REPL; self_test confere o kernel quântico (GEMM de GhostQubit, forward e backward). As mensagens '[V5] ... VRAM' e 'Kernel CUDA' diziam GPU mesmo rodando na CPU; passaram a ser neutras. Continuam transformerg_qubit e transformerg_benchmark. |
 | **`ia-llm-gguf`** | **3** | `include/GhostLLM.hpp`, `compiler/llama*.dll` | Inferência local nativa de modelos LLM em formato GGUF (Llama 3.2 3B Q4_K_M) via `load_gguf` e `llm`, com amostragem configurável de temperatura e amostragem top-p. |
-| **`ia-conhecimento`** | **3** | `src/GhostKnowledge.cpp`, `src/GhostWeb.cpp`, `src/GhostTemporal.cpp` | Módulos cognitivos nativos: base de conhecimento persistente (`.gkm`) com sanitização de caminhos, indexação de fontes web e consciência temporal precisa (data/hora/fuso). |
-| **`ia-propria`** | **3** | `ia_propria/` (v3, v4, v5) | Assistente de IA inteligente desenvolvido 100% em código GhostLang: 650.808 parâmetros treináveis, chat interativo, pesquisa e memória, validado no oráculo congelado `codegen_congelado_ia`. |
+| **`ia-conhecimento`** | **4** | `src/GhostKnowledge.cpp`, `src/GhostWeb.cpp`, `src/GhostTemporal.cpp` |  13/11/2026: o REPL ganhou os objetos nativos da IA (src/InterpreterNative.cpp): text_model, transformer_model, transformer_model_v5, matrix_g, temporal_context, knowledge_consult, knowledge_info, web_search_public, text_perplexity, text_int e text_decimal, com os mesmos objetos C++ do runtime. golden_ia_nativa e repl_ia_nativa rodam o mesmo roteiro e dão a mesma saída (13 linhas). knowledge_consult(tema, online, atualizar) no REPL devolve o mesmo resultado do compilador (campos allowed, found, cached, saved, stale, text); o teste roda sem rede. Continuam knowledge_memory_offline, temporal_context_offline e web_sources_offline. |
+| **`ia-propria`** | **3** | `ia_propria/` (v3, v4, v5) |  Recalibrado em 12/11/2026: Aplicação em GhostLang (v3 a v5) com C++ congelado em codegen_congelado_ia; depende do backend nativo e não tem teste de comportamento. |
 | **`ia-autograd`** | **4** | `libs/autograd.g`, `include/GhostAutograd.hpp`, `src/GhostAutograd.cpp` | Grafo computacional reverso de diferenciação automática dinâmica (Reverse-Mode Autodiff) com ordenação topológica e gradientes analíticos exatos sobre matrizes e tensores. |
 | **`ia-dataset`** | **4** | `libs/dataset.g`, `include/GhostDataset.hpp`, `src/GhostDataset.cpp` | Pipeline de dados e dataframes nativos: carga CSV, particionamento treino/teste estratificado, batching automático com embaralhamento aleatório e paralelismo multithread. |
 
@@ -1476,7 +1571,7 @@ Nível de cada recurso pela evidência (recalibração de 12/11/2026, pelo códi
 | **`qml-classificador`** | **4** | `include/GhostQML.hpp`, `src/GhostQML.cpp` | Classificador quântico supervisionado de alta performance (`add_sample`, `fit`, `predict`, `save`, `load`): paralelização OpenMP, acurácia $\ge 90\%$ e convergência verificada de 59,4% para 96,9%. |
 | **`qml-kernels`** | **4** | `include/GhostQML.hpp`, `src/GhostQML.cpp` | Aprendizado baseado em núcleos quânticos em espaço de Hilbert: `zz_feature_map`, `encode_rzz`, matrizes de Gram semidefinidas positivas e regressão/classificação Kernel Ridge com 100% de acurácia no problema XOR. |
 | **`qml-vqe-qaoa`** | **4** | `include/GhostQML.hpp`, `libs/quantum.g` | Algoritmos quânticos variacionais de ponta: VQE molecular para cálculo da energia do estado fundamental ($H_2$ com erro de $3 \times 10^{-6}\text{ Ha}$) e QAOA $p=3$ para MaxCut atingindo corte ótimo com aproximação de $0,975$. |
-| **`qml-atencao`** | **3** | `src/GhostTransformerG.cpp`, `tests/cpp/transformerg_runtime.cpp` | Atenção quântica hiper-complexa no TransformerG com tensores de amplitudes quânticas (`GhostQubit`), multi-head attention quântica (`heads_qubit`) e GEMM quântico validado no CTest. |
+| **`qml-atencao`** | **3** | `src/GhostTransformerG.cpp`, `tests/cpp/transformerg_runtime.cpp` |  Recalibrado em 12/11/2026: Testes transformerg_* (runtime, V5 experimental); sem paridade de REPL. Descrição anterior: Atenção quântica hiper-complexa no TransformerG com representação em estados GhostQubit (amplitudes complexas + incerteza theta^2), atenção multi-cabeça quântica (heads_qubit) e GEMM quântico. Validado no CTest transformerg_qubit e transformerg_benchmark. Em 13/11/2026: o V5 ficou acessível no REPL (transformer_model_v5), mas a atenção quântica em si ainda não tem teste dedicado; segue no nível 3. |
 | **`qml-inspirado`** | **4** | `src/Interpreter.cpp`, `src/GhostCodegen.cpp` | Otimização meta-heurística quantum-inspired multiverso: ramificações paralelas de busca (`hypothesis`) e colapso ótimo de estado (`collapse_max`, `collapse_min`) com paridade integral compilador/REPL. |
 
 ---
@@ -1486,9 +1581,9 @@ Nível de cada recurso pela evidência (recalibração de 12/11/2026, pelo códi
 
 | Recurso | Nível | Componentes Principais | Capacidades |
 | :--- | :---: | :--- | :--- |
-| **`gpu-cuda`** | **3** | `src/GhostCuda.cu`, `src/GhostDevice.cpp` | Runtime CUDA de alto desempenho com compilação JIT/AOT e auto-detecção de GPU (`GHOST_CUDA=AUTO/ON/OFF`). Suporte oficial às microarquiteturas Pascal (61), Turing (75), Ampere (86) e Ada Lovelace (89), acelerando cálculos de circuitos quânticos em até $6.45\times$ com precisão exata CPU == GPU em 24 qubits. |
+| **`gpu-cuda`** | **3** | `src/GhostCuda.cu`, `src/GhostDevice.cpp` |  Recalibrado em 12/11/2026: Runtime CUDA real com detecção automática (quantum_cuda), verificado só nesta máquina (GTX 1050 Ti). Descrição anterior: Runtime CUDA de alta performance integrado ao pipeline com compilação JIT e Ahead-of-Time via NVCC/CMake. Detecção inteligente automática de dispositivo (GHOST_CUDA=AUTO/ON/OFF, GHOST_DEVICE=cuda/cpu), suporte às microarquiteturas Pascal (61), Turing (75), Ampere (86) e Ada Lovelace (89). Aceleração massiva comprovada no CTest quantum_cuda com equivalência numérica exata CPU == GPU em 24 qubits. Conferido em 13/11/2026: o backend quântico CUDA está verificado (ver q-statevector-gpu), mas o runtime CUDA da IA (GHOST_RUNTIME_CUDA) não é compilado nesta configuração e o build_native aponta para o CUDA 13, que não suporta a GTX 1050 Ti. Continua no nível 3 até compilar e testar o runtime da IA com o CUDA 12.9. |
 | **`gpu-pragma`** | **4** | `src/Parser.cpp`, `src/GhostCodegen.cpp` | Diretivas de controle de execução: `pragma gpu` para garantia estrita de execução no acelerador e `pragma auto` para fallback transparente e seguro para CPU multithreaded com OpenMP. Paridade de 100% entre o compilador e o REPL (`golden_gpu_pragma` e `repl_gpu_pragma`). |
-| **`gpu-openmp`** | **3** | `include/GhostMatrix.hpp`, `CMakeLists.txt` | Paralelismo multi-thread vetorizado com `-fopenmp` ativado por padrão em todo o runtime nativo: aceleração em tensores N-dimensionais, matrizes $G$, simulador quântico e forward/backward de redes neurais, com balanceamento dinâmico via `OMP_NUM_THREADS`. |
+| **`gpu-openmp`** | **4** | `include/GhostMatrix.hpp`, `CMakeLists.txt` |  13/11/2026: teste dedicado runtime_openmp (tests/cpp/openmp_paralelo.cpp): confere que o runtime foi compilado com OpenMP, que a região paralela usa mais de uma thread, que o dgemm nativo paralelo dá o mesmo resultado que o laço serial (dif. < 1e-9) e que 1 thread e todas as threads dão resultado idêntico. |
 | **`gpu-outros`** | **1** | `include/GhostDevice.hpp`, `src/GhostDevice.cpp` | Não implementado. Desde 12/11/2026 o runtime diz a verdade: device_supports() responde false e use_device() dá erro "ainda nao foi implementado" para vulkan, metal e rocm. |
 
 ---
@@ -1501,8 +1596,8 @@ Nível de cada recurso pela evidência (recalibração de 12/11/2026, pelo códi
 | **`plat-windows`** | **4** | `scripts/build/buildWin.ps1`, `src/ghost_compiler.cpp` | Suporte nativo completo a Windows x64 (MSYS2 MinGW-w64 + Ninja e MSVC). Executáveis estáticos autônomos por padrão (`-x`), aceleração CUDA em GPU NVIDIA e aprovação integral nos 167 testes CTest. |
 | **`plat-linux`** | **2** | `scripts/build/buildLinux.sh`, `CMakeLists.txt` | Scripts e CMake existem, mas o build e os testes não foram rodados no Linux desde as mudanças de novembro (há código só do Windows, como o caminho do llama-cli.exe e WinINet). |
 | **`plat-macos`** | **1** | `scripts/build/buildMacOS.sh`, `.github/workflows/ci.yml` | Só o script scripts/build/buildMacOS.sh e a entrada no ci.yml; nunca foi compilado num Mac. |
-| **`plat-portable`** | **3** | `scripts/build/build_portable.ps1`, `dist/GhostLang-Portable-x64` | Distribuição portátil autônoma e completa (GhostLang Portable): inclui todos os binários da toolchain (`ghost`, `ghost_api`, `ghost_ask`, `ghost_node`, `ghost_swarm`), compilador C++ embutido, headers e documentação. |
-| **`plat-instalador`** | **2** | `scripts/package_release.ps1`, `dist/` | Só o zip portátil com sha256 (scripts/package_release.*); não há instalador Windows, pacotes Linux nem release publicada. |
+| **`plat-portable`** | **4** | `scripts/build/build_portable.ps1`, `dist/GhostLang-Portable-x64` |  13/11/2026: scripts/package_release.ps1 refeito: o pacote leva o GCC do MSYS2 (16.2 desde 19/11/2026) embutido em bin/compiler (os arquivos exatos dos pacotes, via pactree + pacman -Ql, sem documentação), o runtime com OpenBLAS, cabeçalhos, libs, exemplos, Guia, Manual, NUCLEO e a licença do OpenBLAS. 687 MB em pasta, 162 MB zipado, com SHA-256. O CTest portatil_maquina_limpa roda o ghost do pacote com o PATH reduzido ao Windows: compila e executa um programa e abre o REPL. O teste achou que o cc1plus embutido não achava as DLLs (gmp, zstd...); o ghost passou a pôr compiler/bin no PATH quando usa o compilador embutido. Em 19/11/2026, com o GCC 16.2: o GCC do MSYS2 passou a ser configurado com --with-sysroot=/ucrt64 e o OpenMP (libgomp) virou pacote separado; o portatil_maquina_limpa achou os dois (wchar.h e -lgomp não encontrados). O ghost passa --sysroot=<compiler> ao usar o compilador embutido e o empacotador inclui o libgomp. |
+| **`plat-instalador`** | **4** | `scripts/package_release.ps1`, `dist/` |  13/11/2026: instalador para Windows sem ferramentas externas (scripts/instalador/instalar.ps1, no pacote como instalar.bat): copia para %LOCALAPPDATA%\Programs\GhostLang, põe bin no PATH do usuário (sem administrador), cria atalho no Menu Iniciar e grava instalacao.json; desinstalar.ps1 desfaz tudo. O CTest cli_instalador instala um mini-pacote numa pasta temporária (sem PATH nem atalho), compila e roda um programa com o ghost instalado e desinstala. Ainda não há instalador .msi/.exe assinado, pacotes Linux nem release publicada (sem repositório remoto). |
 | **`plat-ci`** | **1** | `.github/workflows/ci.yml` | .github/workflows/ci.yml existe (Windows, Linux, macOS), mas nunca rodou: o repositório não tem commit nem remote no GitHub. |
 
 

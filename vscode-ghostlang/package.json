@@ -6,7 +6,9 @@
   "publisher": "ghostlang-dev",
   "main": "./client/extension.js",
   "activationEvents": [
-    "onLanguage:ghostlang"
+    "onLanguage:ghostlang",
+    "onDebugResolve:ghost",
+    "onDebugDynamicConfigurations:ghost"
   ],
   "engines": {
     "vscode": "^1.75.0"
@@ -66,9 +68,7 @@
     "debuggers": [
       {
         "type": "ghost",
-        "label": "GhostLang Debugger (GDB)",
-        "program": "",
-        "runtime": "ghost",
+        "label": "GhostLang (gdb)",
         "configurationAttributes": {
           "launch": {
             "required": [
@@ -78,7 +78,7 @@
               "program": {
                 "type": "string",
                 "description": "Arquivo de entrada GhostLang (.g) para depurar",
-                "default": ""
+                "default": "${file}"
               },
               "args": {
                 "type": "array",
@@ -88,7 +88,7 @@
               "stopOnEntry": {
                 "type": "boolean",
                 "description": "Pausa imediatamente no inicio da funcao main",
-                "default": true
+                "default": false
               }
             }
           }
@@ -97,10 +97,13 @@
           {
             "type": "ghost",
             "request": "launch",
-            "name": "Depurar Arquivo GhostLang Atual",
-            "program": "",
-            "stopOnEntry": true
+            "name": "Depurar arquivo GhostLang atual",
+            "program": "${file}",
+            "stopOnEntry": false
           }
+        ],
+        "languages": [
+          "ghostlang"
         ]
       }
     ],

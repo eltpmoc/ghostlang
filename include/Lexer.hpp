@@ -37,6 +37,11 @@ public:
     std::string getSource() const { return source; }
     void setCppLiterals(bool enabled) { cppLiterals = enabled; }
     void setLine(int line) { currentLine = line; }   // trecho de ${...}: linhas contadas a partir da f-string
+    // Palavras reservadas reais, em ordem alfabética (o LSP usa esta lista no auto-completar)
+    static std::vector<std::string> keywordNames();
+    // Sequências de escape de um literal de string (\n \t \r \\ \" \' \0 \xHH), como o C++ faz
+    // no programa compilado. O token guarda o texto cru porque o gerador o copia para o C++.
+    static std::string unescape(const std::string& raw);
 };
 
 #endif

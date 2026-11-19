@@ -446,6 +446,10 @@ std::string joinTokensForType(const std::vector<Token> &toks, size_t from,
 }
 } // namespace
 
+// Acesso de outros arquivos do REPL (src/InterpreterNative.cpp) aos conversores acima
+std::string ghost_repl_text(const GhostValue &v) { return textOf(v, false); }
+double ghost_repl_num(const GhostValue &v, const std::string &ctx) { return numOf(v, ctx); }
+
 std::string ghost_repl_precise(double v); // InterpreterQuantum.cpp
 
 GhostValue GhostInterpreter::applyBinary(GTokenType op, const GhostValue &a,
@@ -893,6 +897,19 @@ GhostValue GhostInterpreter::exprPrimary(std::vector<Token> &t, size_t &i,
     return i + 1 < t.size() && t[i + 1].type == ty;
   };
 
+  // ghost(x, y, p, theta2) dentro de expressões, como no compilador
+  if (tok.type == GTokenType::KwGhost && nextIs(GTokenType::LParen)) {
+    ++i;
+    auto raw = splitArgs(t, i);
+    ++i;
+    if (raw.size() != 4)
+      throw std::runtime_error("ghost(x, y, p, theta2) espera 4 numeros");
+    double c[4];
+    for (int k = 0; k < 4; ++k)
+      c[k] = numOf(evalValue(raw[k]), "ghost");
+    return exprPostfix(GhostValue::text(GhostNumberG(c[0], c[1], c[2], c[3]).to_string()), "", t, i, eval);
+  }
+
   switch (tok.type) {
   case GTokenType::Number: {
     ++i;
@@ -908,7 +925,7 @@ GhostValue GhostInterpreter::exprPrimary(std::vector<Token> &t, size_t &i,
   }
   case GTokenType::String:
     ++i;
-    return exprPostfix(GhostValue::text(tok.value), "", t, i, eval);
+    return exprPostfix(GhostValue::text(Lexer::unescape(tok.value)), "", t, i, eval);
   case GTokenType::FString:
     ++i;
     return exprPostfix(GhostValue::text(evaluateFString(tok.value)), "", t, i,
@@ -1569,8 +1586,9 @@ GhostValue GhostInterpreter::exprPrimary(std::vector<Token> &t, size_t &i,
     return exprPostfix(callGenericFunction(name, targs, args), "", t, i, eval);
   }
 
-  // Chamadas: funções do usuário e funções embutidas
-  if (nextIs(GTokenType::LParen) && !hasVar) {
+  // Chamadas: funções do usuário e funções embutidas (m(i, j) de uma matriz é tratado mais abaixo)
+  if (nextIs(GTokenType::LParen) && !hasVar &&
+      !(memory.count(name) && !functions_memory.count(name))) {
     ++i;
     auto args = splitArgs(t, i);
     ++i;
@@ -1680,6 +1698,15 @@ GhostValue GhostInterpreter::exprPrimary(std::vector<Token> &t, size_t &i,
   if (memory.count(name) && !hasVar) {
     GhostMatrix &m = memory[name];
     ++i;
+    // m.getRows() / m.getCols(): dimensões, como no programa compilado
+    if (i + 3 < t.size() && t[i].type == GTokenType::Dot &&
+        (t[i + 1].value == "getRows" || t[i + 1].value == "getCols") &&
+        t[i + 2].type == GTokenType::LParen && t[i + 3].type == GTokenType::RParen) {
+      const bool linhas = t[i + 1].value == "getRows";
+      i += 4;
+      return exprPostfix(GhostValue::number(static_cast<double>(linhas ? m.getRows() : m.getCols()), true),
+                         "", t, i, eval);
+    }
     if (i < t.size() && t[i].type == GTokenType::LParen) {
       ++i;
       GhostValue rVal = exprTernary(t, i, eval);
@@ -1726,6 +1753,10 @@ GhostValue GhostInterpreter::exprPrimary(std::vector<Token> &t, size_t &i,
         throw std::runtime_error("Indice fora dos limites: " + name);
       return GhostValue::number(m(0, static_cast<size_t>(k)).x);
     }
+    // variável ghost (1x1 com tipo KwGhost): mesmo texto do compilador
+    if (m.getRows() == 1 && m.getCols() == 1 && type_memory.count(name) &&
+        type_memory[name] == GTokenType::KwGhost)
+      return exprPostfix(GhostValue::text(m(0, 0).to_string()), "", t, i, eval);
     std::ostringstream ss;
     ss << "[ ";
     for (size_t r = 0; r < m.getRows(); ++r) {
@@ -1923,6 +1954,27 @@ GhostValue GhostInterpreter::exprPostfix(GhostValue base,
       const std::string m = t[i + 1].value;
       i += 2;
       const bool call = i < t.size() && t[i].type == GTokenType::LParen;
+      if (base.kind == K::Map && base.str == "__registro__" && !call) { // k.text de knowledge_consult
+        auto f = base.map.find(m);
+        if (f == base.map.end())
+          throw std::runtime_error("resultado nao tem o campo '" + m + "'");
+        base = f->second;
+        lv = false;
+        continue;
+      }
+      if (isNativeObject(base)) { // modelo.generate("..."), mg.get(0, 0), ctx.clock()
+        if (!call)
+          throw std::runtime_error("objeto " + base.map["tipo"].str + " nao tem campo '" + m + "' (use um metodo)");
+        auto raw = splitArgs(t, i);
+        ++i;
+        std::vector<GhostValue> args;
+        if (eval)
+          for (auto &r : raw)
+            args.push_back(evalValue(r));
+        base = eval ? callNativeMethod(base, m, args) : GhostValue::number(0, true);
+        lv = false;
+        continue;
+      }
       if (base.kind == K::Iface) { // f.area(): só métodos da interface,
                                    // despachados para a classe real
         if (!call)
@@ -2817,6 +2869,12 @@ GhostInterpreter::collMethod(const LPath *path, const GhostValue &self,
       need(1, 1);
       return GV::boolean(s.find(textOf(a[0], false)) != std::string::npos);
     }
+    if (m == "find") {
+      // posição da primeira ocorrência, ou -1 (no compilado, npos compara igual a -1)
+      need(1, 1);
+      const auto p = s.find(textOf(a[0], false));
+      return GV::number(p == std::string::npos ? -1.0 : static_cast<double>(p), true);
+    }
     if (m == "starts_with") {
       need(1, 1);
       const auto p = textOf(a[0], false);
@@ -2899,6 +2957,11 @@ GhostValue GhostInterpreter::callBuiltin(const std::string &name,
       throw std::runtime_error(name + "(): numero de argumentos invalido");
   };
   auto x = [&](size_t k) { return numOf(a.at(k), name); };
+  {
+    GV nativo;
+    if (callNativeFactory(name, a, nativo))
+      return nativo;
+  }
   if (name == "input" || name == "inputln") {
     need(0, 2);
     std::string prompt = "";
@@ -3372,6 +3435,14 @@ GhostValue GhostInterpreter::callBuiltin(const std::string &name,
     need(1, 1);
     ghost_gui_window_show(static_cast<int>(numOf(a[0], name)));
     return GV::number(0, true);
+  }
+  if (name == "gui_window_visible" || name == "ghost_gui_window_visible") {
+    need(1, 1);
+    return GV::boolean(ghost_gui_window_visible(static_cast<int>(numOf(a[0], name))));
+  }
+  if (name == "gui_window_title" || name == "ghost_gui_window_title") {
+    need(1, 1);
+    return GV::text(ghost_gui_window_title(static_cast<int>(numOf(a[0], name))));
   }
   if (name == "gui_close_window" || name == "ghost_gui_window_close") {
     need(1, 1);
@@ -3911,6 +3982,10 @@ GhostValue GhostInterpreter::callBuiltin(const std::string &name,
   if (name == "http_post" || name == "http_client_post") {
     need(2, 2);
     return GV::text(http_post(textOf(a[0], false), textOf(a[1], false)));
+  }
+  if (name == "json_extract") {
+    need(2, 2);
+    return GV::text(json_extract(textOf(a[0], false), textOf(a[1], false)));
   }
   if (name == "vec_add" || name == "vec_sub" || name == "vec_mul" ||
       name == "vec_div") {
@@ -4900,7 +4975,7 @@ void GhostInterpreter::runForeach(const std::vector<std::string> &vars,
     GhostMatrix &m = memory[coll[0].value];
     for (size_t r = 0; r < m.getRows(); ++r)
       for (size_t c = 0; c < m.getCols(); ++c)
-        items.push_back({GhostValue::number(m(r, c).x), {}});
+        items.push_back({GhostValue::text(m(r, c).to_string()), {}}); // Numero G, como no compilado
   } else if (coll.size() == 1 && coll[0].type == GTokenType::Identifier &&
              qreg_memory.count(coll[0].value)) {
     int nq = qreg_memory[coll[0].value].size();

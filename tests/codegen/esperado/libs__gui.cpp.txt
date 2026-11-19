@@ -4,12 +4,16 @@
 #line 19 "libs/gui.g"
 #line 23 "libs/gui.g"
 #line 27 "libs/gui.g"
+#line 32 "libs/gui.g"
+#line 36 "libs/gui.g"
 #line 6 "libs/gui.g"
 #line 10 "libs/gui.g"
 #line 14 "libs/gui.g"
 #line 18 "libs/gui.g"
 #line 22 "libs/gui.g"
 #line 26 "libs/gui.g"
+#line 31 "libs/gui.g"
+#line 35 "libs/gui.g"
 ----
 /*TranspiladopeloGhostCompilerv1.0*/#include<iostream>#include<cstdio>#include<cstdlib>#include<string>#include<complex>#include<type_traits>#include<fstream>#include<sstream>#include<thread>#include<chrono>#include<mutex>#include"include/GhostNumberG.hpp"#include"include/GhostMatrix.hpp"#include"include/GhostLLM.hpp"#include"include/GhostLib.hpp"#include"include/GhostDevice.hpp"#include"include/GhostTextModel.hpp"#include"include/GhostWeb.hpp"#include"include/GhostKnowledge.hpp"#include"include/GhostTemporal.hpp"#include"include/GhostTransformer.hpp"#include"include/GhostTransformerG.hpp"#include"include/GhostMatrixG.hpp"#include"include/GhostQuantum.hpp"#include"include/GhostQML.hpp"#include"include/GhostHybrid.hpp"#include"include/GhostQTape.hpp"#include"include/GhostCore.hpp"#ifdef_WIN32#include<windows.h>#endifintgui_alert(std::stringtitle,std::stringmsg);
 intgui_confirm(std::stringtitle,std::stringmsg);
@@ -17,6 +21,8 @@ intgui_open_browser(std::stringurl);
 intgui_create_window(std::stringtitle,intwidth,intheight);
 voidgui_show_window(inthandle);
 voidgui_close_window(inthandle);
+boolgui_window_visible(inthandle);
+std::stringgui_window_title(inthandle);
 intgui_alert(std::stringtitle,std::stringmsg){
 returnghost_gui_message_box(title,msg,0);
 }
@@ -34,6 +40,12 @@ ghost_gui_window_show(handle);
 }
 voidgui_close_window(inthandle){
 ghost_gui_window_close(handle);
+}
+boolgui_window_visible(inthandle){
+returnghost_gui_window_visible(handle);
+}
+std::stringgui_window_title(inthandle){
+returnghost_gui_window_title(handle);
 }
 intmain(intargc,char**argv){
 try{

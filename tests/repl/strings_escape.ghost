@@ -1,0 +1,7 @@
+// Sequencias de escape: mesma saida do programa compilado (golden_strings_escape).
+print("a\"b|");
+print("x\ty|");
+print("l1\nl2|");
+print("barra \\ fim|");
+print(len("a\"b"));
+exit

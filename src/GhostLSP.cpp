@@ -2,6 +2,11 @@
 #include "../include/GhostAst.hpp"
 #include "../include/GhostDiag.hpp"
 #include "../include/GhostTypes.hpp"
+#include "../include/Lexer.hpp"
+#include <filesystem>
+#include <fstream>
+#include <regex>
+#include <set>
 
 #include <iostream>
 #include <sstream>
@@ -118,11 +123,13 @@ std::string GhostLSP::getWordAt(const std::string& text, int line, int character
 
 void GhostLSP::sendResponse(const std::string& id, const std::string& result) {
     std::string content = "{\"jsonrpc\":\"2.0\",\"id\":" + id + ",\"result\":" + result + "}";
+    if (capture) { capture->push_back(content); return; }
     std::cout << "Content-Length: " << content.length() << "\r\n\r\n" << content << std::flush;
 }
 
 void GhostLSP::sendNotification(const std::string& method, const std::string& params) {
     std::string content = "{\"jsonrpc\":\"2.0\",\"method\":\"" + method + "\",\"params\":" + params + "}";
+    if (capture) { capture->push_back(content); return; }
     std::cout << "Content-Length: " << content.length() << "\r\n\r\n" << content << std::flush;
 }
 
@@ -224,36 +231,29 @@ void GhostLSP::handleHover(const std::string& id, const std::string& uri, int li
         return;
     }
 
+    // Documentação das palavras-chave mais usadas, com a sintaxe real (conferida nos testes)
     static const std::map<std::string, std::string> docs = {
-        {"fun", "### Palavra-chave: `fun`\nDeclara uma função ou método em GhostLang.\n```ghost\nfun soma(a: int, b: int): int {\n    retorne a + b;\n}\n```"},
-        {"retorne", "### Palavra-chave: `retorne`\nFinaliza a execução da função e devolve o valor especificado ao chamador."},
-        {"se", "### Controle de Fluxo: `se`\nEstrutura condicional binária.\n```ghost\nse (x > 0) {\n    escreva(\"positivo\");\n} senao {\n    escreva(\"nao positivo\");\n}\n```"},
-        {"senao", "### Controle de Fluxo: `senao`\nBloco executado quando a condição do `se` for falsa."},
-        {"para", "### Laço: `para`\nIteração por intervalo ou sobre elementos de coleções.\n```ghost\npara (x em lista) { escrevaln(x); }\n```"},
-        {"enquanto", "### Laço: `enquanto`\nExecuta o bloco enquanto a condição permanecer verdadeira."},
-        {"classe", "### POO: `classe`\nDeclaração de modelo orientado a objetos com propriedades e métodos."},
-        {"interface", "### Contrato: `interface`\nDeclaração de contrato de tipos com assinaturas abstratas."},
-        {"qubit", "### Quântico: `qubit`\nAloca registradores quânticos ou qubits individuais.\n```ghost\nqubit q[2];\n```"},
-        {"hadamard", "### Porta Quântica: `hadamard(q)`\nCria superposição quântica equiprovável $|+\\rangle$ ou $|-\\rangle$."},
-        {"cnot", "### Porta Quântica: `cnot(controle, alvo)`\nInverte o estado do qubit alvo condicionado ao controle."},
-        {"medir", "### Medição: `medir(qubit)`\nRealiza colapso projetivo na base computacional Z, retornando 0 ou 1."},
-        {"pauli_x", "### Porta Quântica: `pauli_x(q)`\nInversão de bit quântico (NOT quântico / rotação $\\pi$ em X)."},
-        {"pauli_y", "### Porta Quântica: `pauli_y(q)`\nRotação de bit e fase $\\pi$ em Y."},
-        {"pauli_z", "### Porta Quântica: `pauli_z(q)`\nInversão de fase $\\pi$ em Z."},
-        {"fase", "### Porta Quântica: `fase(theta, q)`\nAplica rotação de fase parametrizada $\\theta$ em torno de Z."},
-        {"swap", "### Porta Quântica: `swap(q1, q2)`\nPermuta os estados quânticos de dois qubits."},
-        {"escreva", "### Função Builtin: `escreva(...)`\nEscreve argumentos formatados na saída padrão sem quebra de linha."},
-        {"escrevaln", "### Função Builtin: `escrevaln(...)`\nEscreve argumentos na saída padrão seguido de quebra de linha."},
-        {"leia", "### Função Builtin: `leia(): string`\nLê uma linha de texto a partir da entrada padrão (stdin)."},
-        {"tamanho", "### Função Builtin: `tamanho(colecao): int`\nRetorna o número de elementos de uma lista, texto ou vetor."},
-        {"matriz", "### Álgebra Linear: `matriz(linhas, colunas)`\nInstancia matriz bidimensional de alta performance com suporte a CPU/GPU."},
-        {"tensor", "### Tensores: `tensor(dimensoes...)`\nEstrutura multidimensional otimizada para modelos de IA e autograd."},
-        {"gui_alert", "### GhostGUI: `gui_alert(titulo, mensagem)`\nExibe caixa de diálogo nativa de alerta na interface gráfica desktop."},
-        {"gui_confirm", "### GhostGUI: `gui_confirm(titulo, mensagem): bool`\nExibe diálogo nativa de confirmação Sim/Não."},
-        {"gui_create_window", "### GhostGUI: `gui_create_window(titulo, larg, alt): int`\nCria janela nativa do GhostGUI e retorna identificador de handle."},
-        {"db_abrir", "### GhostDB: `db_abrir(caminho): int`\nAbre conexão com banco de dados SQLite local e retorna handle de conexão."},
-        {"db_executar", "### GhostDB: `db_executar(conn, sql): int`\nExecuta comando SQL de criação ou manipulação (INSERT, UPDATE, DELETE)."},
-        {"db_consultar", "### GhostDB: `db_consultar(conn, sql): lista`\nExecuta consulta SQL (SELECT) e devolve linhas como matriz/lista."}
+        {"function", "### `function`\nDeclara uma função. O tipo de retorno é opcional.\n```ghost\nfunction int soma(int a, int b) {\n    return a + b;\n}\n```"},
+        {"return", "### `return`\nEncerra a função e devolve o valor ao chamador."},
+        {"var", "### `var`\nDeclara uma variável com tipo inferido.\n```ghost\nvar total = 0;\n```"},
+        {"if", "### `if` / `else`\n```ghost\nif (x > 0) {\n    print(\"positivo\");\n} else {\n    print(\"nao positivo\");\n}\n```"},
+        {"else", "### `else`\nBloco executado quando a condição do `if` é falsa."},
+        {"for", "### `for`\n```ghost\nfor (int i = 0; i < 10; i++) {\n    print(i);\n}\n```"},
+        {"foreach", "### `foreach`\nPercorre os elementos de uma coleção.\n```ghost\nforeach (x in lista) {\n    print(x);\n}\n```"},
+        {"while", "### `while`\nRepete o bloco enquanto a condição for verdadeira."},
+        {"switch", "### `switch` / `case` / `default`\nEscolhe um bloco pelo valor da expressão."},
+        {"class", "### `class`\nDeclara uma classe com campos, construtor e métodos; `extends` herda de outra classe."},
+        {"import", "### `import`\nImporta outro arquivo .g.\n```ghost\nimport \"libs/tensor.g\" as tn;\n```"},
+        {"try", "### `try` / `catch` / `finally`\n```ghost\ntry {\n    use_device(\"vulkan\");\n} catch (e) {\n    print(\"erro: \", e);\n}\n```"},
+        {"print", "### `print(...)`\nEscreve os argumentos na saída padrão, seguidos de quebra de linha."},
+        {"show", "### `show(x)`\nMostra o valor de um estado, matriz ou número G."},
+        {"state", "### `state`\nVetor de estado quântico.\n```ghost\nstate psi = [1.0, 0.0];\n```"},
+        {"gate", "### `gate`\nMatriz (linhas x colunas).\n```ghost\ngate m(2, 3);\n```"},
+        {"qreg", "### `qreg`\nRegistrador quântico simulado.\n```ghost\nqreg q(2);\n```"},
+        {"qcircuit", "### `qcircuit`\nCircuito quântico parametrizado (QML)."},
+        {"ghost", "### `ghost`\nNúmero G (álgebra hipercomplexa de 4 componentes).\n```ghost\nghost g = ghost(1.0, 0.0, 0.0, 0.0);\n```"},
+        {"hypothesis", "### `hypothesis`\nAvalia o bloco para cada valor e escolhe o melhor com `collapse_max`/`collapse_min`.\n```ghost\nhypothesis (var t in [7, 3, 9]) { ... }\n```"},
+        {"spawn", "### `spawn`\nExecuta o bloco em outra thread."}
     };
 
     auto docIt = docs.find(word);
@@ -268,35 +268,14 @@ void GhostLSP::handleHover(const std::string& id, const std::string& uri, int li
 
 void GhostLSP::handleCompletion(const std::string& id, const std::string& uri, int line, int col) {
     (void)uri; (void)line; (void)col;
-    static const std::vector<CompletionItem> items = {
-        {"fun", "fun nome(): tipo", "Declaração de função", 14},
-        {"retorne", "retorne valor", "Retorna valor da função", 14},
-        {"se", "se (cond) { }", "Estrutura condicional", 14},
-        {"senao", "senao { }", "Bloco alternativo", 14},
-        {"para", "para (item em lista)", "Laço de repetição", 14},
-        {"enquanto", "enquanto (cond)", "Laço condicional", 14},
-        {"classe", "classe Nome { }", "Declaração de classe", 7},
-        {"interface", "interface Nome { }", "Contrato de interface", 7},
-        {"qubit", "qubit q[n]", "Alocação de registradores quânticos", 14},
-        {"hadamard", "hadamard(q)", "Porta quântica de superposição Hadamard", 3},
-        {"cnot", "cnot(ctrl, alvo)", "Porta quântica NOT-controlada", 3},
-        {"medir", "medir(q)", "Medição quântica de qubit", 3},
-        {"pauli_x", "pauli_x(q)", "Porta Pauli-X (NOT)", 3},
-        {"pauli_y", "pauli_y(q)", "Porta Pauli-Y", 3},
-        {"pauli_z", "pauli_z(q)", "Porta Pauli-Z", 3},
-        {"fase", "fase(theta, q)", "Rotação de fase quântica", 3},
-        {"swap", "swap(q1, q2)", "Permutação quântica de qubits", 3},
-        {"escreva", "escreva(args...)", "Impressão sem nova linha", 3},
-        {"escrevaln", "escrevaln(args...)", "Impressão com nova linha", 3},
-        {"leia", "leia()", "Leitura da entrada padrão", 3},
-        {"tamanho", "tamanho(colecao)", "Retorna cardinalidade da coleção", 3},
-        {"matriz", "matriz(linhas, cols)", "Cria matriz bidimensional", 3},
-        {"gui_alert", "gui_alert(titulo, msg)", "Alerta nativo desktop", 3},
-        {"gui_confirm", "gui_confirm(titulo, msg)", "Confirmação nativa desktop", 3},
-        {"db_abrir", "db_abrir(caminho)", "Abre banco SQLite local", 3},
-        {"db_executar", "db_executar(conn, sql)", "Executa comando SQL", 3},
-        {"db_consultar", "db_consultar(conn, sql)", "Consulta SQL com retorno", 3}
-    };
+    // Palavras-chave reais do lexer + funções declaradas nas libs/*.g
+    static const std::vector<CompletionItem> keywordItems = [] {
+        std::vector<CompletionItem> v;
+        for (const auto& k : Lexer::keywordNames()) v.push_back({k, "palavra-chave", "", 14});
+        return v;
+    }();
+    std::vector<CompletionItem> items = keywordItems;
+    items.insert(items.end(), libItems.begin(), libItems.end());
 
     std::stringstream ss;
     ss << "{\"isIncomplete\":false,\"items\":[";
@@ -326,14 +305,15 @@ void GhostLSP::handleDefinition(const std::string& id, const std::string& uri, i
         return;
     }
 
+    // Declarações reais: function [tipo] nome(, class/interface nome, var nome
+    const std::regex decl("(^|[^\\w])(?:function\\s+(?:[A-Za-z_][\\w<>,]*\\s+)?|class\\s+|interface\\s+|var\\s+)(" + word + ")\\b");
     std::istringstream stream(it->second);
     std::string curLine;
     int curLineIdx = 0;
     while (std::getline(stream, curLine)) {
-        size_t pFun = curLine.find("fun " + word);
-        size_t pCls = curLine.find("classe " + word);
-        if (pFun != std::string::npos || pCls != std::string::npos) {
-            size_t p = (pFun != std::string::npos) ? (pFun + 4) : (pCls + 7);
+        std::smatch m;
+        if (std::regex_search(curLine, m, decl)) {
+            const size_t p = static_cast<size_t>(m.position(2));
             std::stringstream ss;
             ss << "{\"uri\":\"" << escapeJson(uri) << "\","
                << "\"range\":{"
@@ -410,32 +390,73 @@ void GhostLSP::run() {
     }
 }
 
+void GhostLSP::setRoot(const std::string& root) {
+    namespace fs = std::filesystem;
+    libItems.clear();
+    std::error_code ec;
+    const fs::path libs = fs::path(root) / "libs";
+    if (!fs::is_directory(libs, ec)) return;
+    static const std::regex decl(R"(^\s*function\s+(?:[A-Za-z_][\w<>,\s]*?\s+)?([A-Za-z_]\w*)\s*\()");
+    std::vector<fs::path> files;
+    for (const auto& e : fs::directory_iterator(libs, ec))
+        if (e.path().extension() == ".g") files.push_back(e.path());
+    std::sort(files.begin(), files.end());
+    std::set<std::string> seen;
+    for (const auto& f : files) {
+        std::ifstream in(f);
+        std::string line;
+        while (std::getline(in, line)) {
+            std::smatch m;
+            if (std::regex_search(line, m, decl) && seen.insert(m[1]).second)
+                libItems.push_back({m[1], "libs/" + f.filename().string(), "", 3});
+        }
+    }
+}
+
 int GhostLSP::runTestMode() {
-    // Teste sintético de conformidade JSON-RPC 2.0 e AST Diagnostics
-    std::string initMsg = "{\"jsonrpc\":\"2.0\",\"id\":1,\"method\":\"initialize\",\"params\":{}}";
-    processMessage(initMsg);
+    // Teste de conformidade: confere as respostas, não só se o servidor roda.
+    std::vector<std::string> out;
+    capture = &out;
+    int falhas = 0;
+    auto confere = [&](bool ok, const std::string& o_que) {
+        std::cout << (ok ? "[ok]    " : "[FALHA] ") << o_que << std::endl;
+        if (!ok) ++falhas;
+    };
+    auto ultima = [&]() { return out.empty() ? std::string() : out.back(); };
 
-    // Documento com código válido
-    std::string openMsgValid = "{\"jsonrpc\":\"2.0\",\"method\":\"textDocument/didOpen\",\"params\":{\"textDocument\":{\"uri\":\"file:///teste.g\",\"text\":\"fun ola(): texto { retorne \\\"mundo\\\"; }\"}}}";
-    processMessage(openMsgValid);
+    processMessage("{\"jsonrpc\":\"2.0\",\"id\":1,\"method\":\"initialize\",\"params\":{}}");
+    confere(ultima().find("\"capabilities\"") != std::string::npos, "initialize devolve capabilities");
 
-    // Hover sobre 'fun'
-    std::string hoverMsg = "{\"jsonrpc\":\"2.0\",\"id\":2,\"method\":\"textDocument/hover\",\"params\":{\"textDocument\":{\"uri\":\"file:///teste.g\"},\"position\":{\"line\":0,\"character\":2}}}";
-    processMessage(hoverMsg);
+    // documento válido: nenhum diagnóstico
+    processMessage("{\"jsonrpc\":\"2.0\",\"method\":\"textDocument/didOpen\",\"params\":{\"textDocument\":{\"uri\":\"file:///ok.g\",\"text\":\"function int soma(int a, int b) {\\n    return a + b;\\n}\\nfunction main() {\\n    print(soma(1, 2));\\n}\\n\"}}}");
+    confere(ultima().find("\"diagnostics\":[]") != std::string::npos, "codigo valido sem diagnosticos");
 
-    // Completion
-    std::string compMsg = "{\"jsonrpc\":\"2.0\",\"id\":3,\"method\":\"textDocument/completion\",\"params\":{\"textDocument\":{\"uri\":\"file:///teste.g\"},\"position\":{\"line\":0,\"character\":2}}}";
-    processMessage(compMsg);
+    // hover em 'function' (linha 0, coluna 3)
+    processMessage("{\"jsonrpc\":\"2.0\",\"id\":2,\"method\":\"textDocument/hover\",\"params\":{\"textDocument\":{\"uri\":\"file:///ok.g\"},\"position\":{\"line\":0,\"character\":3}}}");
+    confere(ultima().find("### `function`") != std::string::npos, "hover de function");
 
-    // Documento com erro de sintaxe para validar diagnósticos
-    std::string openMsgError = "{\"jsonrpc\":\"2.0\",\"method\":\"textDocument/didOpen\",\"params\":{\"textDocument\":{\"uri\":\"file:///erro.g\",\"text\":\"fun quebrado( { retorne; }\"}}}";
-    processMessage(openMsgError);
+    // completion: palavras reais, sem o vocabulário inventado
+    processMessage("{\"jsonrpc\":\"2.0\",\"id\":3,\"method\":\"textDocument/completion\",\"params\":{\"textDocument\":{\"uri\":\"file:///ok.g\"},\"position\":{\"line\":0,\"character\":0}}}");
+    const std::string comp = ultima();
+    for (const char* k : {"function", "while", "foreach", "qreg", "hypothesis"})
+        confere(comp.find(std::string("\"label\":\"") + k + "\"") != std::string::npos, std::string("completion tem '") + k + "'");
+    for (const char* k : {"fun", "retorne", "senao", "enquanto", "db_abrir"})
+        confere(comp.find(std::string("\"label\":\"") + k + "\"") == std::string::npos, std::string("completion nao tem '") + k + "'");
+    confere(!libItems.empty() && comp.find("\"label\":\"tensor_matmul\"") != std::string::npos, "completion tem tensor_matmul (libs/tensor.g)");
 
-    // Shutdown
-    std::string shutMsg = "{\"jsonrpc\":\"2.0\",\"id\":4,\"method\":\"shutdown\",\"params\":{}}";
-    processMessage(shutMsg);
+    // documento com erro: diagnóstico com código e linha
+    processMessage("{\"jsonrpc\":\"2.0\",\"method\":\"textDocument/didOpen\",\"params\":{\"textDocument\":{\"uri\":\"file:///erro.g\",\"text\":\"function main() {\\n    int 10 = 3;\\n}\\n\"}}}");
+    const std::string diag = ultima();
+    confere(diag.find("GHOST-E") != std::string::npos && diag.find("\"line\":1") != std::string::npos, "erro de sintaxe vira diagnostico na linha 2");
 
-    return 0;
+    // definition: soma (linha 4) -> declaração na linha 0
+    processMessage("{\"jsonrpc\":\"2.0\",\"id\":5,\"method\":\"textDocument/definition\",\"params\":{\"textDocument\":{\"uri\":\"file:///ok.g\"},\"position\":{\"line\":4,\"character\":12}}}");
+    confere(ultima().find("\"line\":0") != std::string::npos, "definition de soma aponta a linha 1");
+
+    processMessage("{\"jsonrpc\":\"2.0\",\"id\":4,\"method\":\"shutdown\",\"params\":{}}");
+    capture = nullptr;
+    std::cout << (falhas ? "LSP: " + std::to_string(falhas) + " falha(s)" : std::string("LSP: tudo certo")) << std::endl;
+    return falhas ? 1 : 0;
 }
 
 } // namespace GhostLanguageServer

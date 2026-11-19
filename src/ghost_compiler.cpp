@@ -15,11 +15,18 @@
 #include "../include/Interpreter.hpp" // Novo módulo do REPL
 #include "../include/GhostLSP.hpp" // Language Server Protocol (LSP)
 #include "../include/GhostPM.hpp" // Gerenciador de Pacotes GhostPM
+#include "../include/GhostDAP.hpp" // Debug Adapter Protocol (ghost debug --dap)
+#ifdef _WIN32
+#define PATH_SEP_GHOST ";"
+#else
+#define PATH_SEP_GHOST ":"
+#endif
 
 #ifdef _WIN32
 #define WIN32_LEAN_AND_MEAN
 #define NOMINMAX
 #include <windows.h>
+#include <io.h>
 #else
 #include <unistd.h>
 #include <limits.h>
@@ -460,6 +467,19 @@ static int compileProgram(const string& inputFile, const string& outputFile, boo
     string gppBaseCmd = "g++"; // Fallback para o global
     if (fs::exists(internalGpp)) {
         gppBaseCmd = "\"" + internalGpp.string() + "\""; // Usa aspas caso tenha espaço no caminho
+        // O GCC 16 do MSYS2 e configurado com --with-sysroot=/ucrt64: fora do MSYS2, os headers do
+        // sistema (wchar.h...) e as bibliotecas so sao achados com o sysroot apontando para compiler/.
+        gppBaseCmd += " --sysroot=" + shellQuote(internalGpp.parent_path().parent_path().generic_string());
+        // O cc1plus/as/ld embutidos dependem das DLLs de compiler/bin (gmp, mpfr, zstd...), e o
+        // Windows só as acha pela pasta do executável ou pelo PATH: põe compiler/bin na frente.
+        const std::string binDir = internalGpp.parent_path().string();
+        const char* oldPath = std::getenv("PATH");
+        const std::string newPath = binDir + (oldPath ? std::string(PATH_SEP_GHOST) + oldPath : std::string());
+#ifdef _WIN32
+        _putenv_s("PATH", newPath.c_str());
+#else
+        setenv("PATH", newPath.c_str(), 1);
+#endif
     }
 
     // 3. Compilando o Binario
@@ -527,6 +547,7 @@ static int compileProgram(const string& inputFile, const string& outputFile, boo
         if (config && getline(config,root) && getline(config,library) && getline(config,cuda) && getline(config,cudart)) {
             if (!fs::exists(library)) { cerr << "Runtime nao compilado: " << library << endl; return 1; }
             compileCmd=shellQuote(fs::exists(internalGpp)?internalGpp.string():"g++") +
+                (fs::exists(internalGpp) ? " --sysroot=" + shellQuote(internalGpp.parent_path().parent_path().generic_string()) : string()) +
                 " -std=c++17 " + (isDebug ? "-g -O0 " : "-O3 ") + "-fopenmp -pthread -DGHOST_NATIVE_RUNTIME=1 -I"+shellQuote(root)+
                 " -I"+shellQuote((fs::path(root)/"include").string())+" "+shellQuote(tempCppFile)+
                 " "+shellQuote(library)+" -o "+shellQuote(outputFile);
@@ -668,7 +689,18 @@ static int cmdRun(int argc, char* argv[]) {
     std::error_code ec;
     fs::path dir = fs::temp_directory_path(ec) / "ghost-run";
     fs::create_directories(dir, ec);
-    const string exe = (dir / (fs::path(inputFile).stem().string() + (
+    // Nome único por arquivo e por execução: dois 'ghost run prog.g' de pastas diferentes
+    // (ou ao mesmo tempo) não podem sobrescrever o executável um do outro.
+    const fs::path absInput = fs::absolute(inputFile, ec);
+    std::ostringstream unico;
+    unico << fs::path(inputFile).stem().string() << "_" << std::hex
+          << (std::hash<std::string>{}(absInput.generic_string()) & 0xffffffffu) << "_"
+#ifdef _WIN32
+          << GetCurrentProcessId();
+#else
+          << getpid();
+#endif
+    const string exe = (dir / (unico.str() + (
 #ifdef _WIN32
         ".exe"
 #else
@@ -679,7 +711,9 @@ static int cmdRun(int argc, char* argv[]) {
     if (rc != 0) return rc;
     string cmd = shellQuote(exe);
     for (const auto& a : progArgs) cmd += " " + shellQuote(a);
-    return runCommand(cmd);
+    const int runRc = runCommand(cmd);
+    fs::remove(exe, ec); // o executável temporário não fica acumulando em %TEMP%\ghost-run
+    return runRc;
 }
 
 // ghost check arquivo.g: confere a sintaxe e tipos (AST + verificador) sem chamar o g++
@@ -836,7 +870,10 @@ static int cmdFmt(int argc, char* argv[]) {
         string src = ss.str();
         string formatted = ghost_format_code(src);
         if (checkOnly) {
-            if (formatted != src) {
+            // Fim de linha CRLF (padrao dos editores no Windows) nao conta como diferenca de formatacao
+            string semCr = src;
+            semCr.erase(std::remove(semCr.begin(), semCr.end(), '\r'), semCr.end());
+            if (formatted != semCr) {
                 cout << file << ": precisa de formatacao" << endl;
                 ++unformatted;
             } else {
@@ -860,6 +897,7 @@ static int cmdFmt(int argc, char* argv[]) {
 // ghost lsp: Language Server Protocol (JSON-RPC 2.0 sobre stdin/stdout)
 static int cmdLsp(int argc, char* argv[]) {
     GhostLanguageServer::GhostLSP server;
+    server.setRoot(findGhostRoot(fs::path(getExecutablePath()).parent_path()).string());
     for (int i = 2; i < argc; ++i) {
         string arg = argv[i];
         if (arg == "--test") {
@@ -870,31 +908,46 @@ static int cmdLsp(int argc, char* argv[]) {
     return 0;
 }
 
+// gdb usado pelo depurador: GHOST_GDB, <pasta do ghost>/gdb/bin, <raiz>/third_party/gdb/bin, PATH
+static string findGdb() {
+    if (const char* env = std::getenv("GHOST_GDB")) if (*env) return env;
+    std::error_code ec;
+    const fs::path exeDir = fs::path(getExecutablePath()).parent_path();
+    const fs::path root = findGhostRoot(exeDir);
+#ifdef _WIN32
+    const char* nome = "gdb.exe";
+#else
+    const char* nome = "gdb";
+#endif
+    for (const fs::path& c : {exeDir / "gdb" / "bin" / nome, root / "third_party" / "gdb" / "bin" / nome})
+        if (fs::exists(c, ec)) return c.string();
+    return "gdb";
+}
+
 // ghost debug arquivo.g [args]: compila com simbolos de depuracao (-g) e ativa DWARF #line
 static int cmdDebug(int argc, char* argv[]) {
     if (argc < 3 || (argc >= 3 && (string(argv[2]) == "--help" || string(argv[2]) == "-h"))) {
         cout << "Uso: ghost debug arquivo.g [argumentos]   (compila com -g e inicia depurador)" << endl;
         cout << "     ghost debug --map arquivo.g           (exibe mapa de simbolos e linhas)" << endl;
-        cout << "     ghost debug --dap                     (adaptador DAP: ainda nao implementado)" << endl;
+        cout << "     ghost debug --dap                     (adaptador DAP para VS Code, usa o gdb)" << endl;
         return (argc >= 3 && (string(argv[2]) == "--help" || string(argv[2]) == "-h")) ? 0 : 1;
     }
     bool showMap = false;
     bool dapMode = false;
+    string saidaSo; // --saida <exe>: so compila com simbolos (usado pelo adaptador DAP)
     string inputFile;
     vector<string> progArgs;
     for (int i = 2; i < argc; ++i) {
         string arg = argv[i];
         if (arg == "--map" || arg == "--symbols") showMap = true;
         else if (arg == "--dap") dapMode = true;
+        else if (arg == "--saida" && i + 1 < argc) saidaSo = argv[++i];
         else if (inputFile.empty()) inputFile = arg;
         else progArgs.push_back(arg);
     }
     if (dapMode) {
-        // Ate 12/11/2026 dizia "adaptador pronto" e saia com 0 sem implementar nada.
-        cerr << "[Ghost Debugger] O adaptador DAP (--dap) ainda nao foi implementado." << endl;
-        cerr << "  Use 'ghost debug arquivo.g' para compilar com -g e #line e depurar o executavel" << endl;
-        cerr << "  no gdb (ou no VS Code com a extensao C/C++, tipo cppdbg)." << endl;
-        return 1;
+        // DAP por stdin/stdout, controlando o gdb pela interface MI (src/GhostDAP.cpp)
+        return GhostDAP::run(getExecutablePath(), findGdb());
     }
     if (inputFile.empty()) {
         cerr << "[Ghost Debugger] Arquivo .g nao especificado." << endl;
@@ -935,6 +988,8 @@ static int cmdDebug(int argc, char* argv[]) {
 #endif
     ))).string();
 
+    if (!saidaSo.empty()) return compileProgram(inputFile, saidaSo, true, false, false, true);
+
     cout << "[Ghost Debugger] Compilando com simbolos de depuracao (-g)..." << endl;
     const int rc = compileProgram(inputFile, exe, true, false, false, true);
     if (rc != 0) {
@@ -943,17 +998,25 @@ static int cmdDebug(int argc, char* argv[]) {
     }
     cout << "[Ghost Debugger] Binario de depuracao pronto: " << exe << endl;
 
-    string checkGdb = "gdb --version > nul 2>&1";
+    const string gdbExe = findGdb();
+    string checkGdb = shellQuote(gdbExe) + " --version > nul 2>&1";
 #ifndef _WIN32
-    checkGdb = "gdb --version > /dev/null 2>&1";
+    checkGdb = shellQuote(gdbExe) + " --version > /dev/null 2>&1";
 #endif
     bool hasGdb = (system(checkGdb.c_str()) == 0);
 
     if (hasGdb) {
-        string runCmd = "gdb --args " + shellQuote(exe);
+#ifdef _WIN32
+        const bool terminal = _isatty(_fileno(stdin)) != 0;
+#else
+        const bool terminal = isatty(fileno(stdin)) != 0;
+#endif
+        // Sem terminal (CI, scripts): roda o programa no gdb em lote e mostra a pilha se ele quebrar
+        string runCmd = shellQuote(gdbExe) + (terminal ? " -q" : " -q -batch -ex run -ex bt") + " --args " + shellQuote(exe);
         for (const auto& a : progArgs) runCmd += " " + shellQuote(a);
-        cout << "[Ghost Debugger] Iniciando sessao gdb conectada ao codigo .g..." << endl;
-        return system(runCmd.c_str());
+        cout << "[Ghost Debugger] " << (terminal ? "Iniciando sessao gdb conectada ao codigo .g..." : "Sem terminal: gdb em lote (run + bt)") << endl;
+        const int grc = runCommand(runCmd);
+        return terminal ? grc : (grc == 0 ? 0 : 1);
     } else {
         cout << "[Ghost Debugger] gdb nao detectado no PATH." << endl;
         cout << "[Ghost Debugger] Mapeamento DWARF de linhas ativado via #line:" << endl;

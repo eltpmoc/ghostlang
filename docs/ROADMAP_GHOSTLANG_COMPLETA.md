@@ -1,10 +1,11 @@
 # Roadmap Oficial de Maturidade - GhostLang
 
-> **Situação em 12/11/2026:** versão 0.9, em desenvolvimento. Progresso no dashboard: 69,6%, com nenhum recurso no nível 5 (o nível 5 exige CI rodando e Linux/macOS comprovados).
-> **Checklist oficial:** 85 de 91 itens. Faltam: Linux revalidado, macOS, CI rodando, instaladores, hardware quântico real e instalação de pacotes no GhostPM.
-> **Testes:** 167 testes do CTest passando no Windows x64.
-> **Plataformas:** só Windows x64 testado. Linux e macOS não foram verificados, e o CI (`.github/workflows/ci.yml`) nunca rodou, porque o repositório ainda não tem commit nem remote no GitHub.
-> **Ainda não implementados (só a interface existe):** backends Vulkan, Metal e ROCm; envio de circuitos a QPUs reais; `ghost debug --dap`; `ghost pm install`; ligação com BLAS.
+> **Situação em 19/11/2026:** versão 0.9, em desenvolvimento. Progresso no dashboard: 76,3% (93 recursos no nível 4, 6 no 3, 1 no 2 e 4 no 1; nenhum no nível 5, que exige CI rodando e Linux/macOS comprovados).
+> **Checklist oficial:** 86 de 91 itens. Faltam: Build e testes no Linux revalidados; Build no macOS; CI em matriz Windows/Linux/macOS; Instalador Windows e pacotes Linux; Backend para hardware quântico real.
+> **Testes:** 203 testes do CTest passando no Windows x64.
+> **Plataformas:** só Windows x64 testado. Linux (Fedora 43) e macOS 26 são as próximas etapas; o CI (`.github/workflows/ci.yml`) ainda não rodou porque o repositório não tem remote no GitHub.
+> **Ainda incompletos (nível 1 ou 2):** Backends quânticos reais (IBM, IonQ, Braket), Vulkan / Metal / ROCm, Linux x64, macOS (arm64/x64), CI em matriz (Windows/Linux/macOS).
+> *Cabeçalho gerado por `scripts/python/sync_manual_maturidade.py` a partir de `dashboard/ghostlang-status.json`.*
 
 Este documento registra a trajetória de evolução da GhostLang e o que ainda falta para ela ser uma linguagem completa, madura, documentada, distribuível e de alta performance. A maturidade de cada recurso, com o motivo, fica no dashboard (`dashboard/ghostlang-status.json`).
 

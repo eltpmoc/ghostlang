@@ -1,0 +1,152 @@
+#line 6 "tests/ghost/for_range.g"
+#line 7 "tests/ghost/for_range.g"
+#line 7 "tests/ghost/for_range.g"
+#line 8 "tests/ghost/for_range.g"
+#line 10 "tests/ghost/for_range.g"
+#line 11 "tests/ghost/for_range.g"
+#line 11 "tests/ghost/for_range.g"
+#line 12 "tests/ghost/for_range.g"
+#line 14 "tests/ghost/for_range.g"
+#line 15 "tests/ghost/for_range.g"
+#line 15 "tests/ghost/for_range.g"
+#line 16 "tests/ghost/for_range.g"
+#line 18 "tests/ghost/for_range.g"
+#line 19 "tests/ghost/for_range.g"
+#line 19 "tests/ghost/for_range.g"
+#line 20 "tests/ghost/for_range.g"
+#line 23 "tests/ghost/for_range.g"
+#line 24 "tests/ghost/for_range.g"
+#line 24 "tests/ghost/for_range.g"
+#line 25 "tests/ghost/for_range.g"
+#line 28 "tests/ghost/for_range.g"
+#line 29 "tests/ghost/for_range.g"
+#line 29 "tests/ghost/for_range.g"
+#line 30 "tests/ghost/for_range.g"
+#line 31 "tests/ghost/for_range.g"
+#line 31 "tests/ghost/for_range.g"
+#line 34 "tests/ghost/for_range.g"
+#line 35 "tests/ghost/for_range.g"
+#line 35 "tests/ghost/for_range.g"
+#line 36 "tests/ghost/for_range.g"
+#line 36 "tests/ghost/for_range.g"
+#line 37 "tests/ghost/for_range.g"
+#line 38 "tests/ghost/for_range.g"
+#line 39 "tests/ghost/for_range.g"
+#line 40 "tests/ghost/for_range.g"
+#line 44 "tests/ghost/for_range.g"
+#line 44 "tests/ghost/for_range.g"
+#line 47 "tests/ghost/for_range.g"
+#line 48 "tests/ghost/for_range.g"
+#line 49 "tests/ghost/for_range.g"
+#line 49 "tests/ghost/for_range.g"
+#line 50 "tests/ghost/for_range.g"
+#line 50 "tests/ghost/for_range.g"
+#line 51 "tests/ghost/for_range.g"
+#line 53 "tests/ghost/for_range.g"
+#line 56 "tests/ghost/for_range.g"
+#line 57 "tests/ghost/for_range.g"
+#line 4 "tests/ghost/for_range.g"
+----
+/*TranspiladopeloGhostCompilerv1.0*/#include<iostream>#include<cstdio>#include<cstdlib>#include<string>#include<complex>#include<type_traits>#include<fstream>#include<sstream>#include<thread>#include<chrono>#include<mutex>#include"include/GhostNumberG.hpp"#include"include/GhostMatrix.hpp"#include"include/GhostLLM.hpp"#include"include/GhostLib.hpp"#include"include/GhostDevice.hpp"#include"include/GhostTextModel.hpp"#include"include/GhostWeb.hpp"#include"include/GhostKnowledge.hpp"#include"include/GhostTemporal.hpp"#include"include/GhostTransformer.hpp"#include"include/GhostTransformerG.hpp"#include"include/GhostMatrixG.hpp"#include"include/GhostQuantum.hpp"#include"include/GhostQML.hpp"#include"include/GhostHybrid.hpp"#include"include/GhostQTape.hpp"#include"include/GhostCore.hpp"#ifdef_WIN32#include<windows.h>#endifvoidghost_main();
+voidghost_main(){
+intsoma=0;
+for(auto&i:range(5)){
+soma=soma+i;
+}
+std::cout<<ghost_show(std::string("range(5): soma = "))<<ghost_show(soma)<<std::endl;
+std::stringpares=std::string("");
+for(auto&i:range(2,10,2)){
+pares=pares+i+std::string(" ");
+}
+std::cout<<ghost_show(std::string("range(2, 10, 2): "))<<ghost_show(pares)<<std::endl;
+std::stringdesc=std::string("");
+for(inti:range(5,0,-1)){
+desc=desc+i+std::string(" ");
+}
+std::cout<<ghost_show(std::string("range(5, 0, -1): "))<<ghost_show(desc)<<std::endl;
+intvazio=0;
+for(auto&i:range(0)){
+vazio=vazio+1;
+}
+std::cout<<ghost_show(std::string("range(0) roda "))<<ghost_show(vazio)<<ghost_show(std::string(" vezes"))<<std::endl;
+std::stringletras=std::string("");
+for(auto&c:std::string("Ghost")){
+letras=letras+std::string("[")+c+std::string("]");
+}
+std::cout<<ghost_show(std::string("texto: "))<<ghost_show(letras)<<std::endl;
+GhostList<std::string>nomes=GhostList<std::string>{
+std::string("Qubit-0"),std::string("Qubit-1"),std::string("Qubit-2")}
+;
+for(std::stringnome:nomes){
+std::cout<<ghost_show(std::string("lista: "))<<ghost_show(nome)<<std::endl;
+}
+GhostMap<std::string,int>idades=GhostMap<std::string,int>{
+{
+std::string("ana"),30}
+,{
+std::string("bia"),25}
+}
+;
+for(auto&[chave,valor]:idades){
+std::cout<<ghost_show(std::string("mapa: "))<<ghost_show(chave)<<ghost_show(std::string(" = "))<<ghost_show(valor)<<std::endl;
+}
+GhostMatrixw(2,2);
+doublelimit_w=std::sqrt(6.0/(2+2));
+for(size_tghost_r=0;
+ghost_r<w.getRows();
+++ghost_r){
+for(size_tghost_c=0;
+ghost_c<w.getCols();
+++ghost_c){
+doubleghost_val=(((double)rand()/RAND_MAX)*2.0-1.0)*limit_w;
+w(ghost_r,ghost_c)=GhostNumberG(ghost_val,0.0,0.0);
+}
+}
+w(0,0)=1.0;
+w(0,1)=2.0;
+w(1,0)=3.0;
+w(1,1)=4.0;
+intn=0;
+for(auto&x:w){
+n=n+1;
+std::cout<<ghost_show(std::string("w["))<<ghost_show(n)<<ghost_show(std::string("] = "))<<ghost_show(x)<<std::endl;
+}
+for(auto&k:range(nomes.size())){
+std::cout<<ghost_show(k)<<ghost_show(std::string(": "))<<ghost_show(nomes[k])<<std::endl;
+}
+std::stringpulos=std::string("");
+for(auto&i:range(10)){
+if(i==7){
+break;
+}
+if(i%2==0){
+continue;
+}
+pulos=pulos+i+std::string(" ");
+}
+std::cout<<ghost_show(std::string("impares ate 7: "))<<ghost_show(pulos)<<std::endl;
+GhostNumberGg=GhostNumberG(1.0,2.0,0.5,0.25);
+std::cout<<ghost_show(std::string("ghost: "))<<ghost_show(g)<<std::endl;
+}
+intmain(intargc,char**argv){
+try{
+#ifdef_WIN32SetConsoleOutputCP(CP_UTF8);
+SetConsoleCP(CP_UTF8);
+#endifstd::cout<<std::boolalpha;
+std::stringghost_args="";
+std::vector<std::string>ghost_args_vec;
+for(inti=1;
+i<argc;
+++i){
+ghost_args+=argv[i];
+ghost_args_vec.push_back(argv[i]);
+if(i<argc-1)ghost_args+=" ";
+}
+ghost_main();
+return0;
+}
+catch(conststd::exception&e){
+std::cerr<<e.what()<<std::endl;
+return1;
+}
+}

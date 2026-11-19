@@ -1,8 +1,8 @@
 # Compila o OpenBLAS a partir do código-fonte oficial e instala em third_party/openblas.
 #
-# Por que do fonte: o pacote mingw-w64-ucrt-x86_64-openblas do MSYS2 já é compilado para
-# o GCC 16 (exige cc-libs/fc-libs), e o projeto usa o GCC 15.2; as versões antigas do
-# pacote trazem o OpenMP do LLVM (libomp), que não convive com o libgomp do GCC.
+# Por que do fonte: em 13/11/2026 o pacote mingw-w64-ucrt-x86_64-openblas do MSYS2 exigia o
+# GCC 16 e o projeto estava no 15.2 (desde 19/11 o MSYS2 está no GCC 16). Continuamos compilando
+# do fonte para ter a biblioteca estática, só C, com o OpenMP do GCC (o pacote traz o libomp do LLVM).
 #
 # Configuração: só C (NOFORTRAN=1), sem LAPACK (NO_LAPACK=1) e só precisão dupla
 # (BUILD_DOUBLE=1), porque o runtime usa apenas cblas_dgemm; OpenMP do GCC; biblioteca

@@ -110,9 +110,10 @@ add_executable(ghost
     src/GhostFormatCode.cpp
     src/Interpreter.cpp
     src/InterpreterQuantum.cpp
-    src/InterpreterCore.cpp src/InterpreterClass.cpp src/InterpreterResult.cpp
+    src/InterpreterCore.cpp src/InterpreterClass.cpp src/InterpreterResult.cpp src/InterpreterNative.cpp
     src/GhostLSP.cpp
     src/GhostPM.cpp
+    src/GhostDAP.cpp
 )
 # O REPL usa o runtime (GhostNumberG, qreg/qcircuit e o backend CUDA quantico)
 target_link_libraries(ghost PRIVATE ghost_runtime)
@@ -290,6 +291,7 @@ if(BUILD_TESTING)
     add_test(NAME repl_test_llama COMMAND ${CMAKE_COMMAND} -DGHOST=$<TARGET_FILE:ghost> -DINPUT=${CMAKE_SOURCE_DIR}/tests/repl/test_llama_win.ghost -DEXPECT=${CMAKE_SOURCE_DIR}/tests/repl/test_llama_win.expected -P ${CMAKE_SOURCE_DIR}/tests/repl/run_repl_test.cmake)
     # REPL: Convolucao 2D, pooling e backprop (conv2d, max_pool2d, avg_pool2d, conv2d_grad_kernel)
     add_test(NAME repl_ia_conv COMMAND ${CMAKE_COMMAND} -DGHOST=$<TARGET_FILE:ghost> -DINPUT=${CMAKE_SOURCE_DIR}/tests/repl/ia_conv.ghost -DEXPECT=${CMAKE_SOURCE_DIR}/tests/repl/ia_conv.expected -P ${CMAKE_SOURCE_DIR}/tests/repl/run_repl_test.cmake)
+    add_test(NAME repl_conv_transpose COMMAND ${CMAKE_COMMAND} -DGHOST=$<TARGET_FILE:ghost> -DINPUT=${CMAKE_SOURCE_DIR}/tests/repl/conv_transpose.ghost -DEXPECT=${CMAKE_SOURCE_DIR}/tests/repl/conv_transpose.expected -P ${CMAKE_SOURCE_DIR}/tests/repl/run_repl_test.cmake)
     # REPL: SQLite std-db nativo (db_open, db_exec, db_query, db_last_id, db_changes, db_close)
     add_test(NAME repl_sqlite_std COMMAND ${CMAKE_COMMAND} -DGHOST=$<TARGET_FILE:ghost> -DINPUT=${CMAKE_SOURCE_DIR}/tests/repl/sqlite_std.ghost -DEXPECT=${CMAKE_SOURCE_DIR}/tests/repl/sqlite_std.expected -P ${CMAKE_SOURCE_DIR}/tests/repl/run_repl_test.cmake)
     # Compilado: SQLite std-db nativo via ghost run
@@ -321,6 +323,33 @@ if(BUILD_TESTING)
     # Compilado: hardware quantico (simulacao local) via ghost run
     add_test(NAME golden_hardware_std COMMAND ${CMAKE_COMMAND} -DGHOST=$<TARGET_FILE:ghost> -DSOURCE=${CMAKE_SOURCE_DIR}/tests/ghost/hardware_std.g -DEXPECT=${CMAKE_SOURCE_DIR}/tests/golden/hardware_std.expected -DWORK=${CMAKE_BINARY_DIR}/golden -P ${CMAKE_SOURCE_DIR}/tests/golden/run_golden.cmake)
     add_test(NAME repl_blas_matmul COMMAND ${CMAKE_COMMAND} -DGHOST=$<TARGET_FILE:ghost> -DINPUT=${CMAKE_SOURCE_DIR}/tests/repl/blas_matmul.ghost -DEXPECT=${CMAKE_SOURCE_DIR}/tests/repl/blas_matmul.expected -P ${CMAKE_SOURCE_DIR}/tests/repl/run_repl_test.cmake)
+    # net-http-client: http_get/http_post contra o servidor nativo numa thread (log do servidor filtrado)
+    add_test(NAME golden_http_cliente COMMAND ${CMAKE_COMMAND} -DGHOST=$<TARGET_FILE:ghost> -DSOURCE=${CMAKE_SOURCE_DIR}/tests/ghost/http_cliente.g -DEXPECT=${CMAKE_SOURCE_DIR}/tests/golden/http_cliente.expected -DWORK=${CMAKE_BINARY_DIR}/golden "-DFILTER=^[[](GhostServer|Ghost OS)[]]" -P ${CMAKE_SOURCE_DIR}/tests/golden/run_golden.cmake)
+    add_test(NAME golden_strings_escape COMMAND ${CMAKE_COMMAND} -DGHOST=$<TARGET_FILE:ghost> -DSOURCE=${CMAKE_SOURCE_DIR}/tests/ghost/strings_escape.g -DEXPECT=${CMAKE_SOURCE_DIR}/tests/golden/strings_escape.expected -DWORK=${CMAKE_BINARY_DIR}/golden -P ${CMAKE_SOURCE_DIR}/tests/golden/run_golden.cmake)
+    add_test(NAME repl_strings_escape COMMAND ${CMAKE_COMMAND} -DGHOST=$<TARGET_FILE:ghost> -DINPUT=${CMAKE_SOURCE_DIR}/tests/repl/strings_escape.ghost -DEXPECT=${CMAKE_SOURCE_DIR}/tests/repl/strings_escape.expected -P ${CMAKE_SOURCE_DIR}/tests/repl/run_repl_test.cmake)
+    add_test(NAME repl_http_cliente COMMAND ${CMAKE_COMMAND} -DGHOST=$<TARGET_FILE:ghost> -DINPUT=${CMAKE_SOURCE_DIR}/tests/repl/http_cliente.ghost -DEXPECT=${CMAKE_SOURCE_DIR}/tests/repl/http_cliente.expected -P ${CMAKE_SOURCE_DIR}/tests/repl/run_repl_test.cmake)
+    # q-statevector-gpu / gpu-cuda: Grover(20) e GHZ(22) dao o mesmo resultado na GPU e na CPU,
+    # no compilador e no REPL; com o backend CUDA presente, qreg(20) tem de rodar em "cuda".
+    add_test(NAME golden_quantum_gpu_resultado COMMAND ${CMAKE_COMMAND} -DGHOST=$<TARGET_FILE:ghost> -DSOURCE=${CMAKE_SOURCE_DIR}/tests/ghost/quantum_gpu_resultado.g -DEXPECT=${CMAKE_SOURCE_DIR}/tests/golden/quantum_gpu_resultado.expected -DWORK=${CMAKE_BINARY_DIR}/golden -P ${CMAKE_SOURCE_DIR}/tests/golden/run_golden.cmake)
+    add_test(NAME repl_quantum_gpu_resultado COMMAND ${CMAKE_COMMAND} -DGHOST=$<TARGET_FILE:ghost> -DINPUT=${CMAKE_SOURCE_DIR}/tests/repl/quantum_gpu_resultado.ghost -DEXPECT=${CMAKE_SOURCE_DIR}/tests/repl/quantum_gpu_resultado.expected -P ${CMAKE_SOURCE_DIR}/tests/repl/run_repl_test.cmake)
+    if(EXISTS "${CMAKE_SOURCE_DIR}/bin/ghost_quantum_cuda.dll" OR EXISTS "${CMAKE_SOURCE_DIR}/bin/libghost_quantum_cuda.so")
+        add_test(NAME quantum_gpu_dispositivo COMMAND $<TARGET_FILE:ghost> run ${CMAKE_SOURCE_DIR}/tests/ghost/quantum_gpu.g WORKING_DIRECTORY ${CMAKE_SOURCE_DIR})
+        set_tests_properties(quantum_gpu_dispositivo PROPERTIES PASS_REGULAR_EXPRESSION "qreg[(]20[)] -> cuda.*GHZ[(]22[)] em cuda")
+    endif()
+    # ia-textmodel, ia-transformer, ia-transformerg, alg-matrizg, ia-conhecimento: APIs nativas da IA
+    # com o mesmo resultado no compilador e no REPL (self_test confere gradientes)
+    add_test(NAME golden_ia_nativa COMMAND ${CMAKE_COMMAND} -DGHOST=$<TARGET_FILE:ghost> -DSOURCE=${CMAKE_SOURCE_DIR}/tests/ghost/ia_nativa.g -DEXPECT=${CMAKE_SOURCE_DIR}/tests/golden/ia_nativa.expected -DWORK=${CMAKE_BINARY_DIR}/golden -P ${CMAKE_SOURCE_DIR}/tests/golden/run_golden.cmake)
+    add_test(NAME repl_ia_nativa COMMAND ${CMAKE_COMMAND} -DGHOST=$<TARGET_FILE:ghost> -DINPUT=${CMAKE_SOURCE_DIR}/tests/repl/ia_nativa.ghost -DEXPECT=${CMAKE_SOURCE_DIR}/tests/repl/ia_nativa.expected -P ${CMAKE_SOURCE_DIR}/tests/repl/run_repl_test.cmake)
+    set_tests_properties(golden_ia_nativa repl_ia_nativa PROPERTIES ENVIRONMENT "OMP_NUM_THREADS=2")
+    if(WIN32)
+        # std-desktop: janela Win32 de verdade (cria, mostra, confere visibilidade e titulo no sistema, fecha)
+        add_test(NAME golden_gui_janela_real COMMAND ${CMAKE_COMMAND} -DGHOST=$<TARGET_FILE:ghost> -DSOURCE=${CMAKE_SOURCE_DIR}/tests/ghost/gui_janela_real.g -DEXPECT=${CMAKE_SOURCE_DIR}/tests/golden/gui_janela_real.expected -DWORK=${CMAKE_BINARY_DIR}/golden -P ${CMAKE_SOURCE_DIR}/tests/golden/run_golden.cmake)
+        add_test(NAME repl_gui_janela_real COMMAND ${CMAKE_COMMAND} -DGHOST=$<TARGET_FILE:ghost> -DINPUT=${CMAKE_SOURCE_DIR}/tests/repl/gui_janela_real.ghost -DEXPECT=${CMAKE_SOURCE_DIR}/tests/repl/gui_janela_real.expected -P ${CMAKE_SOURCE_DIR}/tests/repl/run_repl_test.cmake)
+        set_tests_properties(golden_gui_janela_real repl_gui_janela_real PROPERTIES ENVIRONMENT "GHOST_HEADLESS=0")
+    endif()
+    # for no estilo do Python: for (x in ...) / for x in ... { } com range, texto, lista, mapa e matriz
+    add_test(NAME golden_for_range COMMAND ${CMAKE_COMMAND} -DGHOST=$<TARGET_FILE:ghost> -DSOURCE=${CMAKE_SOURCE_DIR}/tests/ghost/for_range.g -DEXPECT=${CMAKE_SOURCE_DIR}/tests/golden/for_range.expected -DWORK=${CMAKE_BINARY_DIR}/golden -P ${CMAKE_SOURCE_DIR}/tests/golden/run_golden.cmake)
+    add_test(NAME repl_for_range COMMAND ${CMAKE_COMMAND} -DGHOST=$<TARGET_FILE:ghost> -DINPUT=${CMAKE_SOURCE_DIR}/tests/repl/for_range.ghost -DEXPECT=${CMAKE_SOURCE_DIR}/tests/repl/for_range.expected -P ${CMAKE_SOURCE_DIR}/tests/repl/run_repl_test.cmake)
     add_test(NAME golden_blas_matmul COMMAND ${CMAKE_COMMAND} -DGHOST=$<TARGET_FILE:ghost> -DSOURCE=${CMAKE_SOURCE_DIR}/tests/ghost/blas_matmul.g -DEXPECT=${CMAKE_SOURCE_DIR}/tests/golden/blas_matmul.expected -DWORK=${CMAKE_BINARY_DIR}/golden -P ${CMAKE_SOURCE_DIR}/tests/golden/run_golden.cmake)
     # REPL: Dispositivos Heterogêneos GPU (gpu-outros: Vulkan, Metal, ROCm)
     add_test(NAME repl_device_hetero_std COMMAND ${CMAKE_COMMAND} -DGHOST=$<TARGET_FILE:ghost> -DINPUT=${CMAKE_SOURCE_DIR}/tests/repl/device_hetero_std.ghost -DEXPECT=${CMAKE_SOURCE_DIR}/tests/repl/device_hetero_std.expected -P ${CMAKE_SOURCE_DIR}/tests/repl/run_repl_test.cmake)
@@ -359,15 +388,62 @@ if(BUILD_TESTING)
     # Linha de comando (c45): ghost check e ghost test com os testes de erro
     add_test(NAME cli_check COMMAND ghost check ${CMAKE_SOURCE_DIR}/tests/ghost/nucleo.g ${CMAKE_SOURCE_DIR}/tests/ghost/classes.g)
     add_test(NAME cli_fmt COMMAND ghost fmt ${CMAKE_SOURCE_DIR}/tests/ghost/nucleo.g)
+    # tool-fmt: --check aceita arquivo ja formatado (strings, for x in ..., CRLF) e recusa um mal formatado
+    add_test(NAME cli_fmt_check COMMAND ghost fmt --check ${CMAKE_SOURCE_DIR}/tests/ghost/for_range.g)
+    add_test(NAME cli_fmt_check_ruim COMMAND ghost fmt --check ${CMAKE_SOURCE_DIR}/tests/cli/fmt_ruim.g)
+    set_tests_properties(cli_fmt_check_ruim PROPERTIES WILL_FAIL TRUE)
     add_test(NAME cli_test_diag COMMAND ghost test ${CMAKE_SOURCE_DIR}/tests/diag)
     add_test(NAME cli_test_diag_regras COMMAND ghost test ${CMAKE_SOURCE_DIR}/tests/diag/regras)
     add_test(NAME cli_wasm_codegen COMMAND $<TARGET_FILE:ghost> cpp --wasm ${CMAKE_SOURCE_DIR}/tests/ghost/wasm_test.g)
     add_test(NAME cli_wasm_build COMMAND $<TARGET_FILE:ghost> build ${CMAKE_SOURCE_DIR}/tests/ghost/wasm_test.g --wasm -o ${CMAKE_BINARY_DIR}/wasm_test_out)
     add_test(NAME cli_lsp_test COMMAND $<TARGET_FILE:ghost> lsp --test)
     add_test(NAME cli_debug_map COMMAND $<TARGET_FILE:ghost> debug --map ${CMAKE_SOURCE_DIR}/tests/ghost/nucleo.g)
-    add_test(NAME cli_debug_build COMMAND $<TARGET_FILE:ghost> debug ${CMAKE_SOURCE_DIR}/tests/ghost/test_print.g)
-    add_test(NAME cli_debug_dap_honesto COMMAND $<TARGET_FILE:ghost> debug --dap)
-    set_tests_properties(cli_debug_dap_honesto PROPERTIES WILL_FAIL TRUE)
+    # ghost debug --saida: so compila com -g e #line (sem abrir o gdb interativo, que esperaria o teclado)
+    add_test(NAME cli_debug_build COMMAND $<TARGET_FILE:ghost> debug --saida ${CMAKE_BINARY_DIR}/debug_test_print.exe ${CMAKE_SOURCE_DIR}/tests/ghost/test_print.g)
+    # tool-debugger: sessao DAP completa (breakpoint, pilha, variaveis, next, evaluate, continue) sobre o gdb
+    find_package(Python3 COMPONENTS Interpreter QUIET)
+    find_program(GHOST_GDB_SISTEMA gdb)
+    if(Python3_Interpreter_FOUND AND (EXISTS "${CMAKE_SOURCE_DIR}/third_party/gdb/bin/gdb.exe" OR GHOST_GDB_SISTEMA))
+        add_test(NAME cli_debug_dap COMMAND ${Python3_EXECUTABLE} ${CMAKE_SOURCE_DIR}/tests/cli/test_dap.py $<TARGET_FILE:ghost> ${CMAKE_SOURCE_DIR})
+    endif()
+    if(WIN32)
+        # cmp-estatico: o executavel gerado so importa DLLs do Windows e roda sem o MinGW no PATH
+        add_test(NAME cli_build_estatico COMMAND ${CMAKE_COMMAND} -DGHOST=$<TARGET_FILE:ghost> -DSOURCE=${CMAKE_SOURCE_DIR}/tests/ghost/test_print.g -DWORK=${CMAKE_BINARY_DIR}/estatico -DOBJDUMP=${CMAKE_OBJDUMP} -P ${CMAKE_SOURCE_DIR}/tests/cli/test_estatico.cmake)
+    endif()
+    # cmp-runtime-conf: ghost copiado para raiz/bin, sem ghost-runtime.conf, acha a libghost_runtime.a ao lado
+    add_test(NAME cli_runtime_sem_conf COMMAND ${CMAKE_COMMAND} -DGHOST=$<TARGET_FILE:ghost> -DRUNTIME=$<TARGET_FILE:ghost_runtime> -DROOT=${CMAKE_SOURCE_DIR} -DWORK=${CMAKE_BINARY_DIR} -P ${CMAKE_SOURCE_DIR}/tests/cli/test_runtime_conf.cmake)
+    # tool-vscode: JSON da extensao, palavras-chave da gramatica = lexer, snippets passam no ghost check
+    find_program(GHOST_NODE node)
+    if(GHOST_NODE)
+        add_test(NAME vscode_extensao COMMAND ${GHOST_NODE} ${CMAKE_SOURCE_DIR}/vscode-ghostlang/test/validar.js $<TARGET_FILE:ghost> ${CMAKE_SOURCE_DIR})
+    endif()
+    # doc-organizacao: todo exemplo em examples/ passa no verificador
+    file(GLOB GHOST_EXEMPLOS "${CMAKE_SOURCE_DIR}/examples/*.g")
+    foreach(ex IN LISTS GHOST_EXEMPLOS)
+        get_filename_component(exn "${ex}" NAME_WE)
+        add_test(NAME exemplo_${exn} COMMAND $<TARGET_FILE:ghost> check ${ex} WORKING_DIRECTORY ${CMAKE_SOURCE_DIR})
+    endforeach()
+    # plat-portable: o pacote dist/ roda com o PATH reduzido ao Windows (GCC embutido em bin/compiler)
+    if(WIN32 AND EXISTS "${CMAKE_SOURCE_DIR}/dist/GhostLang-Portable-x64/bin/ghost.exe")
+        add_test(NAME portatil_maquina_limpa COMMAND ${CMAKE_COMMAND} -DPKG=${CMAKE_SOURCE_DIR}/dist/GhostLang-Portable-x64 -DWORK=${CMAKE_BINARY_DIR} -P ${CMAKE_SOURCE_DIR}/tests/cli/test_portatil.cmake)
+    endif()
+    if(WIN32)
+        # plat-instalador: instala um mini-pacote numa pasta temporaria (sem PATH/atalho), roda e desinstala
+        find_program(GHOST_POWERSHELL powershell PATHS "$ENV{SystemRoot}/System32/WindowsPowerShell/v1.0")
+        add_test(NAME cli_instalador COMMAND ${CMAKE_COMMAND} -DGHOST=$<TARGET_FILE:ghost> -DRUNTIME=$<TARGET_FILE:ghost_runtime> -DROOT=${CMAKE_SOURCE_DIR} -DWORK=${CMAKE_BINARY_DIR} -DPS=${GHOST_POWERSHELL} -P ${CMAKE_SOURCE_DIR}/tests/cli/test_instalador.cmake)
+    endif()
+    # doc-manual / doc-spec: todo bloco ```ghost do MANUAL.md e do SPEC.md passa no ghost check
+    find_package(Python3 COMPONENTS Interpreter QUIET)
+    if(Python3_Interpreter_FOUND)
+        # os 35 exemplos do Guia do Programador (HTML) passam no ghost check
+        add_test(NAME guia_exemplos COMMAND ${Python3_EXECUTABLE} ${CMAKE_SOURCE_DIR}/scripts/python/checar_guia.py $<TARGET_FILE:ghost>)
+        set_tests_properties(guia_exemplos PROPERTIES ENVIRONMENT "PYTHONIOENCODING=utf-8")
+        # doc-roadmap / doc-manual: niveis do Manual e cabecalho do Roadmap batem com o dashboard
+        add_test(NAME docs_sincronizados COMMAND ${Python3_EXECUTABLE} ${CMAKE_SOURCE_DIR}/scripts/python/sync_manual_maturidade.py --conferir)
+        set_tests_properties(docs_sincronizados PROPERTIES ENVIRONMENT "PYTHONIOENCODING=utf-8")
+        add_test(NAME docs_exemplos COMMAND ${Python3_EXECUTABLE} ${CMAKE_SOURCE_DIR}/scripts/python/checar_docs.py $<TARGET_FILE:ghost>)
+        set_tests_properties(docs_exemplos PROPERTIES ENVIRONMENT "PYTHONIOENCODING=utf-8")
+    endif()
     add_test(NAME cli_pm_test COMMAND ${CMAKE_COMMAND} -DGHOST=$<TARGET_FILE:ghost> -P ${CMAKE_SOURCE_DIR}/tests/cli/test_pm.cmake)
     # Diagnosticos sem o Parser antigo (c40 etapa D: comprova paridade e cobertura do verificador)
     add_test(NAME diag_sem_parser_regras COMMAND ${CMAKE_COMMAND} -E env GHOST_PARSER=0 $<TARGET_FILE:ghost> test ${CMAKE_SOURCE_DIR}/tests/diag/regras)
@@ -379,6 +455,10 @@ if(BUILD_TESTING)
     add_executable(ghost_runtime_test tests/cpp/native_runtime.cpp)
     target_link_libraries(ghost_runtime_test PRIVATE ghost_runtime)
     add_test(NAME runtime_cpu COMMAND ghost_runtime_test cpu)
+    # OpenMP dedicado (gpu-openmp): threads e resultado paralelo = serial
+    add_executable(ghost_openmp_test tests/cpp/openmp_paralelo.cpp)
+    target_link_libraries(ghost_openmp_test PRIVATE ghost_runtime)
+    add_test(NAME runtime_openmp COMMAND ghost_openmp_test)
     set_tests_properties(runtime_cpu PROPERTIES ENVIRONMENT "OMP_NUM_THREADS=4")
     option(GHOST_TEST_CUDA "Executar testes que exigem GPU CUDA" OFF)
     if(GHOST_TEST_CUDA)

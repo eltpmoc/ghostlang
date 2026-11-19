@@ -1,6 +1,7 @@
 #include "../include/Lexer.hpp"
 #include "../include/GhostModules.hpp"
 #include "../include/GhostFormat.hpp"
+#include <algorithm>
 #include <cctype>
 #include <vector>
 
@@ -541,4 +542,48 @@ Token Lexer::peekNextToken() {
     currentLine = oldLine;
     currentColumn = oldColumn;
     return t;
+}
+std::vector<std::string> Lexer::keywordNames() {
+    Lexer probe("");
+    std::vector<std::string> names;
+    names.reserve(probe.keywords.size());
+    for (const auto& kv : probe.keywords) names.push_back(kv.first);
+    std::sort(names.begin(), names.end());
+    return names;
+}
+
+std::string Lexer::unescape(const std::string& raw) {
+    std::string out;
+    out.reserve(raw.size());
+    for (size_t i = 0; i < raw.size(); ++i) {
+        const char c = raw[i];
+        if (c != '\\' || i + 1 >= raw.size()) { out += c; continue; }
+        const char e = raw[++i];
+        switch (e) {
+            case 'n': out += '\n'; break;
+            case 't': out += '\t'; break;
+            case 'r': out += '\r'; break;
+            case '0': out += '\0'; break;
+            case 'a': out += '\a'; break;
+            case 'b': out += '\b'; break;
+            case 'f': out += '\f'; break;
+            case 'v': out += '\v'; break;
+            case '\\': out += '\\'; break;
+            case '"': out += '"'; break;
+            case '\'': out += '\''; break;
+            case 'x': {
+                int v = 0, n = 0;
+                while (n < 2 && i + 1 < raw.size() && std::isxdigit(static_cast<unsigned char>(raw[i + 1]))) {
+                    const char h = raw[++i];
+                    v = v * 16 + (std::isdigit(static_cast<unsigned char>(h)) ? h - '0'
+                                  : std::tolower(static_cast<unsigned char>(h)) - 'a' + 10);
+                    ++n;
+                }
+                if (n == 0) out += "\\x"; else out += static_cast<char>(v);
+                break;
+            }
+            default: out += '\\'; out += e; break;  // escape desconhecido: fica como está
+        }
+    }
+    return out;
 }

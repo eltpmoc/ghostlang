@@ -1,5 +1,7 @@
 # Compila um programa .g com o ghost, roda o executavel e compara a saida com o arquivo esperado (exato).
-# Uso: cmake -DGHOST=<ghost.exe> -DSOURCE=<prog.g> -DEXPECT=<prog.expected> -DWORK=<pasta> -P run_golden.cmake
+# Uso: cmake -DGHOST=<ghost.exe> -DSOURCE=<prog.g> -DEXPECT=<prog.expected> -DWORK=<pasta> [-DFILTER=<regex>] -P run_golden.cmake
+# FILTER (opcional): linhas da saida que casam com a regex sao ignoradas (ex.: log de uma thread de servidor,
+# cuja ordem em relacao a thread principal nao e deterministica).
 get_filename_component(name "${SOURCE}" NAME_WE)
 file(MAKE_DIRECTORY "${WORK}")
 set(suffix "")
@@ -16,6 +18,16 @@ if(NOT EXISTS "${exe}")
 endif()
 execute_process(COMMAND "${exe}" OUTPUT_VARIABLE out ERROR_VARIABLE err RESULT_VARIABLE rc TIMEOUT 120 ENCODING UTF-8)
 string(REPLACE "\r" "" out "${out}")
+if(DEFINED FILTER AND NOT FILTER STREQUAL "")
+  string(REPLACE ";" "\\;" out_esc "${out}")
+  string(REPLACE "\n" ";" linhas "${out_esc}")
+  set(out "")
+  foreach(l IN LISTS linhas)
+    if(NOT l STREQUAL "" AND NOT l MATCHES "${FILTER}")
+      string(APPEND out "${l}\n")
+    endif()
+  endforeach()
+endif()
 file(READ "${EXPECT}" expected)
 string(REPLACE "\r" "" expected "${expected}")
 if(NOT out STREQUAL expected)

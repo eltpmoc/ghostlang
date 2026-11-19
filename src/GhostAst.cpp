@@ -930,6 +930,25 @@ private:
     AstPtr parseFor() {
         const Token kw = cur();
         advance(); // for
+        // Forma do Python, sem parênteses: for x in range(10) { ... } / for chave, valor in mapa { ... }
+        if (at(T::Identifier) && foreachAhead()) {
+            auto n = node(AstKind::Foreach, kw);
+            auto v = node(AstKind::Type, cur());
+            v->text = "var";
+            n->add(std::move(v));
+            n->name = cur().value;
+            advance();
+            if (accept(T::Comma)) {
+                if (!at(T::Identifier)) fail(cur(), "for chave, valor in mapa { ... }");
+                n->attr = cur().value;
+                advance();
+            }
+            if (!accept(T::KwIn)) fail(cur(), "for: faltou 'in' (for x in colecao { ... })");
+            n->add(parseExpr());
+            if (!at(T::LBrace)) fail(cur(), "for x in colecao: faltou '{' (o corpo do laco vai entre chaves)");
+            n->add(parseBlock());
+            return n;
+        }
         const Token open = cur();
         expect(T::LParen);
         if (foreachAhead()) return parseForeachRest(kw, open);

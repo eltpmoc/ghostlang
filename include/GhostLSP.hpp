@@ -36,10 +36,14 @@ public:
     GhostLSP();
     void run();
     int runTestMode();
+    // Raiz da GhostLang: o auto-completar lista as funções declaradas em <raiz>/libs/*.g
+    void setRoot(const std::string& root);
 
 private:
     bool running = true;
     std::map<std::string, std::string> documents;
+    std::vector<CompletionItem> libItems;        // funções das libs/*.g
+    std::vector<std::string>* capture = nullptr; // modo de teste: guarda as mensagens em vez de escrever
 
     void processMessage(const std::string& content);
     void handleInitialize(const std::string& id);

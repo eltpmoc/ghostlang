@@ -62,7 +62,7 @@ struct GhostTransformerG::Impl {
     
     // Construtor
     Impl(int c, int d, int h, int l, int b, int s) : C(c), D(d), H(h), L(l), B(b), seed(s) {
-        std::cout << "[V5] Alocando Tensores Quânticos na VRAM para o Transformer...\n";
+        std::cout << "[V5] Alocando tensores quanticos do Transformer...\n";
         token_embed = std::make_unique<QubitTensor>(256, d); // 256 bytes de vocabulario (GhostLang usa tokenização de bytes)
         pos_embed = std::make_unique<QubitTensor>(c, d);
         output_weights = std::make_unique<QubitTensor>(d, 256);
@@ -697,7 +697,7 @@ void GhostTransformerG::info() {
 }
 
 void GhostTransformerG::self_test() {
-    std::cout << "[V5] Iniciando Teste do Kernel CUDA Quântico (GhostMatrixG)...\n";
+    std::cout << "[V5] Iniciando teste do kernel quantico (GhostMatrixG)...\n";
     
     // Matrizes 16x16 de Qubits
     GhostMatrixG A(16, 16);

@@ -32,7 +32,7 @@
   "Server Setup": {
     "prefix": ["server", "ghost-server"],
     "body": [
-      "import \"lib/http.g\";",
+      "import \"libs/http.g\";",
       "",
       "server ${1:app} = ${2:8080};",
       "",

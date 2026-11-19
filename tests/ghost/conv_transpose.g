@@ -26,12 +26,13 @@ function main() {
     // dentro de expressões, os métodos fazem o mesmo
     var m = img.conv2d(k, 1);
     var u = img.transpose();
-    print(m(0, 0), " ", u(0, 1));
+    show(m);
+    print(m.getRows(), "x", m.getCols(), " ", u.getRows(), "x", u.getCols());
 
     // matrizes chamadas r, c e val: até 12/11/2026 os laços gerados para gate usavam esses nomes e o g++ recusava
     gate r(2, 3);
     gate c(3, 3);
     gate val(2, 2);
     c = conv(img, k);
-    print(r.getRows(), "x", r.getCols(), " ", c(0, 0), " ", val.getCols());
+    print(r.getRows(), "x", r.getCols(), " ", val.getCols());
 }

@@ -1,0 +1,35 @@
+// x = conv(...) e x = transpose(a): mesma saida do programa compilado (golden_conv_transpose).
+// Os elementos sao comparados por show(): no REPL m(i, j) devolve so a parte real.
+gate img(4, 4);
+img(0, 0) = 1.0; img(0, 1) = 2.0; img(0, 2) = 3.0; img(0, 3) = 0.0;
+img(1, 0) = 4.0; img(1, 1) = 5.0; img(1, 2) = 6.0; img(1, 3) = 1.0;
+img(2, 0) = 7.0; img(2, 1) = 8.0; img(2, 2) = 9.0; img(2, 3) = 2.0;
+img(3, 0) = 0.0; img(3, 1) = 1.0; img(3, 2) = 2.0; img(3, 3) = 3.0;
+
+gate k(2, 2);
+k(0, 0) = 1.0; k(0, 1) = 0.0;
+k(1, 0) = 0.0; k(1, 1) = 1.0;
+
+gate saida(3, 3);
+saida = conv(img, k);
+show(saida);
+
+gate saida2(2, 2);
+saida2 = conv(img, k, 2);
+show(saida2);
+
+gate t(4, 4);
+t = transpose(img);
+show(t);
+
+var m = img.conv2d(k, 1);
+var u = img.transpose();
+show(m);
+print(m.getRows(), "x", m.getCols(), " ", u.getRows(), "x", u.getCols());
+
+gate r(2, 3);
+gate c(3, 3);
+gate val(2, 2);
+c = conv(img, k);
+print(r.getRows(), "x", r.getCols(), " ", val.getCols());
+exit

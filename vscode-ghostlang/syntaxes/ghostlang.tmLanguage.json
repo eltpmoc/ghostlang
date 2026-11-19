@@ -1,22 +1,53 @@
 {
   "name": "GhostLang",
   "scopeName": "source.ghost",
-  "fileTypes": ["g", "ghost"],
+  "fileTypes": [
+    "g",
+    "ghost"
+  ],
   "patterns": [
-    { "include": "#comments" },
-    { "include": "#strings" },
-    { "include": "#keywords-control" },
-    { "include": "#keywords-declaration" },
-    { "include": "#keywords-quantum" },
-    { "include": "#keywords-http" },
-    { "include": "#types" },
-    { "include": "#constants" },
-    { "include": "#function-definition" },
-    { "include": "#function-call" },
-    { "include": "#method-call" },
-    { "include": "#numbers" },
-    { "include": "#operators" },
-    { "include": "#punctuation" }
+    {
+      "include": "#comments"
+    },
+    {
+      "include": "#strings"
+    },
+    {
+      "include": "#keywords-control"
+    },
+    {
+      "include": "#keywords-declaration"
+    },
+    {
+      "include": "#keywords-quantum"
+    },
+    {
+      "include": "#keywords-http"
+    },
+    {
+      "include": "#types"
+    },
+    {
+      "include": "#constants"
+    },
+    {
+      "include": "#function-definition"
+    },
+    {
+      "include": "#function-call"
+    },
+    {
+      "include": "#method-call"
+    },
+    {
+      "include": "#numbers"
+    },
+    {
+      "include": "#operators"
+    },
+    {
+      "include": "#punctuation"
+    }
   ],
   "repository": {
     "comments": {
@@ -28,15 +59,14 @@
         {
           "name": "comment.block.ghost",
           "begin": "/\\*",
-          "end":   "\\*/"
+          "end": "\\*/"
         }
       ]
     },
-
     "strings": {
       "name": "string.quoted.double.ghost",
       "begin": "\"",
-      "end":   "\"",
+      "end": "\"",
       "patterns": [
         {
           "name": "constant.character.escape.ghost",
@@ -44,32 +74,26 @@
         }
       ]
     },
-
     "keywords-control": {
       "name": "keyword.control.ghost",
-      "match": "\\b(if|else|for|while|do|foreach|return|break|continue)\\b"
+      "match": "\\b(if|else|for|while|do|foreach|in|switch|case|default|break|continue|return|try|catch|throw|finally)\\b"
     },
-
     "keywords-declaration": {
       "name": "keyword.other.declaration.ghost",
-      "match": "\\b(function|var|import|load|print|input|class|public|private|this|new|pragma|gpu|show|textmodel|llm|hypothesis|qlayer)\\b"
+      "match": "\\b(function|var|import|load|class|interface|public|private|this|new|extends|super|pragma|gpu|print|println|printf|imprimir|escreva|escrevaln|input|inputln|show)\\b"
     },
-
     "keywords-quantum": {
       "name": "support.class.quantum.ghost",
-      "match": "\\b(state|gate|hadamard|paulix|pauliy|pauliz|optimize|activate|apply|network|swarm|conv)\\b"
+      "match": "\\b(state|gate|qreg|qcircuit|qlayer|circuit|hadamard|paulix|pauliy|pauliz|hypothesis|collapse_max|collapse_min|transpose|conv|network|optimize|activate|apply|relu|sigmoid|sin|cos|tan|epochs|lr|opt|textmodel|llm|load_gguf|swarm|matrix|GhostMatrix|spawn|sleep|mutex|lock|unlock)\\b"
     },
-
     "keywords-http": {
       "name": "support.function.http.ghost",
-      "match": "\\b(server|route|listen|serve)\\b"
+      "match": "\\b(server|route|listen)\\b"
     },
-
     "types": {
       "name": "storage.type.ghost",
-      "match": "\\b(string|int|double|float|complex|void|ghost|json|date|time|datetime)\\b"
+      "match": "\\b(string|int|double|float|complex|void|ghost|json|date|time|datetime|bool|list|map)\\b"
     },
-
     "constants": {
       "patterns": [
         {
@@ -78,38 +102,46 @@
         }
       ]
     },
-
     "function-definition": {
       "patterns": [
         {
           "comment": "function keyword + return type + name",
-          "match": "\\b(function)\\s+\\b(string|int|double|float|complex|void|ghost|json|date|time|datetime)\\s+([a-zA-Z_][a-zA-Z0-9_]*)\\s*\\(",
+          "match": "\\b(function)\\s+\\b(string|int|double|float|complex|void|ghost|json|date|time|datetime|bool|list|map)\\s+([a-zA-Z_][a-zA-Z0-9_]*)\\s*\\(",
           "captures": {
-            "1": { "name": "keyword.other.declaration.ghost" },
-            "2": { "name": "storage.type.ghost" },
-            "3": { "name": "entity.name.function.ghost" }
+            "1": {
+              "name": "keyword.other.declaration.ghost"
+            },
+            "2": {
+              "name": "storage.type.ghost"
+            },
+            "3": {
+              "name": "entity.name.function.ghost"
+            }
           }
         }
       ]
     },
-
     "function-call": {
       "comment": "standalone function call: name(...)",
       "match": "\\b([a-zA-Z_][a-zA-Z0-9_]*)\\s*(?=\\()",
       "captures": {
-        "1": { "name": "entity.name.function.call.ghost" }
+        "1": {
+          "name": "entity.name.function.call.ghost"
+        }
       }
     },
-
     "method-call": {
       "comment": "method call on object: obj.method(...)",
       "match": "\\b([a-zA-Z_][a-zA-Z0-9_]*)\\.(get|post|put|del|route|listen|serve|display|loadCSV)\\s*(?=\\()",
       "captures": {
-        "1": { "name": "variable.other.object.ghost" },
-        "2": { "name": "entity.name.function.member.ghost" }
+        "1": {
+          "name": "variable.other.object.ghost"
+        },
+        "2": {
+          "name": "entity.name.function.member.ghost"
+        }
       }
     },
-
     "numbers": {
       "patterns": [
         {
@@ -122,7 +154,6 @@
         }
       ]
     },
-
     "operators": {
       "patterns": [
         {
@@ -147,7 +178,6 @@
         }
       ]
     },
-
     "punctuation": {
       "patterns": [
         {

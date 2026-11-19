@@ -177,6 +177,11 @@ private:
     GhostValue exprPrimary(std::vector<Token>& t, size_t& i, bool eval);
     GhostValue exprPostfix(GhostValue base, const std::string& varName, std::vector<Token>& t, size_t& i, bool eval);
     GhostValue callBuiltin(const std::string& name, std::vector<std::vector<Token>>& args, bool& found);
+    // Objetos nativos da IA (src/InterpreterNative.cpp): text_model, transformer_model(_v5),
+    // matrix_g, temporal_context, knowledge_consult
+    static bool isNativeObject(const GhostValue& v);
+    bool callNativeFactory(const std::string& name, std::vector<GhostValue>& args, GhostValue& out);
+    GhostValue callNativeMethod(const GhostValue& obj, const std::string& method, std::vector<GhostValue>& args);
     // path: onde fica a coleção (métodos que alteram, como push); nullptr = valor temporário
     GhostValue collMethod(const LPath* path,const GhostValue& self, const std::string& m, std::vector<std::vector<Token>>& args);
     GhostValue callUserFunction(const std::string& name, std::vector<std::vector<Token>>& args);
@@ -438,6 +443,7 @@ private:
     void parseDoWhile(Lexer& lex);
     void parseFor(Lexer& lex);
     void parseForeach(Lexer& lex);
+    void foreachFromHead(std::vector<Token>& head, const std::string& body);
     void parseHypothesis(Lexer& lex);
     void parseSwitch(Lexer& lex);
     void parseFunction(Lexer& lex);

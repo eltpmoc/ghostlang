@@ -138,8 +138,27 @@ void GhostInterpreter::executeLine(const string& line) {
             }
             ghost::set_device(dev);
             if (lex.peekNextToken().type == GTokenType::Semicolon) lex.getNextToken();
-        } else if (current.type == GTokenType::KwVar || current.type == GTokenType::KwInt || current.type == GTokenType::KwDouble || current.type == GTokenType::KwFloat || current.type == GTokenType::KwString || current.type == GTokenType::KwDate || current.type == GTokenType::KwTime || current.type == GTokenType::KwDatetime || current.type == GTokenType::KwJson || current.type == GTokenType::KwGhost || current.type == GTokenType::KwComplex || current.type == GTokenType::KwLlm || current.type == GTokenType::KwBool || current.type == GTokenType::KwList || current.type == GTokenType::KwMap) {
-            if (current.type == GTokenType::KwGhost) {
+        } else if (current.type == GTokenType::KwVar || current.type == GTokenType::KwInt || current.type == GTokenType::KwDouble || current.type == GTokenType::KwFloat || current.type == GTokenType::KwString || current.type == GTokenType::KwDate || current.type == GTokenType::KwTime || current.type == GTokenType::KwDatetime || current.type == GTokenType::KwJson || current.type == GTokenType::KwGhost || current.type == GTokenType::KwComplex || current.type == GTokenType::KwLlm || current.type == GTokenType::KwBool || current.type == GTokenType::KwList || current.type == GTokenType::KwMap || current.type == GTokenType::KwTextModel) {
+            // var m = img.conv2d(k, 1); / var u = img.transpose(); : o resultado é uma matriz,
+            // como no compilador (var vira auto); segue o mesmo caminho de 'gate m = ...'.
+            bool matrizVar = false;
+            if (current.type == GTokenType::KwVar) {
+                const auto ahead = lex.peekRest(8);
+                static const std::set<std::string> metodosMatriz = {
+                    "transpose", "conv2d", "max_pool2d", "avg_pool2d", "conv2d_grad_kernel", "conv2d_grad_input"};
+                matrizVar = ahead.size() >= 5 && ahead[0].type == GTokenType::Identifier &&
+                    ahead[1].type == GTokenType::Assign && memory.count(ahead[2].value) &&
+                    !type_memory.count(ahead[2].value) && ahead[3].type == GTokenType::Dot &&
+                    metodosMatriz.count(ahead[4].value);
+            }
+            if (current.type == GTokenType::KwTextModel) {
+                // textmodel ia = text_model(...): no REPL o objeto nativo fica numa variável comum
+                if (!tryDeclaration(GTokenType::KwVar, lex)) parseVar(lex, GTokenType::KwVar);
+            } else if (matrizVar) {
+                const std::string alvo = lex.getNextToken().value;
+                lex.getNextToken(); // '='
+                parseMathAssignment(alvo, lex);
+            } else if (current.type == GTokenType::KwGhost) {
                 parseVar(lex, current.type);
             } else if (!tryDeclaration(current.type, lex)) {
                 parseVar(lex, current.type);
@@ -882,7 +901,7 @@ void GhostInterpreter::parseMathAssignmentLeft(const string& targetName, const T
             throw runtime_error("Variavel '" + objToken.value + "' nao encontrada.");
         }
         memory[targetName] = memory[objToken.value].transpose();
-        cout << "[Matematica] " << targetName << " = transpose(" << objToken.value << ")" << endl;
+        cout << "[Ghost OS] Transposicao de '" << objToken.value << "' calculada com sucesso." << endl;  // mesma mensagem do compilador
         return;
     }
 
@@ -902,7 +921,7 @@ void GhostInterpreter::parseMathAssignmentLeft(const string& targetName, const T
             throw runtime_error("Variaveis de matriz nao encontradas em conv().");
         }
         memory[targetName] = memory[aTok.value].conv2d(memory[kTok.value], stride);
-        cout << "[Matematica] " << targetName << " = conv(" << aTok.value << ", " << kTok.value << ")" << endl;
+        cout << "[Ghost OS] Convolucao ('" << kTok.value << "') aplicada sobre '" << aTok.value << "'." << endl;  // mesma mensagem do compilador
         return;
     }
 
@@ -919,7 +938,6 @@ void GhostInterpreter::parseMathAssignmentLeft(const string& targetName, const T
                 throw runtime_error("Variavel '" + leftToken.value + "' nao encontrada.");
             }
             memory[targetName] = memory[leftToken.value].transpose();
-            cout << "[Matematica] " << targetName << " = " << leftToken.value << ".transpose()" << endl;
             return;
         }
         if (mTok.value == "conv2d") {
@@ -935,7 +953,6 @@ void GhostInterpreter::parseMathAssignmentLeft(const string& targetName, const T
                 throw runtime_error("Variaveis de matriz nao encontradas em conv2d.");
             }
             memory[targetName] = memory[leftToken.value].conv2d(memory[kTok.value], stride);
-            cout << "[Matematica] " << targetName << " = " << leftToken.value << ".conv2d(" << kTok.value << ")" << endl;
             return;
         }
         if (mTok.value == "max_pool2d" || mTok.value == "avg_pool2d") {
@@ -955,7 +972,6 @@ void GhostInterpreter::parseMathAssignmentLeft(const string& targetName, const T
             }
             memory[targetName] = isMax ? memory[leftToken.value].max_pool2d(psize, stride)
                                        : memory[leftToken.value].avg_pool2d(psize, stride);
-            cout << "[Matematica] " << targetName << " = " << leftToken.value << "." << mTok.value << "()" << endl;
             return;
         }
         if (mTok.value == "conv2d_grad_kernel") {
@@ -970,7 +986,6 @@ void GhostInterpreter::parseMathAssignmentLeft(const string& targetName, const T
             }
             if (lex.getNextToken().type != GTokenType::RParen) throw runtime_error("Esperado ')'.");
             memory[targetName] = memory[leftToken.value].conv2d_grad_kernel(memory[inTok.value], memory[gradTok.value], stride);
-            cout << "[Matematica] " << targetName << " = " << leftToken.value << ".conv2d_grad_kernel(" << inTok.value << ", " << gradTok.value << ")" << endl;
             return;
         }
         if (mTok.value == "conv2d_grad_input") {
@@ -985,7 +1000,6 @@ void GhostInterpreter::parseMathAssignmentLeft(const string& targetName, const T
             }
             if (lex.getNextToken().type != GTokenType::RParen) throw runtime_error("Esperado ')'.");
             memory[targetName] = memory[leftToken.value].conv2d_grad_input(memory[gradTok.value], memory[kTok.value], stride);
-            cout << "[Matematica] " << targetName << " = " << leftToken.value << ".conv2d_grad_input(" << gradTok.value << ", " << kTok.value << ")" << endl;
             return;
         }
     }
@@ -1011,13 +1025,10 @@ void GhostInterpreter::parseMathAssignmentLeft(const string& targetName, const T
         
         if (opToken.type == GTokenType::Plus) {
             memory[targetName] = leftMat + rightMat;
-            cout << "[Matematica] " << targetName << " = " << leftToken.value << " + " << rightToken.value << endl;
         } else if (opToken.type == GTokenType::Minus) {
             memory[targetName] = leftMat - rightMat;
-            cout << "[Matematica] " << targetName << " = " << leftToken.value << " - " << rightToken.value << endl;
         } else if (opToken.type == GTokenType::Star) {
             memory[targetName] = leftMat * rightMat;
-            cout << "[Matematica] " << targetName << " = " << leftToken.value << " * " << rightToken.value << endl;
         } else if (opToken.type == GTokenType::Slash) {
             throw runtime_error("Divisao matricial por outra matriz nao suportada (apenas por escalar).");
         }
@@ -1028,10 +1039,8 @@ void GhostInterpreter::parseMathAssignmentLeft(const string& targetName, const T
         double scalar = stod(rightToken.value);
         if (opToken.type == GTokenType::Star) {
             memory[targetName] = leftMat * scalar;
-            cout << "[Matematica] " << targetName << " = " << leftToken.value << " * " << scalar << endl;
         } else if (opToken.type == GTokenType::Slash) {
             memory[targetName] = leftMat / scalar;
-            cout << "[Matematica] " << targetName << " = " << leftToken.value << " / " << scalar << endl;
         }
     } else {
         throw runtime_error("Operando direito invalido.");
@@ -1156,7 +1165,7 @@ void GhostInterpreter::parseVar(Lexer& lex, GTokenType type) {
             std::getline(std::cin, buffer);
             string_memory[nameToken.value] = buffer;
         } else if (t.type == GTokenType::String) {
-            string_memory[nameToken.value] = t.value;
+            string_memory[nameToken.value] = Lexer::unescape(t.value);
         } else if (t.type == GTokenType::Identifier && t.value == "now") {
             lex.getNextToken(); // consume '('
             lex.getNextToken(); // consume ')'
@@ -1267,7 +1276,7 @@ void GhostInterpreter::parseVar(Lexer& lex, GTokenType type) {
         Token peek = lex.peekNextToken();
         if (peek.type == GTokenType::String) {
             lex.getNextToken();
-            string_memory[nameToken.value] = peek.value;
+            string_memory[nameToken.value] = Lexer::unescape(peek.value);
             Token next = lex.getNextToken();
             if (next.type != GTokenType::Semicolon) throw std::runtime_error("Esperado ';'.");
             return;
@@ -1323,6 +1332,14 @@ void GhostInterpreter::parseVar(Lexer& lex, GTokenType type) {
                 Token t = lex.getNextToken();
                 if (t.type == GTokenType::Semicolon || t.type == GTokenType::EndOfFile) break;
                 exprTokens.push_back(t);
+            }
+            // ghost g = ghost(x, y, p, theta2); (ou outra expressao que de um Numero G)
+            if (exprTokens.size() >= 2 && exprTokens[0].type == GTokenType::KwGhost && exprTokens[1].type == GTokenType::LParen) {
+                GhostValue gv = evalValue(exprTokens);
+                memory[nameToken.value] = GhostMatrix(1, 1);
+                memory[nameToken.value](0, 0) = parse_ghost_number(gv.str);
+                type_memory[nameToken.value] = GTokenType::KwGhost;
+                return;
             }
             
             double real_part = 0, imag_part = 0, ghost_part = 0;
@@ -1616,15 +1633,36 @@ void GhostInterpreter::parseWhile(Lexer& lex) {
 
 // for (init; cond; passo) { }   e   for (x in xs) { }  /  for (k, v in mapa) { }
 void GhostInterpreter::parseFor(Lexer& lex) {
-    auto all = readParenGroup(lex, "for");
+    std::vector<Token> all;
+    if (lex.peekNextToken().type != GTokenType::LParen) {
+        // Forma do Python, sem parênteses: for x in range(10) { ... } / for k, v in mapa { ... }
+        int depth = 0;
+        while (true) {
+            const Token t = lex.peekNextToken();
+            if (t.type == GTokenType::EndOfFile) throw std::runtime_error("for x in colecao: faltou '{'");
+            if (depth == 0 && t.type == GTokenType::LBrace) break;
+            lex.getNextToken();
+            if (t.type == GTokenType::LParen || t.type == GTokenType::LBracket) depth++;
+            if (t.type == GTokenType::RParen || t.type == GTokenType::RBracket) depth--;
+            all.push_back(t);
+        }
+    } else {
+        all = readParenGroup(lex, "for");
+    }
     const std::string blockCode = readBlock(lex, "condicao for");
-    if (all.size() >= 3 && all[0].type == GTokenType::Identifier &&
-        (all[1].type == GTokenType::KwIn || (all.size() >= 5 && all[1].type == GTokenType::Comma && all[3].type == GTokenType::KwIn))) {
-        std::vector<std::string> vars{all[0].value};
-        size_t k = 2;
-        if (all[1].type == GTokenType::Comma) { vars.push_back(all[2].value); k = 4; }
-        std::vector<Token> coll(all.begin() + static_cast<long long>(k), all.end());
-        runForeach(vars, coll, blockCode);
+    // for ([tipo] x in colecao): tem 'in' fora de parênteses e nenhum ';'
+    bool temIn = false, temPontoVirgula = false;
+    {
+        int depth = 0;
+        for (const auto& t : all) {
+            if (t.type == GTokenType::LParen || t.type == GTokenType::LBracket) depth++;
+            if (t.type == GTokenType::RParen || t.type == GTokenType::RBracket) depth--;
+            if (depth == 0 && t.type == GTokenType::KwIn) temIn = true;
+            if (depth == 0 && t.type == GTokenType::Semicolon) temPontoVirgula = true;
+        }
+    }
+    if (temIn && !temPontoVirgula) {
+        foreachFromHead(all, blockCode);
         return;
     }
     std::vector<Token> parts[3];
@@ -2054,6 +2092,11 @@ void GhostInterpreter::parseSwitch(Lexer& lex) {
 void GhostInterpreter::parseForeach(Lexer& lex) {
     auto head = readParenGroup(lex, "foreach");
     const std::string body = readBlock(lex, "cabecalho do foreach");
+    foreachFromHead(head, body);
+}
+
+// Cabeçalho "[tipo] x[, y] in colecao" já lido (foreach, for (... in ...) e for x in ... { })
+void GhostInterpreter::foreachFromHead(std::vector<Token>& head, const std::string& body) {
     size_t k = 0;
     const bool hasExplicitType = k < head.size() &&
                                  (head[k].type != GTokenType::Identifier ||
@@ -2276,7 +2319,10 @@ bool GhostInterpreter::tryServerMethod(const std::string& objName, const Token& 
     }
     
     Token methodTok = lex.getNextToken();
-    if (methodTok.type != GTokenType::Identifier) {
+    // 'route' e 'listen' sao palavras-chave no lexer, mas aqui sao nomes de metodo (app.route(...))
+    const bool nomeValido = methodTok.type == GTokenType::Identifier ||
+        (!methodTok.value.empty() && (std::isalpha(static_cast<unsigned char>(methodTok.value[0])) || methodTok.value[0] == '_'));
+    if (!nomeValido) {
         throw std::runtime_error("Esperado nome do metodo apos '" + objName + ".'");
     }
     std::string method = methodTok.value;

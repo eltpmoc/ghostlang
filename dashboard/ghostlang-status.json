@@ -2,10 +2,11 @@
   "projeto": {
     "nome": "GhostLang",
     "versao_atual": "0.9",
-    "atualizado_em": "2026-11-12",
+    "atualizado_em": "2026-11-19",
     "descricao": "Linguagem compilada (transpilada para C++17) focada em Computação Quântica, IA/Deep Learning, álgebra hiper-complexa G e backends nativos.",
     "repositorio_local": "H:\\PROJETOS\\PROJETOS\\ghost-linux",
-    "plataforma_foco": "windows"
+    "plataforma_foco": "windows",
+    "testes_ctest": 203
   },
   "niveis": [
     {
@@ -391,15 +392,18 @@
       "arquivos": [
         "src/Interpreter.cpp",
         "src/Parser.cpp",
-        "docs/NUCLEO.md"
+        "docs/NUCLEO.md",
+        "tests/ghost/for_range.g",
+        "tests/repl/for_range.ghost",
+        "include/GhostMatrix.hpp"
       ],
       "descricao": "Iteração sobre coleções.",
-      "evidencia": "Recalibrado em 12/11/2026: Testado no CTest (Windows) com paridade compilador/REPL; nível 5 exige CI rodando e Linux/macOS comprovados (o CI nunca rodou: o repositório não tem commit nem remote). Descrição anterior: Iteração concisa e segura sobre coleções nativas (listas, vetores, mapas, tensores). Desempacotamento de pares chave-valor e elementos indexados. Validado em golden_colecoes e golden_nucleo_avancado.",
+      "evidencia": "16/11/2026: for no estilo do Python. 'for (x in colecao)' aceita tipo opcional (int, var, string...) e 'for x in colecao { }' dispensa os parênteses; range(fim), range(inicio, fim) e range(inicio, fim, passo) (passo negativo conta para baixo, o fim não entra, range(0) não roda); iteração sobre texto (caractere a caractere), lista, set, mapa (for chave, valor in mapa), matriz gate/matrix/GhostMatrix (Número G a Número G, linha por linha, por referência no C++: GhostMatrix ganhou begin/end) e qreg. golden_for_range e repl_for_range rodam o mesmo roteiro com a mesma saída. Achados e corrigidos: o REPL não aceitava 'for (var i in ...)' nem 'for (int x in ...)', não lia m(i, j) em expressões ('funcao nao encontrada'), não declarava 'ghost g = ghost(...)' e imprimia o ghost em outro formato.",
       "proximos_passos": [
-        "Iteração paralela nativa com particionamento automático",
-        "Suporte a iteradores assíncronos e geradores"
+        "for i, x in enumerate(lista)",
+        "Linux/macOS e CI para o nível 5"
       ],
-      "atualizado_em": "2026-11-09"
+      "atualizado_em": "2026-11-19"
     },
     {
       "id": "nuc-funcoes",
@@ -823,7 +827,7 @@
       "id": "cmp-estatico",
       "nome": "Linkagem estática (-x)",
       "categoria": "compilador",
-      "nivel": 3,
+      "nivel": 4,
       "alvo": 5,
       "fase": "F1",
       "prioridade": "baixa",
@@ -832,21 +836,22 @@
         "compilador"
       ],
       "arquivos": [
-        "src/ghost_compiler.cpp"
+        "src/ghost_compiler.cpp",
+        "tests/cli/test_estatico.cmake"
       ],
       "descricao": "Executáveis sem dependência de DLLs.",
-      "evidencia": "Recalibrado em 12/11/2026: Linkagem estática é o padrão no Windows (exercitada pelos goldens), mas não há teste dedicado de executável sem DLLs nem verificação em outra plataforma.",
+      "evidencia": "13/11/2026: teste dedicado cli_build_estatico: ghost build gera o .exe, objdump confirma que ele só importa DLLs do Windows (UCRT/api-ms-win-*, sem libstdc++, libgcc, libgomp, libwinpthread) e o programa roda com o PATH reduzido a C:\\Windows. No Windows o build é estático por padrão (-d gera dinâmico).",
       "proximos_passos": [
-        "Redução de tamanho com strip e dead-code elimination",
-        "Compressão de binários opcional com UPX"
+        "Redução de tamanho com strip",
+        "Linux/macOS e CI para o nível 5"
       ],
-      "atualizado_em": "2026-11-09"
+      "atualizado_em": "2026-11-13"
     },
     {
       "id": "cmp-runtime-conf",
       "nome": "Ligação com runtime nativo (libghost_runtime.a / ghost-runtime.conf)",
       "categoria": "compilador",
-      "nivel": 3,
+      "nivel": 4,
       "alvo": 5,
       "fase": "F1",
       "prioridade": "alta",
@@ -857,21 +862,21 @@
       ],
       "arquivos": [
         "src/ghost_compiler.cpp",
-        "CMakeLists.txt"
+        "CMakeLists.txt",
+        "tests/cli/test_runtime_conf.cmake"
       ],
       "descricao": "Liga programas à libghost_runtime.a (Transformer, textmodel, CUDA).",
-      "evidencia": "Recalibrado em 12/11/2026: Funciona no Windows (todos os testes ligam com libghost_runtime.a); sem teste dedicado nem verificação em outra plataforma. Descrição anterior: Resolução e vinculação automática com o runtime nativo C++ (libghost_runtime.a). O executável ghost localiza o runtime e os headers da standard library de forma autônoma a partir de diretórios relativos ou configuração ghost-runtime.conf, com suporte completo a OpenMP, aceleração matemática e simulação quântica.",
+      "evidencia": "13/11/2026: teste dedicado cli_runtime_sem_conf: o ghost.exe é copiado para raiz/bin com a libghost_runtime.a ao lado e os cabeçalhos em raiz/include, sem ghost-runtime.conf; ele acha o runtime sozinho e liga um programa com gate/transpose. O caminho com ghost-runtime.conf é exercitado por todos os goldens.",
       "proximos_passos": [
-        "Empacotamento de runtime estático em formato .a/lib para multiplataforma",
-        "Cache local de compilação do runtime"
+        "Linux/macOS e CI para o nível 5"
       ],
-      "atualizado_em": "2026-11-09"
+      "atualizado_em": "2026-11-13"
     },
     {
       "id": "cmp-cli",
       "nome": "CLI ghost build / run / test / fmt",
       "categoria": "compilador",
-      "nivel": 3,
+      "nivel": 4,
       "alvo": 5,
       "fase": "F2",
       "prioridade": "media",
@@ -880,18 +885,18 @@
         "src/ghost_compiler.cpp"
       ],
       "descricao": "Subcomandos de projeto.",
-      "evidencia": "Recalibrado em 12/11/2026: Comandos testados (cli_check, cli_fmt, cli_lsp_test, cli_debug_*, cli_pm_test, cli_wasm_*), mas alguns subcomandos são fachada: ghost debug --dap só imprime 'pronto' e sai; ghost pm install não baixa nada. Descrição anterior: Interface de linha de comando profissional, moderna e unificada: subcomandos de ciclo de vida completo (build, run, test, fmt, check, ast, lsp, debug, pm). Ajuda contextual rica com cores ANSI, flags de otimização (-O3, --release, -x, --wasm) e integração perfeita com CI/CD. Corrigido em 12/11/2026: ghost debug --dap agora dá erro honesto (não implementado) e ghost pm install só aceita dependências presentes em ghost_packages/<nome>/, falhando (código 1, sem gravar ghost.lock) quando falta alguma; não há registro remoto. cli_pm_test confere os dois casos.",
+      "evidencia": "13/11/2026: todos os subcomandos da CLI funcionam e têm teste: build/run (goldens), check, fmt, lsp (16 conferências), debug (--saida, lote e --dap com sessão completa), pm (pasta, git, semver), cpp/congelar e --wasm (gera o C++; o binário WebAssembly depende do Emscripten). ghost run usa executável temporário com nome único. As fachadas de 12/11 (--dap e pm install) foram substituídas por implementações reais.",
       "proximos_passos": [
-        "Registro de pacotes remoto (ou instalação a partir de git/caminho)",
-        "Auto-completar de comandos para shells bash, zsh e powershell"
+        "Auto-completar de comandos para bash, zsh e PowerShell",
+        "Linux/macOS e CI para o nível 5"
       ],
-      "atualizado_em": "2026-11-12"
+      "atualizado_em": "2026-11-13"
     },
     {
       "id": "cmp-cmake",
       "nome": "Build via CMake (+ CUDA AUTO/ON/OFF)",
       "categoria": "compilador",
-      "nivel": 3,
+      "nivel": 4,
       "alvo": 5,
       "fase": "F1",
       "prioridade": "alta",
@@ -904,12 +909,12 @@
         "scripts/build/buildWin.ps1"
       ],
       "descricao": "Gera ghost, ghost_api, ghost_ask, ghost_node, ghost_swarm, runtime e testes.",
-      "evidencia": "Recalibrado em 12/11/2026: Build CMake + Ninja verificado no Windows (MSYS2 g++ 15.2, CUDA AUTO); Linux e macOS não verificados.",
+      "evidencia": "13/11/2026: build CMake + Ninja verificado no Windows com as opções novas: GHOST_USE_BLAS (OpenBLAS embutido na libghost_runtime.a por cmake/merge_blas.cmake), CUDA AUTO e testes condicionais (Node, dist/, backend quântico CUDA). O CTest completo (191 testes) roda a partir dele. Linux e macOS ficam para o nível 5.",
       "proximos_passos": [
-        "Presets de build para macOS ARM64 e contêineres Docker Linux",
-        "Suporte a compilação incremental distribuída"
+        "Presets de build para Linux e macOS",
+        "CI para o nível 5"
       ],
-      "atualizado_em": "2026-11-09"
+      "atualizado_em": "2026-11-13"
     },
     {
       "id": "q-state-gate",
@@ -1198,7 +1203,7 @@
       "id": "q-statevector-gpu",
       "nome": "Simulador statevector em GPU (CUDA)",
       "categoria": "quantico",
-      "nivel": 3,
+      "nivel": 4,
       "alvo": 5,
       "fase": "F3",
       "prioridade": "alta",
@@ -1210,13 +1215,17 @@
         "src/GhostQuantum.cpp",
         "scripts/build/build_quantum_cuda.ps1",
         "tests/cpp/quantum_cuda.cpp",
-        "tests/ghost/quantum_gpu.g"
+        "tests/ghost/quantum_gpu.g",
+        "tests/ghost/quantum_gpu_resultado.g",
+        "tests/repl/quantum_gpu_resultado.ghost"
       ],
       "descricao": "Backend ghost_quantum_cuda (API em C, carregado em tempo de execução). qreg com 14+ qubits vai para a GPU no modo auto; q.device() e quantum_device() escolhem.",
-      "evidencia": "Recalibrado em 12/11/2026: Simulador em CUDA real (teste quantum_cuda), verificado só nesta máquina (GTX 1050 Ti, CUDA 12.9). Descrição anterior: Simulador statevector em GPU via CUDA de alto rendimento com aceleracao de ate 6.45x para circuitos quanticos em larga escala e fallback transparente para CPU multithreaded OpenMP (quantum_cuda e quantum_gpu).",
-      "proximos_passos": [],
+      "evidencia": "13/11/2026: CUDA real nesta máquina (GTX 1050 Ti, sm_61, CUDA 12.9): quantum_cuda confere CPU == GPU em portas, medição, Pauli, cópia, Grover/GHZ e qcircuit (6,2x a 6,7x mais rápido com 20 e 24 qubits). Paridade compilador/REPL: golden_quantum_gpu_resultado e repl_quantum_gpu_resultado (Grover com 20 qubits e GHZ com 22, resultado igual na GPU e na CPU); quantum_gpu_dispositivo exige que qreg(20) rode em 'cuda' quando o backend existe.",
+      "proximos_passos": [
+        "Linux com CUDA e CI para o nível 5"
+      ],
       "desde": "2026-11-06",
-      "atualizado_em": "2026-11-09"
+      "atualizado_em": "2026-11-13"
     },
     {
       "id": "q-density",
@@ -1344,7 +1353,7 @@
         "tests/repl/algebra_std.ghost"
       ],
       "descricao": "Álgebra hiper-complexa própria: soma, produto, conjugação, normas, divisão por zero com regra G.",
-      "evidencia": "Recalibrado em 12/11/2026: Testado no CTest (Windows) com paridade compilador/REPL; nível 5 exige CI rodando e Linux/macOS comprovados (o CI nunca rodou: o repositório não tem commit nem remote). Descrição anterior: Álgebra hiper-complexa GhostNumberG 4D com componentes (x, y, p, θ²), soma, produto de Hamilton/Grassmann estendido, comutadores quânticos, propagação analítica de incerteza, formatos de saída duplos (4D vetorial e matemático clássico), além de suporte completo a input/inputln universal. Validado em CTest (native_runtime, golden_test_algebra, repl_algebra_decl) e exemplos/NumerosFantasmasG.g.",
+      "evidencia": "Recalibrado em 12/11/2026: Testado no CTest (Windows) com paridade compilador/REPL; nível 5 exige CI rodando e Linux/macOS comprovados (o CI nunca rodou: o repositório não tem commit nem remote). Descrição anterior: Álgebra hiper-complexa GhostNumberG 4D com componentes (x, y, p, θ²), soma, produto de Hamilton/Grassmann estendido, comutadores quânticos, propagação analítica de incerteza, formatos de saída duplos (4D vetorial e matemático clássico), além de suporte completo a input/inputln universal. Validado em CTest (native_runtime, golden_test_algebra, repl_algebra_decl) e examples/NumerosFantasmasG.g.",
       "proximos_passos": [],
       "atualizado_em": "2026-11-10"
     },
@@ -1365,12 +1374,12 @@
         "src/GhostCodegen.cpp",
         "src/Interpreter.cpp",
         "src/InterpreterCore.cpp",
-        "exemplos/NumerosFantasmasG.g",
+        "examples/NumerosFantasmasG.g",
         "tests/ghost/test_algebra_decl.g",
         "tests/repl/test_algebra_decl.ghost"
       ],
       "descricao": "ghost G = ghost(3.0, 4.0, 1.7, 2.0); e ghost G = 1.5 + 2.0i + 3.5g;",
-      "evidencia": "Recalibrado em 12/11/2026: Testado no CTest (Windows) com paridade compilador/REPL; nível 5 exige CI rodando e Linux/macOS comprovados (o CI nunca rodou: o repositório não tem commit nem remote). Descrição anterior: Tipo nativo ghost de primeira classe com construtor explícito ghost(x, y, p, theta2) e sintaxe algébrica, operadores unários/binários, coerção automática, formatadores {g:4d} e {g:math}, métodos to_4d() e to_math(), e entrada de dados interativa via input() e inputln(). Validado em golden_test_algebra_decl, golden_test_4d, repl_algebra_decl e exemplos/NumerosFantasmasG.g.",
+      "evidencia": "Recalibrado em 12/11/2026: Testado no CTest (Windows) com paridade compilador/REPL; nível 5 exige CI rodando e Linux/macOS comprovados (o CI nunca rodou: o repositório não tem commit nem remote). Descrição anterior: Tipo nativo ghost de primeira classe com construtor explícito ghost(x, y, p, theta2) e sintaxe algébrica, operadores unários/binários, coerção automática, formatadores {g:4d} e {g:math}, métodos to_4d() e to_math(), e entrada de dados interativa via input() e inputln(). Validado em golden_test_algebra_decl, golden_test_4d, repl_algebra_decl e examples/NumerosFantasmasG.g.",
       "proximos_passos": [],
       "atualizado_em": "2026-11-10"
     },
@@ -1403,7 +1412,7 @@
       "id": "alg-matrizg",
       "nome": "GhostMatrixG / GhostQubit (POD para GPU)",
       "categoria": "algebra",
-      "nivel": 3,
+      "nivel": 4,
       "alvo": 5,
       "fase": "F3",
       "prioridade": "alta",
@@ -1419,12 +1428,18 @@
         "tests/cpp/native_runtime.cpp",
         "tests/ghost/test_algebra.g",
         "tests/ghost/test_algebra_decl.g",
-        "tests/repl/test_algebra_decl.ghost"
+        "tests/repl/test_algebra_decl.ghost",
+        "src/InterpreterNative.cpp",
+        "tests/ghost/ia_nativa.g",
+        "tests/repl/ia_nativa.ghost"
       ],
       "descricao": "Estrutura {real, imag, theta} em float, transferível direto para VRAM.",
-      "evidencia": "Recalibrado em 12/11/2026: Estruturas POD usadas pelo TransformerG (testes transformerg_*); só no runtime, sem paridade de REPL. Descrição anterior: Estruturas POD compactas GhostMatrixG e GhostQubit para aceleração vetorial em GPU/CUDA e OpenMP multi-core, integrando gemm_qubit, atenção quântica e operadores de fase contínua com 100% de precisão de ponto flutuante.",
-      "proximos_passos": [],
-      "atualizado_em": "2026-11-09"
+      "evidencia": "13/11/2026: o REPL ganhou os objetos nativos da IA (src/InterpreterNative.cpp): text_model, transformer_model, transformer_model_v5, matrix_g, temporal_context, knowledge_consult, knowledge_info, web_search_public, text_perplexity, text_int e text_decimal, com os mesmos objetos C++ do runtime. golden_ia_nativa e repl_ia_nativa rodam o mesmo roteiro e dão a mesma saída (13 linhas). matrix_g(l, c) no REPL com set/get/size_bytes. Limitação documentada: GhostMatrixG guarda GhostQubit (real, imag, theta), então a componente p do Número G não é guardada (ghost(1.5, 2, 0.5, 0.25) volta com p = 0); o teste confere isso.",
+      "proximos_passos": [
+        "Guardar a componente p (ou documentar MatrixG como só (x, y, theta))",
+        "Linux/macOS e CI para o nível 5"
+      ],
+      "atualizado_em": "2026-11-13"
     },
     {
       "id": "alg-tensor-nd",
@@ -1577,7 +1592,7 @@
       "id": "ia-conv",
       "nome": "Convolução 2D (conv)",
       "categoria": "ia",
-      "nivel": 3,
+      "nivel": 4,
       "alvo": 5,
       "fase": "F4",
       "prioridade": "baixa",
@@ -1588,21 +1603,22 @@
       ],
       "arquivos": [
         "include/GhostMatrix.hpp",
-        "src/Parser.cpp"
+        "src/Parser.cpp",
+        "tests/repl/conv_transpose.ghost"
       ],
       "descricao": "Convolução para visão computacional.",
-      "evidencia": "Recalibrado em 12/11/2026: convolução por imagem.conv2d(kernel, passo) e pela forma de comando x = conv(imagem, kernel[, passo]); (restaurada em 12/11 no verificador e no gerador da AST, depois de ter parado de compilar com a aposentadoria do Parser). Testes: golden_conv_transpose (compilador, valores conferidos à mão), repl_ia_conv (REPL) e diag_conv_expressao. A mensagem informativa difere entre compilador e REPL.",
+      "evidencia": "13/11/2026: paridade conferida entre compilador e REPL. O REPL passou a imprimir as mesmas mensagens do compilador em x = conv(...) / x = transpose(a) e deixou de imprimir eco '[Matematica]' nas atribuições por método; aceita var m = img.conv2d(k, 1) e m.getRows()/getCols(). Testes golden_conv_transpose e repl_conv_transpose (mesmo roteiro, mesma saída), repl_ia_conv e diag_conv_expressao.",
       "proximos_passos": [
-        "Unificar a mensagem informativa entre compilador e REPL",
-        "Pooling e gradientes de conv também no golden do compilador"
+        "Pooling e gradientes de conv também no golden do compilador",
+        "Linux/macOS e CI para o nível 5"
       ],
-      "atualizado_em": "2026-11-09"
+      "atualizado_em": "2026-11-13"
     },
     {
       "id": "ia-textmodel",
       "nome": "textmodel nativo (CPU/CUDA)",
       "categoria": "ia",
-      "nivel": 3,
+      "nivel": 4,
       "alvo": 5,
       "fase": "F1",
       "prioridade": "media",
@@ -1614,21 +1630,25 @@
       "arquivos": [
         "src/GhostTextModel.cpp",
         "src/GhostTextCuda.cu",
-        "docs/CUDA_TEXTMODEL.md"
+        "docs/CUDA_TEXTMODEL.md",
+        "src/InterpreterNative.cpp",
+        "tests/ghost/ia_nativa.g",
+        "tests/repl/ia_nativa.ghost"
       ],
       "descricao": "Modelo de texto por caractere treinável na linguagem.",
-      "evidencia": "Recalibrado em 12/11/2026: Testes runtime_cpu e golden_native_textmodel; caminho do compilador, sem REPL. Descrição anterior: GhostTextModel nativo com tokenização em nível de caractere/subword, forward, backward e amostragem de texto. Suporte a execução em CPU multi-core (OpenMP) e aceleração CUDA em GPU. Aprovado nos testes runtime_cpu e golden_native_textmodel com oráculo congelado intacto.",
+      "evidencia": "13/11/2026: o REPL ganhou os objetos nativos da IA (src/InterpreterNative.cpp): text_model, transformer_model, transformer_model_v5, matrix_g, temporal_context, knowledge_consult, knowledge_info, web_search_public, text_perplexity, text_int e text_decimal, com os mesmos objetos C++ do runtime. golden_ia_nativa e repl_ia_nativa rodam o mesmo roteiro e dão a mesma saída (13 linhas). textmodel tm = text_model(...) funciona no REPL; tm.self_test() confere os gradientes por diferenças finitas nos dois caminhos; continuam runtime_cpu e golden_native_textmodel.",
       "proximos_passos": [
-        "Geração paralela de sequências com kv-cache otimizado",
-        "Quantização INT8 nativa do vocabulário"
+        "Teste de treino curto com corpus fixo (perda cai)",
+        "CUDA da IA com o CUDA 12.9",
+        "Linux/macOS e CI para o nível 5"
       ],
-      "atualizado_em": "2026-11-09"
+      "atualizado_em": "2026-11-13"
     },
     {
       "id": "ia-transformer",
       "nome": "Transformer nativo (GhostTransformer)",
       "categoria": "ia",
-      "nivel": 3,
+      "nivel": 4,
       "alvo": 5,
       "fase": "F4",
       "prioridade": "alta",
@@ -1640,21 +1660,24 @@
         "src/GhostTransformer.cpp",
         "src/GhostTransformerOps.cpp",
         "src/GhostTransformerCuda.cu",
-        "tests/cpp/transformer_runtime.cpp"
+        "tests/cpp/transformer_runtime.cpp",
+        "src/InterpreterNative.cpp",
+        "tests/ghost/ia_nativa.g",
+        "tests/repl/ia_nativa.ghost"
       ],
       "descricao": "Transformer por bytes com treino em CPU/CUDA.",
-      "evidencia": "Recalibrado em 12/11/2026: Teste transformer_cpu no runtime; sem paridade de REPL.",
+      "evidencia": "13/11/2026: o REPL ganhou os objetos nativos da IA (src/InterpreterNative.cpp): text_model, transformer_model, transformer_model_v5, matrix_g, temporal_context, knowledge_consult, knowledge_info, web_search_public, text_perplexity, text_int e text_decimal, com os mesmos objetos C++ do runtime. golden_ia_nativa e repl_ia_nativa rodam o mesmo roteiro e dão a mesma saída (13 linhas). transformer_model(...) no REPL; self_test confere bytes UTF-8, gradientes (erro máximo 1,35e-4), máscara causal e aprendizado; continua transformer_cpu.",
       "proximos_passos": [
-        "FlashAttention-2 para sequências longas",
-        "Suporte a Grouped-Query Attention (GQA)"
+        "FlashAttention-2",
+        "Linux/macOS e CI para o nível 5"
       ],
-      "atualizado_em": "2026-11-09"
+      "atualizado_em": "2026-11-13"
     },
     {
       "id": "ia-transformerg",
       "nome": "TransformerG com GhostQubit (V5)",
       "categoria": "ia",
-      "nivel": 3,
+      "nivel": 4,
       "alvo": 5,
       "fase": "F4",
       "prioridade": "alta",
@@ -1669,15 +1692,18 @@
         "include/GhostTransformerG.hpp",
         "src/GhostTransformerFallback.cpp",
         "tests/cpp/transformerg_runtime.cpp",
-        "ia_propria/v5/src/main.g"
+        "ia_propria/v5/src/main.g",
+        "src/InterpreterNative.cpp",
+        "tests/ghost/ia_nativa.g",
+        "tests/repl/ia_nativa.ghost"
       ],
       "descricao": "Transformer cujos pesos sao numeros complexos+theta (GhostQubit) com atencao quantica, GEMM de Qubits e backpropagation de incerteza.",
-      "evidencia": "Recalibrado em 12/11/2026: Testes transformerg_qubit e transformerg_benchmark (V5 experimental); só no runtime. Descrição anterior: Arquitetura revolucionária TransformerG baseada em tensores hiper-complexos e estados GhostQubit. Mecanismo de atenção quântica, GEMM de amplitudes complexas e retropropagação de incerteza (theta^2). Validado com sucesso no teste CTest transformerg_qubit e transformerg_benchmark.",
+      "evidencia": "13/11/2026: o REPL ganhou os objetos nativos da IA (src/InterpreterNative.cpp): text_model, transformer_model, transformer_model_v5, matrix_g, temporal_context, knowledge_consult, knowledge_info, web_search_public, text_perplexity, text_int e text_decimal, com os mesmos objetos C++ do runtime. golden_ia_nativa e repl_ia_nativa rodam o mesmo roteiro e dão a mesma saída (13 linhas). transformer_model_v5(...) no REPL; self_test confere o kernel quântico (GEMM de GhostQubit, forward e backward). As mensagens '[V5] ... VRAM' e 'Kernel CUDA' diziam GPU mesmo rodando na CPU; passaram a ser neutras. Continuam transformerg_qubit e transformerg_benchmark.",
       "proximos_passos": [
-        "Treinamento distribuído em múltiplos nós de GPU/QPU",
-        "Camadas de entrelaçamento quântico variacional parametrizado"
+        "Teste de treino curto do V5",
+        "Linux/macOS e CI para o nível 5"
       ],
-      "atualizado_em": "2026-11-09"
+      "atualizado_em": "2026-11-13"
     },
     {
       "id": "ia-llm-gguf",
@@ -1708,7 +1734,7 @@
       "id": "ia-conhecimento",
       "nome": "Memória de conhecimento, fontes web e contexto temporal",
       "categoria": "ia",
-      "nivel": 3,
+      "nivel": 4,
       "alvo": 5,
       "fase": "F4",
       "prioridade": "media",
@@ -1722,15 +1748,18 @@
         "src/GhostTemporal.cpp",
         "tests/cpp/knowledge_memory.cpp",
         "tests/cpp/web_sources.cpp",
-        "tests/cpp/temporal_context.cpp"
+        "tests/cpp/temporal_context.cpp",
+        "src/InterpreterNative.cpp",
+        "tests/ghost/ia_nativa.g",
+        "tests/repl/ia_nativa.ghost"
       ],
       "descricao": "Pesquisa automática, memória persistente e noção de data/hora para a IA.",
-      "evidencia": "Recalibrado em 12/11/2026: Testes offline knowledge_memory_offline, temporal_context_offline e web_sources_offline; só no runtime.",
+      "evidencia": "13/11/2026: o REPL ganhou os objetos nativos da IA (src/InterpreterNative.cpp): text_model, transformer_model, transformer_model_v5, matrix_g, temporal_context, knowledge_consult, knowledge_info, web_search_public, text_perplexity, text_int e text_decimal, com os mesmos objetos C++ do runtime. golden_ia_nativa e repl_ia_nativa rodam o mesmo roteiro e dão a mesma saída (13 linhas). knowledge_consult(tema, online, atualizar) no REPL devolve o mesmo resultado do compilador (campos allowed, found, cached, saved, stale, text); o teste roda sem rede. Continuam knowledge_memory_offline, temporal_context_offline e web_sources_offline.",
       "proximos_passos": [
-        "RAG com banco vetorial embutido e similaridade de cosseno",
-        "Atualização contínua de fatos e memória episódica"
+        "RAG com banco vetorial",
+        "Linux/macOS e CI para o nível 5"
       ],
-      "atualizado_em": "2026-11-09"
+      "atualizado_em": "2026-11-13"
     },
     {
       "id": "ia-propria",
@@ -1756,7 +1785,7 @@
         "Expansão do corpus de treinamento multilíngue",
         "Fine-tuning com instrução quântica e matemática"
       ],
-      "atualizado_em": "2026-11-09"
+      "atualizado_em": "2026-11-13"
     },
     {
       "id": "ia-autograd",
@@ -2031,12 +2060,12 @@
         "tests/cpp/transformerg_runtime.cpp"
       ],
       "descricao": "Representacao complexa+theta nas cabecas de atencao quantica (heads_qubit, gemm_qubit e conjugacao complexa no backward).",
-      "evidencia": "Recalibrado em 12/11/2026: Testes transformerg_* (runtime, V5 experimental); sem paridade de REPL. Descrição anterior: Atenção quântica hiper-complexa no TransformerG com representação em estados GhostQubit (amplitudes complexas + incerteza theta^2), atenção multi-cabeça quântica (heads_qubit) e GEMM quântico. Validado no CTest transformerg_qubit e transformerg_benchmark.",
+      "evidencia": "Recalibrado em 12/11/2026: Testes transformerg_* (runtime, V5 experimental); sem paridade de REPL. Descrição anterior: Atenção quântica hiper-complexa no TransformerG com representação em estados GhostQubit (amplitudes complexas + incerteza theta^2), atenção multi-cabeça quântica (heads_qubit) e GEMM quântico. Validado no CTest transformerg_qubit e transformerg_benchmark. Em 13/11/2026: o V5 ficou acessível no REPL (transformer_model_v5), mas a atenção quântica em si ainda não tem teste dedicado; segue no nível 3.",
       "proximos_passos": [
         "Entrelaçamento quântico variacional parametrizado entre cabeças de atenção",
         "Treinamento distribuído em clusters multi-GPU"
       ],
-      "atualizado_em": "2026-11-09"
+      "atualizado_em": "2026-11-13"
     },
     {
       "id": "qml-inspirado",
@@ -2084,12 +2113,12 @@
         "CMakeLists.txt"
       ],
       "descricao": "GHOST_CUDA=AUTO/ON/OFF; GHOST_DEVICE=cuda/cpu; arquiteturas 61, 75, 86 e 89.",
-      "evidencia": "Recalibrado em 12/11/2026: Runtime CUDA real com detecção automática (quantum_cuda), verificado só nesta máquina (GTX 1050 Ti). Descrição anterior: Runtime CUDA de alta performance integrado ao pipeline com compilação JIT e Ahead-of-Time via NVCC/CMake. Detecção inteligente automática de dispositivo (GHOST_CUDA=AUTO/ON/OFF, GHOST_DEVICE=cuda/cpu), suporte às microarquiteturas Pascal (61), Turing (75), Ampere (86) e Ada Lovelace (89). Aceleração massiva comprovada no CTest quantum_cuda com equivalência numérica exata CPU == GPU em 24 qubits.",
+      "evidencia": "Recalibrado em 12/11/2026: Runtime CUDA real com detecção automática (quantum_cuda), verificado só nesta máquina (GTX 1050 Ti). Descrição anterior: Runtime CUDA de alta performance integrado ao pipeline com compilação JIT e Ahead-of-Time via NVCC/CMake. Detecção inteligente automática de dispositivo (GHOST_CUDA=AUTO/ON/OFF, GHOST_DEVICE=cuda/cpu), suporte às microarquiteturas Pascal (61), Turing (75), Ampere (86) e Ada Lovelace (89). Aceleração massiva comprovada no CTest quantum_cuda com equivalência numérica exata CPU == GPU em 24 qubits. Conferido em 13/11/2026: o backend quântico CUDA está verificado (ver q-statevector-gpu), mas o runtime CUDA da IA (GHOST_RUNTIME_CUDA) não é compilado nesta configuração e o build_native aponta para o CUDA 13, que não suporta a GTX 1050 Ti. Continua no nível 3 até compilar e testar o runtime da IA com o CUDA 12.9.",
       "proximos_passos": [
         "Suporte a microarquitetura Hopper/Blackwell (90/100)",
         "Kernel de atenção FlashAttention em CUDA nativo"
       ],
-      "atualizado_em": "2026-11-09"
+      "atualizado_em": "2026-11-13"
     },
     {
       "id": "gpu-pragma",
@@ -2118,7 +2147,7 @@
       "id": "gpu-openmp",
       "nome": "Paralelismo OpenMP",
       "categoria": "gpu",
-      "nivel": 3,
+      "nivel": 4,
       "alvo": 5,
       "fase": "F1",
       "prioridade": "media",
@@ -2127,15 +2156,16 @@
         "runtime"
       ],
       "arquivos": [
-        "include/GhostMatrix.hpp"
+        "include/GhostMatrix.hpp",
+        "tests/cpp/openmp_paralelo.cpp"
       ],
       "descricao": "-fopenmp em todos os builds.",
-      "evidencia": "Recalibrado em 12/11/2026: OpenMP ligado em todos os builds e usado pelo runtime; sem teste dedicado de paralelismo. Descrição anterior: Aceleração multi-core de alto desempenho com -fopenmp ativado por padrão em todos os builds e transpilador. Paralelização vetorizada com scheduling dinâmico e estático sobre tensores N-dimensionais, matrizes G, simulador quântico de vetores de estado e forward/backward de redes neurais. Respeita dinamicamente OMP_NUM_THREADS com testes no CTest.",
+      "evidencia": "13/11/2026: teste dedicado runtime_openmp (tests/cpp/openmp_paralelo.cpp): confere que o runtime foi compilado com OpenMP, que a região paralela usa mais de uma thread, que o dgemm nativo paralelo dá o mesmo resultado que o laço serial (dif. < 1e-9) e que 1 thread e todas as threads dão resultado idêntico.",
       "proximos_passos": [
-        "Tarefas OpenMP (tasking) para paralelismo irregular em árvores multiverso",
-        "Vetores SIMD explícitos via OpenMP declare simd"
+        "Tarefas OpenMP para paralelismo irregular",
+        "Linux/macOS e CI para o nível 5"
       ],
-      "atualizado_em": "2026-11-09"
+      "atualizado_em": "2026-11-13"
     },
     {
       "id": "gpu-outros",
@@ -2400,7 +2430,7 @@
       "id": "std-desktop",
       "nome": "Desktop / GUI / WebView",
       "categoria": "stdlib",
-      "nivel": 2,
+      "nivel": 4,
       "alvo": 5,
       "fase": "F6",
       "prioridade": "baixa",
@@ -2416,12 +2446,18 @@
         "src/GhostGUI.cpp",
         "include/GhostGUI.hpp",
         "tests/repl/gui_std.ghost",
-        "tests/ghost/gui_std.g"
+        "tests/ghost/gui_std.g",
+        "tests/ghost/gui_janela_real.g",
+        "tests/repl/gui_janela_real.ghost"
       ],
       "descricao": "Interfaces gráficas multiplataforma.",
-      "evidencia": "Recalibrado em 12/11/2026: Janelas Win32 (só Windows); os testes golden/repl_gui_std rodam em modo headless e não abrem janela.",
-      "proximos_passos": [],
-      "atualizado_em": "2026-11-09"
+      "evidencia": "13/11/2026: janela Win32 de verdade testada (golden_gui_janela_real e repl_gui_janela_real, sem modo headless): cria, mostra, confere no sistema que está visível e com o título pedido (gui_window_visible, gui_window_title, novas) e fecha; mesma saída no compilador e no REPL. O teste achou que, quando o programa é iniciado por outro com janela oculta (como o CTest), o primeiro ShowWindow era ignorado e a janela nunca aparecia; corrigido. Fora do Windows, gui_create_window só imprime 'Janela criada' (fachada a resolver no Linux/macOS).",
+      "proximos_passos": [
+        "GUI real no Linux (GTK) e no macOS (Cocoa)",
+        "Laço de eventos e controles (botões, campos)",
+        "CI para o nível 5"
+      ],
+      "atualizado_em": "2026-11-13"
     },
     {
       "id": "net-http-server",
@@ -2455,7 +2491,7 @@
       "id": "net-http-client",
       "nome": "Cliente HTTP (http_get, http_post)",
       "categoria": "rede",
-      "nivel": 3,
+      "nivel": 4,
       "alvo": 5,
       "fase": "F2",
       "prioridade": "media",
@@ -2468,18 +2504,24 @@
       "arquivos": [
         "include/GhostLib.hpp",
         "libs/http_client.g",
-        "src/InterpreterCore.cpp"
+        "src/InterpreterCore.cpp",
+        "tests/ghost/http_cliente.g",
+        "tests/repl/http_cliente.ghost"
       ],
       "descricao": "WinINet no Windows e curl no Linux.",
-      "evidencia": "Recalibrado em 12/11/2026: http_get/http_post via WinINet no Windows; sem teste dedicado; o caminho Linux (curl) não foi verificado.",
-      "proximos_passos": [],
-      "atualizado_em": "2026-11-09"
+      "evidencia": "13/11/2026: teste dedicado golden_http_cliente e repl_http_cliente: o programa sobe o servidor nativo numa thread (spawn) e faz http_get, http_post e uma rota inexistente (404) contra 127.0.0.1; mesma saída no compilador e no REPL. Para isso o REPL ganhou json_extract e texto.find(...) (-1 quando não acha) e passou a aceitar app.route(...) ('route' é palavra-chave). Windows via WinINet; o caminho Linux usa curl por popen com a URL no shell (injeção possível): trocar antes do Fedora.",
+      "proximos_passos": [
+        "Trocar o curl via popen do Linux por sockets (sem shell)",
+        "HTTPS com verificação de certificado",
+        "Linux/macOS e CI para o nível 5"
+      ],
+      "atualizado_em": "2026-11-13"
     },
     {
       "id": "net-swarm",
       "nome": "Swarm federado (ghost_node, ghost_swarm)",
       "categoria": "rede",
-      "nivel": 3,
+      "nivel": 4,
       "alvo": 5,
       "fase": "F6",
       "prioridade": "media",
@@ -2496,15 +2538,17 @@
         "tests/test_swarm.py"
       ],
       "descricao": "Aprendizado federado via TCP entre nós.",
-      "evidencia": "Recalibrado em 12/11/2026: Teste ghost_swarm_federated; só Windows. Descrição anterior: Arquitetura de rede neural federada distribuída (Ghost Swarm e Ghost Node) com orquestrador centralizado, nós de borda assíncronos TCP, agregação federada de gradientes (FedAvg), checkpoints de pesos (cerebro.weights) e tolerância a falhas, validado 100% via ghost_swarm_federated no CTest.",
-      "proximos_passos": [],
-      "atualizado_em": "2026-11-09"
+      "evidencia": "13/11/2026: o teste ghost_swarm_federated roda no CTest (196/196 no Windows). O nível 3 anterior era só por não haver Linux/macOS, que é o critério do nível 5; são executáveis próprios, sem caminho de REPL a comparar.",
+      "proximos_passos": [
+        "Linux/macOS e CI para o nível 5"
+      ],
+      "atualizado_em": "2026-11-13"
     },
     {
       "id": "net-api",
       "nome": "ghost_api / ghost_ask (inferência)",
       "categoria": "rede",
-      "nivel": 3,
+      "nivel": 4,
       "alvo": 5,
       "fase": "F4",
       "prioridade": "baixa",
@@ -2517,9 +2561,11 @@
         "src/ghost_ask.cpp"
       ],
       "descricao": "API e CLI de pergunta e resposta.",
-      "evidencia": "Recalibrado em 12/11/2026: Teste ghost_api_ask; só Windows. Descrição anterior: Módulos de serviço de inferência nativos ghost_api (API HTTP/JSON RESTful para microsserviços) e ghost_ask (CLI interativo de borda ultra rápido), prontos para produção e integrados ao pipeline de build, validados via teste ghost_api_ask no CTest.",
-      "proximos_passos": [],
-      "atualizado_em": "2026-11-09"
+      "evidencia": "13/11/2026: o teste ghost_api_ask roda no CTest (196/196 no Windows). O nível 3 anterior era só por não haver Linux/macOS, que é o critério do nível 5; são executáveis próprios, sem caminho de REPL a comparar.",
+      "proximos_passos": [
+        "Linux/macOS e CI para o nível 5"
+      ],
+      "atualizado_em": "2026-11-13"
     },
     {
       "id": "net-wasm",
@@ -2550,7 +2596,7 @@
       "id": "tool-vscode",
       "nome": "Extensão VS Code 1.0 (syntax, tema, snippets)",
       "categoria": "tooling",
-      "nivel": 3,
+      "nivel": 4,
       "alvo": 5,
       "fase": "F6",
       "prioridade": "media",
@@ -2559,18 +2605,23 @@
         "ide"
       ],
       "arquivos": [
-        "vscode-ghostlang/ghostlang-1.0.0.vsix"
+        "vscode-ghostlang/ghostlang-1.0.0.vsix",
+        "vscode-ghostlang/test/validar.js"
       ],
       "descricao": "Destaque de sintaxe, tema escuro e snippets.",
-      "evidencia": "Recalibrado em 12/11/2026: Extensão com sintaxe, tema, snippets e cliente LSP; sem teste automático.",
-      "proximos_passos": [],
-      "atualizado_em": "2026-11-09"
+      "evidencia": "13/11/2026: teste automático vscode_extensao (vscode-ghostlang/test/validar.js, roda com Node): os 5 JSON da extensão são válidos, o 'main' existe, a gramática de cores tem exatamente as 97 palavras-chave do lexer (antes faltavam switch, try/catch, qreg, spawn, bool...) e cada um dos snippets, expandido como o VS Code faz, passa no ghost check. O teste achou o snippet 'Server Setup' importando lib/http.g (a pasta é libs/), corrigido.",
+      "proximos_passos": [
+        "Regenerar o .vsix (exige o vsce, do npm)",
+        "Ligar o depurador quando o DAP existir",
+        "Linux/macOS e CI para o nível 5"
+      ],
+      "atualizado_em": "2026-11-13"
     },
     {
       "id": "tool-lsp",
       "nome": "Language Server (LSP)",
       "categoria": "tooling",
-      "nivel": 3,
+      "nivel": 4,
       "alvo": 5,
       "fase": "F6",
       "prioridade": "media",
@@ -2583,20 +2634,22 @@
       "arquivos": [
         "include/GhostLSP.hpp",
         "src/GhostLSP.cpp",
-        "src/ghost_compiler.cpp"
+        "src/ghost_compiler.cpp",
+        "include/Lexer.hpp"
       ],
       "descricao": "Autocomplete, diagnósticos e definição.",
-      "evidencia": "Recalibrado em 12/11/2026: ghost lsp responde a métodos textDocument/* (teste cli_lsp_test); integração com o VS Code não testada automaticamente. Descrição anterior: Servidor de linguagem nativo via JSON-RPC 2.0 sobre stdio em include/GhostLSP.hpp e src/GhostLSP.cpp (ghost lsp), fornecendo diagnósticos sintáticos/semânticos em tempo real via AST, hover com documentação Markdown, autocompletion inteligente e navegação para definições, validado por teste cli_lsp_test no CTest.",
+      "evidencia": "13/11/2026: o vocabulário inventado saiu (fun, retorne, se/senao, enquanto, escreva, db_abrir...). O auto-completar usa as 97 palavras-chave reais do lexer (Lexer::keywordNames) e as funções declaradas em libs/*.g; o hover documenta a sintaxe real; 'ir para definição' acha function/class/interface/var (antes procurava 'fun'/'classe'). ghost lsp --test agora confere 16 respostas (capabilities, diagnósticos, hover, completion com e sem palavras falsas, definition) e falha se alguma divergir (CTest cli_lsp_test).",
       "proximos_passos": [
-        "Tirar do LSP as palavras-chave em português que a linguagem não aceita (senao, enquanto, ...)"
+        "Integração com o VS Code testada automaticamente",
+        "Linux/macOS e CI para o nível 5"
       ],
-      "atualizado_em": "2026-11-09"
+      "atualizado_em": "2026-11-13"
     },
     {
       "id": "tool-fmt",
       "nome": "Formatador (ghost fmt)",
       "categoria": "tooling",
-      "nivel": 3,
+      "nivel": 4,
       "alvo": 5,
       "fase": "F6",
       "prioridade": "baixa",
@@ -2608,9 +2661,12 @@
         "temps_phathon/src/GOP_Formatter.cpp"
       ],
       "descricao": "Formatação automática de código.",
-      "evidencia": "Recalibrado em 12/11/2026: ghost fmt com teste cli_fmt. Descrição anterior: Formatador de código-fonte ghost fmt nativo com suporte a checagem (--check), formatação in-place (-w/--write), normalização de indentação, blocos, alinhamento de chaves e operadores, validado via cli_fmt no CTest.",
-      "proximos_passos": [],
-      "atualizado_em": "2026-11-09"
+      "evidencia": "16/11/2026: ghost fmt tem testes de comportamento: cli_fmt, cli_fmt_check (arquivo com strings, for x in ... e fim de linha CRLF não precisa de formatação) e cli_fmt_check_ruim (arquivo mal formatado faz --check falhar). Corrigidos: depois de qualquer string o formatador comia o espaço seguinte (\"x\" + \"y\" virava \"x\"+ \"y\"), e --check acusava todo arquivo salvo com CRLF (padrão no Windows) mesmo sem nada a formatar.",
+      "proximos_passos": [
+        "Quebra de linhas longas",
+        "Linux/macOS e CI para o nível 5"
+      ],
+      "atualizado_em": "2026-11-19"
     },
     {
       "id": "tool-testes",
@@ -2641,7 +2697,7 @@
       "id": "tool-debugger",
       "nome": "Depurador",
       "categoria": "tooling",
-      "nivel": 2,
+      "nivel": 4,
       "alvo": 5,
       "fase": "F6",
       "prioridade": "baixa",
@@ -2652,21 +2708,25 @@
       "arquivos": [
         "src/ghost_compiler.cpp",
         "src/GhostCodegen.cpp",
-        "vscode-ghostlang/package.json"
+        "vscode-ghostlang/package.json",
+        "src/GhostDAP.cpp",
+        "include/GhostDAP.hpp",
+        "tests/cli/test_dap.py",
+        "scripts/montar-gdb.ps1"
       ],
       "descricao": "Depurador nativo GhostLang integrado com GDB e DWARF (#line), comandos ghost debug (--map, --dap, --help) e contribuicao DAP no plugin VSCode.",
-      "evidencia": "Recalibrado em 12/11/2026: ghost debug compila com -g -O0 e mostra o mapa de linhas .g (testes cli_debug_*); o modo --dap é fachada: imprime 'Adaptador DAP pronto' e sai. Corrigido em 12/11/2026: ghost debug --dap deixou de fingir; agora sai com código 1 e diz que o DAP ainda não foi implementado, indicando ghost debug arquivo.g + gdb/cppdbg (CTest cli_debug_dap_honesto).",
+      "evidencia": "13/11/2026: ghost debug --dap é um adaptador DAP de verdade (src/GhostDAP.cpp): fala o Debug Adapter Protocol por stdin/stdout, compila o .g com -g e #line num processo filho e controla o gdb 18.1 pela interface MI. Suporta breakpoints por linha do .g, pilha com as linhas do .g, variáveis locais, next/stepIn/stepOut/continue/pause, evaluate e a saída do programa como evento output. O CTest cli_debug_dap (tests/cli/test_dap.py) faz uma sessão completa como o VS Code: breakpoint em dap_alvo.g:3, pilha soma:3 / main:9, a = 2 e b = 5, next até a linha 4, evaluate c = 7, continue até o fim com código 0 e 'y = 7' na saída. A extensão VS Code registra o depurador 'ghost' com ghost debug --dap. O gdb do MSYS2 exige a libstdc++ do GCC 16; para não trocar o compilador do projeto, scripts/montar-gdb.ps1 monta um gdb privado em third_party/gdb com as DLLs do GCC 16 (pacotes oficiais baixados pelo pacman -Sw), e o pacote portátil leva esse gdb em bin/gdb. Sem terminal, ghost debug roda o gdb em lote (run + bt).",
       "proximos_passos": [
-        "Implementar o adaptador DAP de verdade (stdio JSON-RPC sobre o gdb)",
-        "A extensão VS Code declara o tipo de depurador 'ghost' sem adaptador: ligar quando o DAP existir"
+        "Variáveis compostas (structs, listas) expansíveis no painel",
+        "gdb no Linux/macOS (lldb no macOS) e CI para o nível 5"
       ],
-      "atualizado_em": "2026-11-12"
+      "atualizado_em": "2026-11-13"
     },
     {
       "id": "tool-pm",
       "nome": "Gerenciador de pacotes GhostPM",
       "categoria": "tooling",
-      "nivel": 2,
+      "nivel": 4,
       "alvo": 5,
       "fase": "F6",
       "prioridade": "baixa",
@@ -2682,12 +2742,13 @@
         "tests/cli/test_pm.cmake"
       ],
       "descricao": "ghost add, ghost.toml, ghost.lock.",
-      "evidencia": "Recalibrado em 12/11/2026: ghost pm cria ghost.toml e ghost.lock (teste cli_pm_test), mas install não baixa nem resolve nada: só imprime '[OK] Resolvido' para cada dependência. Corrigido em 12/11/2026: install deixou de imprimir '[OK] Resolvido' para tudo; agora confere ghost_packages/<nome>/, avisa '[falta]' e sai com 1 sem gravar ghost.lock (cli_pm_test cobre os dois casos). Ainda não há registro remoto.",
+      "evidencia": "13/11/2026: ghost pm install instala de verdade, sem registro remoto: 'ghost pm add nome --path <pasta>' copia a pasta e 'ghost pm add nome --git <url> [--ref tag]' clona o repositório (git clone --depth 1) para ghost_packages/<nome>/. Versões em semver de verdade (1.2.0, ^1.2, ~1.2.3, >=1.0, *), conferidas contra o ghost.toml do pacote. O ghost.lock (versão 2) grava spec, versão, fonte e o commit do git. URL e ref são validadas antes de chamar o git (uma URL com aspas ou & é recusada). cli_pm_test cobre: init, add, list, remove, install sem pacote (falha), semver aceita e recusa, install de pasta com um programa usando o pacote, install de git com tag e commit no lock, e a URL perigosa.",
       "proximos_passos": [
-        "Registro remoto ou instalação a partir de git/caminho local",
-        "Resolver versões (semver) de verdade"
+        "Registro remoto de pacotes (índice com versões publicadas)",
+        "import por nome de pacote (sem o caminho ghost_packages/)",
+        "Linux/macOS e CI para o nível 5"
       ],
-      "atualizado_em": "2026-11-12"
+      "atualizado_em": "2026-11-13"
     },
     {
       "id": "plat-windows",
@@ -2770,7 +2831,7 @@
       "id": "plat-portable",
       "nome": "Build portátil (g++ embutido)",
       "categoria": "plataformas",
-      "nivel": 3,
+      "nivel": 4,
       "alvo": 5,
       "fase": "F1",
       "prioridade": "media",
@@ -2780,21 +2841,23 @@
       ],
       "arquivos": [
         "scripts/build/build_portable.ps1",
-        "scripts/build/build_portable.sh"
+        "scripts/build/build_portable.sh",
+        "scripts/package_release.ps1",
+        "tests/cli/test_portatil.cmake"
       ],
       "descricao": "Distribui ghost com compiler/bin/g++.",
-      "evidencia": "Recalibrado em 12/11/2026: Pacote dist/GhostLang-Portable-x64 (zip + sha256) gerado; sem teste automático do pacote numa máquina limpa. Descrição anterior: Distribuição portátil autônoma completa GhostLang-Portable-x64 gerada por scripts/package_release.ps1 e scripts/build/build_portable.ps1. Contém binários essenciais (ghost, ghost_api, ghost_ask, ghost_node, ghost_swarm), headers C++, bibliotecas .g, documentação e compilador C++ embutido.",
+      "evidencia": "13/11/2026: scripts/package_release.ps1 refeito: o pacote leva o GCC do MSYS2 (16.2 desde 19/11/2026) embutido em bin/compiler (os arquivos exatos dos pacotes, via pactree + pacman -Ql, sem documentação), o runtime com OpenBLAS, cabeçalhos, libs, exemplos, Guia, Manual, NUCLEO e a licença do OpenBLAS. 687 MB em pasta, 162 MB zipado, com SHA-256. O CTest portatil_maquina_limpa roda o ghost do pacote com o PATH reduzido ao Windows: compila e executa um programa e abre o REPL. O teste achou que o cc1plus embutido não achava as DLLs (gmp, zstd...); o ghost passou a pôr compiler/bin no PATH quando usa o compilador embutido. Em 19/11/2026, com o GCC 16.2: o GCC do MSYS2 passou a ser configurado com --with-sysroot=/ucrt64 e o OpenMP (libgomp) virou pacote separado; o portatil_maquina_limpa achou os dois (wchar.h e -lgomp não encontrados). O ghost passa --sysroot=<compiler> ao usar o compilador embutido e o empacotador inclui o libgomp.",
       "proximos_passos": [
-        "Mecanismo integrado de auto-atualização da release portátil",
-        "Redução de footprint com compressão seletiva de headers"
+        "Testar o zip numa máquina sem MSYS2 de verdade",
+        "Pacote equivalente para Linux e macOS"
       ],
-      "atualizado_em": "2026-11-09"
+      "atualizado_em": "2026-11-19"
     },
     {
       "id": "plat-instalador",
       "nome": "Instaladores e releases",
       "categoria": "plataformas",
-      "nivel": 2,
+      "nivel": 4,
       "alvo": 5,
       "fase": "F5",
       "prioridade": "media",
@@ -2805,15 +2868,19 @@
       "arquivos": [
         "scripts/package_release.bat",
         "scripts/package_release.ps1",
-        "dist/GhostLang-Portable-x64.zip"
+        "dist/GhostLang-Portable-x64.zip",
+        "scripts/instalador/instalar.ps1",
+        "scripts/instalador/desinstalar.ps1",
+        "tests/cli/test_instalador.cmake"
       ],
       "descricao": "MSI/winget, .deb/AppImage, Homebrew.",
-      "evidencia": "Recalibrado em 12/11/2026: Só o zip portátil com sha256 (scripts/package_release.*); não há instalador Windows, pacotes Linux nem release publicada.",
+      "evidencia": "13/11/2026: instalador para Windows sem ferramentas externas (scripts/instalador/instalar.ps1, no pacote como instalar.bat): copia para %LOCALAPPDATA%\\Programs\\GhostLang, põe bin no PATH do usuário (sem administrador), cria atalho no Menu Iniciar e grava instalacao.json; desinstalar.ps1 desfaz tudo. O CTest cli_instalador instala um mini-pacote numa pasta temporária (sem PATH nem atalho), compila e roda um programa com o ghost instalado e desinstala. Ainda não há instalador .msi/.exe assinado, pacotes Linux nem release publicada (sem repositório remoto).",
       "proximos_passos": [
-        "Geração automatizada de notas de release com changelog semântico",
-        "Publicação automática de assets nas Releases do GitHub"
+        "Release publicada no GitHub (exige remote)",
+        "Pacotes .rpm (Fedora) e .pkg (macOS)",
+        "Instalador assinado"
       ],
-      "atualizado_em": "2026-11-09"
+      "atualizado_em": "2026-11-13"
     },
     {
       "id": "plat-ci",
@@ -2841,7 +2908,7 @@
       "id": "doc-spec",
       "nome": "Especificação (SPEC.md)",
       "categoria": "docs",
-      "nivel": 3,
+      "nivel": 4,
       "alvo": 5,
       "fase": "F1",
       "prioridade": "alta",
@@ -2853,15 +2920,18 @@
         "docs/SPEC.md"
       ],
       "descricao": "Especificacao tecnica formal completa cobrindo nucleo, tipos, OOP, quantico, IA e gramatica EBNF.",
-      "evidencia": "Recalibrado em 12/11/2026: docs/SPEC.md cobre a linguagem; em 12/11 foram corrigidas a promessa de '100% de paridade' e a de envio a QPUs reais. Precisa de uma conferência completa contra o código.",
-      "proximos_passos": [],
-      "atualizado_em": "2026-11-09"
+      "evidencia": "13/11/2026: os blocos ```ghost do SPEC.md passam no ghost check (CTest docs_exemplos); três moldes de sintaxe viraram programas de verdade e um ficou como ```text. Antes, em 12/11, saíram as promessas de '100% de paridade' e de envio a QPUs reais.",
+      "proximos_passos": [
+        "Corrigir os 17 blocos de NUCLEO.md e QUANTUM.md (trechos com '...')",
+        "Linux/macOS e CI para o nível 5"
+      ],
+      "atualizado_em": "2026-11-13"
     },
     {
       "id": "doc-manual",
       "nome": "Manual do programador",
       "categoria": "docs",
-      "nivel": 3,
+      "nivel": 4,
       "alvo": 5,
       "fase": "F1",
       "prioridade": "media",
@@ -2874,18 +2944,18 @@
         "docs/help.txt"
       ],
       "descricao": "Guia de uso por fases.",
-      "evidencia": "Recalibrado em 12/11/2026: Guia do Programador (HTML e PDF) corrigido: versão 0.9, sem repositório inexistente, sem ISBN inventado, sem Vulkan/Metal/QPU real/Linux/macOS como se existissem; os 35 exemplos do Guia passam no ghost check, e os 15 que estavam quebrados foram reescritos com as APIs reais, compilados e executados. Manual: seções 12.4 a 12.6 e as tabelas de maturidade (13 a 23) alinhadas ao dashboard, e as linhas do núcleo reescritas. Pendente: 32 dos 55 exemplos do MANUAL.md não passam no ghost check. Em 12/11 os exemplos do MANUAL.md foram corrigidos: os moldes de sintaxe com marcadores e a transcrição do REPL viraram blocos de texto (10), e os 45 blocos ghost passam no ghost check; 45 de 45 compilam até o executável (g++).",
+      "evidencia": "13/11/2026: o CTest docs_exemplos (scripts/python/checar_docs.py) passa cada bloco ```ghost do MANUAL.md e do SPEC.md pelo ghost check (52 de 52; trechos sem main entram num main). O Manual ganhou instalação do pacote portátil, escapes em strings, modelos de IA no REPL, GhostPM com path/git e semver; as tabelas de maturidade são sincronizadas com o dashboard por scripts/python/sync_manual_maturidade.py. Também em 13/11/2026: o Guia do Programador (HTML e PDF) ganhou instalação pelo pacote e pelo instalador, depuração no VS Code (DAP), GhostPM e OpenBLAS; os 35 exemplos do Guia passam no ghost check (CTest guia_exemplos).",
       "proximos_passos": [
-        "Regenerar o pacote dist/ (ele ainda leva o Guia antigo)",
-        "Conferir as descrições das tabelas 14 a 23 do Manual contra o código"
+        "Corrigir os 17 blocos de NUCLEO.md e QUANTUM.md (trechos com '...')",
+        "Linux/macOS e CI para o nível 5"
       ],
-      "atualizado_em": "2026-11-08"
+      "atualizado_em": "2026-11-13"
     },
     {
       "id": "doc-roadmap",
       "nome": "Roadmap completo",
       "categoria": "docs",
-      "nivel": 3,
+      "nivel": 4,
       "alvo": 5,
       "fase": "F0",
       "prioridade": "baixa",
@@ -2897,17 +2967,18 @@
         "docs/ROADMAP_GHOSTLANG_COMPLETA.md"
       ],
       "descricao": "Lista do que falta para a 1.0.",
-      "evidencia": "Recalibrado em 12/11/2026: o cabeçalho de docs/ROADMAP_GHOSTLANG_COMPLETA.md passou a mostrar a situação real (versão 0.9, 69,6%, checklist 85/91, só Windows testado, o que ainda é só interface); o resto do documento é planejamento.",
+      "evidencia": "13/11/2026: o cabeçalho de docs/ROADMAP_GHOSTLANG_COMPLETA.md é gerado a partir do dashboard por scripts/python/sync_manual_maturidade.py (progresso, níveis, checklist, testes e o que falta); o CTest docs_sincronizados falha se o cabeçalho ou os níveis das tabelas do Manual não baterem com o dashboard. O resto do documento é planejamento.",
       "proximos_passos": [
-        "Atualizar o cabeçalho a cada recalibração do dashboard"
+        "Revisar o planejamento (seções 1 em diante) contra o que já existe",
+        "CI para o nível 5"
       ],
-      "atualizado_em": "2026-11-09"
+      "atualizado_em": "2026-11-13"
     },
     {
       "id": "doc-organizacao",
       "nome": "Organização do repositório",
       "categoria": "docs",
-      "nivel": 2,
+      "nivel": 4,
       "alvo": 4,
       "fase": "F1",
       "prioridade": "media",
@@ -2918,14 +2989,16 @@
         "TestesRealizados",
         "temps_phathon",
         "logs",
-        ".gitignore"
+        ".gitignore",
+        "scripts/investigacao/README.md",
+        "docs/historico/README.md"
       ],
       "descricao": "Separar fonte, protótipos, testes e artefatos.",
-      "evidencia": "Recalibrado em 12/11/2026: Git iniciado e .gitignore, mas nenhum commit; arquivos soltos na raiz (.p_prompt.tmp, comando.txt).",
+      "evidencia": "13/11/2026: repositório organizado: primeiro commit feito; exemplos/ e examples/ unificados em examples/ (cópias idênticas da raiz removidas); ~60 scripts descartáveis de investigação movidos para scripts/investigacao/ (com README); o roteiro concluído do Parser foi para docs/historico/; dist/ e *.tmp no .gitignore. Cada exemplo de examples/ vira um teste no CTest (exemplo_*: ghost check).",
       "proximos_passos": [
-        "Primeiro commit; limpar arquivos soltos da raiz"
+        "Remote no GitHub e CI para o nível 5"
       ],
-      "atualizado_em": "2026-11-09"
+      "atualizado_em": "2026-11-13"
     }
   ],
   "plataformas": [
@@ -2977,6 +3050,76 @@
   ],
   "diagnostico": [
     {
+      "severidade": "info",
+      "titulo": "MSYS2 atualizado por inteiro para o GCC 16 (resolvido)",
+      "detalhe": "Em 16/11/2026 o MSYS2 recebeu GCC 16.2 sem o crt novo e todo link falhava. Em 19/11 rodou pacman -Syu (duas passadas): GCC 16.2.0-7, crt/headers/winpthreads 14.0, binutils 2.47. Projeto recompilado do zero com o GCC 16: CTest 203/203. O gdb do sistema voltou a abrir; o pacote portátil passou a levar o GCC 16.2. No pacote portátil, o GCC 16 exigiu --sysroot (headers do sistema) e o pacote libgomp à parte; os dois foram corrigidos.",
+      "arquivo": "C:/msys64/var/log/pacman.log",
+      "recurso": "plat-windows"
+    },
+    {
+      "severidade": "info",
+      "titulo": "gdb do MSYS2 exige a libstdc++ do GCC 16",
+      "detalhe": "O pacote mingw-w64-ucrt-x86_64-gdb 18.1 instalado em 13/11 não abria (0xC0000139: std::__get_once_call só existe na libstdc++ do GCC 16). scripts/montar-gdb.ps1 monta um gdb privado em third_party/gdb com libstdc++/libgcc 16 ao lado, sem trocar o GCC 15.2 do projeto. O Python embutido do gdb fica sem biblioteca padrão (só avisos; o MI não usa).",
+      "arquivo": "scripts/montar-gdb.ps1",
+      "recurso": "tool-debugger"
+    },
+    {
+      "severidade": "alerta",
+      "titulo": "17 exemplos de NUCLEO.md e QUANTUM.md não compilam",
+      "detalhe": "checar_docs.py com NUCLEO.md e QUANTUM.md: 15 de 32 blocos ```ghost passam. A maioria são trechos com '...' ou que usam nomes de outros blocos; precisam virar programas completos ou ```text.",
+      "arquivo": "docs/NUCLEO.md",
+      "recurso": "doc-manual"
+    },
+    {
+      "severidade": "info",
+      "titulo": "ghost run: executável temporário com nome único (corrigido)",
+      "detalhe": "Dois 'ghost run prog.g' de pastas diferentes, ao mesmo tempo, usavam o mesmo %TEMP%\\ghost-run\\prog.exe e um sobrescrevia o outro (achado pelo CTest em paralelo). Agora o nome leva um hash do caminho e o PID, e o executável é apagado depois de rodar.",
+      "arquivo": "src/ghost_compiler.cpp",
+      "recurso": "cmp-cli"
+    },
+    {
+      "severidade": "alerta",
+      "titulo": "GUI fora do Windows é fachada",
+      "detalhe": "src/GhostGUI.cpp: fora do Windows, gui_create_window só imprime 'Janela criada' e devolve 1. Resolver na etapa Linux/macOS (GTK/Cocoa) ou recusar com erro.",
+      "arquivo": "src/GhostGUI.cpp",
+      "recurso": "std-desktop"
+    },
+    {
+      "severidade": "info",
+      "titulo": "REPL ganhou as APIs nativas da IA",
+      "detalhe": "text_model, transformer_model(_v5), matrix_g, temporal_context, knowledge_consult e afins só existiam no programa compilado; agora o REPL dá a mesma saída (golden/repl_ia_nativa). Também ghost(x, y, p, t) dentro de expressões e a declaração textmodel.",
+      "arquivo": "src/InterpreterNative.cpp",
+      "recurso": "cmp-repl"
+    },
+    {
+      "severidade": "alerta",
+      "titulo": "matrix_g não guarda a componente p",
+      "detalhe": "GhostMatrixG armazena GhostQubit (real, imag, theta); ghost(1.5, 2.0, 0.5, 0.25) volta como (1.5, 2.0, 0, 0.25). A descrição antiga prometia '100% de precisão'. Conferido em golden_ia_nativa.",
+      "arquivo": "include/GhostMatrixG.hpp",
+      "recurso": "alg-matrizg"
+    },
+    {
+      "severidade": "info",
+      "titulo": "REPL não interpretava escapes em strings (corrigido)",
+      "detalhe": "Até 13/11 o REPL guardava \\\" \\n \\t \\\\ ao pé da letra, e o compilado (C++) os interpretava: print(\"a\\\"b\") saía a\\\"b no REPL e a\"b no programa. Agora o REPL decodifica como o C++ (Lexer::unescape). Testes golden_strings_escape e repl_strings_escape.",
+      "arquivo": "src/Lexer.cpp",
+      "recurso": "std-string"
+    },
+    {
+      "severidade": "info",
+      "titulo": "Testes do REPL não falhavam com erro no meio (corrigido)",
+      "detalhe": "run_repl_test.cmake só conferia se os trechos esperados apareciam; um [Erro de Execucao] no meio passava. Agora um erro que o .expected não prevê reprova o teste. Isso revelou app.route(...) quebrado no REPL (corrigido).",
+      "arquivo": "tests/repl/run_repl_test.cmake",
+      "recurso": "cmp-repl"
+    },
+    {
+      "severidade": "alerta",
+      "titulo": "http_get no Linux monta comando de shell com a URL",
+      "detalhe": "include/GhostLib.hpp usa popen(\"curl ... \\\"url\\\"\"): uma URL com aspas ou $(...) executa comandos. Trocar por sockets antes da etapa Fedora.",
+      "arquivo": "include/GhostLib.hpp",
+      "recurso": "net-http-client"
+    },
+    {
       "severidade": "ok",
       "titulo": "Resolvido: gate com o nome r, c ou val",
       "detalhe": "Em 12/11 os laços que inicializam gate N(linhas, colunas) passaram a usar ghost_r, ghost_c e ghost_val. Oito arquivos do oráculo congelado foram recongelados depois de conferir que a única diferença era a troca de nomes. Coberto por golden_conv_transpose.",
@@ -3005,9 +3148,9 @@
       "recurso": "ia-conv"
     },
     {
-      "severidade": "alerta",
-      "titulo": "LSP sugere palavras-chave que não existem",
-      "detalhe": "src/GhostLSP.cpp oferece hover e autocompletar de se, senao, enquanto, tamanho... A linguagem não aceita essas palavras.",
+      "severidade": "info",
+      "titulo": "LSP: vocabulário real (corrigido)",
+      "detalhe": "Em 13/11 o LSP passou a usar as palavras-chave do lexer e as funções das libs; ghost lsp --test confere que se/senao/enquanto/fun/retorne não aparecem.",
       "arquivo": "src/GhostLSP.cpp",
       "recurso": "tool-lsp"
     },
@@ -3034,8 +3177,8 @@
     },
     {
       "severidade": "info",
-      "titulo": "ghost debug --dap e ghost pm install ficaram honestos",
-      "detalhe": "Em 12/11 --dap passou a sair com erro \"ainda nao foi implementado\" e pm install só aceita pacotes em ghost_packages/<nome>/ (sem registro remoto). Falta implementar o DAP e um registro.",
+      "titulo": "ghost debug --dap e ghost pm install implementados",
+      "detalhe": "Em 13/11 o --dap virou um adaptador DAP real sobre o gdb (sessão completa testada em cli_debug_dap) e o pm install instala de pasta e de git com semver.",
       "arquivo": "src/ghost_compiler.cpp",
       "recurso": "tool-debugger"
     },
@@ -3110,9 +3253,9 @@
       "recurso": "alg-tipo-ghost"
     },
     {
-      "severidade": "alerta",
-      "titulo": "Executáveis gerados dependem das DLLs do MinGW",
-      "detalhe": "Sem -x, os programas precisam de libstdc++, libgomp e libwinpthread no PATH. Com -x rodam sozinhos (verificado).",
+      "severidade": "info",
+      "titulo": "Executáveis gerados são estáticos no Windows (verificado)",
+      "detalhe": "O build padrão no Windows é estático; o CTest cli_build_estatico confere com objdump que o .exe só importa DLLs do sistema e roda sem o MinGW no PATH. Só -d gera executável dinâmico.",
       "arquivo": "src/ghost_compiler.cpp",
       "recurso": "plat-windows"
     },
@@ -3167,8 +3310,8 @@
     },
     {
       "severidade": "alerta",
-      "titulo": "Projeto sem controle de versão",
-      "detalhe": "Git iniciado (com .gitignore), mas sem nenhum commit e sem remote no GitHub; backups em backups/ no mesmo disco.",
+      "titulo": "Repositório sem remote",
+      "detalhe": "Primeiro commit feito em 13/11/2026 (1df7284); ainda não há repositório no GitHub, então o CI não roda.",
       "arquivo": "",
       "recurso": "plat-ci"
     },
@@ -3639,7 +3782,7 @@
     {
       "id": "c73",
       "fase": "F5",
-      "texto": "Instalador Windows e pacotes Linux (recalibrado em 12/11: só existe o zip portátil; não há instalador Windows nem pacotes Linux)",
+      "texto": "Instalador Windows e pacotes Linux (13/11/2026: instalador PowerShell do Windows feito e testado; faltam pacotes Linux/macOS e release publicada)",
       "feito": false,
       "recurso": "plat-instalador"
     },
@@ -3667,8 +3810,8 @@
     {
       "id": "c83",
       "fase": "F6",
-      "texto": "GhostPM (gerenciador de pacotes) (recalibrado em 12/11: install não baixa nem resolve dependências)",
-      "feito": false,
+      "texto": "GhostPM (gerenciador de pacotes): instala de pasta e de git, semver e commit no ghost.lock (13/11/2026; sem registro remoto)",
+      "feito": true,
       "recurso": "tool-pm"
     },
     {
@@ -4153,6 +4296,56 @@
       "data": "2026-11-13",
       "titulo": "OpenBLAS ligado ao runtime",
       "descricao": "OpenBLAS 0.3.30 compilado do fonte (o pacote do MSYS2 exige GCC 16) e embutido na libghost_runtime.a; dgemm dos tensores usa cblas_dgemm (5,5x mais rápido em 1024x1024). alg-blas: nível 2 → 4. CTest 172/172. Progresso: 70.1%."
+    },
+    {
+      "data": "2026-11-13",
+      "titulo": "Windows, lote 1: LSP, conv, estático, runtime, OpenMP e HTTP",
+      "descricao": "Seis recursos no nível 4 com teste dedicado e paridade conferida. Os testes novos acharam e corrigiram: REPL sem escapes em strings, testes do REPL que não falhavam com erro no meio, app.route quebrado no REPL, LSP com vocabulário inventado e 'ir para definição' quebrado. CTest 180/180. Progresso: 71.3%."
+    },
+    {
+      "data": "2026-11-13",
+      "titulo": "Windows, lote 2: VS Code, pacote portátil, GPU quântica, organização e CMake",
+      "descricao": "Cinco recursos no nível 4. O pacote portátil passou a levar o GCC embutido e roda numa sessão sem MinGW no PATH (o teste achou o cc1plus sem as DLLs, corrigido no ghost). A extensão VS Code ganhou validação automática (gramática = lexer, snippets passam no ghost check). Repositório organizado. CTest 191/191. Progresso: 72.4%."
+    },
+    {
+      "data": "2026-11-13",
+      "titulo": "Windows, lote 3: APIs nativas da IA no REPL",
+      "descricao": "textmodel, Transformer, TransformerG, MatrixG e memória de conhecimento passam a dar a mesma saída no compilador e no REPL (5 recursos no nível 4). Achados: matrix_g perde a componente p; mensagens do V5 diziam VRAM/CUDA rodando na CPU (corrigidas). CTest 193/193. Progresso: 73.4%."
+    },
+    {
+      "data": "2026-11-13",
+      "titulo": "GhostPM instala de pasta e de git",
+      "descricao": "ghost pm install copia (path:) ou clona (git:url#ref) as dependências, confere semver e grava o commit no ghost.lock; URLs com metacaracteres são recusadas. tool-pm: nível 2 → 4. Progresso: 73.8%."
+    },
+    {
+      "data": "2026-11-13",
+      "titulo": "Windows, lote 5: GUI real, instalador, swarm e API",
+      "descricao": "Janela Win32 testada de verdade (achado: janela invisível quando o programa é iniciado oculto, corrigido); instalador/desinstalador PowerShell testado; swarm e API no nível 4; ghost run com executável temporário único. CTest 196/196. Progresso: 75.0%."
+    },
+    {
+      "data": "2026-11-13",
+      "titulo": "Exemplos da documentação viram teste",
+      "descricao": "docs_exemplos: os 52 blocos ghost do Manual e do SPEC passam no ghost check. doc-manual e doc-spec no nível 4. Progresso: 75.3%."
+    },
+    {
+      "data": "2026-11-13",
+      "titulo": "Depurador DAP real",
+      "descricao": "ghost debug --dap: adaptador DAP sobre o gdb (breakpoints, pilha e variáveis nas linhas do .g, step, evaluate), testado com uma sessão completa; extensão VS Code ligada ao depurador. tool-debugger 2 → 4 e cmp-cli 3 → 4. CTest 197/197. Progresso: 75.9%."
+    },
+    {
+      "data": "2026-11-13",
+      "titulo": "Guia, NUCLEO e Roadmap atualizados",
+      "descricao": "Guia do Programador (HTML e PDF regenerado) com instalação, depuração DAP, GhostPM e OpenBLAS; NUCLEO com as novas paridades do REPL e a CLI; cabeçalho do Roadmap gerado do dashboard. Novos testes: guia_exemplos e docs_sincronizados."
+    },
+    {
+      "data": "2026-11-16",
+      "titulo": "for no estilo do Python e range",
+      "descricao": "for (x in ...) com tipo opcional e for x in ... { } sem parênteses; range com 1, 2 e 3 argumentos; iteração sobre texto, lista, mapa, matriz gate/matrix/GhostMatrix e qreg, com a mesma saída no compilador e no REPL. Corrigidos no caminho: o REPL lendo m(i, j), declarando ghost(...) e o formatador comendo espaço depois de strings. Testes da forma nova e do formatador passaram antes da atualização do MSYS2; a suíte completa (203 testes) precisa rodar de novo depois de consertar o compilador."
+    },
+    {
+      "data": "2026-11-19",
+      "titulo": "MSYS2 atualizado por inteiro; projeto no GCC 16.2",
+      "descricao": "pacman -Syu completou a atualização parcial de 16/11 (crt/headers 14, binutils 2.47). Runtime, ghost e testes recompilados do zero com o GCC 16.2: CTest 203/203. Pacote portátil regenerado com o GCC 16.2 embutido."
     }
   ],
   "snapshots": [
@@ -4557,8 +4750,44 @@
       "progresso": 70.1,
       "recursos": 104,
       "nota": "Fachadas Vulkan/Metal/ROCm, QPU, --dap e pm install removidas (12/11); OpenBLAS ligado (13/11)."
+    },
+    {
+      "data": "2026-11-13",
+      "progresso": 71.3,
+      "recursos": 104,
+      "nota": "Windows, lote 1 (6 recursos para o nível 4). CTest 180/180."
+    },
+    {
+      "data": "2026-11-13",
+      "progresso": 72.4,
+      "recursos": 104,
+      "nota": "Windows, lote 2 (5 recursos para o nível 4). CTest 191/191."
+    },
+    {
+      "data": "2026-11-13",
+      "progresso": 73.4,
+      "recursos": 104,
+      "nota": "Windows, lote 3 (5 recursos para o nível 4). CTest 193/193."
+    },
+    {
+      "data": "2026-11-13",
+      "progresso": 75.0,
+      "recursos": 104,
+      "nota": "Windows, lotes 4 e 5 (GhostPM, GUI, instalador, swarm, API). CTest 196/196."
+    },
+    {
+      "data": "2026-11-13",
+      "progresso": 75.9,
+      "recursos": 104,
+      "nota": "Depurador DAP real e CLI completa. CTest 197/197."
+    },
+    {
+      "data": "2026-11-19",
+      "progresso": 76.3,
+      "recursos": 104,
+      "nota": "for estilo Python + range; MSYS2 no GCC 16.2. CTest 203/203."
     }
   ],
-  "progressoGeral": 70.1,
-  "ultimaAtualizacao": "2026-11-10"
+  "progressoGeral": 76.3,
+  "ultimaAtualizacao": "2026-11-19"
 }

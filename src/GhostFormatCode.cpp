@@ -238,7 +238,15 @@ std::string ghost_format_code(const std::string& source) {
                 }
                 lineContent += s.text;
             } else {
-                lineContent += formatCodeSegment(s.text);
+                std::string f = formatCodeSegment(s.text);
+                // Depois de uma string, formatCodeSegment tira o espaço inicial: "x" + "y" virava
+                // "x"+ "y" e "ab" { virava "ab"{. Mantém o espaço que o código original tinha.
+                if (!f.empty() && !s.text.empty() && std::isspace(static_cast<unsigned char>(s.text[0])) &&
+                    !lineContent.empty() && lineContent.back() != ' ' && f[0] != ' ' &&
+                    std::string(",;)].").find(f[0]) == std::string::npos) {
+                    f = " " + f;
+                }
+                lineContent += f;
             }
         }
 

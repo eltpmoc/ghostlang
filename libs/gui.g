@@ -26,3 +26,12 @@ function void gui_show_window(int handle) {
 function void gui_close_window(int handle) {
     ghost_gui_window_close(handle);
 }
+
+// Estado real da janela (Windows): visivel e titulo
+function bool gui_window_visible(int handle) {
+    return ghost_gui_window_visible(handle);
+}
+
+function string gui_window_title(int handle) {
+    return ghost_gui_window_title(handle);
+}

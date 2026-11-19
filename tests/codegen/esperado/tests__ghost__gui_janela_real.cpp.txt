@@ -1,0 +1,91 @@
+#line 7 "libs/gui.g"
+#line 11 "libs/gui.g"
+#line 15 "libs/gui.g"
+#line 19 "libs/gui.g"
+#line 23 "libs/gui.g"
+#line 27 "libs/gui.g"
+#line 32 "libs/gui.g"
+#line 36 "libs/gui.g"
+#line 6 "tests/ghost/gui_janela_real.g"
+#line 7 "tests/ghost/gui_janela_real.g"
+#line 8 "tests/ghost/gui_janela_real.g"
+#line 9 "tests/ghost/gui_janela_real.g"
+#line 10 "tests/ghost/gui_janela_real.g"
+#line 11 "tests/ghost/gui_janela_real.g"
+#line 12 "tests/ghost/gui_janela_real.g"
+#line 13 "tests/ghost/gui_janela_real.g"
+#line 6 "libs/gui.g"
+#line 10 "libs/gui.g"
+#line 14 "libs/gui.g"
+#line 18 "libs/gui.g"
+#line 22 "libs/gui.g"
+#line 26 "libs/gui.g"
+#line 31 "libs/gui.g"
+#line 35 "libs/gui.g"
+#line 5 "tests/ghost/gui_janela_real.g"
+----
+/*TranspiladopeloGhostCompilerv1.0*/#include<iostream>#include<cstdio>#include<cstdlib>#include<string>#include<complex>#include<type_traits>#include<fstream>#include<sstream>#include<thread>#include<chrono>#include<mutex>#include"include/GhostNumberG.hpp"#include"include/GhostMatrix.hpp"#include"include/GhostLLM.hpp"#include"include/GhostLib.hpp"#include"include/GhostDevice.hpp"#include"include/GhostTextModel.hpp"#include"include/GhostWeb.hpp"#include"include/GhostKnowledge.hpp"#include"include/GhostTemporal.hpp"#include"include/GhostTransformer.hpp"#include"include/GhostTransformerG.hpp"#include"include/GhostMatrixG.hpp"#include"include/GhostQuantum.hpp"#include"include/GhostQML.hpp"#include"include/GhostHybrid.hpp"#include"include/GhostQTape.hpp"#include"include/GhostCore.hpp"#ifdef_WIN32#include<windows.h>#endifintgui_alert(std::stringtitle,std::stringmsg);
+intgui_confirm(std::stringtitle,std::stringmsg);
+intgui_open_browser(std::stringurl);
+intgui_create_window(std::stringtitle,intwidth,intheight);
+voidgui_show_window(inthandle);
+voidgui_close_window(inthandle);
+boolgui_window_visible(inthandle);
+std::stringgui_window_title(inthandle);
+voidghost_main();
+intgui_alert(std::stringtitle,std::stringmsg){
+returnghost_gui_message_box(title,msg,0);
+}
+intgui_confirm(std::stringtitle,std::stringmsg){
+returnghost_gui_message_box(title,msg,1);
+}
+intgui_open_browser(std::stringurl){
+returnghost_gui_open_url(url);
+}
+intgui_create_window(std::stringtitle,intwidth,intheight){
+returnghost_gui_window_create(title,width,height);
+}
+voidgui_show_window(inthandle){
+ghost_gui_window_show(handle);
+}
+voidgui_close_window(inthandle){
+ghost_gui_window_close(handle);
+}
+boolgui_window_visible(inthandle){
+returnghost_gui_window_visible(handle);
+}
+std::stringgui_window_title(inthandle){
+returnghost_gui_window_title(handle);
+}
+voidghost_main(){
+intwin=gui_create_window(std::string("GhostLang Janela Teste"),320,200);
+std::cout<<ghost_show(std::string("criada: "))<<ghost_show(win>0)<<std::endl;
+std::cout<<ghost_show(std::string("visivel antes de mostrar: "))<<ghost_show(gui_window_visible(win))<<std::endl;
+gui_show_window(win);
+std::cout<<ghost_show(std::string("visivel: "))<<ghost_show(gui_window_visible(win))<<std::endl;
+std::cout<<ghost_show(std::string("titulo: "))<<ghost_show(gui_window_title(win))<<std::endl;
+gui_close_window(win);
+std::cout<<ghost_show(std::string("visivel depois de fechar: "))<<ghost_show(gui_window_visible(win))<<std::endl;
+}
+intmain(intargc,char**argv){
+try{
+#ifdef_WIN32SetConsoleOutputCP(CP_UTF8);
+SetConsoleCP(CP_UTF8);
+#endifstd::cout<<std::boolalpha;
+std::stringghost_args="";
+std::vector<std::string>ghost_args_vec;
+for(inti=1;
+i<argc;
+++i){
+ghost_args+=argv[i];
+ghost_args_vec.push_back(argv[i]);
+if(i<argc-1)ghost_args+=" ";
+}
+ghost_main();
+return0;
+}
+catch(conststd::exception&e){
+std::cerr<<e.what()<<std::endl;
+return1;
+}
+}

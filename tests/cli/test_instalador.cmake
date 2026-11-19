@@ -1,0 +1,36 @@
+# Instalador do Windows (scripts/instalador): instala um mini-pacote numa pasta temporária
+# (sem mexer no PATH do usuário nem no Menu Iniciar), roda o ghost instalado e desinstala.
+# Uso: cmake -DGHOST=<ghost.exe> -DRUNTIME=<libghost_runtime.a> -DROOT=<fonte> -DWORK=<pasta> -P test_instalador.cmake
+get_filename_component(WORK "${WORK}" ABSOLUTE)
+if(NOT PS)
+  set(PS powershell)
+endif()
+set(pkg "${WORK}/inst_pacote")
+set(dest "${WORK}/inst_destino")
+file(REMOVE_RECURSE "${pkg}" "${dest}")
+file(MAKE_DIRECTORY "${pkg}/bin")
+file(COPY "${GHOST}" "${RUNTIME}" DESTINATION "${pkg}/bin")
+file(COPY "${ROOT}/include" DESTINATION "${pkg}")
+file(COPY "${ROOT}/scripts/instalador/instalar.ps1" "${ROOT}/scripts/instalador/desinstalar.ps1" DESTINATION "${pkg}")
+file(WRITE "${pkg}/iniciar_prompt.bat" "@echo off\r\n")
+
+execute_process(COMMAND "${PS}" -NoProfile -ExecutionPolicy Bypass -File "${pkg}/instalar.ps1" -Destino "${dest}" -SemPath -SemAtalho
+                RESULT_VARIABLE rc OUTPUT_VARIABLE out ERROR_VARIABLE err)
+if(NOT rc EQUAL 0 OR NOT EXISTS "${dest}/bin/ghost.exe" OR NOT EXISTS "${dest}/instalacao.json" OR NOT out MATCHES "GhostLang 0")
+  message(FATAL_ERROR "instalacao falhou (rc=${rc}):\n${out}\n${err}")
+endif()
+if(EXISTS "${dest}/instalar.ps1" OR NOT EXISTS "${dest}/desinstalar.ps1")
+  message(FATAL_ERROR "a pasta instalada deve ter o desinstalador e nao o instalador")
+endif()
+file(WRITE "${dest}/instalador_ola.g" "function main() {\n    print(\"instalado: \", 6 * 7);\n}\n")
+execute_process(COMMAND "${dest}/bin/ghost.exe" run instalador_ola.g WORKING_DIRECTORY "${dest}" RESULT_VARIABLE rc2 OUTPUT_VARIABLE out2 ERROR_VARIABLE err2)
+if(NOT rc2 EQUAL 0 OR NOT out2 MATCHES "instalado: 42")
+  message(FATAL_ERROR "ghost instalado nao rodou um programa (rc=${rc2}):\n${out2}\n${err2}")
+endif()
+execute_process(COMMAND "${PS}" -NoProfile -ExecutionPolicy Bypass -File "${dest}/desinstalar.ps1"
+                RESULT_VARIABLE rc3 OUTPUT_VARIABLE out3 ERROR_VARIABLE err3)
+if(NOT rc3 EQUAL 0 OR EXISTS "${dest}")
+  message(FATAL_ERROR "desinstalacao falhou (rc=${rc3}):\n${out3}\n${err3}")
+endif()
+file(REMOVE_RECURSE "${pkg}")
+message(STATUS "Instalador OK: instalou, rodou e desinstalou")

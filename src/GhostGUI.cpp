@@ -112,6 +112,9 @@ void ghost_gui_window_show(int handle) {
     auto it = active_windows.find(handle);
     if (it != active_windows.end()) {
         ShowWindow(it->second, SW_SHOW);
+        // Quando o programa foi iniciado por outro com "janela oculta" (STARTF_USESHOWWINDOW,
+        // como o CTest faz), o Windows ignora o primeiro ShowWindow; a segunda chamada vale.
+        if (!IsWindowVisible(it->second)) ShowWindow(it->second, SW_SHOWNORMAL);
         UpdateWindow(it->second);
     }
 #endif
@@ -126,6 +129,33 @@ void ghost_gui_window_close(int handle) {
         DestroyWindow(it->second);
         active_windows.erase(it);
     }
+#endif
+}
+
+bool ghost_gui_window_visible(int handle) {
+    std::lock_guard<std::mutex> lock(gui_mutex);
+    if (is_headless()) return false;
+#ifdef _WIN32
+    auto it = active_windows.find(handle);
+    return it != active_windows.end() && IsWindow(it->second) && IsWindowVisible(it->second);
+#else
+    (void)handle;
+    return false;
+#endif
+}
+
+std::string ghost_gui_window_title(int handle) {
+    std::lock_guard<std::mutex> lock(gui_mutex);
+    if (is_headless()) return "";
+#ifdef _WIN32
+    auto it = active_windows.find(handle);
+    if (it == active_windows.end() || !IsWindow(it->second)) return "";
+    char buf[512] = {0};
+    GetWindowTextA(it->second, buf, sizeof(buf));
+    return buf;
+#else
+    (void)handle;
+    return "";
 #endif
 }
 

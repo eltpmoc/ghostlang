@@ -1,0 +1,168 @@
+#line 11 "libs/http.g"
+#line 16 "libs/http.g"
+#line 20 "libs/http.g"
+#line 24 "libs/http.g"
+#line 28 "libs/http.g"
+#line 32 "libs/http.g"
+#line 36 "libs/http.g"
+#line 40 "libs/http.g"
+#line 45 "libs/http.g"
+#line 49 "libs/http.g"
+#line 53 "libs/http.g"
+#line 60 "libs/http.g"
+#line 65 "libs/http.g"
+#line 70 "libs/http.g"
+#line 75 "libs/http.g"
+#line 80 "libs/http.g"
+#line 6 "tests/ghost/http_cliente.g"
+#line 10 "tests/ghost/http_cliente.g"
+#line 14 "tests/ghost/http_cliente.g"
+#line 15 "tests/ghost/http_cliente.g"
+#line 16 "tests/ghost/http_cliente.g"
+#line 17 "tests/ghost/http_cliente.g"
+#line 18 "tests/ghost/http_cliente.g"
+#line 19 "tests/ghost/http_cliente.g"
+#line 22 "tests/ghost/http_cliente.g"
+#line 23 "tests/ghost/http_cliente.g"
+#line 24 "tests/ghost/http_cliente.g"
+#line 25 "tests/ghost/http_cliente.g"
+#line 26 "tests/ghost/http_cliente.g"
+#line 27 "tests/ghost/http_cliente.g"
+#line 28 "tests/ghost/http_cliente.g"
+#line 29 "tests/ghost/http_cliente.g"
+#line 10 "libs/http.g"
+#line 15 "libs/http.g"
+#line 19 "libs/http.g"
+#line 23 "libs/http.g"
+#line 27 "libs/http.g"
+#line 31 "libs/http.g"
+#line 35 "libs/http.g"
+#line 39 "libs/http.g"
+#line 44 "libs/http.g"
+#line 48 "libs/http.g"
+#line 52 "libs/http.g"
+#line 59 "libs/http.g"
+#line 64 "libs/http.g"
+#line 69 "libs/http.g"
+#line 74 "libs/http.g"
+#line 79 "libs/http.g"
+#line 5 "tests/ghost/http_cliente.g"
+#line 9 "tests/ghost/http_cliente.g"
+#line 13 "tests/ghost/http_cliente.g"
+----
+/*TranspiladopeloGhostCompilerv1.0*/#include<iostream>#include<cstdio>#include<cstdlib>#include<string>#include<complex>#include<type_traits>#include<fstream>#include<sstream>#include<thread>#include<chrono>#include<mutex>#include"include/GhostNumberG.hpp"#include"include/GhostMatrix.hpp"#include"include/GhostLLM.hpp"#include"include/GhostLib.hpp"#include"include/GhostDevice.hpp"#include"include/GhostTextModel.hpp"#include"include/GhostWeb.hpp"#include"include/GhostKnowledge.hpp"#include"include/GhostTemporal.hpp"#include"include/GhostTransformer.hpp"#include"include/GhostTransformerG.hpp"#include"include/GhostMatrixG.hpp"#include"include/GhostQuantum.hpp"#include"include/GhostQML.hpp"#include"include/GhostHybrid.hpp"#include"include/GhostQTape.hpp"#include"include/GhostCore.hpp"#ifdef_WIN32#include<windows.h>#endifstd::stringhttp_response_type(std::stringcode,std::stringtype,std::stringbody);
+std::stringhttp_response(std::stringcode,std::stringbody);
+std::stringhttp_ok(std::stringjson_body);
+std::stringhttp_created(std::stringjson_body);
+std::stringhttp_bad_request(std::stringmessage);
+std::stringhttp_unauthorized(std::stringmessage);
+std::stringhttp_not_found(std::stringmessage);
+std::stringhttp_internal_error(std::stringmessage);
+std::stringhttp_html(std::stringhtml_content);
+std::stringhttp_js(std::stringjs_content);
+std::stringhttp_css(std::stringcss_content);
+std::stringhttp_file(std::stringfilepath,std::stringcontent_type);
+std::stringhttp_html_file(std::stringfilepath);
+std::stringhttp_js_file(std::stringfilepath);
+std::stringhttp_css_file(std::stringfilepath);
+std::stringhttp_static(std::stringfilepath);
+std::stringrota_status(std::stringreq);
+std::stringrota_eco(std::stringreq);
+voidghost_main();
+std::stringhttp_response_type(std::stringcode,std::stringtype,std::stringbody){
+returnstd::string("STATUS:")+code+std::string("|TYPE:")+type+std::string("|BODY:")+body;
+}
+std::stringhttp_response(std::stringcode,std::stringbody){
+returnhttp_response_type(code,std::string("application/json"),body);
+}
+std::stringhttp_ok(std::stringjson_body){
+returnhttp_response(std::string("200"),json_body);
+}
+std::stringhttp_created(std::stringjson_body){
+returnhttp_response(std::string("201"),json_body);
+}
+std::stringhttp_bad_request(std::stringmessage){
+returnhttp_response(std::string("400"),std::string("{\"error\": \"")+message+std::string("\"}"));
+}
+std::stringhttp_unauthorized(std::stringmessage){
+returnhttp_response(std::string("401"),std::string("{\"error\": \"")+message+std::string("\"}"));
+}
+std::stringhttp_not_found(std::stringmessage){
+returnhttp_response(std::string("404"),std::string("{\"error\": \"")+message+std::string("\"}"));
+}
+std::stringhttp_internal_error(std::stringmessage){
+returnhttp_response(std::string("500"),std::string("{\"error\": \"")+message+std::string("\"}"));
+}
+std::stringhttp_html(std::stringhtml_content){
+returnhttp_response_type(std::string("200"),std::string("text/html"),html_content);
+}
+std::stringhttp_js(std::stringjs_content){
+returnhttp_response_type(std::string("200"),std::string("application/javascript"),js_content);
+}
+std::stringhttp_css(std::stringcss_content){
+returnhttp_response_type(std::string("200"),std::string("text/css"),css_content);
+}
+std::stringhttp_file(std::stringfilepath,std::stringcontent_type){
+returnghost_http_file(filepath,content_type);
+}
+std::stringhttp_html_file(std::stringfilepath){
+returnghost_http_file(filepath,std::string("text/html"));
+}
+std::stringhttp_js_file(std::stringfilepath){
+returnghost_http_file(filepath,std::string("application/javascript"));
+}
+std::stringhttp_css_file(std::stringfilepath){
+returnghost_http_file(filepath,std::string("text/css"));
+}
+std::stringhttp_static(std::stringfilepath){
+returnghost_http_auto_file(filepath);
+}
+std::stringrota_status(std::stringreq){
+returnhttp_ok(std::string("{\"status\": \"online\"}"));
+}
+std::stringrota_eco(std::stringreq){
+returnhttp_ok(std::string("{\"recebido\": \"sim\"}"));
+}
+voidghost_main(){
+GhostServerapp(18777);
+app.route(std::string("/status"),ghost_fn_val(rota_status));
+app.route(std::string("/eco"),ghost_fn_val(rota_eco));
+std::thread([&](){
+for(inti=0;
+i<40;
+i++){
+app.listen_step(100);
+}
+}
+).detach();
+std::this_thread::sleep_for(std::chrono::milliseconds(static_cast<longlong>(200)));
+std::stringr1=http_get(std::string("http://127.0.0.1:18777/status"));
+std::cout<<ghost_show(std::string("GET: "))<<ghost_show(json_extract(r1,std::string("status")))<<std::endl;
+std::stringr2=http_post(std::string("http://127.0.0.1:18777/eco"),std::string("{\"x\": 1}"));
+std::cout<<ghost_show(std::string("POST: "))<<ghost_show(json_extract(r2,std::string("recebido")))<<std::endl;
+std::stringr3=http_get(std::string("http://127.0.0.1:18777/nao_existe"));
+std::cout<<ghost_show(std::string("404: "))<<ghost_show(json_extract(r3,std::string("error")))<<std::endl;
+std::cout<<ghost_show(std::string("find: "))<<ghost_show(r1.find(std::string("online"))!=-1)<<ghost_show(std::string(" "))<<ghost_show(r1.find(std::string("xyz"))!=-1)<<std::endl;
+}
+intmain(intargc,char**argv){
+try{
+#ifdef_WIN32SetConsoleOutputCP(CP_UTF8);
+SetConsoleCP(CP_UTF8);
+#endifstd::cout<<std::boolalpha;
+std::stringghost_args="";
+std::vector<std::string>ghost_args_vec;
+for(inti=1;
+i<argc;
+++i){
+ghost_args+=argv[i];
+ghost_args_vec.push_back(argv[i]);
+if(i<argc-1)ghost_args+=" ";
+}
+ghost_main();
+return0;
+}
+catch(conststd::exception&e){
+std::cerr<<e.what()<<std::endl;
+return1;
+}
+}

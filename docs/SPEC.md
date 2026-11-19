@@ -71,6 +71,8 @@ Iniciados por letra ASCII `[a-zA-Z]` ou sublinhado `_`, seguidos por letras, dí
 
 ### 4.1 Condicional `if` / `else if` / `else`
 ```ghost
+bool cond1 = false;
+bool cond2 = true;
 if (cond1) {
     // ramo 1
 } else if (cond2) {
@@ -81,17 +83,22 @@ if (cond1) {
 ```
 
 ### 4.2 Repetição `for`, `while`, `do-while` e `foreach`
-```ghost
+```text
 for (var i = 0; i < 10; i = i + 1) { ... }
 while (ativo) { ... }
 do { ... } while (executando);
 foreach (item in colecao) { ... }
 foreach (qubit in registrador_qreg) { ... }
+for (x in colecao) { ... }            // igual a foreach
+for x in range(inicio, fim, passo) { ... }   // forma do Python, sem parenteses
+for chave, valor in mapa { ... }
 ```
+`range(fim)`, `range(inicio, fim)` e `range(inicio, fim, passo)` geram inteiros sem incluir o `fim` (passo negativo conta para baixo). O `for ... in` percorre `range`, textos (caractere a caractere), listas, conjuntos, mapas (chave e valor), matrizes `gate`/`matrix`/`GhostMatrix` (elemento a elemento, linha por linha) e `qreg` (índices dos qubits).
 
 ### 4.3 Seleção Múltipla `switch`
 Suporta correspondência exata sobre inteiros, caracteres e strings:
 ```ghost
+string comando = "iniciar";
 switch (comando) {
     case "iniciar": print("start"); break;
     case "parar": print("stop"); break;

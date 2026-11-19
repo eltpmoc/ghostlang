@@ -1,5 +1,6 @@
 const path = require('path');
-const { workspace, ExtensionContext } = require('vscode');
+const vscode = require('vscode');
+const { workspace } = vscode;
 const { LanguageClient, LanguageClientOptions, ServerOptions } = require('vscode-languageclient/node');
 
 let client;
@@ -29,6 +30,14 @@ function activate(context) {
     );
 
     client.start();
+
+    // Depurador: 'ghost debug --dap' fala o Debug Adapter Protocol e controla o gdb
+    context.subscriptions.push(vscode.debug.registerDebugAdapterDescriptorFactory('ghost', {
+        createDebugAdapterDescriptor() {
+            const ghost = workspace.getConfiguration('ghostlang').get('executablePath') || 'ghost';
+            return new vscode.DebugAdapterExecutable(ghost, ['debug', '--dap']);
+        }
+    }));
 }
 
 function deactivate() {

@@ -1,0 +1,22 @@
+[Ghost OS] Convolucao ('k') aplicada sobre 'img'.
+Estado da estrutura 'saida':
+[ 6+0g	8+0g	4+0g	]
+[ 12+0g	14+0g	8+0g	]
+[ 8+0g	10+0g	12+0g	]
+[Ghost OS] Convolucao ('k') aplicada sobre 'img'.
+Estado da estrutura 'saida2':
+[ 6+0g	4+0g	]
+[ 8+0g	12+0g	]
+[Ghost OS] Transposicao de 'img' calculada com sucesso.
+Estado da estrutura 't':
+[ 1+0g	4+0g	7+0g	0+0g	]
+[ 2+0g	5+0g	8+0g	1+0g	]
+[ 3+0g	6+0g	9+0g	2+0g	]
+[ 0+0g	1+0g	2+0g	3+0g	]
+Estado da estrutura 'm':
+[ 6+0g	8+0g	4+0g	]
+[ 12+0g	14+0g	8+0g	]
+[ 8+0g	10+0g	12+0g	]
+3x3 4x4
+[Ghost OS] Convolucao ('k') aplicada sobre 'img'.
+2x3 2

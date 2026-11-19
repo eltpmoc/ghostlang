@@ -1,0 +1,13 @@
+textmodel backend: cpu epochs: 0
+OK: gradientes por diferencas finitas.
+matrix_g: (x, yi, p, θ²) = (1.5000, 2.0000, 0.0000, 0.2500) bytes=48
+transformer: contexto=32 updates=0
+OK: bytes UTF-8, gradientes (erro maximo 0.000135451), mascara causal, aprendizado.
+[V5] Alocando tensores quanticos do Transformer...
+[V5] Arquitetura Quântica Montada. Camadas: 1 | Dimensão: 24
+transformer_v5: contexto=32 updates=0
+[V5] Iniciando teste do kernel quantico (GhostMatrixG)...
+[V5] Forward: Qubit(0,0) -> Real: 0 | Imag: 20 | Theta: 0.72
+[V5] Backward (Gradientes em A): dA(0,0) -> Real: 320 | Imag: 160 | Theta: 0.648
+knowledge: allowed=true found=false
+perplexidade(0)=1 text_int=42

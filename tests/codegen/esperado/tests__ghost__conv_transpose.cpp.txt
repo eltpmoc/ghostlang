@@ -32,11 +32,12 @@
 #line 27 "tests/ghost/conv_transpose.g"
 #line 28 "tests/ghost/conv_transpose.g"
 #line 29 "tests/ghost/conv_transpose.g"
-#line 32 "tests/ghost/conv_transpose.g"
+#line 30 "tests/ghost/conv_transpose.g"
 #line 33 "tests/ghost/conv_transpose.g"
 #line 34 "tests/ghost/conv_transpose.g"
 #line 35 "tests/ghost/conv_transpose.g"
 #line 36 "tests/ghost/conv_transpose.g"
+#line 37 "tests/ghost/conv_transpose.g"
 #line 3 "tests/ghost/conv_transpose.g"
 ----
 /*TranspiladopeloGhostCompilerv1.0*/#include<iostream>#include<cstdio>#include<cstdlib>#include<string>#include<complex>#include<type_traits>#include<fstream>#include<sstream>#include<thread>#include<chrono>#include<mutex>#include"include/GhostNumberG.hpp"#include"include/GhostMatrix.hpp"#include"include/GhostLLM.hpp"#include"include/GhostLib.hpp"#include"include/GhostDevice.hpp"#include"include/GhostTextModel.hpp"#include"include/GhostWeb.hpp"#include"include/GhostKnowledge.hpp"#include"include/GhostTemporal.hpp"#include"include/GhostTransformer.hpp"#include"include/GhostTransformerG.hpp"#include"include/GhostMatrixG.hpp"#include"include/GhostQuantum.hpp"#include"include/GhostQML.hpp"#include"include/GhostHybrid.hpp"#include"include/GhostQTape.hpp"#include"include/GhostCore.hpp"#ifdef_WIN32#include<windows.h>#endifvoidghost_main();
@@ -135,7 +136,9 @@ std::cout<<"\nEstado da estrutura '"<<"t"<<"':"<<std::endl;
 t.display();
 autom=img.conv2d(k,1);
 autou=img.transpose();
-std::cout<<ghost_show(m(0,0))<<ghost_show(std::string(" "))<<ghost_show(u(0,1))<<std::endl;
+std::cout<<"\nEstado da estrutura '"<<"m"<<"':"<<std::endl;
+m.display();
+std::cout<<ghost_show(m.getRows())<<ghost_show(std::string("x"))<<ghost_show(m.getCols())<<ghost_show(std::string(" "))<<ghost_show(u.getRows())<<ghost_show(std::string("x"))<<ghost_show(u.getCols())<<std::endl;
 GhostMatrixr(2,3);
 doublelimit_r=std::sqrt(6.0/(2+3));
 for(size_tghost_r=0;
@@ -174,7 +177,7 @@ val(ghost_r,ghost_c)=GhostNumberG(ghost_val,0.0,0.0);
 }
 c=img.conv2d(k,1);
 std::cout<<"[Ghost OS] Convolucao ('k') aplicada sobre 'img'."<<std::endl;
-std::cout<<ghost_show(r.getRows())<<ghost_show(std::string("x"))<<ghost_show(r.getCols())<<ghost_show(std::string(" "))<<ghost_show(c(0,0))<<ghost_show(std::string(" "))<<ghost_show(val.getCols())<<std::endl;
+std::cout<<ghost_show(r.getRows())<<ghost_show(std::string("x"))<<ghost_show(r.getCols())<<ghost_show(std::string(" "))<<ghost_show(val.getCols())<<std::endl;
 }
 intmain(intargc,char**argv){
 try{

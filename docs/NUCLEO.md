@@ -200,8 +200,11 @@ A biblioteca `libs/stats.g` oferece 35 funções estatísticas de alto padrão: 
 ```ghost
 if (x > 0) { ... } else if (x == 0) { ... } else { ... }
 for (int i = 0; i < n; i++) { ... }        // i existe só dentro do laço
-for (x in xs) { ... }                       // igual a foreach
-foreach (x in xs) { ... }                   // listas, conjuntos, range(), textos (letra a letra) e qreg (itera qubits 0 .. n-1)
+for (x in xs) { ... }                       // igual a foreach (tipo opcional: for (int x in xs))
+for x in range(2, 10, 2) { ... }            // forma do Python, sem parenteses (16/11/2026)
+for k, v in mapa { ... }
+foreach (x in xs) { ... }                   // listas, conjuntos, range(), textos (letra a letra), matrizes gate/matrix
+                                            // (Numero G a Numero G, linha por linha) e qreg (itera qubits 0 .. n-1)
 foreach (chave, valor in mapa) { ... }
 while (cond) { ... }
 do { ... } while (cond);
@@ -215,6 +218,8 @@ switch (valor) {                            // números ou textos
 ```
 
 `break` dentro de `switch` sai do switch; `continue` vale para o laço de fora.
+
+`range(fim)`, `range(inicio, fim)` e `range(inicio, fim, passo)` seguem o Python: o `fim` não entra e `range(0)` não roda. No C++ gerado, `for x in m` sobre uma `GhostMatrix` usa o iterador da classe (`GhostMatrix::begin/end`, elemento a elemento por linha, por referência). No REPL, o mesmo laço dá o Número G de cada posição (`tests/*/for_range.*`).
 
 ## Funções
 
@@ -724,12 +729,20 @@ ghost cpp programa.g           # mostra o C++ gerado a partir da AST (o caminho 
 ghost cpp --comparar a.g b.g   # compara o C++ da AST com o do Parser (mesmos tokens e mesmos #line)
 ghost test [pasta]             # roda cada X.g que tem X.expected ao lado (ou em ../golden/) e compara a saída
 ghost programa.g -o saida      # uso antigo, igual a ghost build
+ghost debug programa.g         # compila com -g e #line e abre o gdb nas linhas do .g (sem terminal: gdb em lote, run + bt)
+ghost debug --dap              # adaptador DAP (VS Code) sobre o gdb/MI: breakpoints, pilha, variaveis, step, evaluate
+ghost debug --saida x.exe a.g  # so compila com simbolos
+ghost lsp [--test]             # Language Server (palavras-chave do lexer + funcoes das libs); --test confere 16 respostas
+ghost pm add n --path p | --git url [--ref tag]; ghost pm install   # pacotes de pasta ou git, semver, commit no ghost.lock
 ghost version | help
 ```
 
 - `ghost test` compila e roda cada teste num processo separado (com `OMP_NUM_THREADS=4`) e mostra a primeira linha diferente quando falha. `ghost test tests` roda os 36 programas golden e os 26 testes de diagnóstico do projeto (62 testes no total).
 - **Testes de erro:** com `X.erros` ao lado de `X.g`, o teste passa quando a compilação falha e cada linha do `.erros` aparece na mensagem do compilador (por exemplo `programa.g:3:13: erro GHOST-E0102`).
-- No Windows o executável é estático por padrão: roda em qualquer máquina, sem o MSYS2 no `PATH`.
+- No Windows o executável é estático por padrão: roda em qualquer máquina, sem o MSYS2 no `PATH` (conferido com objdump no CTest `cli_build_estatico`).
+- `ghost run` compila para `%TEMP%\ghost-run\<nome>_<hash do caminho>_<pid>.exe` e apaga o executável depois de rodar: duas execuções ao mesmo tempo não se atrapalham.
+- Testes do REPL (`tests/repl/run_repl_test.cmake`): além de conferir os trechos esperados, um `[Erro de Execucao]` que o `.expected` não prevê reprova o teste (desde 13/11/2026).
+- Goldens com `-DFILTER=<regex>` ignoram linhas que casam com a regex (log de uma thread de servidor, por exemplo).
 
 ## Diagnósticos do compilador
 
@@ -825,7 +838,7 @@ O C++ é gerado diretamente a partir da árvore por `src/GhostCodegen.cpp` (`inc
 - **Oráculo congelado:**
   - `tests/codegen/esperado/` guarda a referência de C++ gerado para 53 programas de `tests/ghost` e `libs` (CTest `codegen_congelado`);
   - `tests/codegen/esperado_ia/` guarda a referência para 7 módulos de `ia_propria` (CTest `codegen_congelado_ia`);
-  - A suíte completa do CTest contava com 93 testes nessa etapa; em 13/11/2026 são 172, todos passando no Windows x64.
+  - A suíte completa do CTest contava com 93 testes nessa etapa; em 19/11/2026 são 203, todos passando no Windows x64 com o GCC 16.2 no Windows x64.
   - **Mudanças intencionais no oráculo (12/11/2026):**
     - `x = conv(imagem, kernel[, passo]);` e `x = transpose(a);` voltaram a compilar, com o mesmo C++ do Parser antigo. O programa novo `tests/ghost/conv_transpose.g` foi congelado a partir do gerador da AST, porque o Parser já não existe; o texto gerado copia o de `parseConvAssignment`/`parseTransposeAssignment`.
     - Os laços que inicializam uma matriz `gate N(linhas, colunas)` passaram a usar `ghost_r`, `ghost_c` e `ghost_val` em vez de `r`, `c` e `val`. Antes, uma matriz chamada `r`, `c` ou `val` ficava escondida pelos laços e o g++ recusava o programa. Oito arquivos foram recongelados (seis de `tests/ghost` e `src/main.g` e `src/modelo.g` de `ia_propria`). Antes de recongelar, foi conferido que, aplicando essa troca de nomes ao C++ antigo, o resultado é exatamente o C++ novo.
@@ -887,7 +900,7 @@ tipos.g:23:5: erro GHOST-E0204: 'n' ja foi declarado neste bloco (linha 13)
 
 | Recurso | Compilador | REPL |
 |---|---|---|
-| `x = conv(imagem, kernel[, passo]);` e `x = transpose(a);` (forma de comando) | sim (`tests/ghost/conv_transpose.g`; voltou em 12/11/2026, depois de ter parado de compilar com a aposentadoria do Parser); imprime `[Ghost OS] Convolucao ...` / `[Ghost OS] Transposicao ...` | sim, com os mesmos valores, mas a mensagem é `[Matematica] x = conv(...)` |
+| `x = conv(imagem, kernel[, passo]);` e `x = transpose(a);` (forma de comando) | sim (`tests/ghost/conv_transpose.g`; voltou em 12/11/2026, depois de ter parado de compilar com a aposentadoria do Parser); imprime `[Ghost OS] Convolucao ...` / `[Ghost OS] Transposicao ...` | sim, com a mesma saída desde 13/11/2026 (`tests/*/conv_transpose.*`); o REPL também aceita `var m = img.conv2d(k, 1)` e `m.getRows()`/`getCols()` e deixou de imprimir eco `[Matematica]` |
 | Classes (`class`, `extends`, `super`, `private`) | sim | sim, com a mesma saída (`tests/*/classes.*`) |
 | Campos `qreg`/`qcircuit` em classes | sim | sim, com a mesma saída (`tests/*/classes_quantum.*`) |
 | `set<T>`, compreensões de lista, `${x:.2f}` | sim | sim, com a mesma saída (`tests/*/colecoes.*`) |
@@ -908,6 +921,14 @@ tipos.g:23:5: erro GHOST-E0204: 'n' ja foi declarado neste bloco (linha 13)
 | Operador de potência `**`, `bool(x)` e `foreach (q in reg)` | sim | sim, com a mesma saída (`tests/*/potencia_bool_qiter.*`) |
 | Coleções estruturadas (`Stack<T>`, `Queue<T>`, `libs/collections.g`, `libs/test.g`) | sim | sim, com a mesma saída (`tests/*/colecoes_std.*`) |
 | Interoperabilidade OpenQASM 3.0 (`to_qasm`, `from_qasm`, `libs/qasm.g`) | sim | sim, com a mesma saída (`tests/*/quantum_qasm.*`) |
+| Sequências de escape em strings (`\"`, `\n`, `\t`, `\\`, `\xHH`) | sim (C++) | sim desde 13/11/2026 (`Lexer::unescape`); antes o REPL mostrava as barras (`tests/*/strings_escape.*`) |
+| `texto.find(trecho)`, `json_extract`, `app.route(...)` | sim | sim desde 13/11/2026; `find` devolve -1 quando não acha (`tests/*/http_cliente.*`) |
+| `ghost(x, y, p, theta2)` dentro de expressões | sim | sim desde 13/11/2026; a declaração `ghost g = ghost(...)` e o texto de `print(g)` iguais ao compilador desde 16/11/2026 |
+| `for (x in ...)` com tipo (`var`, `int`...), `for x in ... { }` sem parênteses e `for` sobre matriz | sim | sim desde 16/11/2026 (antes o REPL só aceitava `foreach` e `for (x in ...)` sem tipo) (`tests/*/for_range.*`) |
+| Ler `m(i, j)` de uma matriz numa expressão | sim (Número G) | sim desde 16/11/2026 (antes dava "funcao nao encontrada"); o REPL devolve a parte real |
+| Modelos de IA: `text_model`, `transformer_model`, `transformer_model_v5`, `matrix_g`, `temporal_context`, `knowledge_consult` | sim | sim desde 13/11/2026: o REPL guarda o objeto C++ num registro (`src/InterpreterNative.cpp`) e a variável aponta para ele (`tests/*/ia_nativa.*`) |
+| Simulador quântico na GPU (CUDA) | sim | sim, mesmo resultado na GPU e na CPU (`tests/*/quantum_gpu_resultado.*`) |
+| Janela Win32 (`gui_create_window`, `gui_window_visible`, `gui_window_title`) | sim | sim (`tests/*/gui_janela_real.*`) |
 | Manipulação de strings (`starts_with`, `ends_with`, `to_upper`, `to_lower`, `pad`, `replace`) | sim | sim, com a mesma saída (`tests/*/string_std.*`) |
 | Estatística e matemática (`media`, `variancia`, `desvio_padrao`, `clamp`, `lerp`, `lcg_uniform`) | sim | sim, com a mesma saída (`tests/*/stats_std.*`) |
 | Números complexos (`complex`, literal `4.0i`, constante `i`, raízes complexas de números negativos `csqrt`, `raiz_n_complexa`, sobrecarga `raiz_n(complex, n)`, `complex_abs/arg/conj/real/imag`) | sim | sim, com a mesma saída (`tests/*/complex_std.*`) |

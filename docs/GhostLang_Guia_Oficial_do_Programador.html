@@ -283,7 +283,7 @@ li {
     border-radius: 8px;
     margin: 15px 0 20px 0;
     overflow: hidden;
-    break-inside: avoid;
+    break-inside: auto; /* bloco longo continua na pagina seguinte em vez de deixar um buraco */
     box-shadow: 0 4px 12px rgba(15, 23, 42, 0.15);
     border: 1px solid #1e293b;
 }
@@ -490,7 +490,9 @@ tr:nth-child(even) td {
     color: #0f172a;
 }
 
-    </style>
+    .code-block pre { orphans: 4; widows: 4; }
+.code-header { break-after: avoid; }
+</style>
 </head>
 <body>
 
@@ -545,7 +547,7 @@ tr:nth-child(even) td {
     <div class="cover-footer">
         <div>
             <div class="cover-author-name">Equipe de Engenharia GhostLang</div>
-            <div>Edição 2026 • Testado no Windows x64</div>
+            <div>Edição de 13/11/2026 • Testado no Windows x64</div>
         </div>
         <div style="text-align: right;">
             <div style="color: #38bdf8; font-weight: bold;">Manual e Guia Prático</div>
@@ -568,7 +570,7 @@ tr:nth-child(even) td {
     <div style="margin-top: 60px; font-size: 10pt; color: #64748b; line-height: 1.8;">
         <strong>Autor:</strong> Engenharia e Comunidade GhostLang<br>
         <strong>Versão Coberta:</strong> 0.9, em desenvolvimento (a maturidade de cada recurso está em <code>dashboard/ghostlang-status.json</code>)<br>
-        <strong>Padrão de Compilação:</strong> C++17, testado com GCC 15.2 (MSYS2 UCRT64) no Windows x64; Clang, Linux e macOS ainda não verificados<br>
+        <strong>Padrão de Compilação:</strong> C++17, testado com GCC 16.2 (MSYS2 UCRT64) no Windows x64; Clang, Linux e macOS ainda não verificados<br>
         <strong>Aceleração de Hardware:</strong> NVIDIA CUDA (testado numa GTX 1050 Ti, sm_61) e OpenMP multi-core; Vulkan, Metal e ROCm ainda não implementados<br>
         <strong>Repositório do Projeto:</strong> ainda não publicado
     </div>
@@ -703,7 +705,15 @@ Binário Executável Nativo Autônomo (.exe / ELF)
 
     <h2>1.2 Instalação e Estrutura de Diretórios</h2>
     <p>
-        O GhostLang é fornecido como uma distribuição portátil ou compilável via CMake. Na raiz do projeto, encontramos a seguinte organização canônica:
+        No Windows, a forma mais simples é o <strong>pacote portátil</strong> <code>GhostLang-Portable-x64.zip</code>. Ele traz o compilador C++ (GCC 16.2 em <code>bin/compiler</code>), o depurador (gdb em <code>bin/gdb</code>), o runtime com OpenBLAS, as bibliotecas <code>.g</code>, exemplos e a documentação. Não é preciso instalar o MSYS2 nem mexer no PATH do sistema:
+    </p>
+    <ol>
+        <li>Descompacte o zip e confira o SHA-256 em <code>GhostLang-Portable-x64.sha256</code>.</li>
+        <li>Para usar sem instalar, abra <code>iniciar_prompt.bat</code>. Para instalar, rode <code>instalar.bat</code>: ele copia para <code>%LOCALAPPDATA%\Programs\GhostLang</code>, põe o <code>ghost</code> no PATH do usuário (sem administrador) e cria um atalho no Menu Iniciar. <code>desinstalar.ps1</code>, na pasta instalada, desfaz tudo.</li>
+        <li><code>ghost run examples\ola_mundo.g</code> compila e executa; <code>ghost</code> sozinho abre o REPL.</li>
+    </ol>
+    <p>
+        Também dá para compilar a partir do código com CMake e Ninja (<code>cmake -S . -B build</code> e <code>ninja -C build</code>). Linux e macOS ainda não têm pacote. No código-fonte, a organização é:
     </p>
 
     <table>
@@ -723,12 +733,16 @@ Binário Executável Nativo Autônomo (.exe / ELF)
                 <td>Cabeçalhos C++ do runtime (<code>GhostQuantum.hpp</code>, <code>GhostMatrix.hpp</code>, <code>GhostHybrid.hpp</code>).</td>
             </tr>
             <tr>
-                <td><code>libs/</code> e <code>modules/</code></td>
-                <td>Bibliotecas da biblioteca padrão em GhostLang (<code>fs.g</code>, <code>http.g</code>, <code>json.g</code>, <code>tempo.g</code>).</td>
+                <td><code>libs/</code></td>
+                <td>Biblioteca padrão em GhostLang (<code>fs.g</code>, <code>http.g</code>, <code>json.g</code>, <code>time.g</code>, <code>tensor.g</code>, <code>quantum.g</code>, <code>gui.g</code>...).</td>
             </tr>
             <tr>
                 <td><code>tests/</code></td>
-                <td>Suíte de testes de regressão (167 testes CTest, testes golden e oráculos da AST).</td>
+                <td>Suíte de testes de regressão (203 testes CTest: goldens do compilador, paridade com o REPL, oráculo do C++ gerado, CLI, pacote e instalador).</td>
+            </tr>
+            <tr>
+                <td><code>examples/</code> e <code>scripts/</code></td>
+                <td>Exemplos (cada um passa no <code>ghost check</code> no CTest) e scripts de empacotamento, instalador, OpenBLAS e gdb.</td>
             </tr>
             <tr>
                 <td><code>dashboard/</code></td>
@@ -1270,9 +1284,21 @@ Binário Executável Nativo Autônomo (.exe / ELF)
         </pre>
     </div>
 
-    <h2>3.2 Laços de Repetição: <code>while</code>, <code>for</code> e <code>foreach</code></h2>
+    <h2>3.2 Laços de Repetição: <code>while</code>, <code>for</code>, <code>for ... in</code> e <code>range</code></h2>
     <p>
-        Para iterações clássicas com contador ou condição prévia, usamos <code>for</code> e <code>while</code>; para percorrer coleções, listas nativas ou até mesmo registradores quânticos <code>qreg</code>, o laço <code>foreach (... in ...)</code> oferece a abordagem mais concisa, legível e segura:
+        Para iterações com contador ou condição, usamos o <code>for</code> clássico e o <code>while</code>. Para percorrer uma coleção, a GhostLang tem o <code>for ... in</code> no estilo do Python: os parênteses e o tipo da variável são opcionais (<code>for (int x in v)</code>, <code>for (x in v)</code> e <code>for x in v</code> são o mesmo laço, também escrito <code>foreach</code>). Ele percorre <code>range(...)</code>, textos (caractere a caractere), listas, conjuntos, mapas (<code>for chave, valor in mapa</code>), matrizes <code>gate</code>/<code>matrix</code>/<code>GhostMatrix</code> (elemento a elemento, linha por linha) e registradores <code>qreg</code> (índice de cada qubit).
+    </p>
+
+    <table>
+        <thead><tr><th>Forma</th><th>Valores gerados</th></tr></thead>
+        <tbody>
+            <tr><td><code>range(fim)</code></td><td>0, 1, ..., fim − 1</td></tr>
+            <tr><td><code>range(inicio, fim)</code></td><td>inicio, ..., fim − 1</td></tr>
+            <tr><td><code>range(inicio, fim, passo)</code></td><td>de <code>passo</code> em <code>passo</code>; passo negativo conta para baixo: <code>range(5, 0, -1)</code> → 5, 4, 3, 2, 1</td></tr>
+        </tbody>
+    </table>
+    <p>
+        Como no Python, o <code>fim</code> não entra e <code>range(0)</code> não roda nenhuma vez; <code>break</code> e <code>continue</code> funcionam normalmente. O programa compilado e o REPL dão a mesma saída.
     </p>
 
     <div class="code-block">
@@ -1286,12 +1312,34 @@ Binário Executável Nativo Autônomo (.exe / ELF)
     }
     <span class="fn">println</span>(<span class="str">f"Soma de 1 a 10 = {total}"</span>);
 
-    <span class="cm">// 2. Coleções dinâmicas e foreach</span>
+    <span class="cm">// 2. for ... in com range (forma do Python, sem parênteses)</span>
+    <span class="kw">for</span> i <span class="kw">in</span> <span class="fn">range</span>(<span class="num">2</span>, <span class="num">10</span>, <span class="num">2</span>) {
+        <span class="fn">println</span>(<span class="str">f"Par: {i}"</span>);            <span class="cm">// 2, 4, 6, 8</span>
+    }
+    <span class="kw">for</span> (<span class="type">int</span> i <span class="kw">in</span> <span class="fn">range</span>(<span class="num">3</span>, <span class="num">0</span>, <span class="num">-1</span>)) {
+        <span class="fn">println</span>(<span class="str">f"Contagem: {i}"</span>);       <span class="cm">// 3, 2, 1</span>
+    }
+
+    <span class="cm">// 3. Listas, textos e mapas</span>
     <span class="type">list</span>&lt;<span class="type">string</span>&gt; nomes = [<span class="str">"Qubit-0"</span>, <span class="str">"Qubit-1"</span>, <span class="str">"Qubit-2"</span>];
     nomes.append(<span class="str">"Qubit-3"</span>);
-    
-    <span class="kw">foreach</span> (<span class="type">string</span> item <span class="kw">in</span> nomes) {
+    <span class="kw">for</span> (<span class="type">string</span> item <span class="kw">in</span> nomes) {
         <span class="fn">println</span>(<span class="str">f"Processando nó: {item}"</span>);
+    }
+    <span class="kw">for</span> c <span class="kw">in</span> <span class="str">"Ghost"</span> {
+        <span class="fn">println</span>(c);                             <span class="cm">// G, h, o, s, t</span>
+    }
+    <span class="type">map</span>&lt;<span class="type">string</span>, <span class="type">int</span>&gt; idades = {<span class="str">"ana"</span>: <span class="num">30</span>, <span class="str">"bia"</span>: <span class="num">25</span>};
+    <span class="kw">for</span> nome, idade <span class="kw">in</span> idades {
+        <span class="fn">println</span>(<span class="str">f"{nome} tem {idade} anos"</span>);
+    }
+
+    <span class="cm">// 4. Matrizes (gate / matrix / GhostMatrix): Números G, linha por linha</span>
+    <span class="kw">gate</span> w(<span class="num">2</span>, <span class="num">2</span>);
+    w(<span class="num">0</span>, <span class="num">0</span>) = <span class="num">1.0</span>; w(<span class="num">0</span>, <span class="num">1</span>) = <span class="num">2.0</span>;
+    w(<span class="num">1</span>, <span class="num">0</span>) = <span class="num">3.0</span>; w(<span class="num">1</span>, <span class="num">1</span>) = <span class="num">4.0</span>;
+    <span class="kw">for</span> x <span class="kw">in</span> w {
+        <span class="fn">println</span>(x);                             <span class="cm">// (x, yi, p, θ²) = (1.0000, ...), 2, 3, 4</span>
     }
 }
         </pre>
@@ -1747,6 +1795,10 @@ Binário Executável Nativo Autônomo (.exe / ELF)
 }
         </pre>
     </div>
+
+    <p>
+        A multiplicação de tensores (<code>tensor_matmul</code>) usa o OpenBLAS quando o runtime foi compilado com ele, como no pacote portátil; sem ele, roda um laço nativo com OpenMP e dá o mesmo resultado, salvo arredondamento. <code>blas_backend()</code> diz qual dos dois está ativo. Numa matriz 1024 × 1024 o OpenBLAS foi 5,5 vezes mais rápido nesta máquina de testes.
+    </p>
 
     <!-- SEÇÃO DE ATIVIDADES PRÁTICAS DO CAPÍTULO -->
     <div class="exercises-section">
@@ -2430,7 +2482,7 @@ app.listen();
             </tr>
             <tr>
                 <td><code>ghost debug</code></td>
-                <td>Compila com símbolos de depuração (<code>-g -O0</code>) e mostra o mapa de linhas <code>.g</code>; use com o gdb. O modo <code>--dap</code> ainda não está implementado.</td>
+                <td>Compila com símbolos (<code>-g -O0</code> e <code>#line</code>) e abre o gdb nas linhas do <code>.g</code>. <code>--dap</code> é o adaptador do Debug Adapter Protocol usado pelo VS Code (seção 11.3).</td>
                 <td><code>ghost debug main.g</code></td>
             </tr>
             <tr>
@@ -2440,8 +2492,8 @@ app.listen();
             </tr>
             <tr>
                 <td><code>ghost pm</code></td>
-                <td>Gerenciador de pacotes GhostPM: <code>init</code>, <code>add</code>, <code>remove</code> e <code>list</code> mantêm o <code>ghost.toml</code> e o <code>ghost.lock</code>; <code>install</code> ainda não baixa pacotes.</td>
-                <td><code>ghost pm add quantum_algorithms</code></td>
+                <td>Gerenciador de pacotes GhostPM: dependências de uma pasta (<code>--path</code>) ou de um repositório git (<code>--git</code>, com <code>--ref</code>), versões em semver; <code>install</code> instala em <code>ghost_packages/</code> e grava o commit no <code>ghost.lock</code> (seção 11.4).</td>
+                <td><code>ghost pm add cores --git https://... --ref v0.3.0</code></td>
             </tr>
         </tbody>
     </table>
@@ -2466,6 +2518,47 @@ ghost&gt; print(q.measure(0));
 ghost&gt; exit
         </pre>
     </div>
+
+    <p>
+        O REPL e o programa compilado dão o mesmo resultado: o CTest roda os mesmos roteiros nos dois caminhos e compara a saída. Isso inclui sequências de escape em strings (<code>\"</code>, <code>\n</code>, <code>\t</code>), <code>x = conv(img, k)</code>, os modelos de IA (<code>text_model</code>, <code>transformer_model</code>, <code>transformer_model_v5</code>, <code>matrix_g</code>, <code>knowledge_consult</code>), o cliente HTTP e a janela de desktop.
+    </p>
+
+    <h2>11.3 Depuração Passo a Passo no VS Code (DAP)</h2>
+    <p>
+        <code>ghost debug --dap</code> é um adaptador do Debug Adapter Protocol: compila o <code>.g</code> com símbolos e controla o gdb por trás. Com a extensão GhostLang no VS Code, abra um arquivo <code>.g</code>, clique na margem para marcar um breakpoint e pressione <strong>F5</strong> (configuração "Depurar arquivo GhostLang atual"). A pilha de chamadas, as variáveis locais, o passo a passo (F10, F11, Shift+F11) e a avaliação de expressões aparecem nas linhas do próprio <code>.g</code>.
+    </p>
+    <div class="code-block">
+        <div class="code-header"><span class="code-filename">.vscode/launch.json</span><span>Configuração</span></div>
+        <pre>
+{
+    "version": "0.2.0",
+    "configurations": [
+        { "type": "ghost", "request": "launch", "name": "Depurar arquivo GhostLang atual",
+          "program": "${file}", "stopOnEntry": false }
+    ]
+}
+        </pre>
+    </div>
+    <p>
+        Fora do editor, <code>ghost debug programa.g</code> abre o gdb já nas linhas do <code>.g</code> (<code>break programa.g:3</code>, <code>bt</code>, <code>print x</code>). Sem terminal (CI, scripts), ele roda o programa no gdb em lote e mostra a pilha se o programa quebrar.
+    </p>
+
+    <h2>11.4 Pacotes com o GhostPM</h2>
+    <p>
+        Ainda não há registro remoto de pacotes: cada dependência vem de uma pasta ou de um repositório git, e <code>ghost pm install</code> a coloca em <code>ghost_packages/&lt;nome&gt;/</code>, conferindo a versão do <code>ghost.toml</code> do pacote (<code>1.2.0</code>, <code>^1.2</code>, <code>~1.2.3</code>, <code>&gt;=1.0</code>, <code>*</code>).
+    </p>
+    <div class="code-block">
+        <div class="code-header"><span class="code-filename">Terminal</span><span>GhostPM</span></div>
+        <pre>
+ghost pm init meu_app
+ghost pm add geometria --path ../libs_comuns/geometria
+ghost pm add cores --git https://github.com/usuario/cores --ref v0.3.0
+ghost pm install          # instala e grava ghost.lock (versão, fonte e commit)
+        </pre>
+    </div>
+    <p>
+        No programa, importe pelo caminho: <code>import "ghost_packages/geometria/geometria.g"</code>.
+    </p>
 
     <!-- SEÇÃO DE ATIVIDADES PRÁTICAS DO CAPÍTULO -->
     <div class="exercises-section">

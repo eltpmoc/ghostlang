@@ -13,7 +13,13 @@ struct PackageInfo {
     std::string description = "Projeto GhostLang";
     std::string author = "GhostLang Dev";
     std::string entry = "src/main.g";
+    // nome -> especificação: "1.2.0", "^1.2", "~1.2.3", ">=1.0", "*", "path:<pasta>" ou "git:<url>[#ref]"
     std::map<std::string, std::string> dependencies;
+};
+
+// Resultado da instalação de uma dependência (vai para o ghost.lock)
+struct ResolvedDep {
+    std::string name, spec, source, version, commit;
 };
 
 class PackageManager {
@@ -27,7 +33,10 @@ public:
 
     static bool loadToml(const std::string& path, PackageInfo& info);
     static bool saveToml(const std::string& path, const PackageInfo& info);
-    static bool saveLock(const std::string& path, const PackageInfo& info);
+    static bool saveLock(const std::string& path, const PackageInfo& info,
+                         const std::vector<ResolvedDep>& resolved = {});
+    // Semver: "1.2.0" exato, "^1.2" (mesmo maior), "~1.2.3" (mesmo menor), ">=1.0", "*"
+    static bool versionSatisfies(const std::string& version, const std::string& spec);
 };
 
 } // namespace GhostPM
