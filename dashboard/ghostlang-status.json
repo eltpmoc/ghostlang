@@ -3051,9 +3051,9 @@
   ],
   "diagnostico": [
     {
-      "severidade": "alerta",
-      "titulo": "Projeto sem licença",
-      "detalhe": "O repositório é público, mas não há arquivo LICENSE: sem licença, ninguém tem permissão legal de usar, copiar ou modificar o código. O OpenBLAS (BSD) e o SQLite (domínio público) embutidos têm as próprias licenças.",
+      "severidade": "info",
+      "titulo": "Licença MIT",
+      "detalhe": "19/11/2026: LICENSE com a licença MIT. Terceiros mantêm as próprias licenças (SQLite: domínio público; OpenBLAS: BSD-3; GCC/MinGW-w64 no pacote portátil: licenças do MSYS2), descritas no README.",
       "arquivo": "README.md",
       "recurso": "doc-organizacao"
     },
@@ -4359,6 +4359,11 @@
       "data": "2026-11-19",
       "titulo": "Repositório publicado e CI verde no Windows",
       "descricao": "github.com/eltpmoc/ghostlang publicado com README. O CI achou e corrigimos: C++ gerado da IA própria fora do git, libgomp separado no GCC 16, git do MSYS2 sem caminhos Windows. Windows verde (build + CTest num runner limpo); Linux compila e falha em 7 goldens; macOS não compila. plat-ci: 1 → 3."
+    },
+    {
+      "data": "2026-11-19",
+      "titulo": "Licença MIT",
+      "descricao": "O repositório público passou a ter LICENSE (MIT), com as licenças de terceiros listadas no README."
     }
   ],
   "snapshots": [

@@ -50,6 +50,7 @@ foreach ($doc in "MANUAL.md", "SPEC.md", "NUCLEO.md", "GhostLang_Guia_Oficial_do
     if (Test-Path $p) { Copy-Item $p (Join-Path $distDir "docs") -Force }
 }
 Copy-Item (Join-Path $rootDir "examples/*.g") (Join-Path $distDir "examples") -Force
+Copy-Item (Join-Path $rootDir "LICENSE") (Join-Path $distDir "LICENSE.txt") -Force
 $blasLic = Join-Path $rootDir "third_party/openblas/LICENSE"
 if (Test-Path $blasLic) { Copy-Item $blasLic (Join-Path $distDir "docs/licencas/OpenBLAS-LICENSE.txt") -Force }
 

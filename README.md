@@ -1,6 +1,7 @@
 # GhostLang 👻
 
 [![GhostLang CI](https://github.com/eltpmoc/ghostlang/actions/workflows/ci.yml/badge.svg)](https://github.com/eltpmoc/ghostlang/actions/workflows/ci.yml)
+[![Licença: MIT](https://img.shields.io/badge/licen%C3%A7a-MIT-blue.svg)](LICENSE)
 
 Linguagem de programação compilada (transpilada para C++17) voltada a **computação quântica**, **IA/deep learning** e à **álgebra hipercomplexa G** (os Números Fantasmas de 4 componentes). O mesmo programa roda compilado (`ghost run`) ou no REPL interativo (`ghost`), com a mesma saída.
 
@@ -82,4 +83,6 @@ Os exemplos `ghost` do Manual, do SPEC e do Guia passam no `ghost check` como pa
 
 ## Licença
 
-Ainda não definida.
+[MIT](LICENSE) © 2026 Elton Alves Pereira.
+
+Componentes de terceiros mantêm as próprias licenças: o SQLite (`src/sqlite3.c`) é de domínio público; o OpenBLAS, quando compilado e embutido no runtime, é BSD-3 (a licença vai em `third_party/openblas/LICENSE` e em `docs/licencas/` no pacote portátil); o GCC e as bibliotecas do MinGW-w64 levados no pacote portátil seguem as licenças do projeto MSYS2.
