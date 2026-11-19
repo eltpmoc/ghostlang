@@ -50,12 +50,14 @@ jobs:
       - name: Resumo dos erros (anotações)
         if: failure()
         run: |
-          for f in configure.log build.log; do
-            [ -f "$f" ] && grep -E "error|Error|FAILED|undefined reference|No such file|killed|out of memory" "$f" | head -15 | while IFS= read -r l; do echo "::error title=$f::${l:0:900}"; done
+          set +e +o pipefail
+          for f in configure.log build.log ctest.log; do
+            [ -f "$f" ] || continue
+            grep -E "FAILED|error:|Error:|undefined reference|No such file|\*\*\*Failed|Timeout" "$f" | head -12 > resumo.txt
+            [ -s resumo.txt ] || tail -n 25 "$f" > resumo.txt
+            while IFS= read -r l; do echo "::error title=$f::${l:0:900}"; done < resumo.txt
           done
-          if [ -f ctest.log ]; then
-            grep -E "\*\*\*Failed|\*\*\*Exception|Timeout|tests failed" ctest.log | head -20 | while IFS= read -r l; do echo "::error title=ctest::${l:0:900}"; done
-          fi
+          exit 0
 
   experimental:
     name: ${{ matrix.os }} (experimental)
@@ -91,9 +93,11 @@ jobs:
         if: failure()
         shell: bash
         run: |
-          for f in configure.log build.log; do
-            [ -f "$f" ] && grep -E "error|Error|FAILED|undefined reference|No such file|killed|out of memory" "$f" | head -15 | while IFS= read -r l; do echo "::warning title=$f::${l:0:900}"; done
+          set +e +o pipefail
+          for f in configure.log build.log ctest.log; do
+            [ -f "$f" ] || continue
+            grep -E "FAILED|error:|Error:|undefined reference|No such file|\*\*\*Failed|Timeout" "$f" | head -12 > resumo.txt
+            [ -s resumo.txt ] || tail -n 25 "$f" > resumo.txt
+            while IFS= read -r l; do echo "::warning title=$f::${l:0:900}"; done < resumo.txt
           done
-          if [ -f ctest.log ]; then
-            grep -E "\*\*\*Failed|\*\*\*Exception|Timeout|tests failed" ctest.log | head -25 | while IFS= read -r l; do echo "::warning title=ctest::${l:0:900}"; done
-          fi
+          exit 0
