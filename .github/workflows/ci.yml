@@ -30,6 +30,9 @@ jobs:
         with:
           msystem: UCRT64
           update: true
+          # herda o PATH do Windows: o git usado pelo GhostPM e o Git for Windows (o git do
+          # MSYS2 nao entende caminhos file:///D:/... nos testes de instalacao por git)
+          path-type: inherit
           install: >-
             mingw-w64-ucrt-x86_64-gcc
             mingw-w64-ucrt-x86_64-libgomp
@@ -37,7 +40,6 @@ jobs:
             mingw-w64-ucrt-x86_64-ninja
             mingw-w64-ucrt-x86_64-python
             mingw-w64-ucrt-x86_64-gdb
-            git
 
       - name: Configurar (CMake + Ninja)
         run: cmake -S . -B build -G Ninja -DCMAKE_BUILD_TYPE=Release 2>&1 | tee configure.log; exit ${PIPESTATUS[0]}
