@@ -3,6 +3,8 @@ name: GhostLang CI
 # Windows (MSYS2 UCRT64, o mesmo ambiente do desenvolvimento) é o alvo verificado.
 # Linux e macOS rodam como experimentais até as etapas Fedora 43 e macOS 26: falham
 # sem derrubar o resultado do Windows. Só ações oficiais/conhecidas (checkout e setup-msys2).
+# Em caso de falha, as primeiras linhas de erro viram anotações (::error::), que aparecem
+# no resumo do run e na API pública, sem precisar abrir o log.
 
 on:
   push:
@@ -37,13 +39,23 @@ jobs:
             git
 
       - name: Configurar (CMake + Ninja)
-        run: cmake -S . -B build -G Ninja -DCMAKE_BUILD_TYPE=Release
+        run: cmake -S . -B build -G Ninja -DCMAKE_BUILD_TYPE=Release 2>&1 | tee configure.log; exit ${PIPESTATUS[0]}
 
       - name: Compilar
-        run: cmake --build build --parallel 4
+        run: cmake --build build --parallel 2 2>&1 | tee build.log; exit ${PIPESTATUS[0]}
 
       - name: Testes (CTest)
-        run: ctest --test-dir build -j 4 --output-on-failure
+        run: ctest --test-dir build -j 4 --output-on-failure 2>&1 | tee ctest.log; exit ${PIPESTATUS[0]}
+
+      - name: Resumo dos erros (anotações)
+        if: failure()
+        run: |
+          for f in configure.log build.log; do
+            [ -f "$f" ] && grep -E "error|Error|FAILED|undefined reference|No such file|killed|out of memory" "$f" | head -15 | while IFS= read -r l; do echo "::error title=$f::${l:0:900}"; done
+          done
+          if [ -f ctest.log ]; then
+            grep -E "\*\*\*Failed|\*\*\*Exception|Timeout|tests failed" ctest.log | head -20 | while IFS= read -r l; do echo "::error title=ctest::${l:0:900}"; done
+          fi
 
   experimental:
     name: ${{ matrix.os }} (experimental)
@@ -67,10 +79,21 @@ jobs:
         run: brew install ninja libomp
 
       - name: Configurar
-        run: cmake -S . -B build -G Ninja -DCMAKE_BUILD_TYPE=Release
+        run: cmake -S . -B build -G Ninja -DCMAKE_BUILD_TYPE=Release 2>&1 | tee configure.log; exit ${PIPESTATUS[0]}
 
       - name: Compilar
-        run: cmake --build build --parallel 4
+        run: cmake --build build --parallel 2 2>&1 | tee build.log; exit ${PIPESTATUS[0]}
 
       - name: Testes
-        run: ctest --test-dir build -j 4 --output-on-failure
+        run: ctest --test-dir build -j 4 --output-on-failure 2>&1 | tee ctest.log; exit ${PIPESTATUS[0]}
+
+      - name: Resumo dos erros (anotações)
+        if: failure()
+        shell: bash
+        run: |
+          for f in configure.log build.log; do
+            [ -f "$f" ] && grep -E "error|Error|FAILED|undefined reference|No such file|killed|out of memory" "$f" | head -15 | while IFS= read -r l; do echo "::warning title=$f::${l:0:900}"; done
+          done
+          if [ -f ctest.log ]; then
+            grep -E "\*\*\*Failed|\*\*\*Exception|Timeout|tests failed" ctest.log | head -25 | while IFS= read -r l; do echo "::warning title=ctest::${l:0:900}"; done
+          fi
