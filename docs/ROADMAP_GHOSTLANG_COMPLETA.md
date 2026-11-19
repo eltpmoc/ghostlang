@@ -3,7 +3,7 @@
 > **Situação em 19/11/2026:** versão 0.9, em desenvolvimento. Progresso no dashboard: 76,3% (93 recursos no nível 4, 6 no 3, 1 no 2 e 4 no 1; nenhum no nível 5, que exige CI rodando e Linux/macOS comprovados).
 > **Checklist oficial:** 86 de 91 itens. Faltam: Build e testes no Linux revalidados; Build no macOS; CI em matriz Windows/Linux/macOS; Instalador Windows e pacotes Linux; Backend para hardware quântico real.
 > **Testes:** 203 testes do CTest passando no Windows x64.
-> **Plataformas:** só Windows x64 testado. Linux (Fedora 43) e macOS 26 são as próximas etapas; o CI (`.github/workflows/ci.yml`) ainda não rodou porque o repositório não tem remote no GitHub.
+> **Plataformas:** só Windows x64 testado. Linux (Fedora 43) e macOS 26 são as próximas etapas; o CI (`.github/workflows/ci.yml`, repositório https://github.com/eltpmoc/ghostlang) roda o Windows como alvo verificado e Linux/macOS como experimentais.
 > **Ainda incompletos (nível 1 ou 2):** Backends quânticos reais (IBM, IonQ, Braket), Vulkan / Metal / ROCm, Linux x64, macOS (arm64/x64), CI em matriz (Windows/Linux/macOS).
 > *Cabeçalho gerado por `scripts/python/sync_manual_maturidade.py` a partir de `dashboard/ghostlang-status.json`.*
 

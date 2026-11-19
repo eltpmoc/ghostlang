@@ -39,7 +39,7 @@ def atualizar_roadmap(dados: dict, so_conferir: bool) -> bool:
         f"> **Checklist oficial:** {feitos} de {len(chk)} itens. Faltam: {'; '.join(faltam) if faltam else 'nada'}.",
         f"> **Testes:** {dados['projeto'].get('testes_ctest', '?')} testes do CTest passando no Windows x64.",
         "> **Plataformas:** só Windows x64 testado. Linux (Fedora 43) e macOS 26 são as próximas etapas; o CI "
-        "(`.github/workflows/ci.yml`) ainda não rodou porque o repositório não tem remote no GitHub.",
+        "(`.github/workflows/ci.yml`, repositório https://github.com/eltpmoc/ghostlang) roda o Windows como alvo verificado e Linux/macOS como experimentais.",
         f"> **Ainda incompletos (nível 1 ou 2):** {', '.join(abaixo) if abaixo else 'nenhum'}.",
         "> *Cabeçalho gerado por `scripts/python/sync_manual_maturidade.py` a partir de `dashboard/ghostlang-status.json`.*",
     ]
